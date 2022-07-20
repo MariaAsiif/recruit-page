@@ -1,9 +1,9 @@
 import { lazy, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import './src/assests/style.css';
-import Loader from './src/components/loader';
-import Recruit from './src/pages/recruit';
-const Home = lazy(() => import("./src/pages/home"));
+import './assests/style.css';
+import Loader from './components/loader';
+import Recruit from './pages/recruit';
+const Home = lazy(() => import("./pages/home"));
 
 function App() {
 
