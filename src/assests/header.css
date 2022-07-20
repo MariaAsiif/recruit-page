@@ -96,7 +96,13 @@
 .form_wrapper .date_picker input{
    height: 5px !important;
    width: 85px;
-  }
+   border: none;
+}
+
+.form_wrapper .date_picker{
+    border: 1pt solid;
+    background-color: whitesmoke;
+   }
 
 
 

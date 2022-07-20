@@ -155,7 +155,7 @@ const Forms = () => {
 
                         <div className='row'>
                             <div className="col-md-6">
-                                <input type="text" placeholder='Name *' />
+                                <input type="text" placeholder='Position or field interest *' />
                             </div>
                             <div className="col-md-6">
                                 <div className="info_city">
