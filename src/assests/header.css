@@ -1,4 +1,3 @@
-
 /* Header */
 
 .header_wrapper {
@@ -12,9 +11,6 @@
     padding-bottom: 50px;
 }
 
-*:focus {
-    outline: none;
-}
 
 /* .overlay{
     position: absolute;
@@ -86,17 +82,70 @@
     margin-top: 10px;
 }
 
-.form_wrapper .input_wrapper{
+.form_wrapper .input_wrapper {
     display: flex;
-    border: 1.5pt solid lightgray;
+    width: 100%;
+    height: 43px;
+    border: 1.5pt solid darkgray;
+    border-bottom: 1.5pt solid darkgray;
+    background-color: whitesmoke;
 }
-.input_wrapper .select_option{
-    border:none;
+
+
+
+.form_wrapper .date_picker input{
+   height: 5px !important;
+   width: 85px;
+  }
+
+
+
+
+.input_wrapper .select_option {
     width: auto;
+    border-bottom: 1.5pt solid darkgray;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: white;
 }
-.input_wrapper .select_input{
-    border: none;
+
+
+.input_wrapper .input {
+    width: 100%;
+    height: 43px;
+    border-bottom: 1.5pt solid darkgray;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: whitesmoke;
 }
+
+
+
+
+
+
+.react-tel-input .form-control {
+    position: relative;
+    font-size: 14px;
+    font-family: Poppins;
+    letter-spacing: .01rem;
+    margin-left: 0;
+    border: none !important;
+    background-color: whitesmoke !important;
+    height: 35px;
+    width: 370px;
+}
+
+.react-tel-input .form-control:focus {
+    border-color: blue;
+    border-radius: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+
 
 .form_wrapper input {
     width: 100%;
@@ -105,13 +154,56 @@
     background-color: whitesmoke;
 }
 
+.form_wrapper input:focus {
+    width: 100%;
+    height: 43px;
+    border: 1.5pt solid blue;
+}
+
+
+
+
+.form_wrapper input {
+    width: 100%;
+    height: 43px;
+    border: 1.5pt solid darkgray;
+    background-color: whitesmoke;
+}
+
+.form_wrapper .date {
+    width: 100%;
+    height: 43px;
+    border: 1.5pt solid darkgray;
+    background-color: whitesmoke;
+}
+
+.form_wrapper select {
+    width: 100%;
+    height: 43px;
+    border: 1.5pt solid darkgray;
+    background-color: whitesmoke;
+}
+
+.select_data {
+    margin-left: 10px;
+}
+
 
 
 .form_wrapper input::placeholder {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     font-family: Poppins;
-    color: white;
+    color: black;
+    padding: 5px;
+}
+
+.form_wrapper select:optional {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Poppins;
+    color: black;
+    padding: 5px;
 }
 
 .info_city {
@@ -152,15 +244,15 @@
     list-style: none;
 }
 
-.list_wrapper li{
+.list_wrapper li {
     font-weight: 500;
     font-family: Poppins;
     font-size: 15px;
     padding: 5px 10px;
-    
+
 }
 
-.list_wrapper .lists{
+.list_wrapper .lists {
     border-right: 1pt solid;
     height: 100%;
     margin-right: 10px;
@@ -171,11 +263,11 @@
 
 /* Image Uploader  */
 
-.main_wrapper{
+.main_wrapper {
     margin-bottom: 20px;
 }
 
-.upload_wrapper{
+.upload_wrapper {
     border-style: dashed;
     border-bottom-color: red;
     border-width: 3px;
@@ -184,32 +276,34 @@
     margin-top: 30px;
     height: 100%;
 }
-.uploader_container{
+
+.uploader_container {
     text-align: center;
 }
 
-.uploader_container .icon{
+.uploader_container .icon {
     font-size: 5rem;
 }
 
-.uploader_container .upload_heading h1{
+.uploader_container .upload_heading h1 {
     text-align: center;
     font-weight: 600;
     font-family: Poppins;
     color: black !important;
 }
-.upload_heading h3{
+
+.upload_heading h3 {
     font-family: Poppins;
     font-size: 24px;
 }
 
-.upload_heading p{
+.upload_heading p {
     font-size: 19px;
     font-family: Poppins;
     color: #757575;
 }
 
-.upload_btn button{
+.upload_btn button {
     width: 20%;
     font-size: 20px;
     text-transform: uppercase;
@@ -219,17 +313,17 @@
     border-radius: 5px;
     border: 1pt solid red;
     background-color: red;
-    color:white;
+    color: white;
 }
 
-.upload_btn span{
+.upload_btn span {
     font-family: Poppins;
     font-size: 10px;
     color: gray;
-    
+
 }
 
-.upload_para{
+.upload_para {
     padding-top: 20px;
     font-family: Poppins;
     font-weight: 300;
@@ -239,76 +333,77 @@
 
 /* main blog */
 
-.blog_wrapper{
+.blog_wrapper {
     margin-top: 40px;
 }
 
-.service_wrapper{
+.service_wrapper {
     width: 100%;
 }
 
-.service_wrapper .row{
+.service_wrapper .row {
     margin-top: 40px;
 }
 
-.service_heading{
+.service_heading {
     width: 100%;
     padding-left: 10px;
 }
 
 
 
-.service_heading h2{
-   font-family: Poppins;
-   text-transform: uppercase;
-   font-weight: 500;
+.service_heading h2 {
+    font-family: Poppins;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
 
-.service_heading p{
+.service_heading p {
     font-family: Poppins;
     font-weight: 500;
     font-size: 12px;
     line-height: 2;
 }
+
 .service_heading button {
     text-transform: uppercase;
     border: none;
-    padding: 5px 20px ;
+    padding: 5px 20px;
     font-family: Poppins;
     font-size: 18px;
-    
+
 }
 
-.service_heading .btn-green{
+.service_heading .btn-green {
     background-color: green;
     color: white;
     text-transform: uppercase;
     border: none;
-    padding: 5px 20px ;
+    padding: 5px 20px;
     font-family: Poppins;
     font-size: 18px;
-    
+
 }
 
-.service_heading .btn-red{
+.service_heading .btn-red {
     background-color: darkred;
     color: white;
     text-transform: uppercase;
     border: none;
-    padding: 5px 20px ;
+    padding: 5px 20px;
     font-family: Poppins;
     font-size: 18px;
-    
+
 }
 
 
 
-.service_image{
+.service_image {
     width: 100%;
 }
 
-.service_image img{
+.service_image img {
     width: 100%;
     height: 100%;
 }
