@@ -24,7 +24,6 @@ const Forms = () => {
 
     const _handleChange = (e) => {
         let value = e.target.value
-    
         const country = Country.getCountryByCode(value);
         const states = State.getStatesOfCountry(country.isoCode);
         setState(states)
@@ -101,7 +100,7 @@ const Forms = () => {
                             </div>
                             <div className="col-md-6">
                                 <div className="info_city">
-                                    <Field as="select" name="country" onChange={_handleChange} >
+                                    <select as="select" name="country" onChange={_handleChange} >
                                         <option defaultChecked>Country *</option>
                                         {
                                             countries.map((country, index) => (
@@ -110,9 +109,16 @@ const Forms = () => {
                                             ))
                                         }
 
-                                    </Field>
+                                    </select>
 
-                                    <Field type="text" name="postal" className='select_data' placeholder='Post Code' />
+                                    <select as="select" className='select_data'>
+                                        <option defaultChecked>Province (optional)</option>
+                                        {state.map((item, index) => (
+                                            <option value={item.isoCode}>{item.name}</option>
+
+                                        ))}
+                                    </select>
+
 
                                 </div>
                             </div>
@@ -133,20 +139,15 @@ const Forms = () => {
                             </div>
                             <div className="col-md-6">
                                 <div className="info_city">
-                                    <Field as="select" >
+                                    <select as="select" >
                                         <option defaultChecked>City</option>
                                         {city.map((data, index) => (
                                             <option value={data.isoCode}>{data.name}</option>
 
                                         ))}
-                                    </Field>
-                                    <Field as="select" className='select_data'>
-                                        <option defaultChecked>Province (optional)</option>
-                                        {state.map((item, index) => (
-                                            <option value={item.isoCode}>{item.name}</option>
+                                    </select>
 
-                                        ))}
-                                    </Field>
+                                    <Field type="text" name="postal" className='select_data' placeholder='Post Code' />
 
                                 </div>
 
@@ -161,7 +162,7 @@ const Forms = () => {
                                 <div className="info_city">
                                     <input type="text" placeholder='Age *' />
 
-                                    <div className="date_picker select_data">
+                                    <div className="date_picker select_data ">
                                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                                             <DatePicker
                                                 value={value}
