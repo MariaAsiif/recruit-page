@@ -1,0 +1,21 @@
+
+
+.footer_wrapper{
+    background-color: red;
+    height: 100%
+}
+
+.footer-copyright{
+    text-transform: uppercase;
+    color: white;
+    font-family: Poppins;
+    font-size: 12px;
+    padding: 10px;
+    
+}
+
+.footer-copyright a{
+    color: white;
+    text-decoration: underline;
+    padding: 0px 5px;
+}
