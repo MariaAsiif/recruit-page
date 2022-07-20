@@ -6,39 +6,10 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Textinput from '@mui/material/TextField/TextField';
 import { PhoneInput } from "react-contact-number-input";
 import { Country, State, City } from 'country-state-city';
-import { Formik, Form, input } from 'formik';
-// import { FormSchema } from '../helper/validator'
-import * as Yup from 'yup';
+import { Formik, Form, Field } from 'formik';
+import { FormSchema } from '../helper/validator'
 
-const FormSchema = Yup.object().shape({
-    title: Yup.string()
-        .required('required'),
-    country: Yup.string()
-        .required('required'),
-    city: Yup.string()
-        .required('required'),
-    age: Yup.string()
-        .required('required'),
-    firstName: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!')
-        .required('Required'),
-    familyname: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!')
-        .required('Required'),
-    email: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!')
-        .required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
-    reEmail: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!')
-        .required('Required'),
-    reEmail: Yup.string().email('Invalid email').required('Required'),
 
-})
 
 const Forms = () => {
     const [value, setValue] = useState(null);
@@ -94,43 +65,43 @@ const Forms = () => {
                         <div className='row'>
                             <div className="col-md-6">
                                 <div className='input_wrapper'>
-                                    <select as="select" className='select_option' name="title" >
+                                    <Field as="select" className='select_option' name="title" >
                                         {Title.map((title, index) => (
                                             <option value={title} key={index}>{title}</option>
 
                                         ))}
-                                    </select>
-                                    <input type="text" name="firstname" className='input' placeholder={`Name `} />
+                                    </Field>
+                                    <Field type="text" name="firstname" className='input' placeholder={`Name `} />
 
                                 </div>
                             </div>
                             <div className="col-md-6">
-                                <input type="text" name="familyname" placeholder='1st Family Name *' />
+                                <Field type="text" name="familyname" placeholder='1st Family Name *' />
                             </div>
                         </div>
                         <div className='row'>
                             <div className="col-md-6">
-                                <input type="email" name="email" placeholder='Email Address *' />
+                                <Field type="email" name="email" placeholder='Email Address *' />
                             </div>
                             <div className="col-md-6">
-                                <input type="text" placeholder='2nd Family Name (optional)' />
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className="col-md-6">
-                                <input type="email" name="reEmail" placeholder='Re Enter Email Address *' />
-                            </div>
-                            <div className="col-md-6">
-                                <input type="text" placeholder='3rd Family Name (optional)' />
+                                <Field type="text" name="second_familyname" placeholder='2nd Family Name (optional)' />
                             </div>
                         </div>
                         <div className='row'>
                             <div className="col-md-6">
-                                <input type="text" placeholder='Currently Industry ?' />
+                                <Field type="email" name="reEmail" placeholder='Re Enter Email Address *' />
+                            </div>
+                            <div className="col-md-6">
+                                <Field type="text" name="third_familyname" placeholder='3rd Family Name (optional)' />
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className="col-md-6">
+                                <Field type="text" name="industry" placeholder='Currently Industry ?' />
                             </div>
                             <div className="col-md-6">
                                 <div className="info_city">
-                                    <select name="country" onChange={_handleChange} >
+                                    <Field as="select" name="country" onChange={_handleChange} >
                                         <option defaultChecked>Country *</option>
                                         {
                                             countries.map((country, index) => (
@@ -139,9 +110,9 @@ const Forms = () => {
                                             ))
                                         }
 
-                                    </select>
+                                    </Field>
 
-                                    <input type="text" name="postal" className='select_data' placeholder='Post Code' />
+                                    <Field type="text" name="postal" className='select_data' placeholder='Post Code' />
 
                                 </div>
                             </div>
@@ -162,20 +133,20 @@ const Forms = () => {
                             </div>
                             <div className="col-md-6">
                                 <div className="info_city">
-                                    <select as="select" >
+                                    <Field as="select" >
                                         <option defaultChecked>City</option>
                                         {city.map((data, index) => (
                                             <option value={data.isoCode}>{data.name}</option>
 
                                         ))}
-                                    </select>
-                                    <select as="select" className='select_data'>
+                                    </Field>
+                                    <Field as="select" className='select_data'>
                                         <option defaultChecked>Province (optional)</option>
                                         {state.map((item, index) => (
                                             <option value={item.isoCode}>{item.name}</option>
 
                                         ))}
-                                    </select>
+                                    </Field>
 
                                 </div>
 
