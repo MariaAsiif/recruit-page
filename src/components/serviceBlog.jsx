@@ -4,7 +4,7 @@ const ServiceBlog = () => {
     return (
         <>
             <div className="service_wrapper">
-                <div className="row">
+                <div className="row flex-column-reverse flex-lg-row flex-md-row flex-sm-row">
                     <div className="col-md-6">
                         <div className="service_heading">
                             <h2>Business development</h2>
