@@ -53,12 +53,18 @@ function App() {
           </div>
         </div>
       </div>
-      <div className='row'>
+      <div className='row p-16'>
         <div className='col-lg-6'>
-          gggggg
+          <div>
+            <h1>I AM RECRUITER!</h1>
+            <p>A box-shadow CSS generator that helps you quickly generate box-shadow CSS declarations for your website. It comes with many options and it demonstrates ...</p>
+          </div>
         </div>
         <div className='col-lg-6'>
-          gggggg
+          <div>
+            <h1>I AM JOBSEEKER!</h1>
+            <p>A box-shadow CSS generator that helps you quickly generate box-shadow CSS declarations for your website. It comes with many options and it demonstrates ...</p>
+          </div>
         </div>
       </div>
     </div>
