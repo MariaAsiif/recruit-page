@@ -1,4 +1,7 @@
 import React from 'react'
+import whole from '../images/whole seller.jpg'
+import nurse from '../images/sales (2).jpg'
+
 const Recuiter = () => {
     return (
         <div className='mt-[5rem] '>
