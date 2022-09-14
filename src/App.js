@@ -1,9 +1,13 @@
 import './App.css';
+import Opertunity from './components/Opertunity';
+import Standard from './components/Standard';
 
 function App() {
   return (
-    <div className='bscontainer'>
-      <div className='row'>
+    <div className='mb-4'>
+      <Standard />
+      <Opertunity />
+      {/* <div className='row'>
         <div className='col-lg-4'>
           <div style={{ boxShadow: "0px 2px 3px 0px rgba(0,0,0,0.75)" }} className='border rounded-md  '>
             <div>
@@ -66,7 +70,7 @@ function App() {
             <p>A box-shadow CSS generator that helps you quickly generate box-shadow CSS declarations for your website. It comes with many options and it demonstrates ...</p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
 
   );
