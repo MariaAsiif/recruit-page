@@ -19,7 +19,6 @@ const HowItWorks = () => {
     ])
     return (
         <div className='bscontainer py-14'>
-
             <div className='row'>
                 <div className='col-12 mb-6'>
                     <h1 className='text-center text-[#323232] font-sans text-4xl font-bold'>How it Works</h1>
@@ -37,11 +36,7 @@ const HowItWorks = () => {
                         </div>
                     )
                 })}
-
-
             </div>
-
-
         </div>
     )
 }
