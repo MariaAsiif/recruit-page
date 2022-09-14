@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 /*  ================================ RESPONSIVE CSS ================== */
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

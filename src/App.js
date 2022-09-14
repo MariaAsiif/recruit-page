@@ -1,5 +1,6 @@
 import './App.css';
 import Carrier from './components/Carrier';
+import HowItWorks from './components/HowItWorks/HowItWorks';
 import Opertunity from './components/Opertunity';
 import Recuiter from './components/Recuit';
 import Standard from './components/Standard';
@@ -10,7 +11,8 @@ function App() {
       <Standard />
       <Opertunity />
       <Carrier />
-      <Recuiter/>
+      <Recuiter />
+      <HowItWorks />
     </div>
 
   );
