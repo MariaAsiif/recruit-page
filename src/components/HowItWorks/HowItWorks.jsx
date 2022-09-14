@@ -1,30 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import accountRegister from '../../images/accountRegister.png'
+import searchJob from '../../images/searchJob.png'
+import applyJob from '../../images/applyJob.png'
 const HowItWorks = () => {
+    const [steps] = useState([
+        {
+            heading: "Register an account",
+            pic: accountRegister,
+        },
+        {
+            heading: "Specify & search your job",
+            pic: searchJob,
+        },
+        {
+            heading: "Apply for job",
+            pic: applyJob,
+        },
+    ])
     return (
-        <div className='bscontainer py-14 border'>
+        <div className='bscontainer py-14'>
 
             <div className='row'>
-                <div className='col-12'>
-                    <h1 className='text-center text-[#323232] font-sans text-[56px] font-bold'>How it Works</h1>
+                <div className='col-12 mb-6'>
+                    <h1 className='text-center text-[#323232] font-sans text-4xl font-bold'>How it Works</h1>
                 </div>
-                <div className='col-lg-4 border bg-gray-200'>
-                    <div>
-
-                        <div>
-                            <img src={accountRegister} alt='workimg1' />
-                            <p>Register an account</p>
-                            <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine</p>
+                {steps.map((step, i) => {
+                    return (
+                        <div key={i} className='col-lg-4 mb-4 text-center text-[#323232]'>
+                            <div className='px-5'>
+                                <div>
+                                    <img className='m-auto w-full h-auto max-w-[80px] mb-6' src={step.pic} alt='workimg1' />
+                                    <p className='font-sans font-semibold mb-2'>{step.heading}</p>
+                                    <p className='  text-[#969696] text-xs font-light leading-5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    )
+                })}
 
-                </div>
-                <div className='col-lg-4'>
-                    asdfasdf
-                </div>
-                <div className='col-lg-4'>
-                    asdfasdf
-                </div>
+
             </div>
 
 
