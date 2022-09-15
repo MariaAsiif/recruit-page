@@ -1,6 +1,7 @@
 import React from 'react'
 import Banner from '../components/Banner/Banner'
 import Carrier from '../components/Carrier'
+import Faqs from '../components/Faqs/Faqs'
 import HowItWorks from '../components/HowItWorks/HowItWorks'
 import JobHuntStats from '../components/JobHuntStats/JobHuntStats'
 import Opertunity from '../components/Opertunity'
@@ -19,6 +20,7 @@ const HomePage = () => {
                 <Recuiter />
                 <HowItWorks />
                 <JobHuntStats />
+                <Faqs />
                 <SubscribeNewsLetter />
             </div>
         </>
