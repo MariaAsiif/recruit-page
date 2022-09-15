@@ -13,10 +13,10 @@ const HomePage = () => {
         <>
             <Banner />
             <div className='mb-4'>
-                {/* <Standard />
+                <Standard />
                 <Opertunity />
                 <Carrier />
-                <Recuiter /> */}
+                <Recuiter />
                 <HowItWorks />
                 <JobHuntStats />
                 <SubscribeNewsLetter />
