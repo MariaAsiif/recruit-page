@@ -5,6 +5,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         'top-background': "url('./images/bannerImage.png')",
+        'jobseeker': "url('./images/jobseekerpic.png')",
+        'recruiter': "url('./images/recruiter.png')",
       },
       fontFamily: {
         'sans': ['Open Sans', 'system-ui',],
