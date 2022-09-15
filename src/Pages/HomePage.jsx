@@ -6,18 +6,20 @@ import JobHuntStats from '../components/JobHuntStats/JobHuntStats'
 import Opertunity from '../components/Opertunity'
 import Recuiter from '../components/Recuit'
 import Standard from '../components/Standard'
+import SubscribeNewsLetter from '../components/SubscribeNewsLetter/SubscribeNewsLetter'
 
 const HomePage = () => {
     return (
         <>
             <Banner />
             <div className='mb-4'>
-                <Standard />
+                {/* <Standard />
                 <Opertunity />
                 <Carrier />
-                <Recuiter />
+                <Recuiter /> */}
                 <HowItWorks />
                 <JobHuntStats />
+                <SubscribeNewsLetter />
             </div>
         </>
 
