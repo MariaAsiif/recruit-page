@@ -3,7 +3,7 @@ import RightImg from '../images/whole seller.jpg'
 const Opertunity = () => {
     return (
         <div className='mt-[5rem] '>
-            <div className=' lg:flex lg:justify-between'>
+            <div className='lg:flex lg:justify-between '>
                 <div className=' bg-gradient-to-r  from-[#E84025] to-[#68423B] lg:px-[110px] p-[20px] w-full '>
                     <h2 className='text-[43px] font-bold text-white'>Searching for Better Oppertunity</h2>
                     <span className=' text-[14px] text-white'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus sunt recusandae impedit atque harum debitis.</span><br/>
