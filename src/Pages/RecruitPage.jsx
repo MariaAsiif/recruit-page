@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { surnames } from '../utils/enum'
 import 'react-phone-input-2/lib/style.css'
 import PhoneInput from 'react-phone-input-2'
+import step1 from '../images/step1.png'
+
+
 
 export const RecruitPage = () => {
     const [countryCode] = useState("se")
@@ -18,20 +21,36 @@ export const RecruitPage = () => {
         <div className='bscontainer-fluid'>
             <div className='row h-full'>
                 <div className='col-lg-7 flex items-center'>
-                    <div className='border w-full'>
+                    <div className=' w-full pt-24'>
                         <h1 className='text-center font-bold text-2xl'>Recruit</h1>
                         <div>
-                            <div className='flex justify-center items-center border h-28'>
-                                <div className='w-[5%] text-center'>
-                                    <span className='bg-[#DB4446]  text-center rounded-[50%]'>01</span>
+                            <div className='flex flex-wrap justify-center items-center lg:px-14 px-1 lg:mb-12 mb-5'>
+                                <div className='lg:w-[4%] w-[8%] text-center relative'>
+                                    <img src={step1} alt="step1" className='w-full h-auto' />
+                                    <span className='absolute bg-white hidden lg:inline  z-10 -left-10 mt-2 w-[115px] text-[10px] font-semibold text-[#464A53] font-sans'>Personal Information</span>
                                 </div>
-                                <div>---</div>
-                                <div>02</div>
-                                <div>---</div>
-                                <div>03</div>
-                                <div>---</div>
-                                <div>04</div>
+                                <div className='bg-gradient-to-r from-[#DB4446] to-[#E9644F] h-2 lg:w-[28%] w-[22.6%]'></div>
+                                <div className='lg:w-[4%] w-[8%] text-center relative'>
+                                    <img src={step1} alt="step1" className='w-full h-auto' />
+                                    <span className='absolute bg-white hidden lg:inline  z-10 -left-10 mt-2 w-24 text-[10px] font-semibold text-[#464A53] font-sans'>Company/Job Info</span>
+                                </div>
+                                <div className='bg-gradient-to-r from-[#DB4446] to-[#E9644F] h-2 lg:w-[28%] w-[22.6%]'></div>
+                                <div className='lg:w-[4%] w-[8%] text-center relative'>
+                                    <img src={step1} alt="step1" className='w-full h-auto' />
+                                    <span className='absolute bg-white hidden lg:inline  z-10 -left-4 mt-2  w-14 text-[10px] font-semibold text-[#464A53] font-sans'>Resume</span>
+                                </div>
+                                <div className='bg-gradient-to-r from-[#DB4446] to-[#E9644F] h-2 lg:w-[28%] w-[22.6%]'></div>
+                                <div className='lg:w-[4%] w-[8%] text-center relative'>
+                                    <img src={step1} alt="step1" className='w-full h-auto' />
+                                    <span className='absolute bg-white hidden lg:inline  z-10 -left-5 mt-2 w-14 text-[10px] font-semibold text-[#464A53] font-sans'>Submit</span>
+                                </div>
+
+                                <div className='w-full text-[#464A53] lg:hidden text-center font-sans text-lg font-semibold mt-2'>
+                                    Personal Information
+                                </div>
+
                             </div>
+
 
                             <div className='lg:ml-10 lg:mr-24'>
                                 <div className='row'>
@@ -86,8 +105,8 @@ export const RecruitPage = () => {
                                     <div className=' col-12  '>
                                         <input className='w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Please Select Country' />
                                     </div>
-                                    <div className=' col-3  '>
-                                        <button className='bg-[#DB4446] hover:bg-[#93C234] px-2 py-2 text-sm font-sans text-white w-full'>Next Step</button>
+                                    <div className=' col-lg-3 col-12 '>
+                                        <button className='bg-[#DB4446] hover:bg-[#93C234] px-2 py-2 mb-5 text-sm font-sans text-white w-full'>Next Step</button>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +114,7 @@ export const RecruitPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className='col-lg-5 bg-reruitBanner lg:h-auto bg-bottom bg-no-repeat bg-cover'>
+                <div className='col-lg-5 bg-reruitBanner lg:h-auto h-96 bg-bottom bg-no-repeat bg-cover'>
                     <div className=''>
 
                     </div>
