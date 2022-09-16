@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FooterSection from './FooterSection'
 import usa from '../../images/usa.png'
 import flag from '../../images/flag.svg'
@@ -10,6 +10,8 @@ import Terms from './Terms'
 
 
 const Footer = () => {
+
+    const [active, setActive] = useState(false)
 
     const company = ['About Us',
         'Jobs ',
@@ -122,93 +124,97 @@ const Footer = () => {
 
     return (
         <>
-            <div className='bscontainer'>
-                <div className='row'>
-                    <div className='col-lg-2 col-md-4 col-sm-4' >
-                        <FooterSection data={trandingAdress} heading={'TRANDING ADDRESS'} />
-                        <FooterSection data={registeredAddress} heading={'REGISTERED ADDRESS'} />
+            {active &&
+                <div>
+                    <div className='bscontainer'>
+                        <div className='row'>
+                            <div className='col-lg-2 col-md-4 col-sm-4' >
+                                <FooterSection data={trandingAdress} heading={'TRANDING ADDRESS'} />
+                                <FooterSection data={registeredAddress} heading={'REGISTERED ADDRESS'} />
+
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4' >
+                                <FooterSection data={company} heading={'COMPANY'} />
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4'>
+                                <FooterSection data={marketplace} heading={'MARKETPLACE'} />
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4'>
+                                <FooterSection data={medical} heading={'MEDICAL'} />
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4'>
+                                <FooterSection data={advertising} heading={'ADVERTISING'} />
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4'>
+                                <FooterSection data={community} heading={'COMMUNITY'} />
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-lg-2 col-md-4 col-sm-4' >
+                                <FooterSection data={callCenter} heading={'CALL CENTER'} />
+                                <ul className='mt-3'>
+                                    <li>
+                                        <span className='flex'>
+                                            <img src={flag} className="w-4 h-4 mr-2" alt="flag" />
+                                            <span className='text-[12px] font-bold'>+1 (213) 370  0873</span>
+
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        <span className='flex'>
+                                            <img src={usa} className="w-4 h-4 mr-2" alt="flag" />
+                                            <span className='text-[12px] font-bold'>+1 (213) 370  0873</span>
+
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        <span className='flex'>
+                                            <img src={mail} className="w-4 h-4 mr-2" alt="flag" />
+                                            <span className='text-[12px] font-bold'>+1 (213) 370  0873</span>
+
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <a href="https://unsdg.un.org/2030-agenda/universal-values/leave-no-one-behind" target="_blank" rel="noopener noreferrer">
+                                            <img src={footerLogo} className="w-20 " alt="footer-logo" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4' >
+                                <FooterSection data={aToZ} heading={'A to Z SITE INDEX'} />
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4'>
+                                <FooterSection data={partners} heading={'PARTNERS'} />
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4'>
+                                <FooterSection data={services} heading={'SERVICES'} />
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4'>
+                                <FooterSection data={affiliates} heading={'AFFILIATES'} />
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4'>
+                                <FooterSection data={helpCenter} heading={'HELP CENTER'} />
+                            </div>
+                        </div>
+                        <div className='ssl'>
+                            <SSL />
+                        </div>
+                        <div className='horzental_line'>
+                            <hr />
+                        </div>
 
                     </div>
-                    <div className='col-lg-2 col-md-4 col-sm-4' >
-                        <FooterSection data={company} heading={'COMPANY'} />
-                    </div>
-                    <div className='col-lg-2 col-md-4 col-sm-4'>
-                        <FooterSection data={marketplace} heading={'MARKETPLACE'} />
-                    </div>
-                    <div className='col-lg-2 col-md-4 col-sm-4'>
-                        <FooterSection data={medical} heading={'MEDICAL'} />
-                    </div>
-                    <div className='col-lg-2 col-md-4 col-sm-4'>
-                        <FooterSection data={advertising} heading={'ADVERTISING'} />
-                    </div>
-                    <div className='col-lg-2 col-md-4 col-sm-4'>
-                        <FooterSection data={community} heading={'COMMUNITY'} />
+
+                    <div className='compay_logo'>
+                        <CompanyLogo />
                     </div>
                 </div>
-                <div className='row'>
-                    <div className='col-lg-2 col-md-4 col-sm-4' >
-                        <FooterSection data={callCenter} heading={'CALL CENTER'} />
-                        <ul className='mt-3'>
-                            <li>
-                                <span className='flex'>
-                                    <img src={flag} className="w-4 h-4 mr-2" alt="flag" />
-                                    <span className='text-[12px] font-bold'>+1 (213) 370  0873</span>
-
-                                </span>
-                            </li>
-
-                            <li>
-                                <span className='flex'>
-                                    <img src={usa} className="w-4 h-4 mr-2" alt="flag" />
-                                    <span className='text-[12px] font-bold'>+1 (213) 370  0873</span>
-
-                                </span>
-                            </li>
-
-                            <li>
-                                <span className='flex'>
-                                    <img src={mail} className="w-4 h-4 mr-2" alt="flag" />
-                                    <span className='text-[12px] font-bold'>+1 (213) 370  0873</span>
-
-                                </span>
-                            </li>
-                            <li>
-                                <a href="https://unsdg.un.org/2030-agenda/universal-values/leave-no-one-behind" target="_blank" rel="noopener noreferrer">
-                                    <img src={footerLogo} className="w-20 " alt="footer-logo" />
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className='col-lg-2 col-md-4 col-sm-4' >
-                        <FooterSection data={aToZ} heading={'A to Z SITE INDEX'} />
-                    </div>
-                    <div className='col-lg-2 col-md-4 col-sm-4'>
-                        <FooterSection data={partners} heading={'PARTNERS'} />
-                    </div>
-                    <div className='col-lg-2 col-md-4 col-sm-4'>
-                        <FooterSection data={services} heading={'SERVICES'} />
-                    </div>
-                    <div className='col-lg-2 col-md-4 col-sm-4'>
-                        <FooterSection data={affiliates} heading={'AFFILIATES'} />
-                    </div>
-                    <div className='col-lg-2 col-md-4 col-sm-4'>
-                        <FooterSection data={helpCenter} heading={'HELP CENTER'} />
-                    </div>
-                </div>
-                <div className='ssl'>
-                    <SSL />
-                </div>
-                <div className='horzental_line'>
-                    <hr />
-                </div>
-
-            </div>
-
-            <div className='compay_logo'>
-                <CompanyLogo />
-            </div>
+            }
             <div className='terms'>
-                <Terms />
+                <Terms toggle={(value) => setActive(value)} prev={active} />
             </div>
 
         </>
