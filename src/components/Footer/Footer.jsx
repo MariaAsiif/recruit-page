@@ -11,7 +11,7 @@ import Terms from './Terms'
 
 const Footer = () => {
 
-    const [active, setActive] = useState(false)
+    const [active, setActive] = useState(true)
 
     const company = ['About Us',
         'Jobs ',
