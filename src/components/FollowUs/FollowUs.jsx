@@ -1,7 +1,6 @@
 import React from 'react'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import { FiFacebook } from 'react-icons/fi'
 import { AiFillYoutube } from 'react-icons/ai'
 import { BsTwitter } from 'react-icons/bs'
@@ -21,42 +20,42 @@ let Icons = [
 
 
 
-var settings = {
-    arrows: false,
-    dots: false,
-    autoplay: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    responsive: [
-        {
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 6,
-                slidesToScroll: 1,
-                dots: false,
-                autoplay: true,
+// var settings = {
+//     arrows: false,
+//     dots: false,
+//     autoplay: true,
+//     infinite: true,
+//     speed: 500,
+//     slidesToShow: 2,
+//     slidesToScroll: 1,
+//     responsive: [
+//         {
+//             breakpoint: 1024,
+//             settings: {
+//                 slidesToShow: 6,
+//                 slidesToScroll: 1,
+//                 dots: false,
+//                 autoplay: true,
 
-            },
-        },
-        {
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                initialSlide: 1,
-            },
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-            },
-        },
-    ],
-};
+//             },
+//         },
+//         {
+//             breakpoint: 600,
+//             settings: {
+//                 slidesToShow: 4,
+//                 slidesToScroll: 1,
+//                 initialSlide: 1,
+//             },
+//         },
+//         {
+//             breakpoint: 480,
+//             settings: {
+//                 slidesToShow: 2,
+//                 slidesToScroll: 1,
+//             },
+//         },
+//     ],
+// };
 
 
 const FollowUs = () => {
@@ -68,20 +67,20 @@ const FollowUs = () => {
                         <h2 className='text-[30px] font-bold'>Follow Us</h2>
                         <div className='flex items-center mt-3'>
                             {/* <Slider {...settings} > */}
-                             
-                                {Icons.map((icon, index) => {
-                                    const { icons, link, text } = icon
-                                    return (
-                                        <span className='lg:mx-2 sm:mx-1 md:mx-2 ' key={index} >
-                                            <a href={link} target="_blank" rel="noopener noreferrer">
-                                                <div className='border border-red-500 text-center flex justify-center ml-2 rounded-full pt-2 text-[22px] text-red-500 w-[40px] h-[40px]' > {icons}</div>
-                                                <p className='text-[13px] sm:me-2 text-center text-red-500'>{text}</p>
-                                            </a>
-                                        </span>
-                                    )
-                                }
+
+                            {Icons.map((icon, index) => {
+                                const { icons, link, text } = icon
+                                return (
+                                    <span className='lg:mx-2 sm:mx-1 md:mx-2 ' key={index} >
+                                        <a href={link} target="_blank" rel="noopener noreferrer">
+                                            <div className='border border-red-500 text-center flex justify-center ml-2 rounded-full pt-2 text-[22px] text-red-500 w-[40px] h-[40px]' > {icons}</div>
+                                            <p className='text-[13px] sm:me-2 text-center text-red-500'>{text}</p>
+                                        </a>
+                                    </span>
                                 )
-                                }
+                            }
+                            )
+                            }
                             {/* </Slider> */}
                         </div>
                     </div>
@@ -89,7 +88,7 @@ const FollowUs = () => {
                         <h2 className='text-[30px] font-bold'>Hygieia Apothecary</h2>
                         <div className='flex items-center mt-3'>
                             {Icons.map((icon, index) => {
-                                const { icons, link, text } = icon
+                                const { icons, link } = icon
                                 return (
                                     <span className='mx-2' key={index} >
                                         <a href={link} target="_blank" rel="noopener noreferrer">

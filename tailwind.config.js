@@ -7,6 +7,7 @@ module.exports = {
         'top-background': "url('./images/bannerImage.png')",
         'jobseeker': "url('./images/jobseekerpic.png')",
         'recruiter': "url('./images/recruiter.png')",
+        'reruitBanner': "url('./images/recruitBIgPic.png')",
       },
       fontFamily: {
         'sans': ['Open Sans', 'system-ui',],
