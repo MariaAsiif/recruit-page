@@ -21,16 +21,16 @@ const FollowUs = () => {
         <div className='bg-[#D9D9D9] h-full p-3'>
             <div className='bscontainer'>
                 <div className='row'>
-                    <div className='col-lg-6'>
+                    <div className='col-lg-6 col-md-12 col-sm-12'>
                         <h2 className='text-[30px] font-bold'>Follow Us</h2>
                         <div className='flex items-center mt-3'>
                             {Icons.map((icon, index) => {
                                 const { icons, link, text } = icon
                                 return (
-                                    <span className='mx-2' key={index} >
+                                    <span className='lg:mx-2 sm:mx-1 md:mx-2 ' key={index} >
                                         <a href={link} target="_blank" rel="noopener noreferrer">
                                             <div className='border border-red-500 text-center flex justify-center ml-2 rounded-full pt-2 text-[22px] text-red-500 w-[40px] h-[40px]' > {icons}</div>
-                                            <p className='text-[13px]  text-center text-red-500'>{text}</p>
+                                            <p className='text-[13px] sm:me-2 text-center text-red-500'>{text}</p>
                                         </a>
                                     </span>
                                 )
@@ -39,7 +39,7 @@ const FollowUs = () => {
                             }
                         </div>
                     </div>
-                    <div className='col-lg-6'>
+                    <div className='col-lg-6 col-md-6 col-sm-12 '>
                         <h2 className='text-[30px] font-bold'>Hygieia Apothecary</h2>
                         <div className='flex items-center mt-3'>
                             {Icons.map((icon, index) => {
