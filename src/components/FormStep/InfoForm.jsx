@@ -4,7 +4,7 @@ import 'react-phone-input-2/lib/style.css'
 import PhoneInput from 'react-phone-input-2'
 import { Country, State, City } from 'country-state-city';
 import axios from 'axios'
-const InfoForm = () => {
+const InfoForm = ({handleBack , handleNext}) => {
     const [countryCode, setcountryCode] = useState("se")
     const [all_Countries] = useState(() => Country.getAllCountries())
     const [formModel, setformModel] = useState({
@@ -129,7 +129,13 @@ const InfoForm = () => {
                         </ul>
                     </div>
                 </div>
-              
+                <div className='flex justify-between '>
+                   
+                    <div className=''>
+                        <button onClick={() => handleNext()} className=' bg-[#DB4446] hover:bg-[#93C234] px-2 py-2 mb-5 text-sm font-sans text-white w-full'>{ "Next Step"}</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     )

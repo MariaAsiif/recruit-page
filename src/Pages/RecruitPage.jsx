@@ -41,8 +41,10 @@ export const RecruitPage = () => {
     }
 
     const handleBack = () => {
-        let activeIndex = active - 1
-        setActive(activeIndex)
+        let activeIndexs = active - 1
+        setActive(activeIndexs)
+
+       
     }
 
 
@@ -51,7 +53,7 @@ export const RecruitPage = () => {
         <div className='bscontainer-fluid'>
             <div className='row h-full'>
                 <div className='col-lg-7 flex items-center'>
-                    <div className=' w-full pt-20'>
+                    <div className={`w-full ${active === 0 && 'pt-[50px]' || active === 2 && 'mt-[60px]'}`}>
                         <h1 className='text-center font-semibold text-[35px]'>Recruit</h1>
                         <div>
                             <div className='flex flex-wrap justify-center items-center lg:px-14 px-1 lg:mb-12 mb-5'>
@@ -91,28 +93,18 @@ export const RecruitPage = () => {
 
                             <div className='lg:ml-10 lg:mr-24'>
 
-                                {active === 0 && <InfoForm />}
-                                {active === 1 && <CompanyForm />}
-                                {active === 2 && <ResumeForm />}
-                                {active === 3 && <SubmitForm />}
+                                {active === 0 && <InfoForm handleNext={handleNext} handleBack={handleBack} />}
+                                {active === 1 && <CompanyForm handleNext={handleNext} handleBack={handleBack} />}
+                                {active === 2 && <ResumeForm handleNext={handleNext} handleBack={handleBack} />}
+                                {active === 3 && <SubmitForm handleNext={handleNext} handleBack={handleBack} />}
 
-                                <div className='flex justify-between'>
-                                    {
-                                        active !== 0 &&
-                                        <div className=''>
-                                            <button onClick={() => handleBack()} className=' bg-[#DB4446] hover:bg-[#93C234] px-2 py-2 mb-5 text-sm font-sans text-white w-full'>Back Step</button>
-                                        </div>
-                                    }
-                                    <div className=''>
-                                        <button onClick={() => handleNext()} className=' bg-[#DB4446] hover:bg-[#93C234] px-2 py-2 mb-5 text-sm font-sans text-white w-full'>Next Step</button>
-                                    </div>
-                                </div>
+                               
                             </div>
 
                         </div>
                     </div>
                 </div>
-                <div className='col-lg-5 bg-reruitBanner lg:h-auto h-96 bg-bottom bg-no-repeat bg-cover'>
+                <div className={`col-lg-5 flex  bg-reruitBanner ${ active === 0 ? 'lg:h-[740px]' :'lg:h-[624px]' } h-96 bg-bottom bg-no-repeat bg-cover`}>
                     <div className=''>
 
                     </div>

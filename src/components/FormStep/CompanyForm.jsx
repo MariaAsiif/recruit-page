@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
-const CompanyForm = () => {
+const CompanyForm = ({ handleBack, handleNext }) => {
 
 
   var today = new Date();
@@ -16,7 +16,7 @@ const CompanyForm = () => {
     < div className='relative cursor-pointe w-full'>
       <input readOnly ref={ref} // necessary  placeholder="yyy-mm-dd"
         value={expiryDate ? `${expiryDate.year}/${expiryDate.month}/${expiryDate.day}` : ''}
-        className='w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium'
+        className='lg:w-[635px] w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium'
       />
       {/* <div className={`visible absolute top-3 cursor-pointer right-5`}>   <FcCheckmark />   </div> */}
 
@@ -49,6 +49,17 @@ const CompanyForm = () => {
             <option>Select Option</option>
           </select>
           {/* <input className='w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First  Name*' /> */}
+        </div>
+      </div>
+      <div className='flex justify-between lg:mt-[170px]'>
+        {
+
+          <div className=''>
+            <button onClick={() => handleBack()} className=' bg-[#DB4446] hover:bg-[#93C234] px-2 py-2 mb-5 text-sm font-sans text-white w-full'>Back Step</button>
+          </div>
+        }
+        <div className=''>
+          <button onClick={() => handleNext()} className=' bg-[#DB4446] hover:bg-[#93C234] px-2 py-2 mb-5 text-sm font-sans text-white w-full'>{"Next Step"}</button>
         </div>
       </div>
     </div>
