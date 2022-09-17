@@ -8,13 +8,36 @@ export const RecruitPage = () => {
 
     const listName = ["Company/Job Info", "Resume", "Submit"]
     const [active, setActive] = useState(0)
+    const [activeIndex, setActiveIndex] = useState({
+        one: false,
+        two: false,
+        three: false
+    })
 
 
 
     const handleNext = () => {
         debugger
-        let activeIndex = active + 1
-        setActive(activeIndex)
+        let activeIndexs = active + 1
+        setActive(activeIndexs)
+        if (activeIndexs === 1) {
+            setActiveIndex((perv) => ({
+                ...perv,
+                one: true
+            }))
+        }
+        else if (activeIndexs === 2) {
+            setActiveIndex((perv) => ({
+                ...perv,
+                two: true
+            }))
+        }
+        else if (activeIndexs === 3) {
+            setActiveIndex((perv) => ({
+                ...perv,
+                three: true
+            }))
+        }
     }
 
     const handleBack = () => {
@@ -23,27 +46,34 @@ export const RecruitPage = () => {
     }
 
 
+
     return (
         <div className='bscontainer-fluid'>
             <div className='row h-full'>
                 <div className='col-lg-7 flex items-center'>
-                    <div className=' w-full pt-24'>
-                        <h1 className='text-center font-bold text-2xl'>Recruit</h1>
+                    <div className=' w-full pt-20'>
+                        <h1 className='text-center font-semibold text-[35px]'>Recruit</h1>
                         <div>
                             <div className='flex flex-wrap justify-center items-center lg:px-14 px-1 lg:mb-12 mb-5'>
                                 <div className='lg:w-[4%] w-[8%] text-center relative'>
-                                    <div className={`${active === 0 && 'rounded-full border bg-[#DB4446] text-white'} rounded-full border `}>01</div>
+                                    <div className={` rounded-full border bg-[#DB4446] text-white pt-2 text-sm  w-[40px] h-[40px] `}>01</div>
                                     <span className='absolute bg-white hidden lg:inline  z-10 -left-10 mt-2 w-[115px] text-[10px] font-semibold text-[#464A53] font-sans'>Personal Information</span>
                                 </div>
-                                {listName.map((list, index) => (
-                                    <>
-                                        <div className={`${active === index + 1 ? 'bg-gradient-to-r from-[#DB4446] to-[#E9644F]': 'bg-gray-100'}  h-2 lg:w-[28%] w-[22.6%]`}></div>
-                                        <div className='lg:w-[4%] w-[8%] text-center relative'>
-                                            <div className={`${active === index + 1 && 'rounded-full border bg-[#DB4446] text-white'} rounded-full border`}>0{index + 2}</div>
-                                            <span className='absolute bg-white hidden lg:inline  z-10 -left-10 mt-2 w-24 text-[10px] font-semibold text-[#464A53] font-sans'>{list}</span>
-                                        </div>
-                                    </>
-                                ))}
+                                <div className={`${activeIndex.one === true  ? 'bg-gradient-to-r from-[#DB4446] to-[#E9644F]' : 'bg-gray-100'}  h-2 lg:w-[28%] w-[22.6%]`}></div>
+                                <div className='lg:w-[4%] w-[8%] text-center relative'>
+                                    <div className={`${activeIndex.one === true && 'rounded-full border bg-[#DB4446] text-white'} pt-2 text-sm w-[40px] h-[40px] rounded-full border`}>02</div>
+                                    <span className='absolute bg-white hidden lg:inline  z-10 -left-10 mt-2 w-24 text-[10px] font-semibold text-[#464A53] font-sans'>Company / Info</span>
+                                </div>
+                                <div className={`${activeIndex.two === true ? 'bg-gradient-to-r from-[#DB4446] to-[#E9644F]' : 'bg-gray-100'}  h-2 lg:w-[28%] w-[22.6%]`}></div>
+                                <div className='lg:w-[4%] w-[8%] text-center relative'>
+                                    <div className={`${activeIndex.two === true && 'rounded-full border bg-[#DB4446] text-white'} pt-2 text-sm w-[40px] h-[40px] rounded-full border`}>03</div>
+                                    <span className='absolute bg-white hidden pl-5 lg:inline  z-10 -left-10 mt-2 w-24 text-[10px] font-semibold text-[#464A53] font-sans'>Resume</span>
+                                </div>
+                                <div className={`${activeIndex.three === true ? 'bg-gradient-to-r from-[#DB4446] to-[#E9644F]' : 'bg-gray-100'}  h-2 lg:w-[28%] w-[22.6%]`}></div>
+                                <div className='lg:w-[4%] w-[8%] text-center relative'>
+                                    <div className={`${activeIndex.three === true && 'rounded-full border bg-[#DB4446] text-white'} pt-2 text-sm w-[40px] h-[40px] rounded-full border`}>04</div>
+                                    <span className='absolute bg-white hidden pl-5 lg:inline  z-10 -left-10 mt-2 w-24 text-[10px] font-semibold text-[#464A53] font-sans'>Submit</span>
+                                </div>
 
 
                                 <div className='w-full text-[#464A53] lg:hidden text-center font-sans text-lg font-semibold mt-2'>
