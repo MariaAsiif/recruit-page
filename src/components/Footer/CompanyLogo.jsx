@@ -10,6 +10,13 @@ import aboveCopyright5 from "../../images/aboveCopyright5.svg";
 import aboveCopyright6 from "../../images/aboveCopyright6.svg";
 import aboveCopyright7 from "../../images/aboveCopyright7.svg";
 import aboveCopyright8 from "../../images/aboveCopyright8.svg";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+// import required modules
+import { Autoplay, Navigation } from "swiper";
+
 
 const CompanyLogo = () => {
 
@@ -27,55 +34,31 @@ const CompanyLogo = () => {
 
 
 
-    var settings = {
-        arrows: false,
-        dots: false,
-        autoplay: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 6,
-                    slidesToScroll: 1,
-                    dots: false,
-                    autoplay: true,
 
-                },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    initialSlide: 1,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
-    };
 
     return (
         <div className='bg-[#FBFAFA] '>
             <div className='bscontainer p-5 mt-5'>
-                <Slider {...settings} >
+                <Swiper
+                    slidesPerView={5}
+                    spaceBetween={10}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    modules={[Autoplay, Navigation]}
+                    className="mySwiper"
+                >
                     {aboveCopyrightImgs.map((supplierImg, index) => (
-                        <div key={index}>
-                            <img src={supplierImg} className=" p-[2rem] h-[7rem] object-fill  " alt="images" />
-                        </div>
+                        <SwiperSlide>
+                            <div key={index}>
+                                <img src={supplierImg} className=" p-[2rem] h-[7rem] object-fill  " alt="images" />
+                            </div>
+                        </SwiperSlide>
                     ))}
-                </Slider>
+                </Swiper>
 
-                
+
             </div >
         </div >
     )

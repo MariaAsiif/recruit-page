@@ -3,12 +3,12 @@ import React from 'react'
 import { ImStatsBars } from 'react-icons/im'
 function Standard() {
     return (
-        <div className='bscontainer'>
+        <div className='bscontainer mt-4'>
             <h2 className='text-[35px] font-bold text-center'>Standard Lorem Ipsum Passage</h2>
             <p className='text-center text-gray-400 text-sm max-w-[450px] m-auto my-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quaerat provident </p>
             <div className='row text-center mt-[60px]'>
                 <div className='col-lg-3'>
-                    <div className='border flex flex-col items-center rounded-md h-[130px] pt-[10px] bg-gray-100 group hover:bg-[#93C234] hover:text-white'>
+                    <div className='border flex flex-col cursor-pointer items-center rounded-md h-[130px] pt-[10px] bg-gray-100 group hover:bg-[#93C234] hover:text-white'>
                         <div className='border  w-[50px] h-[50px] text-center bg-[#93C234] rounded-[30px]'>
                             <ImStatsBars className='text-[40px] pl-2 text-white' />
                         </div>
@@ -18,7 +18,7 @@ function Standard() {
 
                 </div>
                 <div className='col-lg-3'>
-                    <div className='border flex flex-col items-center rounded-md h-[130px] pt-[10px] bg-gray-100 group hover:bg-[#93C234] hover:text-white'>
+                    <div className='border flex flex-col cursor-pointer items-center rounded-md h-[130px] pt-[10px] bg-gray-100 group hover:bg-[#93C234] hover:text-white'>
                         <div className='border  w-[50px] h-[50px] text-center bg-[#93C234] rounded-[30px]'>
                             <ImStatsBars className='text-[40px] pl-2 text-white' />
                         </div>
@@ -28,7 +28,7 @@ function Standard() {
 
                 </div>
                 <div className='col-lg-3'>
-                    <div className='border flex flex-col items-center rounded-md h-[130px] pt-[10px] bg-gray-100 group hover:bg-[#93C234] hover:text-white'>
+                    <div className='border flex flex-col cursor-pointer items-center rounded-md h-[130px] pt-[10px] bg-gray-100 group hover:bg-[#93C234] hover:text-white'>
                         <div className='border  w-[50px] h-[50px] text-center bg-[#93C234] rounded-[30px]'>
                             <ImStatsBars className='text-[40px] pl-2 text-white' />
                         </div>
@@ -38,7 +38,7 @@ function Standard() {
 
                 </div>
                 <div className='col-lg-3'>
-                    <div className='border flex flex-col items-center rounded-md h-[130px] pt-[10px] bg-gray-100 group hover:bg-[#93C234] hover:text-white'>
+                    <div className='border flex flex-col cursor-pointer items-center rounded-md h-[130px] pt-[10px] bg-gray-100 group hover:bg-[#93C234] hover:text-white'>
                         <div className='border  w-[50px] h-[50px] text-center bg-[#93C234] rounded-[30px]'>
                             <ImStatsBars className='text-[40px] pl-2 text-white' />
                         </div>

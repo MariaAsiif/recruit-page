@@ -8,6 +8,12 @@ import ssl3 from '../../images/ssl3.svg'
 import ssl4 from '../../images/ssl4.svg'
 import ssl5 from '../../images/ssl5.svg'
 import ssl6 from '../../images/ssl6.svg'
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+// import required modules
+import { Autoplay, Navigation } from "swiper";
 
 
 const downAppImgs = [appleDown, androidDown]
@@ -17,7 +23,7 @@ function SSL() {
     return (
         <div>
             <div className='row mt-5'>
-                <div className='col-lg-4'>
+                <div className='col-lg-6'>
                     <div className='flex'>
                         {
                             downAppImgs.map((apple) => (
@@ -27,18 +33,39 @@ function SSL() {
 
                     </div>
                 </div>
-                <div className='col-lg-8'>
+                <div className='col-lg-6'>
                     <div className='flex justify-end items-center'>
+                        <Swiper
+                            slidesPerView={3}
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                            }}
+                            modules={[Autoplay, Navigation]}
+                            className="mySwiper "
+                        >
+                            {
+                                sslImgs.map((ssl, index) => (
+                                    <SwiperSlide key={index}>
+                                        <div >
+                                            <img src={ssl} alt="apple" className='mr-2' />
+                                        </div>
+                                    </SwiperSlide>
+                                ))
+                            }
+                        </Swiper>
+                    </div>
+                    {/* <div className='flex justify-end items-center'>
                         {
                             sslImgs.map((ssl) => (
                                 <img src={ssl} alt="apple" className='mr-4' />
                             ))
                         }
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
-        </div>
+        </div >
     )
 }
 
