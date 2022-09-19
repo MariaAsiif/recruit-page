@@ -1,17 +1,11 @@
 import React from 'react'
-import Logo from '../../images/logo.png'
 import { FiFacebook } from 'react-icons/fi'
 import { AiFillYoutube } from 'react-icons/ai'
 import { BsTwitter } from 'react-icons/bs'
 import { FaSnapchatGhost, FaTiktok } from 'react-icons/fa'
 import { BsLinkedin, BsInstagram } from 'react-icons/bs'
 import { IoIosArrowDropdown, IoIosArrowDropup } from 'react-icons/io'
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
-import "swiper/css";
-// import required modules
-import { Autoplay, Navigation } from "swiper";
+
 let Icons = [
     { icons: <FiFacebook />, link: "https://www.facebook.com", text: "Facebook" },
     { icons: <AiFillYoutube />, link: "https://www.youtube.com", text: "Youtube" },
@@ -41,10 +35,10 @@ const Terms = ({ toggle, prev }) => {
                 <div className=''>
                     <div className='flex items-center justify-center mt-2'>
                         {Icons.map((icon, index) => {
-                            const { icons, link, text } = icon
+                            const { icons, link,  } = icon
                             return (
 
-                                <span className='lg:mx-2 sm:mx-1  md:mx-2 icons'  >
+                                <span className='lg:mx-2 sm:mx-1  md:mx-2 icons'key={index}  >
                                     <a href={link} target="_blank" className='flex flex-col items-center' rel="noopener noreferrer">
                                         <div className='border border-black text-center flex justify-center   rounded-full pt-1 text-[18px] text-black w-[28px] h-[28px]' > {icons}</div>
                                     </a>
