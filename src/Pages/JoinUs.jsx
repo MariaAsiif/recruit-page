@@ -8,7 +8,7 @@ import WorkUs from '../components/WorkWithUs/WorkUs'
 
 const JoinUs = () => {
     return (
-        <div>
+        <div className='joinus_wrapper'>
             <JoinUsBanner />
             <div className='mt-[1rem]'>
                 <HringProcess />

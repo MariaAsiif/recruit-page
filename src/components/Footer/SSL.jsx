@@ -24,10 +24,10 @@ function SSL() {
         <div>
             <div className='row mt-5'>
                 <div className='col-lg-6'>
-                    <div className='flex'>
+                    <div className='flex apple_images_container'>
                         {
                             downAppImgs.map((apple) => (
-                                <img src={apple} alt="apple" className='mr-4' />
+                                <img src={apple} alt="apple" className='mr-4 appl_image' />
                             ))
                         }
 
@@ -47,7 +47,7 @@ function SSL() {
                             {
                                 sslImgs.map((ssl, index) => (
                                     <SwiperSlide key={index}>
-                                        <div >
+                                        <div className='ssl_images'>
                                             <img src={ssl} alt="apple" className='mr-2' />
                                         </div>
                                     </SwiperSlide>

@@ -15,8 +15,8 @@ const SearchFilter = () => {
                                 <RiCloseCircleLine className='text-[25px] text-gray-300' />
                             </div>
                         </div>
-                        <div className='col-lg-6 border-l-2  h-[60px] pt-4'>
-                            <div className='flex items-center relative'>
+                        <div className='col-lg-6 border-l-2  h-[60px] pt-4 search_filter'>
+                            <div className='flex items-center relative location_search'>
                                 <IoLocationOutline className='text-[25px] text-gray-300' />
                                 <select className=' custom_select border-0 focus:outline-none'>
                                     <option>Select Loction</option>

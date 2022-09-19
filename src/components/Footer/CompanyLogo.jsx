@@ -49,7 +49,7 @@ const CompanyLogo = () => {
                     {aboveCopyrightImgs.map((supplierImg, index) => (
                         <SwiperSlide>
                             <div key={index}>
-                                <img src={supplierImg} className=" p-[2rem] h-[7rem] object-fill  " alt="images" />
+                                <img src={supplierImg} className=" lg:p-[2rem] h-[7rem] object-fill  " alt="images" />
                             </div>
                         </SwiperSlide>
                     ))}
