@@ -1,15 +1,15 @@
 import React from 'react'
-import JoinUsBanner from '../components/Banner/JoinUsBanner'
+import { ResumeBanner } from '../components/Banner/Banners'
 import Footer from '../components/Footer/Footer'
 import Detail from '../components/ResumeDetail/Detail'
 
 const Resume = () => {
     return (
         <div>
-            <JoinUsBanner bg={"resume-background"}/>
+            <ResumeBanner />
             <div className='mt-[2rem]'>
                 <Detail />
-                <hr className='w-full mt-3'/>
+                <hr className='w-full mt-3' />
                 <Footer />
             </div>
         </div>

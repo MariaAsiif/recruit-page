@@ -1,5 +1,5 @@
 import React from 'react'
-import JoinUsBanner from '../components/Banner/JoinUsBanner'
+import {JoinUsBanner} from '../components/Banner/Banners'
 import Experience from '../components/Experience/Experience'
 import Footer from '../components/Footer/Footer'
 import HringProcess from '../components/Hiring/HringProcess'
