@@ -5,8 +5,8 @@ import { BiShareAlt } from 'react-icons/bi'
 const Detail = () => {
     return (
         <div className='bscontainer'>
-            <div className='row'>
-                <div className='col-lg-9'>
+            <div className='row  mt-[6rem]'>
+                <div className='col-lg-9 order-2'>
                     <div>
                         <p className='text-sm text-[#DB4446]'>View all open positions</p>
                         <h2 className='text-[#183B56] text-[24px] font-bold'>UX Researcher</h2>
@@ -79,9 +79,9 @@ const Detail = () => {
                         </ul>
                     </div>
                 </div>
-                <div className='col-lg-3'>
+                <div className='col-lg-3 order-1'>
 
-                    <div className='flex justify-center flex-col ml-5  text-center'>
+                    <div className='flex justify-center flex-col lg:ml-5  text-center'>
                         <buton className="flex border justify-center  h-[40px] w-full items-center text-[14px] bg-[#DB4446] rounded-md text-white">
                             <IoMdMail className='mr-3 text-[20px]' />
                             Apply Now
@@ -92,7 +92,7 @@ const Detail = () => {
                         </buton>
 
                     </div>
-                    <div className='bg-[#FCFCFC] ml-5 mt-4 p-2'>
+                    <div className='bg-[#FCFCFC] lg:ml-5 mt-4 p-3'>
                         <h2 className='text-[16px] text-[#183B56]'>9 Aug 2019</h2>
                         <div>
                             <h2 className='text-[14px] mt-3 text-[#183B56]'>Location</h2>

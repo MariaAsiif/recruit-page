@@ -1,34 +1,77 @@
 import React from 'react'
 import Logo from '../../images/logo.png'
+import { FiFacebook } from 'react-icons/fi'
+import { AiFillYoutube } from 'react-icons/ai'
+import { BsTwitter } from 'react-icons/bs'
+import { FaSnapchatGhost, FaTiktok } from 'react-icons/fa'
+import { BsLinkedin, BsInstagram } from 'react-icons/bs'
 import { IoIosArrowDropdown, IoIosArrowDropup } from 'react-icons/io'
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+// import required modules
+import { Autoplay, Navigation } from "swiper";
+let Icons = [
+    { icons: <FiFacebook />, link: "https://www.facebook.com", text: "Facebook" },
+    { icons: <AiFillYoutube />, link: "https://www.youtube.com", text: "Youtube" },
+    { icons: <BsTwitter />, link: "https://www.twitter.com", text: "Twitter" },
+    { icons: <FaSnapchatGhost />, link: "https://www.snapchat.com", text: "Snapchat" },
+    { icons: <BsLinkedin />, link: "https://www.linkedin.com", text: "Linkedin" },
+    { icons: <BsInstagram />, link: "https://www.instagram.com", text: "Instagram" },
+    { icons: <FaTiktok />, link: "https://www.tiktok.com", text: "Tiktok" },
+
+]
+
 
 const Terms = ({ toggle, prev }) => {
     return (
-        <div className='bscontainer'>
-            <div className='lg:flex justify-between'>
-                <div className='pt-[6px]'>
-                    <div className='flex text-[9px]'>
-                        Copyright © 2021
-                        <span> <img src={Logo} className="w-9" alt="logo" /> </span> . All Rights Reserved. Accessibility, User Agreement, Privacy, Cookies, Do not sell my personal information.
-                    </div>
+        <footer className='bscontainer bg-light-red d-flex text-black text-xs text-center font-normal py-3 footer '>
+            <div className='lg:flex items-center justify-center'>
+                <div className="text-[10px]">
+                    COPYRIGHTS © 2022 HPORX LTD, IRELAND. ALL RIGHTS RESERVED.
+                    <span className='footer_text '>
+                        |  <span className='hover:underline cursor-pointer'>PRIVACY POLICY </span>
+                        | <span className='hover:underline cursor-pointer' >+44 1223 298541 </span>
+                        | <span className='hover:underline cursor-pointer' > TERMS OF USE </span>
+                        | <span className='hover:underline cursor-pointer' > DIGITAL AGENCY SERVICES </span>
+                        | <span className='hover:underline cursor-pointer' >SITE DIRECTORY </span>
+                    </span>
                 </div>
-                <div >
-                    <div className='text-[9px] flex items-center'>
-                        RELIEF FROM CHRONIC PAIN IS A HUMAN RIGHT UNDER THE UNITED NATION CHARTER RESPECTED BY ALL UN COUNTRIES
+                <div className=''>
+                    <div className='flex items-center justify-center mt-2'>
+                        {Icons.map((icon, index) => {
+                            const { icons, link, text } = icon
+                            return (
+
+                                <span className='lg:mx-2 sm:mx-1  md:mx-2 icons'  >
+                                    <a href={link} target="_blank" className='flex flex-col items-center' rel="noopener noreferrer">
+                                        <div className='border border-black text-center flex justify-center   rounded-full pt-1 text-[18px] text-black w-[28px] h-[28px]' > {icons}</div>
+                                    </a>
+                                </span>
+
+
+                            )
+                        }
+                        )
+                        }
+
                         <span onClick={() => toggle(!prev)}>
                             {
                                 prev === true ?
 
-                                    <IoIosArrowDropup className='text-[27px] cursor-pointer' />
+                                    <IoIosArrowDropup className='text-[35px] cursor-pointer' />
                                     :
-                                    <IoIosArrowDropdown className='text-[27px] cursor-pointer' />
+                                    <IoIosArrowDropdown className='text-[35px] cursor-pointer' />
                             }
                         </span>
                     </div>
-
                 </div>
             </div>
-        </div>
+
+
+        </footer>
+
     )
 }
 

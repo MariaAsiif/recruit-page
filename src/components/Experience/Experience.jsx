@@ -6,7 +6,7 @@ const Experience = () => {
 
     return (
         <div className='bscontainer mb-2 experience'>
-            <div className='pt-[20px] pb-[3rem] flex md:flex justify-between items-center'>
+            <div className='pt-[20px] pb-[3rem] flex md:flex justify-between items-center experience_container'>
                 <h2 className='text-[25px] font-semibold'>28 User Experience Jobs</h2>
                 <div className='flex items-center heading_exp '>
                     <HiOutlineChevronLeft className='cursor-pointer' />

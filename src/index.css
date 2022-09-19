@@ -28,6 +28,7 @@
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (max-width: 768px) {}
 
+
 /* For mobile */
 @media screen and (max-width:600px) {
 
@@ -69,10 +70,26 @@
 
     .experience{
         text-align: center;
+
+    }
+    .experience_container{
+        display: flex;
+        flex-direction: column;
     }
     .heading_exp {
         padding-top: 20px;
         display: flex;
         justify-content: center;
+    }
+
+    .icons{
+        margin-right: 10px;
+    }
+}
+
+
+@media screen and (width:280px) {
+    .icons{
+        margin-right: 5px;
     }
 }
