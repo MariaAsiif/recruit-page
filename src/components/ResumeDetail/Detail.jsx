@@ -6,7 +6,7 @@ const Detail = () => {
     return (
         <div className='bscontainer'>
             <div className='row  mt-[6rem]'>
-                <div className='col-lg-9 order-2'>
+                <div className='col-lg-9 col-md-6 md:order-1 order-2 '>
                     <div>
                         <p className='text-sm text-[#DB4446]'>View all open positions</p>
                         <h2 className='text-[#183B56] text-[24px] font-bold'>UX Researcher</h2>
@@ -79,7 +79,7 @@ const Detail = () => {
                         </ul>
                     </div>
                 </div>
-                <div className='col-lg-3 order-1'>
+                <div className='col-lg-3 col-md-6 md:order-2 order-1'>
 
                     <div className='flex justify-center flex-col lg:ml-5  text-center'>
                         <buton className="flex border justify-center  h-[40px] w-full items-center text-[14px] bg-[#DB4446] rounded-md text-white">
