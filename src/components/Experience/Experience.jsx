@@ -1,6 +1,7 @@
 import React from 'react'
 import { IoLocationOutline } from 'react-icons/io5'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import { Link } from 'react-router-dom'
 const Experience = () => {
 
     return (
@@ -8,7 +9,7 @@ const Experience = () => {
             <div className='pt-[20px] pb-[3rem] flex justify-between items-center'>
                 <h2 className='text-[25px] font-semibold'>28 User Experience Jobs</h2>
                 <div className='flex items-center'>
-                    <HiOutlineChevronLeft className='cursor-pointer'/>
+                    <HiOutlineChevronLeft className='cursor-pointer' />
                     <h2 className='text-sm'>Page 4 to 2 </h2>
                     <HiOutlineChevronRight className='cursor-pointer' />
 
@@ -34,7 +35,9 @@ const Experience = () => {
                             <p className='text-justify p-2 font-Poppins text-[14px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
                         </div>
                         <div className='text-center'>
-                            <button className='border rounded-full bg-[#DB4446] text-white text-[14px] w-[120px] h-10 hover:bg-white hover:text-black '>Apply Now</button>
+                            <Link to="/detail">
+                                <button className='border rounded-full bg-[#DB4446] text-white text-[14px] w-[120px] h-10 hover:bg-white hover:text-black '>Apply Now</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -57,7 +60,9 @@ const Experience = () => {
                             <p className='text-justify p-2 font-Poppins text-[14px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
                         </div>
                         <div className='text-center'>
-                            <button className='border rounded-full bg-[#DB4446] text-white text-[14px] w-[120px] h-10 hover:bg-white hover:text-black '>Apply Now</button>
+                            <Link to="/detail">
+                                <button className='border rounded-full bg-[#DB4446] text-white text-[14px] w-[120px] h-10 hover:bg-white hover:text-black '>Apply Now</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -80,7 +85,9 @@ const Experience = () => {
                             <p className='text-justify p-2 font-Poppins text-[14px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
                         </div>
                         <div className='text-center'>
-                            <button className='border rounded-full bg-[#DB4446] text-white text-[14px] w-[120px] h-10 hover:bg-white hover:text-black '>Apply Now</button>
+                            <Link to="/detail">
+                                <button className='border rounded-full bg-[#DB4446] text-white text-[14px] w-[120px] h-10 hover:bg-white hover:text-black '>Apply Now</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -103,7 +110,9 @@ const Experience = () => {
                             <p className='text-justify p-2 font-Poppins text-[14px] '>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
                         </div>
                         <div className='text-center'>
-                            <button className='border rounded-full bg-[#DB4446] text-white text-[14px] w-[120px] h-10 hover:bg-white hover:text-black '>Apply Now</button>
+                            <Link to="/detail">
+                                <button className='border rounded-full bg-[#DB4446] text-white text-[14px] w-[120px] h-10 hover:bg-white hover:text-black '>Apply Now</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
