@@ -5,6 +5,9 @@ module.exports = {
     extend: {
       backgroundImage: {
         'top-background': "url('./images/bannerImage.png')",
+        'joinus-background' : "url(./images/joinus/banner.png)",
+        'workus-background' : "url(./images/joinus/workus.png)",
+        'resume-background' : "url(./images/resume/banner.png)",
         'jobseeker': "url('./images/jobseekerpic.png')",
         'recruiter': "url('./images/recruiter.png')",
         'reruitBanner': "url('./images/recruitBIgPic.png')",

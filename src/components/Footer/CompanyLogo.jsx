@@ -1,7 +1,4 @@
 import React from 'react'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import aboveCopyright1 from "../../images/aboveCopyright1.svg";
 import aboveCopyright2 from "../../images/aboveCopyright2.svg";
 import aboveCopyright3 from "../../images/aboveCopyright3.svg";

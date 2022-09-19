@@ -33,7 +33,7 @@ const Header = () => {
                     <NavLink to="/about" className=" flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900 mt-2 lg:mt-0 mr-1" >
                         <img className='m-auto w-full h-auto max-w-[110px]' src={logo} alt="logo" loading="lazy" />
                     </NavLink>
-                    <ul className="navbar-nav flex flex-col pl-0 list-style-none ml-auto">
+                    <ul className="navbar-nav flex flex-col pl-0  list-style-none ml-auto">
                         <li className="nav-item px-2 lg:py-0 py-2 ">
                             <NavLink end to="/" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')}>Home</NavLink>
                         </li>

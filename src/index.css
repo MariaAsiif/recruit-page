@@ -6,6 +6,17 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.custom_select select{
+    width: 100px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.form-check-input:checked {
+    background-color: #93C234 !important;
+}
+
 /*  ================================ RESPONSIVE CSS ================== */
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

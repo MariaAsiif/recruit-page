@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { surnames } from '../../utils/enum'
 import 'react-phone-input-2/lib/style.css'
 import PhoneInput from 'react-phone-input-2'
-import { Country, State, City } from 'country-state-city';
+import { Country } from 'country-state-city';
 import axios from 'axios'
-const InfoForm = ({handleBack , handleNext}) => {
+const InfoForm = ({ handleNext}) => {
     const [countryCode, setcountryCode] = useState("se")
     const [all_Countries] = useState(() => Country.getAllCountries())
     const [formModel, setformModel] = useState({
