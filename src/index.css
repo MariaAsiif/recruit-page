@@ -62,4 +62,17 @@
     .ssl_images {
         margin-top: 20px;
     }
+
+    .workus{
+        padding-top: 5rem;
+    }
+
+    .experience{
+        text-align: center;
+    }
+    .heading_exp {
+        padding-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
 }

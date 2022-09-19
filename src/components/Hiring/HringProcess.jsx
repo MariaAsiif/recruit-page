@@ -53,12 +53,12 @@ const HringProcess = () => {
 
             <div className='bscontainer py-14'>
                 <div className='row'>
-                    <div className='col-12 mb-6'>
+                    <div className='col-lg-12 mt-[3rem] mb-6'>
                         <h1 className='text-center text-[#323232] font-sans text-4xl font-bold'>Hiring Process</h1>
                     </div>
                     {steps.map((step, i) => {
                         return (
-                            <div key={i} className='col-lg-3 mb-4 text-center text-[#323232]'>
+                            <div key={i} className='col-lg-3 col-md-6 col-sm-6  mb-4 text-center text-[#323232]'>
                                 <div className='px-5'>
                                     <div >
                                         <img className='border-2 rounded-full m-auto w-full h-auto max-w-[80px] mb-6' src={step.pic} alt='workimg1' />

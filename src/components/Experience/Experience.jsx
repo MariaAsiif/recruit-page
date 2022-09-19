@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom'
 const Experience = () => {
 
     return (
-        <div className='bscontainer mb-2'>
-            <div className='pt-[20px] pb-[3rem] flex justify-between items-center'>
+        <div className='bscontainer mb-2 experience'>
+            <div className='pt-[20px] pb-[3rem] flex md:flex justify-between items-center'>
                 <h2 className='text-[25px] font-semibold'>28 User Experience Jobs</h2>
-                <div className='flex items-center'>
+                <div className='flex items-center heading_exp '>
                     <HiOutlineChevronLeft className='cursor-pointer' />
                     <h2 className='text-sm'>Page 4 to 2 </h2>
                     <HiOutlineChevronRight className='cursor-pointer' />
@@ -16,7 +16,7 @@ const Experience = () => {
                 </div>
             </div>
             <div className='row'>
-                <div className='col-lg-3' >
+                <div className='col-lg-3 col-md-6 col-sm-6 mt-2' >
                     <div className='border rounded-md p-0 pb-2 hover:bg-[#93C234] hover:text-white cursor-pointer'>
                         <div className='p-3'>
                             <div className='flex  justify-between pt-3'>
@@ -41,7 +41,7 @@ const Experience = () => {
                         </div>
                     </div>
                 </div>
-                <div className='col-lg-3' >
+                <div className='col-lg-3 col-md-6 col-sm-6 mt-2' >
                     <div className='border rounded-md p-0 pb-2 hover:bg-[#93C234] hover:text-white cursor-pointer'>
                         <div className='p-3'>
                             <div className='flex  justify-between pt-3'>
@@ -66,7 +66,7 @@ const Experience = () => {
                         </div>
                     </div>
                 </div>
-                <div className='col-lg-3' >
+                <div className='col-lg-3 col-md-6 col-sm-6 mt-2' >
                     <div className='border rounded-md p-0 pb-2 hover:bg-[#93C234] hover:text-white cursor-pointer'>
                         <div className='p-3'>
                             <div className='flex  justify-between pt-3'>
@@ -91,7 +91,7 @@ const Experience = () => {
                         </div>
                     </div>
                 </div>
-                <div className='col-lg-3' >
+                <div className='col-lg-3 col-md-6 col-sm-6 mt-2' >
                     <div className='border rounded-md p-0 pb-2 hover:bg-[#93C234] hover:text-white cursor-pointer'>
                         <div className='p-3'>
                             <div className='flex  justify-between pt-3'>

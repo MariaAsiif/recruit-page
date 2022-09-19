@@ -5,15 +5,15 @@ import { IoIosArrowDropdown, IoIosArrowDropup } from 'react-icons/io'
 const Terms = ({ toggle, prev }) => {
     return (
         <div className='bscontainer'>
-            <div className='flex justify-between'>
-                <div className=''>
-                    <div className=' flex'>
+            <div className='lg:flex justify-between'>
+                <div className='pt-[6px]'>
+                    <div className='flex text-[9px]'>
                         Copyright © 2021
                         <span> <img src={Logo} className="w-9" alt="logo" /> </span> . All Rights Reserved. Accessibility, User Agreement, Privacy, Cookies, Do not sell my personal information.
                     </div>
                 </div>
-                <div className=' '>
-                    <div className='text-[10px] flex'>
+                <div >
+                    <div className='text-[9px] flex items-center'>
                         RELIEF FROM CHRONIC PAIN IS A HUMAN RIGHT UNDER THE UNITED NATION CHARTER RESPECTED BY ALL UN COUNTRIES
                         <span onClick={() => toggle(!prev)}>
                             {
