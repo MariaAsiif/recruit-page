@@ -22,7 +22,7 @@ const Terms = ({ toggle, prev }) => {
     return (
         <footer className='bscontainer bg-light-red d-flex text-black text-xs text-center font-normal py-3 footer '>
             <div className='lg:flex items-center justify-center'>
-                <div className="text-[10px]">
+                <div className="text-[10px] pt-3">
                     COPYRIGHTS © 2022 HPORX LTD, IRELAND. ALL RIGHTS RESERVED.
                     <span className='footer_text '>
                         |  <span className='hover:underline cursor-pointer'>PRIVACY POLICY </span>
