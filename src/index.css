@@ -23,7 +23,13 @@
 @media screen and (max-width: 1200px) {}
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media screen and (max-width: 992px) {}
+@media screen and (max-width: 992px) {
+    .resume_image{
+        height: 300px;
+        object-fit: cover;
+        background-position: left
+       }
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (max-width: 768px) {}
@@ -36,9 +42,23 @@
     margin-top: 2rem;
    }
 
-   .banner{
+   .banner .joinus_heading{
+    font-size: 20px;
+   }
+
+   .detail_page{
+    margin-top: -60px;
+   }
+
+   .joinus_banner{
     height: 300px;
-    background-color: red;
+    object-fit: cover;
+   }
+
+   .resume_image{
+    height: 300px;
+    object-fit: cover;
+    background-position: left
    }
 
    .banner h2{

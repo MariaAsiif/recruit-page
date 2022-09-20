@@ -7,7 +7,7 @@ const Resume = () => {
     return (
         <div>
             <ResumeBanner />
-            <div className='lg:mt-[2rem]'>
+            <div className='lg:mt-[2rem] detail_page'>
                 <Detail />
                 <hr className='w-full mt-3' />
                 <Footer />
