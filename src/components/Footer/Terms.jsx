@@ -20,7 +20,7 @@ let Icons = [
 
 const Terms = ({ toggle, prev }) => {
     return (
-        <div className={`terms  ${prev === false && 'hover:bg-red-500 text-white cursor-pointer' }  cursor-pointer text-black `}>
+        <div className={`terms text-white ${prev === false ? 'hover:bg-red-500 text-white cursor-pointer' :  'cursor-pointer hover:text-black'} `}>
             <footer className={` ${prev === false && 'hover:text-white bscontainer  d-flex  text-xs text-center font-normal py-3 footer'} bscontainer  d-flex text-black text-xs text-center font-normal py-3 footer `}>
                 <div className='lg:flex items-center justify-center'>
                     <div className="text-[10px] pt-3">

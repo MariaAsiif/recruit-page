@@ -17,7 +17,6 @@ const Footer = () => {
 
     const ToggleSwitch = (data) => {
         console.log(data)
-        console.log("Daya", data)
         if (data === true) {
             setActive(true)
             setop(0)
@@ -149,11 +148,6 @@ const Footer = () => {
             <div style={{
                 opacity: !active ? "0" : op === 0 ? "0" : "1",
                 transition: " 3s ease-in-out",
-                // visibility: !active ? "hidden" : "visible"
-                // display: !active ? "block" : "none"
-            
-
-
             }}>
                 {colorClass &&
                 <div>
