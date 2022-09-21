@@ -12,6 +12,28 @@ import Terms from './Terms'
 const Footer = () => {
 
     const [active, setActive] = useState(true)
+    const [colorClass, setColorClass] = useState(true)
+    const [op, setop] = useState()
+
+    const ToggleSwitch = (data) => {
+        console.log(data)
+        console.log("Daya", data)
+        if (data === true) {
+            setActive(true)
+            setop(0)
+            setTimeout(() => {
+                setColorClass(true)
+                setop(1)
+            }, 1000);
+        }
+        else {
+            setActive(false)
+            setTimeout(() => {
+                setColorClass(false)
+            }, 3000);
+
+        }
+    }
 
     const company = ['About Us',
         'Jobs ',
@@ -124,7 +146,16 @@ const Footer = () => {
 
     return (
         <>
-            {active &&
+            <div style={{
+                opacity: !active ? "0" : op === 0 ? "0" : "1",
+                transition: " 3s ease-in-out",
+                // visibility: !active ? "hidden" : "visible"
+                // display: !active ? "block" : "none"
+            
+
+
+            }}>
+                {colorClass &&
                 <div>
                     <div className='bscontainer'>
                         <div className='row'>
@@ -212,9 +243,10 @@ const Footer = () => {
                         <CompanyLogo />
                     </div>
                 </div>
-            }
+                }   
+            </div>
             <div >
-                <Terms toggle={(value) => setActive(value)} prev={active} />
+                <Terms toggle={(value) => ToggleSwitch(value)} prev={active} />
             </div>
 
         </>
