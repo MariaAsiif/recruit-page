@@ -52,7 +52,7 @@ export const RecruitPage = () => {
         <div className='bscontainer-fluid'>
             <div className='row h-full '>
                 <div className='col-lg-7 order-2 lg:order-1 flex items-center full_form'>
-                    <div className={`w-full ${active === 0 && 'pt-[50px]' || active === 2 && 'mt-[60px]'}`}>
+                    <div className={`w-full ${active === 0 && 'lg:pt-[50px]' || active === 2 && 'lg:mt-[60px]'}`}>
                         <h1 className='text-center font-semibold text-[35px]'>Recruit</h1>
                         <div>
                             <div className='flex flex-wrap justify-center items-center lg:px-14 px-1 lg:mb-12 mb-5'>

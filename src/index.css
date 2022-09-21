@@ -24,6 +24,12 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media screen and (max-width: 992px) {
+   
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media screen and (min-width: 768px) and (max-width:992px) {
     .resume_image{
         height: 300px;
         object-fit: cover;
@@ -34,10 +40,20 @@
         border: 1pt solid;
         height: 300px;
     }
+      .image_wrapper{
+        margin-bottom: 20px;
+    }
+    .button_section{
+        margin-top: 10rem;
+    }
+    .recrit_form_img{
+        height: 300px;
+        object-fit: cover;
+    }
+    .full_form{
+        margin-top: 20px;
+    }
 }
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media screen and (max-width: 768px) {}
 
 
 /* For mobile */
@@ -113,6 +129,10 @@
 
     .image_wrapper{
         margin-bottom: 20px;
+    }
+
+    .button_section{
+        margin-top: 5rem;
     }
 
   

@@ -6,11 +6,11 @@ const ResumeForm = ({ handleBack, handleNext }) => {
       <label className="block text-sm font-medium mb-1" htmlFor="secondFname">Please Upload Your File</label>
 
       <label htmlFor='file'>
-        <div className='image_wrapper border-2 h-[50px] text-center lg:pt-2 text-[16px] cursor-pointe lg:w-[670px]  w-full bg-gray-200'>Upload CV or Just Drag and Drop</div>
+        <div className='image_wrapper border-2 h-[50px] text-center pt-2 text-[16px] cursor-pointe lg:w-[670px]  w-full bg-gray-200'>Upload CV or Just Drag and Drop</div>
       </label>
       <input type="file" className='hidden' id="file" />
 
-      <div className='flex justify-between lg:pt-[180px]'>
+      <div className='flex justify-between lg:pt-[180px] button_section '>
         {
 
           <div className=''>

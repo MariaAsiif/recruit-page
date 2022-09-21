@@ -6,7 +6,7 @@ const SubmitForm = ({ handleBack, handleNext }) => {
       <div className='flex justify-center items-center '>
         <img src={wollet} alt="wollet" className="w-[50%] h-[50%] " />
       </div>
-      <div className='flex justify-between'>
+      <div className='flex justify-between '>
         {
 
           <div className=''>
