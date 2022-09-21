@@ -25,6 +25,12 @@
  
    }
 
+   .terms:hover{
+    color: white;
+   }
+   .footer:hover{
+    color: white !important;
+   }
   
 
 /*  ================================ RESPONSIVE CSS ================== */

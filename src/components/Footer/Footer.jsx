@@ -23,13 +23,13 @@ const Footer = () => {
             setTimeout(() => {
                 setColorClass(true)
                 setop(1)
-            }, 1000);
+            }, 500);
         }
         else {
             setActive(false)
             setTimeout(() => {
                 setColorClass(false)
-            }, 3000);
+            }, 500);
 
         }
     }

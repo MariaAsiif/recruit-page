@@ -20,8 +20,9 @@ let Icons = [
 
 const Terms = ({ toggle, prev }) => {
     return (
-        <div className={`terms text-white ${prev === false ? 'hover:bg-red-500 text-white cursor-pointer' :  'cursor-pointer hover:text-black'} `}>
-            <footer className={` ${prev === false && 'hover:text-white bscontainer  d-flex  text-xs text-center font-normal py-3 footer'} bscontainer  d-flex text-black text-xs text-center font-normal py-3 footer `}>
+        <div className={`terms text-black  ${prev === false && 'hover:bg-[#e84025] text-white  cursor-pointer' }  cursor-pointer ] `}>
+            
+            <footer className={` ${prev === false && ' bscontainer  d-flex  text-xs text-center font-normal py-3 footer'} bscontainer  d-flex  text-xs text-center font-normal py-3 footer `}>
                 <div className='lg:flex items-center justify-center'>
                     <div className="text-[10px] pt-3">
                         COPYRIGHTS © 2022 HPORX LTD, IRELAND. ALL RIGHTS RESERVED.
@@ -41,7 +42,7 @@ const Terms = ({ toggle, prev }) => {
 
                                     <span className='lg:mx-2 sm:mx-1  md:mx-2 icons' key={index}  >
                                         <a href={link} target="_blank" className='flex flex-col items-center' rel="noopener noreferrer">
-                                            <div className={`${!prev ? 'hover:border-white text-black  border border-black  text-center flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]': 'border  border-black text-center text-black flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]'}`}> {icons}</div>
+                                            <div className={`${!prev ? 'hover:border-white   border  text-center flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]': 'border  border-black text-center text-black flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]'}`}> {icons}</div>
                                         </a>
                                     </span>
 
