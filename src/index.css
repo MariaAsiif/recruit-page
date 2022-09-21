@@ -29,6 +29,11 @@
         object-fit: cover;
         background-position: left
        }
+
+    .resume_section{
+        border: 1pt solid;
+        height: 300px;
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -105,6 +110,12 @@
     .icons{
         margin-right: 10px;
     }
+
+    .image_wrapper{
+        margin-bottom: 20px;
+    }
+
+  
 }
 
 

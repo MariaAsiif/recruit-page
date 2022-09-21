@@ -26,7 +26,7 @@ const CompanyForm = ({ handleBack, handleNext }) => {
 
   return (
     <div>
-      <div className='row'>
+      <div className='row company_section'>
         <div className=' col-12  '>
           <label className="block text-sm font-medium mb-1" htmlFor="secondFname">Select Your Date of Birth </label>
 
@@ -51,7 +51,7 @@ const CompanyForm = ({ handleBack, handleNext }) => {
           {/* <input className='w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First  Name*' /> */}
         </div>
       </div>
-      <div className='flex justify-between lg:mt-[170px]'>
+      <div className='flex justify-between lg:mt-[170px] button_section'>
         {
 
           <div className=''>

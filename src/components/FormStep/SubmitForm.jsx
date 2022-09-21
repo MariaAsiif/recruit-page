@@ -1,10 +1,12 @@
 import React from 'react'
-
+import wollet from '../../images/form/submit-giff.gif'
 const SubmitForm = ({ handleBack, handleNext }) => {
   return (
-    <div className='mt-[150px]'>
-      submit
-      <div className='flex justify-between lg:pt-[200px] '>
+    <div className='mt-[10px] '>
+      <div className='flex justify-center items-center '>
+        <img src={wollet} alt="wollet" className="w-[50%] h-[50%] " />
+      </div>
+      <div className='flex justify-between'>
         {
 
           <div className=''>

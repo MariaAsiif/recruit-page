@@ -213,7 +213,7 @@ const Footer = () => {
                     </div>
                 </div>
             }
-            <div className='terms'>
+            <div >
                 <Terms toggle={(value) => setActive(value)} prev={active} />
             </div>
 

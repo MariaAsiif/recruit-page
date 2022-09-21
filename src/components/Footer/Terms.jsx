@@ -20,52 +20,53 @@ let Icons = [
 
 const Terms = ({ toggle, prev }) => {
     return (
-        <footer className='bscontainer bg-light-red d-flex text-black text-xs text-center font-normal py-3 footer '>
-            <div className='lg:flex items-center justify-center'>
-                <div className="text-[10px] pt-3">
-                    COPYRIGHTS © 2022 HPORX LTD, IRELAND. ALL RIGHTS RESERVED.
-                    <span className='footer_text '>
-                        |  <span className='hover:underline cursor-pointer'>PRIVACY POLICY </span>
-                        | <span className='hover:underline cursor-pointer' >+44 1223 298541 </span>
-                        | <span className='hover:underline cursor-pointer' > TERMS OF USE </span>
-                        | <span className='hover:underline cursor-pointer' > DIGITAL AGENCY SERVICES </span>
-                        | <span className='hover:underline cursor-pointer' >SITE DIRECTORY </span>
-                    </span>
-                </div>
-                <div className=''>
-                    <div className='flex items-center justify-center mt-2'>
-                        {Icons.map((icon, index) => {
-                            const { icons, link,  } = icon
-                            return (
-
-                                <span className='lg:mx-2 sm:mx-1  md:mx-2 icons'key={index}  >
-                                    <a href={link} target="_blank" className='flex flex-col items-center' rel="noopener noreferrer">
-                                        <div className='border border-black text-center flex justify-center   rounded-full pt-1 text-[18px] text-black w-[28px] h-[28px]' > {icons}</div>
-                                    </a>
-                                </span>
-
-
-                            )
-                        }
-                        )
-                        }
-
-                        <span onClick={() => toggle(!prev)}>
-                            {
-                                prev === true ?
-
-                                    <IoIosArrowDropup className='text-[35px] cursor-pointer' />
-                                    :
-                                    <IoIosArrowDropdown className='text-[35px] cursor-pointer' />
-                            }
+        <div className={`terms  ${prev === false && 'hover:bg-red-500 text-white cursor-pointer' }  cursor-pointer text-black `}>
+            <footer className={` ${prev === false && 'hover:text-white bscontainer  d-flex  text-xs text-center font-normal py-3 footer'} bscontainer  d-flex text-black text-xs text-center font-normal py-3 footer `}>
+                <div className='lg:flex items-center justify-center'>
+                    <div className="text-[10px] pt-3">
+                        COPYRIGHTS © 2022 HPORX LTD, IRELAND. ALL RIGHTS RESERVED.
+                        <span className='footer_text '>
+                            |  <span className='hover:underline cursor-pointer'>PRIVACY POLICY </span>
+                            | <span className='hover:underline cursor-pointer' >+44 1223 298541 </span>
+                            | <span className='hover:underline cursor-pointer' > TERMS OF USE </span>
+                            | <span className='hover:underline cursor-pointer' > DIGITAL AGENCY SERVICES </span>
+                            | <span className='hover:underline cursor-pointer' >SITE DIRECTORY </span>
                         </span>
                     </div>
+                    <div className='text-white'>
+                        <div className='flex items-center justify-center mt-2'>
+                            {Icons.map((icon, index) => {
+                                const { icons, link, } = icon
+                                return (
+
+                                    <span className='lg:mx-2 sm:mx-1  md:mx-2 icons' key={index}  >
+                                        <a href={link} target="_blank" className='flex flex-col items-center' rel="noopener noreferrer">
+                                            <div className={`${!prev ? 'hover:border-white text-black  border border-black  text-center flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]': 'border  border-black text-center text-black flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]'}`}> {icons}</div>
+                                        </a>
+                                    </span>
+
+
+                                )
+                            }
+                            )
+                            }
+
+                            <span onClick={() => toggle(!prev)}>
+                                {
+                                    prev === true ?
+
+                                        <IoIosArrowDropup className='text-black text-[35px] cursor-pointer' />
+                                        :
+                                        <IoIosArrowDropdown className={"text-[35px] cursor-pointer"} />
+                                }
+                            </span>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
 
-        </footer>
-
+            </footer>
+        </div>
     )
 }
 

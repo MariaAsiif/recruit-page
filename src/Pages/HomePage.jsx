@@ -16,7 +16,7 @@ const HomePage = () => {
     return (
         <>
             <Banner />
-            <div className='mb-4'>
+            <div >
                 <Standard />
                 <Opertunity />
                 <Carrier />

@@ -2,11 +2,11 @@ import React from 'react'
 
 const ResumeForm = ({ handleBack, handleNext }) => {
   return (
-    <div className='mt-[120px]'>
+    <div className='lg:mt-[120px]'>
       <label className="block text-sm font-medium mb-1" htmlFor="secondFname">Please Upload Your File</label>
 
       <label htmlFor='file'>
-        <div className='border-2 h-[50px] text-center pt-2 text-[16px] cursor-pointe lg:w-[670px]  w-full bg-gray-200'>Upload CV or Just Drag and Drop</div>
+        <div className='image_wrapper border-2 h-[50px] text-center lg:pt-2 text-[16px] cursor-pointe lg:w-[670px]  w-full bg-gray-200'>Upload CV or Just Drag and Drop</div>
       </label>
       <input type="file" className='hidden' id="file" />
 
