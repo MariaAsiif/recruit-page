@@ -3,7 +3,7 @@ import CountryState from './CountryState'
 import Email from './Email'
 import EmailVerify from './EmailVerify'
 import PhoneVerification from './PhoneVerify'
-
+import logo from '../../images/Logo1.svg'
 
 const AgeGatePopup = (props) => {
     const [activeIndex, setActiveIndex] = useState(0)
@@ -26,11 +26,11 @@ const AgeGatePopup = (props) => {
                     <div className='bscontainer-fluid bg-[#00492C] rounded-md'>
                         <div className='row h-16 '>
                             <div className='col-lg-6'>
-                                asdfasfd
+                               <img src={logo} className="w-[20%] mt-3" alt="logo_img"/>
                             </div>
                             <div className='col-lg-6 '>
 
-                                <div className='flex flex-wrap justify-center mt-4 pt-3 items-center lg:px-14 px-1 lg:mb-12 mb-5'>
+                                <div className='flex flex-wrap justify-center lg:mt-4 lg:pt-3 items-center lg:px-14 px-1 lg:mb-12 mb-5'>
 
                                     <div className={`${activeIndex === 0 && 'w-[22px] h-[22px] text-center relative rounded-full border border-white'}`}>
                                     <div className={`${activeIndex === 0 ?  ' ml-1 rounded-full border bg-[white] mt-[4px] text-sm  w-[12px] h-[12px] ' :  'rounded-full border bg-[white] mt-[2px] text-sm  w-[12px] h-[12px]'}`}></div>
