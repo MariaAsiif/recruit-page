@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
+import { BsFillCalendar2DateFill } from 'react-icons/bs'
 const Email = ({ handleNext }) => {
 
   var today = new Date();
@@ -15,9 +16,9 @@ const Email = ({ handleNext }) => {
     < div className='relative cursor-pointe w-full'>
       <input readOnly ref={ref} // necessary  placeholder="yyy-mm-dd"
         value={expiryDate ? `${expiryDate.year}/${expiryDate.month}/${expiryDate.day}` : ''}
-        className='lg:w-[380px] w-full mb-5 text-[#CCCCCC] font-sans bg-transparent focus:outline-none border border-white rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium'
+        className='lg:w-[380px] datepicker w-full mb-5 text-[#CCCCCC] font-sans bg-transparent focus:outline-none border border-white rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium'
       />
-      {/* <div className={`visible absolute top-3 cursor-pointer right-5`}>   <FcCheckmark />   </div> */}
+      <div className={` absolute text-white  top-3 cursor-pointer right-5`}>   <BsFillCalendar2DateFill />   </div>
 
     </div >
   )
