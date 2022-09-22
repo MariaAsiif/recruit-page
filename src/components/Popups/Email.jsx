@@ -15,7 +15,7 @@ const Email = ({ handleNext }) => {
     < div className='relative cursor-pointe w-full'>
       <input readOnly ref={ref} // necessary  placeholder="yyy-mm-dd"
         value={expiryDate ? `${expiryDate.year}/${expiryDate.month}/${expiryDate.day}` : ''}
-        className='lg:w-[300px] w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium'
+        className='lg:w-[380px] w-full mb-5 text-[#CCCCCC] font-sans bg-transparent focus:outline-none border border-white rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium'
       />
       {/* <div className={`visible absolute top-3 cursor-pointer right-5`}>   <FcCheckmark />   </div> */}
 
@@ -24,7 +24,7 @@ const Email = ({ handleNext }) => {
 
   return (
     <div>
-      <div className='w-full lg:px-32  px-2 py-5'>
+      <div className='w-full lg:px-20  px-2 py-5'>
         <h1 className='text-white font-light text-center text-xl mb-5'>Please Enter your Date of birth and email address</h1>
         <div>
           <div className="">
@@ -38,7 +38,7 @@ const Email = ({ handleNext }) => {
           </div>
 
           <div className='mb-5'>
-            <input type="email" placeholder='Email Address' className='lg:w-[300px] w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' />
+            <input type="email" placeholder='Email Address' className=' w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border bg-transparent  border-white  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' />
           </div>
 
         </div>
