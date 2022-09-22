@@ -33,7 +33,7 @@ const CountryState = ({ handleNext }) => {
     }, [])
     return (
         <div>
-            <div className='w-full lg:px-32  px-2 py-5'>
+            <div className='w-full lg:px-20  px-2 py-5'>
                 <h1 className='text-white font-light text-center text-xl mb-5'>Please select your country and state</h1>
                 <div>
                     <div className="dropdown relative mb-5">
