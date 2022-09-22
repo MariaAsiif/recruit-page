@@ -87,7 +87,7 @@ const AgeGatePopup = (props) => {
                                 {activeIndex === 0 && <CountryState handleNext={handleIndex} />}
                                 {activeIndex === 1 && <Email handleNext={handleIndex} />}
                                 {activeIndex === 2 && <EmailVerify handleNext={handleIndex} />}
-                                {activeIndex === 3 && <PhoneVerification handleNext={handleIndex} />}
+                                {activeIndex === 3 && <PhoneVerification handleClose={props.onClose} handleNext={handleIndex} />}
 
                             </div>
                         </div>

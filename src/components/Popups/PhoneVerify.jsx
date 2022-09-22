@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PhoneVerification = ({ handleNext }) => {
+const PhoneVerification = ({ handleNext , handleClose }) => {
     return (
         <div>
             <div className='w-full lg:px-20 text-center  px-2 py-5'>
@@ -15,7 +15,7 @@ const PhoneVerification = ({ handleNext }) => {
                     </div>
 
                 </div>
-                <button onClick={() => handleNext()} className='bg-white text-[#00492C]  px-2 py-2 rounded-full  font-medium tracking-widest mb-5 w-4/5 m-auto block'>Finish</button>
+                <button onClick={() => handleClose()} className='bg-white text-[#00492C]  px-2 py-2 rounded-full  font-medium tracking-widest mb-5 w-4/5 m-auto block'>Finish</button>
             </div>
         </div>
     )
