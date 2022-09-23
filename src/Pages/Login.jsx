@@ -20,10 +20,10 @@ const Login = () => {
 
 
     return (
-        <div className='container'>
-            <div className='row'>
+        <div className='container h-screen'>
+            <div className='row h-full'>
                 <div className='col-lg-4 col-12 left_img '>
-                    <img src={loginImage} className="lg:h-[625px]" alt="login_image" />
+                    <img src={loginImage} className="lg:h-full" alt="login_image" />
                 </div>
                 <div className='col-lg-8 col-12'>
                     <div className='lg:max-w-[400px] m-auto lg:mt-[5rem] page_wrapper'>
@@ -51,7 +51,7 @@ const Login = () => {
                             <span className='text-[12px] ml-2 text-gray-400'>Lorem ipsum dolor sit amet</span>
                         </div>
                         <div className='text-center mt-4' >
-                            <button className='border w-[50%] h-[45px] rounded-md text-white hover:bg-[#93C234] bg-[#E84025] '>Login</button>
+                            <Link to="/dashboard" className='border px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] '>Login</Link>
                         </div>
                         <div className='mt-4'>
                             <span className='text-[12px] text-gray-400'>

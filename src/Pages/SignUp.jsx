@@ -20,10 +20,10 @@ const SignUp = () => {
 
 
     return (
-        <div className='container'>
-            <div className='row'>
+        <div className='container h-screen'>
+            <div className='row h-full'>
                 <div className='col-lg-4 left_img'>
-                    <img src={loginImage} className="lg:h-[625px]" alt="login_image" />
+                    <img src={loginImage} className="lg:h-full" alt="login_image" />
                 </div>
                 <div className='col-lg-8 '>
                     <div className=' max-w-[400px] m-auto mt-[5rem] page_wrapper '>
