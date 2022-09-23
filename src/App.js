@@ -7,6 +7,7 @@ import JoinUs from './Pages/JoinUs';
 import Resume from './Pages/Resume';
 import Login from './Pages/Login';
 import Verify from './Pages/Verify';
+import SignUp from './Pages/SignUp';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       {/* <Header /> */}
       <Routes>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/signup" element={<SignUp/>}/>
         <Route path="/verify" element={<Verify/>}/>
         <Route path="/" element={<HomePage />} />
         <Route path="/recruit" element={<RecruitPage />} />
