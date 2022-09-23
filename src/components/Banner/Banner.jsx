@@ -11,7 +11,9 @@ const Banner = () => {
                         <h1 className='font-sans font-bold text-4xl mb-5 lg:leading-[50px] text-[#323232] lg:text-left text-center'>The standard Lorem Ipsum passage</h1>
                         <p className='text-[#646464] font-sans text-base font-normal leading-7 lg:mb-16 mb-5 lg:text-left text-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                         <Link to="/recruit" className='bg-[#e84025] hover:bg-[#93C234] hover:text-white hover:border-white mr-7 rounded-xl border border-[#E84025] px-6 py-4 text-white font-oxygen font-bold'>Hire Talent</Link>
-                        <button className='bg-white rounded-xl hover:bg-[#93C234] hover:text-white hover:border-white border border-[#E84025] px-6 py-4 text-[#E84025] font-oxygen font-bold lg:float-none float-right'>Browse Job</button>
+                        <Link to="/joinus">
+                            <button className='bg-white rounded-xl hover:bg-[#93C234] hover:text-white hover:border-white border border-[#E84025] px-6 py-4 text-[#E84025] font-oxygen font-bold lg:float-none float-right'>Browse Job</button>
+                        </Link>
                     </div>
                     <img src={halfCircle} alt="halfcircle" className='w-full h-auto max-w-[80px] absolute bottom-0' />
                 </div>

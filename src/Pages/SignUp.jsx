@@ -20,7 +20,7 @@ const SignUp = () => {
 
 
     return (
-        <div className='bscontainer lg:container'>
+        <div className='container'>
             <div className='row'>
                 <div className='col-lg-4 left_img'>
                     <img src={loginImage} className="lg:h-[625px]" alt="login_image" />

@@ -14,12 +14,12 @@ function App() {
     <>
       {/* <Header /> */}
       <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/signin" element={<Login/>}/>
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/verify" element={<Verify/>}/>
-        <Route path="/" element={<HomePage />} />
         <Route path="/recruit" element={<RecruitPage />} />
-        <Route path="/joinUs" element={<JoinUs/>}/>
+        <Route path="/joinus" element={<JoinUs/>}/>
         <Route path="/detail" element={<Resume/>}/>
         
         
