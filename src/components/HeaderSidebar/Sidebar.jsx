@@ -77,8 +77,8 @@ function Sidebar({
           <div >
             <ul className="max-h-[400px] overflow-auto">
               {sidebarItems.map((item, i) => (
-                <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 `}>
-                  <NavLink end to={"/"} className={`block text-slate-800 hover:text-black truncate transition duration-150 `} >
+                <li className={` py-2 rounded-sm mb-0.5 last:mb-0 `} key={i}>
+                  <NavLink end to={item.link} className={`block text-slate-800 hover:text-black truncate transition duration-150 `} >
                     <div className="flex items-center justify-center">
                       <div className='rounded-r bg-[#93C234] h-[35px] w-[30px]'></div>
                       {item.icon}

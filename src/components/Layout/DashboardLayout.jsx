@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {  Outlet } from "react-router-dom"
+// import {  Outlet } from "react-router-dom"
 import Header from '../HeaderSidebar/Header'
 import Sidebar from '../HeaderSidebar/Sidebar'
 
@@ -14,8 +14,7 @@ const DashboardLayout = ({children}) => {
                 {/*  Site header */}
                 <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
                 <main >
-                    <Outlet />
-                    
+                   {children}
                 </main>
             </div>
         </div>

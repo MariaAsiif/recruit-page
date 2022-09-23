@@ -206,6 +206,20 @@
         object-fit: cover;
     }
 
+    .banner_left{
+        order:2
+    }
+
+
+    .banner_right{
+        order:1
+    }
+
+    .banner_right .images img{
+       height: 640px;
+       object-fit: cover;
+    }
+
 }
 
 
