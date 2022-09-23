@@ -10,10 +10,10 @@ const Verify = () => {
     return (
         <div className='container'>
             <div className='row'>
-                <div className='col-lg-4'>
+                <div className='col-lg-4 left_img'>
                     <img src={loginImage} className="h-[625px]" alt="login_image" />
                 </div>
-                <div className='col-lg-8 '>
+                <div className='col-lg-8 mb-3 '>
                     <div className=' max-w-[400px] m-auto mt-[5rem] '>
                         <img src={logoImage} className="ml-[7rem] w-[40%]" alt="logo" />
                         <div className='mt-[4rem] text-center'>

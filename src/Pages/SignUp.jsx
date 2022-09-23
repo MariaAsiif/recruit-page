@@ -20,13 +20,13 @@ const SignUp = () => {
 
 
     return (
-        <div className='container'>
+        <div className='bscontainer lg:container'>
             <div className='row'>
-                <div className='col-lg-4'>
+                <div className='col-lg-4 left_img'>
                     <img src={loginImage} className="lg:h-[625px]" alt="login_image" />
                 </div>
                 <div className='col-lg-8 '>
-                    <div className=' max-w-[400px] m-auto mt-[5rem] '>
+                    <div className=' max-w-[400px] m-auto mt-[5rem] page_wrapper '>
                         <img src={logoImage} className="ml-[80px] w-[40%]" alt="logo" />
                         <div className='mt-[5rem]'>
                             <div className='border mb-4 border-[#E84025] cursor-pointer hover:border-[#93C234] rounded-md flex items-center'>

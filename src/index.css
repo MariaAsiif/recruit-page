@@ -6,7 +6,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.custom_select select{
+.custom_select select {
     width: 100px;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -19,14 +19,14 @@
 
 
 
- .animation_div{
+.animation_div {
     background: purple;
     transition: 0.2s;
- 
-   }
 
- 
-  
+}
+
+
+
 
 /*  ================================ RESPONSIVE CSS ================== */
 
@@ -34,39 +34,55 @@
 @media screen and (max-width: 1200px) {}
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media screen and (max-width: 992px) {
-   
-
-}
+@media screen and (max-width: 992px) {}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (min-width: 768px) and (max-width:992px) {
-    .resume_image{
+    .resume_image {
         height: 300px;
         object-fit: cover;
         background-position: left
-       }
+    }
 
-    .resume_section{
+    .resume_section {
         border: 1pt solid;
         height: 300px;
     }
-      .image_wrapper{
+
+    .image_wrapper {
         margin-bottom: 20px;
     }
-    .button_section{
+
+    .button_section {
         margin-top: 10rem;
     }
-    .recrit_form_img{
+
+    .recrit_form_img {
         height: 300px;
         object-fit: cover;
     }
-    .full_form{
+
+    .full_form {
         margin-top: 20px;
     }
 
-    .datepicker{
-        width: 454px ;
+    .datepicker {
+        width: 454px;
+    }
+   
+    .left_img img{
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+    }
+    .page_wrapper{
+        margin-top: 0px;
+        padding: 20px;
+        max-width: 500px;
+    }
+    .page_wrapper img{
+        margin-left: 7rem;
+        margin-top: 10px;
     }
 }
 
@@ -74,91 +90,114 @@
 /* For mobile */
 @media screen and (max-width:600px) {
 
-   .joinus_wrapper{
-    margin-top: 2rem;
-   }
+    .joinus_wrapper {
+        margin-top: 2rem;
+    }
 
-   .banner .joinus_heading{
-    font-size: 20px;
-   }
+    .banner .joinus_heading {
+        font-size: 20px;
+    }
 
-   .detail_page{
-    margin-top: -60px;
-   }
+    .detail_page {
+        margin-top: -60px;
+    }
 
-   .joinus_banner{
-    height: 300px;
-    object-fit: cover;
-   }
+    .joinus_banner {
+        height: 300px;
+        object-fit: cover;
+    }
 
-   .resume_image{
-    height: 300px;
-    object-fit: cover;
-    background-position: left
-   }
+    .resume_image {
+        height: 300px;
+        object-fit: cover;
+        background-position: left
+    }
 
-   .banner h2{
-    font-size: 24px;
-   }
+    .banner h2 {
+        font-size: 24px;
+    }
 
-   .search_filter{
-    border: 0px;
-   }
-   .custom_select{
-    width: 200px
-   }
+    .search_filter {
+        border: 0px;
+    }
+
+    .custom_select {
+        width: 200px
+    }
 
 
-    .apple_images_container{
+    .apple_images_container {
         text-align: center;
     }
-    .appl_image{
+
+    .appl_image {
         width: 40%;
         object-fit: cover;
     }
+
     .ssl_images {
         margin-top: 20px;
     }
 
-    .workus{
+    .workus {
         padding-top: 5rem;
     }
 
-    .experience{
+    .experience {
         text-align: center;
 
     }
-    .experience_container{
+
+    .experience_container {
         display: flex;
         flex-direction: column;
     }
+
     .heading_exp {
         padding-top: 20px;
         display: flex;
         justify-content: center;
     }
 
-    .icons{
+    .icons {
         margin-right: 10px;
     }
 
-    .image_wrapper{
+    .image_wrapper {
         margin-bottom: 20px;
     }
 
-    .button_section{
+    .button_section {
         margin-top: 5rem;
     }
-    .datepicker{
-        width: 358px ;
+
+    .datepicker {
+        width: 358px;
     }
 
-  
+    .page_wrapper {
+       width: 100%;
+       max-width:300px;
+    }
+    .page_wrapper img{
+        margin-left: 5rem;
+        margin-top: 30px;
+    }
+    .row{
+        width: 100%;
+    }
+
+    .left_img img{
+        width: 540px;
+        height: 450px;
+        object-fit: cover;
+    }
+
 }
 
 
 @media screen and (width:280px) {
-    .icons{
+    .icons {
         margin-right: 5px;
     }
 }
