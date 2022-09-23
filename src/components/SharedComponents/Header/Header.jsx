@@ -30,7 +30,7 @@ const Header = () => {
                     </svg>
                 </button>
                 <div className="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent">
-                    <NavLink to="/about" className=" flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900 mt-2 lg:mt-0 mr-1" >
+                    <NavLink to="/" className=" flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900 mt-2 lg:mt-0 mr-1" >
                         <img className='m-auto w-full h-auto max-w-[110px]' src={logo} alt="logo" loading="lazy" />
                     </NavLink>
                     <ul className="navbar-nav flex flex-col pl-0  list-style-none ml-auto">
