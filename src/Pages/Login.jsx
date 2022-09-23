@@ -4,6 +4,7 @@ import logoImage from '../images/logo.png'
 import { IoMail } from 'react-icons/io5'
 import { FaLock } from 'react-icons/fa'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 const Login = () => {
     const [login, setLogin] = useState({ email: '', password: '' })
     const [show, setShow] = useState(false)
@@ -40,8 +41,8 @@ const Login = () => {
                                         <AiFillEye onClick={() => setShow(false)} className={'text-[27px] mr-2 mt-2 text-[#93C234]'} />
                                         :
                                         <AiFillEyeInvisible onClick={() => setShow(true)} className={'text-[27px] mr-2 mt-2 text-[#93C234]'} />
-                                    : null 
-                                   
+                                    : null
+
                                 }
                             </div>
                         </div>
@@ -55,7 +56,9 @@ const Login = () => {
                         <div className='mt-4'>
                             <span className='text-[12px] text-gray-400'>
                                 Don't have an account to login,
-                                <span className='underline text-[#E84025] text-[12px] pl-1'>Click here to create the account!</span>
+                                <Link to="/signup">
+                                    <span className='hover:underline text-[#E84025] text-[12px] pl-1'>Click here to create the account!</span>
+                                </Link>
                             </span>
                         </div>
                     </div>

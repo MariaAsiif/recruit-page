@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import loginImage from '../images/login/Login.png'
 import logoImage from '../images/logo.png'
 import { IoMail } from 'react-icons/io5'
-import { FaLock , FaUser} from 'react-icons/fa'
+import { FaLock, FaUser } from 'react-icons/fa'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 const SignUp = () => {
-    const [login, setLogin] = useState({ username : '' , email: '', password: '' , repassword:'' })
+    const [login, setLogin] = useState({ username: '', email: '', password: '', repassword: '' })
     const [show, setShow] = useState(false)
 
     const handleChange = (e) => {
@@ -71,7 +72,9 @@ const SignUp = () => {
                         <div className='mt-4'>
                             <span className='text-[12px] text-gray-400'>
                                 You have an account to login,
-                                <span className='underline text-[#E84025] text-[12px] pl-1'>Click here to signIn the account!</span>
+                                <Link to="/signin">
+                                    <span className='hover:underline text-[#E84025] text-[12px] pl-1'>Click here to signIn the account!</span>
+                                </Link>
                             </span>
                         </div>
                     </div>
