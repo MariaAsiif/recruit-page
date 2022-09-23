@@ -25,6 +25,18 @@
 
 }
 
+.swiper-pagination-bullet {
+    width: 14px !important;
+    height: 14px !important;
+    background: white !important;
+    opacity: 1 !important;
+
+}
+
+.swiper-pagination-bullet-active{
+    background-color:#93C234 !important;
+}
+
 
 
 

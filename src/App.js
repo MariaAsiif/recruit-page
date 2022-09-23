@@ -8,6 +8,7 @@ import Resume from './Pages/Resume';
 import Login from './Pages/Login';
 import Verify from './Pages/Verify';
 import SignUp from './Pages/SignUp';
+import Dashboard from './Pages/Dashboard';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <Route path="/recruit" element={<RecruitPage />} />
         <Route path="/joinus" element={<JoinUs/>}/>
         <Route path="/detail" element={<Resume/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
+        
         
         
       </Routes>

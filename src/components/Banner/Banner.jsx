@@ -1,8 +1,28 @@
 import React from 'react'
 import halfCircle from '../../images/halfCircle.png'
+import slider1 from '../../images/slider1.png'
+import slider2 from '../../images/slider2.jpg'
+import slider3 from '../../images/slider3.jpg'
+        
 import { Link } from 'react-router-dom'
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+// import required modules
+import { Autoplay, Pagination } from "swiper";
 
 const Banner = () => {
+
+
+    const Images = [
+        slider1 , 
+        slider2 , 
+        slider3
+        
+    ]
+
     return (
         <div style={{ background: "radial-gradient(50% 117.72% at 50% 50%, #EEEBEB 0%, #FFFFFF 100%) " }} className='lg:h-[650px] h-auto'>
             <div className='row h-full g-0'>
@@ -18,10 +38,31 @@ const Banner = () => {
                     <img src={halfCircle} alt="halfcircle" className='w-full h-auto max-w-[80px] absolute bottom-0' />
                 </div>
                 <div className='col-lg-5'>
-                    <div className='bg-top-background lg:h-full bg-bottom bg-no-repeat bg-cover h-96'></div>
+                    <Swiper
+                        slidesPerView={1}
+                        spaceBetween={10}
+                        autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                        }}
+                        pagination={true}
+                        modules={[Autoplay, Pagination]}
+                        className="mySwiper"
+                    >
+                        {Images.map((img, index) => (
+                            <SwiperSlide key={index} >
+                                <div className='border'>
+                                    <img src={img} alt="halfcircle" className='lg:h-[649px] w-full object-cover' />
+                                </div>
+                            </SwiperSlide>
+                        ))
+                        }
+                    </Swiper>
+
+                    {/* <div className='bg-top-background lg:h-full bg-bottom bg-no-repeat bg-cover h-96'></div> */}
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
