@@ -1,13 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: ['./src/**/*.{html,js,jsx}', './node_modules/tw-elements/dist/js/**/*.js'],
   theme: {
     extend: {
       backgroundImage: {
         'top-background': "url('./images/bannerImage.png')",
-        'joinus-background' : "url(./images/joinus/banner.png)",
-        'workus-background' : "url(./images/joinus/workus.png)",
-        'resume-background' : "url(./images/resume/banner.png)",
+        'joinus-background': "url(./images/joinus/banner.png)",
+        'workus-background': "url(./images/joinus/workus.png)",
+        'resume-background': "url(./images/resume/banner.png)",
         'jobseeker': "url('./images/jobseekerpic.png')",
         'recruiter': "url('./images/recruiter.png')",
         'reruitBanner': "url('./images/recruitBIgPic.png')",
@@ -19,6 +21,11 @@ module.exports = {
     },
   },
   plugins: [
-    require('tw-elements/dist/plugin')
+    require('tw-elements/dist/plugin'),
+    plugin(({ addVariant, e }) => {
+      addVariant('sidebar-expanded', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => `.sidebar-expanded .${e(`sidebar-expanded${separator}${className}`)}`);
+      });
+    }),
   ]
 }

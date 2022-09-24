@@ -9,6 +9,7 @@ import Login from './Pages/Login';
 import Verify from './Pages/Verify';
 import SignUp from './Pages/SignUp';
 import Dashboard from './Pages/Dashboard';
+import ApplyNewJob from './Pages/ApplyNewJob';
 
 function App() {
   return (
@@ -16,16 +17,22 @@ function App() {
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/signin" element={<Login/>}/>
-        <Route path="/signup" element={<SignUp/>}/>
-        <Route path="/verify" element={<Verify/>}/>
+        <Route path="/signin" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/verify" element={<Verify />} />
         <Route path="/recruit" element={<RecruitPage />} />
-        <Route path="/joinus" element={<JoinUs/>}/>
-        <Route path="/detail" element={<Resume/>}/>
-        <Route path="/dashboard" element={<Dashboard/>}/>
-        
-        
-        
+        <Route path="/joinus" element={<JoinUs />} />
+        <Route path="/detail" element={<Resume />} />
+        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+
+        <Route path="/dashboard" element={<Dashboard />} >
+          <Route index element={<ApplyNewJob />} />
+          {/* <Route path="users" element={<UsersPage />} /> */}
+
+        </Route>
+
+
+
       </Routes>
 
 
