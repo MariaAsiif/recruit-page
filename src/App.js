@@ -10,6 +10,9 @@ import Verify from './Pages/Verify';
 import SignUp from './Pages/SignUp';
 import Dashboard from './Pages/Dashboard';
 import ApplyNewJob from './Pages/ApplyNewJob';
+import AppliedJobs from './Pages/AppliedJobs';
+import JobsHistory from './Pages/JobsHistory';
+import ProfileSetting from './Pages/ProfileSetting';
 
 function App() {
   return (
@@ -26,8 +29,10 @@ function App() {
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
 
         <Route path="/dashboard" element={<Dashboard />} >
-          <Route index element={<ApplyNewJob />} />
-          {/* <Route path="users" element={<UsersPage />} /> */}
+          <Route index path="new-job" element={<ApplyNewJob />} />
+          <Route path="applied-jobs" element={<AppliedJobs />} />
+          <Route path="jobs-history" element={<JobsHistory />} />
+          <Route path="profile-setting" element={<ProfileSetting />} />
 
         </Route>
 

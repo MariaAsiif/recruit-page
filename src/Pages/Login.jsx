@@ -51,7 +51,7 @@ const Login = () => {
                             <span className='text-[12px] ml-2 text-gray-400'>Lorem ipsum dolor sit amet</span>
                         </div>
                         <div className='text-center mt-4' >
-                            <Link to="/dashboard" className='border px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] '>Login</Link>
+                            <Link to="/dashboard/new-job" className='border px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] '>Login</Link>
                         </div>
                         <div className='mt-4'>
                             <span className='text-[12px] text-gray-400'>

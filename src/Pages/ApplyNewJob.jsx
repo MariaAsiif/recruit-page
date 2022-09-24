@@ -7,18 +7,18 @@ const ApplyNewJob = () => {
     const [layout, setlayout] = useState("grid")
     const jobs = ["asdf", "asdfasd", "asdfds"]
     return (
-        <div className='bscontainer-fluid  '>
+        <div className='bscontainer-fluid p-0 '>
 
             <div className='row g-0'>
                 <div className='col-lg-9'>
-                    <div className='row '>
+                    <div className='row g-0 px-4'>
                         <div className='col-lg-12'>
                             <button onClick={() => { setlayout("grid") }} className={`mr-8 ${layout === "grid" ? "bg-orange-600" : ""}`}>Grid</button>
                             <button onClick={() => { setlayout("list") }} className={`mr-8 ${layout === "list" ? "bg-orange-600" : ""}`}>List</button>
                         </div>
                         {jobs.map(() => {
                             return (
-                                <div className={`${layout === "grid" ? "col-lg-4 " : "col-lg-12"} mb-5`}>
+                                <div className={`${layout === "grid" ? "col-lg-4 " : "col-lg-12"} mb-5 px-2`}>
                                     <div className=' border-2 border-transparent hover:border-[#65A33A] rounded-md '>
                                         <div className='bg-white rounded-md cursor-pointer'>
                                             <div className='row g-0  '>
@@ -58,7 +58,7 @@ const ApplyNewJob = () => {
 
                     </div>
                 </div>
-                <div style={{ boxShadow: "-6px 3px 16px #00000043" }} className='col-lg-3 border bg-white shadow-lg'>
+                <div style={{ boxShadow: "-2px 3px 5px #00000043" }} className='col-lg-3 border bg-white shadow-lg'>
                     <div className='p-5'>
                         <h1 className='text-[#65A33A] text-center text-lg font-medium mb-4'>Detail Job</h1>
                         <div className='border-2 border-[#65A33A]  rounded-md p-[2px] mb-2'>
