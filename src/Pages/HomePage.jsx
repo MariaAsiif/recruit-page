@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Banner from '../components/Banner/Banner'
 import Carrier from '../components/Carrier'
 import Faqs from '../components/Faqs/Faqs'

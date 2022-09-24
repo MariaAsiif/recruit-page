@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BiSearch } from "react-icons/bi";
 
 const DashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
-    const [searchModalOpen, setSearchModalOpen] = useState(false)
     return (
         <header style={{ boxShadow: "0px 0px 6px #00000029" }} className="sticky top-0 ml-1 bg-white border-b border-slate-200 z-30">
             <div className="px-4 sm:px-6 lg:px-6">
