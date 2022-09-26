@@ -44,45 +44,45 @@ const AppliedJobs = () => {
                                 <tr className='text-[#626973]'>
 
                                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
-                                        <span className="font-semibold text-left">Job ID</span>
+                                        <div className="font-semibold text-left">Job ID <span className='text-[23px] align-bottom text-red-600'>•</span>  </div>
                                     </th>
                                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                        <div className="font-semibold text-left">Job Title</div>
+                                        <div className="font-semibold text-center">Job Title <span className='text-[23px] align-bottom text-red-600'>•</span> </div>
                                     </th>
                                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                        <div className="font-semibold text-left">Company Name</div>
+                                        <div className="font-semibold text-center">Company Name <span className='text-[23px] align-bottom text-red-600'>•</span> </div>
                                     </th>
                                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                        <div className="font-semibold text-left">Job Type</div>
+                                        <div className="font-semibold text-left">Job Type <span className='text-[23px] align-bottom text-red-600'>•</span> </div>
                                     </th>
                                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                        <div className="font-semibold text-left">Application Date</div>
+                                        <div className="font-semibold text-left">Application Date <span className='text-[23px] align-bottom text-red-600'>•</span> </div>
                                     </th>
                                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                        <div className="font-semibold text-left">Status</div>
+                                        <div className="font-semibold text-left">Status <span className='text-[23px] align-bottom text-red-600'>•</span> </div>
                                     </th>
                                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                        <div className="font-semibold text-left">Action</div>
+                                        <div className="font-semibold text-left">Action <span className='text-[23px] align-bottom text-red-600'>•</span> </div>
                                     </th>
 
                                 </tr>
                             </thead>
                             {/* Table body */}
-                            <tbody className="text-sm divide-y divide-slate-200">
+                            <tbody className="text-sm ">
                                 {status.map((status) => {
                                     return (
-                                        <tr className='text-[#999FA9]'>
+                                        <tr className='text-[#999FA9] cursor-pointer    '>
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="text-left">#34534</div>
                                             </td>
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className='flex place-items-center'>
+                                                <div className='flex justify-center items-center'>
                                                     <img className=' w-full h-auto max-w-[30px] rounded-md' src={"http://placekitten.com/100/100"} alt="logo" loading="lazy" />
                                                     <h1 className='font-semibold text-[#626973] ml-2'>UI/UX DESIGNER</h1>
                                                 </div>
                                             </td>
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className="text-left">
+                                                <div className="text-center">
                                                     <img className=' w-full h-auto max-w-[20px] rounded-full inline-block mr-2' src={"http://placekitten.com/100/100"} alt="logo" loading="lazy" />
                                                     Google
                                                 </div>
