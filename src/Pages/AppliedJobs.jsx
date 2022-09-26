@@ -7,7 +7,7 @@ const AppliedJobs = () => {
         { name: "Rejected", color: "red" },
         { name: "On the way", color: "gray" },]
     return (
-        <div className='bscontainer h-screen py-5'>
+        <div className='bscontainer-fluid h-screen py-5 px-5'>
             <div className='row'>
                 <div className='col-lg-12 flex items-end px-10 mb-5'>
                     <div className='w-[90%]'>
@@ -71,7 +71,7 @@ const AppliedJobs = () => {
                             <tbody className="text-sm ">
                                 {status.map((status) => {
                                     return (
-                                        <tr className='text-[#999FA9] cursor-pointer    '>
+                                        <tr className='text-[#999FA9] cursor-pointer hover:bg-[#dffdc9] '>
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="text-left">#34534</div>
                                             </td>
