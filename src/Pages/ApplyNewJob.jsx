@@ -13,12 +13,12 @@ const ApplyNewJob = () => {
                 <div className={sidebar ? 'col-lg-9' : 'col-lg-12'}>
                     <div className='row g-0 px-4'>
                         <div className='col-lg-12'>
-                            <div className='flex justify-between'>
+                            <div className='lg:flex lg:justify-between apply_job'>
                                 <div className='m-3'>
                                     <h2 className='text-[20px] font-semibold'>Here, we found job!</h2>
                                     <span className='text-[12px] text-gray-400' >Brand on your preferance</span>
                                 </div>
-                                <div className='flex items-center'>
+                                <div className='flex items-center sorting'>
                                     <button onClick={() => { setlayout("grid") }} className={`mr-8 ${layout === "grid" ? "text-orange-600" : ""}`}>Grid</button>
                                     <button onClick={() => { setlayout("list") }} className={`mr-8 ${layout === "list" ? "text-orange-600" : ""}`}>List</button>
                                     <h2>Sort by : </h2>

@@ -89,18 +89,17 @@ const CompanyForm = ({ handleNext }) => {
                   isInputNum={true}
                   shouldAutoFocus={true}
                   inputStyle={{
-                    border: "1px solid gray",
+                    borderBottom: "1px solid gray",
                     textAlign: 'center',
-                    borderRadius: "8px",
                     width: "40px",
                     height: "40px",
-                    fontSize: "12px",
-                    color: "#000",
+                    fontSize: "15px",
+                    color: "#65A33A",
                     fontWeight: "400",
                     caretColor: "blue"
                   }}
                   focusStyle={{
-                    border: "1px solid #CFD3DB",
+                    borderBottom: "1px solid #CFD3DB",
                     outline: "none"
                   }}
                 />
@@ -130,18 +129,17 @@ const CompanyForm = ({ handleNext }) => {
                   isInputNum={true}
                   shouldAutoFocus={true}
                   inputStyle={{
-                    border: "1px solid gray",
+                    borderBottom: "1px solid gray",
                     textAlign: 'center',
-                    borderRadius: "8px",
                     width: "40px",
                     height: "40px",
-                    fontSize: "12px",
-                    color: "#000",
+                    fontSize: "15px",
+                    color: "#65A33A",
                     fontWeight: "400",
                     caretColor: "blue"
                   }}
                   focusStyle={{
-                    border: "1px solid #CFD3DB",
+                    borderBottom: "1px solid #CFD3DB",
                     outline: "none"
                   }}
                 />
