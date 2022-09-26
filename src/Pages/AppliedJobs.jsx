@@ -99,7 +99,7 @@ const AppliedJobs = () => {
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="text-center ">
                                                     <div className="dropdown relative">
-                                                        <button className=" dropdown-toggle px-2 text-[#626973] font-medium text-lg leading-tight uppercase rounded    focus:outline-none focus:ring-0   transition duration-150 ease-in-out   " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> ... </button>
+                                                        <button className=" dropdown-toggle px-2 text-[#E84025] font-medium text-lg leading-tight uppercase rounded    focus:outline-none focus:ring-0   transition duration-150 ease-in-out   " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> ... </button>
                                                         <ul className=" dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-center font-medium rounded-lg shadow-2xl mt-1 hidden m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton1">
                                                             <li>
                                                                 <span className=" dropdown-item text-sm py-2 px-4 cursor-pointer block w-full whitespace-nowrap bg-transparent text-[#626973] hover:bg-gray-100 " >Cancel</span>
