@@ -5,7 +5,7 @@ import { BiSearch, BiUserCircle } from "react-icons/bi";
 import { BsBarChartFill } from "react-icons/bs";
 import { IoMail } from "react-icons/io5";
 
-const DashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
+const DashboardSidebar = ({ sidebarOpen, setSidebarOpen , setCheckExpand }) => {
     const location = useLocation();
     const { pathname } = location;
 
@@ -25,6 +25,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
 
     useEffect(() => {
         localStorage.setItem('sidebar-expanded', sidebarExpanded);
+        setCheckExpand(sidebarExpanded)
         if (sidebarExpanded) {
             document.querySelector('body').classList.add('sidebar-expanded');
         } else {

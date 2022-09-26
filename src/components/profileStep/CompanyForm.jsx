@@ -79,7 +79,7 @@ const CompanyForm = ({ handleNext }) => {
               />
             }
             {!show &&
-              <div className='flex justify-center items-center'>
+              <div className='flex justify-center items-center mt-3'>
                 <OtpInput
                   value={phone}
                   onChange={handleChangePhoneCode}
@@ -120,7 +120,7 @@ const CompanyForm = ({ handleNext }) => {
             }
             {!show &&
 
-              <div className='flex justify-center items-center'>
+              <div className='flex justify-center items-center mt-3'>
                 <OtpInput
                   value={email}
                   onChange={handleChangeEmailCode}

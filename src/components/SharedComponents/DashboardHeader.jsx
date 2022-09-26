@@ -3,7 +3,7 @@ import { BiSearch } from "react-icons/bi";
 import { AiTwotoneCloud } from 'react-icons/ai'
 import { IoMdNotificationsOutline } from 'react-icons/io'
 import profileImage from '../../images/people.png'
-const DashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
+const DashboardHeader = ({ sidebarOpen, setSidebarOpen , checkExpand }) => {
     return (
         <header style={{ boxShadow: "0px 0px 6px #00000029" }} className="sticky top-0 ml-1 bg-white border-b border-slate-200 z-30">
             <div className="px-4 sm:px-6 lg:px-6">
@@ -27,7 +27,7 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
                                 <button className='bg-[#E84025] rounded-sm w-[8%] ml-2'><BiSearch className='inline text-white' /></button>
                             </div>
                             <div className='col-lg-6 '>
-                                <div className='flex lg:items-center'>
+                                <div className={checkExpand ? "flex items-cente text-[10px]" :'flex items-cente '}>
                                     <div className='lg:flex lg:items-center lg:border-l  lg:p-2 border-r hidden'>
                                         <AiTwotoneCloud className='text-[20px]' />
                                         <span className='ml-2 text-sm'>Rain-1'C</span>
