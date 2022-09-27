@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const FavritJobs = ({ status }) => {
+const FavouriteJobs = ({ status }) => {
     let layout = "grid"
     let data = ["", "", "", "", "", ""]
 
@@ -29,7 +29,7 @@ const FavritJobs = ({ status }) => {
             <div className='row mt-[50px]'>
                 <div className='col-lg-12 flex items-end justify-between px-10 mb-5'>
                     <div className='w-[90%]'>
-                        <h1 className='text-[#0D1829] font-semibold mb-2'>Favorite Jobs</h1>
+                        <h1 className='text-[#0D1829] font-semibold mb-2'>Recommended Jobs</h1>
                         <h1 className='text-[#626973] text-xs font-normal'>Based on your preferences</h1>
                     </div>
                     <div className='flex items-center justify-end '>
@@ -45,7 +45,7 @@ const FavritJobs = ({ status }) => {
                             autoplay={{
                                 delay: 2500,
                                 disableOnInteraction: false,
-                              }}
+                            }}
                             navigation={true}
                             modules={[Navigation]}
                             className="mySwiper"
@@ -93,4 +93,4 @@ const FavritJobs = ({ status }) => {
     )
 }
 
-export default FavritJobs
+export default FavouriteJobs

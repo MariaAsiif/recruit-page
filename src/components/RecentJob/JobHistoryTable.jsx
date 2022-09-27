@@ -1,12 +1,12 @@
 import React from 'react'
 
-const ActiveJobs = ({ status }) => {
+const JobHistoryTable = ({ status }) => {
     return (
         <>
             <div className='row'>
                 <div className='col-lg-12 flex items-end px-10 mb-5'>
                     <div className='w-[90%]'>
-                        <h1 className='text-[#0D1829] font-semibold mb-2'>Active Jobs</h1>
+                        <h1 className='text-[#0D1829] font-semibold mb-2'>Job History</h1>
                         <h1 className='text-[#626973] text-xs font-normal'>Based on your preferences</h1>
                     </div>
 
@@ -66,7 +66,7 @@ const ActiveJobs = ({ status }) => {
                             <tbody className="text-sm ">
                                 {status.map((status) => {
                                     return (
-                                        <tr className='text-[#999FA9] cursor-pointer hover:border-[#65A33A] hover:border hover:rounded-md '>
+                                        <tr className='text-[#999FA9] cursor-pointer hover:bg-[#dffdc9] '>
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="text-left">#34534</div>
                                             </td>
@@ -94,7 +94,11 @@ const ActiveJobs = ({ status }) => {
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="text-center ">
                                                     <div className="dropdown relative">
-                                                        <button className="dropdown-toggle px-2 text-[#E84025] font-medium text-lg leading-tight uppercase rounded    focus:outline-none focus:ring-0   transition duration-150 ease-in-out   " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> ... </button>
+                                                        <button className="dropdown-toggle px-1 rounded-[50%] bg-[#E84025] text-white focus:outline-none focus:ring-0   transition duration-150 ease-in-out   " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="w-3" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" >
+                                                                <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z" ></path>
+                                                            </svg>
+                                                        </button>
                                                         <ul className="dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-center font-medium rounded-lg shadow-2xl mt-1 hidden m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton1">
                                                             <li>
                                                                 <span className=" dropdown-item text-sm py-2 px-4 cursor-pointer block w-full whitespace-nowrap bg-transparent text-[#626973] hover:bg-gray-100 " >Cancel</span>
@@ -140,4 +144,4 @@ const ActiveJobs = ({ status }) => {
     )
 }
 
-export default ActiveJobs
+export default JobHistoryTable
