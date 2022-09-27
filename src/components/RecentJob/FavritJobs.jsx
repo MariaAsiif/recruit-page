@@ -42,6 +42,10 @@ const FavritJobs = ({ status }) => {
                         <Swiper
                             slidesPerView={3}
                             spaceBetween={30}
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                              }}
                             navigation={true}
                             modules={[Navigation]}
                             className="mySwiper"

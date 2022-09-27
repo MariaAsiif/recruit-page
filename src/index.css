@@ -6,6 +6,356 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+.flatpickr-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.countdown__box svg {
+  position: relative;
+}
+
+.countdown__box svg circle {
+  transform: rotate(-90deg);
+  transform-origin: center;
+  fill: transparent;
+}
+
+.countdown__box_circles {
+  position: relative;
+}
+
+.countdown__box_left {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  font-size: 20px;
+  background: white;
+  width: 76%;
+  height: 76%;
+  border-radius: 50%;
+  color: #71728E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.countdown__box_left .digits {
+  font-size: 33px;
+  font-weight: 700;
+}
+
+.countdown__box_left .labels {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.countdown__box_label {
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: rgba(0, 0, 0, .4);
+  /* background-color: #000000cc; */
+}
+
+video {
+  width: 100%;
+  bottom: 0px;
+  object-fit: cover;
+}
+
+.content {
+  /* position: absolute;
+  width: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-bottom: 20px; */
+  /* color: white; */
+}
+
+.main_wrapper {
+  padding: 20px 45px;
+}
+
+.white_background {
+  background: #ffffff75;
+  padding: 10px 45px;
+  height: min-content;
+}
+
+.black_big {
+  color: black;
+  text-align: center;
+  font-weight: 600;
+  font-size: 3vw;
+  letter-spacing: 20px;
+  text-shadow: 0px 2px 10px #827c7c;
+  line-height: 50px;
+}
+
+.red_big {
+  color: #D6420B;
+  text-align: center;
+  font-weight: 600;
+  font-size: 2vw;
+  text-shadow: 0px 2px 5px #555555;
+  line-height: 43px;
+}
+
+.black_small {
+  color: black;
+  text-align: center;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.red_small {
+  color: #D6420B;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 13px;
+}
+
+.black_paragraph {
+  padding: 0 30%;
+  text-align: justify;
+  font-size: 13px;
+}
+
+.Form_Wrapper {
+  padding: 0 7rem;
+}
+
+.undertext {
+  font-size: 13px;
+  text-align: center;
+  padding: 0 26rem;
+}
+
+.under_red_text {
+  color: #D6420B;
+  text-align: center;
+}
+
+.sabadel_logo {
+  width: 110px;
+  margin: 0 auto;
+}
+
+.desk_top {
+  display: block;
+}
+
+.mobile {
+  display: none;
+}
+
+
+/* PhoneInput 3rd part pkg customm css */
+.phone_custom_input {
+  border: none !important;
+  width: 100% !important;
+}
+
+.custom-dropdown {
+  margin-top: 3px !important;
+}
+
+.custom-dropdown li.country {
+  text-align: left;
+}
+
+.react-tel-input .form-control {
+  position: relative;
+  font-size: 14px;
+  letter-spacing: .01rem;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-left: 50px !important;
+  margin-left: 0;
+  background: #FFFFFF;
+  border: none !important;
+  border-radius: 0px !important;
+  line-height: 25px;
+  height: 40px !important;
+  width: 100% !important;
+  outline: none;
+}
+
+.react-tel-input {
+  border: 1pt solid gray !important;
+
+}
+
+.error_form {
+  border-color: red !important;
+  
+}
+
+.react-tel-input:focus {
+  --tw-ring-color: none !important;
+
+}
+
+.react-tel-input:hover {
+  border-color: #cccc !important;
+
+}
+
+.DatePicker {
+  position: relative;
+  display: inline-block;
+  z-index: 100;
+  width: 100%;
+}
+
+
+
+
+/* .react-tel-input .flag-dropdown {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  background-color: none !important;
+  border-right: 1px solid #cccc !important;
+  border-radius: 0px !important;
+} */
+
+select {
+  appearance: none;
+}
+
+#dropdown {
+  appearance: none;
+  padding: 5px;
+  color: darkgrey;
+  border: none;
+  font-family: inherit;
+  outline: none;
+  border: 1pt solid gray;
+}
+
+.react-tel-input .flag-dropdown {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  /* width: 20% !important; */
+  background-color: white !important;
+  border-right: 1px solid #cacaca !important;
+  border-left: 0px !important;
+  border-bottom: 0px !important;
+  border-top: 0px !important;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.react-tel-input .selected-flag {
+  outline: none;
+  position: relative;
+  width: 41px;
+  height: 100%;
+  /* padding: 0 0 0px 20px !important; */
+  border: none !important;
+  border-radius: 3px 0 0 3px;
+
+}
+
+
+
+.react-tel-input .selected-flag .arrow {
+  position: relative;
+  top: 50%;
+  margin-top: -2px;
+  left: 20px;
+  width: 7px !important;
+  height: 190px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 4px solid #555;
+}
+
+
+
+.input_style {
+  appearance: none;
+  background-color: #fff;
+  border-color: #6b7280;
+  border-width: 1px;
+  border-radius: 0px;
+  padding-top: 0px !important;
+  padding-right: 0.75rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0 !important;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  --tw-shadow: 0 0 #0000;
+}
+
+
+/* loader */
+
+
+.loader {
+	border-top-color: #3498db;
+	-webkit-animation: spinner 1.5s linear infinite;
+	animation: spinner 1.5s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+
+
+
 .custom_select select {
     width: 100px;
     -moz-appearance: none;
