@@ -83,7 +83,7 @@ const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
   let location = useLocation();
   if (!token) {
-    return <Navigate to='/signin' state={{ from: location }} replace />;
+    return <Navigate to='/adminsignin' state={{ from: location }} replace />;
   }
   return children;
 };
