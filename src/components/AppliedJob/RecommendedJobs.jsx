@@ -1,5 +1,5 @@
 import React from 'react'
-import { AiFillLeftCircle, AiFillRightCircle, AiOutlineSearch } from 'react-icons/ai'
+import { AiFillLeftCircle, AiFillRightCircle } from 'react-icons/ai'
 import { BsFillShareFill, BsHeart } from 'react-icons/bs'
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
