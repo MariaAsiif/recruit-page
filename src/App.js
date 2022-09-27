@@ -13,6 +13,8 @@ import ApplyNewJob from './Pages/ApplyNewJob';
 import AppliedJobs from './Pages/AppliedJobs';
 import ResentJob from './Pages/ResentJob';
 import ProfileSetting from './Pages/ProfileSetting';
+import Notification from './Pages/Notification';
+import NotificationDetail from './Pages/NotificationDetail';
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
           <Route path="applied-jobs" element={<AppliedJobs />} />
           <Route path="recent-jobs" element={<ResentJob />} />
           <Route path="profile-setting" element={<ProfileSetting />} />
+          <Route path="notification" element={<Notification />} />
+          <Route path="notification-detail" element={<NotificationDetail />} />
 
         </Route>
 

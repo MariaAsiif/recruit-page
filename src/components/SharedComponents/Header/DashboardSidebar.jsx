@@ -4,8 +4,9 @@ import logo from '../../../images/logo.png'
 import { BiSearch, BiUserCircle } from "react-icons/bi";
 import { BsBarChartFill } from "react-icons/bs";
 import { IoMail } from "react-icons/io5";
+import { FaRegBell } from 'react-icons/fa'
 
-const DashboardSidebar = ({ sidebarOpen, setSidebarOpen , setCheckExpand }) => {
+const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
     const location = useLocation();
     const { pathname } = location;
 
@@ -64,7 +65,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen , setCheckExpand }) => {
                             <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 `}>
                                 <NavLink
                                     end to="/dashboard/new-job" className={`block text-slate-200 hover:text-white truncate transition duration-150 `} >
-                                    <div className="flex items-center justify-between">
+                                    <div className="flex items-center justify-between ">
                                         <div className="grow flex items-center">
 
                                             <BiSearch size={24} className={`${pathname.includes('new-job') ? 'text-[#65A33A]  ' : "text-[#999FA9]"} `} />
@@ -102,6 +103,17 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen , setCheckExpand }) => {
                                         <div className="grow flex items-center">
                                             <BiUserCircle size={24} className={`${pathname.includes('profile-setting') ? 'text-[#65A33A]  ' : "text-[#999FA9]"} `} />
                                             <span className={`${pathname.includes('profile-setting') ? 'text-[#65A33A] font-medium' : "text-[#999FA9] font-light"} text-sm   ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Profile Setting</span>
+                                        </div>
+                                    </div>
+                                </NavLink>
+                            </li>
+                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`}>
+                                <NavLink
+                                    end to="/dashboard/notification" className={`block text-slate-200 truncate transition duration-150`} >
+                                    <div className="flex items-center justify-between">
+                                        <div className="grow flex items-center">
+                                            <FaRegBell size={24} className={`${pathname.includes('notification') ? 'text-[#65A33A]  ' : "text-[#999FA9]"} `} />
+                                            <span className={`${pathname.includes('notification') ? 'text-[#65A33A] font-medium' : "text-[#999FA9] font-light"} text-sm   ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Notification</span>
                                         </div>
                                     </div>
                                 </NavLink>

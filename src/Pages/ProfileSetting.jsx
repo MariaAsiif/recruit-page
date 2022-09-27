@@ -54,32 +54,32 @@ const ProfileSetting = () => {
                 <div className='col-lg-8'>
 
                     <div className=" bg-white rounded-md p-5">
-                        <div className='flex'>
-                            <div>left image</div>
-                            <div>
-                                <div>
+                        <div className='row'>
+                            <div className='col-lg-2'>left image</div>
+                            <div className='col-lg-10'>
+                                <div className=''>
                                     <h2 className='text-[20px]  text-[#626973] font-medium'>Your account need to be verified </h2>
                                     <span className='text-[11px] text-[#626973]'>If you need to update the information you will be able to verify your account. You need to verify your Phone number and Email account</span>
                                 </div>
-                                <div className='flex  flex-wrap justify-center items-center lg:px-14 px-1 '>
+                                <div className='flex  flex-wrap justify-center items-center pr-2 mt-4 '>
                                     <div className='lg:w-[4%] w-[8%] text-center relative'>
                                         <div className={`${activeIndex === 0 ? 'rounded-full border bg-[#65A33A] text-white' : 'rounded-full border bg-gray-300 text-white'}  text-white pt-2 text-sm w-[50px] h-[50px] rounded-full border`}>
                                             <FaUser className='ml-[14px] mt-[6px] text-[20px] ' />
                                         </div>
                                     </div>
-                                    <div className={`${activeIndex === 1 ? 'bg-gradient-to-r from-[#65A33A] to-[#65A33A]' : 'bg-gray-100'} md:w-[25%] md:-ml-5 h-1 lg:w-[28%] w-[22.6%]`}></div>
+                                    <div className={`${activeIndex === 1 ? 'bg-gradient-to-r from-[#65A33A] to-[#65A33A]' : 'bg-gray-100'} md:w-[25%] md:-ml-5 h-1 lg:w-[29%] w-[22.6%]`}></div>
                                     <div className='lg:w-[4%] w-[8%] text-center relative'>
                                         <div className={`${activeIndex === 1 ? 'rounded-full border bg-[#65A33A] text-white' : 'rounded-full border bg-gray-300 text-white'}  text-white pt-2 text-sm w-[50px] h-[50px] rounded-full border`}>
                                             <BiLockOpenAlt className='ml-[14px] mt-[6px] text-[20px] ' />
                                         </div>
                                     </div>
-                                    <div className={`${activeIndex === 2 ? 'bg-gradient-to-r from-[#65A33A] to-[#65A33A]' : 'bg-gray-100'} md:w-[25%] md:-ml-5 h-1 lg:w-[28%] w-[22.6%]`}></div>
+                                    <div className={`${activeIndex === 2 ? 'bg-gradient-to-r from-[#65A33A] to-[#65A33A]' : 'bg-gray-100'} md:w-[25%] md:-ml-5 h-1 lg:w-[29%] w-[22.6%]`}></div>
                                     <div className='lg:w-[4%] w-[8%] text-center relative'>
                                         <div className={`${activeIndex === 2 ? 'rounded-full border bg-[#65A33A] text-white' : 'rounded-full border bg-gray-300 text-white'}  text-white pt-2 text-sm w-[50px] h-[50px] rounded-full border`}>
                                             <IoShieldCheckmark className='ml-[14px] mt-[6px] text-[20px] ' />
                                         </div>
                                     </div>
-                                    <div className={`${activeIndex === 3 ? 'bg-gradient-to-r from-[#65A33A] to-[#65A33A]' : 'bg-gray-100'} md:w-[25%] md:-ml-5  h-1 lg:w-[28%] w-[22.6%]`}></div>
+                                    <div className={`${activeIndex === 3 ? 'bg-gradient-to-r from-[#65A33A] to-[#65A33A]' : 'bg-gray-100'} md:w-[25%] md:-ml-5  h-1 lg:w-[29%] w-[22.6%]`}></div>
                                     <div className='lg:w-[4%] w-[8%] text-center relative'>
                                         <div className={`${activeIndex === 3 ? 'rounded-full border bg-[#65A33A] text-white' : 'rounded-full border bg-gray-300 text-white'}  text-white pt-2 text-sm w-[50px] h-[50px] rounded-full border`}>
                                             <BiLockOpenAlt className='ml-[14px] mt-[6px] text-[20px] ' />

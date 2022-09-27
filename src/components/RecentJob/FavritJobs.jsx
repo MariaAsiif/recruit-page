@@ -11,6 +11,19 @@ import "swiper/css/pagination";
 const FavritJobs = ({ status }) => {
     let layout = "grid"
     let data = ["", "", "", "", "", ""]
+
+    const swiper = document.querySelector('.swiper')?.swiper;
+
+    // Now you can use all slider methods like
+    const SliderNext = () => {
+        swiper.slideNext();
+    }
+
+    const SliderPrev = () => {
+        swiper.sliderPrev();
+
+    }
+
     return (
         <>
             <div className='row mt-[50px]'>
@@ -19,10 +32,10 @@ const FavritJobs = ({ status }) => {
                         <h1 className='text-[#0D1829] font-semibold mb-2'>Favorite Jobs</h1>
                         <h1 className='text-[#626973] text-xs font-normal'>Based on your preferences</h1>
                     </div>
-                    {/* <div className='flex items-center justify-end '>
-                         <div className='swiper-button-prev'><AiFillLeftCircle className='text-[2rem] cursor-pointer text-gray-400 hover:text-red-500 '/></div>
-                         <div className='swiper-button-next'> <AiFillRightCircle className='text-[2rem] cursor-pointer text-gray-400 hover:text-red-500 '/></div>
-                    </div> */}
+                    <div className='flex items-center justify-end '>
+                        <div className='swiper-button-prev' onClick={() => SliderPrev()}><AiFillLeftCircle className='text-[2rem] cursor-pointer text-gray-400 hover:text-red-500 ' /></div>
+                        <div className='swiper-button-next' onClick={() => SliderNext()}> <AiFillRightCircle className='text-[2rem] cursor-pointer text-gray-400 hover:text-red-500 ' /></div>
+                    </div>
                 </div>
                 <div className='col-lg-12 '>
                     <div className='relative'>
