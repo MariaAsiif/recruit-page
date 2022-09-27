@@ -7,7 +7,7 @@ import beta from '../assets/images/beta.png'
 const MainWrapper = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     return (
-        <div className="flex h-screen overflow-hidden overflow-y-hidden ">
+        <div className="flex h-screen overflow-hidden ">
             {/* Sidebar */}
             <AdminSidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
             {/* Content area */}
@@ -15,7 +15,7 @@ const MainWrapper = () => {
                 {/*  Site header */}
                 <AdminHeader sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
                 <main >
-                    {/* <Outlet /> */}
+                    <Outlet />
                     <div className='flex'>
                         <Link to="/user-feedback">
                             <div className='user-feedback fixed bottom-[10px] right-10 w-12 '>
