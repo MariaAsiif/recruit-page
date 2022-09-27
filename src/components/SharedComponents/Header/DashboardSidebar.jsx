@@ -86,11 +86,11 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen , setCheckExpand }) => {
                             </li>
                             <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`}>
                                 <NavLink
-                                    end to="/dashboard/jobs-history" className={`block text-slate-200 truncate transition duration-150`} >
+                                    end to="/dashboard/recent-jobs" className={`block text-slate-200 truncate transition duration-150`} >
                                     <div className="flex items-center justify-between">
                                         <div className="grow flex items-center">
-                                            <BsBarChartFill size={24} className={`${pathname.includes('jobs-history') ? 'text-[#65A33A]  ' : "text-[#999FA9]"} `} />
-                                            <span className={`${pathname.includes('jobs-history') ? 'text-[#65A33A] font-medium' : "text-[#999FA9] font-light"} text-sm   ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Jobs History</span>
+                                            <BsBarChartFill size={24} className={`${pathname.includes('recent-jobs') ? 'text-[#65A33A]  ' : "text-[#999FA9]"} `} />
+                                            <span className={`${pathname.includes('recent-jobs') ? 'text-[#65A33A] font-medium' : "text-[#999FA9] font-light"} text-sm   ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Jobs History</span>
                                         </div>
                                     </div>
                                 </NavLink>

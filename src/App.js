@@ -11,7 +11,7 @@ import SignUp from './Pages/SignUp';
 import Dashboard from './Pages/Dashboard';
 import ApplyNewJob from './Pages/ApplyNewJob';
 import AppliedJobs from './Pages/AppliedJobs';
-import JobsHistory from './Pages/JobsHistory';
+import ResentJob from './Pages/ResentJob';
 import ProfileSetting from './Pages/ProfileSetting';
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} >
           <Route index path="new-job" element={<ApplyNewJob />} />
           <Route path="applied-jobs" element={<AppliedJobs />} />
-          <Route path="jobs-history" element={<JobsHistory />} />
+          <Route path="recent-jobs" element={<ResentJob />} />
           <Route path="profile-setting" element={<ProfileSetting />} />
 
         </Route>
