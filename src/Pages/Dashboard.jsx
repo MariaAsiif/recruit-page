@@ -13,15 +13,15 @@ const Dashboard = () => {
       {/* Sidebar */}
       <DashboardSidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setCheckExpand={setCheckExpand} />
       {/* Content area */}
-      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden bg-[#F7F8FA]">
         {/*  Site header */}
-        <DashboardHeader  rightbarOpen={rightbarOpen} setRightbarOpen={setRightbarOpen} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} checkExpand={checkExpand} />
-        <main className='bg-[#F7F8FA]'>
+        <DashboardHeader rightbarOpen={rightbarOpen} setRightbarOpen={setRightbarOpen} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} checkExpand={checkExpand} />
+        <main>
           <Outlet />
         </main>
       </div>
       <div className="lg:hidden ">
-        <DashboardRightbar rightbarOpen={rightbarOpen} setRightbarOpen={setRightbarOpen}  />
+        <DashboardRightbar rightbarOpen={rightbarOpen} setRightbarOpen={setRightbarOpen} />
       </div>
     </div>
   )
