@@ -1,6 +1,6 @@
 import React from 'react'
-import ActiveJobs from '../components/RecentJob/ActiveJobs'
-import FavritJobs from '../components/RecentJob/FavritJobs'
+import JobHistoryTable from '../components/RecentJob/JobHistoryTable'
+import FavouriteJobs from '../components/RecentJob/FavouriteJobs'
 
 const ResentJob = () => {
     const status = [
@@ -10,8 +10,8 @@ const ResentJob = () => {
         { name: "On the way", color: "gray" },]
     return (
         <div className='bscontainer-fluid h-full py-5 px-5'>
-            <ActiveJobs status={status} />
-            <FavritJobs status={status} />
+            <JobHistoryTable status={status} />
+            <FavouriteJobs status={status} />
         </div>
     )
 }

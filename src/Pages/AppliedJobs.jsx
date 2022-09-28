@@ -1,6 +1,7 @@
 import React from 'react'
 import ActiveJobs from '../components/AppliedJob/ActiveJobs'
-import FavritJobs from '../components/AppliedJob/FavritJobs'
+
+import RecommendedJobs from '../components/AppliedJob/RecommendedJobs'
 
 const AppliedJobs = () => {
     const status = [
@@ -11,7 +12,7 @@ const AppliedJobs = () => {
     return (
         <div className='bscontainer-fluid h-full py-5 px-5'>
             <ActiveJobs status={status} />
-            <FavritJobs status={status}/>
+            <RecommendedJobs status={status} />
         </div>
     )
 }
