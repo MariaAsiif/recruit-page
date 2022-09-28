@@ -143,6 +143,8 @@ const Footer = () => {
         ' Contact Us',
         'Chat']
 
+        const Ixcon = ['lexicon list']
+
     return (
         <>
             <div style={{
@@ -222,6 +224,52 @@ const Footer = () => {
                             </div>
                             <div className='col-lg-2 col-md-4 col-sm-4'>
                                 <FooterSection data={helpCenter} heading={'HELP CENTER'} />
+                            </div>
+                        </div>
+                          <div className='row'>
+                            <div className='col-lg-2 col-md-4 col-sm-4' >
+                                <FooterSection data={callCenter} heading={'CALL CENTER'} />
+                                <ul className='mt-3'>
+                                    <li>
+                                        <span className='flex'>
+                                            <img src={flag} className="w-4 h-4 mr-2" alt="flag" />
+                                            <span className='text-[12px] font-bold'>+1 (213) 370  0873</span>
+
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        <span className='flex'>
+                                            <img src={usa} className="w-4 h-4 mr-2" alt="flag" />
+                                            <span className='text-[12px] font-bold'>+1 (213) 370  0873</span>
+
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        <span className='flex'>
+                                            <img src={mail} className="w-4 h-4 mr-2" alt="flag" />
+                                            <span className='text-[12px] font-bold'>+1 (213) 370  0873</span>
+
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <a href="https://unsdg.un.org/2030-agenda/universal-values/leave-no-one-behind" target="_blank" rel="noopener noreferrer">
+                                            <img src={footerLogo} className="w-20 " alt="footer-logo" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4' >
+                                <FooterSection data={Ixcon} heading={'Lexicon'} />
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4'>
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4'>
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4'>
+                            </div>
+                            <div className='col-lg-2 col-md-4 col-sm-4'>
                             </div>
                         </div>
                         <div className='ssl'>

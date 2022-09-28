@@ -354,6 +354,10 @@ select {
 }
 
 
+.auto_complete input:focus{
+  outline: none;
+}
+
 
 
 .custom_select select {

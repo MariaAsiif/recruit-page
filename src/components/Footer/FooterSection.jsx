@@ -7,7 +7,7 @@ const FooterSection = ({heading , data }) => {
             {
                 data.map((comp, index) => (
                     <ul key={index} className="mt-1">
-                        <li className='text-[14px] text-gray-400'>{comp}</li>
+                        <li className='text-[14px] cursor-pointer text-gray-400'>{comp}</li>
                     </ul>
                 ))
             }

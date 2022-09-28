@@ -78,6 +78,7 @@ import CreateAboutUs from './Pages/AboutUs/CreateAboutUs';
 import AssignRole from './Pages/user/AssignRole';
 import Users from './Pages/user/users';
 import CreateUsers from './Pages/user/CreateUser';
+import Lexicon from './Pages/lexicon/Lexicon';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -107,7 +108,7 @@ function App() {
         <Route path="/recruit" element={<RecruitPage />} />
         <Route path="/joinus" element={<JoinUs />} />
         <Route path="/detail" element={<Resume />} />
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        <Route path="/lexicon" element={<Lexicon />} />
 
         <Route path="/dashboard" element={<Dashboard />} >
           <Route index path="new-job" element={<ApplyNewJob />} />
@@ -116,7 +117,6 @@ function App() {
           <Route path="profile-setting" element={<ProfileSetting />} />
           <Route path="notification" element={<Notification />} />
           <Route path="notification-detail" element={<NotificationDetail />} />
-
         </Route>
 
 

@@ -176,7 +176,7 @@ const Ticker = () => {
                                                     </td>
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                         {/* <div className="text-left">{tiker?.}</div> */}
-                                                        <img onClick={() => openImagePopup(tiker.logoFile)} src={`${HOSTNAME}/public${tiker?.logoFile}`} className="w-[80px] h-[50px] cursor-pointer" alt="image_logo" />
+                                                        <img onClick={() => openImagePopup(tiker.logoFile)} src={`${HOSTNAME}${tiker?.logoFile}`} className="w-[80px] h-[50px] cursor-pointer" alt="image_logo" />
                                                     </td>
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                         <div className="text-left">{tiker?.tickerText}</div>
