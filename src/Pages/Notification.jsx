@@ -1,206 +1,65 @@
 import React from 'react'
-import { BsArrowRight, BsFillCalendarMinusFill } from 'react-icons/bs'
-import { IoHeartCircle } from 'react-icons/io5'
-import { Link } from 'react-router-dom'
+import { BsCalendarWeekFill, BsArrowRightShort } from 'react-icons/bs'
 
 const Notification = () => {
     return (
-        <>
-            <div className='bscontainer-fluid h-full py-5 px-5'>
-                <div className='row'>
-                    <div className='col-lg-12 flex items-end px-10 mb-5'>
-                        <div className='w-[90%]'>
-                            <h1 className='text-[#0D1829] font-semibold mb-2'>All Notification</h1>
-                            <h1 className='text-[#626973] text-xs font-normal'>Based on your preferences</h1>
+        <div className='bscontainer-fluid px-6 py-6'>
+            <div className='row g-0 mb-10'>
+                <div className='col-lg-10 border font-sans'>
+                    <h1 className='text-lg font-lg font-semibold'>All Notification</h1>
+                    <h1 className='text-[#949799] text-sm font-light'>Here all the notification shows</h1>
+                </div>
+                <div className='col-lg-2 border'>
+                    <button className='bg-[#65A33A] px-6 py-3 rounded-lg text-white font-sans text-lg mr-5'>All</button>
+                    <button className='bg-white px-6 py-3 rounded-lg text-[#999FA9] font-sans text-lg'>Unread(6)</button>
+                </div>
+            </div>
+            <div className='px-24'>
+                <div className='row g-0'>
+                    <div className='col-lg-3 px-6'>
+                        <div style={{ boxShadow: "0px 3px 5px #00000029" }} className='bg-[#999FA9] rounded-lg p-3 flex items-end justify-between '>
+                            <BsCalendarWeekFill size={43} className='text-white p-3 rounded-sm bg-[#c7c8ca] block' />
+                            <div  >
+                                <h1 className='text-white text-sm font-sans font-bold'>17</h1>
+                                <h1 className='text-[#c7c8ca] text-sm font-sans font-light'>Interview schedule</h1>
+                            </div>
+                            <BsArrowRightShort size={33} className='block text-white self-center' />
                         </div>
-
-                        <div className="text-center flex w-[20%]">
-                            <div className=' p-2 w-[30%]  cursor-pointer rounded-md text-white hover:bg-[#65A33A] bg-[#E84025]'>All</div>
-                            <div className=' p-2 mx-2 w-[50%] cursor-pointer rounded-md text-white hover:bg-[#65A33A] bg-[#E84025]'>UnRead</div>
-                        </div>
-
                     </div>
-                    <div className='col-lg-12 '>
-                        <div className="overflow-x-auto bg-white rounded-md ">
-                            <div className="bscontainer mt-5 ">
-                                <div className='row '>
-                                    <div className='col-lg-3 '>
-                                        <div className=' p-2 bg-[#999FA9] rounded-md' >
-                                            <div className='flex justify-between items-center'>
-                                                <div className='flex items-center'>
-                                                    <div className=' p-3 bg-gray-300 hover:bg-[#65A33A] cursor-pointer'>
-                                                        <BsFillCalendarMinusFill className='  text-[20px] text-white' />
-                                                    </div>
-                                                    <div className='ml-2 text-[12px]'>
-                                                        <h2 className='text-[14px] text-white'>17</h2>
-                                                        <span className='text-[#FFFFFF]'>Application sent</span>
-                                                    </div>
-
-                                                </div>
-                                                <div>
-                                                    <BsArrowRight className='text-white text-[20px]' />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='col-lg-3 '>
-                                        <div className=' p-2 bg-[#999FA9] rounded-md' >
-                                            <div className='flex justify-between items-center'>
-                                                <div className='flex items-center'>
-                                                    <div className=' p-3 bg-gray-300 hover:bg-[#65A33A] cursor-pointer'>
-                                                        <BsFillCalendarMinusFill className='  text-[20px] text-white' />
-                                                    </div>
-                                                    <div className='ml-2 text-[12px]'>
-                                                        <h2 className='text-[14px] text-white'>17</h2>
-                                                        <span className='text-[#FFFFFF]'>Application sent</span>
-                                                    </div>
-
-                                                </div>
-                                                <div>
-                                                    <BsArrowRight className='text-white text-[20px]' />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='col-lg-3  '>
-                                        <div className=' p-2 bg-[#999FA9] rounded-md' >
-                                            <div className='flex justify-between items-center'>
-                                                <div className='flex items-center'>
-                                                    <div className=' p-3 bg-gray-300 hover:bg-[#65A33A] cursor-pointer'>
-                                                        <BsFillCalendarMinusFill className='  text-[20px] text-white' />
-                                                    </div>
-                                                    <div className='ml-2 text-[12px]'>
-                                                        <h2 className='text-[14px] text-white'>17</h2>
-                                                        <span className='text-[#FFFFFF]'>Application sent</span>
-                                                    </div>
-
-                                                </div>
-                                                <div>
-                                                    <BsArrowRight className='text-white text-[20px]' />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='col-lg-3 '>
-                                        <div className=' p-2 border bg-[#999FA9] rounded-md' >
-                                            <div className='flex justify-between items-center'>
-                                                <div className='flex items-center'>
-                                                    <div className=' p-3 bg-gray-300 hover:bg-[#65A33A] cursor-pointer'>
-                                                        <BsFillCalendarMinusFill className='  text-[20px] text-white' />
-                                                    </div>
-                                                    <div className='ml-2 text-[12px]'>
-                                                        <h2 className='text-[14px] text-white'>17</h2>
-                                                        <span className='text-[#FFFFFF]'>Application sent</span>
-                                                    </div>
-
-                                                </div>
-                                                <div>
-                                                    <BsArrowRight className='text-white text-[20px]' />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div className='col-lg-3 px-6'>
+                        <div style={{ boxShadow: "0px 3px 5px #00000029" }} className='bg-[#999FA9] rounded-lg p-3 flex items-end justify-between '>
+                            <BsCalendarWeekFill size={43} className='text-white p-3 rounded-sm bg-[#c7c8ca] block' />
+                            <div  >
+                                <h1 className='text-white text-sm font-sans font-bold'>17</h1>
+                                <h1 className='text-[#c7c8ca] text-sm font-sans font-light'>Application sent</h1>
                             </div>
-                            <div className="bscontainer-fluid mt-4">
-                                <ul className='m-0 p-0'>
-                                    <Link to="/dashboard/notification-detail">
-                                        <li className=' p-2 rounded-lg bg-[#F7F8FA] shadow-[#00000029] mt-4'>
-                                            <div className='flex justify-between items-center'>
-                                                <div className="flex items-center">
-                                                    <div className=' w-[45px] h-[45px] bg-red-500 rounded-full'></div>
-                                                    <div className='ml-2 text-[#626973]'>
-                                                        <h2 className='text-[18px]'>hellow this is heainf <span className='text-[14px]'>this is invited to me </span></h2>
-                                                        <span className='text-sm text-gray-400'>12 mint ago</span>
-                                                    </div>
-                                                </div>
-                                                <div className='flex items-center pr-2 '>
-                                                    <IoHeartCircle className='text-[30px] text-red-400' />
-                                                    <span className='text-[30px] pl-2 -mt-4'>...</span>
-                                                </div>
-
-                                            </div>
-                                        </li>
-                                    </Link>
-                                    <Link to="/dashboard/notification-detail">
-                                        <li className=' p-2 rounded-lg bg-[#F7F8FA] shadow-[#00000029] mt-4'>
-                                            <div className='flex justify-between items-center'>
-                                                <div className="flex items-center">
-                                                    <div className=' w-[45px] h-[45px] bg-red-500 rounded-full'></div>
-                                                    <div className='ml-2 text-[#626973]'>
-                                                        <h2 className='text-[18px]'>hellow this is heainf <span className='text-[14px]'>this is invited to me </span></h2>
-                                                        <span className='text-sm text-gray-400'>12 mint ago</span>
-                                                    </div>
-                                                </div>
-                                                <div className='flex items-center pr-2 '>
-                                                    <IoHeartCircle className='text-[30px] text-red-400' />
-                                                    <span className='text-[30px] pl-2 -mt-4'>...</span>
-                                                </div>
-
-                                            </div>
-                                        </li>
-                                    </Link>
-                                    <Link to="/dashboard/notification-detail">
-                                        <li className=' p-2 rounded-lg bg-[#F7F8FA] shadow-[#00000029] mt-4'>
-                                            <div className='flex justify-between items-center'>
-                                                <div className="flex items-center">
-                                                    <div className=' w-[45px] h-[45px] bg-red-500 rounded-full'></div>
-                                                    <div className='ml-2 text-[#626973]'>
-                                                        <h2 className='text-[18px]'>hellow this is heainf <span className='text-[14px]'>this is invited to me </span></h2>
-                                                        <span className='text-sm text-gray-400'>12 mint ago</span>
-                                                    </div>
-                                                </div>
-                                                <div className='flex items-center pr-2 '>
-                                                    <IoHeartCircle className='text-[30px] text-red-400' />
-                                                    <span className='text-[30px] pl-2 -mt-4'>...</span>
-                                                </div>
-
-                                            </div>
-                                        </li>
-                                    </Link>
-                                    <Link to="/dashboard/notification-detail">
-                                        <li className=' p-2 rounded-lg bg-[#F7F8FA] shadow-[#00000029] mt-4'>
-                                            <div className='flex justify-between items-center'>
-                                                <div className="flex items-center">
-                                                    <div className=' w-[45px] h-[45px] bg-red-500 rounded-full'></div>
-                                                    <div className='ml-2 text-[#626973]'>
-                                                        <h2 className='text-[18px]'>hellow this is heainf <span className='text-[14px]'>this is invited to me </span></h2>
-                                                        <span className='text-sm text-gray-400'>12 mint ago</span>
-                                                    </div>
-                                                </div>
-                                                <div className='flex items-center pr-2 '>
-                                                    <IoHeartCircle className='text-[30px] text-red-400' />
-                                                    <span className='text-[30px] pl-2 -mt-4'>...</span>
-                                                </div>
-
-                                            </div>
-                                        </li>
-                                    </Link>
-                                    
-
-                                </ul>
+                            <BsArrowRightShort size={33} className='block text-white self-center' />
+                        </div>
+                    </div>
+                    <div className='col-lg-3 px-6'>
+                        <div style={{ boxShadow: "0px 3px 5px #00000029" }} className='bg-[#999FA9] rounded-lg p-3 flex items-end justify-between '>
+                            <BsCalendarWeekFill size={43} className='text-white p-3 rounded-sm bg-[#c7c8ca] block' />
+                            <div  >
+                                <h1 className='text-white text-sm font-sans font-bold'>17</h1>
+                                <h1 className='text-[#c7c8ca] text-sm font-sans font-light'>Profile viewed</h1>
                             </div>
-                            <div className='px-8 my-6 flex justify-between items-center'>
-                                <div className='w-[70%]'>
-                                    <h1 className='text-[#999FA9] text-xs'>Showing 04-12 of 29</h1>
-                                </div>
-                                <div className='w-[20%]'>
-                                    <div className=' flex justify-end'>
-                                        <div className='w-[40%] '>Prev</div>
-                                        <div className='w-[20%] text-[#E84025]'>01</div>
-                                        <div className='w-[20%]'>02</div>
-                                        <div className='w-[20%]'>05</div>
-                                        <div className='w-[40%] text-right text-[#E84025]'>Next</div>
-                                    </div>
-
-                                </div>
+                            <BsArrowRightShort size={33} className='block text-white self-center' />
+                        </div>
+                    </div>
+                    <div className='col-lg-3 px-6'>
+                        <div style={{ boxShadow: "0px 3px 5px #00000029" }} className='bg-[#999FA9] rounded-lg p-3 flex items-end justify-between '>
+                            <BsCalendarWeekFill size={43} className='text-white p-3 rounded-sm bg-[#c7c8ca] block' />
+                            <div  >
+                                <h1 className='text-white text-sm font-sans font-bold'>17</h1>
+                                <h1 className='text-[#c7c8ca] text-sm font-sans font-light'>Unread Message</h1>
                             </div>
-
+                            <BsArrowRightShort size={33} className='block text-white self-center' />
                         </div>
                     </div>
                 </div>
             </div>
-        </>
+
+        </div>
     )
 }
 
