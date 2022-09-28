@@ -97,18 +97,18 @@ const UserFeedback = () => {
                                                 <div className=''>
                                                     <div className='mb-3'>
                                                         <label className='block font-semibold text-lg mb-2'>User name</label>
-                                                        <input  {...register('username', { required: true })} className='border-gray-300 w-full rounded' type="text" placeholder='john doe' />
+                                                        <input  {...register('username', { required: true })} className='border-gray-300 w-full  border p-2 focus:outline-blue-500 rounded' type="text" placeholder='john doe' />
                                                         {errors.username && (<p className="text-red-500 text-sm">User name is required</p>)}
                                                     </div>
                                                     <div className='mb-3'>
                                                         <label className='block font-semibold text-lg mb-2'>Email address</label>
-                                                        <input  {...register('email', { required: true })} className='border-gray-300 w-full rounded' type="email" placeholder='john@gmail.com' />
+                                                        <input  {...register('email', { required: true })} className='border-gray-300 w-full border p-2 focus:outline-blue-500 rounded' type="email" placeholder='john@gmail.com' />
                                                         {errors.email && (<p className="text-red-500 text-sm">Email is required</p>)}
                                                     </div>
 
                                                     <div className='mb-3'>
                                                         <label className='block font-semibold text-lg mb-2'>Your feedback</label>
-                                                        <textarea rows={4} placeholder="feedback" className='border-gray-300 w-full rounded' {...register('feedback', { required: true })} />
+                                                        <textarea rows={4} placeholder="feedback" className='border-gray-300 w-full border p-2 focus:outline-blue-500 rounded' {...register('feedback', { required: true })} />
                                                         {errors.feedback && (<p className="text-red-500 text-sm">Feedback is required</p>)}
                                                     </div>
                                                     <div className='mb-3'>
