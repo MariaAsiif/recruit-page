@@ -159,7 +159,7 @@ const ViewEditFeedBack = ({ id, modalOpen, onClose, mode, data }) => {
                                             <p>{data.userName}</p>
                                         ) : (
 
-                                            <input    {...register("userName", { required: true })} className={`form-input w-full ${errors.userName ? "border-red-500" : "border-green-500"}`} />
+                                            <input    {...register("userName", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.userName ? "border-red-500" : "border-green-500"}`} />
                                         )}
 
                                     {errors.userName && (
@@ -178,7 +178,7 @@ const ViewEditFeedBack = ({ id, modalOpen, onClose, mode, data }) => {
                                             <p>{data.userEmail}</p>
                                         ) : (
 
-                                            <input    {...register("userEmail", { required: true })} className={`form-input w-full ${errors.userEmail ? "border-red-500" : "border-green-500"}`} />
+                                            <input    {...register("userEmail", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.userEmail ? "border-red-500" : "border-green-500"}`} />
                                         )}
 
                                     {errors.userEmail && (
@@ -215,7 +215,7 @@ const ViewEditFeedBack = ({ id, modalOpen, onClose, mode, data }) => {
                                             <p>{data.feedbackDescription}</p>
                                         ) : (
 
-                                            <input    {...register("feedbackDescription", { required: true })} className={`form-input w-full ${errors.feedbackDescription ? "border-red-500" : "border-green-500"}`} />
+                                            <input    {...register("feedbackDescription", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.feedbackDescription ? "border-red-500" : "border-green-500"}`} />
                                         )}
 
                                     {errors.feedbackDescription && (
@@ -224,7 +224,7 @@ const ViewEditFeedBack = ({ id, modalOpen, onClose, mode, data }) => {
                                 </div>
                                 <div className='col-lg-12 mt-10'>
                                     {mode === "edit" &&
-                                        <button className="btn bg-red-500 hover:bg-green-600 text-white" type='submit' >Update</button>
+                                        <button className="p-2 bg-red-500 hover:bg-green-600 text-white" type='submit' >Update</button>
                                     }
                                 </div>
                             </div>
@@ -271,7 +271,7 @@ const ViewEditFeedBack = ({ id, modalOpen, onClose, mode, data }) => {
                                                 <p>{data.tickerText}</p>
                                             ) : (
 
-                                                <input    {...register("tickerText", { required: true })} className={`form-input w-full ${errors.tickerText ? "border-red-500" : "border-green-500"}`} />
+                                                <input    {...register("tickerText", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.tickerText ? "border-red-500" : "border-green-500"}`} />
                                             )}
                                         {errors.tickerText && <span className='text-red-500'>This field is required</span>}
                                     </div>

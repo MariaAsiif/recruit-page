@@ -116,7 +116,7 @@ const ViewEditRole = ({ id, modalOpen, onClose, mode, data }) => {
                                                 // {...register('name')}
                                                 name="name"
                                                 id="name"
-                                                className={`form-input w-full`}
+                                                className={`border p-2 focus:outline-blue-500 rounded-sm w-full`}
                                             >
 
                                                 <option defaultChecked disabled>Select Country </option>
@@ -138,7 +138,7 @@ const ViewEditRole = ({ id, modalOpen, onClose, mode, data }) => {
                                 {
                                     mode !== "view" ? (
                                         <div className='col-lg-12'>
-                                            <button type='submit' className="btn bg-red-500 hover:bg-green-600 text-white" >Update Inspire</button>
+                                            <button type='submit' className="p-2 bg-red-500 hover:bg-green-600 text-white" >Update Inspire</button>
                                         </div>
                                     ) : null
                                 }

@@ -159,9 +159,8 @@ const CreateInspire = () => {
             <input
               {...register('name')}
               autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${
-                errors.name && 'border-red-400' 
-              }`}
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.name && 'border-red-400'
+                }`}
               name='name'
               id='name'
               type='text'
@@ -185,25 +184,22 @@ const CreateInspire = () => {
                 Active/DeActive
               </div>
               <div className='flex items-center'>
-                <div className='form-switch'>
-                  <input
-                    type='checkbox'
-                    id='company-toggle'
-                    className='sr-only'
+
+                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                  <input type="checkbox"
                     checked={companySetting}
                     onChange={() => setCompanySetting(!companySetting)}
+                    id="default-toggle"
+                    class="sr-only peer"
                   />
-                  <label className='bg-slate-400' htmlFor='company-toggle'>
-                    <span
-                      className='bg-white shadow-sm'
-                      aria-hidden='true'
-                    ></span>
-                    <span className='sr-only'>Company Culture</span>
-                  </label>
-                </div>
-                <div className='text-sm text-slate-400 italic ml-2'>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                  <div className='text-sm text-slate-400 italic ml-2'>
                   {companySetting ? 'Active' : 'DeActive'}
                 </div>
+                </label>
+
+                
+                
               </div>
             </div>
           </div>
@@ -240,9 +236,8 @@ const CreateInspire = () => {
             <textarea
               {...register('quote')}
               autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${
-                errors.quote && 'border-red-500'
-              }`}
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.quote && 'border-red-500'
+                }`}
               name='quote'
               id='quote'
               placeholder='QUOTATION'

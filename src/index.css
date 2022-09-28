@@ -215,7 +215,7 @@ video {
 }
 
 .react-tel-input {
-  border: 1pt solid gray !important;
+  border: 1pt solid lightgray !important;
 
 }
 
@@ -265,7 +265,7 @@ select {
   border: none;
   font-family: inherit;
   outline: none;
-  border: 1pt solid gray;
+  border: 1pt solid #cccc;
 }
 
 .react-tel-input .flag-dropdown {
@@ -605,6 +605,10 @@ select {
     .apply_job .sorting {
         display: flex;
         justify-content: center;
+    }
+
+    .add_cumtumer{
+      display: none;
     }
 
 }

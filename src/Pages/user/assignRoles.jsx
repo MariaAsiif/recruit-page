@@ -156,7 +156,7 @@ const Roles = () => {
 
           <Link
             to='create-ticker'
-            className='btn bg-red-500 hover:bg-green-600 text-white'
+            className='flex w-[20%] items-center rounded-sm bg-red-500 hover:bg-green-600 text-white'
           >
             <svg
               className='w-4 h-4 fill-current opacity-50 shrink-0'

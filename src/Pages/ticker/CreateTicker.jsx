@@ -53,7 +53,7 @@ const CreateTicker = () => {
                 expiryDate: endDate,
                 "active": true
             }
-          
+
             const res = await callApi("/tickers/createTicker", "post", payload)
             if (res.status === "Success") {
                 toast.success(res.message);
@@ -99,7 +99,7 @@ const CreateTicker = () => {
         < div className='relative cursor-pointe w-full'>
             <input readOnly ref={ref} // necessary  placeholder="yyy-mm-dd"
                 value={startDate ? `${startDate.year}/${startDate.month}/${startDate.day}` : ''}
-                className={` form-input w-full outline-blue-400 cursor-pointer z-30  px-2 py-2  border-gray-400`}
+                className={`border p-2 focus:outline-blue-500 rounded-sm w-full cursor-pointer z-30  px-2 py-2  border-gray-400`}
             />
             <div className={`visible absolute top-3 cursor-pointer right-5`}>   <FcCheckmark />   </div>
 
@@ -112,7 +112,7 @@ const CreateTicker = () => {
         < div className='relative cursor-pointe w-full'>
             <input readOnly ref={ref} // necessary  placeholder="yyy-mm-dd"
                 value={expiryDate ? `${expiryDate.year}/${expiryDate.month}/${expiryDate.day}` : ''}
-                className={` form-input w-full outline-blue-400 cursor-pointer z-30  px-2 py-2  border-gray-400`}
+                className={`border p-2 focus:outline-blue-500 rounded-sm w-full cursor-pointer z-30  px-2 py-`}
             />
             <div className={`visible absolute top-3 cursor-pointer right-5`}>   <FcCheckmark />   </div>
 
@@ -167,7 +167,7 @@ const CreateTicker = () => {
                         <div className='absolute right-5 top-10'>
                             {!errors.businessName && watch('businessName') ? <FcCheckmark className='mr-5' /> : errors.businessName ? <div className=' text-red-500'><MdClose className='mr-5' /></div> : null}
                         </div>
-                        <select onChange={handleChange}  className={`w-full  ${errors.businessName ? "border-red-400" : "border-gray-400"}`}>
+                        <select onChange={handleChange} className={`border p-2 focus:outline-blue-500 rounded-sm w-full ${errors.businessName && "border-red-400" }`}>
                             {allbusinesses.map((business) => <option key={business._id} value={business._id}  >
                                 <span >{business.businessPhoneBookText}</span>
                             </option>)}
@@ -187,7 +187,7 @@ const CreateTicker = () => {
                         <input
                             {...register('name')}
                             autoComplete="off"
-                            className={`w-full  ${errors.name ? "border-red-400" : "border-gray-400"}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full ${errors.name && "border-red-400"}`}
                             name='name' id="name"
                             type="text"
                             placeholder="Ticker text"
@@ -209,7 +209,19 @@ const CreateTicker = () => {
                         <div>
                             <div className="text-sm text-slate-800 font-semibold mb-3">Active/Deactivate</div>
                             <div className="flex items-center">
-                                <div className="form-switch">
+
+                                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                                    <input type="checkbox"
+                                       checked={companySetting}
+                                       onChange={() => setCompanySetting(!companySetting)}
+                                        id="default-toggle"
+                                        class="sr-only peer"
+                                    />
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                                    <div className="text-sm text-slate-400 italic ml-2">{companySetting ? 'Active' : 'Deactivate'}</div>
+                                </label>
+
+                                {/* <div className="form-switch">
                                     <input
                                         type="checkbox"
                                         id="company-toggle"
@@ -221,8 +233,8 @@ const CreateTicker = () => {
                                         <span className="bg-white shadow-sm" aria-hidden="true"></span>
                                         <span className="sr-only">Company Culture</span>
                                     </label>
-                                </div>
-                                <div className="text-sm text-slate-400 italic ml-2">{companySetting ? 'Active' : 'Deactivate'}</div>
+                                </div> */}
+                               
                             </div>
                         </div>
                     </div>
@@ -267,7 +279,7 @@ const CreateTicker = () => {
                     </div>
 
                     <div className='col-lg-12'>
-                        <button className="btn bg-red-500 hover:bg-green-600 text-white" >Submit</button>
+                        <button className="p-2 bg-red-500 hover:bg-green-600 text-white" >Submit</button>
                     </div>
                 </div>
             </form >

@@ -137,9 +137,9 @@ const ViewEditTerms = ({ id, modalOpen, onClose, mode, data }) => {
                                 )}
                             {error && <span className='text-red-500'>This field is required</span>}
                         </div>
-                        <div className='col-lg-12 mt-10'>
+                        <div className='col-lg-12 mt-10 text-left'>
                             {mode === "edit" &&
-                                <button onClick={(e) => onSubmit(e)} className="btn bg-red-500 hover:bg-green-600 text-white" type='submit' >Update</button>
+                                <button onClick={(e) => onSubmit(e)} className="p-2 bg-red-500 hover:bg-green-600 text-white" type='submit' >Update</button>
                             }
                         </div>
                     </div>

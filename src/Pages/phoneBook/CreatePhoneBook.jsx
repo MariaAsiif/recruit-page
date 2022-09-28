@@ -94,7 +94,7 @@ console.log("file" , file )
                             {!errors.name && watch("businessPhoneBookText") ? <FcCheckmark /> : errors.name ? <div className=' text-red-500'><MdClose /></div> : null}
                         </div>
                         <input
-                            {...register('businessPhoneBookText', { required: true })} t className={`w-full form-input  ${errors.name ? "border-red-400" : "border-gray-400"}`} placeholder="Business Name" />
+                            {...register('businessPhoneBookText', { required: true })}  className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.name &&  "border-red-400" }`} placeholder="Business Name" />
                         <span hidden={watch("businessPhoneBookText")} className='absolute text-red-400 text-lg font-medium  top-9 left-[155px]'>*</span>
                         {errors.businessPhoneBookText && (<p className="text-red-500 text-sm">This field is required</p>)}
                     </div>
@@ -104,11 +104,11 @@ console.log("file" , file )
                         <div className='absolute right-5 top-10'>
                             {!errors.logoimg && watch('logoimg') ? <FcCheckmark /> : errors.logo ? <div className=' text-red-500'><MdClose /></div> : null}
                         </div>
-                        <input  type="file" className={`form-input w-full h-[42px`} onChange={(e) => setFile(e.target.files[0])} />
+                        <input  type="file" className={`border p-[6px] focus:outline-blue-500 rounded-sm w-full h-[30px`} onChange={(e) => setFile(e.target.files[0])} />
                         <small className='text-red-500'>only png, svg images can be added</small>
                     </div>
                     <div className='col-lg-12'>
-                        <button className="btn bg-red-500 hover:bg-green-600 text-white" >Submit</button>
+                        <button className="p-2 bg-red-500 hover:bg-green-600 text-white" >Submit</button>
                     </div>
                 </div>
             </form >

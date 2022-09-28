@@ -128,7 +128,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
         < div className='relative cursor-pointe w-full'>
             <input readOnly ref={ref} // necessary  placeholder="yyy-mm-dd"
                 value={expiryDate ? `${expiryDate.year}/${expiryDate.month}/${expiryDate.day}` : ''}
-                className={` form-input w-full outline-blue-400 cursor-pointer z-30  px-2 py-2  border-gray-400`}
+                className={` border p-2 w-full focus:outline-blue-500 rounded-sm   cursor-pointer z-30  px-2 py-2  `}
             />
             <div className={`visible absolute top-3 cursor-pointer right-5`}>   <FcCheckmark />   </div>
 
@@ -268,7 +268,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
                                             type="text"
                                             {...register('fullname')}
                                             placeholder='Name'
-                                            className={`form-input w-full h-full  ${errors.fullname ? "border-red-400" : "border-gray-400"} `}
+                                            className={`border p-2 w-full focus:outline-blue-500 rounded-sm  h-full  ${errors.fullname ? "border-red-400" : "border-gray-400"} `}
                                         />
                                         {errors.fullname && (
                                             <p className="text-red-500 text-sm">{errors.fullname.message}</p>
@@ -311,7 +311,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
                                 <input
                                     {...register('secondFname')}
                                     autoComplete="off"
-                                    className={`form-input w-full  ${errors.secondFname && 'border-red-500'}`}
+                                    className={`border p-2 w-full focus:outline-blue-500 rounded-sm   ${errors.secondFname && 'border-red-500'}`}
                                     name='secondFname' id="secondFname"
                                     placeholder="2nd Family Name"
 
@@ -332,7 +332,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
                                 <input
                                     {...register('thirdFname')}
                                     autoComplete="off"
-                                    className={`form-input w-full  ${errors.thirdFname && 'border-red-500'}`}
+                                    className={`border p-2 w-full focus:outline-blue-500 rounded-sm   ${errors.thirdFname && 'border-red-500'}`}
                                     name='thirdFname' id="thirdFname"
                                     placeholder="3rd Family Name"
                                     type="text"
@@ -351,7 +351,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
                                 <input
                                     {...register('email')}
                                     autoComplete="off"
-                                    className={`form-input w-full  ${errors.email && 'border-red-500'}`}
+                                    className={`border p-2 w-full focus:outline-blue-500 rounded-sm   ${errors.email && 'border-red-500'}`}
                                     name='email' id="email"
                                     placeholder="Email Address"
                                     type="text" />
@@ -370,7 +370,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
                                 <input
                                     {...register('reEmail')}
                                     autoComplete="off"
-                                    className={`form-input w-full  ${errors.reEmail && 'border-red-500'}`}
+                                    className={`border p-2 w-full focus:outline-blue-500 rounded-sm   ${errors.reEmail && 'border-red-500'}`}
                                     name='reEmail' id="reEmail"
                                     placeholder="Re Email Address "
                                     type="text" />
@@ -391,7 +391,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
                                     onChange={handleChange}
                                     name="country"
                                     id="country"
-                                    className={`form-input w-full   ${errors.country && 'border-red-500'}`}
+                                    className={`border p-2 w-full focus:outline-blue-500 rounded-sm    ${errors.country && 'border-red-500'}`}
                                 >
                                     <option defaultChecked disabled>Select Country </option>
                                     {all_Countries.map((contry) => {
@@ -417,7 +417,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
                                     onChange={handleChange}
                                     name="state"
                                     id="state"
-                                    className={`form-input w-full   ${errors.state && 'border-red-500'}`}
+                                    className={`border p-2 w-full focus:outline-blue-500 rounded-sm    ${errors.state && 'border-red-500'}`}
                                 >
                                     <option defaultChecked disabled>Select State </option>
                                     {all_States.map((contry) => {
@@ -444,7 +444,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
                                     onChange={handleChange}
                                     name="city"
                                     id="city"
-                                    className={`form-input w-full   ${errors.city && 'border-red-500'}`}
+                                    className={`border p-2 w-full focus:outline-blue-500 rounded-sm    ${errors.city && 'border-red-500'}`}
                                 >
                                     <option defaultChecked disabled>Select city </option>
                                     {all_Cities.map((contry) => {
@@ -507,7 +507,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
                                 <input
                                     {...register('industry')}
                                     autoComplete="off"
-                                    className={`form-input w-full  ${errors.industry && 'border-red-500'}`}
+                                    className={`border p-2 w-full focus:outline-blue-500 rounded-sm   ${errors.industry && 'border-red-500'}`}
                                     name='industry' id="industry"
                                     placeholder="Current Industry"
 
@@ -524,7 +524,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
                                 <input
                                     {...register('position')}
                                     autoComplete="off"
-                                    className={`form-input w-full  ${errors.position && 'border-red-500'}`}
+                                    className={`border p-2 w-full focus:outline-blue-500 rounded-sm   ${errors.position && 'border-red-500'}`}
                                     name='position' id="position"
                                     placeholder="Position of Interest? "
 
@@ -541,7 +541,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
                                 <input
 
                                     autoComplete="off"
-                                    className={`form-input w-full  ${errors.age && 'border-red-500'}`}
+                                    className={`border p-2 w-full focus:outline-blue-500 rounded-sm   ${errors.age && 'border-red-500'}`}
                                     {...register('age')}
                                     name='age' id="age"
                                     placeholder="Age"
@@ -565,7 +565,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
                                             onBlur={onBlur}
                                             onChange={onChange}
                                             type="file"
-                                            className={`form-input w-full h-[42px]  ${errors.cv && 'border-red-500'}`}
+                                            className={`border p-2 w-full focus:outline-blue-500 rounded-sm  h-[42px]  ${errors.cv && 'border-red-500'}`}
                                             name='cv' id="cv"
                                         />
                                     )}
@@ -573,7 +573,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
                                 {/* <input
                             {...register('cv')}
                             autoComplete="off"
-                            className={`form-input w-full h-[42px]  ${errors.cv && 'border-red-500'}`}
+                            className={`border p-2 w-full focus:outline-blue-500 rounded-sm  h-[42px]  ${errors.cv && 'border-red-500'}`}
                             name='cv' id="cv"
                             type="file" /> */}
 
@@ -602,7 +602,7 @@ const ViewEditEmployer = ({ id, modalOpen, onClose, mode, data }) => {
                             </div>
 
                             <div className='col-lg-12'>
-                                <button className="btn bg-red-500 hover:bg-green-600 text-white" >Submit</button>
+                                <button className="p-2 bg-red-500 hover:bg-green-600 text-white" >Submit</button>
                             </div>
                         </div>
                     </form>

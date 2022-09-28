@@ -114,7 +114,7 @@ const ViewEditInspire = ({ id, modalOpen, onClose, mode, data }) => {
                                             <p>{data.permissionName}</p>
                                         ) : (
 
-                                            <input  {...register("permissionName", { required: true })} className={`form-input w-full ${errors.permissionName ? "border-red-500" : "border-green-500"}`} />
+                                            <input  {...register("permissionName", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm ${errors.permissionName ? "border-red-500" : "border-green-500"}`} />
                                         )}
                                     {errors.permissionName && <span className='text-red-500'>This field is required</span>}
                                 </div>
@@ -125,7 +125,7 @@ const ViewEditInspire = ({ id, modalOpen, onClose, mode, data }) => {
                                             <p>{data.moduleName}</p>
                                         ) : (
 
-                                            <input  {...register("moduleName", { required: true })} className={`form-input w-full ${errors.moduleName ? "border-red-500" : "border-green-500"}`} />
+                                            <input  {...register("moduleName", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm ${errors.moduleName ? "border-red-500" : "border-green-500"}`} />
                                         )}
                                     {errors.moduleName && <span className='text-red-500'>This field is required</span>}
                                 </div>
@@ -133,7 +133,7 @@ const ViewEditInspire = ({ id, modalOpen, onClose, mode, data }) => {
                                 {
                                     mode !== "view" ? (
                                         <div className='col-lg-12'>
-                                            <button type='submit' className="btn bg-red-500 hover:bg-green-600 text-white" >Update Inspire</button>
+                                            <button type='submit' className="p-2 bg-red-500 hover:bg-green-600 text-white" >Update Inspire</button>
                                         </div>
                                     ) : null
                                 }

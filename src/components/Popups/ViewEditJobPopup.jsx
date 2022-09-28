@@ -109,7 +109,7 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
         < div className='relative cursor-pointer'>
             <input readOnly ref={ref} // necessary  placeholder="yyy-mm-dd"
                 value={expiryDate ? `${expiryDate.year}/${expiryDate.month}/${expiryDate.day}` : ''}
-                className={`date_picker w-full outline-blue-400 cursor-pointer z-30  border-2 px-2 py-2  border-gray-400`}
+                className={`date_picker border p-2 w-full focus:outline-blue-500 rounded-sm  cursor-pointer z-30   px-2 py-2`}
             />
             <div className={`visible absolute top-3 cursor-pointer right-5`}>   <FcCheckmark />   </div>
 
@@ -194,7 +194,7 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                     (
                                         <p>{data.job_title}</p>
                                     ) : (
-                                        <input name='job_title' value={jobModel.job_title} onChange={handleChange} type="text" className={`form-input w-full`} />
+                                        <input name='job_title' value={jobModel.job_title} onChange={handleChange} type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                     )}
                                 {validationModel.job_titleError}
                             </div>
@@ -204,7 +204,7 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                     (
                                         <p>{data.salary}</p>
                                     ) : (
-                                        <input name='salary' value={jobModel.salary} onChange={handleChange} type="text" className={`form-input w-full`} />
+                                        <input name='salary' value={jobModel.salary} onChange={handleChange} type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                     )}
                                 {validationModel.salaryError}
                             </div>
@@ -214,7 +214,7 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                     (
                                         <p>{data.description}</p>
                                     ) : (
-                                        <input name='description' value={jobModel.description} onChange={handleChange} type="text" className={`form-input w-full`} />
+                                        <input name='description' value={jobModel.description} onChange={handleChange} type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                     )}
                                 {validationModel.descriptionError}
                             </div>
@@ -224,7 +224,7 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                     (
                                         <p>{data.employer}</p>
                                     ) : (
-                                        <input name='employer' value={jobModel.employer} onChange={handleChange} type="text" className={`form-input w-full`} />
+                                        <input name='employer' value={jobModel.employer} onChange={handleChange} type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                     )}
                                 {validationModel.employerError}
                             </div>
@@ -235,7 +235,7 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         <p>{data.jobtype}</p>
                                     ) : (
 
-                                        <select name='jobtype' value={jobModel.jobtype} onChange={handleChange} className={`form-input w-full`}>
+                                        <select name='jobtype' value={jobModel.jobtype} onChange={handleChange} className={`border p-2 w-full focus:outline-blue-500 rounded-sm `}>
                                             <option>full time</option>
                                             <option>part time</option>
                                             <option>internship</option>
@@ -249,7 +249,7 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                     (
                                         <p>{data.jobstatus}</p>
                                     ) : (
-                                        <select name='jobstatus' value={jobModel.jobstatus} onChange={handleChange} className={`form-input w-full`}>
+                                        <select name='jobstatus' value={jobModel.jobstatus} onChange={handleChange} className={`border p-2 w-full focus:outline-blue-500 rounded-sm `}>
                                             <option >active</option>
                                             <option >pending</option>
                                             <option>completed</option>
@@ -263,7 +263,7 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                     (
                                         <p>{data.jobclass}</p>
                                     ) : (
-                                        <select name='jobclass' value={jobModel.jobclass} onChange={handleChange} className={`form-input w-full`}>
+                                        <select name='jobclass' value={jobModel.jobclass} onChange={handleChange} className={`border p-2 w-full focus:outline-blue-500 rounded-sm `}>
                                             <option>onsite</option>
                                             <option >remote</option>
                                             <option >hybrid</option>
@@ -288,7 +288,7 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
                             {
                                 mode !== "view" ? (
                                     <div className='col-lg-12'>
-                                        <button onClick={handleUpdateJob} className="btn bg-red-500 hover:bg-green-600 text-white" >Update Job</button>
+                                        <button onClick={handleUpdateJob} className="p-2 bg-red-500 hover:bg-green-600 text-white" >Update Job</button>
                                     </div>
                                 ) : null
                             }

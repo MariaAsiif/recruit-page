@@ -82,7 +82,7 @@ function Customers() {
               </div>
 
               {/* Right: Actions */}
-              <div className="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
+              <div className="flex justify-between items-center gap-4">
 
                 {/* Delete button */}
                 <DeleteButton selectedItems={selectedItems} />
@@ -94,11 +94,11 @@ function Customers() {
                 <FilterButton align="right" />
 
                 {/* Add customer button */}
-                <button className="btn bg-red-500 hover:bg-green-600 text-white">
+                <button className="p-2 flex w-full h-full items-center bg-red-500 hover:bg-green-600 text-white">
                   <svg className="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                     <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                   </svg>
-                  <span className="hidden xs:block ml-2">Add Customer</span>
+                  <span className="lg:block xs:hidden ml-2 add_cumtumer ">Add Customer</span>
                 </button>
 
               </div>

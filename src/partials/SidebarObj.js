@@ -62,12 +62,12 @@ const SidebarObj = () => {
           subMenuItems: [
             {
               label: 'Main',
-              path: '/dashboard',
+              // path: '/dashboard',
               subMenuItems: [],
             },
             {
               label: 'Analytics',
-              path: '/dashboard/analytics',
+              // path: '/dashboard/analytics',
               subMenuItems: [],
             },
           ],

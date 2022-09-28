@@ -279,7 +279,7 @@ const ViewEditUser = (props) => {
                   ) : (
                     <input
                       {...register('first_name', { required: true })}
-                      className={`form-input w-full ${errors.first_name
+                      className={`border p-2 focus:outline-blue-500 rounded-sm w-full ${errors.first_name
                         ? 'border-red-500'
                         : 'border-green-500'
                         }`}
@@ -301,7 +301,7 @@ const ViewEditUser = (props) => {
                   ) : (
                     <input
                       {...register('first_family_name', { required: true })}
-                      className={`form-input w-full ${errors.first_family_name
+                      className={`border p-2 focus:outline-blue-500 rounded-sm w-full ${errors.first_family_name
                         ? 'border-red-500'
                         : 'border-green-500'
                         }`}
@@ -323,7 +323,7 @@ const ViewEditUser = (props) => {
                   ) : (
                     <input
                       {...register('second_family_name', { required: true })}
-                      className={`form-input w-full ${errors.second_family_name
+                      className={`border p-2 focus:outline-blue-500 rounded-sm w-full ${errors.second_family_name
                         ? 'border-red-500'
                         : 'border-green-500'
                         }`}
@@ -345,7 +345,7 @@ const ViewEditUser = (props) => {
                   ) : (
                     <input
                       {...register('third_family_name', { required: true })}
-                      className={`form-input w-full ${errors.third_family_name
+                      className={`border p-2 focus:outline-blue-500 rounded-sm w-full ${errors.third_family_name
                         ? 'border-red-500'
                         : 'border-green-500'
                         }`}
@@ -367,7 +367,7 @@ const ViewEditUser = (props) => {
                   ) : (
                     <input
                       {...register('email', { required: true })}
-                      className={`form-input w-full ${errors.email ? 'border-red-500' : 'border-green-500'
+                      className={`border p-2 focus:outline-blue-500 rounded-sm w-full ${errors.email ? 'border-red-500' : 'border-green-500'
                         }`}
                     />
                   )}
@@ -395,7 +395,7 @@ const ViewEditUser = (props) => {
                       onChange={handleChangeCountry}
                       name='country'
                       id='country'
-                      className={`form-control  form-control-lg ${errors.country && 'border-red-500'
+                      className={` border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.country && 'border-red-500'
                         }`}
                     >
                       <option value=''>{props.data.country} </option>
@@ -427,7 +427,7 @@ const ViewEditUser = (props) => {
                       onChange={handleChangeState}
                       name='state'
                       id='state'
-                      className={`w-full form-control  form-control-lg ${errors.state && 'border-red-500'
+                      className={`border p-2 focus:outline-blue-500 rounded-sm w-full ${errors.state && 'border-red-500'
                         }`}
                     >
                       <option value=''>{props.data.state}</option>
@@ -458,7 +458,7 @@ const ViewEditUser = (props) => {
                       onChange={handleChangeCity}
                       name='city'
                       id='city'
-                      className={`form-input w-full   ${errors.city && 'border-red-500'
+                      className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.city && 'border-red-500'
                         }`}
                     >
                       <option>{props.data.city}</option>
@@ -517,7 +517,7 @@ const ViewEditUser = (props) => {
                   ) : (
                     <select
                       onChange={handleChangeRole}
-                      className={`w-full  ${error.roleError ? 'border-red-400' : 'border-gray-400'
+                      className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${error.roleError ? 'border-red-400' : 'border-gray-400'
                         }`}
                     >
                       <option>{props.data.role}</option>
@@ -546,28 +546,20 @@ const ViewEditUser = (props) => {
                       <p> {isActive ? 'Active' : 'InActive'}</p>
                     ) : (
                       <div className='flex items-center'>
-                        <div className='form-switch'>
-                          <input
-                            type='checkbox'
-                            id='active-toggle'
-                            className='sr-only'
+
+                        <label for="default-toggle" className="inline-flex relative items-center cursor-pointer">
+                          <input type="checkbox"
+                            id="default-toggle" className="sr-only peer"
                             checked={isActive}
                             onChange={handleIsActive}
                           />
-                          <label
-                            className='bg-slate-400'
-                            htmlFor='active-toggle'
-                          >
-                            <span
-                              className='bg-white shadow-sm'
-                              aria-hidden='true'
-                            ></span>
-                            <span className='sr-only'>Active Culture</span>
-                          </label>
-                        </div>
-                        <div className='text-sm text-slate-400 italic ml-2'>
-                          {isActive ? 'Active' : 'InActive'}
-                        </div>
+                          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                          <div className='text-sm text-slate-400 italic ml-2'>
+                            {isActive ? 'Active' : 'InActive'}
+                          </div>
+                        </label>
+
+
                       </div>
                     )}
                     {errors.isActive && (
@@ -587,28 +579,21 @@ const ViewEditUser = (props) => {
                       <p> {approved ? 'Approved' : 'DisApproved'}</p>
                     ) : (
                       <div className='flex items-center'>
-                        <div className='form-switch'>
-                          <input
-                            type='checkbox'
-                            id='approved-toggle'
-                            className='sr-only'
+
+                        <label for="default-toggle" className="inline-flex relative items-center cursor-pointer">
+                          <input type="checkbox"
+                            id="default-toggle" className="sr-only peer"
                             checked={approved}
                             onChange={handleApproved}
                           />
-                          <label
-                            className='bg-slate-400'
-                            htmlFor='approved-toggle'
-                          >
-                            <span
-                              className='bg-white shadow-sm'
-                              aria-hidden='true'
-                            ></span>
-                            <span className='sr-only'>Approved Culture</span>
-                          </label>
-                        </div>
-                        <div className='text-sm text-slate-400 italic ml-2'>
-                          {approved ? 'Approved' : 'DisApproved'}
-                        </div>
+                          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                          <div className='text-sm text-slate-400 italic ml-2'>
+                            {approved ? 'Approved' : 'DisApproved'}
+                          </div>
+                        </label>
+
+
+
                       </div>
                     )}
                     {errors.approved && (
@@ -628,28 +613,24 @@ const ViewEditUser = (props) => {
                       <p> {verified ? 'Verified' : 'DisVerified'}</p>
                     ) : (
                       <div className='flex items-center'>
-                        <div className='form-switch'>
-                          <input
-                            type='checkbox'
-                            id='verified-toggle'
-                            className='sr-only'
-                            checked={verified}
+                        <div className='flex items-center'>
+
+                          <label for="default-toggle" className="inline-flex relative items-center cursor-pointer">
+                            <input type="checkbox"
+                              id="default-toggle" className="sr-only peer"
+                              checked={verified}
                             onChange={handleVerified}
-                          />
-                          <label
-                            className='bg-slate-400'
-                            htmlFor='verified-toggle'
-                          >
-                            <span
-                              className='bg-white shadow-sm'
-                              aria-hidden='true'
-                            ></span>
-                            <span className='sr-only'>verified Culture</span>
-                          </label>
-                        </div>
-                        <div className='text-sm text-slate-400 italic ml-2'>
+                            />
+                            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                            <div className='text-sm text-slate-400 italic ml-2'>
                           {verified ? 'Verified' : 'DisVerified'}
                         </div>
+                          </label>
+
+
+
+                        </div>
+                        
                       </div>
                     )}
                     {errors.verified && (
@@ -663,7 +644,7 @@ const ViewEditUser = (props) => {
                   <div className='col-lg-12'>
                     <button
                       type='submit'
-                      className='btn bg-red-500 hover:bg-green-600 text-white'
+                      className='p-2 bg-red-500 hover:bg-green-600 text-white'
                     >
                       Update User
                     </button>

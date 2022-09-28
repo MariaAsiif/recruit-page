@@ -198,7 +198,7 @@ const CreateLawyer = () => {
                                 type="text"
                                 {...register('title')}
                                 placeholder='Title'
-                                className={`form-input w-full h-full  ${errors.title ? "border-red-400" : "border-gray-400"} `}
+                                className={`border p-2 focus:outline-blue-500 rounded-sm w-full h-full  ${errors.title && "border-red-400" } `}
                             />
                             {errors.title && (
                                 <p className="text-red-500 text-sm">{errors.title.message}</p>
@@ -219,7 +219,7 @@ const CreateLawyer = () => {
                         <input
                             {...register('content')}
                             autoComplete="off"
-                            className={`w-full  ${errors.content ? "border-red-400" : "border-gray-400"}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.content && "border-red-400"}`}
                             name='content' id="content"
                             type="text"
                             placeholder="Content"
@@ -244,7 +244,7 @@ const CreateLawyer = () => {
                             {...register('gender')}
                             name="gender"
                             id="gender"
-                            className={`form-input w-full   ${errors.gender && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.gender && 'border-red-500'}`}
                         >
                             <option disabled>Select Gender </option>
                             <option>Male</option>
@@ -264,7 +264,7 @@ const CreateLawyer = () => {
                         <input
                             {...register('email')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.email && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.email && 'border-red-500'}`}
                             name='email' id="email"
                             placeholder="Email Address"
                             type="text" />
@@ -288,7 +288,7 @@ const CreateLawyer = () => {
                             onChange={handleChange}
                             name="country"
                             id="country"
-                            className={`form-input w-full   ${errors.country && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.country && 'border-red-500'}`}
                         >
                             <option defaultChecked disabled>Select Country </option>
                             {all_Countries.map((contry) => {
@@ -314,7 +314,7 @@ const CreateLawyer = () => {
                             onChange={handleChange}
                             name="state"
                             id="state"
-                            className={`form-input w-full   ${errors.state && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.state && 'border-red-500'}`}
                         >
                             <option defaultChecked disabled>Select State </option>
                             {all_States.map((contry) => {
@@ -341,7 +341,7 @@ const CreateLawyer = () => {
                             onChange={handleChange}
                             name="city"
                             id="city"
-                            className={`form-input w-full   ${errors.city && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.city && 'border-red-500'}`}
                         >
                             <option defaultChecked disabled>Select city </option>
                             {all_Cities.map((contry) => {
@@ -404,7 +404,7 @@ const CreateLawyer = () => {
                         <input
                             {...register('zipcode')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.zipcode && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.zipcode && 'border-red-500'}`}
                             name='zipcode' id="zipcode"
                             placeholder="Zipcode"
 
@@ -421,7 +421,7 @@ const CreateLawyer = () => {
                         <input
                             {...register('website')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.website && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.website && 'border-red-500'}`}
                             name='website' id="website"
                             placeholder="website"
 
@@ -438,7 +438,7 @@ const CreateLawyer = () => {
                         <input
                             {...register('facebook')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.facebook && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.facebook && 'border-red-500'}`}
                             name='facebook' id="facebook"
                             placeholder="Facebook"
 
@@ -455,7 +455,7 @@ const CreateLawyer = () => {
                         <input
                             {...register('twitter')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.twitter && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.twitter && 'border-red-500'}`}
                             name='twitter' id="twitter"
                             placeholder="Twitter"
 
@@ -472,7 +472,7 @@ const CreateLawyer = () => {
                         <input
                             {...register('instagram')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.instagram && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.instagram && 'border-red-500'}`}
                             name='instagram' id="instagram"
                             placeholder="instagram"
 
@@ -487,7 +487,7 @@ const CreateLawyer = () => {
                         <input
                             {...register('linkedIn')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.linkedIn && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.linkedIn && 'border-red-500'}`}
                             name='linkedIn' id="linkedIn"
                             placeholder="LinkedIn"
 
@@ -502,7 +502,7 @@ const CreateLawyer = () => {
                         <input
 
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.address && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.address && 'border-red-500'}`}
                             {...register('address')}
                             name='address' id="address"
                             placeholder="Permanent Address "
@@ -520,7 +520,7 @@ const CreateLawyer = () => {
                         <label className="block text-sm font-medium mb-1" htmlFor="image"> Image </label>
 
                         <input
-                            className={`form-input w-full h-[42px]`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full h-[42px]`}
                             onChange={(e) => setFile(e.target.files[0])}
                             name='image' id="image"
                             type="file"

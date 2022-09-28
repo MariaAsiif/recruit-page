@@ -76,7 +76,7 @@ const CreateFeedback = () => {
                         <input
                             {...register('name')}
                             autoComplete="off"
-                            className={`w-full  ${errors.name ? "border-red-400" : "border-gray-400"}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.name && "border-red-400" }`}
                             name='name' id="name"
                             type="text"
                             placeholder="User Name"
@@ -97,7 +97,7 @@ const CreateFeedback = () => {
                         <input
                             {...register('email')}
                             autoComplete="off"
-                            className={`w-full  ${errors.email ? "border-red-400" : "border-gray-400"}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.email && "border-red-400" }`}
                             name='email' id="email"
                             type="text"
                             placeholder="AUTHOR NAME"
@@ -121,7 +121,7 @@ const CreateFeedback = () => {
 
                             onChange={(e) => setFile(e.target.files[0])}
                             type="file"
-                            className={`form-input w-full h-[42px]  ${errors.logo && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full h-[42px]  ${errors.logo && 'border-red-500'}`}
                             name='logo' id="logo"
                         />
                         <small className='text-red-500'>only png, svg images can be added</small>
@@ -139,12 +139,11 @@ const CreateFeedback = () => {
                         <textarea
                             {...register('desc')}
                             autoComplete="off"
-                            className={`w-full  ${errors.desc ? "border-red-400" : "border-gray-400"}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.desc && "border-red-400" }`}
                             name='desc' id="desc"
                             placeholder="Your Feedback"
                             />
 
-                        <span hidden={watch('feedback')} className='absolute text-red-400 text-lg font-medium  top-9 left-[150px]'>*</span>
 
                         <span hidden={watch("desc")} className='absolute text-red-400 text-lg font-medium  top-9 left-[145px]'>*</span>
 
@@ -157,7 +156,7 @@ const CreateFeedback = () => {
                    
 
                     <div className='col-lg-12'>
-                        <button className="btn bg-red-500 hover:bg-green-600 text-white" >Submit</button>
+                        <button className="p-2 bg-red-500 hover:bg-green-600 text-white" >Submit</button>
                    
                     </div>
                 </div>

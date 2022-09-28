@@ -327,7 +327,7 @@ const CreateUser = () => {
                   type='text'
                   {...register('first_name')}
                   placeholder='Name'
-                  className={`form-input w-full h-full  ${errors.first_name ? 'border-red-400' : 'border-gray-400'
+                  className={`border p-2 focus:outline-blue-500 rounded-sm w-full h-full  ${errors.first_name && 'border-red-400' 
                     } `}
                 />
                 {errors.first_name && (
@@ -373,7 +373,7 @@ const CreateUser = () => {
             <input
               {...register('first_family_name')}
               autoComplete='off'
-              className={`w-full  ${errors.first_family_name ? 'border-red-400' : 'border-gray-400'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.first_family_name && 'border-red-400'
                 }`}
               name='first_family_name'
               id='first_family_name'
@@ -403,7 +403,7 @@ const CreateUser = () => {
             <input
               {...register('second_family_name')}
               autoComplete='off'
-              className={`form-input w-full  ${errors.second_family_name && 'border-red-500'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.second_family_name && 'border-red-500'
                 }`}
               name='second_family_name'
               id='second_family_name'
@@ -427,7 +427,7 @@ const CreateUser = () => {
             <input
               {...register('third_family_name')}
               autoComplete='off'
-              className={`form-input w-full  ${errors.third_family_name && 'border-red-500'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.third_family_name && 'border-red-500'
                 }`}
               name='third_family_name'
               id='third_family_name'
@@ -457,7 +457,7 @@ const CreateUser = () => {
             <input
               {...register('email')}
               autoComplete='off'
-              className={`form-input w-full  ${errors.email && 'border-red-500'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.email && 'border-red-500'
                 }`}
               name='email'
               id='email'
@@ -494,7 +494,7 @@ const CreateUser = () => {
             <input
               {...register('password')}
               autoComplete='off'
-              className={`form-input w-full  ${errors.password && 'border-red-500'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.password && 'border-red-500'
                 }`}
               name='password'
               id='password'
@@ -530,7 +530,7 @@ const CreateUser = () => {
               onChange={handleChangeCountry}
               name='country'
               id='country'
-              className={`form-input w-full   ${errors.country && 'border-red-500'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.country && 'border-red-500'
                 }`}
             >
               <option value=''>Select Country </option>
@@ -558,7 +558,7 @@ const CreateUser = () => {
               onChange={handleChangeState}
               name='state'
               id='state'
-              className={`form-input w-full   ${errors.state && 'border-red-500'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.state && 'border-red-500'
                 }`}
             >
               <option value=''>Select State </option>
@@ -586,7 +586,7 @@ const CreateUser = () => {
               onChange={handleChangeCity}
               name='city'
               id='city'
-              className={`form-input w-full   ${errors.city && 'border-red-500'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.city && 'border-red-500'
                 }`}
             >
               <option>Select city </option>
@@ -660,7 +660,7 @@ const CreateUser = () => {
             </div>
             <select
               onChange={handleChangeRole}
-              className={`w-full  ${error.roleError ? 'border-red-400' : 'border-gray-400'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${error.roleError && 'border-red-400'
                 }`}
             >
               <option>Select Role</option>
@@ -683,26 +683,24 @@ const CreateUser = () => {
                   Active
                 </div>
                 <div className='flex items-center'>
-                  <div className='form-switch'>
+
+                  <label for="default-toggle" className="inline-flex relative items-center cursor-pointer">
                     <input
-                      type='checkbox'
-                      id='active-toggle'
-                      className='sr-only'
+                      type="checkbox"
+                      value=""
+                      id="default-toggle"
                       checked={isActive}
                       onChange={handleIsActiveToggle}
-                    />
-                    <label className='bg-slate-400' htmlFor='active-toggle'>
-                      <span
-                        className='bg-white shadow-sm'
-                        aria-hidden='true'
-                      ></span>
-                      <span className='sr-only'>Active Culture</span>
-                    </label>
-                  </div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
+                      className="sr-only peer" />
+                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                    <div className='text-sm text-slate-400 italic ml-2'>
                     {isActive ? 'Active' : 'InActive'}
                   </div>
+                  </label>
+
                 </div>
+
+               
               </div>
             </div>
             <div className='col-lg-4 mb-4 relative'>
@@ -711,26 +709,23 @@ const CreateUser = () => {
                   Approved
                 </div>
                 <div className='flex items-center'>
-                  <div className='form-switch'>
+
+                  <label for="default-toggle" className="inline-flex relative items-center cursor-pointer">
                     <input
-                      type='checkbox'
-                      id='approved-toggle'
-                      className='sr-only'
+                      type="checkbox"
+                      value=""
+                      id="default-toggle"
                       checked={approved}
                       onChange={handleApprovedToggle}
-                    />
-                    <label className='bg-slate-400' htmlFor='approved-toggle'>
-                      <span
-                        className='bg-white shadow-sm'
-                        aria-hidden='true'
-                      ></span>
-                      <span className='sr-only'>Approved Culture</span>
-                    </label>
-                  </div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
+                      className="sr-only peer" />
+                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                    <div className='text-sm text-slate-400 italic ml-2'>
                     {approved ? 'Approved' : 'DisApproved'}
                   </div>
+                  </label>
+
                 </div>
+                
               </div>
             </div>
             <div className='col-lg-4 mb-4 relative'>
@@ -739,7 +734,22 @@ const CreateUser = () => {
                   Verified
                 </div>
                 <div className='flex items-center'>
-                  <div className='form-switch'>
+
+                  <label for="default-toggle" className="inline-flex relative items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      value=""
+                      id="default-toggle"
+                      checked={verified}
+                      onChange={handleVerifiedToggle}
+                      className="sr-only peer" />
+                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                    <div className='text-sm text-slate-400 italic ml-2'>
+                      {verified ? 'Verified' : 'Non Verified'}
+                    </div>
+                  </label>
+
+                  {/* <div className='form-switch'>
                     <input
                       type='checkbox'
                       id='verified-toggle'
@@ -754,16 +764,14 @@ const CreateUser = () => {
                       ></span>
                       <span className='sr-only'>Verified Culture</span>
                     </label>
-                  </div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
-                    {verified ? 'Verified' : 'Non Verified'}
-                  </div>
+                  </div> */}
+
                 </div>
               </div>
             </div>
           </div>
           <div className='col-lg-12'>
-            <button className='btn bg-red-500 hover:bg-green-600 text-white'>
+            <button className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Submit
             </button>
           </div>

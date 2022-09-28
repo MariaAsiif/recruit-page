@@ -101,7 +101,7 @@ const CreateRole = () => {
                             {...register('name')}
                             name="name"
                             id="name"
-                            className={`form-input w-full   ${errors.name && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.name && 'border-red-500'}`}
                         >
 
                             <option defaultChecked disabled>Select Country </option>
@@ -133,7 +133,7 @@ const CreateRole = () => {
 
 
                     <div className='col-lg-12'>
-                        <button className="btn bg-red-500 hover:bg-green-600 text-white" >Submit</button>
+                        <button className="p-2 bg-red-500 hover:bg-green-600 text-white" >Submit</button>
                     </div>
                 </div>
             </form>

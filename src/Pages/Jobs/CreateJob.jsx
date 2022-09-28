@@ -103,7 +103,7 @@ const CreateJob = () => {
         < div className='relative cursor-pointer'>
             <input readOnly ref={ref} // necessary  placeholder="yyy-mm-dd"
                 value={expiryDate ? `${expiryDate.year}/${expiryDate.month}/${expiryDate.day}` : ''}
-                className={`date_picker w-full outline-blue-400 cursor-pointer z-30  border px-2 py-2  border-gray-400`}
+                className={`date_picker w-full outline-blue-400 cursor-pointer z-30  border px-2 py-2`}
             />
             <div className={`visible absolute top-3 cursor-pointer right-5`}>   <FcCheckmark />   </div>
 

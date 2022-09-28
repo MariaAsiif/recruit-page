@@ -99,7 +99,7 @@ const CreatePermission = () => {
                         <input
                             {...register('permission')}
                             autoComplete="off"
-                            className={`w-full  ${errors.permission ? "border-red-400" : "border-gray-400"}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full ${errors.permission && "border-red-400" }`}
                             name='permission' id="permission"
                             type="text"
                             placeholder="Permission Name"
@@ -120,7 +120,7 @@ const CreatePermission = () => {
                         <input
                             {...register('module')}
                             autoComplete="off"
-                            className={`w-full  ${errors.name ? "border-red-400" : "border-gray-400"}`}
+                            className={`border p-[6px] focus:outline-blue-500 rounded-sm w-full  ${errors.name && "border-red-400"}`}
                             name='module' id="module"
                             type="text"
                             placeholder="Module Name"
@@ -140,7 +140,7 @@ const CreatePermission = () => {
 
 
                     <div className='col-lg-12'>
-                        <button className="btn bg-red-500 hover:bg-green-600 text-white" >Submit</button>
+                        <button className="p-2 bg-red-500 hover:bg-green-600 text-white" >Submit</button>
                     </div>
                 </div>
             </form>

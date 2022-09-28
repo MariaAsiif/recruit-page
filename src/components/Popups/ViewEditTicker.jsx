@@ -82,13 +82,13 @@ const ViewEditTicker = (props) => {
                                     <p>{props.data.tickerText}</p>
                                 ) : (
 
-                                    <input    {...register("tickerText", { required: true })} className={`form-input w-full ${errors.tickerText ? "border-red-500" : "border-green-500"}`} />
+                                    <input    {...register("tickerText", { required: true })} className={`border p-2 focus:outline-blue-500 rounded-sm w-full ${errors.tickerText ? "border-red-500" : "border-green-500"}`} />
                                 )}
                             {errors.tickerText && <span className='text-red-500'>This field is required</span>}
                         </div>
                         <div className='col-lg-12 mt-10'>
                             {props.mode === "edit" &&
-                                <button className="btn bg-red-500 hover:bg-green-600 text-white" type='submit' >Update</button>
+                                <button className="p-2 bg-red-500 hover:bg-green-600 text-white" type='submit' >Update</button>
                             }
                         </div>
                     </div>

@@ -19,7 +19,7 @@ import ProfileSetting from './Pages/ProfileSetting';
 import Notification from './Pages/Notification';
 import NotificationDetail from './Pages/NotificationDetail';
 
-import AdminDashboard from './Pages/Dashboard';
+import AdminDashboard from './Pages/AdminDashboard';
 // import Analytics from './Pages/Analytics';
 // import Fintech from './Pages/Fintech';
 

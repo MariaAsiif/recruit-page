@@ -129,7 +129,7 @@ const ViewEditDoctorPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.serviceName}</p>
                                         ) : (
-                                            <input    {...register("serviceName", { required: true })} className={`form-input w-full ${errors.serviceName ? "border-red-500" : "border-green-500"}`} />
+                                            <input    {...register("serviceName", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.serviceName ? "border-red-500" : "border-green-500"}`} />
                                         )}
                                     {errors.serviceName && (<p className="text-red-500 text-sm">This field is required</p>)}
                                 </div>
@@ -141,7 +141,7 @@ const ViewEditDoctorPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                             <p>{data.serviceCountry}</p>
                                         ) : (
                                             <>
-                                                <select value={recruitModel.country} onChange={handleChange} name="country" id="country" className={`form-input w-full`}   >
+                                                <select value={recruitModel.country} onChange={handleChange} name="country" id="country" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `}   >
                                                     <option defaultChecked disabled>Select Country </option>
                                                     {all_Countries.map((contry) => <option value={contry.isoCode}>{contry.name}</option>)}
                                                 </select>
@@ -154,7 +154,7 @@ const ViewEditDoctorPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.category}</p>
                                         ) : (
-                                            <input    {...register("category", { required: true })} className={`form-input w-full ${errors.category ? "border-red-500" : "border-green-500"}`} />
+                                            <input    {...register("category", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.category ? "border-red-500" : "border-green-500"}`} />
                                         )}
                                     {errors.serviceName && (<p className="text-red-500 text-sm">This field is required</p>)}
                                 </div>
@@ -165,7 +165,7 @@ const ViewEditDoctorPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                             <p>{data.serviceCity}</p>
                                         ) : (
                                             <>
-                                                <select value={recruitModel.city} onChange={handleChange} name="country" id="country" className={`form-input w-full`}   >
+                                                <select value={recruitModel.city} onChange={handleChange} name="country" id="country" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `}   >
                                                     <option defaultChecked disabled>Select Country </option>
                                                     {all_Cities.map((city) => <option >{city.name}</option>)}
                                                 </select>
@@ -178,7 +178,7 @@ const ViewEditDoctorPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.website}</p>
                                         ) : (
-                                            <input    {...register("website", { required: true })} className={`form-input w-full ${errors.website ? "border-red-500" : "border-green-500"}`} />
+                                            <input    {...register("website", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.website ? "border-red-500" : "border-green-500"}`} />
                                         )}
                                     {errors.website && (<p className="text-red-500 text-sm">This field is required</p>)}
                                 </div>
@@ -188,7 +188,7 @@ const ViewEditDoctorPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.facebook}</p>
                                         ) : (
-                                            <input    {...register("website", { required: true })} className={`form-input w-full ${errors.facebook ? "border-red-500" : "border-green-500"}`} />
+                                            <input    {...register("website", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.facebook ? "border-red-500" : "border-green-500"}`} />
                                         )}
                                     {errors.facebook && (<p className="text-red-500 text-sm">This field is required</p>)}
                                 </div>
@@ -198,7 +198,7 @@ const ViewEditDoctorPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.twitter}</p>
                                         ) : (
-                                            <input    {...register("website", { required: true })} className={`form-input w-full ${errors.twitter ? "border-red-500" : "border-green-500"}`} />
+                                            <input    {...register("website", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.twitter ? "border-red-500" : "border-green-500"}`} />
                                         )}
                                     {errors.twitter && (<p className="text-red-500 text-sm">This field is required</p>)}
                                 </div>
@@ -208,14 +208,14 @@ const ViewEditDoctorPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.instagram}</p>
                                         ) : (
-                                            <input    {...register("instagram", { required: true })} className={`form-input w-full ${errors.instagram ? "border-red-500" : "border-green-500"}`} />
+                                            <input    {...register("instagram", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.instagram ? "border-red-500" : "border-green-500"}`} />
                                         )}
                                     {errors.instagram && (<p className="text-red-500 text-sm">This field is required</p>)}
                                 </div>
                                 {
                                     mode !== "view" ? (
                                         <div className='col-lg-12'>
-                                            <button type="submit" className="btn bg-red-500 hover:bg-green-600 text-white" >Update Doctor</button>
+                                            <button type="submit" className="p-2 bg-red-500 hover:bg-green-600 text-white" >Update Doctor</button>
                                         </div>
                                     ) : null
                                 }

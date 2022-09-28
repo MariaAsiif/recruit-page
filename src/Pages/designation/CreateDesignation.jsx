@@ -93,7 +93,7 @@ const CreateDesignation = () => {
                         <input
                             {...register('name')}
                             autoComplete="off"
-                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.name ? "border-red-400" : "border-gray-400"}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.name && "border-red-400" }`}
                             name='name' id="name"
                             type="text"
                             placeholder="DEPATMENT NAME"

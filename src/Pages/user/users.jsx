@@ -148,7 +148,7 @@ const Users = () => {
           </div>
           <Link
             to='create-user'
-            className='btn bg-red-500 hover:bg-green-600 text-white'
+            className='p-2 flex w-[15%] items-center rounded-sm  bg-red-500 hover:bg-green-600 text-white'
           >
             <svg
               className='w-4 h-4 fill-current opacity-50 shrink-0'
@@ -231,7 +231,7 @@ const Users = () => {
                             <td className='px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap'>
                               <div className='text-left'>
                                 <button
-                                  className='btn bg-green-600 text-white'
+                                  className='p-2 rounded-md bg-green-600 text-white'
                                   onClick={() => {
                                     handleApproved(user._id, false);
                                   }}
@@ -245,7 +245,7 @@ const Users = () => {
                             <td className='px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap'>
                               <div className='text-left'>
                                 <button
-                                  className='btn bg-red-500 text-white'
+                                  className='p-2 rounded-md bg-red-500 text-white'
                                   onClick={() => {
                                     handleApproved(user._id, true);
                                   }}

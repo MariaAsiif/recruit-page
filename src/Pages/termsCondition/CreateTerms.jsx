@@ -69,7 +69,7 @@ const CreateTermsCondition = () => {
         < div className='relative cursor-pointer'>
             <input readOnly ref={ref} // necessary  placeholder="yyy-mm-dd"
                 value={expiryDate ? `${expiryDate.year}/${expiryDate.month}/${expiryDate.day}` : ''}
-                className={`date_picker w-full outline-blue-400 cursor-pointer z-30  border px-2 py-2  border-gray-400`}
+                className={`date_picker w-full outline-blue-400 cursor-pointer z-30  border px-2 py-2 `}
             />
             <div className={`visible absolute top-3 cursor-pointer right-5`}>   <FcCheckmark />   </div>
 
@@ -150,7 +150,7 @@ const CreateTermsCondition = () => {
 
                     </div>
                     <div className='col-md-12 mt-3'>
-                        <button className="btn bg-red-500 hover:bg-green-600 text-white" onClick={(e) => onSubmit(e)}>Submit</button>
+                        <button className="p-2 bg-red-500 hover:bg-green-600 text-white" onClick={(e) => onSubmit(e)}>Submit</button>
                     </div>
 
 

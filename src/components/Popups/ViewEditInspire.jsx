@@ -64,7 +64,7 @@ const ViewEditInspire = ({ id, modalOpen, onClose, mode, data }) => {
         < div className='relative cursor-pointer'>
             <input readOnly ref={ref} // necessary  placeholder="yyy-mm-dd"
                 value={quoteDate ? `${quoteDate.year}/${quoteDate.month}/${quoteDate.day}` : ''}
-                className={`date_picker w-full outline-blue-400 cursor-pointer z-30  border-2 px-2 py-2  border-gray-400`}
+                className={`date_picker border p-2 w-full focus:outline-blue-500 rounded-sm  z-30  px-2 py-2  `}
             />
             <div className={`visible absolute top-3 cursor-pointer right-5`}>   <FcCheckmark />   </div>
 
@@ -151,7 +151,7 @@ const ViewEditInspire = ({ id, modalOpen, onClose, mode, data }) => {
                                             <p>{data.authorName}</p>
                                         ) : (
 
-                                            <input  {...register("authorName", { required: true })} className={`form-input w-full ${errors.authorName ? "border-red-500" : "border-green-500"}`} />
+                                            <input  {...register("authorName", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.authorName ? "border-red-500" : "border-green-500"}`} />
                                         )}
                                     {errors.authorName && <span className='text-red-500'>This field is required</span>}
                                 </div>
@@ -162,7 +162,7 @@ const ViewEditInspire = ({ id, modalOpen, onClose, mode, data }) => {
                                             <p>{data.quoteText}</p>
                                         ) : (
 
-                                            <input  {...register("quoteText", { required: true })} className={`form-input w-full ${errors.quoteText ? "border-red-500" : "border-green-500"}`} />
+                                            <input  {...register("quoteText", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.quoteText ? "border-red-500" : "border-green-500"}`} />
                                         )}
                                     {errors.quoteText && <span className='text-red-500'>This field is required</span>}
                                 </div>
@@ -173,7 +173,7 @@ const ViewEditInspire = ({ id, modalOpen, onClose, mode, data }) => {
                                             <p>{data.quoteColor}</p>
                                         ) : (
 
-                                            <input    {...register("quoteColor", { required: true })} className={`form-input w-full ${errors.quoteColor ? "border-red-500" : "border-green-500"}`} />
+                                            <input    {...register("quoteColor", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.quoteColor ? "border-red-500" : "border-green-500"}`} />
                                         )}
                                     {errors.quoteColor && <span className='text-red-500'>This field is required</span>}
                                 </div>
@@ -195,7 +195,7 @@ const ViewEditInspire = ({ id, modalOpen, onClose, mode, data }) => {
                                 {
                                     mode !== "view" ? (
                                         <div className='col-lg-12'>
-                                            <button type='submit' className="btn bg-red-500 hover:bg-green-600 text-white" >Update Inspire</button>
+                                            <button type='submit' className="p-2 bg-red-500 hover:bg-green-600 text-white" >Update Inspire</button>
                                         </div>
                                     ) : null
                                 }

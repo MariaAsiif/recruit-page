@@ -208,7 +208,7 @@ const CreateServices = () => {
                                 type="text"
                                 {...register('business')}
                                 placeholder='business'
-                                className={`form-input w-full h-full  ${errors.business ? "border-red-400" : "border-gray-400"} `}
+                                className={`border p-2 focus:outline-blue-500 rounded-sm w-full h-full  ${errors.business && "border-red-400"} `}
                             />
                             {errors.business && (
                                 <p className="text-red-500 text-sm">{errors.business.message}</p>
@@ -229,7 +229,7 @@ const CreateServices = () => {
                         <input
                             {...register('content')}
                             autoComplete="off"
-                            className={`w-full  ${errors.content ? "border-red-400" : "border-gray-400"}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.content && "border-red-400" }`}
                             name='content' id="content"
                             type="text"
                             placeholder="Content"
@@ -254,7 +254,7 @@ const CreateServices = () => {
                             {...register('gender')}
                             name="gender"
                             id="gender"
-                            className={`form-input w-full   ${errors.gender && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.gender && 'border-red-500'}`}
                         >
                             <option disabled>Select Gender </option>
                             <option>Male</option>
@@ -274,7 +274,7 @@ const CreateServices = () => {
                         <input
                             {...register('email')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.email && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.email && 'border-red-500'}`}
                             name='email' id="email"
                             placeholder="Email Address"
                             type="text" />
@@ -293,7 +293,7 @@ const CreateServices = () => {
                         <input
                             {...register('longitude')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.longitude && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.longitude && 'border-red-500'}`}
                             name='longitude' id="longitude"
                             placeholder="Longitude"
                             type="text"
@@ -315,7 +315,7 @@ const CreateServices = () => {
                         <input
                             {...register('latitude')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.latitude && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.latitude && 'border-red-500'}`}
                             name='latitude' id="latitude"
                             placeholder="Latitude "
                             type="text" />
@@ -338,7 +338,7 @@ const CreateServices = () => {
                             onChange={handleChange}
                             name="country"
                             id="country"
-                            className={`form-input w-full   ${errors.country && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.country && 'border-red-500'}`}
                         >
                             <option defaultChecked disabled>Select Country </option>
                             {all_Countries.map((contry) => {
@@ -364,7 +364,7 @@ const CreateServices = () => {
                             onChange={handleChange}
                             name="state"
                             id="state"
-                            className={`form-input w-full   ${errors.state && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.state && 'border-red-500'}`}
                         >
                             <option defaultChecked disabled>Select State </option>
                             {all_States.map((contry) => {
@@ -391,7 +391,7 @@ const CreateServices = () => {
                             onChange={handleChange}
                             name="city"
                             id="city"
-                            className={`form-input w-full   ${errors.city && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.city && 'border-red-500'}`}
                         >
                             <option defaultChecked disabled>Select city </option>
                             {all_Cities.map((contry) => {
@@ -454,7 +454,7 @@ const CreateServices = () => {
                         <input
                             {...register('zipcode')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.zipcode && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.zipcode && 'border-red-500'}`}
                             name='zipcode' id="zipcode"
                             placeholder="Zipcode"
 
@@ -471,7 +471,7 @@ const CreateServices = () => {
                         <input
                             {...register('website')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.website && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.website && 'border-red-500'}`}
                             name='website' id="website"
                             placeholder="website"
 
@@ -488,7 +488,7 @@ const CreateServices = () => {
                         <input
                             {...register('facebook')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.facebook && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.facebook && 'border-red-500'}`}
                             name='facebook' id="facebook"
                             placeholder="Facebook"
 
@@ -505,7 +505,7 @@ const CreateServices = () => {
                         <input
                             {...register('twitter')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.twitter && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.twitter && 'border-red-500'}`}
                             name='twitter' id="twitter"
                             placeholder="Twitter"
 
@@ -522,7 +522,7 @@ const CreateServices = () => {
                         <input
                             {...register('instagram')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.instagram && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.instagram && 'border-red-500'}`}
                             name='instagram' id="instagram"
                             placeholder="instagram"
 
@@ -537,7 +537,7 @@ const CreateServices = () => {
                         <input
                             {...register('linkedIn')}
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.linkedIn && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.linkedIn && 'border-red-500'}`}
                             name='linkedIn' id="linkedIn"
                             placeholder="LinkedIn"
 
@@ -552,7 +552,7 @@ const CreateServices = () => {
                         <input
 
                             autoComplete="off"
-                            className={`form-input w-full  ${errors.address && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.address && 'border-red-500'}`}
                             {...register('address')}
                             name='address' id="address"
                             placeholder="Permanent Address "
@@ -568,7 +568,7 @@ const CreateServices = () => {
 
 
                     <div className='col-lg-12'>
-                        <button onClick={(e) => onSubmit(e)} className="btn bg-red-500 hover:bg-green-600 text-white" >Submit</button>
+                        <button onClick={(e) => onSubmit(e)} className="p-2 bg-red-500 hover:bg-green-600 text-white" >Submit</button>
                     </div>
                 </div>
             </form>

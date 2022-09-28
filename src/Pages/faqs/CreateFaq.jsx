@@ -60,7 +60,7 @@ const CreateFaq = () => {
                     </div>
                     <div className='col-lg-10 mb-4'>
                         <label className="block text-sm font-medium mb-1"  >Section </label>
-                        <select {...register('section', { required: true })} className={`form-input w-full    ${errors.section ? "border-red-400" : "border-gray-400"} `} >
+                        <select {...register('section', { required: true })} className={`border p-2 focus:outline-blue-500 w-full rounded-sm    ${errors.section ? "border-red-400" : "border-gray-400"} `} >
                             <option>Finance</option>
                             <option>Security</option>
                             <option>Ecommerce </option>
@@ -68,22 +68,22 @@ const CreateFaq = () => {
                     </div>
                     <div className='col-lg-10 mb-4'>
                         <label className="block text-sm font-medium mb-1"  >Question </label>
-                        <textarea rows={4}{...register('question', { required: true })} className={`form-input w-full    ${errors.question ? "border-red-400" : "border-gray-400"} `} />
+                        <textarea rows={4}{...register('question', { required: true })} className={`border p-2 focus:outline-blue-500 w-full rounded-sm    ${errors.question ? "border-red-400" : "border-gray-400"} `} />
 
                     </div>
                     <div className='col-lg-10 mb-4'>
                         <label className="block text-sm font-medium mb-1"  >Answer </label>
-                        <textarea rows={4}{...register('answer', { required: true })} className={`form-input w-full   ${errors.answer ? "border-red-400" : "border-gray-400"} `} />
+                        <textarea rows={4}{...register('answer', { required: true })} className={`border p-2 focus:outline-blue-500 w-full rounded-sm   ${errors.answer ? "border-red-400" : "border-gray-400"} `} />
                     </div>
 
                     <div className='col-lg-10 mb-4'>
                         <label className="block text-sm font-medium mb-1"  >Added by </label>
-                        <select {...register('addedby', { required: true })} className={`form-input w-full    ${errors.addedby ? "border-red-400" : "border-gray-400"} `} >
+                        <select {...register('addedby', { required: true })} className={`border p-2 focus:outline-blue-500 w-full rounded-sm    ${errors.addedby ? "border-red-400" : "border-gray-400"} `} >
                             <option>{useername}</option>
                         </select>
                     </div>
                     <div className='col-lg-12'>
-                        <button className="btn bg-red-500 hover:bg-green-600 text-white" >Submit</button>
+                        <button className="p-2 bg-red-500 hover:bg-green-600 text-white" >Submit</button>
                     </div>
                 </div>
             </form>

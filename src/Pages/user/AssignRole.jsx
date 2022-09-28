@@ -168,7 +168,7 @@ const AssignRole = () => {
                         <div className='absolute right-5 top-10'>
                             {!error.userError ? <FcCheckmark className='mr-5' /> : error.userError ? <div className=' text-red-500'><MdClose className='mr-5' /></div> : null}
                         </div>
-                        <select onChange={handleChange} className={`w-full  ${error.userError ? "border-red-400" : "border-gray-400"}`}>
+                        <select onChange={handleChange} className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${error.userError && "border-red-400"}`}>
                             <option>Select User</option>
                             {users.map((business) => <option key={business._id} value={business._id}  >
                                 <span >{business.first_name}</span>
@@ -184,7 +184,7 @@ const AssignRole = () => {
                         <div className='absolute right-5 top-10'>
                             {!error.roleError ? <FcCheckmark className='mr-5' /> : error.roleError ? <div className=' text-red-500'><MdClose className='mr-5' /></div> : null}
                         </div>
-                        <select onChange={handleChangeRole} className={`w-full  ${error.roleError ? "border-red-400" : "border-gray-400"}`}>
+                        <select onChange={handleChangeRole} className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${error.roleError && "border-red-400"}`}>
                             <option>Select Role</option>
 
                             {roles.map((business) => <option key={business._id} value={business._id}  >
@@ -200,7 +200,7 @@ const AssignRole = () => {
 
 
                     <div className='col-lg-12'>
-                        <button onClick={(e) => onSubmit(e)} className="btn bg-red-500 hover:bg-green-600 text-white" >Submit</button>
+                        <button onClick={(e) => onSubmit(e)} className="p-2 bg-red-500 hover:bg-green-600 text-white" >Submit</button>
                     </div>
                 </div>
             </form >

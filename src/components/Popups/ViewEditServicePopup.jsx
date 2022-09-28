@@ -46,7 +46,7 @@ const ViewEditServicePopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.job_title}</p>
                                         ) : (
-                                            <input name='job_title' type="text" className={`form-input w-full`} />
+                                            <input name='job_title' type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                         )}
                                 </div>
 
@@ -56,7 +56,7 @@ const ViewEditServicePopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.job_title}</p>
                                         ) : (
-                                            <input name='job_title' type="text" className={`form-input w-full`} />
+                                            <input name='job_title' type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                         )}
                                 </div>
                                 <div className='col-lg-4 mb-5'>
@@ -65,7 +65,7 @@ const ViewEditServicePopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.job_title}</p>
                                         ) : (
-                                            <input name='job_title' type="text" className={`form-input w-full`} />
+                                            <input name='job_title' type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                         )}
                                 </div> <div className='col-lg-4 mb-5'>
                                     <label className="block text-lg font-medium mb-1" htmlFor="description">Content</label>
@@ -73,7 +73,7 @@ const ViewEditServicePopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.job_title}</p>
                                         ) : (
-                                            <input name='job_title' type="text" className={`form-input w-full`} />
+                                            <input name='job_title' type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                         )}
                                 </div> <div className='col-lg-4 mb-5'>
                                     <label className="block text-lg font-medium mb-1" htmlFor="description">Content</label>
@@ -81,7 +81,7 @@ const ViewEditServicePopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.job_title}</p>
                                         ) : (
-                                            <input name='job_title' type="text" className={`form-input w-full`} />
+                                            <input name='job_title' type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                         )}
                                 </div> <div className='col-lg-4 mb-5'>
                                     <label className="block text-lg font-medium mb-1" htmlFor="description">Content</label>
@@ -89,7 +89,7 @@ const ViewEditServicePopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.job_title}</p>
                                         ) : (
-                                            <input name='job_title' type="text" className={`form-input w-full`} />
+                                            <input name='job_title' type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                         )}
                                 </div> <div className='col-lg-4 mb-5'>
                                     <label className="block text-lg font-medium mb-1" htmlFor="description">Content</label>
@@ -97,7 +97,7 @@ const ViewEditServicePopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.job_title}</p>
                                         ) : (
-                                            <input name='job_title' type="text" className={`form-input w-full`} />
+                                            <input name='job_title' type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                         )}
                                 </div> <div className='col-lg-4 mb-5'>
                                     <label className="block text-lg font-medium mb-1" htmlFor="description">Content</label>
@@ -105,7 +105,7 @@ const ViewEditServicePopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.job_title}</p>
                                         ) : (
-                                            <input name='job_title' type="text" className={`form-input w-full`} />
+                                            <input name='job_title' type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                         )}
                                 </div> <div className='col-lg-4 mb-5'>
                                     <label className="block text-lg font-medium mb-1" htmlFor="description">Content</label>
@@ -113,7 +113,7 @@ const ViewEditServicePopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.job_title}</p>
                                         ) : (
-                                            <input name='job_title' type="text" className={`form-input w-full`} />
+                                            <input name='job_title' type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                         )}
                                 </div> <div className='col-lg-4 mb-5'>
                                     <label className="block text-lg font-medium mb-1" htmlFor="description">Content</label>
@@ -121,7 +121,7 @@ const ViewEditServicePopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.job_title}</p>
                                         ) : (
-                                            <input name='job_title' type="text" className={`form-input w-full`} />
+                                            <input name='job_title' type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                         )}
                                 </div> <div className='col-lg-4 mb-5'>
                                     <label className="block text-lg font-medium mb-1" htmlFor="description">Content</label>
@@ -129,7 +129,7 @@ const ViewEditServicePopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.job_title}</p>
                                         ) : (
-                                            <input name='job_title' type="text" className={`form-input w-full`} />
+                                            <input name='job_title' type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                         )}
                                 </div> <div className='col-lg-4 mb-5'>
                                     <label className="block text-lg font-medium mb-1" htmlFor="description">Content</label>
@@ -137,14 +137,14 @@ const ViewEditServicePopup = ({ id, modalOpen, onClose, mode, data }) => {
                                         (
                                             <p>{data.job_title}</p>
                                         ) : (
-                                            <input name='job_title' type="text" className={`form-input w-full`} />
+                                            <input name='job_title' type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
                                         )}
                                 </div>
 
                                 {
                                     mode !== "view" ? (
                                         <div className='col-lg-12'>
-                                            <button className="btn bg-red-500 hover:bg-green-600 text-white" >Update Job</button>
+                                            <button className="p-2 bg-red-500 hover:bg-green-600 text-white" >Update Job</button>
                                         </div>
                                     ) : null
                                 }
