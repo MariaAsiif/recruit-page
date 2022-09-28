@@ -3,10 +3,8 @@ import Footer from '../../components/Footer/Footer'
 import Layout from '../../components/Layout/Layout'
 // import Autocomplete from 'react-autocomplete'
 import { useState } from 'react'
-import { BiSearch } from 'react-icons/bi'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 const Lexicon = () => {
-    const [value, setValue] = useState('')
     const items = [
         { name: 'ART’s' },
         { name: 'PHYTOMEDICINE' },
@@ -48,9 +46,9 @@ const Lexicon = () => {
     return (
         <Layout>
             <div className='bscontainer  mt-[5rem]'>
-                <div className='flex items-center justify-between'>
+                <div className='lg:flex lg:items-center lg:justify-between text-center'>
                     <h2 className='text-[3rem] font-semibold'>Lexicon</h2>
-                    <div className='w-[30%]' >
+                    <div className='lg:w-[30%]' >
                         <ReactSearchAutocomplete
                             items={items}
                             onSearch={handleOnSearch}
