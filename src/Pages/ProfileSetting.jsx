@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
+import AccountUpdatedStep from '../components/ProfileSettingComponents/AccountUpdatedStep'
+import BasicInfoStep from '../components/ProfileSettingComponents/BasicInfoStep'
 import MainProfile from '../components/ProfileSettingComponents/MainProfile'
 import NeedHelp from '../components/ProfileSettingComponents/NeedHelp'
-import { ImUser } from "react-icons/im";
-import { MdOutlineLockOpen } from "react-icons/md";
-import { BsShieldFillCheck, BsCheck2All } from "react-icons/bs";
+import OTPVerifyStep from '../components/ProfileSettingComponents/OTPVerifyStep'
+import PasswordSecurityStep from '../components/ProfileSettingComponents/PasswordSecurityStep'
+import ProfilerStepper from '../components/ProfileSettingComponents/ProfilerStepper'
+import VerifyAccountStep from '../components/ProfileSettingComponents/VerifyAccountStep'
+
 // import profile_animation from "../assets/images/profile_animation.gif"
-import profile_animation from "../animation.json"
-import Lottie from "lottie-react"
+
 const ProfileSetting = () => {
+    const [activeStep, setactiveStep] = useState(1)
+    const onNextStep = () => {
+        if (activeStep === 5) {
+            setactiveStep(1)
+        } else {
+            setactiveStep(activeStep + 1)
+        }
+
+    }
     return (
         <div className='bscontainer-fluid px-6 py-6'>
             <div className='row mb-6'>
@@ -31,74 +43,29 @@ const ProfileSetting = () => {
                 <div className='col-lg-9'>
                     <div className='row gy-4'>
                         <div className='col-lg-12 '>
-                            <div style={{ boxShadow: "0px 3px 6px #00000029" }} className='bg-white  rounded-xl flex justify-center items-center'>
-                                <div className='w-1/6 '>
-                                    <Lottie animationData={profile_animation} />
-                                </div>
-                                <div className='w-5/6 '>
-                                    <div className='flex flex-wrap justify-center items-center '>
-                                        <div className='lg:w-[4%] w-[8%] text-center relative'>
-                                            <div className={` rounded-full bg-[#65A33A] text-white pt-2 text-sm  w-[40px] h-[40px] `}>
-                                                <ImUser size={24} className='inline' />
-                                            </div>
-
-                                        </div>
-                                        <div className={` bg-[#65A33A]  md:w-[25%] md:-ml-5 h-[1px] lg:w-[28%] w-[22.6%]`}></div>
-                                        <div className='lg:w-[4%] w-[8%] text-center relative'>
-                                            <div className={`bg-[#dfe0e0] text-[#999FA9] pt-2 text-sm w-[40px] h-[40px] rounded-full`}>
-                                                <MdOutlineLockOpen size={24} className='inline' />
-                                            </div>
-
-                                        </div>
-                                        <div className={`bg-[#dfe0e0] md:w-[25%] md:-ml-5 h-[1px] lg:w-[28%] w-[22.6%]`}></div>
-                                        <div className='lg:w-[4%] w-[8%] text-center relative'>
-                                            <div className={`bg-[#dfe0e0] text-[#999FA9] pt-2 text-sm w-[40px] h-[40px] rounded-full`}>
-                                                <BsShieldFillCheck size={24} className='inline' />
-                                            </div>
-
-                                        </div>
-                                        <div className={`bg-[#dfe0e0] md:w-[25%] md:-ml-5  h-[1px] lg:w-[28%] w-[22.6%]`}></div>
-                                        <div className='lg:w-[4%] w-[8%] text-center relative'>
-                                            <div className={`bg-[#dfe0e0] text-[#999FA9] pt-2 text-sm w-[40px] h-[40px] rounded-full`}>
-                                                <BsCheck2All size={24} className='inline' />
-                                            </div>
-
-                                        </div>
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
+                            <ProfilerStepper />
                         </div>
                         <div className='col-lg-12'>
-                            <div style={{ boxShadow: "0px 3px 6px #00000029" }} className='bg-white h-[368px] rounded-xl p-4'>
-                                <div className='row'>
-                                    <div className='col-lg-6 mb-10'>
-                                        <label className='text-[#999FA9] mb-2 block'>Enter your First Name*</label>
-                                        <input className='border-b border-[#999FA9] w-full text-[#626973] font-sans text-xl font-medium' value="Eddie" />
-                                    </div>
-                                    <div className='col-lg-6 mb-10'>
-                                        <label className='text-[#999FA9] mb-2 block'>Enter your First Name*</label>
-                                        <input className='border-b border-[#999FA9] w-full text-[#626973] font-sans text-xl font-medium' value="Eddie" />
-                                    </div>
-                                    <div className='col-lg-6 mb-10'>
-                                        <label className='text-[#999FA9] mb-2 block'>Enter your First Name*</label>
-                                        <input className='border-b border-[#999FA9] w-full text-[#626973] font-sans text-xl font-medium' value="Eddie" />
-                                    </div>
-                                    <div className='col-lg-6 mb-10'>
-                                        <label className='text-[#999FA9] mb-2 block'>Enter your First Name*</label>
-                                        <input className='border-b border-[#999FA9] w-full text-[#626973] font-sans text-xl font-medium' value="Eddie" />
-                                    </div>
-                                    <div className='col-lg-6 mb-10'>
-                                        <label className='text-[#999FA9] mb-2 block'>Enter your First Name*</label>
-                                        <input className='border-b border-[#999FA9] w-full text-[#626973] font-sans text-xl font-medium' value="Eddie" />
-                                    </div>
-                                    <div className='col-lg-12'>
-
+                            <div style={{ boxShadow: "0px 3px 6px #00000029" }} className='bg-white rounded-xl px-4 py-8'>
+                                <div className='min-h-[470px]'>
+                                    <div className='row'>
+                                        {activeStep === 1 ?
+                                            < BasicInfoStep /> :
+                                            activeStep === 2 ?
+                                                <PasswordSecurityStep /> :
+                                                activeStep === 3 ?
+                                                    <VerifyAccountStep /> :
+                                                    activeStep === 4 ?
+                                                        <OTPVerifyStep /> :
+                                                        activeStep === 5 ?
+                                                            <AccountUpdatedStep /> : null
+                                        }
                                     </div>
                                 </div>
+                                <div className='text-right'>
+                                    <button onClick={onNextStep} className='bg-[#E84025] text-right hover:bg-[#65A33A] font-semibold font-sans rounded-md px-9 py-3 text-white '>Next Step</button>
+                                </div>
+
                             </div>
                         </div>
                     </div>
