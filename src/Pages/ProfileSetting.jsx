@@ -21,16 +21,18 @@ const ProfileSetting = () => {
 
     }
     return (
-        <div className='bscontainer-fluid px-6 py-6'>
+        <div className='bscontainer-fluid lg:px-6  py-6'>
             <div className='row mb-6'>
                 <div className='col-lg-12'>
                     <h1 className='font-sans font-bold text-lg mb-1'>Edit Profile</h1>
                     <h1 className='text-[#949799] font-sans font-normal text-xs'>Based on your preferences</h1>
                 </div>
             </div>
-            <div className='row'>
-                <div className='col-lg-3'>
-                    <div className='row gy-4'>
+            <div className='row g-sm-4 g-0 '>
+
+
+                <div className='col-lg-3 lg:mb-0 mb-6 '>
+                    <div className='row gy-4 gx-0 gx-sm-4'>
                         <div className='col-lg-12'>
                             <MainProfile />
                         </div>
@@ -41,7 +43,7 @@ const ProfileSetting = () => {
                 </div>
 
                 <div className='col-lg-9'>
-                    <div className='row gy-4'>
+                    <div className='row gy-4 g-0 gx-sm-4'>
                         <div className='col-lg-12 '>
                             <ProfilerStepper />
                         </div>
@@ -69,7 +71,6 @@ const ProfileSetting = () => {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
