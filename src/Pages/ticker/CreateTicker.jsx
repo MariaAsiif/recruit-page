@@ -11,7 +11,7 @@ import { Link } from "react-router-dom"
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 const schema = yup.object({
-    name: yup.string().required("Ticker Name is Required"),
+    name: yup.string().required("Ticker Text is Required"),
     // businessName: yup.string().required()
 
 
@@ -162,7 +162,7 @@ const CreateTicker = () => {
                     </div>
 
 
-                    <div className='col-lg-4 mb-4 relative'>
+                    <div className='col-lg-6 mb-4 relative'>
                         <label className="block text-sm font-medium mb-1" htmlFor="businessName">Business Name </label>
                         <div className='absolute right-5 top-10'>
                             {!errors.businessName && watch('businessName') ? <FcCheckmark className='mr-5' /> : errors.businessName ? <div className=' text-red-500'><MdClose className='mr-5' /></div> : null}
@@ -178,34 +178,7 @@ const CreateTicker = () => {
                         )}
                     </div>
 
-
-                    <div className='col-lg-4 mb-4 relative'>
-                        <label className="block text-sm font-medium mb-1" htmlFor="name">Text</label>
-                        <div className='absolute right-5 top-10'>
-                            {!errors.name && watch("name") ? <FcCheckmark /> : errors.name ? <div className=' text-red-500'><MdClose /></div> : null}
-                        </div>
-                        <input
-                            {...register('name')}
-                            autoComplete="off"
-                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full ${errors.name && "border-red-400"}`}
-                            name='name' id="name"
-                            type="text"
-                            placeholder="Ticker text"
-
-                        />
-                        <span hidden={watch("name")} className='absolute text-red-400 text-lg font-medium  top-9 left-[110px]'>*</span>
-
-                        {errors.name && (
-                            <p className="text-red-500 text-sm">{errors.name.message}</p>
-                        )}
-
-
-                    </div>
-
-
-
-
-                    <div className='col-lg-4 mb-4 relative'>
+                    <div className='col-lg-6 mb-4 relative'>
                         <div>
                             <div className="text-sm text-slate-800 font-semibold mb-3">Active/Deactivate</div>
                             <div className="flex items-center">
@@ -221,25 +194,16 @@ const CreateTicker = () => {
                                     <div className="text-sm text-slate-400 italic ml-2">{companySetting ? 'Active' : 'Deactivate'}</div>
                                 </label>
 
-                                {/* <div className="form-switch">
-                                    <input
-                                        type="checkbox"
-                                        id="company-toggle"
-                                        className="sr-only"
-                                        checked={companySetting}
-                                        onChange={() => setCompanySetting(!companySetting)}
-                                    />
-                                    <label className="bg-slate-400" htmlFor="company-toggle">
-                                        <span className="bg-white shadow-sm" aria-hidden="true"></span>
-                                        <span className="sr-only">Company Culture</span>
-                                    </label>
-                                </div> */}
+                             
                                
                             </div>
                         </div>
                     </div>
 
-                    <div className='col-lg-4 mb-4 '>
+
+                
+
+                    <div className='col-lg-6 mb-4 '>
                         <label className="block text-sm font-medium mb-1 "  >Start Date</label>
                         <div className="relative">
                             <Controller
@@ -258,7 +222,7 @@ const CreateTicker = () => {
 
 
                     </div>
-                    <div className='col-lg-4 mb-4 '>
+                    <div className='col-lg-6 mb-4 '>
                         <label className="block text-sm font-medium mb-1 "  >End Date</label>
                         <div className="relative">
                             <Controller
@@ -274,6 +238,30 @@ const CreateTicker = () => {
                                 )}
                             />
                         </div>
+
+
+                    </div>
+
+                   
+                    <div className='col-lg-12 mb-4 relative'>
+                        <label className="block text-sm font-medium mb-1" htmlFor="name">Text</label>
+                        <div className='absolute right-5 top-10'>
+                            {!errors.name && watch("name") ? <FcCheckmark /> : errors.name ? <div className=' text-red-500'><MdClose /></div> : null}
+                        </div>
+                        <textarea
+                            {...register('name')}
+                            autoComplete="off"
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full ${errors.name && "border-red-400"}`}
+                            name='name' id="name"
+                            type="text"
+                            placeholder="Ticker text"
+
+                        ></textarea>
+                        <span hidden={watch("name")} className='absolute text-red-400 text-lg font-medium  top-9 left-[110px]'>*</span>
+
+                        {errors.name && (
+                            <p className="text-red-500 text-sm">{errors.name.message}</p>
+                        )}
 
 
                     </div>

@@ -118,7 +118,7 @@ console.log("label",permission)
                 <h3 className="text-xs uppercase text-gray-500 font-semibold pl-3">
                   <span className="lg:hidden lg:sidebar-expanded:block 2xl:block">{group.groupname}</span>
                 </h3>
-                {"superadmin" === 'superadmin' ?
+                {role === 'superadmin' ?
                   <ul className="mt-3 max-h-[400px] overflow-auto">
                     {group.menuitems?.map((item, index) => {
                       if (item.subMenuItems.length === 0) {

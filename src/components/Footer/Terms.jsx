@@ -32,6 +32,7 @@ const Terms = ({ toggle, prev }) => {
                             | <span className='hover:underline cursor-pointer' > TERMS OF USE </span>
                             | <span className='hover:underline cursor-pointer' > DIGITAL AGENCY SERVICES </span>
                             | <span className='hover:underline cursor-pointer' >SITE DIRECTORY </span>
+                            | <span className='hover:underline cursor-pointer' >LEXICON </span>
                         </span>
                     </div>
                     <div className='text-white'>

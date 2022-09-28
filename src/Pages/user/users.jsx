@@ -3,17 +3,21 @@ import { Link } from 'react-router-dom';
 import { IoEyeOutline } from 'react-icons/io5';
 
 import { callApi } from '../../utils/CallApi';
-
+import { FiCheck } from 'react-icons/fi'
+import { MdClose } from 'react-icons/md'
 import { toast } from 'react-toastify';
 import ViewEditUser from '../../components/Popups/ViewEditUser';
 import DeletePopup from '../../components/deletePopups/DeletePopups';
+import ApproveDisApprove from '../../components/Popups/ApproveDisapprove';
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [userPopup, setUserPopup] = useState(false);
   const [userMode, setUserMode] = useState('view');
   const [delId, setDelId] = useState('');
+  const [action, setAction] = useState('');
   const [userRow, setUserRow] = useState({});
   const [delPopup, setDelPopup] = useState(false);
+  const [approvePopup, setApprovePopup] = useState(false);
 
   const openUserPopup = (e, mode, data) => {
     e.stopPropagation();
@@ -25,7 +29,6 @@ const Users = () => {
   const deletePopToggle = async (id) => {
     setDelId(id);
     setDelPopup(true);
-    console.log(`id ===========`, id);
   };
 
   const deleteUser = async (delId) => {
@@ -49,6 +52,12 @@ const Users = () => {
       }
     } catch (error) { }
   };
+
+
+  const ApprovePopup = (data) => {
+    setAction(data)
+    setApprovePopup(true)
+  }
 
   const handleApproved = async (id, status) => {
     console.log('This is approved function');
@@ -116,6 +125,18 @@ const Users = () => {
           Toggle={() => setDelPopup(false)}
         />
       )}
+
+      {
+        approvePopup &&
+        <ApproveDisApprove
+          permition={approvePopup}
+          callback={() => {
+            handleApproved();
+          }}
+          ActionType={action}
+          Toggle={() => setApprovePopup(false)}
+        />
+      }
 
       <div className='row py-5'>
         <div className='col-12  mb-5'>
@@ -227,7 +248,31 @@ const Users = () => {
                           <td className='px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap'>
                             <div className='text-left'>{user.created_at}</div>
                           </td>
-                          {user.approved && (
+                          <td>
+                            <div className='flex justify-center items-center'>
+                              {user.approved ?
+                                <button
+                                  className='p-2 rounded-md border-green-600 border text-gre'
+                                // onClick={() => {
+                                //   handleApproved(user._id, false);
+                                // }}
+                                >
+                                  <span className='ml-2'>Approved</span>
+                                </button>
+
+                                :
+                                <>
+                                  <div onClick={() => ApprovePopup('approved')} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 pt-1 border-green-600  flex justify-center'>
+                                    <FiCheck className='text-[18px] text-green-600' />
+                                  </div>
+                                  <div onClick={() => ApprovePopup('disapproved')} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 pt-1 border-red-600 mx-2 flex justify-center'>
+                                    <MdClose className='text-[18px] text-red-600' />
+                                  </div>
+                                </>
+                              }
+                            </div>
+                          </td>
+                          {/* {user.approved && (
                             <td className='px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap'>
                               <div className='text-left'>
                                 <button
@@ -254,7 +299,7 @@ const Users = () => {
                                 </button>
                               </div>
                             </td>
-                          )}
+                          )} */}
 
                           <td className='px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px'>
                             <div className='space-x-1'>
