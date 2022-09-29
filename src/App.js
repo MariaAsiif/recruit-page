@@ -105,7 +105,7 @@ function App() {
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<PublicBetaLogin />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/Home" element={<HomePage />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/verify" element={<Verify />} />

@@ -121,7 +121,7 @@ const PublicBetaLogin = () => {
                         </div>
 
                         <div className='text-center mt-[2rem]' >
-                            <Link to="/dashboard/new-job" className=' px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] '>Login</Link>
+                            <Link to="/Home" className=' px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] '>Login</Link>
                         </div>
 
                         <div className='mt-[2rem]'>
