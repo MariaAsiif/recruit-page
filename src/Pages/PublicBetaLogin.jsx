@@ -64,10 +64,10 @@ const PublicBetaLogin = () => {
                     <Swiper
                         slidesPerView={1}
                         spaceBetween={10}
-                        // autoplay={{
-                        //     delay: 5000,
-                        //     disableOnInteraction: false,
-                        // }}
+                        autoplay={{
+                            delay: 5000,
+                            disableOnInteraction: false,
+                        }}
                         pagination={true}
                         modules={[Autoplay, Pagination]}
                         className="mySwiper"
