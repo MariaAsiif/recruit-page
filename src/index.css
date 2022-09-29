@@ -369,22 +369,20 @@ select {
 
 }
 
-/* .input[type="checkbox"]#check:checked~ {
-  background-color: green;
-} */
 
-input[type="checkbox"]:checked + span {
-  /* border-color: red; */
-  accent-color: red;
+.check_term input[type="checkbox"]:checked  {
+  accent-color: #93C234;
+  color: white;
+
+
+}
+
+.check_term input[type="checkbox"]:checked + span {
   color: #93C234;
-  -moz-appearance:none;
-  -webkit-appearance:none;
-  -o-appearance:none;
+
 }
 
-.form_popup .react-responsive-modal-modal .react-responsive-modal-closeButton{
-  display: none !important;
-}
+
 
 /* loader */
 

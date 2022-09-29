@@ -115,9 +115,13 @@ const PublicBetaLogin = () => {
 
                             </div>
                         </div>
-                        <div className='mt-[2rem] flex items-center'>
-                            <input type="checkbox" className='text-gray-400 ' onChange={handleValue} />
+                        <div className='mt-[2rem] flex items-center check_term ' >
+                            <input type="checkbox" onChange={handleValue} />
                             <span className='text-[13px] ml-2 text-gray-400'>Accept terms and condition</span>
+                        </div>
+
+                        <div className='text-center mt-[2rem]' >
+                            <Link to="/dashboard/new-job" className=' px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] '>Login</Link>
                         </div>
 
                         <div className='mt-[2rem]'>
