@@ -65,7 +65,7 @@ const PublicBetaLogin = () => {
                         slidesPerView={1}
                         spaceBetween={10}
                         autoplay={{
-                            delay: 5000,
+                            delay: 10000,
                             disableOnInteraction: false,
                         }}
                         pagination={true}
@@ -74,19 +74,19 @@ const PublicBetaLogin = () => {
                     >
                         {/* {Images.map((img, index) => ( */}
                         <SwiperSlide  >
-                            <ReactPlayer url={slider1} playing className="object-cover" width={"100%"} height={"624px"} />
+                            <ReactPlayer url={slider1} playing={true} width={"100%"} height={"624px"} />
                         </SwiperSlide>
                         <SwiperSlide  >
-                            <ReactPlayer url={slider2} playing className="object-cover" width={"100%"} height={"624px"} />
+                            <ReactPlayer url={slider2} playing={true} width={"100%"} height={"624px"} />
                         </SwiperSlide>
                         <SwiperSlide  >
-                            <ReactPlayer url={slider3} playing className="object-cover" width={"100%"} height={"624px"} />
+                            <ReactPlayer url={slider3} playing={true} width={"100%"} height={"624px"} />
                         </SwiperSlide>
                         <SwiperSlide  >
-                            <ReactPlayer url={slider4} playing className="object-cover" width={"100%"} height={"624px"} />
+                            <ReactPlayer url={slider4} playing={true} width={"100%"} height={"624px"} />
                         </SwiperSlide>
                         <SwiperSlide  >
-                            <ReactPlayer url={slider5} playing className="object-cover" width={"100%"} height={"624px"} />
+                            <ReactPlayer url={slider5} playing={true} width={"100%"} height={"624px"} />
                         </SwiperSlide>
                         {/* )) */}
                         {/* } */}
