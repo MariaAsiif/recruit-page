@@ -14,6 +14,7 @@ const Users = () => {
   const [userPopup, setUserPopup] = useState(false);
   const [userMode, setUserMode] = useState('view');
   const [delId, setDelId] = useState('');
+  const [actionId, setActionId] = useState();
   const [action, setAction] = useState('');
   const [userRow, setUserRow] = useState({});
   const [delPopup, setDelPopup] = useState(false);
@@ -55,15 +56,16 @@ const Users = () => {
 
 
   const ApprovePopup = (data) => {
-    setAction(data)
+    setAction(data.status)
+    setActionId(data.id)
     setApprovePopup(true)
   }
 
-  const handleApproved = async (id, status) => {
+  const handleApproved = async () => {
     console.log('This is approved function');
     let value = {
-      userid: id,
-      approved: status,
+      userid: actionId,
+      approved: action,
     };
     try {
       const res = await callApi('/users/approveDisapproveUser', 'post', value);
@@ -72,7 +74,7 @@ const Users = () => {
         let oldUsers = users;
         const updateUsers = oldUsers.map((user) => {
           if (user._id === res.data._id) {
-            user.approved = status;
+            user.approved = action;
           }
           return user;
         });
@@ -252,7 +254,7 @@ const Users = () => {
                             <div className='flex justify-center items-center'>
                               {user.approved === "approved" || user.approved === "disapproved" ?
                                 <button
-                                  className='p-2 rounded-md border-green-600 border text-gre'
+                                  className={user.approved === "approved" ? 'p-2 rounded-md border-green-600 border text-green-600' : 'p-2 rounded-md border-red-600 border text-red-600' }
                                 // onClick={() => {
                                 //   handleApproved(user._id, false);
                                 // }}
@@ -262,10 +264,10 @@ const Users = () => {
 
                                 :
                                 <>
-                                  <div onClick={() => ApprovePopup('approved')} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 pt-1 border-green-600  flex justify-center'>
+                                  <div onClick={() => ApprovePopup({status: 'approved' , id:  user._id })} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 pt-1 border-green-600  flex justify-center'>
                                     <FiCheck className='text-[18px] text-green-600' />
                                   </div>
-                                  <div onClick={() => ApprovePopup('disapproved')} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 pt-1 border-red-600 mx-2 flex justify-center'>
+                                  <div onClick={() => ApprovePopup({ status : 'disapproved' , id:  user._id })} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 pt-1 border-red-600 mx-2 flex justify-center'>
                                     <MdClose className='text-[18px] text-red-600' />
                                   </div>
                                 </>

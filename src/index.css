@@ -382,6 +382,10 @@ input[type="checkbox"]:checked + span {
   -o-appearance:none;
 }
 
+.form_popup .react-responsive-modal-modal .react-responsive-modal-closeButton{
+  display: none !important;
+}
+
 /* loader */
 
 

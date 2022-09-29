@@ -4,6 +4,7 @@ import Layout from '../../components/Layout/Layout'
 // import Autocomplete from 'react-autocomplete'
 import { useState } from 'react'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
+import {  callPublicApi } from '../../utils/CallApi'
 const Lexicon = () => {
     const [lexicon , setLexicon ] = useState([])
     const items = [
@@ -60,8 +61,9 @@ const Lexicon = () => {
                 },
               };
     
-              let response = await callApi('/lexiconpublic/getLexiconsWithFullDetailsPublic', 'post', payload);
-              setLexicon(response?.data?.users);
+              let response = await callPublicApi('/lexiconpublic/getLexiconsWithFullDetailsPublic', 'post', payload);
+            //   setLexicon(response?.data?.users);
+            console.log("res", response)
             } catch (error) {
               console.log(error);
             }

@@ -26,8 +26,8 @@ const ApproveDisApprove = ({ permition, Toggle, callback, ActionType }) => {
                         :
                         <p className='text-[15px] font-samibold mt-2'> Your want to disapprove this user. </p>
                     }
-                    <div>
-                        <button onClick={() => handleClose("yes")} className='bg-blue-500 w-[50%]  text-white'>Yes </button>
+                    <div className='flex flex-col'>
+                        <button onClick={() => handleClose("yes")} className='bg-blue-500 w-[100%]  text-white'>Yes </button>
                         <button onClick={() => handleClose("no")} className='bg-red-500 text-white'>No</button>
                     </div>
                 </div>
