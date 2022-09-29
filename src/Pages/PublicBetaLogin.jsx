@@ -74,19 +74,19 @@ const PublicBetaLogin = () => {
                     >
                         {/* {Images.map((img, index) => ( */}
                             <SwiperSlide  >
-                                    <ReactPlayer url={slider1} playing className="object-cover" width={"100%"} height={"622px"} />
+                                    <ReactPlayer url={slider1} playing className="object-cover" width={"100%"} height={"624px"} />
                             </SwiperSlide>
                             <SwiperSlide  >
-                                    <ReactPlayer url={slider2} playing className="object-cover" width={"100%"} height={"622px"} />
+                                    <ReactPlayer url={slider2} playing className="object-cover" width={"100%"} height={"624px"} />
                             </SwiperSlide>
                             <SwiperSlide  >
-                                    <ReactPlayer url={slider3} playing className="object-cover" width={"100%"} height={"622px"} />
+                                    <ReactPlayer url={slider3} playing className="object-cover" width={"100%"} height={"624px"} />
                             </SwiperSlide>
                             <SwiperSlide  >
-                                    <ReactPlayer url={slider4} playing className="object-cover" width={"100%"} height={"622px"} />
+                                    <ReactPlayer url={slider4} playing className="object-cover" width={"100%"} height={"624px"} />
                             </SwiperSlide>
                             <SwiperSlide  >
-                                    <ReactPlayer url={slider5} playing className="object-cover" width={"100%"} height={"622px"} />
+                                    <ReactPlayer url={slider5} playing className="object-cover" width={"100%"} height={"624px"} />
                             </SwiperSlide>
                         {/* )) */}
                         {/* } */}
@@ -96,7 +96,7 @@ const PublicBetaLogin = () => {
                 <div className='col-lg-7 col-12'>
                     <div className='lg:max-w-[400px] m-auto lg:mt-[5rem] text-center page_wrapper'>
                         <img src={logoImage} className="lg:ml-[85px] w-[40%]" alt="logo" />
-                       { term  &&  <PopUp permition={term} /> }
+                       { term  &&  <PopUp permition={term} Toggle={setterm} /> }
                         <div className='mt-[3rem]'>
 
                             <div className='text-center flex justify-center items-center mb-4'>

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { callApi, HOSTNAME } from '../../utils/CallApi';
 import { IoEyeOutline } from 'react-icons/io5';
 import { toast, ToastContainer } from 'react-toastify';
+import DeletePopup from '../../components/deletePopups/DeletePopups';
+import ViewEditLexicon from '../../components/Popups/ViewEdiitLexicon';
 
 // import ViewEditTicker from '../../components/Popups/ViewEditTicker';
 // import DeletePopup from '../../components/deletePopups/DeletePopups';
@@ -34,9 +36,8 @@ const Lexicons = () => {
             id: delId
         }
 
-
         try {
-            const res = await callApi("/tickers/removeTicker", "post", value)
+            const res = await callApi("/lexicons/removeLexicon", "post", value)
             if (res.status === "Success") {
 
                 toast.success(res.message);
@@ -101,18 +102,14 @@ const Lexicons = () => {
                 draggable
                 pauseOnHover
             />
-            {/* {
-                imagePopup ? (
-                    <ImageViewerPopup imageUrl={imagePopupUrl} open={imagePopup} onClose={() => setimagePopup(false)} />
-                ) : null
-            }
+           
             {
-                tickerPopup ? (
-                    <ViewEditTicker id="job-modal" data={jobRow} mode={jobMode} open={tickerPopup} onClose={() => settickerPopup(false)} />
-                ) : null
-            } */}
+                
+                    <ViewEditLexicon id="job-modal" data={jobRow} mode={jobMode} open={tickerPopup} onClose={() => settickerPopup(false)} />
+              
+            } 
 
-            {/* {delPopup && <DeletePopup permition={delPopup} Toggle={() => setDelPopup(false)} callback={deleteTicker} />} */}
+            {delPopup && <DeletePopup permition={delPopup} Toggle={() => setDelPopup(false)} callback={deleteTicker} />}
             <div className='row py-5'>
                 <div className='col-12  mb-5'>
                     <div className='mb-3'>

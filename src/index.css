@@ -336,7 +336,7 @@ select {
   cursor: pointer;
   display: flex;
   align-items: center;
-  right: 0px ;
+  right: 0px;
   justify-content: center;
 
 }
@@ -349,7 +349,7 @@ select {
   border-radius: 30%;
   color: black;
   z-index: 10;
-  left: 0px ;
+  left: 0px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -369,6 +369,18 @@ select {
 
 }
 
+/* .input[type="checkbox"]#check:checked~ {
+  background-color: green;
+} */
+
+input[type="checkbox"]:checked + span {
+  /* border-color: red; */
+  accent-color: red;
+  color: #93C234;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  -o-appearance:none;
+}
 
 /* loader */
 
@@ -438,7 +450,7 @@ select {
 }
 
 
-.react-responsive-modal-root {
+/* .react-responsive-modal-root {
   position: fixed;
   top: 4rem !important;
   bottom: 0;
@@ -466,7 +478,7 @@ select {
   cursor: pointer;
   background-color: transparent;
   display: flex;
-}
+} */
 
 
 
@@ -538,18 +550,18 @@ select {
     margin-top: 10px;
   }
 
-  .react-responsive-modal-container {
+  /* .react-responsive-modal-container {
     overflow: hidden;
     overflow-x: hidden;
     width: 100% !important;
     margin: auto;
     margin: auto !important;
     height: auto !important;
-  }
+  } */
 
-  
 
-.swiper-button-next {
+
+  .swiper-button-next {
     position: absolute;
     top: 50%;
     width: 25px;
@@ -562,13 +574,13 @@ select {
     align-items: center;
     right: 2rem;
     justify-content: center;
-}
+  }
 
   .thank_you_form img {
     width: 90%;
-}
+  }
 
-  .react-responsive-modal-root {
+  /* .react-responsive-modal-root {
     position: fixed;
     top: 0px !important;
     bottom: 0;
@@ -576,7 +588,7 @@ select {
     right: 0;
     z-index: 1000;
     overflow-y: hidden;
-  }
+  } */
 
 
 }
@@ -734,18 +746,18 @@ select {
     display: none;
   }
 
-  .react-responsive-modal-container {
+  /* .react-responsive-modal-container {
     overflow: hidden;
     overflow-x: hidden;
     width: 100% !important;
     margin: auto;
     margin: auto !important;
     height: auto !important;
-  }
+  } */
 
-  
 
-.swiper-button-next {
+
+  .swiper-button-next {
     position: absolute;
     top: 50%;
     width: 25px;
@@ -758,13 +770,13 @@ select {
     align-items: center;
     right: 27rem;
     justify-content: center;
-}
+  }
 
   .thank_you_form img {
     width: 42%;
-}
+  }
 
-  .react-responsive-modal-root {
+  /* .react-responsive-modal-root {
     position: fixed;
     top: 0px !important;
     bottom: 0;
@@ -772,7 +784,7 @@ select {
     right: 0;
     z-index: 1000;
     overflow-y: hidden;
-  }
+  } */
 
 }
 
@@ -782,18 +794,18 @@ select {
     margin-right: 5px;
   }
 
-  .react-responsive-modal-container {
+  /* .react-responsive-modal-container {
     overflow: hidden;
     overflow-x: hidden;
     width: 100% !important;
     margin: auto;
     margin: auto !important;
     height: auto !important;
-  }
+  } */
 
-  
 
-.swiper-button-next {
+
+  .swiper-button-next {
     position: absolute;
     top: 50%;
     width: 25px;
@@ -806,13 +818,13 @@ select {
     align-items: center;
     left: 13rem;
     justify-content: center;
-}
+  }
 
   .thank_you_form img {
     width: 30%;
-}
+  }
 
-  .react-responsive-modal-root {
+  /* .react-responsive-modal-root {
     position: fixed;
     top: 0px !important;
     bottom: 0;
@@ -820,5 +832,5 @@ select {
     right: 0;
     z-index: 1000;
     overflow-y: hidden;
-  }
+  } */
 }

@@ -1,10 +1,11 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Footer from '../../components/Footer/Footer'
 import Layout from '../../components/Layout/Layout'
 // import Autocomplete from 'react-autocomplete'
 import { useState } from 'react'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 const Lexicon = () => {
+    const [lexicon , setLexicon ] = useState([])
     const items = [
         { name: 'ART’s' },
         { name: 'PHYTOMEDICINE' },
@@ -42,6 +43,34 @@ const Lexicon = () => {
             </>
         )
     }
+
+
+    useEffect(() => {
+          (async () => {
+            try {
+              let payload = {
+                sortProperty: 'createdAt',
+                sortOrder: -1,
+                offset: 0,
+                limit: 50,
+                query: {
+                  critarion: { active: true },
+                  addedBy: '_id email first_name',
+                  lastModifiedBy: '_id email first_name',
+                },
+              };
+    
+              let response = await callApi('/lexiconpublic/getLexiconsWithFullDetailsPublic', 'post', payload);
+              setLexicon(response?.data?.users);
+            } catch (error) {
+              console.log(error);
+            }
+          })();
+      }, []);
+
+
+
+  
 
     return (
         <Layout>

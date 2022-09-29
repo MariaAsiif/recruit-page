@@ -250,14 +250,14 @@ const Users = () => {
                           </td>
                           <td>
                             <div className='flex justify-center items-center'>
-                              {user.approved ?
+                              {user.approved === "approved" || user.approved === "disapproved" ?
                                 <button
                                   className='p-2 rounded-md border-green-600 border text-gre'
                                 // onClick={() => {
                                 //   handleApproved(user._id, false);
                                 // }}
                                 >
-                                  <span className='ml-2'>Approved</span>
+                                  <span className='ml-2'>{user.approved}</span>
                                 </button>
 
                                 :
