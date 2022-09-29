@@ -80,7 +80,7 @@ const Lexicons = () => {
                     
                     }
                     const response = await callApi("/lexicons/getLexiconsWithFullDetails", "post", payload)
-                    setLexicon(response.data.tickers)
+                    setLexicon(response.data.lexicons)
                 } catch (error) {
                     console.log(error);
                 }
