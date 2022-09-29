@@ -381,6 +381,27 @@ const SidebarObj = () => {
           ],
         },
         {
+          label: 'Manage I Lexicon ',
+          leftIcon: <FaBriefcase size={22} />,
+          activeLeftIcon: <FaBriefcase size={22} className='text-green-500' />,
+          rightIcon: 'sadf',
+          path: '/lexicons',
+          pathname: 'lexicon',
+          subMenuItems: [
+            {
+              label: 'All Lexicon',
+              path: '/lexicons',
+              subMenuItems: [],
+            },
+            {
+              label: 'Create Lexicon',
+              path: '/lexicons/create-lexicon',
+              subMenuItems: [],
+            },
+           
+          ],
+        },
+        {
           label: 'Manage I Policy',
           leftIcon: <MdOutlinePolicy size={22} />,
           activeLeftIcon: (

@@ -79,6 +79,9 @@ import AssignRole from './Pages/user/AssignRole';
 import Users from './Pages/user/users';
 import CreateUsers from './Pages/user/CreateUser';
 import Lexicon from './Pages/lexicon/Lexicon';
+import PublicBetaLogin from './Pages/PublicBetaLogin';
+import CreateLexicon from './Pages/adminLexicon/CreateLexicon';
+import Lexicons from './Pages/adminLexicon/Lexicon';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -101,7 +104,8 @@ function App() {
     <>
       {/* <Header /> */}
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<PublicBetaLogin />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/verify" element={<Verify />} />
@@ -164,7 +168,7 @@ function App() {
           element={
             <RequireAuth>
               <MainWrapper />
-           </RequireAuth>
+            </RequireAuth>
           }
         >
           <Route index element={<Jobs />} />
@@ -357,6 +361,18 @@ function App() {
         >
           <Route index element={<AboutUs />} />
           <Route path='create-aboutus' element={<CreateAboutUs />} />
+        </Route>
+
+        <Route
+          path='/lexicons'
+          element={
+            <RequireAuth>
+              <MainWrapper />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<Lexicons />} />
+          <Route path='create-lexicon' element={<CreateLexicon />} />
         </Route>
 
         <Route
