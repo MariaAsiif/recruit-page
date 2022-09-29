@@ -3,9 +3,9 @@ import { BiSearch } from "react-icons/bi";
 import { AiTwotoneCloud } from 'react-icons/ai'
 import { IoMdNotificationsOutline } from 'react-icons/io'
 import profileImage from '../../images/people.png'
-const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand , setRightbarOpen , rightbarOpen }) => {
+const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbarOpen, rightbarOpen }) => {
     return (
-        <header style={{ boxShadow: "0px 0px 6px #00000029" }} className="sticky top-0 ml-1 bg-white border-b border-slate-200 z-30">
+        <header style={{ boxShadow: "0px 0px 6px #00000029" }} className="sticky top-0 lg:ml-1 bg-white border-b border-slate-200 z-30">
             <div className="px-4 sm:px-6 lg:px-6">
                 <div className="flex items-center justify-between h-16 -mb-px">
 

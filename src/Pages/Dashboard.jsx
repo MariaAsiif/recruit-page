@@ -20,9 +20,9 @@ const Dashboard = () => {
           <Outlet />
         </main>
       </div>
-      <div className="lg:hidden ">
+      {/* <div className="lg:hidden ">
         <DashboardRightbar rightbarOpen={rightbarOpen} setRightbarOpen={setRightbarOpen} />
-      </div>
+      </div> */}
     </div>
   )
 }
