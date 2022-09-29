@@ -15,7 +15,7 @@ const PopUp = ({ permition, Toggle, }) => {
         <Modal open={permition} center  >
           <div className='p-2 thank_you_form text-left max-h-[500px] overflow-y-auto' >
             <div className='mb-5'>
-              <img src={logoImage} className="w-[30%]" alt="logo_image" />
+              <img src={logoImage} className="lg:w-[30%] w-[20%]" alt="logo_image" />
             </div>
             <h2 className='text-[25px] mb-3  font-semibold'>
               General terms and conditions

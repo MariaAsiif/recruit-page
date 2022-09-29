@@ -105,7 +105,7 @@ const PublicBetaLogin = () => {
 
                             <div className='border mb-5  cursor-pointer  rounded-md flex items-center'>
                                 <IoMail className={`${login.email ? 'text-[20px]  ml-2 mr-2 text-[#93C234]' : 'text-[20px] ml-2 mr-2  '}`} />
-                                <input type="email" onChange={handleChange} name="email" value={login.email} placeholder='Join@gmail.com' className='focus:outline-none text-[#93C234] w-full rounded-md  h-[45px] ' />
+                                <input type="email" onChange={handleChange} name="email" value={login.email} placeholder='John@gmail.com' className='focus:outline-none text-[#93C234] w-full rounded-md  h-[45px] ' />
                                 <HiCheckCircle className={`${login.email && 'text-[#93C234]'} text-gray-400 text-[1.5rem] mr-1`} />
                             </div>
                             <div className={` border mb-4  cursor-pointer rounded-md flex items-center`}>
