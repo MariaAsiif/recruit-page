@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import slider1 from '../assets/videos/slider1.mp4'
-import slider2 from '../assets/videos/slider2.mp4'
-import slider3 from '../assets/videos/slider3.mp4'
-import slider4 from '../assets/videos/slider4.mp4'
-import slider5 from '../assets/videos/slider5.mp4'
+import React, { useState, useEffect } from 'react'
+// import slider1 from '../assets/videos/slider1.mp4'
+// import slider2 from '../assets/videos/slider2.mp4'
+// import slider3 from '../assets/videos/slider3.mp4'
+// import slider4 from '../assets/videos/slider4.mp4'
+// import slider5 from '../assets/videos/slider5.mp4'
 import logoImage from '../images/logo.png'
 // import beta from '../images/beta.png'
 import { IoMail } from 'react-icons/io5'
@@ -11,7 +11,7 @@ import { FaLock } from 'react-icons/fa'
 // import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 import { HiCheckCircle } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player/lazy'
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
@@ -23,15 +23,16 @@ const PublicBetaLogin = () => {
     const [login, setLogin] = useState({ email: '', password: '' })
     const [show, setShow] = useState(false)
     const [term, setterm] = useState(false)
+    const [play, setplay] = useState(false)
 
-    const Images = [
-        slider1,
-        slider2,
-        slider3,
-        slider4,
-        slider5,
+    // const Images = [
+    //     slider1,
+    //     slider2,
+    //     slider3,
+    //     slider4,
+    //     slider5,
 
-    ]
+    // ]
 
 
     const handleChange = (e) => {
@@ -53,7 +54,15 @@ const PublicBetaLogin = () => {
         console.log(`${value} is ${checked}`);
 
     }
+    useEffect(() => {
+        setTimeout(() => {
+            setplay(true)
+        }, 5000)
 
+        return (() => {
+            clearTimeout()
+        })
+    }, [])
 
 
     return (
@@ -73,20 +82,30 @@ const PublicBetaLogin = () => {
                         className="mySwiper"
                     >
                         {/* {Images.map((img, index) => ( */}
+                        {/* <SwiperSlide  >
+                            <ReactPlayer
+                                config={{ vimeo: {}, }}
+                                url={" https://player.vimeo.com/video/755264539?h=3941146cc4"} playing={play} width={"100%"} height={"624px"} />
+
+                        </SwiperSlide> */}
                         <SwiperSlide  >
-                            <ReactPlayer url={slider1} playing={true} width={"100%"} height={"624px"} />
+                            <ReactPlayer
+                                config={{ vimeo: {}, }}
+                                url={"https://player.vimeo.com/video/755264692?h=e86dddd893"} loop playing={play} width={"100%"} height={"624px"} />
                         </SwiperSlide>
                         <SwiperSlide  >
-                            <ReactPlayer url={slider2} playing={true} width={"100%"} height={"624px"} />
+                            <ReactPlayer
+                                config={{ vimeo: {}, }}
+                                url={"https://player.vimeo.com/video/755281838?h=35e93bb9c7"} loop playing={play} width={"100%"} height={"624px"} />
                         </SwiperSlide>
                         <SwiperSlide  >
-                            <ReactPlayer url={slider3} playing={true} width={"100%"} height={"624px"} />
+                            <ReactPlayer
+                                config={{ vimeo: {}, }}
+                                url={"https://player.vimeo.com/video/755265219?h=798d29ae1f"} loop playing={play} width={"100%"} height={"624px"} />
                         </SwiperSlide>
                         <SwiperSlide  >
-                            <ReactPlayer url={slider4} playing={true} width={"100%"} height={"624px"} />
-                        </SwiperSlide>
-                        <SwiperSlide  >
-                            <ReactPlayer url={slider5} playing={true} width={"100%"} height={"624px"} />
+                            <ReactPlayer config={{ vimeo: {}, }}
+                                url={"https://player.vimeo.com/video/755282891?h=35e93bb9c7"} loop playing={play} width={"100%"} height={"624px"} />
                         </SwiperSlide>
                         {/* )) */}
                         {/* } */}
@@ -94,8 +113,9 @@ const PublicBetaLogin = () => {
 
                 </div>
                 <div className='col-lg-7 col-12'>
+
                     <div className='lg:max-w-[400px] m-auto lg:mt-[5rem] text-center page_wrapper'>
-                        <img src={logoImage} className="lg:ml-[85px] w-[40%]" alt="logo" />
+                        <img onClick={() => setplay(true)} src={logoImage} className="lg:ml-[85px] w-[40%]" alt="logo" />
                         {term && <PopUp permition={term} Toggle={setterm} />}
                         <div className='mt-[3rem]'>
 
