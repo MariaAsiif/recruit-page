@@ -22,11 +22,13 @@ import PopUp from '../components/popup/popup'
 import { AiFillLock } from 'react-icons/ai'
 import { ImDatabase } from 'react-icons/im'
 import { IoMdClock } from 'react-icons/io'
+import Whatabout from '../components/popup/whatAbout'
 const PublicBetaLogin = () => {
     const [login, setLogin] = useState({ email: '', password: '' })
     const [show, setShow] = useState(false)
     const [term, setterm] = useState(false)
     const [terms, setterms] = useState(false)
+    const [about, setAbout] = useState(false)
     const [play, setplay] = useState(false)
 
     // const Images = [
@@ -117,12 +119,12 @@ const PublicBetaLogin = () => {
                         <SwiperSlide  >
                             <ReactPlayer
                                 // config={{ vimeo: {}, }}
-                                url={slider4} playing={false} width={"100%"} height={"623px"} />
+                                url={slider4} playing={true} width={"100%"} height={"623px"} />
                         </SwiperSlide>
                         <SwiperSlide  >
                             <ReactPlayer
                                 // config={{ vimeo: {}, }}
-                                url={slider5} playing={false} width={"100%"} height={"623px"} />
+                                url={slider5} playing={true} width={"100%"} height={"623px"} />
                         </SwiperSlide>
                         {/* )) */}
                         {/* } */}
@@ -134,6 +136,7 @@ const PublicBetaLogin = () => {
                     <div className='lg:max-w-[430px] m-auto lg:mt-[3rem] text-center page_wrapper'>
                         <img onClick={() => setplay(true)} src={logoImage} className="lg:ml-[85px] w-[40%]" alt="logo" />
                         {term && <PopUp permition={term} Toggle={setterm} />}
+                        {about && <Whatabout permition={true} Toggle={setAbout}/> }
                         <div className='mt-[3rem]'>
 
                             <div className='text-center flex justify-center items-center mb-4'>
@@ -157,7 +160,7 @@ const PublicBetaLogin = () => {
                             <span className='text-[13px] ml-2 text-gray-400'>Accept terms and condition</span>
                         </div>
                         <div>
-                            <Link to="/" className="hover:underline text-sm text-green-500">What is beta ?</Link>
+                            <div className="hover:underline text-sm cursor-pointer text-green-500" onClick={() =>  setAbout(true)}>What is beta ?</div>
                         </div>
 
                         <div className='flex justify-between items-center mt-5 bg-gray-100 p-3'>
