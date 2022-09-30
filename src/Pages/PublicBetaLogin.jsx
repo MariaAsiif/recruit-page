@@ -23,6 +23,14 @@ import { AiFillEye, AiFillEyeInvisible, AiFillLock } from 'react-icons/ai'
 import { ImDatabase } from 'react-icons/im'
 import { IoMdClock } from 'react-icons/io'
 import Whatabout from '../components/popup/whatAbout'
+import {
+    FacebookShareButton,
+    LinkedinShareButton,
+    TwitterShareButton,
+} from "react-share";
+import { FiFacebook } from 'react-icons/fi'
+import { BsLinkedin, BsTwitter } from 'react-icons/bs'
+
 const PublicBetaLogin = () => {
     const [login, setLogin] = useState({ email: '', password: '' })
     const [show, setShow] = useState(false)
@@ -114,7 +122,35 @@ const PublicBetaLogin = () => {
                 </div>
                 <div className='col-lg-7 col-12'>
 
-                    <div className='lg:max-w-[450px] m-auto lg:mt-[3rem] text-center page_wrapper'>
+                    <div className=' lg:text-right mt-4 lg:mt-2 text-center'>
+                        <div>
+                            <span className='text-[16px] text-bold'>Shere Us:</span>
+                            <span className='lg:mx-2 mx-1  md:mx-2 mt-1 '  >
+                                <FacebookShareButton url={"https://hporx.eu/"}>
+                                    <div className='border text-center flex justify-center   rounded-full pt-2 text-[22px] border-blue-800 text-blue-800 w-[30px] h-[30px]' >
+                                        <FiFacebook className='text-[15px]' />
+                                    </div>
+                                </FacebookShareButton>
+                            </span>
+                            <span className='lg:mx-2 mx-1  md:mx-2 mt-1 '  >
+                                <LinkedinShareButton url={"https://hporx.eu/"}>
+                                    <div className='border text-center flex justify-center   rounded-full pt-2 text-[22px] border-blue-900 text-blue-900 w-[30px] h-[30px]' >
+                                        <BsLinkedin className='text-[15px]' />
+                                    </div>
+                                </LinkedinShareButton>
+                            </span>
+                            <span className='lg:mx-2 mx-1  md:mx-2 mt-1 '  >
+                                <TwitterShareButton url={"https://hporx.eu/"}>
+                                    <div className='border text-center flex justify-center   rounded-full pt-2 text-[22px] border-blue-500 text-blue-500 w-[30px] h-[30px]' >
+                                        <BsTwitter className='text-[15px]' />
+                                    </div>
+                                </TwitterShareButton>
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div className='lg:max-w-[450px] m-auto  text-center page_wrapper'>
                         <img onClick={() => setplay(true)} src={logoImage} className="lg:ml-[85px] w-[40%]" alt="logo" />
                         {term && <PopUp permition={term} Toggle={setterm} />}
                         {about && <Whatabout permition={true} Toggle={setAbout} />}
@@ -126,25 +162,25 @@ const PublicBetaLogin = () => {
 
                             <div className='border mb-5  cursor-pointer  rounded-md flex items-center'>
                                 <IoMail className={`${login.email ? 'text-[20px]  ml-2 mr-2 text-[#93C234]' : 'text-[20px] ml-2 mr-2  '}`} />
-                                <input type={"email"} onChange={handleChange} name="email" value={show ? "" : login.email} placeholder='John@gmail.com' className='focus:outline-none text-[#93C234] w-full rounded-md  h-[45px] ' />
+                                <input type={show ? "password" : "email"} onChange={handleChange} name="email" value={login.email} placeholder='John@gmail.com' className='focus:outline-none text-[#93C234] w-full rounded-md  h-[45px] ' />
                                 {
                                     show ?
                                         <AiFillEyeInvisible onClick={() => setShow(false)} className={`${login.email && 'text-[#93C234]'} text-[27px] mr-2 mt-2 `} />
                                         :
-                                        <AiFillEye onClick={() => setShow(true)} className={` ${login.email && 'text-[#93C234]' } text-[27px] mr-2 mt-2 `} />
+                                        <AiFillEye onClick={() => setShow(true)} className={` ${login.email && 'text-[#93C234]'} text-[27px] mr-2 mt-2 `} />
 
 
                                 }
                             </div>
                             <div className={` border mb-4  cursor-pointer rounded-md flex items-center`}>
                                 <FaLock className={`${login.password ? 'text-[18px]  ml-2 mr-2 text-[#93C234]' : 'text-[18px] ml-2 mr-2 '}`} />
-                                <input type="password" onChange={handleChange} name="password" value={ showpass  ?  "" : login.password} placeholder='Password' className='focus:outline-none text-[#93C234] w-full rounded-md  h-[45px] ' />
+                                <input type={showpass ? "password" : "text"} onChange={handleChange} name="password" value={login.password} placeholder='Password' className='focus:outline-none text-[#93C234] w-full rounded-md  h-[45px] ' />
                                 {/* <HiCheckCircle className={`${login.password && 'text-[#93C234]'} text-gray-400 text-[1.5rem] mr-1`} /> */}
                                 {
                                     showpass ?
                                         <AiFillEyeInvisible onClick={() => setShowPass(false)} className={`${login.password && 'text-[#93C234]'} text-[27px] mr-2 mt-2 `} />
                                         :
-                                        <AiFillEye onClick={() => setShowPass(true)} className={` ${login.password && 'text-[#93C234]' } text-[27px] mr-2 mt-2 `} />
+                                        <AiFillEye onClick={() => setShowPass(true)} className={` ${login.password && 'text-[#93C234]'} text-[27px] mr-2 mt-2 `} />
 
 
                                 }

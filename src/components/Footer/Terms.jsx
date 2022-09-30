@@ -46,21 +46,21 @@ const Terms = ({ toggle, prev }) => {
                                 return ( */}
 
                                     <span className='lg:mx-2 sm:mx-1  md:mx-2 icons'   >
-                                        <FacebookShareButton url={"helloasdfhasdj"}>
+                                        <FacebookShareButton url={"https://hporx.eu/"}>
                                             <div className={`${!prev ? 'hover:border-white   border  text-center flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]' : 'border  border-black text-center text-black flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]'}`}>
                                                 <FiFacebook />
                                             </div>
                                         </FacebookShareButton>
                                     </span>
                                     <span className='lg:mx-2 sm:mx-1  md:mx-2 icons'   >
-                                        <LinkedinShareButton url={"helloasdfhasdj"}>
+                                        <LinkedinShareButton url={"https://hporx.eu/"}>
                                             <div className={`${!prev ? 'hover:border-white   border  text-center flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]' : 'border  border-black text-center text-black flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]'}`}>
                                                 <BsLinkedin />
                                             </div>
                                         </LinkedinShareButton>
                                     </span>
                                     <span className='lg:mx-2 sm:mx-1  md:mx-2 icons'   >
-                                        <TwitterShareButton url={"helloasdfhasdj"}>
+                                        <TwitterShareButton url={"https://hporx.eu/"}>
                                             <div className={`${!prev ? 'hover:border-white   border  text-center flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]' : 'border  border-black text-center text-black flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]'}`}>
                                                 <BsTwitter />
                                             </div>

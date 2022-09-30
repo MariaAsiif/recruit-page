@@ -59,7 +59,7 @@ const FollowUs = () => {
                                 <SwiperSlide  >
 
                                     <span className='lg:mx-2 sm:mx-1  md:mx-2 '  >
-                                        <FacebookShareButton url={"helloasdfhasdj"}>
+                                        <FacebookShareButton url={"https://hporx.eu/"}>
                                             <div className='border border-red-500 text-center flex justify-center   rounded-full pt-2 text-[22px] text-red-500 w-[40px] h-[40px]' >
                                                 <FiFacebook />
                                             </div>
@@ -71,7 +71,7 @@ const FollowUs = () => {
                                 <SwiperSlide  >
 
                                     <span className='lg:mx-2 sm:mx-1  md:mx-2 '  >
-                                        <LinkedinShareButton url={"helloasdfhasdj"}>
+                                        <LinkedinShareButton url={"https://hporx.eu/"}>
                                             <div className='border border-red-500 text-center flex justify-center   rounded-full pt-2 text-[22px] text-red-500 w-[40px] h-[40px]' >
                                                 <BsLinkedin />
                                             </div>
@@ -82,7 +82,7 @@ const FollowUs = () => {
                                 <SwiperSlide  >
 
                                     <span className='lg:mx-2 sm:mx-1  md:mx-2 '  >
-                                        <TwitterShareButton url={"helloasdfhasdj"}>
+                                        <TwitterShareButton url={"https://hporx.eu/"}>
                                             <div className='border border-red-500 text-center flex justify-center   rounded-full pt-2 text-[22px] text-red-500 w-[40px] h-[40px]' >
                                                 <BsTwitter />
                                             </div>
@@ -122,7 +122,7 @@ const FollowUs = () => {
                                     return ( */}
                                 <SwiperSlide>
                                     <span className='mx-2' >
-                                        <FacebookShareButton url={"helloasdfhasdj"}>
+                                        <FacebookShareButton url={"https://hporx.eu/"}>
                                             <div className='border border-black text-center flex justify-center ml-2 rounded-full pt-2 text-[22px]  w-[40px] h-[40px]' >
                                                 <BsLinkedin />
 
@@ -132,7 +132,7 @@ const FollowUs = () => {
                                 </SwiperSlide>
                                 <SwiperSlide>
                                     <span className='mx-2' >
-                                        <LinkedinShareButton url={"helloasdfhasdj"}>
+                                        <LinkedinShareButton url={"https://hporx.eu/"}>
                                             <div className='border border-black text-center flex justify-center ml-2 rounded-full pt-2 text-[22px]  w-[40px] h-[40px]' >
                                                 <FiFacebook />
 
@@ -142,7 +142,7 @@ const FollowUs = () => {
                                 </SwiperSlide>
                                 <SwiperSlide>
                                     <span className='mx-2' >
-                                        <TwitterShareButton url={"helloasdfhasdj"}>
+                                        <TwitterShareButton url={"https://hporx.eu/"}>
                                             <div className='border border-black text-center flex justify-center ml-2 rounded-full pt-2 text-[22px]  w-[40px] h-[40px]' >
                                                 <BsLinkedin />
 

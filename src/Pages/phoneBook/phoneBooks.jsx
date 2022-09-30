@@ -7,6 +7,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import ViewEditTicker from '../../components/Popups/ViewEditTicker';
 import DeletePopup from '../../components/deletePopups/DeletePopups';
 import ImageViewerPopup from '../../components/Popups/ImageViewerPopup';
+import ViewEditPhoneBook from '../../components/Popups/ViewEditPhone';
 const PhoneBooks = () => {
     const [allTicker, setallTicker] = useState([])
     const [tickerPopup, settickerPopup] = useState(false)
@@ -108,7 +109,7 @@ const PhoneBooks = () => {
             }
             {
                 tickerPopup ? (
-                    <ViewEditTicker id="job-modal" data={jobRow} mode={jobMode} open={tickerPopup} onClose={() => settickerPopup(false)} />
+                    <ViewEditPhoneBook id="job-modal" data={jobRow} mode={jobMode} open={tickerPopup} onClose={() => settickerPopup(false)} />
                 ) : null
             }
 
