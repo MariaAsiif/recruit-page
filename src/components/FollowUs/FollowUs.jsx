@@ -14,16 +14,24 @@ import "swiper/css";
 import { Autoplay, Navigation } from "swiper";
 
 
-let Icons = [
-    { icons: <FiFacebook />, link: "https://www.facebook.com", text: "Facebook" },
-    { icons: <AiFillYoutube />, link: "https://www.youtube.com", text: "Youtube" },
-    { icons: <BsTwitter />, link: "https://www.twitter.com", text: "Twitter" },
-    { icons: <FaSnapchatGhost />, link: "https://www.snapchat.com", text: "Snapchat" },
-    { icons: <BsLinkedin />, link: "https://www.linkedin.com", text: "Linkedin" },
-    { icons: <BsInstagram />, link: "https://www.instagram.com", text: "Instagram" },
-    { icons: <FaTiktok />, link: "https://www.tiktok.com", text: "Tiktok" },
+import {
+    FacebookShareButton,
+    LinkedinShareButton,
+    TwitterShareButton,
+} from "react-share";
 
-]
+
+
+// let Icons = [
+//     { icons: <FiFacebook />, link: "https://www.facebook.com", text: "Facebook" },
+//     { icons: <AiFillYoutube />, link: "https://www.youtube.com", text: "Youtube" },
+//     { icons: <BsTwitter />, link: "https://www.twitter.com", text: "Twitter" },
+//     { icons: <FaSnapchatGhost />, link: "https://www.snapchat.com", text: "Snapchat" },
+//     { icons: <BsLinkedin />, link: "https://www.linkedin.com", text: "Linkedin" },
+//     { icons: <BsInstagram />, link: "https://www.instagram.com", text: "Instagram" },
+//     { icons: <FaTiktok />, link: "https://www.tiktok.com", text: "Tiktok" },
+
+// ]
 
 
 
@@ -38,36 +46,58 @@ const FollowUs = () => {
                         <h2 className='text-[30px] font-bold'>Follow Us</h2>
                         <div className='flex items-center mt-3'>
                             <Swiper
-                                slidesPerView={5}
+                                slidesPerView={2}
                                 spaceBetween={10}
                                 autoplay={{
                                     delay: 2500,
                                     disableOnInteraction: false,
-                                  }}
-                                modules={[Autoplay , Navigation]}
+                                }}
+                                modules={[Autoplay, Navigation]}
                                 className="mySwiper"
                             >
 
+                                <SwiperSlide  >
 
-                                {Icons.map((icon, index) => {
-                                    const { icons, link, text } = icon
-                                    return (
+                                    <span className='lg:mx-2 sm:mx-1  md:mx-2 '  >
+                                        <FacebookShareButton url={"helloasdfhasdj"}>
+                                            <div className='border border-red-500 text-center flex justify-center   rounded-full pt-2 text-[22px] text-red-500 w-[40px] h-[40px]' >
+                                                <FiFacebook />
+                                            </div>
+                                            <p className='text-[14px] text-left  text-red-500'>Facebook</p>
+                                        </FacebookShareButton>
+                                    </span>
+                                </SwiperSlide>
 
-                                        <SwiperSlide key={index} > 
-                                            <span className='lg:mx-2 sm:mx-1  md:mx-2 '  >
-                                                <a href={link} target="_blank" className='flex flex-col items-center' rel="noopener noreferrer">
-                                                    <div className='border border-red-500 text-center flex justify-center   rounded-full pt-2 text-[22px] text-red-500 w-[40px] h-[40px]' > {icons}</div>
-                                                    <p className='text-[14px] text-left  text-red-500'>{text}</p>
-                                                </a>
-                                            </span>
-                                        </SwiperSlide>
+                                <SwiperSlide  >
+
+                                    <span className='lg:mx-2 sm:mx-1  md:mx-2 '  >
+                                        <LinkedinShareButton url={"helloasdfhasdj"}>
+                                            <div className='border border-red-500 text-center flex justify-center   rounded-full pt-2 text-[22px] text-red-500 w-[40px] h-[40px]' >
+                                                <BsLinkedin />
+                                            </div>
+                                            <p className='text-[14px] text-left  text-red-500'>Linkedin</p>
+                                        </LinkedinShareButton>
+                                    </span>
+                                </SwiperSlide>
+                                <SwiperSlide  >
+
+                                    <span className='lg:mx-2 sm:mx-1  md:mx-2 '  >
+                                        <TwitterShareButton url={"helloasdfhasdj"}>
+                                            <div className='border border-red-500 text-center flex justify-center   rounded-full pt-2 text-[22px] text-red-500 w-[40px] h-[40px]' >
+                                                <BsTwitter />
+                                            </div>
+                                            <p className='text-[14px] text-left  text-red-500'>Twitter</p>
+                                        </TwitterShareButton>
+                                    </span>
+                                </SwiperSlide>
 
 
-                                    )
-                                }
-                                )
-                                }
+
+
                             </Swiper>
+
+
+
 
                         </div>
                     </div>
@@ -75,32 +105,55 @@ const FollowUs = () => {
                         <h2 className='text-[30px] font-bold'>Hygieia Apothecary</h2>
                         <div className='flex items-center mt-3'>
                             <Swiper
-                                slidesPerView={5}
+                                slidesPerView={2}
                                 spaceBetween={10}
                                 autoplay={{
                                     delay: 2500,
                                     disableOnInteraction: false,
-                                  }}
-                                modules={[Autoplay , Navigation]}
+                                }}
+                                modules={[Autoplay, Navigation]}
                                 className="mySwiper"
                             >
 
 
 
-                                {Icons.map((icon, index) => {
+                                {/* {Icons.map((icon, index) => {
                                     const { icons, link } = icon
-                                    return (
-                                        <SwiperSlide>
-                                            <span className='mx-2' key={index} >
-                                                <a href={link} target="_blank" rel="noopener noreferrer">
-                                                    <div className='border border-black text-center flex justify-center ml-2 rounded-full pt-2 text-[22px]  w-[40px] h-[40px]' > {icons}</div>
-                                                </a>
-                                            </span>
-                                        </SwiperSlide>
-                                    )
+                                    return ( */}
+                                <SwiperSlide>
+                                    <span className='mx-2' >
+                                        <FacebookShareButton url={"helloasdfhasdj"}>
+                                            <div className='border border-black text-center flex justify-center ml-2 rounded-full pt-2 text-[22px]  w-[40px] h-[40px]' >
+                                                <BsLinkedin />
+
+                                            </div>
+                                        </FacebookShareButton>
+                                    </span>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <span className='mx-2' >
+                                        <LinkedinShareButton url={"helloasdfhasdj"}>
+                                            <div className='border border-black text-center flex justify-center ml-2 rounded-full pt-2 text-[22px]  w-[40px] h-[40px]' >
+                                                <FiFacebook />
+
+                                            </div>
+                                        </LinkedinShareButton>
+                                    </span>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <span className='mx-2' >
+                                        <TwitterShareButton url={"helloasdfhasdj"}>
+                                            <div className='border border-black text-center flex justify-center ml-2 rounded-full pt-2 text-[22px]  w-[40px] h-[40px]' >
+                                                <BsLinkedin />
+
+                                            </div>
+                                        </TwitterShareButton>
+                                    </span>
+                                </SwiperSlide>
+                                {/* )
                                 }
                                 )
-                                }
+                                } */}
                             </Swiper>
                         </div>
                     </div>
