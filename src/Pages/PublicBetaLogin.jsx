@@ -19,13 +19,14 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay, Pagination } from "swiper";
 import PopUp from '../components/popup/popup'
-import { AiFillLock } from 'react-icons/ai'
+import { AiFillEye, AiFillEyeInvisible, AiFillLock } from 'react-icons/ai'
 import { ImDatabase } from 'react-icons/im'
 import { IoMdClock } from 'react-icons/io'
 import Whatabout from '../components/popup/whatAbout'
 const PublicBetaLogin = () => {
     const [login, setLogin] = useState({ email: '', password: '' })
     const [show, setShow] = useState(false)
+    const [showpass, setShowPass] = useState(false)
     const [term, setterm] = useState(false)
     const [terms, setterms] = useState(false)
     const [about, setAbout] = useState(false)
@@ -97,10 +98,10 @@ const PublicBetaLogin = () => {
                         className="mySwiper"
                     >
 
-                        {Images.map((img , index) => (
+                        {Images.map((img, index) => (
 
                             <SwiperSlide  >
-                                <video  preload="true" autoplay="autoplay" loop="loop">
+                                <video preload="true" autoplay="autoplay" loop="loop">
                                     <source src={img} type="video/mp4" />
                                 </video>
                             </SwiperSlide>
@@ -120,19 +121,33 @@ const PublicBetaLogin = () => {
                         <div className='mt-[3rem]'>
 
                             <div className='text-center flex justify-center items-center mb-4'>
-                                <h2 className='flex items-center  text-[30px] text-[#93C234]'>Public <span className=' text-[#E84025] ml-1'>Beta</span> <span className='text-[17px] text-black pt-3 pl-2 font-bold'> v.1.0</span></h2>
+                                <h2 className='flex items-center  text-[30px] text-[#93C234]'>Public <span className=' text-[#E84025] ml-1'>Beta</span> <span className='text-[17px] text-black pt-3 pl-2 font-bold'> v.1.1</span></h2>
                             </div>
 
                             <div className='border mb-5  cursor-pointer  rounded-md flex items-center'>
                                 <IoMail className={`${login.email ? 'text-[20px]  ml-2 mr-2 text-[#93C234]' : 'text-[20px] ml-2 mr-2  '}`} />
-                                <input type="email" onChange={handleChange} name="email" value={login.email} placeholder='John@gmail.com' className='focus:outline-none text-[#93C234] w-full rounded-md  h-[45px] ' />
-                                <HiCheckCircle className={`${login.email && 'text-[#93C234]'} text-gray-400 text-[1.5rem] mr-1`} />
+                                <input type={"email"} onChange={handleChange} name="email" value={show ? "" : login.email} placeholder='John@gmail.com' className='focus:outline-none text-[#93C234] w-full rounded-md  h-[45px] ' />
+                                {
+                                    show ?
+                                        <AiFillEyeInvisible onClick={() => setShow(false)} className={`${login.email && 'text-[#93C234]'} text-[27px] mr-2 mt-2 `} />
+                                        :
+                                        <AiFillEye onClick={() => setShow(true)} className={` ${login.email && 'text-[#93C234]' } text-[27px] mr-2 mt-2 `} />
+
+
+                                }
                             </div>
                             <div className={` border mb-4  cursor-pointer rounded-md flex items-center`}>
                                 <FaLock className={`${login.password ? 'text-[18px]  ml-2 mr-2 text-[#93C234]' : 'text-[18px] ml-2 mr-2 '}`} />
-                                <input type={show ? "text" : "password"} onChange={handleChange} name="password" value={login.password} placeholder='Password' className='focus:outline-none text-[#93C234] w-full rounded-md  h-[45px] ' />
-                                <HiCheckCircle className={`${login.password && 'text-[#93C234]'} text-gray-400 text-[1.5rem] mr-1`} />
+                                <input type="password" onChange={handleChange} name="password" value={ showpass  ?  "" : login.password} placeholder='Password' className='focus:outline-none text-[#93C234] w-full rounded-md  h-[45px] ' />
+                                {/* <HiCheckCircle className={`${login.password && 'text-[#93C234]'} text-gray-400 text-[1.5rem] mr-1`} /> */}
+                                {
+                                    showpass ?
+                                        <AiFillEyeInvisible onClick={() => setShowPass(false)} className={`${login.password && 'text-[#93C234]'} text-[27px] mr-2 mt-2 `} />
+                                        :
+                                        <AiFillEye onClick={() => setShowPass(true)} className={` ${login.password && 'text-[#93C234]' } text-[27px] mr-2 mt-2 `} />
 
+
+                                }
                             </div>
                         </div>
                         <div className='mt-[2rem] flex items-center check_term ' >
@@ -143,10 +158,10 @@ const PublicBetaLogin = () => {
                             <div className="hover:underline text-sm mt-2 cursor-pointer text-black text-left hover:text-[#93C234]" onClick={() => setAbout(true)}>What is beta ?</div>
                         </div>
 
-                        <div className='flex justify-between items-center mt-5 bg-gray-100 p-3'>
+                        <div className='lg:flex lg:justify-between justify-center  items-center mt-5 bg-gray-100 p-3'>
                             <div className='flex items-center '>
                                 <div className=' border rounded-full p-2 bg-green-500 text-white'>
-                                    <AiFillLock className='text-[15px]' />
+                                    <AiFillLock className='text-[14px]' />
                                 </div>
                                 <h2 className='flex flex-col text-left ml-2 font-bold text-[15px]'>
                                     SSL
@@ -155,7 +170,7 @@ const PublicBetaLogin = () => {
 
                                 </h2>
                             </div>
-                            <div className='flex items-center ml-1'>
+                            <div className='flex items-center ml-1 mt-1'>
                                 <div className='  rounded-full '>
                                     <IoMdClock className='text-[2rem] text-blue-900' />
                                 </div>
@@ -166,7 +181,7 @@ const PublicBetaLogin = () => {
 
                                 </h2>
                             </div>
-                            <div className='flex items-center ml-1'>
+                            <div className='flex items-center ml-1 mt-2'>
                                 <div className=' rounded-full '>
                                     <ImDatabase className='text-[20px] ' />
                                 </div>
