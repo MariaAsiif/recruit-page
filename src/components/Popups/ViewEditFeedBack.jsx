@@ -37,9 +37,9 @@ const ViewEditFeedBack = ({ id, modalOpen, onClose, mode, data }) => {
             // formdata.append('feedbackDescription', values.feedbackDescription);
             formdata.append('request', JSON.stringify({
                 feedbackid:  data._id,
-                userEmail:values.userEmail ||  data.email ,
-                feedbackDescription: values.feedbackDescription || data.desc,
-                userName : values.userName ||  data.name,
+                userEmail:values.userEmail  ,
+                feedbackDescription: values.feedbackDescription ,
+                userName : values.userName ,
             }));
             const res = await callApi("/feedbacks/updateFeedback", "post", formdata)
             if (res.status === "Success") {
@@ -190,7 +190,7 @@ const ViewEditFeedBack = ({ id, modalOpen, onClose, mode, data }) => {
                                     {mode === "view" ?
                                         (
 
-                                            <img src={`${HOSTNAME}/${data?.feedbackimg}`} className="w-full h-[90px]" alt="image_logo" />
+                                            <img src={`${HOSTNAME}/${data?.imageUrl}`} className="w-full h-[90px]" alt="image_logo" />
 
                                         ) : (
                                             <>
@@ -198,7 +198,7 @@ const ViewEditFeedBack = ({ id, modalOpen, onClose, mode, data }) => {
                                                     {fileUrl ?
                                                         <img src={fileUrl} className="w-full h-[90px]" alt="image_logo" />
                                                         :
-                                                        <img src={`${HOSTNAME}/${data?.feedbackimg}`} className="w-full h-[90px] " alt="image_logo" />
+                                                        <img src={`${HOSTNAME}/${data?.imageUrl}`} className="w-full h-[90px] " alt="image_logo" />
                                                     }
                                                 </label>
 

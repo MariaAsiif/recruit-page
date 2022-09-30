@@ -36,18 +36,8 @@ const Whatabout = ({ permition, Toggle, }) => {
 
                 </h2>
                 <span >A General Release Candidate (GA) In the software release life cycle, general availability (GA) refers to the marketing phase when all commercialization activities pertaining to the software product have been completed, and it is available for purchase.
-
                   A Release Candidate (RC) is a pre-release version of the software that is being prepared for its final product release (in the RC phase) to the public. This is sometimes referred to as “Controlled Availability”.
-
-                  Rational Team Concert (RTC) is an open, multi-platform team collaboration tool based on Jazz and Eclipse which provides developers with important functionality for agile application lifecycle management (ALM).
-
-                  Beta “Beta test” The Beta Test, Software testing and Beta testing
-                  Beta, named after the second letter of the Greek alphabet, is the software development phase following alpha. Software in the beta stage is also known as beta ware.[7] A beta phase generally begins when the software is feature complete but likely to contain several known or unknown bugs.[8] Software in the beta phase will generally have many more bugs in it than completed software and speed or performance issues, and may still cause crashes or data loss. The focus of beta testing is reducing impacts on users, often incorporating usability testing. The process of delivering a beta version to the users is called beta release and is typically the first time that the software is available outside the organization that developed it. Software beta releases can be either open or closed, depending on whether they are openly available or only available to a limited audience. Beta version software is often useful for demonstrations and previews within an organization and to prospective customers. Some developers refer to this stage as a preview, preview release, prototype, technical preview or technology preview (TP), [9] or early access.
-
-                  Beta testers are people who actively report issues with beta software. They are usually customers or representatives or prospective customers of the organization that develops the software. Beta testers tend to volunteer their services free of charge but often receive versions of the product they test, discounts on the release version, or other incentives.
-
-                  Perpetual beta
-                  Some software is kept in so-called perpetual beta, where new features are continually added to the software without establishing a final “stable” release. As the Internet has facilitated rapid and inexpensive distribution of software, companies have begun to take a looser approach to use of the word beta.
+                  A Rational Team Concert (RTC) is an open, multi-platform team collaboration tool based on Jazz and Eclipse which provides developers with important functionality for agile application lifecycle management (ALM).translation by H. Rackham.
                 </span>
               </div>
 
@@ -71,7 +61,7 @@ const Whatabout = ({ permition, Toggle, }) => {
 
               <div className='col-lg-12 mt-[30px] mb-[20px] text-center'>
                 <p>"There is no one who loves pain itself, who seeks after it and wants to have it,
-simply because it is pain."</p>
+                  simply because it is pain."</p>
                 <br />
                 <span className='mt-[20px] '>"t is our human right to live within pain, help others do the same! "</span>
 

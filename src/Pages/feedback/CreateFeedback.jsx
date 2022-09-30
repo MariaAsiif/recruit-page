@@ -32,7 +32,7 @@ const CreateFeedback = () => {
                 feedbackDescription: data.desc,
                 userName : data.name,
             }));
-            const res = await callApi("/feedbacks/createFeedback", "post", formdata)
+            const res = await callApi("/feedbacks/createAdminFeedback", "post", formdata)
             if (res.status === "Success") {
                 toast.success(res.message);
                 reset()
