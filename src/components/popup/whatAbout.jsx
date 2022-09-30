@@ -10,9 +10,9 @@ const Whatabout = ({ permition, Toggle, }) => {
   return (
     <>
 
-      <div className='form_popup'>
+      <div className='form_popup '>
         <Modal open={permition}  onClose={handleClose} center  >
-          <div className='bscontainer max-h-[500px] overflow-y-auto'>
+          <div className='bscontainer max-h-[500px] '>
             <div className='row'>
               <div className='col-lg-12  text-center'>
                 <h1 className='font-bold text-[25px]  mb-5'>What is Beta ?</h1>

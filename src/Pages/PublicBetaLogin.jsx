@@ -11,7 +11,7 @@ import { FaLock } from 'react-icons/fa'
 // import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 import { HiCheckCircle } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
-import ReactPlayer from 'react-player/lazy'
+// import ReactPlayer from 'react-player/lazy'
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
@@ -31,14 +31,14 @@ const PublicBetaLogin = () => {
     const [about, setAbout] = useState(false)
     const [play, setplay] = useState(false)
 
-    // const Images = [
-    //     slider1,
-    //     slider2,
-    //     slider3,
-    //     slider4,
-    //     slider5,
+    const Images = [
+        slider1,
+        slider2,
+        slider3,
+        slider4,
+        slider5,
 
-    // ]
+    ]
 
 
     const handleChange = (e) => {
@@ -64,7 +64,7 @@ const PublicBetaLogin = () => {
     useEffect(() => {
         setTimeout(() => {
             setplay(true)
-        }, 5000)
+        }, 3000)
 
         return (() => {
             clearTimeout()
@@ -97,46 +97,26 @@ const PublicBetaLogin = () => {
                         className="mySwiper"
                     >
 
+                        {Images.map((img , index) => (
 
-                        <SwiperSlide  >
-                            <ReactPlayer
+                            <SwiperSlide  >
+                                <video  preload="true" autoplay="autoplay" loop="loop">
+                                    <source src={img} type="video/mp4" />
+                                </video>
+                            </SwiperSlide>
 
-                                url={slider1} playing={true} width={"100%"} height={"623px"} />
 
-                        </SwiperSlide>
-
-
-                        <SwiperSlide  >
-                            <ReactPlayer
-                                // config={{ vimeo: {}, }}
-                                url={slider2} playing={true} width={"100%"} height={"623px"} />
-                        </SwiperSlide>
-                        <SwiperSlide  >
-                            <ReactPlayer
-                                // config={{ vimeo: {}, }}
-                                url={slider3} playing={true} width={"100%"} height={"623px"} />
-                        </SwiperSlide>
-                        <SwiperSlide  >
-                            <ReactPlayer
-                                // config={{ vimeo: {}, }}
-                                url={slider4} playing={true} width={"100%"} height={"623px"} />
-                        </SwiperSlide>
-                        <SwiperSlide  >
-                            <ReactPlayer
-                                // config={{ vimeo: {}, }}
-                                url={slider5} playing={true} width={"100%"} height={"623px"} />
-                        </SwiperSlide>
-                        {/* )) */}
-                        {/* } */}
+                        ))
+                        }
                     </Swiper>
 
                 </div>
                 <div className='col-lg-7 col-12'>
 
-                    <div className='lg:max-w-[430px] m-auto lg:mt-[3rem] text-center page_wrapper'>
+                    <div className='lg:max-w-[450px] m-auto lg:mt-[3rem] text-center page_wrapper'>
                         <img onClick={() => setplay(true)} src={logoImage} className="lg:ml-[85px] w-[40%]" alt="logo" />
                         {term && <PopUp permition={term} Toggle={setterm} />}
-                        {about && <Whatabout permition={true} Toggle={setAbout}/> }
+                        {about && <Whatabout permition={true} Toggle={setAbout} />}
                         <div className='mt-[3rem]'>
 
                             <div className='text-center flex justify-center items-center mb-4'>
@@ -160,13 +140,13 @@ const PublicBetaLogin = () => {
                             <span className='text-[13px] ml-2 text-gray-400'>Accept terms and condition</span>
                         </div>
                         <div>
-                            <div className="hover:underline text-sm cursor-pointer text-green-500" onClick={() =>  setAbout(true)}>What is beta ?</div>
+                            <div className="hover:underline text-sm mt-2 cursor-pointer text-black text-left hover:text-[#93C234]" onClick={() => setAbout(true)}>What is beta ?</div>
                         </div>
 
                         <div className='flex justify-between items-center mt-5 bg-gray-100 p-3'>
                             <div className='flex items-center '>
                                 <div className=' border rounded-full p-2 bg-green-500 text-white'>
-                                    <AiFillLock className='text-[20px]' />
+                                    <AiFillLock className='text-[15px]' />
                                 </div>
                                 <h2 className='flex flex-col text-left ml-2 font-bold text-[15px]'>
                                     SSL
