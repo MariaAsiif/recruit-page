@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-// import slider1 from '../assets/videos/slider1.mp4'
-// import slider2 from '../assets/videos/slider2.mp4'
-// import slider3 from '../assets/videos/slider3.mp4'
-// import slider4 from '../assets/videos/slider4.mp4'
-// import slider5 from '../assets/videos/slider5.mp4'
+import slider1 from '../assets/videos/slider1.mp4'
+import slider2 from '../assets/videos/slider2.mp4'
+import slider3 from '../assets/videos/slider3.mp4'
+import slider4 from '../assets/videos/slider4.mp4'
+import slider5 from '../assets/videos/slider5.mp4'
 import logoImage from '../images/logo.png'
 // import beta from '../images/beta.png'
 import { IoMail } from 'react-icons/io5'
@@ -19,10 +19,14 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay, Pagination } from "swiper";
 import PopUp from '../components/popup/popup'
+import { AiFillLock } from 'react-icons/ai'
+import { ImDatabase } from 'react-icons/im'
+import { IoMdClock } from 'react-icons/io'
 const PublicBetaLogin = () => {
     const [login, setLogin] = useState({ email: '', password: '' })
     const [show, setShow] = useState(false)
     const [term, setterm] = useState(false)
+    const [terms, setterms] = useState(false)
     const [play, setplay] = useState(false)
 
     // const Images = [
@@ -50,6 +54,7 @@ const PublicBetaLogin = () => {
         const { value, checked } = e.target;
         if (checked === true) {
             setterm(true)
+            setterms(true)
         }
         console.log(`${value} is ${checked}`);
 
@@ -64,6 +69,10 @@ const PublicBetaLogin = () => {
         })
     }, [])
 
+    console.log("play", play)
+    const demo = () => {
+        console.log("Data")
+    }
 
     return (
         <div className='container h-screen'>
@@ -72,40 +81,48 @@ const PublicBetaLogin = () => {
 
                     <Swiper
                         slidesPerView={1}
-                        spaceBetween={10}
                         autoplay={{
                             delay: 10000,
-                            disableOnInteraction: false,
-                        }}
-                        pagination={true}
+
+                        }
+                        }
+                        pagination={{
+                            clickable: true,
+
+                        }
+                        }
                         modules={[Autoplay, Pagination]}
                         className="mySwiper"
                     >
-                        {/* {Images.map((img, index) => ( */}
-                        {/* <SwiperSlide  >
-                            <ReactPlayer
-                                config={{ vimeo: {}, }}
-                                url={" https://player.vimeo.com/video/755264539?h=3941146cc4"} playing={play} width={"100%"} height={"624px"} />
 
-                        </SwiperSlide> */}
+
                         <SwiperSlide  >
                             <ReactPlayer
-                                config={{ vimeo: {}, }}
-                                url={"https://player.vimeo.com/video/755264692?h=e86dddd893"} loop playing={play} width={"100%"} height={"624px"} />
+
+                                url={slider1} playing={true} width={"100%"} height={"623px"} />
+
+                        </SwiperSlide>
+
+
+                        <SwiperSlide  >
+                            <ReactPlayer
+                                // config={{ vimeo: {}, }}
+                                url={slider2} playing={true} width={"100%"} height={"623px"} />
                         </SwiperSlide>
                         <SwiperSlide  >
                             <ReactPlayer
-                                config={{ vimeo: {}, }}
-                                url={"https://player.vimeo.com/video/755281838?h=35e93bb9c7"} loop playing={play} width={"100%"} height={"624px"} />
+                                // config={{ vimeo: {}, }}
+                                url={slider3} playing={true} width={"100%"} height={"623px"} />
                         </SwiperSlide>
                         <SwiperSlide  >
                             <ReactPlayer
-                                config={{ vimeo: {}, }}
-                                url={"https://player.vimeo.com/video/755265219?h=798d29ae1f"} loop playing={play} width={"100%"} height={"624px"} />
+                                // config={{ vimeo: {}, }}
+                                url={slider4} playing={false} width={"100%"} height={"623px"} />
                         </SwiperSlide>
                         <SwiperSlide  >
-                            <ReactPlayer config={{ vimeo: {}, }}
-                                url={"https://player.vimeo.com/video/755282891?h=35e93bb9c7"} loop playing={play} width={"100%"} height={"624px"} />
+                            <ReactPlayer
+                                // config={{ vimeo: {}, }}
+                                url={slider5} playing={false} width={"100%"} height={"623px"} />
                         </SwiperSlide>
                         {/* )) */}
                         {/* } */}
@@ -114,13 +131,13 @@ const PublicBetaLogin = () => {
                 </div>
                 <div className='col-lg-7 col-12'>
 
-                    <div className='lg:max-w-[400px] m-auto lg:mt-[5rem] text-center page_wrapper'>
+                    <div className='lg:max-w-[430px] m-auto lg:mt-[3rem] text-center page_wrapper'>
                         <img onClick={() => setplay(true)} src={logoImage} className="lg:ml-[85px] w-[40%]" alt="logo" />
                         {term && <PopUp permition={term} Toggle={setterm} />}
                         <div className='mt-[3rem]'>
 
                             <div className='text-center flex justify-center items-center mb-4'>
-                                <h2 className='flex items-center  text-[30px] text-[#93C234]'>Public <span className=' text-[#E84025] ml-1'>Beta</span></h2>
+                                <h2 className='flex items-center  text-[30px] text-[#93C234]'>Public <span className=' text-[#E84025] ml-1'>Beta</span> <span className='text-[17px] text-black pt-3 pl-2 font-bold'> v.1.0</span></h2>
                             </div>
 
                             <div className='border mb-5  cursor-pointer  rounded-md flex items-center'>
@@ -139,12 +156,53 @@ const PublicBetaLogin = () => {
                             <input type="checkbox" onChange={handleValue} />
                             <span className='text-[13px] ml-2 text-gray-400'>Accept terms and condition</span>
                         </div>
-
-                        <div className='text-center mt-[2rem]' >
-                            <Link to="/Home" className=' px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] '>Login</Link>
+                        <div>
+                            <Link to="/" className="hover:underline text-sm text-green-500">What is beta ?</Link>
                         </div>
 
-                        <div className='mt-[2rem]'>
+                        <div className='flex justify-between items-center mt-5 bg-gray-100 p-3'>
+                            <div className='flex items-center '>
+                                <div className=' border rounded-full p-2 bg-green-500 text-white'>
+                                    <AiFillLock className='text-[20px]' />
+                                </div>
+                                <h2 className='flex flex-col text-left ml-2 font-bold text-[15px]'>
+                                    SSL
+                                    <br />
+                                    <span className='font-medium'>encryption</span>
+
+                                </h2>
+                            </div>
+                            <div className='flex items-center ml-1'>
+                                <div className='  rounded-full '>
+                                    <IoMdClock className='text-[2rem] text-blue-900' />
+                                </div>
+                                <h2 className='flex flex-col text-left ml-2 font-bold text-[15px]'>
+                                    GDPR-
+                                    <br />
+                                    <span className='font-medium'>compliant</span>
+
+                                </h2>
+                            </div>
+                            <div className='flex items-center ml-1'>
+                                <div className=' rounded-full '>
+                                    <ImDatabase className='text-[20px] ' />
+                                </div>
+                                <h2 className='flex flex-col text-left ml-2 font-bold text-[15px]'>
+                                    <span className='font-medium'>Hosted in</span>
+                                    Europe
+
+                                </h2>
+                            </div>
+                        </div>
+
+                        <div className='text-center mt-[1.2rem]' >
+                            <Link to="/Home">
+                                <button disabled={!terms ? true : false} className={`${!terms && `disabled:opacity-50 disabled:cursor-not-allowed`} opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
+                                </button>
+                            </Link>
+                        </div>
+
+                        <div className='mt-[1.2rem]'>
                             <div >
                                 <span className='text-[14px] text-gray-400'>Organic Health </span>
                                 <span className='text-[14px] ml-1 text-gray-400'>. Organic Health </span>
@@ -155,7 +213,7 @@ const PublicBetaLogin = () => {
 
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
