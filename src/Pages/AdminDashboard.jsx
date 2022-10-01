@@ -25,7 +25,7 @@ function AdminDashboard() {
       <div className='mb-3'>
         <ul className="inline-flex flex-wrap text-sm font-medium">
           <li className="flex items-center">
-            <Link to="/dashboard" className="text-slate-500 hover:text-indigo-500" >Dashboard </Link>
+            <Link to="/dashboard" className="text-slate-500 text-[25px] font-bold hover:text-indigo-500 uppercase" >Dashboard | administration </Link>
           </li>
         </ul>
       </div>
