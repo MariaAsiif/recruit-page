@@ -10,7 +10,7 @@ import { IoMail } from 'react-icons/io5'
 import { FaLock } from 'react-icons/fa'
 // import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 import { HiCheckCircle } from 'react-icons/hi'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 // import ReactPlayer from 'react-player/lazy'
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -31,6 +31,8 @@ import {
 import { FiFacebook } from 'react-icons/fi'
 import { BsLinkedin, BsTwitter } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
+import { RiMessage2Line } from 'react-icons/ri'
+import beta from '../assets/images/beta.png'
 
 const PublicBetaLogin = () => {
     const [login, setLogin] = useState({ email: '', password: '' })
@@ -256,11 +258,11 @@ const PublicBetaLogin = () => {
                             </div>
                         </div>
                         <div className='mt-[1.2rem] flex items-center check_term ' >
-                            <input type="checkbox" className='w-[15px] h-[15px]' onChange={handleValue} />
-                            <span className='text-[13px] ml-[20px] text-gray-400'>Accept terms and condition</span>
+                            <input type="checkbox" className='w-[15px] h-[15px] ml-2' onChange={handleValue} />
+                            <span className='text-[13px] ml-[10px] text-gray-400'>Accept terms and condition</span>
                         </div>
                         <div>
-                            <div className="hover:underline text-sm mt-2 cursor-pointer text-black text-left hover:text-[#93C234]" onClick={() => setAbout(true)}>What is beta ?</div>
+                            <div className="hover:underline text-sm mt-2 cursor-pointer ml-[33px] text-black text-left hover:text-[#93C234]" onClick={() => setAbout(true)}>What is beta ?</div>
                         </div>
 
                         {/* <button onClick={changeLanguage}>
@@ -319,7 +321,25 @@ const PublicBetaLogin = () => {
                     </div>
 
                 </div>
+                <div className='flex'>
+                    <Link to="/user-feedback">
+                        <div className='user-feedback fixed bottom-[10px] right-20 w-12 '>
+                            <div className="rounded-full  bg-gray-400 p-3">
+                                <RiMessage2Line className='text-[22px] text-white ml-[2px]' />
+                            </div>
+                            <span className='text-black text-[14px] text-center ml-[-8px]'>
+
+                                Feedback
+                            </span>
+                        </div>
+                    </Link>
+
+                    <div className='fixed bottom-[20px] left-[40%]'>
+                        <img src={beta} className="w-10 " alt="beta_image" />
+                    </div>
+                </div>
             </div>
+
         </div >
     )
 }
