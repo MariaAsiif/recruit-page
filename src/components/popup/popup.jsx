@@ -16,7 +16,7 @@ const PopUp = ({ permition, Toggle, lang }) => {
         <Modal open={permition} center  >
           <div className='bscontainer'>
             <div className='row'>
-              <div className='col-lg-12 font-sans text-left max-h-[500px] overflow-y-auto'>
+              <div className='col-lg-12 font-sans  max-h-[500px] overflow-y-auto text-justify'>
                 <div className='mb-5'>
                   <img src={logoImage} className="lg:w-[30%] w-[20%]" alt="logo_image" />
                 </div>
