@@ -10,7 +10,7 @@ import { IoMail } from 'react-icons/io5'
 import { FaLock } from 'react-icons/fa'
 // import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 import { HiCheckCircle } from 'react-icons/hi'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 // import ReactPlayer from 'react-player/lazy'
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -30,6 +30,7 @@ import {
 } from "react-share";
 import { FiFacebook } from 'react-icons/fi'
 import { BsLinkedin, BsTwitter } from 'react-icons/bs'
+import { toast, ToastContainer } from 'react-toastify'
 
 const PublicBetaLogin = () => {
     const [login, setLogin] = useState({ email: '', password: '' })
@@ -39,6 +40,9 @@ const PublicBetaLogin = () => {
     const [terms, setterms] = useState(false)
     const [about, setAbout] = useState(false)
     const [play, setplay] = useState(false)
+    const [lang, setlang] = useState("en")
+
+    const navigate = useNavigate();
 
     const Images = [
         slider1,
@@ -70,6 +74,58 @@ const PublicBetaLogin = () => {
         console.log(`${value} is ${checked}`);
 
     }
+
+    const changeLanguage = () => {
+        if (lang == "en") {
+            setlang("es")
+        }
+        else {
+            setlang("en")
+        }
+    }
+
+    const handleLogin = () => {
+        console.log("handleLogin");
+        if (!login.email || !login.password) {
+            toast.error('All fields are required', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return
+        }
+        if (login.email !== "superadmin@getnada.com") {
+            toast.error('Email not correct', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return
+        }
+        if (login.password !== "123456") {
+            toast.error('Password not correct', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return
+        }
+
+        navigate("/Home")
+    }
+
     useEffect(() => {
         setTimeout(() => {
             setplay(true)
@@ -87,6 +143,19 @@ const PublicBetaLogin = () => {
 
     return (
         <div className='container h-screen'>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+            {/* Same as */}
+            <ToastContainer />
             <div className='row h-full'>
                 <div className='col-lg-5 col-12  '>
 
@@ -150,12 +219,13 @@ const PublicBetaLogin = () => {
                         </div>
                     </div>
 
-                    <div className='lg:max-w-[450px] m-auto   text-center page_wrapper'>
-                        <img onClick={() => setplay(true)} src={logoImage} className="lg:ml-[85px] object-cover  w-[40%]" alt="logo" />
-                        {term && <PopUp permition={term} Toggle={setterm} />}
-                        {about && <Whatabout permition={true} Toggle={setAbout} />}
-                        <div className=''>
-                            <div className='text-center flex justify-center mt-[2rem] items-center mb-4'>
+                    <div className='lg:max-w-[450px] m-auto  text-center page_wrapper'>
+                        <img onClick={() => setplay(true)} src={logoImage} className="lg:ml-[85px] w-[40%]" alt="logo" />
+                        {term && <PopUp permition={term} lang={lang} Toggle={setterm} />}
+                        {about && <Whatabout lang={lang} permition={true} Toggle={setAbout} />}
+                        <div className='mt-[3rem]'>
+
+                            <div className='text-center flex justify-center items-center mb-4'>
                                 <h2 className='flex items-center  text-[30px] text-[#93C234]'>Public <span className=' text-[#E84025] ml-1'>Beta</span> <span className='text-[17px] text-black pt-3 pl-2 font-bold'> v.1.1</span></h2>
                             </div>
 
@@ -193,6 +263,10 @@ const PublicBetaLogin = () => {
                             <div className="hover:underline text-sm mt-2 cursor-pointer text-black text-left hover:text-[#93C234]" onClick={() => setAbout(true)}>What is beta ?</div>
                         </div>
 
+                        {/* <button onClick={changeLanguage}>
+                            {lang === "en" ? "English" : "spanish"}
+                        </button> */}
+
                         <div className='lg:flex lg:justify-between justify-center  items-center mt-5 bg-gray-100 p-3'>
                             <div className='flex items-center '>
                                 <div className=' border rounded-full p-2 bg-green-500 text-white'>
@@ -229,10 +303,10 @@ const PublicBetaLogin = () => {
                         </div>
 
                         <div className='text-center mt-[1.2rem]' >
-                            <Link to="/Home">
-                                <button disabled={!terms ? true : false} className={`${!terms && `disabled:opacity-50 disabled:cursor-not-allowed`} opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
-                                </button>
-                            </Link>
+
+                            <button onClick={handleLogin} disabled={!terms ? true : false} className={`${!terms && `disabled:opacity-50 disabled:cursor-not-allowed`} opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
+                            </button>
+
                         </div>
 
                         <div className='mt-[1.2rem]'>
