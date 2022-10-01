@@ -221,7 +221,7 @@ const PublicBetaLogin = () => {
                         </div>
                     </div>
 
-                    <div className='lg:max-w-[450px] m-auto  text-center page_wrapper'>
+                    <div className='lg:max-w-[450px] w-full m-auto  text-center page_wrapper'>
                         <img onClick={() => setplay(true)} src={logoImage} className="lg:ml-[85px] w-[40%]" alt="logo" />
                         {term && <PopUp permition={term} lang={lang} Toggle={setterm} />}
                         {about && <Whatabout lang={lang} permition={true} Toggle={setAbout} />}
@@ -334,7 +334,7 @@ const PublicBetaLogin = () => {
                         </div>
                     </Link>
 
-                    <div className='fixed bottom-[20px] left-[40%]'>
+                    <div className='fixed bottom-[20px] lg:left-[40%] left-[10%]'>
                         <img src={beta} className="w-10 " alt="beta_image" />
                     </div>
                 </div>
