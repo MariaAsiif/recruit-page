@@ -37,6 +37,7 @@ const HomePage = () => {
                 <FollowUs />
                 <Footer />
             </div>
+            
         </Layout>
 
     )
