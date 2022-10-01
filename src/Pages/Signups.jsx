@@ -657,7 +657,7 @@ function Signup() {
                 <div className="flex items-center justify-end mt-6">
                   <button
                     type="submit"
-                    className="btn bg-red-500 hover:bg-green-600 text-white ml-3 whitespace-nowrap"
+                    className="p-2 bg-red-500 hover:bg-green-600 text-white ml-3 whitespace-nowrap"
                   >
                     Sign Up
                   </button>
@@ -669,7 +669,7 @@ function Signup() {
                   Have an account?{" "}
                   <Link
                     className="font-medium text-indigo-500 hover:text-indigo-600"
-                    to="/signin"
+                    to="/adminsignin"
                   >
                     Sign In
                   </Link>

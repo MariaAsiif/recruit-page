@@ -157,7 +157,7 @@ function Signin() {
 
                   <div className='mr-1'>
                     <Link
-                      to='/signup'
+                      to='/adminsignup'
                       className=' p-2 rounded-sm bg-red-500 hover:bg-green-600 text-white m1-3 whitespace-nowrap'
                     >
                       Sign Up

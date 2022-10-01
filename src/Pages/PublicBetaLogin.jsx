@@ -4,7 +4,7 @@ import slider2 from '../assets/videos/slider2.mp4'
 import slider3 from '../assets/videos/slider3.mp4'
 import slider4 from '../assets/videos/slider4.mp4'
 import slider5 from '../assets/videos/slider5.mp4'
-import logoImage from '../images/logo.png'
+import logoImage from '../images/hporx-1.png'
 // import beta from '../images/beta.png'
 import { IoMail } from 'react-icons/io5'
 import { FaLock } from 'react-icons/fa'
@@ -124,7 +124,7 @@ const PublicBetaLogin = () => {
 
                     <div className=' lg:text-right mt-4 lg:mt-2 text-center'>
                         <div>
-                            <span className='text-[16px] text-bold'>Shere Us:</span>
+                            <span className='text-[16px] text-bold'>Please Share:</span>
                             <span className='lg:mx-2 mx-1  md:mx-2 mt-1 '  >
                                 <FacebookShareButton url={"https://hporx.eu/"}>
                                     <div className='border text-center flex justify-center   rounded-full pt-2 text-[22px] border-blue-800 text-blue-800 w-[30px] h-[30px]' >
@@ -150,13 +150,12 @@ const PublicBetaLogin = () => {
                         </div>
                     </div>
 
-                    <div className='lg:max-w-[450px] m-auto  text-center page_wrapper'>
-                        <img onClick={() => setplay(true)} src={logoImage} className="lg:ml-[85px] w-[40%]" alt="logo" />
+                    <div className='lg:max-w-[450px] m-auto   text-center page_wrapper'>
+                        <img onClick={() => setplay(true)} src={logoImage} className="lg:ml-[85px] object-cover  w-[40%]" alt="logo" />
                         {term && <PopUp permition={term} Toggle={setterm} />}
                         {about && <Whatabout permition={true} Toggle={setAbout} />}
-                        <div className='mt-[3rem]'>
-
-                            <div className='text-center flex justify-center items-center mb-4'>
+                        <div className=''>
+                            <div className='text-center flex justify-center mt-[2rem] items-center mb-4'>
                                 <h2 className='flex items-center  text-[30px] text-[#93C234]'>Public <span className=' text-[#E84025] ml-1'>Beta</span> <span className='text-[17px] text-black pt-3 pl-2 font-bold'> v.1.1</span></h2>
                             </div>
 
@@ -186,9 +185,9 @@ const PublicBetaLogin = () => {
                                 }
                             </div>
                         </div>
-                        <div className='mt-[2rem] flex items-center check_term ' >
-                            <input type="checkbox" onChange={handleValue} />
-                            <span className='text-[13px] ml-2 text-gray-400'>Accept terms and condition</span>
+                        <div className='mt-[1.2rem] flex items-center check_term ' >
+                            <input type="checkbox" className='w-[15px] h-[15px]' onChange={handleValue} />
+                            <span className='text-[13px] ml-[20px] text-gray-400'>Accept terms and condition</span>
                         </div>
                         <div>
                             <div className="hover:underline text-sm mt-2 cursor-pointer text-black text-left hover:text-[#93C234]" onClick={() => setAbout(true)}>What is beta ?</div>
@@ -238,9 +237,9 @@ const PublicBetaLogin = () => {
 
                         <div className='mt-[1.2rem]'>
                             <div >
-                                <span className='text-[14px] text-gray-400'>Organic Health </span>
-                                <span className='text-[14px] ml-1 text-gray-400'>. Organic Health </span>
-                                <span className='text-[14px] ml-1 text-gray-400'>. Organic Health </span>
+                                <span className='text-[14px] text-gray-400'>Phytomedicine </span>
+                                <span className='text-[14px] ml-1 text-gray-400'>. Botanicals </span>
+                                <span className='text-[14px] ml-1 text-gray-400'>. Cultivated Wellness </span>
                             </div>
                         </div>
                     </div>
