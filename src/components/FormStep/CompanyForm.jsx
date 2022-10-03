@@ -10,6 +10,18 @@ const CompanyForm = ({ handleBack, handleNext }) => {
   var yyyy = today.getFullYear();
 
   const [expiryDate, setexpiryDate] = useState({ day: dd, month: mm, year: yyyy })
+  const [job, setjob] = useState("BUSINESS DEVELOPMENT")
+  const alljobs = [
+    "BUSINESS DEVELOPMENT", "SALES REPRESENTATIVES", "DOCTORS", "LAWYERS", "CHEMIST", "BOTANY", "AGRICULTURE SCIENTIST", "ADMINISTRATOR",
+  ]
+
+  const onNext = () => {
+    const obj = {
+      expiryDate: `${expiryDate.day}-${expiryDate.month}-${expiryDate.year}`,
+      job
+    }
+    handleNext(obj)
+  }
 
   // ****************** Datepicker Content ***********
   const renderCustomInput = ({ ref }) => (
@@ -22,6 +34,7 @@ const CompanyForm = ({ handleBack, handleNext }) => {
 
     </div >
   )
+
 
 
   return (
@@ -41,12 +54,8 @@ const CompanyForm = ({ handleBack, handleNext }) => {
         <div className=' col-12  '>
           <label className="block text-sm font-medium mb-1" htmlFor="secondFname">Please Select Your job Category </label>
 
-          <select className='w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium'>
-            <option>Select Option</option>
-            <option>Select Option</option>
-            <option>Select Option</option>
-            <option>Select Option</option>
-            <option>Select Option</option>
+          <select name='job' value={job} onChange={(e) => setjob(e.target.value)} className='w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium'>
+            {alljobs.map((job, i) => <option key={i}>{job}</option>)}
           </select>
           {/* <input className='w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First  Name*' /> */}
         </div>
@@ -59,7 +68,7 @@ const CompanyForm = ({ handleBack, handleNext }) => {
           </div>
         }
         <div className=''>
-          <button onClick={() => handleNext()} className=' bg-[#DB4446] hover:bg-[#93C234] px-2 py-2 mb-5 text-sm font-sans text-white w-full'>{"Next Step"}</button>
+          <button onClick={onNext} className=' bg-[#DB4446] hover:bg-[#93C234] px-2 py-2 mb-5 text-sm font-sans text-white w-full'>{"Next Step"}</button>
         </div>
       </div>
     </div>
