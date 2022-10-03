@@ -3,6 +3,8 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import counterReducer from './Redux/Counter/CounterSlice'
 import UserAuthReducer from './Redux/UserAuthSlice/UserAuthSlice';
+import RecruitAuthSlice from './Redux/RecruitAuthSlice/RecruitAuthSlice';
+
 import { combineReducers } from "redux";
 
 
@@ -13,7 +15,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     counter: counterReducer,
-    userAuth: UserAuthReducer
+    userAuth: UserAuthReducer,
+    recruitAuth: RecruitAuthSlice
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -22,7 +25,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
     reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({serializableCheck: false}),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
 })
 
 

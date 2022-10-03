@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import CompanyForm from '../components/FormStep/CompanyForm'
 import InfoForm from '../components/FormStep/InfoForm'
@@ -17,7 +18,7 @@ export const RecruitPage = () => {
 
 
 
-    const handleNext = (data) => {
+    const handleNext = async (data) => {
         let activeIndexs = active + 1
         setActive(activeIndexs)
         if (activeIndexs === 1) {
@@ -55,6 +56,8 @@ export const RecruitPage = () => {
         }
         else if (activeIndexs === 4) {
             console.log("api will run");
+            const response = await axios.post("https://localhost", formdata)
+            console.log(response);
         }
     }
 

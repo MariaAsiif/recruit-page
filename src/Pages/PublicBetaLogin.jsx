@@ -36,6 +36,7 @@ import beta from '../assets/images/beta.png'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import axios from 'axios'
 
 const schema = yup.object({
     email: yup.string().email("Invalid email").required("Enter your valid email address"),
@@ -137,6 +138,11 @@ const PublicBetaLogin = () => {
             });
             return
         }
+
+
+        axios.post("http://localhost").then((res) => {
+            console.log(res);
+        })
 
         navigate("/Home")
     }

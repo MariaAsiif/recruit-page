@@ -92,6 +92,15 @@ const RequireAuth = ({ children }) => {
   return children;
 };
 
+const RecruitAuth = ({ children }) => {
+  const token = useSelector((state) => state.recruitAuth.loginInfo.token);
+  let location = useLocation();
+  if (!token) {
+    return <Navigate to='/' state={{ from: location }} replace />;
+  }
+  return children;
+};
+
 function App() {
   const location = useLocation();
 
