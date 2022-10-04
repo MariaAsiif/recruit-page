@@ -96,6 +96,13 @@ const SignUp = () => {
         }))
     }
 
+    const onSignup = async () => {
+        try {
+            const respons = await axios("htt://localhost")
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     useEffect(() => {
         (async () => {
@@ -119,11 +126,11 @@ const SignUp = () => {
 
     return (
         <div className='container h-screen'>
-            <div className='row h-full'>
-                <div className='col-lg-4 left_img'>
+            <div className='row h-full g-0'>
+                <div className='col-lg-4 left_img '>
                     <img src={loginImage} className="lg:h-full " alt="login_image" />
                 </div>
-                <div className='col-lg-8 p-10'>
+                <div className='col-lg-8 pl-10'>
                     <div className='flex justify-center lg:justify-start'>
                         <img src={logoImage} className="lg:ml-[18rem] lg:w-[20%] w-[40%] " alt="logo" />
                     </div>
@@ -223,7 +230,7 @@ const SignUp = () => {
                                             onChange={handleChangeMobile} />
 
                                     </div>
-                                    <div className='col-lg-6 mb-6'>
+                                    <div className='col-lg-6'>
                                         <label className='text-[14px] font-semibold'>Country</label>
 
                                         <div className="dropdown relative mb-5">
@@ -245,8 +252,8 @@ const SignUp = () => {
                                     </div>
 
 
-                                    <div className='col-lg-12 text-center mt-4 items-center lg:flex justify-end' >
-                                        <div className='border w-full max-w-[400px]   flex items-center jus p-1 rounded-md border-green-500 m'>
+                                    <div className='col-lg-12 text-center mt-4 items-center lg:flex justify-end mb-4' >
+                                        <div className='border w-full max-w-[400px]   flex items-center lg:flex-row flex-col p-1 rounded-md border-green-500 m'>
                                             <div className='flex items-center '>
 
                                                 <div className='bg-blue-900 text-center flex justify-center ml-2 rounded-full pt-2 text-[20px]  w-[35px] h-[35px]' >
@@ -264,7 +271,7 @@ const SignUp = () => {
                                             </div>
                                             <h2 className='ml-3  text-[18px] text-green-600'>SignUp with Social Media</h2>
                                         </div>
-                                        <button className='border lg:mx-4 mt-3 lg:mt-0 lg:w-[20%] h-full w-[100%] rounded-md text-white hover:bg-[#93C234] bg-green-600' onClick={() => setActiveIndex(1)}>SignUp</button>
+                                        <button className='border lg:mx-4 mt-3 lg:mt-0 lg:w-[20%] py-3 w-[100%] rounded-md text-white hover:bg-[#93C234] bg-green-600' onClick={() => setActiveIndex(1)}>SignUp</button>
                                     </div>
 
 
@@ -278,7 +285,7 @@ const SignUp = () => {
                                     <img src={verifygif} className="w-[50%]" alt="gif" />
                                 </div>
                                 <div className='flex justify-center lg:justify-center mt-8 '>
-                                    <button className='w-[25%]  bg-[#42946C] p-3 rounded-md text-white'>Submit</button>
+                                    <button onClick={onSignup} className='w-[25%]  bg-[#42946C] p-3 rounded-md text-white'>Submit</button>
 
                                 </div>
                             </div>

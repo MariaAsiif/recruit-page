@@ -102,30 +102,7 @@ const PublicBetaLogin = () => {
 
     const handleLogin = () => {
         console.log("handleLogin");
-        if (!login.email || !login.password) {
-            toast.error('All fields are required', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-            return
-        }
-        if (login.email !== "superadmin@getnada.com") {
-            toast.error('Email not correct', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-            return
-        }
+
         if (login.password !== "123456") {
             toast.error('Password not correct', {
                 position: "top-right",
@@ -179,7 +156,7 @@ const PublicBetaLogin = () => {
             />
             {/* Same as */}
             <ToastContainer />
-            <div className='row h-full'>
+            <div className='row h-full g-0'>
                 <div className='col-lg-5 col-12  '>
 
                     <Swiper
@@ -291,7 +268,7 @@ const PublicBetaLogin = () => {
                                 <span className='text-[13px] ml-[10px] text-gray-400'>Accept terms and condition</span>
                             </div>
                             <div className='mt-[10px] flex items-center check_term ' >
-                                <input type="checkbox" className='w-[15px] h-[15px] ml-2'  />
+                                <input type="checkbox" className='w-[15px] h-[15px] ml-2' />
                                 <span className='text-[13px] ml-[10px] text-gray-400'>Remember me</span>
                             </div>
                             <div>
@@ -303,15 +280,15 @@ const PublicBetaLogin = () => {
                             {lang === "en" ? "English" : "spanish"}
                         </button> */}
 
-                            <div className='lg:flex lg:justify-between justify-center  items-center mt-5 bg-gray-100 p-3'>
+                            <div className='lg:flex lg:justify-between justify-center  items-center mt-5 bg-gray-100  '>
                                 <div className='flex items-center '>
                                     <div className=' border rounded-full p-2 bg-green-500 text-white'>
                                         <AiFillLock className='text-[14px]' />
                                     </div>
-                                    <h2 className='flex flex-col text-left ml-2 font-bold text-[15px]'>
+                                    <h2 className='flex lg:flex-col flex-row text-left ml-2 font-bold text-[15px]'>
                                         SSL
                                         <br />
-                                        <span className='font-medium'>encryption</span>
+                                        <span className='font-medium lg:ml-0 ml-2'> encryption</span>
 
                                     </h2>
                                 </div>
@@ -319,10 +296,10 @@ const PublicBetaLogin = () => {
                                     <div className='  rounded-full '>
                                         <IoMdClock className='text-[2rem] text-blue-900' />
                                     </div>
-                                    <h2 className='flex flex-col text-left ml-2 font-bold text-[15px]'>
+                                    <h2 className='flex lg:flex-col flex-row text-left ml-2 font-bold text-[15px]'>
                                         GDPR-
                                         <br />
-                                        <span className='font-medium'>compliant</span>
+                                        <span className='font-medium lg:ml-0 ml-2'>compliant</span>
 
                                     </h2>
                                 </div>
@@ -330,8 +307,8 @@ const PublicBetaLogin = () => {
                                     <div className=' rounded-full '>
                                         <ImDatabase className='text-[20px] ' />
                                     </div>
-                                    <h2 className='flex flex-col text-left ml-2 font-bold text-[15px]'>
-                                        <span className='font-medium'>Hosted in</span>
+                                    <h2 className='flex lg:flex-col flex-row  text-left ml-2 font-bold text-[15px]'>
+                                        <span className='font-medium lg:mr-0 mr-2'>Hosted in</span>
                                         Europe
 
                                     </h2>
