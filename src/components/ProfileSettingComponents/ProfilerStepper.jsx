@@ -4,7 +4,7 @@ import { MdOutlineLockOpen } from "react-icons/md";
 import { BsShieldFillCheck, BsCheck2All } from "react-icons/bs";
 import profile_animation from "../../animation.json"
 import Lottie from "lottie-react"
-const ProfilerStepper = () => {
+const ProfilerStepper = ({step}) => {
     return (
         <div style={{ boxShadow: "0px 3px 6px #00000029" }} className='bg-white p-3 rounded-xl flex flex-wrap justify-center items-center'>
             <div className='sm:w-1/6  w-full   '>
@@ -14,12 +14,12 @@ const ProfilerStepper = () => {
             <div className='sm:w-5/6 w-full  '>
                 <div className='flex flex-wrap justify-center items-center '>
                     <div className='lg:w-[6%] w-[14%] text-center relative'>
-                        <div className={` rounded-full bg-[#65A33A] text-white pt-2 text-sm  w-[40px] h-[40px] `}>
+                        <div className={` rounded-full bg-[#42946C] text-white pt-2 text-sm  w-[40px] h-[40px] `}>
                             <ImUser size={24} className='inline' />
                         </div>
 
                     </div>
-                    <div className={` bg-[#65A33A]  md:w-[25%] md:-ml-5 h-[1px] lg:w-[25%] w-[13.6%]`}></div>
+                    <div className={` bg-[#42946C]  md:w-[25%] md:-ml-5 h-[1px] lg:w-[25%] w-[13.6%]`}></div>
                     <div className='lg:w-[6%] w-[14%] text-center relative'>
                         <div className={`bg-[#dfe0e0] text-[#999FA9] pt-2 text-sm w-[40px] h-[40px] rounded-full`}>
                             <MdOutlineLockOpen size={24} className='inline' />

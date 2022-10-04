@@ -45,7 +45,7 @@ const ProfileSetting = () => {
                 <div className='col-lg-9'>
                     <div className='row gy-4 g-0 gx-sm-4'>
                         <div className='col-lg-12 '>
-                            <ProfilerStepper />
+                            <ProfilerStepper step={activeStep}  />
                         </div>
                         <div className='col-lg-12'>
                             <div style={{ boxShadow: "0px 3px 6px #00000029" }} className='bg-white rounded-xl px-4 py-8'>
@@ -65,7 +65,7 @@ const ProfileSetting = () => {
                                     </div>
                                 </div>
                                 <div className='text-right'>
-                                    <button onClick={onNextStep} className='bg-[#E84025] text-right hover:bg-[#65A33A] font-semibold font-sans rounded-md px-9 py-3 text-white '>Next Step</button>
+                                    <button onClick={onNextStep} className='bg-[#42946C] text-right  font-semibold font-sans rounded-md px-9 py-3 text-white '>Next Step</button>
                                 </div>
 
                             </div>

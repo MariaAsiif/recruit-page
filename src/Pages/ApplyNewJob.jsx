@@ -5,7 +5,7 @@ import { BsFacebook, BsTwitter, BsLinkedin, BsWhatsapp, BsFillShareFill, BsHeart
 const ApplyNewJob = () => {
     const [layout, setlayout] = useState("grid")
     const [sidebar, setSetSidebar] = useState(false)
-    const jobs = ["asdf", "asdfasd", "asdfds", "next" , "" ,"","",""]
+    const jobs = ["asdf", "asdfasd", "asdfds", "next", "", "", "", ""]
     return (
         <div className='bscontainer-fluid p-0 '>
 
@@ -38,7 +38,7 @@ const ApplyNewJob = () => {
                                                 <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-4"} ${layout === "grid" ? "h-44 " : "h-44"} bg-top-background bg-bottom bg-no-repeat bg-cover rounded-md`}>  </div>
                                                 <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-8"} p-2`}>
                                                     <div className={` flex justify-between items-center`}>
-                                                        <h1 className= {`${layout !== "grid" && "text-[20px]"} 'text-[#0D1829] hover:text-[#65A33A] text-xs font-medium`}>Front end Developer</h1>
+                                                        <h1 className={`${layout !== "grid" && "text-[20px]"} 'text-[#0D1829] hover:text-[#65A33A] text-xs font-medium`}>Front end Developer</h1>
                                                         <div>
                                                             <span className='w-4 h-4 bg-red-600 rounded-full inline-block mr-1 align-middle'></span>
                                                             <span className='w-4 h-4 bg-red-600 rounded-full inline-block mr-1 align-middle'></span>
@@ -46,7 +46,7 @@ const ApplyNewJob = () => {
                                                         </div>
                                                     </div>
                                                     <h1 className={`${layout !== "grid" && "text-[15px] pt-2"} text-[#626973] mb-4 text-[8px] font-light leading-4`}>Lor liqua equat. Duis aute irure dolor in repre hend erit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,</h1>
-                                                    <div className= {`${layout !== "grid" && 'pt-[2rem] flex justify-between items-center ' } flex justify-between items-center`}>
+                                                    <div className={`${layout !== "grid" && 'pt-[2rem] flex justify-between items-center '} flex justify-between items-center`}>
                                                         <div>
                                                             <button className='text-[9px] transition-all text-white hover:text-[#E84025] border-2 border-[#E84025] rounded-sm px-1 py-1 bg-[#E84025] hover:bg-white mr-1'>Fulltime</button>
                                                             <button className='text-[9px] transition-all text-white hover:text-[#E84025] border-2 border-[#E84025] rounded-sm px-1 py-1 bg-[#E84025] hover:bg-white mr-1'>Senior level</button>
@@ -114,10 +114,22 @@ const ApplyNewJob = () => {
                                 <button className='border-2  transition-all border-[#65A33A] px-2 py-2 text-[9px] bg-[#65A33A] hover:bg-white text-white hover:text-[#65A33A] rounded-md float-right'>Apply Now</button>
                             </div>
                             <h1 className='text-[#65A33A]  text-sm mb-1'>Interested in this job?</h1>
-                            <div className='text-[#626973] text-[8px] mb-4'>
+                            <div className='text-[#626973] text-[11px] mb-4'>
                                 <IoSaveOutline className='inline mr-1' /><span className='mr-2'>Save Job</span>
                                 <IoPrintOutline className='inline mr-1' /><span className='mr-2'>Print this Job</span>
                                 <IoMailOutline className='inline mr-1' /><span>Email this Job</span>
+                            </div>
+
+                            <div className='flex items-center flex-wrap mt-1'>
+                                <div className='border rounded-full p-1 '>
+                                    <span className='text-[14px] px-2'>English Transitions</span>
+                                </div>
+                                <div className='border rounded-full p-1 m-2 '>
+                                    <span className='text-[14px] px-2'>English</span>
+                                </div>
+                                <div className='border rounded-full p-1 mb-2'>
+                                    <span className='text-[14px] px-2'>English Transitions</span>
+                                </div>
                             </div>
                             <h1 className='text-[#65A33A]  text-sm mb-1'>Share on Social Media</h1>
                             <div className='mb-4'>

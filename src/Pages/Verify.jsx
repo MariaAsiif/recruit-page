@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import loginImage from '../images/login/Login.png'
 import logoImage from '../images/logo.png'
 import OtpInput from "react-otp-input";
+import verifyImg from '../images/verify-img.png'
 const Verify = () => {
     const [code, setCode] = useState("");
 
@@ -19,17 +20,22 @@ const Verify = () => {
                         <div className='mt-[4rem] text-center'>
                             <h2 className='text-[25px] font-semibold'>Verify Account</h2>
                             <span className='text-[11px] text-gray-400'>check your email and phone for OTP</span>
+                           
+                            <div className='flex justify-center mt-3 mb-3'>
+                                <img src={verifyImg} className="w-[25%]" alt="verify"/>
+                            </div>
+                           
                             <div className='flex justify-center mt-3'>
                                 <OtpInput
                                     value={code}
                                     onChange={handleChange}
-                                    placeholder="----"
-                                    numInputs={4}
+                                    placeholder="--------"
+                                    numInputs={8}
                                     separator={<span style={{ width: "8px" }}></span>}
                                     isInputNum={true}
                                     shouldAutoFocus={true}
                                     inputStyle={{
-                                        border: "1px solid gray",
+                                        border: "1px solid #42946C",
                                         textAlign: 'center',
                                         borderRadius: "8px",
                                         width: "40px",
@@ -40,7 +46,7 @@ const Verify = () => {
                                         caretColor: "blue"
                                     }}
                                     focusStyle={{
-                                        border: "1px solid #CFD3DB",
+                                        border: "1px solid #42946C",
                                         outline: "none"
                                     }}
                                 />
@@ -52,7 +58,7 @@ const Verify = () => {
                                 <span className='text-gray-400 text-[12px]'>Don't recienve Code? <span className='text-[#E84025] font-semibold cursor-pointer hover:underline'>Resend Code</span></span>
                             </div>
                             <div className='text-center mt-4' >
-                                <button className='border w-[50%] h-[45px] rounded-md text-white hover:bg-[#93C234] bg-[#E84025] '>Verify</button>
+                                <button className='border w-[50%] h-[45px] rounded-md text-white bg-[#42946C]'>Verify</button>
                             </div>
                         </div>
 

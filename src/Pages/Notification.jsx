@@ -25,10 +25,10 @@ const Notification = () => {
                             <div className="bscontainer mt-5 ">
                                 <div className='row '>
                                     <div className='col-lg-3 '>
-                                        <div className=' p-2 bg-[#999FA9] rounded-md' >
+                                        <div className=' p-2 bg-[#81A5F7] rounded-md' >
                                             <div className='flex justify-between items-center'>
                                                 <div className='flex items-center'>
-                                                    <div className=' p-3 bg-gray-300 hover:bg-[#65A33A] cursor-pointer'>
+                                                    <div className=' p-3 bg-blue-300 cursor-pointer'>
                                                         <BsFillCalendarMinusFill className='  text-[20px] text-white' />
                                                     </div>
                                                     <div className='ml-2 text-[12px]'>
@@ -44,10 +44,10 @@ const Notification = () => {
                                         </div>
                                     </div>
                                     <div className='col-lg-3 '>
-                                        <div className=' p-2 bg-[#999FA9] rounded-md' >
+                                        <div className=' p-2 bg-[#F5C270] rounded-md' >
                                             <div className='flex justify-between items-center'>
                                                 <div className='flex items-center'>
-                                                    <div className=' p-3 bg-gray-300 hover:bg-[#65A33A] cursor-pointer'>
+                                                    <div className=' p-3 bg-[#eaddc8] cursor-pointer'>
                                                         <BsFillCalendarMinusFill className='  text-[20px] text-white' />
                                                     </div>
                                                     <div className='ml-2 text-[12px]'>
@@ -63,10 +63,10 @@ const Notification = () => {
                                         </div>
                                     </div>
                                     <div className='col-lg-3  '>
-                                        <div className=' p-2 bg-[#999FA9] rounded-md' >
+                                        <div className=' p-2 bg-[#79D9B1] rounded-md' >
                                             <div className='flex justify-between items-center'>
                                                 <div className='flex items-center'>
-                                                    <div className=' p-3 bg-gray-300 hover:bg-[#65A33A] cursor-pointer'>
+                                                    <div className=' p-3 bg-[#a8e1ca] cursor-pointer'>
                                                         <BsFillCalendarMinusFill className='  text-[20px] text-white' />
                                                     </div>
                                                     <div className='ml-2 text-[12px]'>
@@ -82,10 +82,10 @@ const Notification = () => {
                                         </div>
                                     </div>
                                     <div className='col-lg-3 '>
-                                        <div className=' p-2 border bg-[#999FA9] rounded-md' >
+                                        <div className=' p-2 border bg-[#D198F6] rounded-md' >
                                             <div className='flex justify-between items-center'>
                                                 <div className='flex items-center'>
-                                                    <div className=' p-3 bg-gray-300 hover:bg-[#65A33A] cursor-pointer'>
+                                                    <div className=' p-3 bg-[#ddbff0] cursor-pointer'>
                                                         <BsFillCalendarMinusFill className='  text-[20px] text-white' />
                                                     </div>
                                                     <div className='ml-2 text-[12px]'>

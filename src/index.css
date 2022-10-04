@@ -372,6 +372,21 @@ select {
 
 }
 
+
+
+.remminder input[type="checkbox"]:checked  {
+  accent-color: #4DA676;
+  color: white;
+
+
+}
+
+.remminder input[type="checkbox"]:checked + span {
+  color: #4DA676;
+
+}
+
+
 /* video */
 
 
