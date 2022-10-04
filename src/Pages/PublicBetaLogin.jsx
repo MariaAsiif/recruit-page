@@ -291,7 +291,7 @@ const PublicBetaLogin = () => {
                                 <span className='text-[13px] ml-[10px] text-gray-400'>Accept terms and condition</span>
                             </div>
                             <div className='mt-[10px] flex items-center check_term ' >
-                                <input type="checkbox" className='w-[15px] h-[15px] ml-2' onChange={handleValue} />
+                                <input type="checkbox" className='w-[15px] h-[15px] ml-2'  />
                                 <span className='text-[13px] ml-[10px] text-gray-400'>Remember me</span>
                             </div>
                             <div>
