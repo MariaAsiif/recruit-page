@@ -250,8 +250,8 @@ const SignUp = () => {
                         </div>
 
 
-                        <div className='col-lg-12 text-center mt-4 lg:flex justify-end' >
-                            <div className='border w-full max-w-[400px]  flex items-center jus p-1 rounded-md border-green-500 m'>
+                        <div className='col-lg-12 text-center mt-4 items-center lg:flex justify-end' >
+                            <div className='border w-full max-w-[400px]   flex items-center jus p-1 rounded-md border-green-500 m'>
                                 <div className='flex items-center '>
 
                                     <div className='bg-blue-900 text-center flex justify-center ml-2 rounded-full pt-2 text-[20px]  w-[35px] h-[35px]' >
@@ -269,7 +269,7 @@ const SignUp = () => {
                                 </div>
                                 <h2 className='ml-3  text-[18px] text-green-600'>SignUp with Social Media</h2>
                             </div>
-                            <button className='border lg:mx-4 mt-3 lg:w-[20%] h-[45px] w-[100%] rounded-md text-white hover:bg-[#93C234] bg-green-600 '>SignUp</button>
+                            <button className='border lg:mx-4 mt-3 lg:mt-0 lg:w-[20%] h-full w-[100%] rounded-md text-white hover:bg-[#93C234] bg-green-600 '>SignUp</button>
                         </div>
 
 
