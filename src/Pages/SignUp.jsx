@@ -10,7 +10,6 @@ import { BsTwitter } from 'react-icons/bs'
 import { BsLinkedin } from 'react-icons/bs'
 import verifygif from '../images/verify-giff.gif'
 import axios from 'axios'
-// import { Link } from 'react-router-dom'
 const SignUp = () => {
     const [login, setLogin] = useState({ username: '', email: '', password: '', repassword: '' })
     const [countryCode, setcountryCode] = useState("se")
