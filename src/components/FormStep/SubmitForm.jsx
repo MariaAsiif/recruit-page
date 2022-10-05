@@ -3,7 +3,7 @@ import wollet from '../../images/form/submit-giff.gif'
 const SubmitForm = ({ handleBack, handleNext }) => {
   return (
     <div className='mt-[10px] '>
-      <div className='flex justify-center items-center '>
+      <div className='flex justify-center items-center h-[700px] '>
         <img src={wollet} alt="wollet" className="w-[50%] h-[50%] " />
       </div>
       <div className='flex justify-between '>

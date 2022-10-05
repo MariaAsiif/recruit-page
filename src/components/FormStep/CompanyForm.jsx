@@ -39,27 +39,30 @@ const CompanyForm = ({ handleBack, handleNext }) => {
 
   return (
     <div>
-      <div className='row company_section'>
-        <div className=' col-12  '>
-          <label className="block text-sm font-medium mb-1" htmlFor="secondFname">Select Your Date of Birth </label>
+      <div className='h-[500px]'>
+        <div className='row company_section'>
+          <div className=' col-12  '>
+            <label className="block text-sm font-medium mb-1" htmlFor="secondFname">Select Your Date of Birth </label>
 
-          <DatePicker
-            value={expiryDate}
-            calendarPopperPosition="bottom"
-            onChange={setexpiryDate}
-            renderInput={renderCustomInput} // render a custom input
-            shouldHighlightWeekends
-          />
-        </div>
-        <div className=' col-12  '>
-          <label className="block text-sm font-medium mb-1" htmlFor="secondFname">Please Select Your job Category </label>
+            <DatePicker
+              value={expiryDate}
+              calendarPopperPosition="bottom"
+              onChange={setexpiryDate}
+              renderInput={renderCustomInput} // render a custom input
+              shouldHighlightWeekends
+            />
+          </div>
+          <div className=' col-12  '>
+            <label className="block text-sm font-medium mb-1" htmlFor="secondFname">Please Select Your job Category </label>
 
-          <select name='job' value={job} onChange={(e) => setjob(e.target.value)} className='w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium'>
-            {alljobs.map((job, i) => <option key={i}>{job}</option>)}
-          </select>
-          {/* <input className='w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First  Name*' /> */}
+            <select name='job' value={job} onChange={(e) => setjob(e.target.value)} className='w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium'>
+              {alljobs.map((job, i) => <option key={i}>{job}</option>)}
+            </select>
+            {/* <input className='w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First  Name*' /> */}
+          </div>
         </div>
       </div>
+
       <div className='flex justify-between lg:mt-[170px] button_section'>
         {
 

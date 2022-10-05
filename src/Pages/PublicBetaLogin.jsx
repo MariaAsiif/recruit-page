@@ -117,11 +117,20 @@ const PublicBetaLogin = () => {
         }
 
 
-        axios.post("http://localhost").then((res) => {
-            console.log(res);
-        })
+
 
         navigate("/Home")
+    }
+
+
+    const onSubmit = async (values) => {
+        console.log(values);
+        try {
+            const response = await axios.post("https://hporxadminbackend.herokuapp.com/users/signin", values)
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
     useEffect(() => {
@@ -218,7 +227,7 @@ const PublicBetaLogin = () => {
 
                         </div>
                     </div>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div className='lg:max-w-[450px] w-full m-auto  text-center page_wrapper'>
                             <img onClick={() => setplay(true)} src={logoImage} className="lg:ml-[85px] w-[40%]" alt="logo" />
                             {term && <PopUp permition={term} lang={lang} Toggle={setterm} />}
@@ -317,7 +326,7 @@ const PublicBetaLogin = () => {
 
                             <div className='text-center mt-[1.2rem]' >
 
-                                <button onClick={handleLogin} type="submit" disabled={!terms ? true : false} className={`${!terms && `disabled:opacity-50 disabled:cursor-not-allowed`} opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
+                                <button type="submit" disabled={!terms ? true : false} className={`${!terms && `disabled:opacity-50 disabled:cursor-not-allowed`} opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
                                 </button>
 
                             </div>

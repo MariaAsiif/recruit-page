@@ -33,7 +33,8 @@ const SignUp = () => {
         industry: "",
         interest: "",
         age: "",
-        dob: ""
+        dob: "",
+        password: ""
     })
 
 
@@ -96,8 +97,29 @@ const SignUp = () => {
     }
 
     const onSignup = async () => {
+        console.log(formModel);
         try {
-            const respons = await axios("htt://localhost")
+            const payload = {
+                first_name: formModel.username,
+                first_family_name: formModel.firstFname,
+                second_family_name: formModel.secondFname,
+                third_family_name: formModel.thirdFname,
+                email: formModel.email,
+                password: formModel.password,
+                phoneNumber: "+923074901291",
+                channel: "sms",
+                role: "superadmin",
+                approved: false,
+                location: {
+                    type: "Point",
+                    coordinates: [
+                        74.28911285869138,
+                        31.624888273644956
+                    ]
+                }
+            }
+            const response = await axios.post("https://hporxadminbackend.herokuapp.com/users/signup", payload)
+            console.log(response);
         } catch (error) {
             console.log(error);
         }
@@ -182,34 +204,34 @@ const SignUp = () => {
                                     <div className='col-lg-5'>
                                         <label className='text-[14px] font-semibold  flex items-center'>Family Name <span className='pt-1 text-green-600 ml-2'>*</span></label>
 
-                                        <input className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your Family Name ' />
+                                        <input value={formModel.firstFname} name="firstFname" onChange={onHandleChange} className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your Family Name ' />
 
                                     </div>
 
                                     <div className='col-lg-6 mb-6'>
                                         <label className='text-[14px] font-semibold  flex items-center'>First Family Name<span className='pt-1 text-green-600 ml-2'> (Optioanl)</span> </label>
 
-                                        <input className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First Family Name ' />
+                                        <input value={formModel.secondFname} name="secondFname" onChange={onHandleChange} className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First Family Name ' />
 
                                     </div>
 
                                     <div className='col-lg-6 mb-6'>
                                         <label className='text-[14px] font-semibold  flex items-center'>Third Family Name <span className='pt-1 text-green-600 ml-2'> (Optioanl)</span></label>
 
-                                        <input value={formModel.username} name="username" onChange={onHandleChange} className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your Third Family Name' />
+                                        <input value={formModel.thirdFname} name="thirdFname" onChange={onHandleChange} className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your Third Family Name' />
 
                                     </div>
                                     <div className='col-lg-6 mb-6'>
                                         <label className='text-[14px] font-semibold  flex items-center'>Email Address <span className='pt-1 text-green-600 ml-2'> * </span></label>
 
-                                        <input className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter valid email address' />
+                                        <input value={formModel.email} name="email" onChange={onHandleChange} className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter valid email address' />
 
                                     </div>
 
                                     <div className='col-lg-6 mb-6'>
                                         <label className='text-[14px] font-semibold  flex items-center'>Password <span className='pt-1 text-green-600 ml-2'> * </span></label>
 
-                                        <input value={formModel.username} name="username" onChange={onHandleChange} className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your chosen password ' />
+                                        <input value={formModel.password} name="password" onChange={onHandleChange} className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your chosen password ' />
 
                                     </div>
 
