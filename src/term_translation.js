@@ -147,9 +147,17 @@ const tt = {
         en: " 8.4 If any part of our terms and conditions is unenforceable (including any provisions in  which we exclude our liability to you) the enforceability of any other part of these conditions will not be affected.",
         es: "8.4 Si alguna parte de nuestros términos y condiciones es inaplicable (incluidas las disposiciones en las que excluimos nuestra responsabilidad hacia usted), la aplicabilidad de cualquier otra parte de estas condiciones no se verá afectada."
     },
-    terms_condition: {
-        en: "Accept terms and condition",
-        es: "Aceptar términos y condiciones"
+    disclaimer : {
+        en: "Disclaimer",
+        es: "Descargo de responsabilidad",
+    },
+    agree: {
+        en: "Agree ",
+        es: "Aceptar "
+    },
+    disagree: {
+        en: "Disagree ",
+        es: "Discrepar "
     },
 
 

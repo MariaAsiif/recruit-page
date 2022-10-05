@@ -20,7 +20,8 @@ const PopUp = ({ permition, Toggle, lang }) => {
                 <div className='mb-5'>
                   <img src={logoImage} className="lg:w-[30%] w-[20%]" alt="logo_image" />
                 </div>
-                <h1 className='font-sans font-bold text-xl mb-5'>{tt.terms[lang]}</h1>
+                <h1 className='font-sans font-bold text-[30px] mb-2 text-center'>Beta</h1>
+                <h1 className='font-sans font-bold text-[24px] mb-5 text-center'>{tt.terms[lang]}</h1>
                 <div className='flex mb-8'>
                   <span >1.0</span>
                   <span className='pl-8'> {tt.site[lang]} <a href="http://www.hporx.eu/finsac-public-beta" className='text-blue-500' target="_blank" rel="noreferrer">http://www.hporx.eu/finsac-public-beta </a>(the "Site")</span>
@@ -98,9 +99,16 @@ const PopUp = ({ permition, Toggle, lang }) => {
                   {tt.unenforceable[lang]}
                 </h1>
 
-                <div className='mt-[1rem] flex items-center check_term'>
-                  <input type="checkbox" className=' w-[20px] h-[18px]' onChange={handleChange} />
-                  <span className='text-[16px] ml-2 text-gray-400'>{tt.terms_condition[lang]}</span>
+                <h1 className='text-center text-[25px] font-medium '>{tt.disclaimer[lang]}</h1>
+                <div className='flex justify-around'>
+                  <div className='mt-[1rem] flex items-center check_term'>
+                    <input type="checkbox" className=' w-[20px] h-[18px]' onChange={handleChange} />
+                    <span className='text-[16px] ml-2 text-gray-400'>{tt.agree[lang]}</span>
+                  </div>
+                  <div className='mt-[1rem] mr-4 flex items-center check_term'>
+                    <input type="checkbox" className=' w-[20px] h-[18px]' onChange={handleChange} />
+                    <span className='text-[16px] ml-2 text-gray-400'>{tt.disagree[lang]}</span>
+                  </div>
                 </div>
               </div>
             </div>
