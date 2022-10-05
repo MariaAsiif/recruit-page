@@ -111,7 +111,6 @@ function App() {
   }, [location.pathname]); // triggered on route change
   return (
     <>
-      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<PublicBetaLogin />} />
         <Route path="/Home" element={<HomePage />} />
