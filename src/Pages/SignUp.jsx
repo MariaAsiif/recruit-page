@@ -151,6 +151,7 @@ const SignUp = () => {
                 <div className='col-lg-4 left_img '>
                     <img src={loginImage} className="lg:h-full " alt="login_image" />
                 </div>
+
                 <div className='col-lg-8 pl-10'>
                     <div className='flex justify-center lg:justify-start'>
                         <img src={logoImage} className="lg:ml-[18rem] lg:w-[20%] w-[40%] " alt="logo" />

@@ -13,8 +13,9 @@ module.exports = {
         'jobseeker': "url('./images/jobseekerpic.png')",
         'recruiter': "url('./images/recruiter.png')",
         'reruitBanner': "url('./images/recruitBIgPic.png')",
-        'notification' : "url('./images/notifi.svg')",
-        'outer-notif': "url('./images/outerbg.svg')"
+        'notification': "url('./images/notifi.svg')",
+        'outer-notif': "url('./images/outerbg.svg')",
+        'login-img': "url('./images/login/Login.png')"
       },
       fontFamily: {
         'sans': ['Open Sans', 'system-ui',],
