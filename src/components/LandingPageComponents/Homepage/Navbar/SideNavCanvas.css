@@ -1,0 +1,85 @@
+.sidenavcanvas-container.offcanvas.offcanvas-start {
+  width: 30rem;
+  background-image: url(../../../../assets/landingImages/canvas-bg.gif) !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  
+}
+
+.sidenavcanvas-container .offcanvas-header,
+.sidenavcanvas-container .offcanvas-body {
+  background: rgba(0, 0, 0, 0.73);
+}
+
+.sidenavcanvas-container .offcanvas-title{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 4.2rem;
+  color: #FFFFFF;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.sidenavcanvas-container .offcanvas-title span{
+  color: #E84025;
+  font-size: 2rem;
+}
+
+.sidenavcanvas-container .offcanvas-body{
+  padding: 0;
+}
+
+.sidenavcanvas-container .offcanvas-body::-webkit-scrollbar{
+  width: 1.3rem;
+
+}
+
+.sidenavcanvas-container .offcanvas-body::-webkit-scrollbar-track{
+  background: #E7E7E7;
+}
+
+
+.sidenavcanvas-container .offcanvas-body::-webkit-scrollbar-thumb{
+  background: rgba(0, 0, 0, 0.37);
+
+}
+
+.sidenavcanvas-container .offcanvas-body nav > ul{
+  padding-left: 0px !important;
+  width: 100%;
+}
+
+.sidenavcanvas-container .offcanvas-body nav > ul li{
+  padding: 1.2rem;
+}
+
+.sidenavcanvas-container .offcanvas-body nav > ul li:hover{
+  background: #828282;
+}
+
+.sidenavcanvas-container .offcanvas-body nav li,
+.sidenavcanvas-container .offcanvas-body nav a{
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    color: whitesmoke;
+}
+
+.sidenavcanvas ul li ul{
+  list-style-type: none;
+  display: none;
+}
+.sidenavcanvas ul li:hover > ul {
+  display: block;
+}
+.sidenavcanvas ul li ul li:hover{
+  background: rgba(0, 0, 0, 0.73) !important;
+  border-radius: 2px;
+}

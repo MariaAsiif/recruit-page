@@ -1,0 +1,38 @@
+.modal-content {
+  background-color: transparent !important;
+  border: none;
+}
+
+.homeModalageGater .modal-content {
+  height: auto;
+}
+
+.home-page-main-nav-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* .sc-gSQFLo {
+  height: 100%;
+} */
+
+/* @media screen and (min-width: 992px) {
+  .sc-gSQFLo {
+    height: 70vh;
+  }
+}
+
+.ja-dmwl {
+  @media screen and (max-width: 992px) {
+    margin-top: 8rem;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+    .sc-gSQFLo {
+   margin-top: 8rem;
+  }
+} */

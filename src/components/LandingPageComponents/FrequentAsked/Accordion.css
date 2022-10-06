@@ -1,0 +1,562 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,500&family=Ubuntu:wght@300&display=swap');
+
+*{
+   /* font-family: 'Poppins', sans-serif;*/
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    list-style: none; 
+    transition: all .2s linear;
+}
+
+:root{
+    --white:#FFFFFF;
+    --black:#363636;
+    --light-gray-text1: #8A8888;
+    --light-gray-text2: #666666;
+    --light-gray-text3: #999999;
+    --light-gray-bg: #F8F8F8;
+    --light-green:#86BE3F;
+
+}
+
+*::selection{
+    background:var(--light-green);
+    color: white;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top:5.5rem;
+    scroll-behavior: smooth;
+}
+
+body{
+    overflow-x: hidden;
+}
+section{
+    margin: 0 auto;
+    background: var(--white);
+    
+}
+
+
+html::-webkit-scrollbar{
+    width: 1.3rem;
+
+}
+
+html::-webkit-scrollbar-track{
+    background: var(--light-gray-text1);
+}
+
+
+html::-webkit-scrollbar-thumb{
+    background: var(--light-green);
+
+}
+
+
+
+
+
+
+a, a:hover{
+    text-decoration: none;
+    list-style: none;
+    
+}
+
+
+/*Faq Section Starts*/
+.faq-section{
+    margin-top: 8rem;
+    position: relative;
+    z-index: 20;
+}
+
+
+
+.faq-section .faq-bg{
+    position: absolute;
+    right: 0;
+    top: -3rem;
+    z-index: -19;
+}
+
+.faq-section .accordion .card{
+    margin: 2rem 0;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    border: none;
+}
+.faq-section .accordion .card .card-header{
+    padding: 1.5rem;
+    background: #FEFEFE;
+    border-radius: 6px 6px 0px 0px;
+    border: none;
+}
+
+.faq-section .accordion .card .card-header button{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    text-decoration: none;
+    list-style: none;
+    border: none;
+
+}
+
+.faq-section .accordion .card .card-header button .fa-plus,
+.faq-section .accordion .card .card-header button .fa-minus{
+    font-size: 2rem;
+    color: #363636;
+    text-decoration: none;
+    border: none;
+    list-style: none;
+
+    -webkit-text-stroke: 1.5px white;
+    
+
+
+}
+.faq-section .accordion .card .card-header button span{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: #363636;
+    margin-left: 2.9rem;
+    text-align: left;
+
+}
+
+.faq-section .accordion .card .card-body{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    /* identical to box height, or 171% */
+    color: #54595F;
+}
+
+.faq-section .accordion .card .collapse{
+    margin-left: 1rem;
+}
+
+
+
+
+
+@media only screen and (max-width: 1200px) and (min-width: 640px){
+.Connettiti-cards .main-section .cards-slider .card .inner-card{
+    min-height: 30rem;
+}
+
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 991px){
+    .smart-sec .main-part .left-part .image1{
+    
+    height: 250px;
+    width: 320px;
+    left: 2rem;
+    top: 1.5rem;
+   
+}
+
+.smart-sec .main-part .left-part .image2{
+    height: 230px;
+    width: 320px;
+    bottom: 2rem;
+    right: 2rem;
+    
+
+}
+
+
+
+.smart-sec, .smart-sec .left-part, .smart-sec .right-part{
+    
+    min-height: 45.6rem;
+}
+
+
+
+
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 991px){
+
+
+.contact-box .right-part .card .contact-form form{
+    display: grid;
+    gap: 2.9rem;
+}
+
+.contact-box .right-part .card .contact-form form .message{
+    display: grid;
+    gap: 3rem;
+
+}
+}
+
+
+/*************on scroll make navbar sticky***************/
+@media (min-width: 992px){
+
+        .top-nav-header.sticky{
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .1);
+            z-index: 1000;
+            
+        }   
+
+
+}
+/*************on scroll make navbar sticky Ends**********/
+
+
+
+@media (max-width: 991px){
+       
+        html{
+            font-size: 55%;
+        }
+
+    /*Header Section*/
+
+    .top-nav-header{
+        padding: 0.8rem 0;
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        background: #fff;
+        z-index: 1000;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        
+        }
+    
+    .top-info-header .contact-info{
+        position: fixed;
+        justify-content: space-between !important;
+        align-items: center;
+        cursor: pointer;
+        z-index: 10000;
+        transition: all 0.2s ease;
+        width: 100%;
+        right: 0;
+    }
+    .top-info-header .contact-info .contact{
+        margin-right: 1rem;
+    }
+   /* .top-info-header .contact-info .contact{
+        
+    }
+
+    .top-info-header .contact-info .contact .contact-btn{
+        
+
+       
+    }*/
+    
+    .top-info-header .contact-info .logo{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .hamburger{
+        display:block;
+        cursor: pointer;
+        z-index: 10000;
+        transition: all 0.2s ease;
+    }
+
+
+    .nav-links{
+        position: fixed;
+        left: 0;
+        top: 7.4rem;
+        z-index: 10000;
+        background: #131418;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        
+        clip-path: circle(50px at 90% -30%);
+        -webkit-clip-path: circle(50px at 90% -15%);
+        transition: all 0.2s ease-out;
+        pointer-events: none;
+
+    }
+    .nav-links.open{
+        clip-path: circle(1220px at 90% -20%);
+        -webkit-clip-path: circle(1220px at 90% -10%);
+        pointer-events: all;
+    }
+    .nav-links li{
+        opacity: 1;
+        margin-top: 4rem;
+
+    }
+    .nav-links li a{
+    font-size: 18px; 
+    }
+
+    .nav-links li:nth-child(1){
+        transition: all 0.5s ease 0.2s;
+    }
+    .nav-links li:nth-child(2){
+        transition: all 0.5s ease 0.4s;
+    }
+    .nav-links li:nth-child(3){
+        transition: all 0.5s ease 0.6s;
+    }
+    .nav-links li:nth-child(4){
+        transition: all 0.5s ease 0.7s;
+    }
+    .nav-links li:nth-child(5){
+        transition: all 0.5s ease 0.8s;
+    }
+    .nav-links li:nth-child(6){
+        transition: all 0.5s ease 0.9s;
+        
+    }
+    .nav-links li:nth-child(7){
+        transition: all 0.5s ease 1s;
+        
+    }
+    li.fade{
+        opacity: 1;
+    }
+
+    /*banner*/
+
+    .main-banner {
+        margin-top: 7.5rem;
+    }
+
+    /*banner ends */
+
+    .smart-sec .right-part{
+    
+    background-size: contain;
+    min-height: auto;
+}
+
+     .smart-sec .right-part{
+    
+    margin-top: 3rem;
+}
+    
+  .contact-box .right-part{
+    margin-top: 3rem;   
+}
+
+.newsletter-section .content .field button{
+    
+    top: 3px;
+    right: 3px;
+}
+
+
+/*Footer*/
+
+.footer-section .fotter-column .main-tag2,
+.footer-section .fotter-column .main-tag3{
+    margin-top: 0.5rem;
+}
+
+/*Footer end*/
+
+
+.slight-up{
+    margin-top: 0rem;
+}
+
+
+
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px){
+    .smart-sec .main-part .left-part .image1{
+    
+    height: 35rem;
+    width: 45rem;
+    left: 2rem;
+    top: 1.5rem;
+   
+}
+
+.smart-sec .main-part .left-part .image2{
+    height: 30rem;
+    width: 45rem;
+    bottom: 2rem;
+    right: 3rem;
+    
+
+}
+
+.smart-sec .left-part{
+    
+    background-size: 100% 100%;
+    min-height: 55.6rem;
+}
+
+
+
+
+}
+
+@media (max-width: 768px){
+    .top-info-header .contact-info .contact .phone,.top-info-header .contact-info .contact .email {
+        display: none;
+    
+}
+
+.smart-sec .main-part .left-part .image1{
+    
+    height: 32rem;
+    width: 40rem;
+    left: 2rem;
+    top: 1.5rem;
+   
+}
+
+.smart-sec .main-part .left-part .image2{
+    height: 28rem;
+    width: 40rem;
+    bottom: 2rem;
+    right: 3rem;
+    
+
+}
+    
+.services-sec .services .services-items .items-column{
+    
+    grid-template-columns: 1fr;
+    
+
+}
+
+.Scegli .main-row{
+    
+    grid-template-columns: 1fr;
+    
+}
+
+
+.newsletter-section .content{
+    
+    grid-template-columns: 1fr;
+    
+
+}
+
+.newsletter-section .content .field input{
+    float: left;
+    width: 100%;
+}
+
+.testimonial-sec{
+    margin-top: 4rem;
+
+}
+
+.services-sec .services .title h2 {
+    
+    line-height: 113.02%;
+    
+}
+
+.services-sec .services .services-items .item .content h2 {
+    
+    line-height: 98.02%;
+    
+}
+
+.porche .title h2, .Scegli .title h2, .Connettiti-cards .title h2, .faq-section .title h2, .bg-apply .title h2 {
+    
+    line-height: 105.02%;
+    
+}
+
+.services-sec .services .title {
+    
+    margin-bottom: 4.6rem;
+}
+
+.bg-apply .bottom-button {
+   margin-bottom: 4.6rem;
+}
+
+
+
+}
+
+
+@media (max-width: 640px){
+.Connettiti-cards .main-section .cards-slider .card span{
+    display: none;
+}
+}
+
+@media (max-width: 575px){
+.footer-section .fotter-column .main-tag1{
+    margin-top: 0.5rem;
+}
+}
+
+@media (max-width: 520px){
+    .smart-sec .main-part .left-part .image1{
+    
+    
+    left: 0rem;
+    top: 2rem;
+   
+}
+
+.smart-sec .main-part .left-part .image2{
+
+    bottom: 2rem;
+    right: 0rem;
+    
+
+}
+}
+
+
+@media (max-width: 445px){
+    .smart-sec .main-part .left-part .image1{
+    
+    height: 250px;
+    width: 100%;
+    left: 0rem;
+    top: 0rem;
+   
+}
+
+.smart-sec .main-part .left-part .image2{
+    height: 240px;
+    width: 100%;
+    bottom: 0rem;
+    right: 0rem;
+    
+
+}
+.contact-box .right-part .card .contact-form .name{
+    grid-template-columns: 1fr;
+    
+}
+
+}
+
