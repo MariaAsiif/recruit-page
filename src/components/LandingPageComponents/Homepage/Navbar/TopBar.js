@@ -50,29 +50,31 @@ const TopBar = ({ setShow }) => {
           <div className="reponsive-topbar-toggler" >
             <img className="img-fluid" src={featherMenu} alt="featherMenu" onClick={handleShow} />
           </div>
+          <div className="bscontainer-fluid">
+            <div className="flex justify-between items-center">
+              <Navbar.Brand href="#">
+                <img className="img-fluid header-topBar-logo" src={logo} alt="logo" />
+              </Navbar.Brand>
+              <nav className="flex justify-center p-3 items-end">
+                <Nav.Link href="#" className="topbar-nav-icon">
+                  <img className="img-fluid mr-[35px]"  src={searchIcon} alt="featherMenu" />
+                </Nav.Link>
+                <Nav.Link href="#" className="topbar-nav-icon">
+                  <img className="img-fluid mr-[35px]"  src={profile} alt="featherMenu" />
+                </Nav.Link>
+                <Nav.Link href="#" className="topbar-nav-icon">
+                  <img className="img-fluid mr-[35px]"  src={warningIcon} alt="accessibility " />
+                </Nav.Link>
+                <Nav.Link href="/checkout" className="topbar-nav-icon"  >
+                  <img className="img-fluid mr-[35px]"  src={cart} alt="featherMenu" />
+                </Nav.Link>
+                <Nav.Link href="#" className="topbar-nav-icon">
+                  <img onClick={() => setShow(true)} className="img-fluid" src={featherMenu} alt="featherMenu" />
+                </Nav.Link>
+              </nav>
 
-          <Container>
-            <Navbar.Brand href="#">
-              <img className="img-fluid header-topBar-logo" src={logo} alt="logo" />
-            </Navbar.Brand>
-            <Nav className="mr-auto">
-              <Nav.Link href="#" className="topbar-nav-icon">
-                <img className="img-fluid" src={searchIcon} alt="featherMenu" />
-              </Nav.Link>
-              <Nav.Link href="#" className="topbar-nav-icon">
-                <img className="img-fluid" src={profile} alt="featherMenu" />
-              </Nav.Link>
-              <Nav.Link href="#" className="topbar-nav-icon">
-                <img className="img-fluid" src={warningIcon} alt="accessibility " />
-              </Nav.Link>
-              <Nav.Link href="/checkout" className="topbar-nav-icon"  >
-                <img className="img-fluid" src={cart} alt="featherMenu" />
-              </Nav.Link>
-              <Nav.Link href="#" className="topbar-nav-icon">
-                <img onClick={() => setShow(true)} className="img-fluid" src={featherMenu} alt="featherMenu" />
-              </Nav.Link>
-            </Nav>
-          </Container>
+            </div>
+          </div>
         </Navbar>
       </div>
     </HeaderTopBar>

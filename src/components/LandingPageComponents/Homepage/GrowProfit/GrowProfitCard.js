@@ -14,12 +14,12 @@ import {
 const GrowProfitCard = () => {
   return (
     <div>
-      <GrowProfitSlickContainer className="d-flex align-items-center ">
-        <Row className="align-items-center  justify-content-center">
+      <GrowProfitSlickContainer className="flex items-center ">
+        <Row >
           <Col md={6}>
             <div className="text-container">
-              <PrimaryHeading>GROW PROFITS</PrimaryHeading>
-              <p>
+              <div className="heading">GROW PROFITS</div >
+              <p >
                 Are you located in a country, region, or state in which cannabis
                 and marijuana consumption has been decriminalized and regulated
                 by law? A Cannabis Association? A marijuana Club? A Pharmacist
@@ -39,7 +39,7 @@ const GrowProfitCard = () => {
             </div>
           </Col>
           <Col md={6}>
-            <GrowProfitImgContainer className="d-flex justify-content-center align-items-center">
+            <GrowProfitImgContainer className="flex justify-center items-center">
               <GrowProfitImg
                 className="img-fluid"
                 src={growProfit}

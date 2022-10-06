@@ -70,7 +70,7 @@ function ViewedToday({ heading , section }) {
   };
   return (
     <ViewTodayStyle>
-      <div className="container">
+      <div className="bscontainer-fluid">
         {/* <div className="main-heading">{heading}</div> */}
         {stateIsLoading && (
           <div>

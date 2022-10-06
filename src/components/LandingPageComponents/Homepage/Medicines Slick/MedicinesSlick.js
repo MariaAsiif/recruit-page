@@ -55,15 +55,14 @@ const MedicinesSlick = ({ id }) => {
   };
   return (
     <MedicineContainerMain id={id}>
-      <Container>
+      <div className="bscontainer-fluid">
         <MedicineSlickContainer>
-          <h1  >PRESCRIBABLE </h1>
+          <h1  className="text-[2rem]" >PRESCRIBABLE </h1>
           <Slider {...settings} className='responsive-slick'>
 
             {imgContainer.map((img, index) => (
-              <div key={index}>
+              <div key={index} >
                 <div className="text-center medicine-text">
-
                   <span className="text-red" >Treats</span>:<span style={{ display: 'inline-block', marginLeft: '5px' }} className="disease-text">Seizures</span>
                 </div>
                 <MedicineImgContainer>
@@ -77,7 +76,7 @@ const MedicinesSlick = ({ id }) => {
             ))}
           </Slider>
         </MedicineSlickContainer>
-      </Container>
+      </div>
     </MedicineContainerMain>
   );
 };

@@ -289,49 +289,49 @@ const Inputs = () => {
   return (
     <>
       {servicePopup ? <ServicePopup show={servicePopup} onClose={() => setservicePopup(false)} /> : null}
-      <div className='container mb-4'>
+      <div className='bscontainer-fluid mb-4'>
         <div className='row'>
           <div className='col-lg-2'>
-            <select name="country" value={locationModel.country} onChange={handleChangeCountryStateCity}  >
-              <option>Choose Country</option>
-              {allCountries.map((country, i) => <option key={i} value={country.isoCode}>{country.name}</option>)}
+            <select name="country" className='text-sm flex items-center p-5 ' value={locationModel.country} onChange={handleChangeCountryStateCity}  >
+              <option className='text-sm w-0'>Choose Country</option>
+              {allCountries.map((country, i) => <option key={i} value={country.isoCode} className='text-sm w-0'>{country.name}</option>)}
             </select>
           </div>
           <div className='col-lg-2'>
-            <select name="state" value={locationModel.state} onChange={handleChangeCountryStateCity}  >
-              <option>Choose State</option>
-              {allStates.map((state, i) => <option key={i} value={state.isoCode}>{state.name}</option>)}
+            <select  className='text-sm flex items-center  p-5' name="state" value={locationModel.state} onChange={handleChangeCountryStateCity}  >
+              <option  className='text-sm w-0'>Choose State</option>
+              {allStates.map((state, i) => <option key={i}  className='text-sm w-0' value={state.isoCode}>{state.name}</option>)}
             </select>
           </div>
           <div className='col-lg-2'>
-            <select name="city" value={locationModel.city} onChange={handleChangeCountryStateCity}  >
-              <option>Choose City</option>
-              {allCities.map((city, i) => <option key={i} value={city.name}>{city.name}</option>)}
+            <select  className='text-sm flex items-center  p-5' name="city" value={locationModel.city} onChange={handleChangeCountryStateCity}  >
+              <option  className='text-sm w-0'>Choose City</option>
+              {allCities.map((city, i) => <option key={i}  className='text-sm w-0' value={city.name}>{city.name}</option>)}
             </select>
           </div>
           <div className='col-lg-2'>
-            <select name="services" value={locationModel.services} onChange={handleChangeCountryStateCity}>
-              <option>Choose Service</option>
-              {services.map((service, i) => <option value={service.value} key={i}>{service.label}</option>)}
+            <select  className='text-sm flex items-center  p-5' name="services" value={locationModel.services} onChange={handleChangeCountryStateCity}>
+              <option  className='text-sm w-0'>Choose Service</option>
+              {services.map((service, i) => <option  className='text-sm w-0' value={service.value} key={i}>{service.label}</option>)}
             </select>
           </div>
           <div className='col-lg-1'>
-            <select name="minDistances" value={locationModel.minDistances} onChange={handleChangeCountryStateCity}>
-              <option>Min. Distance</option>
-              {minDistances.map((mindist, i) => <option value={mindist.value} key={i}>{mindist.label}Km</option>)}
+            <select  className='text-sm flex items-center  p-5' name="minDistances" value={locationModel.minDistances} onChange={handleChangeCountryStateCity}>
+              <option  className='text-sm w-0'>Min. Distance</option>
+              {minDistances.map((mindist, i) => <option  className='text-sm w-0' value={mindist.value} key={i}>{mindist.label}Km</option>)}
             </select>
           </div>
           <div className='col-lg-1'>
-            <select name="maxDistances" value={locationModel.maxDistances} onChange={handleChangeCountryStateCity}>
-              <option>Max. Distance</option>
-              {maxDistances.map((maxdist, i) => <option value={maxdist.value} key={i}>{maxdist.label}Km</option>)}
+            <select  className='text-sm flex items-center  p-5' name="maxDistances" value={locationModel.maxDistances} onChange={handleChangeCountryStateCity}>
+              <option  className='text-sm w-0'>Max. Distance</option>
+              {maxDistances.map((maxdist, i) => <option  className='text-sm w-0' value={maxdist.value} key={i}>{maxdist.label}Km</option>)}
             </select>
           </div>
-          <div className='col-lg-2 d-flex align-items-center justify-content-around'>
+          <div className='col-lg-2 d-flex pt-2 align-items-center justify-content-around'>
             <button
               disabled={(locationModel.country && locationModel.state && locationModel.city && locationModel.services && locationModel.minDistances && locationModel.maxDistances) ? false : true}
-              onClick={getdata} style={{ width: "45%", fontSize: '13px', fontWeight: "600", height: '100%' }} className='btn btn-danger '>Search</button>
-            <button onClick={() => setservicePopup(true)} style={{ fontSize: '13px', marginLeft: '20px', fontWeight: "600", height: '100%' }} className='btn btn-danger '>Add Service</button>
+              onClick={getdata} style={{ width: "45%", fontSize: '13px', fontWeight: "600", height: '90%' }} className='bg-red-600 rounded-md text-white'>Search</button>
+            <button onClick={() => setservicePopup(true)} style={{ fontSize: '13px', marginLeft: '15px', fontWeight: "600", height: '90%' , }} className='bg-red-600 p-1 rounded-md text-white '>Add Service</button>
           </div>
 
         </div>
@@ -348,7 +348,7 @@ const Inputs = () => {
 
         />
       </div>
-      <div className='container'>
+      <div className='bscontainer-fluid'>
         <div className='row'>
           {serviceData.map((service) => {
             return (
@@ -358,18 +358,18 @@ const Inputs = () => {
                     <img src={emptyLocation} className={styles.img_section} alt="img" />
                   </div>
                   <div className={styles.card_data}>
-                    <h6>{service.serviceName}</h6>
+                    <h4 className='text-[18px]'>{service.serviceName}</h4>
                     {/* <p className={styles.para}>this is address</p> */}
-                    <div className={`d-flex pt-1 ${styles.text1}`}>
-                      <div>
+                    <div className={`flex pt-1 items-center ${styles.text1}`}>
+                      <div className='flex items-center'>
                         <img src={Flag1} className={styles.icon} alt="icon" />
                         <span className={styles.country_name_text}>{service.serviceCountry}</span>
                       </div>
-                      <div>
+                      <div className='flex items-center'>
                         <img src={Star1} className={styles.icon} alt="icon" />
                         <span className={styles.icon_text}>0.0</span>
                       </div>
-                      <div>
+                      <div className='flex items-center'>
                         <img src={Like} className={styles.icon} alt="icon" />
                         <span className={styles.icon_text}>Likes 0</span>
                       </div>

@@ -66,7 +66,7 @@ const DiagnoseSlick = () => {
     };
     return (
         <StyledSlickContainer>
-            <Container>
+            <div className='bscontainer-fluid'>
                 <Slider {...settings} className='responsive-slick'>
                     {
                         diagnoseImgs.map((img, index) => (
@@ -83,7 +83,10 @@ const DiagnoseSlick = () => {
                                     </div>
 
                                 </DiagnoseImgContainer>
+                                <div className='w-10'>
                                 {img.flagImage}
+
+                                </div>
                             </>
 
                         ))
@@ -92,7 +95,7 @@ const DiagnoseSlick = () => {
                 <h4>HEALTH DATA GOVERNANCE PROTECTION, ACCOUNTABILITY AND COMPLIANCE</h4>
                 <p>HIPPAA, GDPR, CCPA, PIPEDA PHI, PIPEDA, LGPD, POPI and The Privacy Act's AUS 1988, UK 2018, NZ 2020 COMPLIANT</p>
                 <DiagnoseAppointmentBtn>Appointment</DiagnoseAppointmentBtn>
-            </Container>
+            </div>
         </StyledSlickContainer>
     )
 }

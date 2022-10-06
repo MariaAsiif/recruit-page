@@ -77,7 +77,7 @@ export const MarketPlaceSlick = () => {
           )
         }
       />
-      <Slider {...settings} className="inhalate-slick">
+      <Slider {...settings} className="inhalate-slick w-[80%] ml-[200px] flex justify-end">
         {marketPlaceImgs.map((img, index) => (
           <MarkSlickImgContainer key={index}>
             <div className="inner-overlay">

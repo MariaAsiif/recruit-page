@@ -59,7 +59,7 @@ const Prescribe = ({ id }) => {
     return (
         <PrescribeMainContainer id={id} >
             <PrescribeSlickMain>
-                <Container>
+                <div className="bscontainer-fluid pl-2">
                     <Slider {...settings} className='responsive-slick'>
                         <PrescribeImgContainer className='card-overlay'>
                             <div className="overlay">
@@ -97,6 +97,7 @@ const Prescribe = ({ id }) => {
                     </Slider>
 
                     <div className='mt-4'>
+
                         <Slider {...settings} className='responsive-slick'>
                             {
                                 prescribeImgs2.map((img, index) => (
@@ -105,7 +106,7 @@ const Prescribe = ({ id }) => {
                             }
                         </Slider>
                     </div>
-                </Container>
+                </div>
             </PrescribeSlickMain>
         </PrescribeMainContainer>
     )

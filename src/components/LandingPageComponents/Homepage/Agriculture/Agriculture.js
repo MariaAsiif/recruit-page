@@ -8,7 +8,7 @@ const Agriculture = ({ id }) => {
     return (
         <div id={id}>
             <AgricultureMainContainer >
-                <Container>
+                <div className="bscontainer-fluid">
                     <AgriHeading>
                     Controlled Environment Agriculture
                     </AgriHeading>
@@ -17,7 +17,7 @@ const Agriculture = ({ id }) => {
                     </AgricultureTertiaryHeading>
                     <AgricultureImgSection />
                     <AgricultureSlick />
-                </Container>
+                </div>
             </AgricultureMainContainer>
         </div>
     )

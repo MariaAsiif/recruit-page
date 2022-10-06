@@ -6,6 +6,8 @@ export const MedicineContainerMain = styled.div`
 export const MedicineImgContainer = styled.div`
   position: relative;
   text-align: center;
+  margin-right:10px;
+  margin-left:10px;
   margin-top: 1.7rem;
   text-align: -moz-center;
   text-align: -webkit-center;
@@ -63,7 +65,7 @@ export const MedicineImgContainer = styled.div`
 
 export const MedicineSlickContainer = styled.div`
 h1{
-   font-size: 4.8rem;
+   font-size: 3rem;
   font-style: normal;
   font-weight: 500;
   line-height: 7.2rem; 
@@ -87,7 +89,6 @@ opacity: 0.8;
   
   `
 export const MedicineImg = styled.img`
-width: 29.8rem;
-height: 28.5rem;
+width: 100%;
 
 `;

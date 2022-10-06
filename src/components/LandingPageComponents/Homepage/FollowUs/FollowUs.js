@@ -46,7 +46,7 @@ const FollowUs = ({ imgs, head, imgs1, head1 }) => {
   };
   return (
     <MainContainerFollowUs>
-     <Container>
+     <div className='bscontainer-fluid'>
         <Row>
           <Col lg={6}>
             <FollowUsMain>
@@ -56,7 +56,7 @@ const FollowUs = ({ imgs, head, imgs1, head1 }) => {
                   const { img, title } = supplierImg;
                   return (
                     <FollowUsImgContainer key={index}>
-
+                       
                       <FollowUsImg src={img} alt={img} />
                       <p>{title}</p>
                     </FollowUsImgContainer>
@@ -77,7 +77,7 @@ const FollowUs = ({ imgs, head, imgs1, head1 }) => {
 
                  return (
                     <FollowUsImgContainer key={index}>
-  
+                 
                       <FollowUsImg src={img} alt={img} />
                       <p>{title}</p>
   
@@ -91,7 +91,7 @@ const FollowUs = ({ imgs, head, imgs1, head1 }) => {
             </FollowUsMain>
           </Col>
         </Row>
-      </Container>
+      </div>
     </MainContainerFollowUs>
   )
 }

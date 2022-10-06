@@ -24,9 +24,10 @@ padding-bottom: 1rem;
 `
 export const FollowUsImgContainer = styled.div`
 text-align: center;
+
 p{
-    margin-top: 1.2rem;
-font-size: 1.3rem;
+   margin-top: 1.2rem;
+font-size: 1rem;
 font-style: normal;
 font-weight: 500;
 line-height: 1.2rem;
@@ -37,5 +38,6 @@ color: #242424;
 
 `
 export const FollowUsImg = styled.img`
-height: 4.1rem;
+height: 3rem;
+margin-left:25px
 `

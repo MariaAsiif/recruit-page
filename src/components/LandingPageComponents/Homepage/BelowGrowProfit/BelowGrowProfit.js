@@ -25,9 +25,9 @@ const BelowGrowProfit = ({ id }) => {
   return (
     <BelowGrowProfitMainContainer id={id}>
 
-      <Accordion defaultActiveKey="0">
+      {/* <Accordion defaultActiveKey="0">
         <Accordion.Item onClick={() => activeCollapes(0)}>
-          <Accordion.Header>
+          <Accordion.Header >
             Controlled Environment Agriculture Manufacturers
             {
               active === 0 ?
@@ -41,14 +41,14 @@ const BelowGrowProfit = ({ id }) => {
 
           </Accordion.Body>
         </Accordion.Item>
-      </Accordion>
-      {/* <Container>
-        <h2></h2>
-      </Container> */}
-      {/* <BelowGrowProfitImgContainer>
+      </Accordion> */}
+      {/* <Container> */}
+        <h2>  Controlled Environment Agriculture Manufacturers</h2>
+      {/* </Container> */}
+      <BelowGrowProfitImgContainer>
 
         <BelowEditIQ />
-      </BelowGrowProfitImgContainer> */}
+      </BelowGrowProfitImgContainer>
       {/* <BelowGrowProfitImgContainer>
         <div className="inner-overlay">
           <div className="inner-overlay-content">

@@ -96,8 +96,9 @@ top : 1rem;
 left: 1rem ;
 `
 export const EVendorViewMoreBtn = styled(ViewMoreBtn)`
-margin-top:5.6rem
+margin-top:1rem
 `
 export const EvendorHeading=styled(PrimaryHeading)`
 text-transform: capitalize;
+font-size:45px;
 `

@@ -84,7 +84,7 @@ export default function Waveform({ url }) {
         /> */}
         {/* <label htmlFor="volume">Volume</label> */}
       </div>
-      <div className="mx-auto mt-5">
+      <div className="mx-auto mt-5 flex justify-center text-[18px]">
         {
           playing ? (
             <FaPause onClick={handlePlayPause} fontSize='2rem' className="me-4" />

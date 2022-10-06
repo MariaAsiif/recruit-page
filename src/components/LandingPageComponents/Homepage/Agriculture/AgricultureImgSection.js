@@ -33,11 +33,11 @@ const AgricultureImgSection = () => {
 
                 </Row>
             </AgricultureImgContainer>
-            <AgricultureImgContainer className='mt-4'>
+            <AgricultureImgContainer className='-mt-[12rem]'>
                 <Row>
                     <Col md={4}>
                         <AgriculteContainer1>
-                            <AgricultureImg1 style={{height:"40.2rem !important"}} className='img-fluid' src={agri4} alt={agri4} />
+                            <AgricultureImg1  className='img-fluid' src={agri4} alt={agri4} />
                             <div className="overlay">
                             </div>
                             <div className='inner-overlay'>
@@ -49,7 +49,7 @@ const AgricultureImgSection = () => {
                     </Col>
                     <Col md={8}>
                         <AgriculteContainer>
-                            <AgricultureImg className='img-fluid' src={agri1} alt={agri1} />
+                            <AgricultureImg style={{height:"40rem"}} className='img-fluid' src={agri1} alt={agri1} />
                             <div className="overlay">
                             </div>
                             <div className='inner-overlay'>

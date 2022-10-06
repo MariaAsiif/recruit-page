@@ -54,10 +54,10 @@ const SubBar = ({ setShow }) => {
       <Marquee />
       <TopBar setShow={setShow} />
 
-      <div className={navbar ? "hporx-header" : "hporx-header-skew"}>
+      <div className={navbar ? "hporx-header" : "hporx-header-skew "}>
         <div className={navbar ? "hporx-header-topbar-skew" : navbarbackground ? "changetopBArbackgournd" : "hporx-header-topbar-normal"} ></div>
         <nav className={navbarbackground ? "nav" : "changebackground"} id="navbar"  >
-          <div className="nav-content">
+          <div className="nav-content bscontainer-fluid">
             <ul className="nav-items">
               <li className="main-li" >
                 <Link activeClass="active" to="HOME" spy={true} smooth={true} duration={500}    > HOME{" "} </Link>
@@ -98,9 +98,9 @@ const SubBar = ({ setShow }) => {
                   PRESCRIBE{" "}
                 </Link>
               </li>
-              <li className="main-li">
-                <Link activeClass="active" spy={true} smooth={true} offset={-70} duration={500}  >
-                  PRODUCTS<img src={downIcon} alt='downIcon' />
+              <li className="main-li ">
+                <Link activeClass="active"  spy={true} smooth={true} offset={-70} duration={500}  >
+                  PRODUCTS 
                 </Link>
 
                 <ul className="dropdown-product-link" >

@@ -76,6 +76,8 @@ export const PrescribeImg = styled.img`
 export const ConsultDarkBtn = styled(ViewMoreBtn)`
   background: #242424;
   color: #ffffff;
+  font-size:16px;
+  
 `;
 
 export const ShopBtn = styled(ShopNowBtn)`

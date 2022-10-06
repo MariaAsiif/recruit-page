@@ -6,12 +6,13 @@ import { PrimaryHeading, TertiaryHeadingMedium, TertiaryHeadSecondary, ViewMoreB
 export const FeatureMarketText=styled.div`
 text-align: center;
 margin-top: 9rem;
+
 `
 
 export const MarketPlaceHeading = styled(PrimaryHeading)`
 color: #242424;
 font-weight: 500;
-font-size: 4.8rem;
+font-size: 3rem;
 line-height: 7.2rem;
 opacity: 0.8;
 color: #FFFFFF;
@@ -30,7 +31,7 @@ background-image: url(${featureMarkBack}) ;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-  padding: 4rem 0;
+  padding: 1rem 0;
 `
 export const FeatureMarkImg = styled.img`
 @media screen and (max-width:480px) {
@@ -40,15 +41,19 @@ margin-top: 1.5rem;
 `
 export const FeatureSubHeading = styled(TertiaryHeadingMedium)`
 opacity: 0.8;
+font-size:16px;
+line-height:30px;
 `
 export const FeatureHeading = styled(PrimaryHeading)`
 text-transform: capitalize;
+font-size:35px;
 color:white ;
 `
 export const FeatureMarketPlaceBtn = styled(ViewMoreBtn)`
 
-margin-top: 5rem;
+margin-top: 1rem;
 color: #FFFFFF;
+font-size:16px;
 border: 1px solid #FFFFFF;
 background: transparent;
 `
@@ -59,4 +64,5 @@ text-align: start ;
 export const FeatureMarketSub = styled(TertiaryHeadSecondary)`
 padding: 2rem;
 padding-top: 1rem;
+font-size:1.2rem;
 `

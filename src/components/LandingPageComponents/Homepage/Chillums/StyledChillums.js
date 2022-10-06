@@ -31,6 +31,7 @@ padding: 0 2rem;
 `
 export const ChillumImgContainer = styled.div`
 position: relative;
+
   text-align: center;
   .overlay {
     position: absolute;
@@ -50,6 +51,8 @@ position: relative;
     top: 50%;
     left: 46.5%;
     width: 94%;
+    height:100%;
+    padding-top:20px;
     background-color: rgba(0, 0, 0, 0.71);
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -66,16 +69,15 @@ letter-spacing: 0em;
 color: #FFFFFF;
     }
     p{
-font-size: 1.6rem;
+font-size: 1rem;
 font-style: normal;
 font-weight: 400;
-line-height: 2.4rem;
 text-align: center;
 color: rgba(255, 255, 255, 0.8);
 margin-top: 0.6rem;
     }
     .price{
-font-size: 3.4rem;
+font-size: 2rem;
 font-style: normal;
 font-weight: 700;
 line-height: 5.1rem;
@@ -98,7 +100,9 @@ height:100%;
 object-fit: cover;
 `
 export const ChillumBtn = styled(ShopBtnTransparent)`
-margin-top: 1.9rem;
+margin-top: 1.4rem;
+height:45px;
+font-size:15px
 `
 
 export const ChillumSlick = styled.div`

@@ -16,7 +16,7 @@ import { Container } from "react-bootstrap";
 var settings = {
   dots: false,
   infinite: false,
-  arrows: true,
+  arrows: false,
   autoplay:true,
   speed: 500,
   slidesToShow: 4,
@@ -75,12 +75,12 @@ const EMultiVendor = () => {
 
   return (
     <EVendorMain>
-      <Container>
+      <div className="bscontainer-fluid overflow-hidden">
         <EvendorHeading style={{ textTransform: "Captilize !important" }}>
           <span style={{ color: "red", textTransform: "lowercase" }}>e</span>
           Commerce Multivendor Marketplace
         </EvendorHeading>
-        <p>WHERE MERCHANTS MEET BUYERS</p>
+        <p style={{fontSize:'16px'}}>WHERE MERCHANTS MEET BUYERS</p>
         {stateIsLoading && <h1>Loading...</h1>}
         <Slider {...settings} className="EVendor-slick">
           {!stateIsLoading && productData && productData.map((item, index) => {
@@ -98,7 +98,7 @@ const EMultiVendor = () => {
           <EVendorSlick />
         </div> */}
         <EVendorViewMoreBtn>View More</EVendorViewMoreBtn>
-      </Container>
+      </div>
     </EVendorMain>
   );
 };

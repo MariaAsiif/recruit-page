@@ -43,9 +43,9 @@ const Statistics = () => {
     },]
     return (
         <StatisticsMainContainer>
-            <Container>
+            <div className='bscontainer-fluid mt-3'>
                 <h1>Statistics</h1>
-                <Row className=' p-0 '>
+                <Row className=''>
                     {
                         cards.map((data, index) => {
                             const { image,
@@ -53,7 +53,7 @@ const Statistics = () => {
                                 p1,
                                 p2, mini } = data;
                             return (
-                                <div className='p-3 col-lg col-md-4 col-sm-6 col-xs-12' key={index}>
+                                <div className=' col-lg col-md-4 col-sm-6 col-xs-12' key={index}>
 
                                     <Card className='card-container'>
 
@@ -62,20 +62,19 @@ const Statistics = () => {
                                             <StatisticsImg src={image} alt={image} />
                                         </StatisticsImgContainer>
                                         <StatisticsTextContainer>
-                                            <div className="d-flex align-items-center">
+                                            <div className="flex items-center pt-[40px]">
                                                 <h3 >{revenue}
-
                                                 </h3>
-                                                <div className='d-flex flex-column ml-5'>
-                                                    <span className='icon' > {
-                                                        index === 0 ? <BsFillStarFill   /> : null
+                                                <div className='flex flex-col'>
+                                                    <span className='icon mt-4' > {
+                                                        index === 0 ? <BsFillStarFill className="text-sm"   /> : null
                                                     }</span>
-                                                    <span className='mini'>{mini}</span>
+                                                    <span className='mini text-[12px]'>{mini}</span>
                                                 </div>
 
                                             </div>
                                             <p className="mb-2">{p1}</p>
-                                            <p class>
+                                            <p >
                                                 {p2}
                                             </p>
                                         </StatisticsTextContainer>
@@ -88,8 +87,8 @@ const Statistics = () => {
                         )
                     }
                 </Row>
-                <p className='source-world'>Source: <span><FaStar size={7} color='red'/> </span> World Trade Organization (40-% of which is USA/CANADA and 31% European Union) 7/ 2021</p>
-            </Container >
+                <p className='flex items-center ml-6 text-sm mt-0'>Source: <span><FaStar size={7} color='red'/> </span> World Trade Organization (40-% of which is USA/CANADA and 31% European Union) 7/ 2021</p>
+            </div >
         </StatisticsMainContainer>
     )
 }

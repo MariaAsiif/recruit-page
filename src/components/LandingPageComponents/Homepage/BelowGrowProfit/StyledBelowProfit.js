@@ -7,9 +7,11 @@ export const BelowGrowProfitMainContainer = styled.div`
 padding-top: 10rem ;
 padding-bottom: 5rem;
 text-align: center;
+display: flex;
+align-items:center;
 
 h2{
-font-size: 4.8rem;
+font-size: 3rem;
 font-style: normal;
 font-weight: 500;
 line-height: 5.6rem;

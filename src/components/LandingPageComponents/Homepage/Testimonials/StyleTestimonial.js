@@ -20,12 +20,12 @@ margin-top: 6rem;
 h1{
     text-align: center;
     font-weight: 500;
-    font-size: 4.8rem;
+    font-size: 3.5rem;
     line-height: 7.2rem;
 }
 .text-design{
     font-weight: 500;
-    font-size: 1.8rem;
+    font-size: 1rem;
     line-height: 2.4rem;
     text-align: center;
     color: #828282;
@@ -38,7 +38,7 @@ h1{
 }
 .Card{
     margin-right: 1rem;
-    height: 60rem;    
+    height: 50rem;    
     max-width: 45rem;
     @media screen and (min-width:320px) {
         
@@ -47,13 +47,13 @@ h1{
 
 .nameHeading{
     font-weight: 500;
-    font-size: 2.4rem;
+    font-size: 1.6rem;
     line-height: 3.6rem;
     color: #242424;
 }
 .profession{
     font-weight: normal;
-    font-size: 1.6rem;
+    font-size: 1rem;
     line-height: 2.4rem;
     color: #828282;
 }
@@ -63,17 +63,17 @@ h1{
     margin-top: 1.85rem;
 }
  .lead{
-    font-size: 1.6rem;
+    font-size: 1rem;
     line-height: 2.4rem;
     color: #828282;
     margin:2rem 0;
     padding:0 3rem; 
-   margin-top: 5px;
+    margin-top: 5px;
 
  }   
  .btn-read{
     font-weight: normal;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
    line-height: 2.4rem;
    color: #E84025;
  }

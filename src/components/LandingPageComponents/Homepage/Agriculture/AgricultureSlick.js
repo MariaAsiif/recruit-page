@@ -62,7 +62,7 @@ const AgricultureSlick = () => {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus.</p>
 
               </div>
-              <AgricultureMiniImg className='img-fluid' src={img} alt={img} />
+              {/* <AgricultureMiniImg className='border' src={img} alt={img} /> */}
             </AgricultureImgContainer1>
           ))
         }

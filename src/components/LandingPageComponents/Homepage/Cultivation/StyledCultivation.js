@@ -46,6 +46,7 @@ text-align: -moz-center;
     opacity:0;
     height: 340px;
     transition: 0.5s ease;
+    z-index:9999;
     background-color: rgba(0,0,0,0.71);
   }
 .inner-overlay{

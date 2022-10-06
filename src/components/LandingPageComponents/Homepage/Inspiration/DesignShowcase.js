@@ -8,6 +8,18 @@ import StyleDesignShowcase, { StyleDesignInner, StyleData } from './StyleDesignS
 // import SwiperCore, { EffectCoverflow, Pagination, Navigation, Keyboard, Mousewheel, Autoplay } from 'swiper/core';
 import axios from "axios";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+
+
+// import required modules
+import { EffectCoverflow, Pagination } from "swiper";
+
+
 // import banner1 from '../../../assets/banner1.jpg';
 // import banner2 from '../../../assets/banner2.jpg';
 // import banner3 from '../../../assets/banner3.jpg';
@@ -79,7 +91,7 @@ return (
         <h3>Inspire Quotes</h3>
         <StyleDesignInner>
             <div className="container">
-                {/* <Swiper navigation={false}
+                <Swiper navigation={false}
                     effect={"coverflow"}
                     direction={"vertical"}
                     centeredSlides={true}
@@ -105,6 +117,7 @@ return (
                     mousewheel={true}
                     keyboard={true}
                     pagination={false}
+                    modules={[EffectCoverflow]}
                     slideToClickedSlide={true}
                     className="mySwiper"
                 >
@@ -121,7 +134,7 @@ return (
                         </SwiperSlide>
 
                     ))}
-                </Swiper> */}
+                </Swiper>
             </div>
         </StyleDesignInner>
 

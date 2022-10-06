@@ -13,7 +13,7 @@ import Statistics from "./Statistics/Statistics";
 import SubscribeNewsletter from "./SubscribeNewsletter/SubscribeNewsletter";
 import TrustedSuppliers from "./TrustedSuppliers/TrustedSuppliers";
 import Vaporize from "./Vaporize/Vaporize";
-import Footer from "./Footer/Footer";
+// import Footer from "./Footer/Footer";
 // import Inhalate from "./Inhalate/Inhalate";
 import Marketplace from "../MarketPlace/Marketplace";
 import Diaganose from "./Diagnose/Diaganose";
@@ -71,7 +71,7 @@ import { RiMessage2Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Feedback from "../Feedback/FeedBack";
 import Popup from "./ageDate/Popup";
-
+import Footer from '../../Footer/Footer'
 export const VolumeContext = createContext();
 const styles = {
   margin: "1rem 2rem",
@@ -150,10 +150,10 @@ const Homepage = () => {
   ];
   return (
     <div className="">
-    {/* <Popup/> */}
-      {/* <VolumeContext.Provider value={handleVolume}>
+      {/* <Popup/> */}
+      <VolumeContext.Provider value={handleVolume}>
         <Header id="HOME" value={volumeValue} />
-      </VolumeContext.Provider> */}
+      </VolumeContext.Provider>
 
       < DesignShowcase />
 
@@ -202,17 +202,15 @@ const Homepage = () => {
         imgs1={hygieImgs}
         head1="Hygieia Apothecary"
       />
+
       <Footer />
-      <SSL />
-      <hr style={styles} />
-      <TrustedSuppliers imgs={aboveCopyrightImgs} head="" />
-      <Terms />
+
       <VolumeContext.Provider value={handleVolume}>
         <Quote value={volumeValue} />
       </VolumeContext.Provider>
-     
+
       <Feedback />
-      
+
 
 
     </div>

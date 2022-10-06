@@ -3,7 +3,7 @@ import cartgreen from "../../../assets/landingImages/blackCart.svg";
 import cartwhite from "../../../assets/landingImages/whiteCart.svg";
 
 export const PrimaryHeading = styled.h2`
-  font-size: 4.8rem;
+  font-size: 3.5rem;
   font-style: normal;
   font-weight: 500;
   line-height: 7.2rem;
@@ -32,7 +32,7 @@ export const SubHeadingSecondary = styled.h2`
   letter-spacing: 0em;
 `;
 export const TertiaryHeading = styled.h3`
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 400;
   line-height: 2.7rem;
@@ -203,7 +203,7 @@ export const CustomCardContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
+    gap: 5px;
   }
 
   .customCard .customCard-body .content .title h1 {

@@ -83,12 +83,12 @@ function Testimonials() {
     <Testimonial>
       <h1 >Testimonials</h1>
       <p className='text-design'> Curabitur cursus sagittis varius. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. </p>
-      <div className='container  '>
+      <div className='bscontainer-fluid'>
         <Slider {...settings} className='responsive-slick'>
           {imgs.map((data, index) => {
             const { img, subtitle, name, audio } = data;
             return (<div key={index}>
-              <Card className='Card' >
+              <Card className='Card'>
                 <div className='text-center card-body'>
                   <img class src={img} alt="Testimonial " className='main-image mx-auto' />
                   <h3 className="nameHeading">{name}</h3>

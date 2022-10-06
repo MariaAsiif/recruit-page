@@ -12,7 +12,7 @@ export const NewsLetterMainContianer = styled.div`
   margin-top: 5.5rem;
   .subscribe-form {
     .input-label {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       font-style: normal;
       font-weight: 400;
       line-height: 1.4rem;
@@ -21,26 +21,32 @@ export const NewsLetterMainContianer = styled.div`
     }
     .input-field {
       margin-top: 1rem;
-      font-size: 1.4rem;
+      // font-size: 1.4rem;
       font-style: normal;
-      font-weight: 400;
-      line-height: 1.3rem;
+      // font-weight: 400;
+      // line-height: 1.3rem;
       letter-spacing: 0em;
       color: #828282;
-      padding: 1.5rem 1.5rem;
+      padding: 1rem 1rem;
+      border:1pt solid lightgray;
+      border-radius:10px;
+      width: 100%;
     }
   }
 `;
 export const SubscribeHeading = styled(PrimaryHeading)`
   line-height: 5.3rem;
   text-transform: capitalize;
+  font-size: 3rem;
+
   @media screen and (max-width: 480px) {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 `;
 export const NewsLetterImg = styled.img`
   margin-top: 3rem;
-  height: 47.9rem;
+  height: 80%;
+  width: 100%;
   object-fit:cover;
 `;
 export const SubscribeButton = styled(ViewMoreBtn)`

@@ -27,26 +27,24 @@ padding: 2rem;
 /* margin-top: 4.3rem; */
 `
 export const TrustedSuppliersImg = styled.img`
-height: 7rem;
+height: 4rem;
 object-fit: contain;
 `
 
 
 export const TrustedCompanyContainer = styled.div`
     margin-top: 3.8rem;
-    padding: 2.1rem;
+    padding: 2rem;
     background: #FBFAFA;
 
 
     h3{
         font-weight: 500;
-font-size: 3.2rem;
-line-height: 4.8rem;
+font-size: 2rem;
 color: #242424;
 text-align: center;
 @media screen and (max-width:480px) {
     font-size: 2.6rem;
-line-height: 3.4rem;
 
 }
     }

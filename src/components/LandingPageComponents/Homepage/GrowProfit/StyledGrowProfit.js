@@ -20,8 +20,8 @@ p{
 
 }
 h5{
-  margin-top: 3.2rem;
-font-size: 2.4rem;
+  margin-top: 2rem;
+font-size: 2rem;
 font-style: normal;
 font-weight: 500;
 line-height: 3.6rem;
@@ -71,33 +71,47 @@ color: white;
 `
 export const GrowProfitPriceText=styled(SubHeading)`
 margin-top: 4px;
+font-size:2rem;
 `
 export const GrowProfitHeading = styled(PrimaryHeading)`
 color: #242424;
 opacity: 0.8;
+font-size:3rem;
 text-transform: capitalize;
 `
 export const GrowProfitSubHeading = styled(SubHeading)`
 color: #333333;
 opacity: 0.8;
-margin-top: 0.9rem;
+font-size:2rem;
 `
 export const GrowProfitImgContainer = styled.div`
 background-image:linear-gradient(to right, rgba(10, 71, 46, 0.88), rgba(10, 71, 46, 0.88)), url(${GrowProfitBack}) ;
   background-repeat: no-repeat;
-  height: 61.5rem;
+  height:75%;
   background-size: cover;
 margin-top: 3rem;
 position: relative;
 `
 export const GrowProfitImg = styled.img`
-width:63.6rem;
-height:45.6rem;
+width:100%;
+height:80%;
 `
 export const GrowProfitSlickContainer = styled.div`
 .text-container{
   margin-left: 7.5rem;
 }
+
+.heading{
+  font-size:2.5rem;
+  font-weight:500;
+}
+
+p{
+  font-size:1rem;
+  line-height:30px
+}
+
+
 @media only screen and (max-width: 768px) {
  .text-container{
     margin-left: 0;

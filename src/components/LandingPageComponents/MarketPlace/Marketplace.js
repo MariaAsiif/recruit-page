@@ -4,31 +4,31 @@ import { MarketplaceImg, MarketSubHead, MarketContentContainer, MarketReHeading,
 import marketplace from '../../../assets/landingImages/marketplace.svg'
 import { PrimaryHeading, TertiaryHeadingSmall } from '../Globals/Globals'
 import { MarketPlaceSlick } from './MarketPlaceSlick'
-const Marketplace = ({id}) => {
+const Marketplace = ({ id }) => {
   return (
     <div id={id}>
-    <Container  >
+      <div className='bscontainer-fluid'>
         <MarkInnerContainer  >
-    <Row>
-        <Col md={6}>
-            <MarketContentContainer>
-            <PrimaryHeading>MARKETPLACE</PrimaryHeading>
-            <TertiaryHeadingSmall>Curabitur cursus sagittis varius. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet</TertiaryHeadingSmall>
-            <MarketSubHead>HEALTH IS WEALTH</MarketSubHead>
-            <MarketReHeading >“Great health is a great wealth!”</MarketReHeading>
-            <MarketTertiaryHeadMedium>Dr A. E De Mandeville</MarketTertiaryHeadMedium>
-            <MarketViewMoreBtn>View More</MarketViewMoreBtn>
-            </MarketContentContainer>
-        </Col>
-        <Col md={6}>
-            <MarketplaceImg className='img-fluid' src={marketplace} alt={marketplace}/>
-        </Col>
-    </Row>
-    <div>
-    <MarketPlaceSlick/>
-    </div>
-    </MarkInnerContainer>
-      </Container>
+          <div className='row'>
+            <div className='col-lg-6'>
+              <MarketContentContainer>
+                <div className="text-[2rem] font-medium">MARKETPLACE</div>
+                <div className="text-[18px]">Curabitur cursus sagittis varius. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet</div>
+                <MarketSubHead>HEALTH IS WEALTH</MarketSubHead>
+                <MarketReHeading >“Great health is a great wealth!”</MarketReHeading>
+                <div className='text-[15px] text-gray-400'>Dr A. E De Mandeville</div>
+                <MarketViewMoreBtn>View More</MarketViewMoreBtn>
+              </MarketContentContainer>
+            </div>
+            <div className='col-lg-6'>
+              <MarketplaceImg className='img-fluid' src={marketplace} alt={marketplace} />
+            </div>
+          </div>
+          <div >
+            <MarketPlaceSlick />
+          </div>
+        </MarkInnerContainer>
+      </div >
     </div>
   )
 }

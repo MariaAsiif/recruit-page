@@ -3,11 +3,11 @@ import { ViewMoreBtn } from "../../Globals/Globals";
 
 export const LocateMainContainer = styled.div`
 text-align: center;
-margin-top: 9rem;
+margin-top: 10px;
 
 h3{
  margin-top: 1.6rem;
-font-size: 2.8rem;
+font-size: 1.7rem;
 font-style: normal;
 font-weight: 500;
 line-height: 2.4rem;
@@ -22,10 +22,10 @@ padding: 0 5rem;
 }
 p{
   margin-top: 1.6rem;
-font-size: 1.8rem;
+font-size: 1.2rem;
 font-style: normal;
 font-weight: 400;
-line-height: 2.4rem;
+line-height: 2rem;
 letter-spacing: 0em;
 color: #828282;
 opacity: 0.8;

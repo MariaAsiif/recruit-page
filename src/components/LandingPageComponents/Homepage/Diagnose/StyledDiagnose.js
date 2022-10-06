@@ -11,7 +11,7 @@ margin-top: 9rem;
 
 text-align: center;
 h3{
-font-size: 4.8rem;
+font-size: 3rem;
 font-style: normal;
 font-weight: 500;
 line-height: 7.2rem;
@@ -19,7 +19,7 @@ letter-spacing: 0em;
 opacity: 0.8;
 }
 p{
-font-size: 1.8rem;
+font-size: 1.2rem;
 font-style: normal;
 font-weight: 500;
 line-height: 2.7rem;
@@ -38,7 +38,7 @@ margin-right: 2rem;
     top: 0;
     bottom: 2.8rem;
     left: 0;
-    width: 97%;
+    width: 100%;
     height: 100%;
     right: 2rem;
     opacity: 0;
@@ -79,26 +79,23 @@ padding:0 3rem;
     }
 `
 export const DiagnoseAppointmentBtn = styled(AddToCartBtn)`
-margin-top: 3rem;
-font-size: 1.6rem;
-font-style: normal;
-font-weight: 500;
-line-height: 2.4rem;
-letter-spacing: 0.03em;
+margin-top: 2rem;
+font-size: 1rem;
+height:46px;
+padding: 0px 10px;
 color: #242424;
 border: 2px solid black;
 `
 export const DiagnoseImg = styled.img`
-padding-right:2rem;
-height: 
-51rem;
+// padding-right:2rem;
+height: 100%;
 
 `
 export const StyledSlickContainer = styled.div`
 margin-top: 5.6rem;
 @media screen and (min-width:1024px) {
   .responsive-slick .slick-next {
-      right: 21px !important;
+      right: 3rem !important;
       z-index: 1;
   }
   .responsive-slick .slick-prev {
@@ -108,7 +105,7 @@ margin-top: 5.6rem;
 }
  
 h4{
-font-size: 2.8rem;
+font-size: 2rem;
 font-style: normal;
 font-weight: 500;
 line-height: 4.2rem;
@@ -118,7 +115,7 @@ opacity: 0.8;
 margin-top: 6rem;
 }
 p{
-font-size: 1.8rem;
+font-size: 1.2rem;
 font-style: normal;
 font-weight: 400;
 line-height: 2.7rem;

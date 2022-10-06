@@ -48,10 +48,10 @@ const SubscribeNewsletter = () => {
   });
   return (
     <NewsLetterMainContianer>
-      <Container>
+      <div className="bscontainer-fluid">
         <ToastContainer style={{ fontSize: "1.4rem" }} />
         <SubscribeHeading>Subscribe</SubscribeHeading>
-        <Row className="justify-content-between mt-3">
+        <Row className="justify-between mt-3">
           <Formik
             initialValues={{
               firstName: "",
@@ -64,13 +64,13 @@ const SubscribeNewsletter = () => {
               position: "",
             }}
             validationSchema={validate}
-            onSubmit={(values , { resetForm}) => {
+            onSubmit={(values, { resetForm }) => {
               setFormLading(true);
               console.log(values);
               generic
                 .post(`${API_URL}subcription`, values)
                 .then((msg) => {
-                    resetForm()
+                  resetForm()
                   toast.success(msg.message);
                   // <div>
                   //     <button onClick={notify}>Notify!</button>
@@ -88,73 +88,71 @@ const SubscribeNewsletter = () => {
             }}
           >
             {(formik) => (
-              <Col lg={7}>
+              <div className="col-lg-7" >
                 <Form>
-                  <Row className="align-items-center ">
-                    <Col md={6}>
+                  <div className="items-center row">
+                    <div className="col-md-6">
                       <InputField
                         name="firstName"
                         placeholder="Enter First Name"
                         type="text"
                         label="First Name"
                       />
-                    </Col>
-                    <Col md={6}>
+                    </div>
+                    <div className="col-md-6">
                       <InputField
                         name="lastName"
                         placeholder="Enter Last Name"
                         type="text"
                         label="Last Name"
                       />
-                    </Col>
-                    <Col md={6}>
+                    </div>
+                    <div className="col-md-6">
                       <InputField
                         name="email"
                         placeholder="Enter Your Email"
                         type="email"
                         label="Email"
                       />
-                    </Col>
-                    <Col md={6}>
+                    </div>
+                    <div className="col-md-6">
                       <InputField
                         name="phone"
                         placeholder="Phone Name"
                         type="phone"
                         label="Mobile Number"
                       />
-                    </Col>
-                    <Col md={6}>
+                    </div>
+                    <div className="col-md-6">
                       <InputField
                         name="inviteFriend"
                         placeholder="Invite Friend"
                         type="text"
                         label="Invite Friend"
                       />
-                    </Col>
-                    <Col md={6}>
+                    </div>
+                    <div className="col-md-6">
                       <InputField
                         name="city"
                         placeholder="Enter City"
                         type="text"
                         label="City"
                       />
-                    </Col>
+                    </div>
 
                     <Col md={12} className="mb-4 mt-2">
-                      <Select
-                        required
-                        name="service"
-                        defaultOption='Select Service'
-                        title="How can we be of service to you?"
-                      />
+                    <select className="text-sm p-5 ">
+                      <option className="text-sm">Select Service</option>
+                      <option className="text-sm">no</option>
+                      <option className="text-sm">others</option>
+                    </select>
                     </Col>
                     <Col md={12} >
-                      <Select
-                       defaultOption='Select Option'
-                        required
-                        name="position"
-                        title="Are you a company or individual?"
-                      />
+                    <select className="text-sm p-5 ">
+                      <option className="text-sm">Select Service</option>
+                      <option className="text-sm">no</option>
+                      <option className="text-sm">others</option>
+                    </select>
                     </Col>
                     <SubscribeButton type="submit">
                       {formLoading ? (
@@ -168,16 +166,16 @@ const SubscribeNewsletter = () => {
                         "Subscribe"
                       )}
                     </SubscribeButton>
-                  </Row>
+                  </div>
                 </Form>
-              </Col>
+              </div>
             )}
           </Formik>
-          <Col lg={5}>
+          <div className="col-lg-5" >
             <NewsLetterImg src={newletterImg} alt={newletterImg} />
-          </Col>
+          </div>
         </Row>
-      </Container>
+      </div>
     </NewsLetterMainContianer>
   );
 };

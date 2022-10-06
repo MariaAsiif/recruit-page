@@ -8,7 +8,7 @@ const StyledHero = styled.div`
   height: 100vh;
   background-size: cover; */
 .hero-video{
-  height: 115vh;
+  height: 135vh;
   width: 100%;
   object-fit: cover;
   position: relative;
@@ -28,10 +28,9 @@ font-size: 1.9rem;
 
 `
 const HeroHeading = styled.h3`
-margin-top: 4rem;
- font-size: 8.5rem;
+margin-top: 20rem;
+ font-size: 6rem;
   font-weight: bold;
-  line-height: 11.3rem;
   color: white;
 
   @media screen and (max-width: 768px){
@@ -67,14 +66,18 @@ width: 54px;
 height: 54px;
 border-radius: 50%;
 display: flex;
+position:absolute;
+left:47%;
+top:40%;
 justify-content: center;
 align-items: center;
+
 `
-const HeroPlayIcon = styled.img`
+const HeroPlayIcon = styled.img` 
   height: 6.2rem;
   cursor: pointer;
   width:  15.26px;
-height :  16.43px
+  height :  16.43px
   `
 export const VideoModalMain=styled.div`
 video{

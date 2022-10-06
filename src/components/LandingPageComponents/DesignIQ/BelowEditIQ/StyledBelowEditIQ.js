@@ -19,12 +19,12 @@ video{
     transform: translateX(16%) translateY(-9%) !important;
     border-radius: 10px;
 position: absolute;
-    top: 0;
+    top: 10%;
     left: 0;
     right: 0;
     bottom: 0;
     width: 76%;
-    height: 99%;
+    height: 90%;
     z-index: 100;
     
 

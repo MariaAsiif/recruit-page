@@ -91,7 +91,7 @@ const Header = ({ id, value }) => {
       
        
         <HeroSlider/>
-        <div className="hero-text-container">
+        <div className="hero-text-container  absolute z-50 left-0 -top-[40px] right-0 text-center">
           <HomePlayButtonContainer onClick={() => setModalShow(true)}>
             <HeroPlayIcon src={playIcon} />
           </HomePlayButtonContainer>

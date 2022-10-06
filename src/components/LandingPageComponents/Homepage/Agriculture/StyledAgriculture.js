@@ -16,7 +16,7 @@ margin-top: 2px;
 `
 
 export const AgricultureImg = styled.img`
-height: 38rem;
+width:100%;
 object-fit: cover;
 
 `
@@ -28,7 +28,9 @@ object-fit: cover;
 `
 
 export const AgricultureMiniImg = styled.img`
-padding-right: 2rem;
+// padding-right: 2rem;
+width:100%;
+height:100%;
 
 `
 export const AgriculteImgsSection = styled.div`
