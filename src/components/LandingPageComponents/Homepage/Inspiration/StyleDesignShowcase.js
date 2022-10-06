@@ -5,7 +5,7 @@ const StyleDesignShowcase = styled.div`
 margin-top: 4rem;
 margin-bottom: 4rem;
 h3{
-  font-size: 4.8rem;
+  font-size: 3rem;
   font-weight: 500;
   line-height: 7.2rem;
   letter-spacing: 0em;

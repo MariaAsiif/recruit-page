@@ -13,7 +13,7 @@ const SideCanvas = ({ show, handleClose }, props) => {
         onHide={handleClose}
         {...props}
       >
-        <Offcanvas.Header closeButton>
+        <Offcanvas.Header >
           <Offcanvas.Title>
             <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
               HPO<span>Rx</span>

@@ -1,9 +1,10 @@
 .sidenavcanvas-container.offcanvas.offcanvas-start {
-  width: 30rem;
+  width: 17rem;
   background-image: url(../../../../assets/landingImages/canvas-bg.gif) !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: absolute;
   border: none;
   
 }
@@ -17,11 +18,10 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
-  font-size: 3rem;
+  font-size: 2rem;
   line-height: 4.2rem;
   color: #FFFFFF;
-  margin-left: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .sidenavcanvas-container .offcanvas-title span{
@@ -54,7 +54,7 @@
 }
 
 .sidenavcanvas-container .offcanvas-body nav > ul li{
-  padding: 1.2rem;
+  padding-top: 10px;
 }
 
 .sidenavcanvas-container .offcanvas-body nav > ul li:hover{
@@ -67,7 +67,8 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 1.4rem;
+    font-size: 15px;
+    text-align: left;
     line-height: 2.4rem;
     color: whitesmoke;
 }

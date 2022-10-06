@@ -47,11 +47,11 @@ margin-top: 20rem;
 const HeroButton = styled.button`
   margin-top: 4rem;
    border-color: #fff;
-  padding: 0.8rem 3.2rem;
+  padding: 0.7rem 3rem;
   border-radius: 2rem;
   border: 1px solid white;
   background: transparent;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   color: white;
   cursor: pointer;
   &:hover{
