@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logoImage from '../images/logo.png'
+import email_verify from "../images/email_verfication.svg"
+import OtpInput from 'react-otp-input';
 const Emailverification = () => {
+    const [emailotp, setemailotp] = useState("")
+    const onChangeOTP = (otp) => {
+        setemailotp(otp)
+    }
     return (
         <div className='h-screen bscontainer-fluid'>
             <div className='h-full border row'>
@@ -19,6 +25,18 @@ const Emailverification = () => {
                                 </div>
                                 <div className='col-lg-12'>
                                     <h1 className='text-[#626973] font-sans text-center'>Email Verification</h1>
+                                </div>
+                                <div className='col-lg-12'>
+                                    <img src={email_verify} className="w-full h-auto max-w-[50px] m-auto mb-10" alt="loginimg" />
+                                </div>
+                                <div className='col-lg-12'>
+                                    <OtpInput
+                                        value={emailotp}
+                                        onChange={onChangeOTP}
+                                        numInputs={6}
+                                        separator={<span>-</span>}
+                                        inputStyle={"border-2 border"}
+                                    />
                                 </div>
                             </div>
                         </div>

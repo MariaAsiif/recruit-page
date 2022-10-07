@@ -15,7 +15,7 @@ module.exports = {
         'reruitBanner': "url('./images/recruitBIgPic.png')",
         'notification': "url('./images/notifi.svg')",
         'outer-notif': "url('./images/outerbg.svg')",
-        'login-img': "url('./images/login/Login.png')"
+        'login-img': "url('./images/Login_left_side.jpg')"
       },
       fontFamily: {
         'sans': ['Open Sans', 'system-ui',],
