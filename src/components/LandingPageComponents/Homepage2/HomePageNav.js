@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { SubBarContainer } from "../Homepage/Navbar/StyledNavbar";
 import { Link, animateScroll as scroll } from "react-scroll";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import "./homePageNav.css";
 
 const SubBar = ({ setShow }) => {
-  const history = useHistory();
+  // const history = useHistory();
 
   return (
-    <Container className="homeNav">
+    <div className="homeNav bscontainer-fluid">
       <div className="nav-content">
         <ul className="nav-items">
           <li className="nav-item">
@@ -19,7 +19,7 @@ const SubBar = ({ setShow }) => {
               spy={true}
               smooth={true}
               duration={500}
-              onClick={() => history.push("/home")}
+              // onClick={() => history.push("/home")}
             >
               {" "}
               Clothing {" "}
@@ -124,7 +124,7 @@ const SubBar = ({ setShow }) => {
      
         </ul>
       </div>
-    </Container>
+    </div>
   );
 };
 

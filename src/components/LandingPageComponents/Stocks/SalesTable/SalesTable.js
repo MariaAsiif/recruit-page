@@ -26,7 +26,7 @@ const SalesTable = () => {
       apiFetch()
     },[])
     return (
-        <Container>
+        <div className='bscontainer-fluid'>
             <ViewTableContainer>
 
                 <h2>Popular Cannabis </h2>
@@ -72,7 +72,7 @@ const SalesTable = () => {
                     </tbody>
                 </Table>
             </ViewTableContainer>
-        </Container>
+        </div>
     )
 }
 

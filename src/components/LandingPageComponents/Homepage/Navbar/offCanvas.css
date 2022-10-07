@@ -6,13 +6,14 @@
 }
 .canvas-title-section img{
     width: 50px;
+    cursor: pointer;
 }
 .canvas-title-section p{
     color: white;
     background: red;
-    padding: .8rem 2rem;
+    padding: .8rem 1rem;
     border-radius: 40px;
-    font-size: 1.3rem;
+    font-size: 14px;
     margin: 0;
 }
 .offcanvas-main-header {
@@ -132,6 +133,7 @@
     border-radius: 2em;
     transition: background-position 0.15s ease-in-out;
     width: 100%;
+    padding-left: 10px;
     transform: translateY(4px);
     cursor: pointer;
    }

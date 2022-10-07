@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ViewTableContainer = styled.div`
 
 margin-top:3rem;
+margin-left:1rem;
 
 h2{
     font-weight:600;
@@ -26,13 +27,13 @@ h2{
      }
       
         .price{
-                padding-left:28rem;
+                padding-left:20rem;
             }
             .chang{
-                 padding-left:28rem;
+                 padding-left:20rem;
             }
             .charge{
-                 padding-left:28rem;
+                 padding-left:20rem;
             }
         @media (max-width: 912px) {
             .price{
@@ -58,13 +59,13 @@ h2{
  }
 tbody tr {
     .price{
-        padding-left:28rem;
+        padding-left:20rem;
     }
     .chang{
-         padding-left:28rem;
+         padding-left:20rem;
     }
     .charge{
-         padding-left:28rem;
+         padding-left:20rem;
     }
 @media (max-width: 912px) {
     .price{
@@ -105,7 +106,7 @@ tbody tr {
         font-size:18px;
         font-weight:400;
         margin-top:3px;
-        margin-left:10px;
+        margin-left:20px;
     }
 }
 

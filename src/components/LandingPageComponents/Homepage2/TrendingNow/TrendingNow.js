@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleTrending, TrendNowInner } from "./StyleTrendingNow";
 import Slider from "react-slick";
-import { BASE_URL, GET_PRODUCTS } from "../../../utils/config";
+import { BASE_URL, GET_PRODUCTS } from "../../../../utils/config";
 import axios from "axios";
 import { useQuery } from "react-query";
 import CustomCard from "../../Globals/CustomCard";

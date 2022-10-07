@@ -172,13 +172,13 @@ const Footer = () => {
                         <ul class="list-unstyled footer-ul">
 
                             <li class="mb-1">
-                                <span>
+                                <span className='flex '>
                                     <FooterImg className='img-fluid' src={flag} alt={flag} /><span class="footer-span">+1 (213) 370
                                         0873</span>
                                 </span>
                             </li>
                             <li>
-                                <span>
+                                <span className='flex '>
                                     <FooterImg className='img-fluid' src={usa} alt={mail} />
                                     <span class="footer-span">
                                         +31 938 022
@@ -186,7 +186,7 @@ const Footer = () => {
                                 </span>
                             </li>
                             <li>
-                                <span>
+                                <span className='flex '>
                                     <FooterImg className='img-fluid' src={mail} alt={mail} /><span
                                         class="footer-span">assist@hporx.com</span>
                                 </span>

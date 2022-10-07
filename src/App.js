@@ -83,6 +83,8 @@ import PublicBetaLogin from './Pages/PublicBetaLogin';
 import CreateLexicon from './Pages/adminLexicon/CreateLexicon';
 import Lexicons from './Pages/adminLexicon/Lexicon';
 import LandingPage from './Pages/LandingPages/Home/Home';
+import MainPage from './Pages/LandingPages/MainPage/MainPage';
+import Stocks from './Pages/LandingPages/Stock/Stock';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -115,6 +117,8 @@ function App() {
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/homepage" element={<MainPage />} />
+        <Route path="/stock" element={<Stocks />} />
         <Route path="/public" element={<PublicBetaLogin />} />
         <Route path="/Home" element={<HomePage />} />
         <Route path="/signin" element={<Login />} />

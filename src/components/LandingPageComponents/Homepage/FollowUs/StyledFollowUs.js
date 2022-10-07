@@ -11,7 +11,7 @@ background-size: cover;
 `
 export const FollowUsMain = styled.div`
 h3{
-font-size: 2.4rem;
+font-size: 2rem;
 font-style: normal;
 font-weight: 500;
 line-height: 3.6rem;

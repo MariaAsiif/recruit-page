@@ -52,8 +52,8 @@ const SSL = () => {
     const sslImgs = [ssl1, ssl2, ssl3, ssl4, ssl5, ssl6]
     return (
         <SSLMain>
-            <Container>
-                <Row className='justify-content-between'>
+            <div className='bscontainer-fluid'>
+                <Row className='justify-between'>
                     <Col md={4}>
                         <Row>
                             {
@@ -91,7 +91,7 @@ const SSL = () => {
                         </Row> */}
                     </Col>
                 </Row>
-            </Container>
+            </div>
         </SSLMain>
     )
 }

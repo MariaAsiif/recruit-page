@@ -17,7 +17,6 @@ export const StyleTrending = styled.div`
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
-    line-height: 30px;
     color: #414141;
 }
 
@@ -84,6 +83,7 @@ gap:15.23px
     h1 {
       font-weight: 500;
       font-size: 22px;
+      margin-left:20px;
       color: #242424;
 
       @media screen and (max-width: 480px) {
@@ -94,8 +94,9 @@ gap:15.23px
     }
 
     p{
-        padding: 0;
+        padding-left: 20px;
         font-size: 14px;
+        margin-left:20px;
         color: black;
         margin: 0;
     }

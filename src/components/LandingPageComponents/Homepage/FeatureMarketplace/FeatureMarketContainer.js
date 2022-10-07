@@ -7,7 +7,7 @@ import { FeatureHeading, FeatureMarketPlaceBtn, FeatureMarkImg, FeatureMarkMain,
 const FeatureMarketContainer = ({order}) => {
     return (
 
-        <Container fluid className='p-0'>
+        <div className='p-0 bscontainer-fluid'>
             <FeatureMarkMain>
                 <Container>
                     <Row>
@@ -24,7 +24,7 @@ const FeatureMarketContainer = ({order}) => {
                     </Row>
                 </Container>
             </FeatureMarkMain>
-        </Container>
+        </div>
     )
 }
 

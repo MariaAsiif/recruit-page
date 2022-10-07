@@ -2,7 +2,7 @@ import React from "react";
 import { StyleTrending } from "./StyleTrendingNow1";
 import { Placeholder } from "react-bootstrap";
 import Slider from "react-slick";
-import { BASE_URL, GET_PRODUCTS, IMAGE_URL } from "../../../utils/config";
+import { BASE_URL, GET_PRODUCTS, IMAGE_URL } from "../../../../utils/config";
 import axios from "axios";
 import { useQuery } from "react-query";
 import CustomCard from '../../Globals/CustomCard'
@@ -73,7 +73,7 @@ function TrendingNow1({ heading, description , section }) {
 
   return (
     <StyleTrending>
-      <div className="container">
+      <div className="bscontainer-fluid">
         <div className="tranding-heading">
           <h1>{heading}</h1>
           <p>{description}</p>

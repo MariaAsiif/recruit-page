@@ -5,33 +5,33 @@ import agencydrop from "../../../../assets/landingImages/agency-drop-dummy.png";
 import agencyLogo from "../../../../assets/landingImages/agencyLogo.png";
 import agencysearch from "../../../../assets/landingImages/agency-search-icon.svg";
 import agencyuser from "../../../../assets/landingImages/agency-user.svg";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { BiMicrophone } from 'react-icons/bi'
 const AgenciesHeader = () => {
-  const history = useHistory()
+  // const history = useHistory()
   return (
     <AgenciesHeaderContainer>
-      <header class="top-bar">
-        <div class="container">
-          <div class="inner-content">
-            <div class="logo">
-              <img style={{ cursor: 'pointer' }} onClick={() => history.push('/')} src={agencyLogo} alt="agencyLogo" />
+      <header className="top-bar">
+        <div className="bscontainer-fluid">
+          <div className="inner-content">
+            <div className="logo">
+              <img style={{ cursor: 'pointer' }}  src={agencyLogo} alt="agencyLogo" />
             </div>
-            <div class="search-box">
-              <input type="search" name="" placeholder="Search" />
-              <button type="submit" >
+            <div className="search-box">
+              <input type="search" name="" className="focus:outline-none" placeholder="Search" />
+              <button type="submit" className="flex justify-around items-center">
                 <BiMicrophone className="micro" />
                 <img src={agencysearch} alt="second" />
               </button>
             </div>
-            <div class="right-part">
-              <div class="drop-down">
+            <div className="right-part">
+              <div className="drop-down">
                 <img src={agencydrop} alt="agencydrop" />
               </div>
-              <div class="icons">
+              <div className="icons">
                 <img src={agencyuser} alt="agencyuser" />
               </div>
-              <div class="icons">
+              <div className="icons">
                 <img src={agenciyCart} alt="agenciyCart" />
               </div>
             </div>

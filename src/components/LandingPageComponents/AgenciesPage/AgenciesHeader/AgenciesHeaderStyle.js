@@ -17,7 +17,7 @@ export const AgenciesHeaderContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 70rem;
+	width: 40rem;
 
     img{
         width: 20px;
@@ -26,7 +26,7 @@ export const AgenciesHeaderContainer = styled.div`
 }
 
 .search-box input[type="search"]{
-	height: 4.8rem;
+	height: 3rem;
 	background: #FFFFFF;
 	border: 1px solid #C4C4C4;
 	border-right: none;
@@ -38,20 +38,21 @@ export const AgenciesHeaderContainer = styled.div`
 	font-family: Poppins;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 1.8rem;
-	line-height: 2.7rem;
+	font-size: 1rem;
 	
 
 	color: black;
 }
+
+
 
 .search-box input[type="search"]::placeholder{
 	color: #C4C4C4;
 }
 
 .search-box button{
-	height: 4.8rem;
-	width: 10rem;
+	height: 3rem;
+	width: 6.5rem;
 	background: #F0F0F0;
 	border-radius: 0px 100px 100px 0px;
 	border: 1px solid #C4C4C4;
@@ -68,8 +69,7 @@ export const AgenciesHeaderContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-
-	gap: 4rem;
+	gap: 2rem;
 }
 
 
