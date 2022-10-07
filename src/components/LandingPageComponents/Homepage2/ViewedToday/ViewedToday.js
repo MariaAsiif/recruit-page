@@ -7,7 +7,7 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import AdCard from "../../Globals/AdCard";
 
-function ViewedToday({ heading , section }) {
+function ViewedToday({ heading, section }) {
   // const viewTodayImgs = [ViewToday, ViewToday, ViewToday, ViewToday, ViewToday, ViewToday]
 
   const {
@@ -83,7 +83,7 @@ function ViewedToday({ heading , section }) {
             <Placeholder as="p" animation="glow" size="lg">
               <Placeholder xs={12} />
             </Placeholder>
-      
+
           </div>
         )}
         {/* <ViewTodaySlick></ViewTodaySlick> */}
@@ -92,9 +92,11 @@ function ViewedToday({ heading , section }) {
             viewTodayImgs && viewTodayImgs.length > 0 ? viewTodayImgs.map((item, index) => (
               <div key={index} className="view-today">
                 <AdCard img={item.productImage} />
+               
               </div>
+
             ))
-            : null 
+            : null
           }
         </Slider>
       </div>

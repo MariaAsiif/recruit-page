@@ -258,13 +258,13 @@ export const CustomCardContainer = styled.div`
 
   .customCard .customCard-body .content .add-to-cart {
     height: 45px;
-    // width: 272px;
+    width:80%;
+   
     border-radius: 6px;
     padding: 24px, 42px, 24px, 42px;
     background: #ffffff;
     border: 1px solid black;
     box-sizing: border-box;
-
     font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
@@ -298,19 +298,80 @@ export const CustomCardContainer = styled.div`
   .customCard .customCard-body .content .add-to-cart .cart {
     height: 15.07px;
     width: 14.71px;
-    background-image: url(${cartgreen});
+    // background-image: url(${cartgreen});
   }
 `;
 export const AddCardContainer = styled.div`
+position: relative;
+z-index: 0;
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 3%;
+    right: 0;
+    width: 94%;
+    border-radius:10px;
+    opacity: 0;
+z-index: 999;
+    transition: 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.71);
+  }
+  .inner-overlay {
+    color: white;
+    position: absolute;
+    top: 50%;
+    z-index:9999;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 13px;
+   
+    h3 {
+      font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+    }
+    p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 200;
+
+    }
+  }
+  &:hover .inner-overlay,
+  &:hover .overlay {
+    opacity: 1;
+  }
+
+
+
+
+
   .inner-card {
     height: 251px;
     width: 100%;
     border-radius: 6px;
-
     display: flex;
     align-items: center;
     justify-content: center;
+
   }
+  
+
+ 
+
+
 
   .addCard {
     /* margin-right:3rem ; */
@@ -320,6 +381,7 @@ export const AddCardContainer = styled.div`
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   }
 
+    
   .addCard .image-section {
     height: 211px;
     width: 100%;
@@ -361,7 +423,8 @@ export const AddCardContainer = styled.div`
     gap: 9px;
 
     height: 40px;
-    background: #d1e682;
+    background: green;
+    color:white;
     border-radius: 0px 0px 6px 6px;
 
     font-family: "Poppins";
@@ -369,9 +432,7 @@ export const AddCardContainer = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 14px;
-    /* or 100% */
 
-    color: #000000;
   }
 
   .addCard .advertise span {
@@ -381,8 +442,8 @@ export const AddCardContainer = styled.div`
     font-size: 16px;
     line-height: 16px;
     /* or 97% */
+    color:white;
 
-    color: #000000;
   }
   .addCard .advertise img {
     height: 17px;

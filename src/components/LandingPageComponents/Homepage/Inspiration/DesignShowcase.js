@@ -17,7 +17,7 @@ import "swiper/css/pagination";
 
 
 // import required modules
-import { EffectCoverflow, Pagination } from "swiper";
+import { EffectCoverflow, Pagination , Autoplay } from "swiper";
 
 
 // import banner1 from '../../../assets/banner1.jpg';
@@ -88,7 +88,7 @@ function DesignShowcase() {
 
 return (
     <StyleDesignShowcase>
-        <h3>Inspire Quotes</h3>
+        <h3>Inspire</h3>
         <StyleDesignInner>
             <div className="container">
                 <Swiper navigation={false}
@@ -117,7 +117,7 @@ return (
                     mousewheel={true}
                     keyboard={true}
                     pagination={false}
-                    modules={[EffectCoverflow]}
+                    modules={[EffectCoverflow , Autoplay]}
                     slideToClickedSlide={true}
                     className="mySwiper"
                 >
@@ -125,9 +125,11 @@ return (
                         <SwiperSlide  >
                             
                             <StyleData>
-                                <h4>"{item.quoteText}"</h4>
+                                 <div className="border-b w-full h-[40px] bg-green-100"></div>
                                 <p>{item.authorName}</p>
-                                <span>{"08/26/2022"}</span>
+                                <small>{"CEO SpaceX"}</small>
+                                <h4>"{item.quoteText}"</h4>
+                                <span>{"08-26-2022"}</span>
                             </StyleData>
 
 

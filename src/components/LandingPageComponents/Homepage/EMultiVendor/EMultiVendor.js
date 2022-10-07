@@ -77,10 +77,10 @@ const EMultiVendor = () => {
     <EVendorMain>
       <div className="bscontainer-fluid overflow-hidden">
         <EvendorHeading style={{ textTransform: "Captilize !important" }}>
-          <span style={{ color: "red", textTransform: "lowercase" }}>e</span>
+          <span style={{textTransform: "lowercase" }}>e</span>
           Commerce Multivendor Marketplace
         </EvendorHeading>
-        <p style={{fontSize:'16px'}}>WHERE MERCHANTS MEET BUYERS</p>
+        <p style={{fontSize:'18px'}}>WHERE MERCHANTS MEET BUYERS</p>
         {stateIsLoading && <h1>Loading...</h1>}
         <Slider {...settings} className="EVendor-slick">
           {!stateIsLoading && productData && productData.map((item, index) => {

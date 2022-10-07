@@ -10,23 +10,28 @@ const Marketplace = ({ id }) => {
       <div className='bscontainer-fluid'>
         <MarkInnerContainer  >
           <div className='row'>
+
+            <div className='col-lg-6'>
+              <MarketplaceImg className='img-fluid' src={marketplace} alt={marketplace} />
+            </div>
+
             <div className='col-lg-6'>
               <MarketContentContainer>
                 <div className="text-[2rem] font-medium">MARKETPLACE</div>
                 <div className="text-[18px]">Curabitur cursus sagittis varius. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet</div>
                 <MarketSubHead>HEALTH IS WEALTH</MarketSubHead>
                 <MarketReHeading >“Great health is a great wealth!”</MarketReHeading>
-                <div className='text-[15px] text-gray-400'>Dr A. E De Mandeville</div>
-                <MarketViewMoreBtn>View More</MarketViewMoreBtn>
+                <div className='text-[15px] text-gray-400 text-right'>Dr A. E De Mandeville</div>
+                <div className='flex justify-end'>
+                  <MarketViewMoreBtn>View More</MarketViewMoreBtn>
+                </div>
               </MarketContentContainer>
             </div>
-            <div className='col-lg-6'>
-              <MarketplaceImg className='img-fluid' src={marketplace} alt={marketplace} />
+            <div >
+              <MarketPlaceSlick />
             </div>
           </div>
-          <div >
-            <MarketPlaceSlick />
-          </div>
+
         </MarkInnerContainer>
       </div >
     </div>

@@ -2,10 +2,11 @@ import React from "react";
 import { AddCardContainer } from "./Globals";
 import { IMAGE_URL } from "../../../utils/config";
 import usa from "../../../assets/landingImages/usa.png";
-
+import { BsHeartFill , BsShareFill } from 'react-icons/bs'
 const AdCard = ({ img }) => {
   return (
     <AddCardContainer>
+    
       <div className="inner-card">
         <div className="addCard">
           <div className="image-section">
@@ -19,6 +20,22 @@ const AdCard = ({ img }) => {
           </div>
         </div>
       </div>
+
+      <div className="overlay">
+      </div>
+      <div className='inner-overlay'>
+        <div className=" h-[40px] bg-green-600 w-full">
+           <div className="flex items-center justify-center pt-2 ">
+           <BsHeartFill className="text-[25px] cursor-pointer hover:text-red-600"/>
+           <BsShareFill className="text-[25px] cursor-pointer hover:text-red-600 ml-3"/>
+           </div>
+        </div>
+      </div>
+
+
+
+
+
     </AddCardContainer>
   );
 };

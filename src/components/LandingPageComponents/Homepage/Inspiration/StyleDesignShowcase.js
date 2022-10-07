@@ -62,31 +62,34 @@ margin-top: 10px;
 export const StyleData = styled.div`
 
     text-align: center;
-    border: 2px solid #8b8b8b;
+    border: 1px solid lightgray;
     font-fmaily:Poppins;
-    width: 50%;
+    width: 65%;
     margin: auto;
-    padding: 15px;
-    border-radius: 5px;
+    padding:0px 0px 10px 0px;
     background-color: white;
     
   h4{
-    color: red;
-    padding-top: 20px;
-    font-size: 21px;
+    color: black;
+     padding: 0px 20px;
+    font-size: 13px;
     font-family: Poppins;
-    font-style: italic;
+    
 
   }
   
    p{
-    color: lightgray;
+    color: black;
+    padding-top:5px;
     font-size: 20px;
     font-fmaily:Poppins;
   }
+  small{
+    color: lightgray;
+  }
   span{
-    color: blue;
-    font-size: 14px;
+    color: black;
+    font-size: 8px;
     font-weight:500;
     font-fmaily:Poppins;
   }

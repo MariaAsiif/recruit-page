@@ -89,6 +89,7 @@ export const MarketplaceImg = styled.img`
 `
 export const MarketSubHead = styled(SubHeading)`
 margin-top: 2rem;
+text-align:right;
 font-size: 2rem;
 `
 export const MarketSubHeadSecond = styled(SubHeadingSecondary)`
@@ -105,6 +106,7 @@ export const MarketReHeading = styled(MarketSubHeadSecond)`
   color: red;
   font-size:25px;
   font-style: italic;
+  text-align:right;
 `
 export const MarketTertiaryHeadMedium = styled(TertiaryHeadingMedium)`
 color: #828282;
@@ -113,6 +115,7 @@ margin-top: 0.9rem;
 `
 export const MarketViewMoreBtn = styled(ViewMoreBtn)`
 margin-top: 2rem;
+
 
 `
 export const MarkSlickImgContainer = styled.div`
