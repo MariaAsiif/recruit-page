@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ProviderSelection from '../components/DASComponents/ProviderSelection'
+import Verification from '../components/DASComponents/Verification'
 import logoImage from '../images/logo.png'
 const DasSignupPage = () => {
     const [activeStep, setactiveStep] = useState("ProviderSelection")
@@ -14,6 +15,7 @@ const DasSignupPage = () => {
     }
     const onNext = (data) => {
 
+        setactiveStep("Verification")
     }
 
     return (
@@ -26,7 +28,8 @@ const DasSignupPage = () => {
                             <img src={logoImage} className="w-full h-auto max-w-[120px] m-auto  lg:mb-10 mb-3 " alt="loginimg" />
                         </div>
                         <div className='col-lg-12'>
-                            {activeStep === "ProviderSelection" ? <ProviderSelection onNext={onNext} provider={signupForm.provider} onProviderChange={onProviderChange} /> : null}
+                            {activeStep === "ProviderSelection" ? <ProviderSelection onNext={onNext} provider={signupForm.provider} onProviderChange={onProviderChange} /> :
+                                activeStep === "Verification" ? <Verification /> : null}
                         </div>
                     </div>
 
