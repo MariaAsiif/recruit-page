@@ -23,9 +23,8 @@ const ProviderSelection = (props) => {
                     </label>
                 </div>
                 <div className='text-center'>
-                    <button onClick={props.onNext} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1'>Next <FaChevronRight className='inline' /></button>
+                    <button onClick={() => props.onNext("OtpSelection")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1'>Next <FaChevronRight className='inline' /></button>
                 </div>
-
             </div>
         </div>
     )

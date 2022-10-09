@@ -20,7 +20,7 @@ module.exports = {
       fontFamily: {
         'sans': ['Open Sans', 'system-ui',],
         'oxygen': ['Oxygen', 'system-ui',],
-      }
+      },
     },
   },
   plugins: [
