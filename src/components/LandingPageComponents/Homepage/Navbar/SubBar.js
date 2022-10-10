@@ -248,7 +248,7 @@ const SubBar = ({ setShow }) => {
               </li> */}
               <li className="main-li">
                 <a  activeClass="active" target="_blank" href="https://recruit-page-wyxnn7r5x-devopsmarkaz-gmailcom.vercel.app/" spy={true} smooth={true} offset={-70} duration={500} >
-                Recruit
+                Landing page
                 </a>
               </li>
               <li className="main-li">
