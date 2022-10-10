@@ -247,8 +247,8 @@ const SubBar = ({ setShow }) => {
                 <Link activeClass="active" to="INHALATE" spy={true} smooth={true} duration={500} >  INHALATE  </Link>
               </li> */}
               <li className="main-li">
-                <Link activeClass="active" to="VAPORIZE" spy={true} smooth={true} offset={-70} duration={500} >
-                  VAPORIZE
+                <Link activeClass="active" to="https://recruit-page-wyxnn7r5x-devopsmarkaz-gmailcom.vercel.app/" spy={true} smooth={true} offset={-70} duration={500} >
+                Recruit
                 </Link>
               </li>
               <li className="main-li">
