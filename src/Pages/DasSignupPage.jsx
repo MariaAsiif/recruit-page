@@ -7,6 +7,9 @@ import CompanyInformation from '../components/DASComponents/CompanyInformation'
 import ReferralLink from '../components/DASComponents/ReferralLink'
 import IdentityVerification from '../components/DASComponents/IdentityVerification'
 import SmsVerification from '../components/DASComponents/SmsVerification'
+import QrVerification from '../components/DASComponents/QrVerification'
+import ProviderInformation from '../components/DASComponents/ProviderInformation'
+import TermsAndConditions from '../components/DASComponents/TermsAndConditions'
 const DasSignupPage = () => {
     const [activeStep, setactiveStep] = useState("ProviderSelection")
     const [signupForm, setsignupform] = useState({
@@ -36,10 +39,12 @@ const DasSignupPage = () => {
                             {activeStep === "ProviderSelection" ? <ProviderSelection onNext={onNext} provider={signupForm.provider} onProviderChange={onProviderChange} /> :
                                 activeStep === "OtpSelection" ? <OtpSelection onNext={onNext} /> :
                                     activeStep === "OtpVerification" ? <OtpVerification onNext={onNext} /> :
-                                        activeStep === "CompanyInformation" ? <CompanyInformation onNext={onNext} /> :
+                                        activeStep === "CompanyInformation" ? <ProviderInformation onNext={onNext} /> :
                                             activeStep === "ReferralLink" ? <ReferralLink onNext={onNext} /> :
                                                 activeStep === "IdentityVerification" ? <IdentityVerification onNext={onNext} /> :
-                                                    activeStep === "SmsVerification" ? <SmsVerification onNext={onNext} /> : null
+                                                    activeStep === "SmsVerification" ? <SmsVerification onNext={onNext} /> :
+                                                        activeStep === "QrVerification" ? <TermsAndConditions onNext={onNext} /> :
+                                                            activeStep === "TermsAndConditions" ? <TermsAndConditions onNext={onNext} /> : null
                             }
                         </div>
                     </div>

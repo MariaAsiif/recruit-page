@@ -1,10 +1,11 @@
 import React from 'react'
-import { FaCheckCircle, FaCheckDouble, FaLink, FaRegUser, FaUnlockAlt } from 'react-icons/fa'
-const SmsVerification = (props) => {
+import { FaCheckCircle, FaCheckDouble, FaRegUser, FaUnlockAlt } from 'react-icons/fa'
+import video_large from "../../images/video_large.png"
+const QrVideoProcess = () => {
     return (
         <div className='w-full px-4 lg:px-16'>
             <div style={{ boxShadow: "0px 3px 6px #00000029" }} className="border border-[#70707045]  pt-4 pb-4 lg:px-6 px-6  rounded-md font-sans">
-                <h1 className='text-[#626973] text-center font-sans font-bold text-lg mb-1'>Verification - Through SMS</h1>
+                <h1 className='text-[#626973] text-center font-sans font-bold text-lg mb-1'>Verification - Through QR Code</h1>
                 <div className='flex justify-center mb-4'>
                     <div class=" w-auto ">
                         <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#E84125]'>
@@ -45,17 +46,15 @@ const SmsVerification = (props) => {
                     </div>
                 </div>
 
-                <p className='text-center text-[#626973] text-xs leading-5 mb-8'>For identity verification use your mobile device</p>
-                <div className='px-0 mb-8 text-center lg:px-36'>
-                    <input className='border py-2 block rounded-md px-3 w-full border-[#707070] text-[#707070] text-sm font-sans focus:outline-none placeholder:text-[#707070]' placeholder='2356854524' />
+                <div className='row'>
+                    <div className='col-lg-12'>
+                        <img src={video_large} className="m-auto" alt="cideo" />
+                    </div>
                 </div>
-                <div className='text-center'>
-                    <button onClick={() => props.onNext("QrVerification")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1'><FaLink className='inline' /> Get Link </button>
-                    <button className='underline font-sans text-[#707070] text-xs block m-auto font-semibold'>Didn’t recieve Link? RESend Link.</button>
-                </div>
+
             </div>
         </div>
     )
 }
 
-export default SmsVerification
+export default QrVideoProcess
