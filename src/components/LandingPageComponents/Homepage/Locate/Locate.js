@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap'
 import { PrimaryHeading } from '../../Globals/Globals'
 import { LocateImg, LocateMainContainer } from './StylesLocate'
 import Inputs from './Inputs'
+import './locate.css'
 const Locate = ({ id }) => {
   return (
     <LocateMainContainer id={id}>
@@ -13,20 +14,18 @@ const Locate = ({ id }) => {
         accordion-button
         collapsed
         relative
-        grid-row-3
-        grid
-        justify-center
+        flex
         items-center
         w-full
         py-4
-        px-5
-        text-base text-gray-800
+        px-4
+        text-gray-800
         bg-white
         border-0
         rounded-none
         transition
         focus:outline-none
-      " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+      " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" style={{display:'grid' , justifyContent:'inherit'}} aria-expanded="false"
               aria-controls="collapseTwo">
               <PrimaryHeading>LOCATE</PrimaryHeading>
             </button>

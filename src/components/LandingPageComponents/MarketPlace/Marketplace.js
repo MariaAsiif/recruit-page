@@ -17,8 +17,39 @@ const Marketplace = ({ id }) => {
 
             <div className='col-lg-6'>
               <MarketContentContainer>
-                <div className="text-[2rem] font-medium">MARKETPLACE</div>
-                <div className="text-[18px]">Curabitur cursus sagittis varius. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet</div>
+
+              <div class="accordion-item bg-white border border-gray-200">
+                        <h2 class="accordion-header mb-0" id="headingTwo">
+                            <button class="
+        accordion-button
+        collapsed
+        relative
+        flex
+        items-center
+        w-full
+        py-4
+        px-4
+        text-base text-gray-800 
+        bg-white
+        border-0
+        rounded-none
+        transition
+        focus:outline-none
+      " type="button" data-bs-toggle="collapse" style={{display:'grid' , justifyContent:'inherit'}} data-bs-target="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                 <div className="text-[2rem] font-medium">MARKETPLACE</div>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body py-4 px-5">
+                            <div className="text-[18px]">Curabitur cursus sagittis varius. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet</div>
+                            </div>
+                        </div>
+                    </div>
+
+              
+              
                 <MarketSubHead>HEALTH IS WEALTH</MarketSubHead>
                 <MarketReHeading >“Great health is a great wealth!”</MarketReHeading>
                 <div className='text-[15px] text-gray-400 text-right'>Dr A. E De Mandeville</div>

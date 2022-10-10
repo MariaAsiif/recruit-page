@@ -8,7 +8,7 @@ const Cutivation = ({id}) => {
     return (
         <CultivationMainContainer id={id} >
             <PrimaryHeading>Cultivation</PrimaryHeading>
-            <p>Home Grow</p>
+            <p className='pt-3'>Home Grow</p>
             <h3 className='pt-3'>Grow your dose privately at home</h3>
             <CultivationSlick />
         </CultivationMainContainer>

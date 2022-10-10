@@ -48,14 +48,14 @@ const Chillum = ({ id }) => {
         items-center
         w-full
         py-4
-        px-5
+        px-4
         text-base text-gray-800
         bg-white
         border-0
         rounded-none
         transition
         focus:outline-none
-      " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+      " type="button" data-bs-toggle="collapse" style={{display: 'grid' , justifyContent:'inherit'}} data-bs-target="#collapseTwo" aria-expanded="false"
                             aria-controls="collapseTwo">
                             <h2 className='text-[3rem] font-medium text-black'> CHILLUMS</h2>
                         </button>

@@ -3,6 +3,7 @@ import { AddToCartBtn } from "../../Globals/Globals";
 
 export const DiagnoseMainContainer = styled.div`
 margin-top: 2rem;
+margin-bottom: 2rem;
 .diagnose-slick{
   .slick-slide {
   padding-right: 0 10px;
@@ -14,7 +15,7 @@ h3{
 font-size: 3rem;
 font-style: normal;
 font-weight: 500;
-line-height: 7.2rem;
+line-height: 2rem;
 letter-spacing: 0em;
 opacity: 0.8;
 }

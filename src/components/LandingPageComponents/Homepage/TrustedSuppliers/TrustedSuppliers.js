@@ -49,7 +49,7 @@ const TrustedSuppliers = ({ imgs, head, id }) => {
     ],
   };
   return (
-    <div className="mt-[1rem]">
+    <div className="mt-[3rem]">
       <h3 className="text-center text-[2.5rem] font-medium  ">{head}</h3>
       <p className="text-center text-[1rem]">TELE-MEDICINE + TELE-DIAGNOSE IS THE SOLUTION + GLOBAL DIAGNOSTIC CENTER</p>
       <TrustedCompanyContainer id={id}>

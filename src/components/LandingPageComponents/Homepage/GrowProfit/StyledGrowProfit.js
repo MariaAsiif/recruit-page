@@ -44,7 +44,7 @@ color: white;
 }
 .grow-profit-slick  .slick-next {
   left: 44%;
-  top:-10%;
+  top:-15%;
   
   transform: translate(1rem,36rem);
   z-index: 1;
@@ -56,7 +56,7 @@ color: white;
 }
 .grow-profit-slick  .slick-prev {
   left: 47%;
-  top:-10%;
+  top:-15%;
   transform: translate(-7rem,36rem);
   z-index: 1;
 

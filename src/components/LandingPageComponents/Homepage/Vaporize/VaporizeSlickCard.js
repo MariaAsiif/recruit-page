@@ -42,14 +42,14 @@ const VaporizeSlickCard = () => {
         items-center
         w-full
         py-4
-        px-5
-        text-base text-gray-800 text-left
+        px-4
+        text-base text-gray-800 
         bg-white
         border-0
         rounded-none
         transition
         focus:outline-none
-      " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+      " type="button" data-bs-toggle="collapse" style={{display:'grid' , justifyContent:'inherit'}} data-bs-target="#collapseTwo" aria-expanded="false"
                                 aria-controls="collapseTwo">
                                 <PrimaryHeading>VAPORIZE</PrimaryHeading>
                             </button>

@@ -9,6 +9,7 @@ export const PrimaryHeading = styled.h2`
   letter-spacing: 0em;
   text-transform: uppercase;
   margin: 0;
+  line-height:30px;
   color: #242424;
 
   @media screen and (max-width: 600px) {

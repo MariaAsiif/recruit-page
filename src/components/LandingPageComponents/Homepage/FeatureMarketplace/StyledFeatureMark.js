@@ -13,7 +13,7 @@ export const MarketPlaceHeading = styled(PrimaryHeading)`
 color: #242424;
 font-weight: 500;
 font-size: 3rem;
-line-height: 7.2rem;
+// line-height: 7.2rem;
 opacity: 0.8;
 color: #FFFFFF;
 @media screen and (max-width:600px) {
