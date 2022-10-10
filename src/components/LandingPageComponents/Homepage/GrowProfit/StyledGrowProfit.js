@@ -3,49 +3,46 @@ import GrowProfitBack from '../../../../assets/landingImages/growProfitBack.svg'
 import { PrimaryHeading, SubHeading, ViewMoreBtn } from "../../Globals/Globals";
 
 export const GrowProfitMainContainer = styled.div`
- .grow-profit-width{
-   max-width: 1440px;
-   margin: 0 auto;
-   
- }
+
 margin-top: 11.2rem;
 p{
-  margin-top: 1.1rem;
-  font-size: 1.6rem;
+  margin-top: 1rem;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 400;
   line-height: 2.8rem;
   letter-spacing: 0em;
-  color: #828282;
+  color: white;
 
 }
 h5{
-  margin-top: 2rem;
-font-size: 2rem;
+  margin-top: .7rem;
+font-size: 1.4rem;
 font-style: normal;
 font-weight: 500;
-line-height: 3.6rem;
 letter-spacing: 0em;
-color: #828282;
+color: white;
 
 }
 @media screen and (min-width:900px){
   .grow-profit-slick {
-  margin-top: 5.6rem;
+  margin-top: 3rem;
 }
 .grow-profit-slick  .slick-next {
-  left: 50%;
+  left: 44%;
+  top:-10%;
   
   transform: translate(1rem,36rem);
   z-index: 1;
 
   &:before {
-    font-size: 4rem !important;
+    font-size: 2rem !important;
     color: black;
 }
 }
 .grow-profit-slick  .slick-prev {
-  left: 52%;
+  left: 47%;
+  top:-10%;
   transform: translate(-7rem,36rem);
   z-index: 1;
 
@@ -61,17 +58,26 @@ color: #828282;
 `
 
 export const GrowProfitViewMore=styled(ViewMoreBtn)`
-margin-top: 3.3rem;
+// margin-top: 10px;
 margin-left: 2.4rem;
 `
 export const GrowProfitViewMoreBlack=styled(ViewMoreBtn)`
-margin-top: 3.3rem;
-background: #242424;
+// margin-top: 10px;
+background: transparent;
+border:1pt solid white;
+font-size:14px;
 color: white;
+cursor:pointer;
+
+&:hover{
+  background: red;
+  color :white;
+}
 `
 export const GrowProfitPriceText=styled(SubHeading)`
-margin-top: 4px;
-font-size:2rem;
+margin-top: 2px;
+font-size:1.5rem;
+color:white;
 `
 export const GrowProfitHeading = styled(PrimaryHeading)`
 color: #242424;
@@ -87,9 +93,9 @@ font-size:2rem;
 export const GrowProfitImgContainer = styled.div`
 background-image:linear-gradient(to right, rgba(10, 71, 46, 0.88), rgba(10, 71, 46, 0.88)), url(${GrowProfitBack}) ;
   background-repeat: no-repeat;
-  height:75%;
+  height:100%;
   background-size: cover;
-margin-top: 3rem;
+// margin-top: 3rem;
 position: relative;
 `
 export const GrowProfitImg = styled.img`
@@ -97,13 +103,16 @@ width:100%;
 height:80%;
 `
 export const GrowProfitSlickContainer = styled.div`
+
+color:white ;
 .text-container{
-  margin-left: 7.5rem;
+  margin-left: 2rem;
 }
 
 .heading{
   font-size:2.5rem;
   font-weight:500;
+  padding-top:4rem;
 }
 
 p{

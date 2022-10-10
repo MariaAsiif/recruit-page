@@ -45,8 +45,8 @@ export const SubscribeHeading = styled(PrimaryHeading)`
 `;
 export const NewsLetterImg = styled.img`
   margin-top: 3rem;
-  height: 80%;
-  width: 100%;
+  height: 70%;
+  width: 50%;
   object-fit:cover;
 `;
 export const SubscribeButton = styled(ViewMoreBtn)`

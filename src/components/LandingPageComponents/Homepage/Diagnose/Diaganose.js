@@ -5,7 +5,7 @@ import { DiagnoseMainContainer } from './StyledDiagnose'
 const Diaganose = ({id}) => {
   return (
     <DiagnoseMainContainer id={id} >
-    <h3>Diagnose</h3>
+    <h3>WorkSpace</h3>
     <p>TELE-MEDICINE + TELE-DIAGNOSE IS THE SOLUTION + GLOBAL DIAGNOSTIC CENTER</p>
     <DiagnoseSlick/>
     </DiagnoseMainContainer>

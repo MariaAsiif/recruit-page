@@ -2,13 +2,12 @@ import styled from "styled-components";
 
 export const StatisticsMainContainer = styled.div`
 
-  
+  text-align:center;
   h1 {
       font-weight: 500;
       font-size: 3rem;
-      line-height: 7.2rem;
-      color: #242424;
-      margin-left:3rem;
+       color: #242424;
+       text-align:center;
     }
   .card-container {
     position: relative;

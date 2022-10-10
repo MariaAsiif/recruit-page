@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { AddToCartBtn } from "../../Globals/Globals";
 
 export const DiagnoseMainContainer = styled.div`
-margin-top: 9rem;
+margin-top: 2rem;
 .diagnose-slick{
   .slick-slide {
   padding-right: 0 10px;
@@ -55,7 +55,7 @@ margin-right: 2rem;
   transform: translate(-50%, -50%);
   opacity: 0;
   h3{
-font-size: 2.8rem;
+font-size: 2rem;
 font-style: normal;
 font-weight: 500;
 line-height: 4.2rem;
@@ -64,7 +64,7 @@ color: #FFFFFF;
 
 }
 p{
-font-size: 1.8rem;
+font-size: 1.2rem;
 color: rgba(255, 255, 255, 0.8);
 font-style: normal;
 font-weight: 400;
@@ -92,7 +92,7 @@ height: 100%;
 
 `
 export const StyledSlickContainer = styled.div`
-margin-top: 5.6rem;
+margin-top: 1rem;
 @media screen and (min-width:1024px) {
   .responsive-slick .slick-next {
       right: 3rem !important;

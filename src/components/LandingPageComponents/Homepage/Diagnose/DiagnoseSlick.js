@@ -92,9 +92,9 @@ const DiagnoseSlick = () => {
                         ))
                     }
                 </Slider>
-                <h4>HEALTH DATA GOVERNANCE PROTECTION, ACCOUNTABILITY AND COMPLIANCE</h4>
+                {/* <h4>HEALTH DATA GOVERNANCE PROTECTION, ACCOUNTABILITY AND COMPLIANCE</h4>
                 <p>HIPPAA, GDPR, CCPA, PIPEDA PHI, PIPEDA, LGPD, POPI and The Privacy Act's AUS 1988, UK 2018, NZ 2020 COMPLIANT</p>
-                <DiagnoseAppointmentBtn>Appointment</DiagnoseAppointmentBtn>
+                <DiagnoseAppointmentBtn>Appointment</DiagnoseAppointmentBtn> */}
             </div>
         </StyledSlickContainer>
     )

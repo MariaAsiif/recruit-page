@@ -9,7 +9,7 @@ const Cutivation = ({id}) => {
         <CultivationMainContainer id={id} >
             <PrimaryHeading>Cultivation</PrimaryHeading>
             <p>Home Grow</p>
-            <h3>Grow your dose privately at home</h3>
+            <h3 className='pt-3'>Grow your dose privately at home</h3>
             <CultivationSlick />
         </CultivationMainContainer>
     )

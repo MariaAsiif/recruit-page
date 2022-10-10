@@ -50,7 +50,7 @@ const Portable = ({ id }) => {
         <Row>
           <Col xs={12} md={6}>
             <PrimaryHeading>PORTABLES</PrimaryHeading>
-            <p>"You can take it with you"</p>
+            <p >"You can take it with you"</p>
             <p className="mini-title">Under Legal prescription</p>
             <PortableMoreBtn>View More</PortableMoreBtn>
             <PortableSlick />

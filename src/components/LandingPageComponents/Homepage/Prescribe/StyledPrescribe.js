@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { ViewMoreBtn, ShopNowBtn, ShopBtnTransparent } from "../../Globals/Globals";
 
 export const PrescribeMainContainer = styled.div`
-  margin-top: 7.5rem;
+  margin-top: 6rem;
+  padding-left:20px;
   .card-overlay{
     padding-right: 2rem;
 
@@ -11,13 +12,14 @@ export const PrescribeMainContainer = styled.div`
 
 export const PrescribeImgContainer = styled.div`
   position: relative;
+  
   .overlay {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    width: 95%;
+    width: 92.5%;
     opacity: 0;
     transition: 0.5s ease;
     background-color: rgba(0, 0, 0, 0.71);
@@ -26,7 +28,7 @@ export const PrescribeImgContainer = styled.div`
     color: white;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 47%;
     width: 100%;
     text-align: center;
     -webkit-transform: translate(-50%, -50%);
@@ -116,4 +118,6 @@ export const PrescribeSlickMain = styled.div`
 
 export const PrescribeBtn=styled(ShopBtnTransparent)`
 margin-top: 2rem;
+font-size:16px;
+padding: 0.7rem 1.5rem;
 `

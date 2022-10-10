@@ -50,128 +50,17 @@ const SubscribeNewsletter = () => {
     <NewsLetterMainContianer>
       <div className="bscontainer-fluid">
         <ToastContainer style={{ fontSize: "1.4rem" }} />
-        <SubscribeHeading>Subscribe</SubscribeHeading>
-        <Row className="justify-between mt-3">
-          <Formik
-            initialValues={{
-              firstName: "",
-              lastName: "",
-              email: "",
-              phone: "",
-              inviteFriend: "",
-              city: "",
-              service: "",
-              position: "",
-            }}
-            validationSchema={validate}
-            onSubmit={(values, { resetForm }) => {
-              setFormLading(true);
-              console.log(values);
-              generic
-                .post(`${API_URL}subcription`, values)
-                .then((msg) => {
-                  resetForm()
-                  toast.success(msg.message);
-                  // <div>
-                  //     <button onClick={notify}>Notify!</button>
-                  //
-                  //   </div>
-                  setFormLading(false);
-                  // alert('Successful')
-                })
-                .catch((error) => {
-                  console.log(error);
-                  toast.error("Something went wrong");
-                  setFormLading(false);
-                  // console.log(error);
-                });
-            }}
-          >
-            {(formik) => (
-              <div className="col-lg-7" >
-                <Form>
-                  <div className="items-center row">
-                    <div className="col-md-6">
-                      <InputField
-                        name="firstName"
-                        placeholder="Enter First Name"
-                        type="text"
-                        label="First Name"
-                      />
-                    </div>
-                    <div className="col-md-6">
-                      <InputField
-                        name="lastName"
-                        placeholder="Enter Last Name"
-                        type="text"
-                        label="Last Name"
-                      />
-                    </div>
-                    <div className="col-md-6">
-                      <InputField
-                        name="email"
-                        placeholder="Enter Your Email"
-                        type="email"
-                        label="Email"
-                      />
-                    </div>
-                    <div className="col-md-6">
-                      <InputField
-                        name="phone"
-                        placeholder="Phone Name"
-                        type="phone"
-                        label="Mobile Number"
-                      />
-                    </div>
-                    <div className="col-md-6">
-                      <InputField
-                        name="inviteFriend"
-                        placeholder="Invite Friend"
-                        type="text"
-                        label="Invite Friend"
-                      />
-                    </div>
-                    <div className="col-md-6">
-                      <InputField
-                        name="city"
-                        placeholder="Enter City"
-                        type="text"
-                        label="City"
-                      />
-                    </div>
-
-                    <Col md={12} className="mb-4 mt-2">
-                    <select className="text-sm p-5 ">
-                      <option className="text-sm">Select Service</option>
-                      <option className="text-sm">no</option>
-                      <option className="text-sm">others</option>
-                    </select>
-                    </Col>
-                    <Col md={12} >
-                    <select className="text-sm p-5 ">
-                      <option className="text-sm">Select Service</option>
-                      <option className="text-sm">no</option>
-                      <option className="text-sm">others</option>
-                    </select>
-                    </Col>
-                    <SubscribeButton type="submit">
-                      {formLoading ? (
-                        <Spinner
-                          as="span"
-                          animation="grow"
-                          role="status"
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        "Subscribe"
-                      )}
-                    </SubscribeButton>
-                  </div>
-                </Form>
-              </div>
-            )}
-          </Formik>
-          <div className="col-lg-5" >
+        <Row className="justify-between mt-3 bg-green-800">
+          <div className="col-lg-6 pt-[3rem] pl-7">
+            <h2 className="text-[2rem] font-semibold text-white">Subscribe to Our Channel</h2>
+            <p className="mt-8 text-[26px] text-white">You Are in  Good Company</p>
+            <span className="text-[12px] text-white">This is a subscribe channel form data </span>
+            <br/>
+            <button className="mt-5 border p-4 pl-7 pr-7 text-[16px] text-white">
+              Subscribe Now
+            </button>
+          </div>
+          <div className="col-lg-6" >
             <NewsLetterImg src={newletterImg} alt={newletterImg} />
           </div>
         </Row>

@@ -20,7 +20,10 @@ const StyledHero = styled.div`
     color: #ffff;
     opacity: 0.8;
     font-weight: normal;
-font-size: 1.9rem;
+   font-size: 1.9rem;
+   @media screen and (max-width: 600px){
+    font-size: 1rem;
+  }
 }
 
 
@@ -36,8 +39,8 @@ margin-top: 20rem;
   @media screen and (max-width: 768px){
     font-size: 6.5rem;
   }
-  @media screen and (max-width: 480px){
-    font-size: 4rem;
+  @media screen and (max-width: 600px){
+    font-size: 2rem;
     text-align: center;
   }
 `

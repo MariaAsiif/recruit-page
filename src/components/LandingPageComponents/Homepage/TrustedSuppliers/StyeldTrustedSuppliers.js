@@ -40,7 +40,7 @@ export const TrustedCompanyContainer = styled.div`
 
     h3{
         font-weight: 500;
-font-size: 2rem;
+font-size: 3rem;
 color: #242424;
 text-align: center;
 @media screen and (max-width:480px) {

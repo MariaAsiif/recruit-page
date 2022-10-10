@@ -3,7 +3,7 @@ import cartgreen from "../../../assets/landingImages/blackCart.svg";
 import cartwhite from "../../../assets/landingImages/whiteCart.svg";
 
 export const PrimaryHeading = styled.h2`
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-style: normal;
   font-weight: 500;
   line-height: 7.2rem;
@@ -32,10 +32,10 @@ export const SubHeadingSecondary = styled.h2`
   letter-spacing: 0em;
 `;
 export const TertiaryHeading = styled.h3`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 2.7rem;
+  line-height: 1rem;
   letter-spacing: 0em;
   color: #828282;
   margin: 0;
@@ -70,15 +70,13 @@ export const TertiaryHeadingSmall = styled.h3`
 
 export const ViewMoreBtn = styled.button`
   font-style: normal;
-  height: 3rem;
-  width: 10rem;
   border: 1px solid #242424;
   border-radius: 7rem;
   color: #242424;
-  font-size: 20px;
+  font-size: 16px;
+  padding:0.7rem 2.5rem;
   background: transparent;
   font-weight: 500;
-  line-height: 2.4rem;
   letter-spacing: 0em;
   text-transform: capitalize;
   background: white;
@@ -91,17 +89,15 @@ export const ViewMoreBtn = styled.button`
 `;
 export const ShopBtnTransparent = styled.button`
   font-style: normal;
-  height: 4.8rem;
-  width: 15.4rem;
   border: 1px solid #ffffff;
   border-radius: 7rem;
+  padding:0.8rem 2rem;
   color: #ffffff;
-  font-size: 1.6rem;
+  margin-top:1rem;
+  font-size: 1rem;
   font-weight: 500;
-  line-height: 2.4rem;
   letter-spacing: 0em;
   background: transparent;
-
   text-transform: capitalize;
   cursor: pointer;
   &:hover {
@@ -140,15 +136,15 @@ export const ShopNowBtn = styled.button`
   }
 `;
 export const AddToCartBtn = styled.button`
-  padding: 0.8rem 2rem;
+  padding: 0.5rem 1rem;
   border: 2px solid white;
   color: white;
   border-radius: 2rem;
   background: transparent;
-  font-size: 1.2rem;
+  font-size: .8rem;
   cursor: pointer;
   &:hover {
-    background-color: #e84025;
+    background-color: red !important;
     border: 2px solid #e84025;
     color: white;
   }
@@ -258,23 +254,18 @@ export const CustomCardContainer = styled.div`
 
   .customCard .customCard-body .content .add-to-cart {
     height: 45px;
-    width:80%;
-   
-    border-radius: 6px;
+    width:50%;
+    border-radius: 10px;
     padding: 24px, 42px, 24px, 42px;
-    background: #ffffff;
-    border: 1px solid black;
+    color:white;
+    background: #e84025;
     box-sizing: border-box;
     font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 10px;
-    /* or 75% */
-
-    /* HEMP 05 */
-
-    color: black;
+    
 
     margin-top: 24px;
 
@@ -285,8 +276,7 @@ export const CustomCardContainer = styled.div`
   }
 
   .customCard .customCard-body .content .add-to-cart:hover {
-    background: #e84025;
-    border: 1px solid #e84025;
+    background: green;
     color: white;
   }
 
@@ -296,8 +286,8 @@ export const CustomCardContainer = styled.div`
   }
 
   .customCard .customCard-body .content .add-to-cart .cart {
-    height: 15.07px;
-    width: 14.71px;
+    // height: 15.07px;
+    // width: 14.71px;
     // background-image: url(${cartgreen});
   }
 `;

@@ -3,6 +3,8 @@
     left: -15px !important;
     z-index: 1;    
   }
+
+
   .inhalate-slick .slick-prev:before {
     content: '' !important;
     background-image: url(../../../../assets/landingImages/left-slider-arrow.svg) !important;
@@ -15,6 +17,13 @@
   .inhalate-slick .slick-next {
     right: 54px !important;
     z-index: 1;
+  }
+
+  @media screen and (max-width: 600px){
+    .inhalate-slick .slick-next {
+      right: 70px !important;
+      z-index: 1;
+    }
   }
 
   .inhalate-slick .slick-next:before {

@@ -12,7 +12,7 @@ export const AgricultureSlickContainer = styled.div`
 background-color: red;
 `
 export const AgricultureTertiaryHeading = styled(TertiaryHeading)`
-margin-top: 2px;
+// margin-top: 2px;
 `
 
 export const AgricultureImg = styled.img`
@@ -34,7 +34,7 @@ height:100%;
 
 `
 export const AgriculteImgsSection = styled.div`
-margin-top:5.2rem;
+margin-top:2rem;
 display: block;
 
 @media screen and (max-width: 768px) {
@@ -76,7 +76,7 @@ position: relative;
     opacity: 0;
     h3{
         margin-top: 1rem;
-font-size: 2.4rem;
+font-size: 2rem;
 font-style: normal;
 font-weight: 600;
 line-height: 3.6rem;
@@ -84,14 +84,14 @@ letter-spacing: 0em;
 color: #FFFFFF;
     }
     p{
-font-size: 1.6rem;
+font-size: 1.2rem;
 font-style: normal;
 font-weight: 400;
 line-height: 2.4rem;
 text-align: center;
 color: rgba(255, 255, 255, 0.8);
 margin-top: 0.6rem;
-padding: 0 0.3rem;
+padding: 0 0.4rem;
     }
    
 }
@@ -129,7 +129,7 @@ position: relative;
     opacity: 0;
     h3{
         margin-top: 1rem;
-font-size: 2.4rem;
+font-size: 2rem;
 font-style: normal;
 font-weight: 600;
 line-height: 3.6rem;
@@ -137,7 +137,7 @@ letter-spacing: 0em;
 color: #FFFFFF;
     }
     p{
-font-size: 1.6rem;
+font-size: 1.2rem;
 font-style: normal;
 font-weight: 400;
 line-height: 2.4rem;
@@ -212,4 +212,5 @@ padding: 0 0.3rem;
 `
 export const AgriHeading = styled(PrimaryHeading)`
 text-transform: capitalize;
+font-size: 3rem;
 `

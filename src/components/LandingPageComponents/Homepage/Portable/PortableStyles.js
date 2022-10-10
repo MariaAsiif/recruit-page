@@ -41,7 +41,7 @@ h2{
 }
 p{
 margin-top: 0.5rem;
-font-size: 2.4rem;
+font-size: 1.5rem;
 font-style: normal;
 font-weight: 500;
 line-height: 3.6rem;
@@ -51,7 +51,7 @@ color:#333333;
 }
 .mini-title{
 margin-top:1.1rem;
-font-size: 1.6rem;
+font-size: 1.2rem;
 font-style: normal;
 font-weight: 400;
 line-height: 24rem.4rem;
@@ -154,4 +154,5 @@ export const PortableMiniImg = styled.img`
 `
 export const PortableMoreBtn = styled(ViewMoreBtn)`
 margin-top: 2.8rem;
+font-size:16px;
 `

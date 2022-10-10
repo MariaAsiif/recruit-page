@@ -44,11 +44,11 @@ const TopBar = ({ setShow }) => {
 
   return (
     <HeaderTopBar>
-      <SideNavBar show={sideNavShow} handleClose={handleClose} />
+      <SideNavBar sidebarOpen={sideNavShow} setSidebarOpen={setSideNavShow} />
       <div className="topBar-Header">
         <Navbar bg="transparent" variant="dark" className="flex justify-between">
           <div className="reponsive-topbar-toggler" >
-            <img className="img-fluid" src={featherMenu} alt="featherMenu" onClick={handleShow} />
+            <img className="img-fluid mt-3 cursor-pointer" src={featherMenu} alt="featherMenu" onClick={handleShow} />
           </div>
           <div className="bscontainer-fluid">
             <div className="flex justify-between items-center">

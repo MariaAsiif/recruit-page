@@ -15,7 +15,7 @@ export const VaporizeMainContainer = styled.div`
 `
 
 export const VaporizeSubHeading = styled(TertiaryHeading)`
-margin-top: 3rem;
+margin-top: 2rem;
 `
 export const VaporizeImagesContainer = styled.div`
 position:relative;
@@ -52,4 +52,5 @@ bottom: 4%;
 `
 export const VaporizeViewMoreBtn = styled(ViewMoreBtn)`
 margin-top: 5.2rem;
+font-size:16px;
 `

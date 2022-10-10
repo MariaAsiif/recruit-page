@@ -4,22 +4,22 @@ export const CultivationMainContainer = styled.div`
 margin-top: 12rem;
 text-align: center;
 h3{
-    font-size: 1.8rem;
-line-height: 27px;
+    font-size: 1.2rem;
+line-height: 30px;
 color: #828282;
 }
 p{
-    font-size: 3.2rem;
+    font-size: 1rem;
 line-height: 48px;
 opacity: 0.8;
 color: #4F4F4F;
 }
 p{
 margin: 0;
-font-size: 3.2rem;
+font-size: 2.5rem;
 font-style: normal;
 font-weight: 500;
-line-height: 4.8rem;
+line-height:2rem;
 letter-spacing: 0em;
 color:#4F4F4F;
 ;
@@ -63,7 +63,7 @@ text-align: -moz-center;
         
     }
 h3{
-font-size: 2rem;
+font-size: 1.3rem;
 font-style: normal;
 font-weight: 600;
 line-height: 3rem;
@@ -72,7 +72,7 @@ text-align: center;
 color: #242424;
 }
 p{
-font-size: 1.5rem;
+font-size: 1rem;
 font-style: normal;
 font-weight: 400;
 line-height: 2.7rem;

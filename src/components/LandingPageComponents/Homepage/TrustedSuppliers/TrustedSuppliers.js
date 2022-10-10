@@ -49,20 +49,23 @@ const TrustedSuppliers = ({ imgs, head, id }) => {
     ],
   };
   return (
-    <TrustedCompanyContainer id={id}>
-      <Container>
-        <h3>{head}</h3>
-        <Slider {...settings} className="trusted-suppliers-slick">
-          {imgs.map((supplierImg, index) => (
-            <div key={index}>
-              <TrustedSuppliersImgContainer>
-                <TrustedSuppliersImg src={supplierImg} alt={supplierImg} />
-              </TrustedSuppliersImgContainer>
-            </div>
-          ))}
-        </Slider>
-      </Container>
-    </TrustedCompanyContainer>
+    <div>
+      <h3 className="text-center text-[2.5rem] font-medium ">{head}</h3>
+      <p className="text-center text-[1rem]">TELE-MEDICINE + TELE-DIAGNOSE IS THE SOLUTION + GLOBAL DIAGNOSTIC CENTER</p>
+      <TrustedCompanyContainer id={id}>
+        <Container>
+          <Slider {...settings} className="trusted-suppliers-slick">
+            {imgs.map((supplierImg, index) => (
+              <div key={index}>
+                <TrustedSuppliersImgContainer>
+                  <TrustedSuppliersImg src={supplierImg} alt={supplierImg} />
+                </TrustedSuppliersImgContainer>
+              </div>
+            ))}
+          </Slider>
+        </Container>
+      </TrustedCompanyContainer>
+    </div>
   );
 };
 

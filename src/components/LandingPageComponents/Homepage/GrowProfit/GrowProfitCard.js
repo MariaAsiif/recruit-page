@@ -15,9 +15,9 @@ const GrowProfitCard = () => {
   return (
     <div>
       <GrowProfitSlickContainer className="flex items-center ">
-        <Row >
+        <Row className="bg-green-800">
           <Col md={6}>
-            <div className="text-container">
+            <div className="text-container ">
               <div className="heading">GROW PROFITS</div >
               <p >
                 Are you located in a country, region, or state in which cannabis
@@ -31,10 +31,8 @@ const GrowProfitCard = () => {
               </p>
               <h5>Turnkey from</h5>
               <GrowProfitPriceText>$35000</GrowProfitPriceText>
-              <div className="d-flex">
+              <div className="flex mb-3">
                 <GrowProfitViewMoreBlack>View More</GrowProfitViewMoreBlack>
-
-                <GrowProfitViewMore>View More</GrowProfitViewMore>
               </div>
             </div>
           </Col>

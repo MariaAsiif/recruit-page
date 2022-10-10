@@ -92,7 +92,6 @@ function ViewedToday({ heading, section }) {
             viewTodayImgs && viewTodayImgs.length > 0 ? viewTodayImgs.map((item, index) => (
               <div key={index} className="view-today">
                 <AdCard img={item.productImage} />
-               
               </div>
 
             ))

@@ -71,7 +71,11 @@ import { RiMessage2Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Feedback from "../Feedback/FeedBack";
 import Popup from "./ageDate/Popup";
-import Footer from '../../Footer/Footer'
+// import TrustedSuppliers from "./TrustedSuppliers/TrustedSuppliers";
+import Footer from "./Footer/Footer";
+// import SSL from "./SSL/SSL";
+// import Quote from "./Quote/Quote";
+// import Terms from "./Terms/Terms";
 export const VolumeContext = createContext();
 const styles = {
   margin: "1rem 2rem",
@@ -203,7 +207,12 @@ const Homepage = () => {
         head1="Hygieia Apothecary"
       />
 
-      <Footer />
+     <Footer />
+      <SSL />
+      <hr style={styles} />
+      <TrustedSuppliers imgs={aboveCopyrightImgs} head="" />
+      <Terms />
+      <Quote /> 
 
       <VolumeContext.Provider value={handleVolume}>
         <Quote value={volumeValue} />
