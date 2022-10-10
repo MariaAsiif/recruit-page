@@ -38,8 +38,36 @@ const Chillum = ({ id }) => {
                         </Accordion.Body>
                         </Accordion.Item>
                     </Accordion> */}
-                <h2 className='text-[3rem] font-medium'> CHILLUMS</h2>
-                <ChillumSubHeading>Curabitur cursus sagittis varius. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet. Quisque  aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet</ChillumSubHeading>
+                <div class="accordion-item bg-white border border-gray-200">
+                    <h2 class="accordion-header mb-0" id="headingTwo">
+                        <button class="
+        accordion-button
+        collapsed
+        relative
+        flex
+        items-center
+        w-full
+        py-4
+        px-5
+        text-base text-gray-800
+        bg-white
+        border-0
+        rounded-none
+        transition
+        focus:outline-none
+      " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                            aria-controls="collapseTwo">
+                            <h2 className='text-[3rem] font-medium text-black'> CHILLUMS</h2>
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body py-4 px-5">
+                            <ChillumSubHeading>Curabitur cursus sagittis varius. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet. Quisque  aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet</ChillumSubHeading>
+                        </div>
+                    </div>
+                </div>
+
 
                 <ChillumsSlick />
             </ChillumMainContainer>

@@ -31,8 +31,39 @@ const VaporizeSlickCard = () => {
                     </VaporizeImagesContainer>
                 </Col>
                 <Col sm={12} md={6}>
-                    <PrimaryHeading>VAPORIZE</PrimaryHeading>
-                    <VaporizeSubHeading>Curabitur cursus sagittis varius. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet. Quisque  aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet</VaporizeSubHeading>
+
+                    <div class="accordion-item bg-white border border-gray-200">
+                        <h2 class="accordion-header mb-0" id="headingTwo">
+                            <button class="
+        accordion-button
+        collapsed
+        relative
+        flex
+        items-center
+        w-full
+        py-4
+        px-5
+        text-base text-gray-800 text-left
+        bg-white
+        border-0
+        rounded-none
+        transition
+        focus:outline-none
+      " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                <PrimaryHeading>VAPORIZE</PrimaryHeading>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body py-4 px-5">
+                                <VaporizeSubHeading>Curabitur cursus sagittis varius. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet. Quisque  aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet</VaporizeSubHeading>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                     <VaporizeViewMoreBtn>view more</VaporizeViewMoreBtn>
                 </Col>
             </Row>

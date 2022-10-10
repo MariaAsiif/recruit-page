@@ -50,13 +50,13 @@ margin-top: 0.5rem;
 font-size: 1.5rem;
 font-style: normal;
 font-weight: 500;
-line-height: 3.6rem;
+line-height: 3rem;
 letter-spacing: 0em;
 color:#333333;
 
 }
 .mini-title{
-margin-top:1.1rem;
+margin-top:1rem;
 font-size: 1.2rem;
 font-style: normal;
 font-weight: 400;

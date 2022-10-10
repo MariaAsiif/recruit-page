@@ -28,10 +28,10 @@ margin-top: 5rem;
 export const ChillumSubHeading = styled(TertiaryHeading)`
 margin-top:2px;
 padding: 0 2rem;
+line-height:40px;
 `
 export const ChillumImgContainer = styled.div`
 position: relative;
-
   text-align: center;
   .overlay {
     position: absolute;

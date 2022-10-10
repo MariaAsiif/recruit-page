@@ -113,14 +113,14 @@ function Testimonials() {
                                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est. Sed mattis egestas elementum. Nulla facilisi. Quisque placerat risus ac nunc ornare tincidunt. Sed quis faucibus nunc. Pellentesque accumsan arcu mi, eget venenatis mauris." 
                                             </p>
                                             <div>
-                                                <RecordingContainer className='pb-4 ' style={{ height: 136 }}>
+                                                <RecordingContainer  style={{ height: 136 }}>
                                                     {
                                                         audio && (
                                                             <WaveSurf audio={audio} />
                                                         )
                                                     }
                                                 </RecordingContainer>
-                                                {
+                                                {/* {
                                                     subtitle && (
                                                         <div style={{
                                                             marginTop: '0 !important', whiteSpace: 'nowrap',
@@ -128,7 +128,7 @@ function Testimonials() {
                                                             textOverflow: 'ellipsis',
                                                         }} className='lead'>{`"${subtitle}"`}</div>
                                                     )
-                                                }
+                                                } */}
                                                 {/* <p className='btn-read' onClick={() => { handleData(data) }}>Read More</p> */}
                                             </div>
                                             <div className='flex justify-center mt-3'>

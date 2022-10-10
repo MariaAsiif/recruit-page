@@ -6,7 +6,6 @@ export const PrimaryHeading = styled.h2`
   font-size: 3rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 7.2rem;
   letter-spacing: 0em;
   text-transform: uppercase;
   margin: 0;
@@ -22,7 +21,7 @@ export const SubHeading = styled.h2`
   font-size: 3.2rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 4.8rem;
+  line-height: 4rem;
   letter-spacing: 0em;
 `;
 export const SubHeadingSecondary = styled.h2`
