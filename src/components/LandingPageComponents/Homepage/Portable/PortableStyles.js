@@ -14,6 +14,11 @@ export const PortableMainContainer = styled.div`
     z-index: 1;
     
 }
+
+@media screen and (max-width:600px) {
+    font-size:2rem
+ }
+
 @media screen and (min-width: 1024px) { 
 .portable-slick .slick-next {
     right: 8px !important;
@@ -28,7 +33,7 @@ export const PortableMainContainer = styled.div`
 }
 @media screen and (min-width: 320px) and (max-width:1023px) {
     .portable-slick  .slick-next {
-    right:17px !important;
+    right:25px !important;
     z-index: 1;
 }
 }
@@ -37,7 +42,8 @@ export const PortableMainContainer = styled.div`
     z-index:1;   
 }
 h2{
-    font-size: 4rem;
+    font-size: 3rem;
+   
 }
 p{
 margin-top: 0.5rem;

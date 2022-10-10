@@ -18,7 +18,7 @@ export const BelowEditIQVideo = styled.div`
 video{
     transform: translateX(16%) translateY(-9%) !important;
     border-radius: 10px;
-position: absolute;
+    position: absolute;
     top: 10%;
     left: 0;
     right: 0;

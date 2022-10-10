@@ -10,6 +10,14 @@ text-align: center;
 display: flex;
 align-items:center;
 
+@media screen and (max-width : 600px){
+
+display:flex;
+padding-top:0px;
+flex-Direction:column;
+
+}
+
 h2{
 font-size: 3rem;
 font-style: normal;
@@ -21,8 +29,8 @@ opacity: 0.8;
 padding: 0 3rem;
 margin-top: 8.9rem;
 
-@media screen and (max-width : 775px){
-  font-size: 2.4rem;
+@media screen and (max-width : 600px){
+  font-size: 2rem;
 line-height: 3.6rem;
 
 }

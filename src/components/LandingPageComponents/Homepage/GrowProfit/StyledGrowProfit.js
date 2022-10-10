@@ -24,6 +24,13 @@ letter-spacing: 0em;
 color: white;
 
 }
+
+@media only screen and (max-width: 600px) {
+  .grow-profit-slick  .slick-next {
+    left: 70% !important;
+  }
+ }
+
 @media screen and (min-width:900px){
   .grow-profit-slick {
   margin-top: 3rem;

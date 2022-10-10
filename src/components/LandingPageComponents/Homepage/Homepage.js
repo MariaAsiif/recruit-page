@@ -169,14 +169,14 @@ const Homepage = () => {
       <Portable id="PORTABLES" />
       <Chillum id="CHILLUMS" />
       <Cutivation id="CULTIVATE" />
-      <Agriculture id="CULTIVATE" />
+       <Agriculture id="CULTIVATE" />
       <GrowProfit id="CULTIVATE" />
       <BelowGrowProfit id="CULTIVATE" />
       <TrustedSuppliers
         id="CULTIVATE"
         imgs={trustedSuppliers}
         head="Trusted International Brands"
-      />
+      /> 
       <Diaganose id="DIAGNOSE" />
       <Prescribe id="PRESCRIBE" />
       <MedicinesSlick id="PRESCRIBE" />

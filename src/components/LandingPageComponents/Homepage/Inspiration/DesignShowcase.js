@@ -90,7 +90,7 @@ return (
     <StyleDesignShowcase>
         <h3>Inspire</h3>
         <StyleDesignInner>
-            <div className="container">
+            <div className="bscontainer-fluid">
                 <Swiper navigation={false}
                     effect={"coverflow"}
                     direction={"vertical"}

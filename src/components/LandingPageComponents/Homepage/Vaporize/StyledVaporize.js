@@ -16,6 +16,11 @@ export const VaporizeMainContainer = styled.div`
 
 export const VaporizeSubHeading = styled(TertiaryHeading)`
 margin-top: 2rem;
+
+@media screen and (max-width:600px) {
+      font-size:14px;
+      line-height:20px
+}
 `
 export const VaporizeImagesContainer = styled.div`
 position:relative;

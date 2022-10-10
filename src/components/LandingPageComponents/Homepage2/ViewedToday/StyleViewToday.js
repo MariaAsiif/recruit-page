@@ -25,7 +25,14 @@ export const ViewTodayStyle = styled.div`
 
   .viewToday-slick .slick-next {
     right: 2.5%;
+
+    @media screen and (max-width:600px) {
+      right: 9% !important;
   }
+  }
+
+
+
   .viewToday-slick .slick-prev:before {
     content: "" !important;
     background-image: url(/static/media/left-slider-arrow.a0ebde13.svg) !important;

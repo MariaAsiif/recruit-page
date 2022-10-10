@@ -47,9 +47,12 @@ height: 38.3rem;
 export const SlickMainContainer = styled.div`
 display: none;
 margin-top:5.2rem;
-@media screen and (max-width: 768px) {
-    display: block;
+@media screen and (max-width: 600px) {
+  .grow-profit-slick .slick-next{
+    right:70% inportant;
+  }
 }
+
 `
 export const AgriculteContainer = styled.div`
 position: relative;

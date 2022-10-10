@@ -45,12 +45,12 @@ export const MarketSlickContainer = styled.div`
     z-index: 1;
 }
 }
-@media screen and (min-width:320px) and (max-width:425px) {
+@media screen and (min-width:320px) and (max-width:600px) {
   .inhalate-slick .slick-prev {
   left:-4px !important ;
   }
   .inhalate-slick .slick-next {
-    right: 18px !important;
+    right: 50px !important;
     z-index: 1;
 }
 }
@@ -100,6 +100,7 @@ opacity: 0.8;
 export const MarketContentContainer = styled.div`
   @media screen and (max-width : 775px)   {
     padding-bottom: 3rem;
+    text-aign:cener;
   }
 `
 export const MarketReHeading = styled(MarketSubHeadSecond)`

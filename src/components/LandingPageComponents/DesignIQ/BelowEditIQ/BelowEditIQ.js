@@ -5,17 +5,17 @@ import belowEditIQ from '../../../../assets/landingImages/belowEditIQ.png'
 const BelowEditIQ = () => {
   return (
     <BelowEditIQMain>
-      <Container>
+      <div className='bscontainer-fluid'>
         <BelowEditIQImgContainer>
           <BelowEditIQVideo>
-            <video  controls >
+            <video controls >
               <source src="/Videos/landingPageMonitor.mp4" type="video/mp4" />
             </video>
           </BelowEditIQVideo>
 
           <BelowEditIQImg src={belowEditIQ} alt={belowEditIQ} />
         </BelowEditIQImgContainer>
-      </Container>
+      </div>
     </BelowEditIQMain>
   )
 }
