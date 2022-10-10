@@ -22,6 +22,7 @@
   @media screen and (max-width: 600px){
     .inhalate-slick .slick-next {
       right: 70px !important;
+      border:1pt solid;
       z-index: 1;
     }
   }

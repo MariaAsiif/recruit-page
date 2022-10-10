@@ -152,9 +152,9 @@ const SubBar = ({ setShow }) => {
             </ul> */}
 
 
-            <ul className=" ruby-menu">
+            <ul className="ruby-menu">
               <li className="main-li" >
-                <Link activeClass="active" to="HOME" spy={true} smooth={true} duration={500}    > HOME{" "} </Link>
+                <Link className="active" to="HOME" spy={true} smooth={true} duration={500}    > HOME{" "} </Link>
               </li>
               <li className="main-li" >
                 <a href="https://landing-page-ivory-eta.vercel.app/agency">DAS</a>
