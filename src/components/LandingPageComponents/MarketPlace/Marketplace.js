@@ -18,7 +18,7 @@ const Marketplace = ({ id }) => {
             <div className='col-lg-6'>
               <MarketContentContainer>
 
-              <div class="accordion-item bg-white border border-gray-200">
+              <div class="accordion-item bg-white border w-[345px] lg:w-full  border-gray-200">
                         <h2 class="accordion-header mb-0" id="headingTwo">
                             <button class="
         accordion-button

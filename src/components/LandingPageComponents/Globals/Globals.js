@@ -13,7 +13,7 @@ export const PrimaryHeading = styled.h2`
   color: #242424;
 
   @media screen and (max-width: 600px) {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-style: normal;
     line-height: 4.2rem;
   }

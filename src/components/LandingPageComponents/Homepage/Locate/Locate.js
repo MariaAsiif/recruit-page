@@ -8,7 +8,7 @@ const Locate = ({ id }) => {
   return (
     <LocateMainContainer id={id}>
       <div className='text-center'>
-        <div className="accordion-item  bg-white border border-gray-200 mb-3">
+        <div className="accordion-item lg:w-full w-[345px] bg-white border border-gray-200 mb-3">
           <h2 className="accordion-header mb-0" id="headingTwo">
             <button className="
         accordion-button
