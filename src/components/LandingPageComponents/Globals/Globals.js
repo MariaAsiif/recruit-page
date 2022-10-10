@@ -165,7 +165,13 @@ export const CustomCardContainer = styled.div`
     background: #ffffff;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 6%);
     border-radius: 10px !important;
-    width: 94%;
+    height: 410px;
+    margin-left:10px;
+    
+
+    @media screen and (max-width: 600px) {
+      height: 100%;
+    }
   }
 
   .customCard .customCard-body {

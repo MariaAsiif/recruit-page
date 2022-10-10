@@ -18,8 +18,6 @@ const Index = () => {
           autoPlay
           muted
           loop
-          height={500}
-          className="hero-video"
           src="/Videos/hporx.mp4"
         /> 
       </SwiperSlide>

@@ -162,7 +162,7 @@
 
 .nav-content ul li ul {
   display: none;
-  color: black;
+  color: black !important;
   text-decoration: none;
   list-style-type: none;
 }
@@ -235,7 +235,7 @@ div.ruby-menu-demo-bg-light,div.ruby-menu-demo-bg-dark {
   position: relative;
   background: #fff;
   margin: 0 auto;
-  font-family: 'Open Sans',sans-serif;
+  font-family: 'Poppins';
   font-size: 16px
 }
 
@@ -863,7 +863,7 @@ ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > a {
 }
 
 ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > div {
-  background: #fff
+  background: black
 }
 
 ul.ruby-menu > li.ruby-menu-mega > div ul li > a,ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > div ul > li > a {
@@ -1151,7 +1151,7 @@ ul.ruby-menu > li > a {
   padding: 0 25px 0 15px;
   color: black;
   text-decoration: none;
-  font-family: 'Open Sans',sans-serif;
+  font-family: 'Poppins';
   font-weight: 700;
   text-transform: uppercase
 }

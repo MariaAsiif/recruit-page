@@ -47,7 +47,6 @@ export const EVendorImgContainer = styled.div`
   
   width: 100% ;
   height: 100% ;
-
   .overlay {
     position: absolute;
     top: 0;

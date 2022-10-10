@@ -171,17 +171,17 @@ const Homepage = () => {
       <Cutivation id="CULTIVATE" />
        <Agriculture id="CULTIVATE" />
       <GrowProfit id="CULTIVATE" />
-      <BelowGrowProfit id="CULTIVATE" />
+      {/* <BelowGrowProfit id="CULTIVATE" /> */}
       <TrustedSuppliers
         id="CULTIVATE"
         imgs={trustedSuppliers}
         head="Trusted International Brands"
       /> 
       <Diaganose id="DIAGNOSE" />
-      <Prescribe id="PRESCRIBE" />
-      <MedicinesSlick id="PRESCRIBE" />
-      <MedicinesSlick id="PRODUCTS" />
-      <MedicineSmallSlick id="PRODUCTS" />
+      {/* <Prescribe id="PRESCRIBE" /> */}
+      {/* <MedicinesSlick id="PRESCRIBE" /> */}
+      {/* <MedicinesSlick id="PRODUCTS" /> */}
+      {/* <MedicineSmallSlick id="PRODUCTS" /> */}
       <Marketplace id="MARKETPLACE" />
       <FeatureMarketPlace order="second" />
       {/* <FashionDiscount imgs={giftImgs} /> */}

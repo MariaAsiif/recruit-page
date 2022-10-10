@@ -31,6 +31,13 @@ color: white;
   }
  }
 
+ @media only screen and (max-width: 992px) {
+  .grow-profit-slick  .slick-next {
+    right: 7% !important;
+  }
+ }
+
+
 @media screen and (min-width:900px){
   .grow-profit-slick {
   margin-top: 3rem;

@@ -12,9 +12,15 @@ const StyledHero = styled.div`
   width: 100%;
   object-fit: cover;
   position: relative;
-  
   z-index: -1;
   margin-top: -9.8rem;
+  @media screen and (max-width: 992px){
+    height: 70vh;
+  }
+
+  @media screen and (max-width: 600px){
+    height: 80vh;
+  }
 }
 .home-main-header-sub-heading{
     color: #ffff;
@@ -23,6 +29,9 @@ const StyledHero = styled.div`
    font-size: 1.9rem;
    @media screen and (max-width: 600px){
     font-size: 1rem;
+  }
+  @media screen and (max-width: 992px){
+    font-size: 2rem;
   }
 }
 
@@ -36,8 +45,8 @@ margin-top: 20rem;
   font-weight: bold;
   color: white;
 
-  @media screen and (max-width: 768px){
-    font-size: 6.5rem;
+  @media screen and (max-width: 992px){
+    font-size: 4rem;
   }
   @media screen and (max-width: 600px){
     font-size: 2rem;
