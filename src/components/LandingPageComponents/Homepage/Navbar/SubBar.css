@@ -312,7 +312,7 @@ div.ruby-menu-demo-f-title {
   height: 30px;
   margin: 0 auto;
   margin-top: 20px;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 18px
 }
 
@@ -329,7 +329,7 @@ div.ruby-menu-demo-cs-1 table {
 
 div.ruby-menu-demo-cs-1 table tr,div.ruby-menu-demo-cs-1 table td {
   padding: 0;
-  font-weight: 700
+  font-weight: 760
 }
 
 div.ruby-menu-demo-cs-1 table td:last-child {
@@ -346,7 +346,7 @@ h2.ruby-menu-demo-slogan-1,h3.ruby-menu-demo-slogan-1 {
 
 h1.ruby-menu-demo-slogan-2,h3.ruby-menu-demo-slogan-2 {
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: none;
   color: #222;
   margin: 0
@@ -477,7 +477,7 @@ div.ruby-menu-demo-download > span {
 div.ruby-menu-demo-download > span > span {
   font-size: 20px;
   color: #555;
-  font-weight: 700
+  font-weight: 760
 }
 
 button.ruby-btn {
@@ -487,7 +487,7 @@ button.ruby-btn {
   border-radius: 0;
   padding: 10px 25px;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer
 }
 
@@ -1149,11 +1149,12 @@ ul.ruby-menu > li.ruby-menu-right {
 ul.ruby-menu > li > a {
   display: block;
   line-height: 50px;
-  padding: 0 25px 0 15px;
+  padding: 0 15px 0 15px;
+  font-size: 16px;
   color: black;
   text-decoration: none;
   font-family: 'Poppins';
-  font-weight: 700;
+  /* font-weight: 600; */
   text-transform: uppercase
 }
 
@@ -1226,7 +1227,7 @@ ul.ruby-menu > li.ruby-menu-social.ruby-menu-search > a > span input,ul.ruby-men
   border: none;
   font-family: 'Open Sans',sans-serif;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   max-width: 0;
   transform: scaleY(0);
@@ -1407,7 +1408,7 @@ ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > a {
   display: block;
   padding: 20px 15px;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
   font-stretch: expanded;
   color: #666
@@ -1564,7 +1565,7 @@ div.ruby-grid img {
 h3.ruby-list-heading {
   font-size: 14px;
   line-height: 24px;
-  font-weight: 700;
+  font-weight: 600;
   margin: 0
 }
 
@@ -1627,7 +1628,7 @@ span.ruby-c-title a,span.ruby-c-category a,span.ruby-c-date a {
 
 span.ruby-c-title,span.ruby-c-title a {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: capitalize;
   line-height: 20px;
   margin-top: -5px;
