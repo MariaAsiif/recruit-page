@@ -8,7 +8,7 @@ export const QuoteContainer = styled.div`
 position: fixed;
 bottom: 0;
 left: 0;
-width: 100%;
+width: 10%;
 // z-index: 1000;
 
 /* 
