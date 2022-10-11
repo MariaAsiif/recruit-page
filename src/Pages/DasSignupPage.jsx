@@ -10,6 +10,8 @@ import SmsVerification from '../components/DASComponents/SmsVerification'
 import QrVerification from '../components/DASComponents/QrVerification'
 import ProviderInformation from '../components/DASComponents/ProviderInformation'
 import TermsAndConditions from '../components/DASComponents/TermsAndConditions'
+import Assesment from '../components/DASComponents/Assesment'
+import Result from '../components/DASComponents/Result'
 const DasSignupPage = () => {
     const [activeStep, setactiveStep] = useState("ProviderSelection")
     const [signupForm, setsignupform] = useState({
@@ -44,7 +46,9 @@ const DasSignupPage = () => {
                                                 activeStep === "IdentityVerification" ? <IdentityVerification onNext={onNext} /> :
                                                     activeStep === "SmsVerification" ? <SmsVerification onNext={onNext} /> :
                                                         activeStep === "QrVerification" ? <TermsAndConditions onNext={onNext} /> :
-                                                            activeStep === "TermsAndConditions" ? <TermsAndConditions onNext={onNext} /> : null
+                                                            activeStep === "TermsAndConditions" ? <TermsAndConditions onNext={onNext} /> :
+                                                                activeStep === "Assesment" ? <Assesment onNext={onNext} /> :
+                                                                    activeStep === "Result" ? <Result onNext={onNext} /> : null
                             }
                         </div>
                     </div>
