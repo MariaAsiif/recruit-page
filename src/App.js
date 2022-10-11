@@ -116,10 +116,10 @@ function App() {
     <>
       {/* <Header /> */}
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<PublicBetaLogin />} /> 
+        <Route path="/landingPage" element={<LandingPage />} />
         <Route path="/homepage" element={<MainPage />} />
         <Route path="/stock" element={<Stocks />} />
-        <Route path="/public" element={<PublicBetaLogin />} />
         <Route path="/Home" element={<HomePage />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
