@@ -375,7 +375,7 @@ const Inputs = () => {
                       </div>
                     </div>
                     <div>
-                      <Link to={`/detail/${service._id}`} >
+                      <Link to={`/userDetail/${service._id}`} >
                         <input type="submit" className={styles.locator_card_bt} name="See Details" value="See Details" />
                       </Link>
                     </div>
