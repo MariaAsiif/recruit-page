@@ -121,7 +121,7 @@ function Header() {
     <>
 
       <LocateMainContainer id={"LOCATE"}>
-        <Container>
+        <div className="bscontainer-fluid">
           <h2>LOCATE</h2>
           <h3>DOCTORS,DISPENSARIES,GRWO SHOPS,MMJ ASSOCIATIONS,CLUBS CAFES, AND LAWYERS</h3>
           <div className="list_data">
@@ -141,30 +141,30 @@ function Header() {
 
           </div>
           {active === 0 ?
-            <p >
+            <p className="text-[16px]">
               Welcome, the above-listed professionals and services can be found using our mapping locator function. The service is provided to all clients and visitors at no charge. However, we request your feedback and use of the service to assess the quality of the assistance you encountered from any of those using the locator. That information will be shared with your peers seeking a similar experience if satisfactory or avoid any establishment that doesn't afford them excellent treatment or a high-quality product, goods, or service. The search function is powered by Google Maps technologies, it will direct you to any of the stated services available nearest your hotel, if traveling, or your current in-country location.
             </p>
             :
             active === 1 ?
-              <p >
+              <p className="text-[16px]">
                location Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet eleifend diam. Nulla ac sem nec ligula porta pellentesque ut non purus. Suspendisse vulputate lacus eget nulla semper, non laoreet nulla sollicitudin. In hac habitasse platea dictumst. Ut id tellus odio. Quisque gravida pretium ex a consectetur. Etiam viverra tincidunt lacus, et porttitor sem accumsan et. Sed vehicula faucibus imperdiet. Maecenas iaculis lorem eros. Aliquam porttitor nisl a dolor semper, et gravida tellus rutrum. Aliquam purus elit, luctus sit amet nisl sed, pharetra tincidunt ligula. Etiam magna velit, interdum quis eleifend in, faucibus non nulla. Pellentesque fringilla tellus ex, quis ullamcorper lorem luctus ac. Duis pellentesque metus nec nunc imperdiet, et congue lorem suscipit.
               </p>
               : active === 2 ?
-                <p >
+                <p className="text-[16px]">
                   Search Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet eleifend diam. Nulla ac sem nec ligula porta pellentesque ut non purus. Suspendisse vulputate lacus eget nulla semper, non laoreet nulla sollicitudin. In hac habitasse platea dictumst. Ut id tellus odio. Quisque gravida pretium ex a consectetur. Etiam viverra tincidunt lacus, et porttitor sem accumsan et. Sed vehicula faucibus imperdiet. Maecenas iaculis lorem eros. Aliquam porttitor nisl a dolor semper, et gravida tellus rutrum. Aliquam purus elit, luctus sit amet nisl sed, pharetra tincidunt ligula. Etiam magna velit, interdum quis eleifend in, faucibus non nulla. Pellentesque fringilla tellus ex, quis ullamcorper lorem luctus ac. Duis pellentesque metus nec nunc imperdiet, et congue lorem suscipit.
                 </p>
                 : active === 3 ?
-                  <p >
+                  <p className="text-[16px]">
                     Sefety Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet eleifend diam. Nulla ac sem nec ligula porta pellentesque ut non purus. Suspendisse vulputate lacus eget nulla semper, non laoreet nulla sollicitudin. In hac habitasse platea dictumst. Ut id tellus odio. Quisque gravida pretium ex a consectetur. Etiam viverra tincidunt lacus, et porttitor sem accumsan et. Sed vehicula faucibus imperdiet. Maecenas iaculis lorem eros. Aliquam porttitor nisl a dolor semper, et gravida tellus rutrum. Aliquam purus elit, luctus sit amet nisl sed, pharetra tincidunt ligula. Etiam magna velit, interdum quis eleifend in, faucibus non nulla. Pellentesque fringilla tellus ex, quis ullamcorper lorem luctus ac. Duis pellentesque metus nec nunc imperdiet, et congue lorem suscipit.
                   </p>
                   : active === 4 ?
-                    <p >
+                    <p className="text-[16px]">
                       Experience Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet eleifend diam. Nulla ac sem nec ligula porta pellentesque ut non purus. Suspendisse vulputate lacus eget nulla semper, non laoreet nulla sollicitudin. In hac habitasse platea dictumst. Ut id tellus odio. Quisque gravida pretium ex a consectetur. Etiam viverra tincidunt lacus, et porttitor sem accumsan et. Sed vehicula faucibus imperdiet. Maecenas iaculis lorem eros. Aliquam porttitor nisl a dolor semper, et gravida tellus rutrum. Aliquam purus elit, luctus sit amet nisl sed, pharetra tincidunt ligula. Etiam magna velit, interdum quis eleifend in, faucibus non nulla. Pellentesque fringilla tellus ex, quis ullamcorper lorem luctus ac. Duis pellentesque metus nec nunc imperdiet, et congue lorem suscipit.
                     </p>
                     : null
           }
 
-        </Container>
+        </div>
         <Inputs />
       </LocateMainContainer>
 

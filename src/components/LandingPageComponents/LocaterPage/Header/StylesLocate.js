@@ -5,6 +5,9 @@ export const LocateMainContainer = styled.div`
 text-align: center;
 margin-top:4rem;
 
+p{
+  font-size:16px;
+}
 
 .list_data{
   margin-top:20px;
@@ -23,13 +26,16 @@ margin-top:4rem;
 
     li{
       width:50%;
+      height:40px;
       font-size:20px;
       border:1pt solid ;
       margin-left:10px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
       background-color:#DC3545;
       border-radius:5px;
       color:white;
-
       .icons{
         font-size:20px;
       }
@@ -37,30 +43,33 @@ margin-top:4rem;
   }
 }
 
+p{
+  font-size:16px;
+}
+
 h2{
-  font-size: 4rem;
+  font-size: 2.5rem;
 }
 h3{
- margin-top: 4rem;
-font-size: 2.8rem;
+font-size: 1.5rem;
 font-style: normal;
 font-weight: 500;
 line-height: 2.4rem;
 letter-spacing: 0em;
 color: #333333;
 opacity: 0.8;
-text-align: start;
+text-align: center;
 padding: 0 5rem;
  @media screen and (max-width:480px) {
   padding: 0 0;
  }
 }
 p{
-  margin-top: 1.6rem;
-font-size: 1.8rem;
+  margin-top: 1rem;
+font-size: 1rem;
 font-style: normal;
 font-weight: 400;
-line-height: 2.4rem;
+line-height: 2rem;
 text-align:justify;
 letter-spacing: 0em;
 color: #828282;

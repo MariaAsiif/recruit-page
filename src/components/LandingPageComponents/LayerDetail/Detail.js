@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import Footer from "../Homepage/Footer/Footer";
 import { LocateMainContainer } from './StylesLocate'
-import emptyLocation from "../../../../assets/landingImages/emptyLocation.png";
+import emptyLocation from "../../../assets/landingImages/emptyLocation.png";
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { RiMessage2Line } from 'react-icons/ri'
 import Map from "../Homepage/Locate/Map/GoogleMap";
 import Popup from "./Popup";
 import { useParams } from "react-router-dom";
-import GenericService from "../../utils/GenericService";
-import { callPublicApi } from '../../utils/CallApi'
+import GenericService from "../../../utils/GenericService";
+import { callPublicApi } from '../../../utils/CallApi'
 import SingleMap from "../Homepage/Locate/Map/SingleMap";
 // import MapLocation from "../Homepage/Locate/Map/Map";
 function Detail() {
@@ -46,7 +46,7 @@ function Detail() {
   return (
     <>
       <LocateMainContainer >
-        <Container>
+        <div className="bscontainer-fluid">
           <Row>
             <Col lg={4}>
               <div className="image_wrapper">
@@ -56,9 +56,9 @@ function Detail() {
 
 
 
-              <div className="report">
-                <button >
-                  <RiMessage2Line className="me-2" />
+              <div className="report ">
+                <button className="flex  items-center" >
+                  <RiMessage2Line className="mx-2" />
                   Send Message </button>
               </div>
 
@@ -68,7 +68,7 @@ function Detail() {
             <Col lg={8} >
               <div className="right_wrapper">
                 <div className="name_wraper">
-                  <h2>{doctorsData.serviceName} <p> <FaMapMarkerAlt /> {doctorsData.serviceCountry} , {doctorsData.serviceCity}</p> </h2>
+                  <h2>{doctorsData.serviceName} <p className="flex"> <FaMapMarkerAlt /> {doctorsData.serviceCountry} , {doctorsData.serviceCity}</p> </h2>
                   <p>Bookmark</p>
                 </div>
                 <span className="project">{doctorsData.Growshop}</span>
@@ -114,7 +114,7 @@ function Detail() {
             <SingleMap locationData={doctorsData.serviceLocation} />
           </div>
 
-        </Container>
+        </div>
 
 
 
