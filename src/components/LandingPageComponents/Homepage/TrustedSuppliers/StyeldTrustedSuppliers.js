@@ -43,8 +43,12 @@ export const TrustedCompanyContainer = styled.div`
 font-size: 3rem;
 color: #242424;
 text-align: center;
-@media screen and (max-width:480px) {
-    font-size: 2.6rem;
+@media screen and (max-width:600px) {
+    font-size: 20px;
+}
+
+@media screen and (min-width:768px) and (max-width:992px) {
+    font-size: 2rem;
 
 }
     }

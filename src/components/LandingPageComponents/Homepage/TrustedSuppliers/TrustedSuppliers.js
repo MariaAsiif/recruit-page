@@ -50,8 +50,8 @@ const TrustedSuppliers = ({ imgs, head, id }) => {
   };
   return (
     <div className="mt-[3rem]">
-      <h3 className="text-center text-[2.5rem] font-medium  ">{head}</h3>
-      <p className="text-center text-[1rem]">TELE-MEDICINE + TELE-DIAGNOSE IS THE SOLUTION + GLOBAL DIAGNOSTIC CENTER</p>
+      <h3 className="text-center lg:text-[2.5rem] md:text-[2.2rem] text-[25px] font-medium  ">{head}</h3>
+      <p className="text-center lg:text-[1rem] md:text-[18px] text-[14px]">TELE-MEDICINE + TELE-DIAGNOSE IS THE SOLUTION + GLOBAL DIAGNOSTIC CENTER</p>
       <TrustedCompanyContainer id={id}>
         <Container>
           <Slider {...settings} className="trusted-suppliers-slick">

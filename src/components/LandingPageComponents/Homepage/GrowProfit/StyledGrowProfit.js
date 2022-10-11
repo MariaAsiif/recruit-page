@@ -98,11 +98,24 @@ color: #242424;
 opacity: 0.8;
 font-size:3rem;
 text-transform: capitalize;
+
+@media screen and (max-width:600px) {
+
+  font-size: 2rem;
+  
+  }
 `
 export const GrowProfitSubHeading = styled(SubHeading)`
 color: #333333;
 opacity: 0.8;
 font-size:2rem;
+
+@media screen and (max-width:600px) {
+
+  font-size: 1rem;
+  
+  }
+
 `
 export const GrowProfitImgContainer = styled.div`
 background-image:linear-gradient(to right, rgba(10, 71, 46, 0.88), rgba(10, 71, 46, 0.88)), url(${GrowProfitBack}) ;

@@ -11,7 +11,13 @@ h3{
   letter-spacing: 0em;
   color: #242424;
   text-transform: uppercase;
-  text-align:center
+  text-align:center;
+
+  @media screen and (max-width: 600px) {
+    font-size: 2rem;
+    
+  }
+
 }
 .swiper-slide{
     background-position: center;

@@ -59,6 +59,12 @@ h1{
     text-align: center;
     font-weight: 500;
     font-size: 3rem;
+    @media screen and (max-width:600px) {
+        font-size:2rem;
+      }
+      @media screen and (max-width:992px) {
+        font-size:2.5rem;
+      }
 }
 .text-design{
     font-weight: 500;

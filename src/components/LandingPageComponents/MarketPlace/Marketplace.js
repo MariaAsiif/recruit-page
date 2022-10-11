@@ -18,13 +18,15 @@ const Marketplace = ({ id }) => {
             <div className='col-lg-6'>
               <MarketContentContainer>
 
-              <div class="accordion-item bg-white border w-[345px] lg:w-full  border-gray-200">
+              <div class="accordion-item bg-white border mt-3 lg:mt-0 lg:w-full  border-gray-200">
                         <h2 class="accordion-header mb-0" id="headingTwo">
                             <button class="
         accordion-button
         collapsed
         relative
         flex
+        lg:grid
+        md:grid
         items-center
         w-full
         py-4
@@ -35,9 +37,9 @@ const Marketplace = ({ id }) => {
         rounded-none
         transition
         focus:outline-none
-      " type="button" data-bs-toggle="collapse" style={{display:'grid' , justifyContent:'inherit'}} data-bs-target="#collapseTwo" aria-expanded="false"
+      " type="button" data-bs-toggle="collapse" style={{ justifyContent:'inherit'}} data-bs-target="#collapseTwo" aria-expanded="false"
                                 aria-controls="collapseTwo">
-                                 <div className="text-[2rem] font-medium">MARKETPLACE</div>
+                                 <div className="lg:text-[2rem] md:text-[2rem] text-[1.5rem] font-medium">MARKETPLACE</div>
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"

@@ -216,4 +216,12 @@ padding: 0 0.3rem;
 export const AgriHeading = styled(PrimaryHeading)`
 text-transform: capitalize;
 font-size: 3rem;
+
+
+@media screen and (max-width:600px) {
+
+  font-size: 1.5rem;
+  line-height:50px
+  
+  }
 `

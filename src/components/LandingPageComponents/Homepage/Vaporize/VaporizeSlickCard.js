@@ -39,6 +39,8 @@ const VaporizeSlickCard = () => {
         collapsed
         relative
         flex
+        lg:grid
+        md:grid
         items-center
         w-full
         py-4
@@ -49,7 +51,7 @@ const VaporizeSlickCard = () => {
         rounded-none
         transition
         focus:outline-none
-      " type="button" data-bs-toggle="collapse" style={{display:'grid' , justifyContent:'inherit'}} data-bs-target="#collapseTwo" aria-expanded="false"
+      " type="button" data-bs-toggle="collapse" style={{ justifyContent:'inherit'}} data-bs-target="#collapseTwo" aria-expanded="false"
                                 aria-controls="collapseTwo">
                                 <PrimaryHeading>VAPORIZE</PrimaryHeading>
                             </button>

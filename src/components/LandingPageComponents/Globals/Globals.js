@@ -13,9 +13,8 @@ export const PrimaryHeading = styled.h2`
   color: #242424;
 
   @media screen and (max-width: 600px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-style: normal;
-    line-height: 4.2rem;
   }
 `;
 export const SubHeading = styled.h2`
@@ -24,6 +23,10 @@ export const SubHeading = styled.h2`
   font-weight: 500;
   line-height: 4rem;
   letter-spacing: 0em;
+  @media screen and (max-width: 600px) {
+    font-size: 1.5rem;
+    font-style: normal;
+  }
 `;
 export const SubHeadingSecondary = styled.h2`
   font-size: 2.4rem;
@@ -38,7 +41,14 @@ export const TertiaryHeading = styled.h3`
   line-height: 1rem;
   letter-spacing: 0em;
   color: #828282;
-  margin: 0;
+  margin:0px;
+  @media screen and (max-width:600px) {
+
+    font-size: 16px;
+  margin-bottom:20px;
+    
+    }
+
 `;
 export const TertiaryHeadSecondary = styled.h3`
   font-size: 1.8rem;

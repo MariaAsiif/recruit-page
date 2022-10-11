@@ -5,13 +5,15 @@ import { DiagnoseMainContainer } from './StyledDiagnose'
 const Diaganose = ({id}) => {
   return (
     <DiagnoseMainContainer id={id} >
-       <div class="accordion-item  bg-white border border-gray-200">
+       <div class="accordion-item  bg-white  mx-2 border border-gray-200">
                         <h2 class="accordion-header mb-0" id="headingTwo">
                             <button class="
         accordion-button
         collapsed
         relative
         flex
+        lg:grid
+        md:grid
         items-center
         w-full
         py-4
@@ -22,9 +24,9 @@ const Diaganose = ({id}) => {
         rounded-none
         transition
         focus:outline-none
-      " type="button" data-bs-toggle="collapse" style={{ display: 'grid', justifyContent: 'inherit' }} data-bs-target="#collapseTwo" aria-expanded="false"
+      " type="button" data-bs-toggle="collapse" style={{ justifyContent: 'inherit' }} data-bs-target="#collapseTwo" aria-expanded="false"
                                 aria-controls="collapseTwo">
-                                 <h3>WorkSpace</h3>
+                                 <h3 >WorkSpace</h3>
 
                             </button>
                         </h2>

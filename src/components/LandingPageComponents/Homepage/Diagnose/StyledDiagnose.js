@@ -18,6 +18,15 @@ font-weight: 500;
 line-height: 2rem;
 letter-spacing: 0em;
 opacity: 0.8;
+
+@media screen and (max-width:600px) {
+
+font-size: 1.5rem;
+
+}
+
+
+
 }
 p{
 font-size: 1.2rem;

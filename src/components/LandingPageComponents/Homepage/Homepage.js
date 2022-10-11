@@ -72,7 +72,7 @@ import { Link } from "react-router-dom";
 import Feedback from "../Feedback/FeedBack";
 import Popup from "./ageDate/Popup";
 // import TrustedSuppliers from "./TrustedSuppliers/TrustedSuppliers";
-import Footer from "./Footer/Footer";
+import Footer from "../../Footer/Footer";
 // import SSL from "./SSL/SSL";
 // import Quote from "./Quote/Quote";
 // import Terms from "./Terms/Terms";
@@ -207,12 +207,12 @@ const Homepage = () => {
         head1="Hygieia Apothecary"
       />
 
-     <Footer />
-      <SSL />
-      <hr style={styles} />
-      <TrustedSuppliers imgs={aboveCopyrightImgs} head="" />
-      <Terms />
-      <Quote /> 
+     <Footer type="landing" />
+      {/* <SSL /> */}
+      {/* <hr style={styles} /> */}
+      {/* <TrustedSuppliers imgs={aboveCopyrightImgs} head="" /> */}
+      {/* <Terms /> */}
+      {/* <Quote />  */}
 
       <VolumeContext.Provider value={handleVolume}>
         <Quote value={volumeValue} />

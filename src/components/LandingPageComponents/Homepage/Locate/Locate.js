@@ -8,12 +8,14 @@ const Locate = ({ id }) => {
   return (
     <LocateMainContainer id={id}>
       <div className='text-center'>
-        <div className="accordion-item lg:w-full w-[345px] bg-white border border-gray-200 mb-3">
+        <div className="accordion-item mx-2 bg-white border border-gray-200 mb-3">
           <h2 className="accordion-header mb-0" id="headingTwo">
             <button className="
         accordion-button
         collapsed
         relative
+        lg:grid
+        md:grid
         flex
         items-center
         w-full
@@ -25,7 +27,7 @@ const Locate = ({ id }) => {
         rounded-none
         transition
         focus:outline-none
-      " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" style={{display:'grid' , justifyContent:'inherit'}} aria-expanded="false"
+      " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" style={{justifyContent:'inherit'}} aria-expanded="false"
               aria-controls="collapseTwo">
               <PrimaryHeading>LOCATE</PrimaryHeading>
             </button>

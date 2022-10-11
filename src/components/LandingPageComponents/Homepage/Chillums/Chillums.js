@@ -45,6 +45,8 @@ const Chillum = ({ id }) => {
         collapsed
         relative
         flex
+        lg:grid
+        md:grid
         items-center
         w-full
         py-4
@@ -55,9 +57,9 @@ const Chillum = ({ id }) => {
         rounded-none
         transition
         focus:outline-none
-      " type="button" data-bs-toggle="collapse" style={{display: 'grid' , justifyContent:'inherit'}} data-bs-target="#collapseTwo" aria-expanded="false"
+      " type="button" data-bs-toggle="collapse" style={{ justifyContent:'inherit'}} data-bs-target="#collapseTwo" aria-expanded="false"
                             aria-controls="collapseTwo">
-                            <h2 className='text-[3rem] font-medium text-black'> CHILLUMS</h2>
+                            <h2 className='lg:text-[3rem] md:text-[2rem] text-[1.5rem] font-medium text-black'> CHILLUMS</h2>
                         </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"

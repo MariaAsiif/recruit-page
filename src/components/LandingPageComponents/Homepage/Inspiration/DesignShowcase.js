@@ -88,7 +88,7 @@ function DesignShowcase() {
 
 return (
     <StyleDesignShowcase>
-        <h3>Inspire</h3>
+        <h3 >Inspire</h3>
         <StyleDesignInner>
             <div className="bscontainer-fluid">
                 <Swiper navigation={false}

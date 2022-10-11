@@ -29,6 +29,10 @@ export const ViewTodayStyle = styled.div`
     @media screen and (max-width:600px) {
       right: 9% !important;
   }
+
+  @media screen and (min-width:768px) and (max-width:992px) {
+    right: 5% !important;
+}
   }
 
 

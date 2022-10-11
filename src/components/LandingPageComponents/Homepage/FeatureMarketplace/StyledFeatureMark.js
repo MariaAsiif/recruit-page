@@ -17,9 +17,16 @@ font-size: 3rem;
 opacity: 0.8;
 color: #FFFFFF;
 @media screen and (max-width:600px) {
-  font-size: 2rem;
-line-height: 4rem;
+  font-size: 1rem;
+line-height: 2rem;
 }
+
+@media screen and (min-width:786px) and (max-width:992px) {
+  font-size: 2rem;
+line-height: 2rem;
+
+}
+
 `
 
 

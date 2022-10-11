@@ -7,12 +7,18 @@ h3{
     font-size: 1.2rem;
 line-height: 30px;
 color: #828282;
+
+@media screen and (max-width: 600px) {
+    font-size: 1rem;
+    
+  }
 }
 p{
     font-size: 1rem;
 line-height: 48px;
 opacity: 0.8;
 color: #4F4F4F;
+
 }
 p{
 margin: 0;
@@ -22,6 +28,11 @@ font-weight: 500;
 line-height:2rem;
 letter-spacing: 0em;
 color:#4F4F4F;
+
+@media screen and (max-width: 600px) {
+    font-size: 1rem;
+    
+  }
 ;
 }
 `
