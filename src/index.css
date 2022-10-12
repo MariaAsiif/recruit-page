@@ -360,28 +360,28 @@ select {
 }
 
 
-.check_term input[type="checkbox"]:checked  {
+.check_term input[type="checkbox"]:checked {
   accent-color: #93C234;
   color: white;
 
 
 }
 
-.check_term input[type="checkbox"]:checked + span {
+.check_term input[type="checkbox"]:checked+span {
   color: #93C234;
 
 }
 
 
 
-.remminder input[type="checkbox"]:checked  {
+.remminder input[type="checkbox"]:checked {
   accent-color: #4DA676;
   color: white;
 
 
 }
 
-.remminder input[type="checkbox"]:checked + span {
+.remminder input[type="checkbox"]:checked+span {
   color: #4DA676;
 
 }
@@ -850,4 +850,9 @@ video {
     z-index: 1000;
     overflow-y: hidden;
   } */
+}
+
+
+#loggedin[type='checkbox'] {
+  accent-color: #4C8860;
 }

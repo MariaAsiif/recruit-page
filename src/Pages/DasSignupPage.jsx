@@ -49,7 +49,8 @@ const DasSignupPage = () => {
                                                             activeStep === "Result" ? <Result onNext={onNext} /> :
                                                                 activeStep === "ProviderSelection" ? <ProviderSelection onNext={onNext} provider={signupForm.provider} onProviderChange={onProviderChange} /> :
                                                                     activeStep === "CompanyInformation" ? <CompanyInformation onNext={onNext} /> :
-                                                                        activeStep === "ReferralLink" ? <ReferralLink onNext={onNext} /> : null
+                                                                        activeStep === "ReferralLink" ? <ReferralLink onNext={onNext} /> :
+                                                                            activeStep === "ProviderInformation" ? <ProviderInformation onNext={onNext} /> : null
                             }
                         </div>
                     </div>
