@@ -51,7 +51,7 @@ const ReferralLink = (props) => {
                         <input className='border py-2 block rounded-md px-3 w-full border-[#707070] text-[#707070] text-sm font-sans focus:outline-none placeholder:text-[#707070]' placeholder='Paste Referral link here.' />
                     </div>
                     <div className='mb-3 text-center col-lg-7'>
-                        <button onClick={() => props.onNext("IdentityVerification")} className='font-sans font-medium text-lg border-2 border-[#4DA676] rounded px-16 py-1 text-[#4DA676] hover:text-white hover:bg-[#4DA676] transition-all'>Next <IoChevronForward className='inline' /></button>
+                        <button onClick={() => props.onNext("IndividualProviderInformation")} className='font-sans font-medium text-lg border-2 border-[#4DA676] rounded px-16 py-1 text-[#4DA676] hover:text-white hover:bg-[#4DA676] transition-all'>Next <IoChevronForward className='inline' /></button>
                         <button className='underline font-sans text-[#707070] text-xs block m-auto font-semibold'>skip</button>
                     </div>
                 </div>

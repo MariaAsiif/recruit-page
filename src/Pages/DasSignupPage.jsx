@@ -13,7 +13,7 @@ import TermsAndConditions from '../components/DASComponents/TermsAndConditions'
 import Assesment from '../components/DASComponents/Assesment'
 import Result from '../components/DASComponents/Result'
 const DasSignupPage = () => {
-    const [activeStep, setactiveStep] = useState("ProviderSelection")
+    const [activeStep, setactiveStep] = useState("OtpSelection")
     const [signupForm, setsignupform] = useState({
         provider: ""
     })
@@ -24,7 +24,7 @@ const DasSignupPage = () => {
         }))
     }
     const onNext = (data) => {
-
+        console.log("kjshdgfdsfdsf", data)
         setactiveStep(data)
     }
 
@@ -38,17 +38,18 @@ const DasSignupPage = () => {
                             <img src={logoImage} className="w-full h-auto max-w-[120px] m-auto  lg:mb-4 mb-3 " alt="loginimg" />
                         </div>
                         <div className='col-lg-12'>
-                            {activeStep === "ProviderSelection" ? <ProviderSelection onNext={onNext} provider={signupForm.provider} onProviderChange={onProviderChange} /> :
-                                activeStep === "OtpSelection" ? <OtpSelection onNext={onNext} /> :
-                                    activeStep === "OtpVerification" ? <OtpVerification onNext={onNext} /> :
-                                        activeStep === "CompanyInformation" ? <ProviderInformation onNext={onNext} /> :
-                                            activeStep === "ReferralLink" ? <ReferralLink onNext={onNext} /> :
-                                                activeStep === "IdentityVerification" ? <IdentityVerification onNext={onNext} /> :
-                                                    activeStep === "SmsVerification" ? <SmsVerification onNext={onNext} /> :
-                                                        activeStep === "QrVerification" ? <TermsAndConditions onNext={onNext} /> :
-                                                            activeStep === "TermsAndConditions" ? <TermsAndConditions onNext={onNext} /> :
-                                                                activeStep === "Assesment" ? <Assesment onNext={onNext} /> :
-                                                                    activeStep === "Result" ? <Result onNext={onNext} /> : null
+                            {activeStep === "OtpSelection" ? <OtpSelection onNext={onNext} /> :
+                                activeStep === "OtpVerification" ? <OtpVerification onNext={onNext} /> :
+                                    activeStep === "IndividualProviderInformation" ? <ProviderInformation onNext={onNext} /> :
+                                        activeStep === "IdentityVerification" ? <IdentityVerification onNext={onNext} /> :
+                                            activeStep === "SmsVerification" ? <SmsVerification onNext={onNext} /> :
+                                                activeStep === "QrVerification" ? <TermsAndConditions onNext={onNext} /> :
+                                                    activeStep === "TermsAndConditions" ? <TermsAndConditions onNext={onNext} /> :
+                                                        activeStep === "Assesment" ? <Assesment onNext={onNext} /> :
+                                                            activeStep === "Result" ? <Result onNext={onNext} /> :
+                                                                activeStep === "ProviderSelection" ? <ProviderSelection onNext={onNext} provider={signupForm.provider} onProviderChange={onProviderChange} /> :
+                                                                    activeStep === "CompanyInformation" ? <CompanyInformation onNext={onNext} /> :
+                                                                        activeStep === "ReferralLink" ? <ReferralLink onNext={onNext} /> : null
                             }
                         </div>
                     </div>

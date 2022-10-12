@@ -27,7 +27,7 @@ const OtpVerification = (props) => {
                         />
                     </div>
                     <div className='mb-2 text-center col-lg-12'>
-                        <button onClick={() => props.onNext("CompanyInformation")} className='bg-[#4DA676] text-white px-7 py-2 rounded'>Verify</button>
+                        <button onClick={() => props.onNext("IdentityVerification")} className='bg-[#4DA676] text-white px-7 py-2 rounded'>Verify</button>
                     </div>
                     <div className='text-center col-lg-12'>
                         <p className='text-[6px] text-[#626973]'>Code expires in : <span className='text-[#F39200]'>00 : 56</span> <span className='ml-3'>Didn't recieve code? </span><span className='text-[9px] font-bold cursor-pointer'>Resend Code</span></p>
