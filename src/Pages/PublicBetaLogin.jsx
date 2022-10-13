@@ -326,8 +326,10 @@ const PublicBetaLogin = () => {
 
                             <div className='text-center mt-[1.2rem]' >
 
-                                <button type="submit" disabled={!terms ? true : false} className={`${!terms && `disabled:opacity-50 disabled:cursor-not-allowed`} opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
-                                </button>
+                                {/* <button onClick={handleLogin} type="submit" disabled={!terms ? true : false} className={`${!terms && `disabled:opacity-50 disabled:cursor-not-allowed`} opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
+                                </button> */}
+                                <Link to="/landingPage" className={`opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
+                                </Link>
 
                             </div>
 

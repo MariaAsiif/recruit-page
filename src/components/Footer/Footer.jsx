@@ -9,7 +9,7 @@ import CompanyLogo from './CompanyLogo'
 import Terms from './Terms'
 
 
-const Footer = () => {
+const Footer = ({type}) => {
 
     const [active, setActive] = useState(true)
     const [colorClass, setColorClass] = useState(true)
@@ -153,7 +153,7 @@ const Footer = () => {
             }}>
                 {colorClass &&
                 <div>
-                    <div className='bscontainer'>
+                    <div className={type === "landing" ? 'bscontainer-fluid' :'bscontainer'}>
                         <div className='row'>
                             <div className='col-lg-2 col-md-4 col-sm-4' >
                                 <FooterSection data={trandingAdress} heading={'TRANDING ADDRESS'} />

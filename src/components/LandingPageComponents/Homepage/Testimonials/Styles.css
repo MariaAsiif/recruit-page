@@ -1,0 +1,94 @@
+#app { height: 100% }
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.Card{
+  margin-right: 1rem;
+  height: 55rem;    
+  max-width: 45rem;
+  
+}
+.main-image{
+  height: 12.7rem;
+  width: 12.7rem;
+  margin-bottom: 2.1rem;
+  margin-top: 5.8rem;
+}
+
+.nameHeading{
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  color: #242424;
+}
+.profession{
+  font-weight: normal;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #828282;
+}
+.flag{
+  width: 2.25rem; 
+  height :1.4rem;
+  margin-top: 1.85rem;
+}
+.lead{
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #828282;
+  margin:2rem 0;
+  padding:0 3rem; 
+ margin-top: 5px;
+
+}   
+.btn-read{
+  font-weight: normal;
+  font-size: 1.6rem;
+ line-height: 2.4rem;
+ color: #E84025;
+}

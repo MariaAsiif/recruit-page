@@ -1,0 +1,45 @@
+select {
+  width: 100%;
+  padding: 1.7rem 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 1px solid #d0d0d0;
+  border-radius: 5px;
+
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.3rem;
+  letter-spacing: 0em;
+  color: #828282;
+}
+.select-label{
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4rem;
+  letter-spacing: 0em;
+  color: #333333;
+}
+
+select > option {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2rem;
+  color: #9d9d9d;
+}
+select > option:focus {
+  border: 1px solid rgba(43, 40, 40, 0.233);
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='30' viewBox='0 0 24 24' width='30' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 5px;
+}

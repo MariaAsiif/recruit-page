@@ -1,0 +1,102 @@
+.sidenave {
+  width: 17rem;
+  background-image: url(../../../../assets/landingImages/canvas-bg.gif) !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  border: none;
+  
+}
+
+.sidenavcanvas-container .offcanvas-header,
+.sidenavcanvas-container .offcanvas-body {
+  background: rgba(0, 0, 0, 0.73);
+}
+
+.offcanvas-title{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #FFFFFF;
+}
+
+.sidenavcanvas-container .offcanvas-header, .sidenavcanvas-container .offcanvas-body {
+  background: rgba(0, 0, 0, 0.73);
+  height: auto;
+  color: white;
+  padding: 3px;
+  padding-bottom: 0px !important;
+}
+
+ .offcanvas-title span{
+  color: #E84025;
+  font-size: 2rem;
+}
+
+.sidenavcanvas-container .offcanvas-body{
+  padding: 0;
+}
+
+.sidenavcanvas-container .offcanvas-body::-webkit-scrollbar{
+  width: 1.3rem;
+
+}
+
+.sidenavcanvas-container .offcanvas-body::-webkit-scrollbar-track{
+  background: #E7E7E7;
+}
+
+
+.sidenavcanvas-container .offcanvas-body::-webkit-scrollbar-thumb{
+  background: rgba(0, 0, 0, 0.37);
+
+}
+
+.sidenavcanvas > ul{
+  padding-left: 0px !important;
+  width: 100%;
+}
+
+.sidenavcanvas > ul li{
+  padding: 10px;
+}
+
+.sidenavcanvas > ul li:hover{
+  background: #828282;
+}
+
+.sidenavcanvas li,
+.sidenavcanvas a{
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: left;
+    color: whitesmoke;
+}
+
+.sidenavcanvas-container .offcanvas-title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 4.2rem;
+    color: #FFFFFF;
+    margin-top: 1.5rem;
+}
+
+.sidenavcanvas ul li ul{
+  list-style-type: none;
+  display: none;
+}
+.sidenavcanvas ul li:hover > ul {
+  display: block;
+}
+.sidenavcanvas ul li ul li:hover{
+  background: rgba(0, 0, 0, 0.73) !important;
+  border-radius: 2px;
+}
