@@ -1,9 +1,10 @@
 import { FaUserGraduate, FaBriefcase, FaDna } from 'react-icons/fa';
 import { AiFillDashboard } from 'react-icons/ai';
 import { VscFeedback } from 'react-icons/vsc';
-import { BiSticker, BiMessageAltDetail } from 'react-icons/bi';
+import { BiSticker, BiMessageAltDetail ,  } from 'react-icons/bi';
 import { RiLuggageDepositLine } from 'react-icons/ri';
 import { SiSlideshare } from 'react-icons/si';
+import { BsCalendar2DateFill } from 'react-icons/bs'
 import {
   GiInspiration,
   GiInjustice,
@@ -47,6 +48,29 @@ const SidebarObj = () => {
               path: '/aboutus/create-aboutus',
               subMenuItems: [],
             },
+          ],
+        },
+        {
+          label: 'Manage I Appointment',
+          leftIcon: <BsCalendar2DateFill size={22} />,
+          activeLeftIcon: (
+            <BsCalendar2DateFill size={22} className=' text-green-500' />
+          ),
+          rightIcon: 'sadf',
+          path: '/appointment',
+          pathname: 'appointment',
+          subMenuItems: [
+            {
+              label: 'All Appointments',
+              path: '/appointment',
+              subMenuItems: [],
+            },
+            {
+              label: 'Create Appointments',
+              path: '/appointment/create-appointment',
+              subMenuItems: [],
+            },
+             
           ],
         },
 
