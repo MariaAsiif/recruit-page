@@ -85,6 +85,7 @@ import Lexicons from './Pages/adminLexicon/Lexicon';
 import Emailverification from './Pages/Emailverification';
 import DasSignupPage from './Pages/DasSignupPage';
 import DasSignInPage from './Pages/DasSignInPage';
+import DASAccountSignup from './components/DASComponents/AccountSignup';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -95,14 +96,14 @@ const RequireAuth = ({ children }) => {
   return children;
 };
 
-const RecruitAuth = ({ children }) => {
-  const token = useSelector((state) => state.recruitAuth.loginInfo.token);
-  let location = useLocation();
-  if (!token) {
-    return <Navigate to='/' state={{ from: location }} replace />;
-  }
-  return children;
-};
+// const RecruitAuth = ({ children }) => {
+//   const token = useSelector((state) => state.recruitAuth.loginInfo.token);
+//   let location = useLocation();
+//   if (!token) {
+//     return <Navigate to='/' state={{ from: location }} replace />;
+//   }
+//   return children;
+// };
 
 function App() {
   const location = useLocation();
@@ -118,7 +119,8 @@ function App() {
         <Route path="/" element={<PublicBetaLogin />} />
         <Route path="/email" element={<Emailverification />} />
         <Route path="/Home" element={<HomePage />} />
-        <Route path="/das-signup" element={<DasSignupPage />} />
+        <Route path="/das" element={<DasSignupPage />} />
+        {/* <Route path="/das-signup" element={<DASAccountSignup />} /> */}
         <Route path="/das-signin" element={<DasSignInPage />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />

@@ -27,6 +27,7 @@ const OtpVerification = (props) => {
                         />
                     </div>
                     <div className='mb-2 text-center col-lg-12'>
+                        <button onClick={() => props.onBack("OtpSelection")} className='bg-[#d2d8d5] text-black px-7 py-2 rounded m-10' >Back</button>
                         <button onClick={() => props.onNext("IdentityVerification")} className='bg-[#4DA676] text-white px-7 py-2 rounded'>Verify</button>
                     </div>
                     <div className='text-center col-lg-12'>

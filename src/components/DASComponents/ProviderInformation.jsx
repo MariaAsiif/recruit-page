@@ -1,6 +1,6 @@
 import React from 'react'
-import { FaRegUser, FaUnlockAlt, FaCheckCircle, FaCheckDouble, FaCloudUploadAlt } from "react-icons/fa";
-import { IoChevronDownCircleOutline, IoChevronForward } from "react-icons/io5";
+import { FaRegUser, FaUnlockAlt, FaCheckCircle, FaCheckDouble, FaCloudUploadAlt, FaChevronLeft } from "react-icons/fa";
+import { IoChevronForward } from "react-icons/io5";
 const ProviderInformation = (props) => {
     return (
         <div className='w-full px-4 lg:px-16'>
@@ -82,7 +82,8 @@ const ProviderInformation = (props) => {
 
 
                     <div className='mb-3 text-center col-lg-7'>
-                        <button onClick={() => props.onNext("IndividualProviderInformation")} className='font-sans font-medium text-lg border-2 border-[#4DA676] rounded px-16 py-1 text-[#4DA676] hover:text-white hover:bg-[#4DA676] transition-all'>Next <IoChevronForward className='inline' /></button>
+                        <button onClick={() => props.onBack("OtpSelection")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1 m-10'><FaChevronLeft className='inline' /> Back </button>
+                        <button onClick={() => props.onNext("IdentityVerification")} className='font-sans font-medium text-lg border-2 border-[#4DA676] rounded px-16 py-1 text-[#4DA676] hover:text-white hover:bg-[#4DA676] transition-all'>Next <IoChevronForward className='inline' /></button>
                     </div>
                 </div>
 
