@@ -14,6 +14,8 @@ import Assesment from '../components/DASComponents/Assesment'
 import Result from '../components/DASComponents/Result'
 import DasSignInPage from './DasSignInPage'
 import DASAccountSignup from '../components/DASComponents/AccountSignup'
+import QrVideoProcess from '../components/DASComponents/QrVideoProcess'
+import Dashboard from './Dashboard'
 const DasSignupPage = () => {
     const [activeStep, setactiveStep] = useState("LoginPage")
     const [signupForm, setsignupform] = useState({
@@ -57,33 +59,25 @@ const DasSignupPage = () => {
                         <div className='mt-2 lg:mt-6 col-lg-12'>
                             <img src={logoImage} className="w-full h-auto max-w-[120px] m-auto  lg:mb-4 mb-3 " alt="loginimg" />
                         </div>
-                        <div className='col-lg-12'>
+                        <div className='col-lg-12 mt-15'>
                             {
                                 activeStep === "LoginPage" ? <DasSignInPage onNext={(data) => onNext(data)} /> :
                                     activeStep === "newAccount" ? <DASAccountSignup onNext={onNext} /> :
-                                        activeStep === "ProviderSelection" ? <ProviderSelection onNext={onNext} provider={signupForm.provider} onProviderChange={onProviderChange} /> :
-                                            activeStep === "ProviderInformation" ? <ProviderInformation onNext={onNext} /> :
-                                                activeStep === "ReferralLink" ? <ReferralLink onNext={onNext} /> :
-                                                    activeStep === "Assesment" ? <Assesment onNext={onNext} onBack={onBack} /> :
-                                                        activeStep === "Result" ? <Result onNext={onNext} /> :
-                                                            activeStep === "IdentityVerification" ? <IdentityVerification onNext={onNext} onBack={onBack} /> :
-                                                                activeStep === "SmsVerification" ? <SmsVerification onNext={onNext} onBack={onBack} /> :
-                                                                    activeStep === "QrVerification" ? <TermsAndConditions onNext={onNext} onBack={onBack} /> :
-                                                                        setactiveStep("LoginPage")
-                                //     activeStep === "OtpSelection" ? <OtpSelection onNext={onNext} onBack={onBack} /> :
-                                //         activeStep === "OtpVerification" ? <OtpVerification onNext={onNext} onBack={onBack} /> :
-                                //             activeStep === "IndividualProviderInformation" ? <ProviderInformation onNext={onNext} onBack={onBack} /> :
-                                //                 
-                                //                     
-                                //                         
-                                //                             activeStep === "TermsAndConditions" ? <TermsAndConditions onNext={onNext} /> :
-                                //                                 
-                                //                                     
-                                //                                         
-                                //                                             activeStep === "CompanyInformation" ? <CompanyInformation onNext={onNext} /> :
-                                //                                                 
-                                //                                                     
-                                //                                                         activeStep === "IdentityVerification" ? <IdentityVerification onNext={onNext} /> : null
+                                        activeStep === "IdentityVerification" ? <IdentityVerification onNext={onNext} onBack={onBack} /> :
+                                            activeStep === "SmsVerification" ? <SmsVerification onNext={onNext} onBack={onBack} /> :
+                                                activeStep === "OtpSelection" ? <OtpSelection onNext={onNext} onBack={onBack} /> :
+                                                    activeStep === "QrVerification" ? <QrVerification onNext={onNext} onBack={onBack} /> :
+                                                        activeStep === "QrVideoProcess" ? <QrVideoProcess onNext={onNext} onBack={onBack} /> :
+                                                            activeStep === "ReferralLink" ? <ReferralLink onNext={onNext} /> :
+                                                                activeStep === "ProviderSelection" ? <ProviderSelection onNext={onNext} provider={signupForm.provider} onProviderChange={onProviderChange} /> :
+                                                                    activeStep === "ProviderInformation" ? <ProviderInformation onNext={onNext} /> :
+                                                                        activeStep === "TermsAndConditions" ? <TermsAndConditions onNext={onNext} /> :
+                                                                            activeStep === "Result" ? <Result onNext={onNext} /> :
+                                                                                activeStep === "Assesment" ? <Assesment onNext={onNext} onBack={onBack} /> :
+                                                                                    activeStep === "CompanyInformation" ? <CompanyInformation onNext={onNext} /> :
+                                                                                        activeStep === "IndividualProviderInformation" ? <ProviderInformation onNext={onNext} onBack={onBack} /> :
+                                                                                            activeStep === "Dashboard" ? <Dashboard onNext={onNext} onBack={onBack} /> :
+                                                                                                setactiveStep("LoginPage")
                             }
                         </div>
                     </div>

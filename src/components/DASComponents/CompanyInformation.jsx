@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaRegUser, FaUnlockAlt, FaCheckCircle, FaCheckDouble, FaCloudUploadAlt } from "react-icons/fa";
-import { IoChevronDownCircleOutline, IoChevronForward } from "react-icons/io5";
+import { IoChevronBack, IoChevronDownCircleOutline, IoChevronForward } from "react-icons/io5";
 const CompanyInformation = (props) => {
     return (
         <div className='w-full px-4 lg:px-16'>
@@ -59,6 +59,10 @@ const CompanyInformation = (props) => {
                         <input className='border py-2 block rounded-md px-3 w-full border-[#707070] text-[#707070] text-sm font-sans focus:outline-none placeholder:text-[#707070]' placeholder='Enter Your Business Name' />
                     </div>
                     <div className='mb-3 col-lg-7'>
+                        <h1 className='text-[#707070] text-sm ml-5'>Number of Employees</h1>
+                        <input className='border py-2 block rounded-md px-3 w-full border-[#707070] text-[#707070] text-sm font-sans focus:outline-none placeholder:text-[#707070]' placeholder='Enter Number of employees (Numbers only)' type="Number" />
+                    </div>
+                    <div className='mb-3 col-lg-7'>
                         <h1 className='text-[#707070] text-sm ml-5'>Industry</h1>
                         <div className="relative dropdown">
                             <button className=" dropdown-toggle py-2 px-3  border font-sans text-sm border-[#707070] text-[#707070] w-full rounded-md justify-between focus:outline-none focus:ring-0 transition duration-150 ease-in-out flex items-center whitespace-nowrap " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -94,7 +98,8 @@ const CompanyInformation = (props) => {
                         </label>
                     </div>
                     <div className='mb-3 text-center col-lg-7'>
-                        <button onClick={() => props.onNext("ReferralLink")} className='font-sans font-medium text-lg border-2 border-[#4DA676] rounded px-16 py-1 text-[#4DA676] hover:text-white hover:bg-[#4DA676] transition-all'>Next <IoChevronForward className='inline' /></button>
+                        <button onClick={() => props.onBack("ProviderSelection")} className='font-sans font-medium text-lg border-2 border-[#4DA676] rounded px-16 py-1 text-[#4DA676] hover:text-white hover:bg-[#4DA676] transition-all m-10'><IoChevronBack className='inline' />Back</button>
+                        <button onClick={() => props.onNext("TermsAndConditions")} className='font-sans font-medium text-lg border-2 border-[#4DA676] rounded px-16 py-1 text-[#4DA676] hover:text-white hover:bg-[#4DA676] transition-all'>Next <IoChevronForward className='inline' /></button>
                     </div>
                 </div>
 

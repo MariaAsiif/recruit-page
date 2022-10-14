@@ -1,7 +1,7 @@
 import React from 'react'
-import { FaCheckCircle, FaCheckDouble, FaRegUser, FaUnlockAlt } from 'react-icons/fa'
+import { FaCheckCircle, FaCheckDouble, FaChevronRight, FaRegUser, FaUnlockAlt } from 'react-icons/fa'
 import video_large from "../../images/video_large.png"
-const QrVideoProcess = () => {
+const QrVideoProcess = (props) => {
     return (
         <div className='w-full px-4 lg:px-16'>
             <div style={{ boxShadow: "0px 3px 6px #00000029" }} className="border border-[#70707045]  pt-4 pb-4 lg:px-6 px-6  rounded-md font-sans">
@@ -45,12 +45,13 @@ const QrVideoProcess = () => {
                         </div>
                     </div>
                 </div>
-
                 <div className='row'>
                     <div className='col-lg-12'>
                         <img src={video_large} className="m-auto" alt="cideo" />
                     </div>
                 </div>
+                {/* Here ProviderSelection screen will display on next just to design the flow. After design completion its connection has to be settled with the flow. */}
+                <button onClick={() => props.onNext("ReferralLink")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1'>Next <FaChevronRight className='inline' /></button>
 
             </div>
         </div>

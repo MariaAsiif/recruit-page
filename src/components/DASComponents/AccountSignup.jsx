@@ -73,7 +73,7 @@ const DASAccountSignup = (props) => {
                     </div>
 
                     <div className='mb-3 text-center col-lg-7'>
-                        <button onClick={() => props.onNext("ProviderSelection")} className='font-sans font-medium text-lg border-2 border-[#4DA676] rounded px-16 py-1 text-[#4DA676] hover:text-white hover:bg-[#4DA676] transition-all'>Sing Up <IoChevronForward className='inline' /></button>
+                        <button onClick={() => props.onNext("IdentityVerification")} className='font-sans font-medium text-lg border-2 border-[#4DA676] rounded px-16 py-1 text-[#4DA676] hover:text-white hover:bg-[#4DA676] transition-all'>Sing Up <IoChevronForward className='inline' /></button>
                         <h1 className='text-[#707070] font-medium mb-8 text-xs'>Already have an account. <Link className='text-[#4DA676] underline' onClick={() => props.onNext("LoginPage")}>Login</Link></h1>
                     </div>
                     <img src={social_group_2x} alt="social" className='w-full h-auto max-w-[380px] m-auto mb-10' />
