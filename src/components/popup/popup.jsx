@@ -17,22 +17,22 @@ const PopUp = ({ permition, Toggle, lang }) => {
           <div className='bscontainer'>
             <div className='row'>
               <div className='col-lg-12 font-sans  max-h-[500px] overflow-y-auto text-justify'>
-                <div className='mb-5'>
-                  <img src={logoImage} className="lg:w-[30%] w-[20%]" alt="logo_image" />
+                <div className='mb-5 flex justify-center lg:justify-start'>
+                  <img src={logoImage} className="lg:w-[30%] w-[30%]" alt="logo_image" />
                 </div>
                 <h1 className='font-sans font-bold text-[30px] mb-2 text-center'>Beta</h1>
                 <h1 className='font-sans font-bold text-[24px] mb-5 text-center'>{tt.terms[lang]}</h1>
                 <div className='flex mb-8'>
                   <span >1.0</span>
-                  <span className='pl-8'> {tt.site[lang]} <a href="http://www.hporx.eu/finsac-public-beta" className='text-blue-500' target="_blank" rel="noreferrer">http://www.hporx.eu/finsac-public-beta </a>(the "Site")</span>
+                  <span className='lg:pl-8'> {tt.site[lang]} <a href="http://www.hporx.eu/finsac-public-beta" className='text-blue-500' target="_blank" rel="noreferrer">http://www.hporx.eu/finsac-public-beta </a>(the "Site")</span>
                 </div>
                 <h1 className='mb-5'>{tt.ireland[lang]}(<span className='font-medium'>HPO Rx</span>){tt.provides[lang]} <a href="www.hporx.eu" className='text-blue-500' target="_blank">www.hporx.eu </a>⦁	, ⦁	<a href="www.hporx.com" className='text-blue-500' target="_blank">www.hporx.com </a>{tt.alternative[lang]}
                   <a href="http://www.hporx.eu/finsac-public-beta" className='text-blue-500' target="_blank" rel="noreferrer">http://www.hporx.eu/finsac-public-beta </a>(the "beta Site").  feedback of their public beta</h1>
-                <h1 className='pl-12 mb-5'> {tt.ecommerce[lang]} </h1>
-                <h1 className='pl-12 mb-5'>
+                <h1 className='lg:pl-12 mb-5'> {tt.ecommerce[lang]} </h1>
+                <h1 className='lg:pl-12 mb-5'>
                   {tt.states[lang]}   (<span className='font-medium'>HPO Rx</span>) {tt.modify[lang]}
                 </h1>
-                <h1 className='pl-12 mb-5'>
+                <h1 className='lg:pl-12 mb-5'>
                   {tt.review[lang]} (<span className='font-medium'>HPO Rx</span>) {tt.aware[lang]}
                 </h1>
                 <h1 className='font-sans font-bold text-xl mb-5'><span className='font-normal'>2.0 </span>{tt.use[lang]}</h1>
@@ -106,8 +106,10 @@ const PopUp = ({ permition, Toggle, lang }) => {
                     <span className='text-[16px] ml-2 text-gray-400'>{tt.agree[lang]}</span>
                   </div>
                   <div className='mt-[1rem] mr-4 flex items-center check_term'>
-                    <input type="checkbox" className=' w-[20px] h-[18px]' onChange={handleChange} />
-                    <span className='text-[16px] ml-2 text-gray-400'>{tt.disagree[lang]}</span>
+                    <input id="demo_box_2" class="css-checkbox" type="checkbox" />
+                    <label for="demo_box_2" name="demo_lbl_2" class="css-label">{tt.disagree[lang]}</label>
+                    {/* <input type="checkbox" className='css-checkbox w-[20px] h-[18px]' onChange={handleChange} />
+                    <span className='text-[16px] ml-2 text-gray-400'>{tt.disagree[lang]}</span> */}
                   </div>
                 </div>
               </div>

@@ -1,0 +1,103 @@
+.wrapper {
+    background-color: white;
+}
+
+.checkouttext {
+    text-align: center;
+    padding: 38px 0px;
+    font-size: 38px;
+    font-weight: 700;
+}
+
+.cartWrapper {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 3px 0px rgb(188 188 188 / 75%);
+    border-radius: 3px;
+}
+
+.cartheading {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    color: #666770;
+    border-bottom: 1px solid #c8c8ca;
+    padding: 12px 0px;
+}
+
+.productimg {
+    width: 50px;
+    border-radius: 3px;
+}
+
+.productname,
+.productprice,
+.productsubtotal {
+    font-size: 16px;
+    font-weight: 500;
+    color: #666770;
+}
+
+.continuShopping {
+    background: white;
+    border: 1px solid #c8c8ca;
+    padding: 3px 8px;
+    font-size: 14px;
+    border-radius: 3px;
+    font-weight: 600;
+    color: #666770;
+    text-decoration: none;
+}
+
+.continuShopping:hover {
+    color: #e4390f;
+}
+
+.producttotaltext,
+.producttotal {
+    font-size: 22px;
+    color: black;
+    font-weight: 600;
+}
+
+.infoWrapper,
+.paymentWrapper {
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 0px 3px 0px rgb(188 188 188 / 75%);
+    border-radius: 3px;
+}
+
+.inputfieldWrapper label {
+    color: #666770;
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.inputfieldWrapper input {
+    width: 100%;
+    border: 1px solid #c8c8ca;
+    padding: 10px 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.paymentpic {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.paymentbutton {
+    border: none;
+    padding: 12px 70px;
+    background: #259c25;
+    border-radius: 3px;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+}
+
+.paymentbutton:hover {
+    background: #e6322c;
+}

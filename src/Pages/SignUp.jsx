@@ -10,8 +10,29 @@ import { BsTwitter } from 'react-icons/bs'
 import { BsLinkedin } from 'react-icons/bs'
 import verifygif from '../images/verify-giff.gif'
 import axios from 'axios'
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+import { FcCheckmark } from 'react-icons/fc'
+import { MdClose } from 'react-icons/md';
+import { toast, ToastContainer } from 'react-toastify';
+import {  callPublicApi } from '../utils/CallApi'
+// import { Link } from 'react-router-dom'
+
+const schema = yup.object({
+    first_name: yup.string().required(),
+    first_family_name: yup.string().required(),
+    second_family_name: yup.string().optional(),
+    third_family_name: yup.string().optional(),
+    email: yup.string().email("Invalid email format").required(),
+    password: yup.string().required(),
+    phoneNumber: yup.string().required(),
+    role: yup.string().required(),
+    country: yup.string().required(),
+});
+
 const SignUp = () => {
-    const [login, setLogin] = useState({ username: '', email: '', password: '', repassword: '' })
+
     const [countryCode, setcountryCode] = useState("se")
     const [activeIndex, setActiveIndex] = useState(0)
     const [show, setShow] = useState(false)
@@ -36,6 +57,10 @@ const SignUp = () => {
         dob: "",
         password: ""
     })
+
+    const all_Roles = ["vendors", "manufacturer", "customer", "doctor", "finance admin", "superadmin", "HR", "admin"]
+
+    const { register, watch, reset,  handleSubmit, control ,  formState: { errors } } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
 
 
@@ -96,30 +121,35 @@ const SignUp = () => {
         }))
     }
 
-    const onSignup = async () => {
-        console.log(formModel);
+    const onSubmit = async (data) => {
         try {
-            const payload = {
-                first_name: formModel.username,
-                first_family_name: formModel.firstFname,
-                second_family_name: formModel.secondFname,
-                third_family_name: formModel.thirdFname,
-                email: formModel.email,
-                password: formModel.password,
-                phoneNumber: "+923074901291",
-                channel: "sms",
-                role: "superadmin",
-                approved: false,
-                location: {
-                    type: "Point",
-                    coordinates: [
-                        74.28911285869138,
-                        31.624888273644956
+            let option = {
+                first_name: data.first_name,
+               first_family_name: data.first_family_name,
+               second_family_name: data.second_family_name,
+               third_family_name : data.third_family_name,
+               email: data.email,
+               password: data.password,
+               phoneNumber: data.phoneNumber,
+               channel:"sms",
+               role:data.role,
+               approved:"pending",
+               location: {
+                   type:"Point",
+                    "coordinates": [
+                        74.28911289869138,
+                        31.624848273644956
                     ]
                 }
             }
-            const response = await axios.post("https://hporxadminbackend.herokuapp.com/users/signup", payload)
-            console.log(response);
+           
+            const res = await callPublicApi('/users/signup' , 'post', option)
+            if (res.status === 'Success') {
+                toast.success(res.message);
+                reset();
+              } else {
+                toast.error(res.message);
+              }
         } catch (error) {
             console.log(error);
         }
@@ -146,13 +176,25 @@ const SignUp = () => {
     }, [])
 
     return (
+
         <div className='container h-screen'>
-            <div className='row h-full g-0'>
+              <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+            
+            <div className='row h-full g-0 '>
                 <div className='col-lg-4 left_img '>
                     <img src={loginImage} className="lg:h-full " alt="login_image" />
                 </div>
-
-                <div className='col-lg-8 pl-10'>
+                <div className='col-lg-8 pl-10 pt-6'>
                     <div className='flex justify-center lg:justify-start'>
                         <img src={logoImage} className="lg:ml-[18rem] lg:w-[20%] w-[40%] " alt="logo" />
                     </div>
@@ -173,7 +215,7 @@ const SignUp = () => {
                     {
 
                         activeIndex === 0 ?
-                            <form>
+                            <form onSubmit={handleSubmit(onSubmit)} >
                                 <div className='row  mt-[5rem]  '>
 
                                     <div className='col-lg-2'>
@@ -198,77 +240,139 @@ const SignUp = () => {
                                     </div>
                                     <div className='col-lg-5'>
                                         <label className='text-[14px] font-semibold flex items-center'>First Name <span className='pt-1 text-green-600 ml-2'>*</span></label>
-
-                                        <input value={formModel.username} name="username" onChange={onHandleChange} className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First  Name' />
+                                        <input name="first_name" {...register('first_name')} className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First  Name' />
+                                        {errors.first_name && (
+                                            <p className="text-red-500 text-sm">{errors.first_name.message}</p>
+                                        )}
 
                                     </div>
                                     <div className='col-lg-5'>
                                         <label className='text-[14px] font-semibold  flex items-center'>Family Name <span className='pt-1 text-green-600 ml-2'>*</span></label>
 
-                                        <input value={formModel.firstFname} name="firstFname" onChange={onHandleChange} className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your Family Name ' />
-
+                                        <input className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium'
+                                            name="first_family_name" {...register('first_family_name')}
+                                            placeholder='Enter your Family Name ' />
+                                        {errors.first_family_name && (
+                                            <p className="text-red-500 text-sm">{errors.first_family_name.message}</p>
+                                        )}
                                     </div>
 
                                     <div className='col-lg-6 mb-6'>
-                                        <label className='text-[14px] font-semibold  flex items-center'>First Family Name<span className='pt-1 text-green-600 ml-2'> (Optioanl)</span> </label>
+                                        <label className='text-[14px] font-semibold  flex items-center'>Second Family Name<span className='pt-1 text-green-600 ml-2'> (Optioanl)</span> </label>
 
-                                        <input value={formModel.secondFname} name="secondFname" onChange={onHandleChange} className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First Family Name ' />
-
+                                        <input className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium'
+                                            name="second_family_name" {...register('second_family_name')} placeholder='Enter your Second Family Name ' />
+                                        {errors.second_family_name && (
+                                            <p className="text-red-500 text-sm">{errors.second_family_name.message}</p>
+                                        )}
                                     </div>
 
                                     <div className='col-lg-6 mb-6'>
                                         <label className='text-[14px] font-semibold  flex items-center'>Third Family Name <span className='pt-1 text-green-600 ml-2'> (Optioanl)</span></label>
 
-                                        <input value={formModel.thirdFname} name="thirdFname" onChange={onHandleChange} className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your Third Family Name' />
-
+                                        <input onChange={onHandleChange} className='w-full  font-sans  focus:outline-none border border-gray-300 
+                                         py-2 px-2 placeholder:text-sm placeholder:font-medium'
+                                            name="third_family_name" {...register('third_family_name')}
+                                            placeholder='Enter your Third Family Name' />
+                                        {errors.third_family_name && (
+                                            <p className="text-red-500 text-sm">{errors.third_family_name.message}</p>
+                                        )}
                                     </div>
                                     <div className='col-lg-6 mb-6'>
                                         <label className='text-[14px] font-semibold  flex items-center'>Email Address <span className='pt-1 text-green-600 ml-2'> * </span></label>
 
-                                        <input value={formModel.email} name="email" onChange={onHandleChange} className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter valid email address' />
-
+                                        <input className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium'
+                                            name="email" {...register('email')}
+                                            placeholder='Enter valid email address' />
+                                        {errors.email && (
+                                            <p className="text-red-500 text-sm">{errors.email.message}</p>
+                                        )}
                                     </div>
 
                                     <div className='col-lg-6 mb-6'>
                                         <label className='text-[14px] font-semibold  flex items-center'>Password <span className='pt-1 text-green-600 ml-2'> * </span></label>
 
-                                        <input value={formModel.password} name="password" onChange={onHandleChange} className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your chosen password ' />
+                                        <input
+                                            className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium'
+                                            type="password"
+                                            name="password" {...register('password')}
+                                            placeholder='Enter your chosen password ' />
+                                        {errors.password && (
+                                            <p className="text-red-500 text-sm">{errors.password.message}</p>
+                                        )}
+                                    </div>
+
+                                    <div className='col-lg-4'>
+                                        <label className='text-[14px] font-semibold'>Roles</label>
+
+                                        <div className="dropdown relative mb-5">
+                                            <select {...register('role')} name="role" className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' >
+                                                <option value="">Select Role </option>
+                                                {all_Roles.map((country) => {
+                                                    return (
+                                                        <option key={country} value={country}>
+                                                            {country}
+
+                                                        </option>
+                                                    )
+                                                })}
+
+
+                                            </select>
+                                            {errors.role && (
+                                                <p className="text-red-500 text-sm">{errors.role.message}</p>
+                                            )}
+
+                                        </div>
 
                                     </div>
 
 
-                                    <div className='col-lg-6 mb-6'>
+                                    <div className='col-lg-4 mb-4'>
                                         <label className='text-[14px] font-semibold  flex items-center'>Phone Number<span className='pt-1 text-green-600 ml-2'> * </span></label>
-
-                                        <PhoneInput
-                                            country={countryCode}
-                                            // enableSearch
-                                            // disableSearchIcon
-                                            // containerStyle={{ marginBottom: "20px" }}
-                                            inputStyle={{ width: "100%", height: "40px", border: "1px solid #6D6E71", borderRadius: "8px", color: "#CCCCCC" }}
-                                            buttonStyle={{ border: "1px solid #6D6E71", borderRadius: "8px 0 0 8px" }}
-                                            countryCodeEditable={false}
-                                            value={formModel.mobile}
-                                            onChange={handleChangeMobile} />
-
+                                        <Controller
+                                            control={control}
+                                            name="phoneNumber"
+                                            {...register('phoneNumber')}
+                                            render={({ field: { ref, ...field } }) => (
+                                                <PhoneInput
+                                                    {...field}
+                                                    country={countryCode}
+                                                    // enableSearch
+                                                    // disableSearchIcon
+                                                    // containerStyle={{ marginBottom: "20px" }}
+                                                    inputStyle={{ width: "100%", height: "40px", border: "1px solid #6D6E71", borderRadius: "8px", }}
+                                                    buttonStyle={{ border: "1px solid #6D6E71", borderRadius: "8px 0 0 8px" }}
+                                                    countryCodeEditable={false}
+                                                // value={formModel.mobile}
+                                                // onChange={handleChangeMobile} 
+                                                />
+                                            )}
+                                        />
+                                        {errors.phoneNumber && (
+                                            <p className="text-red-500 text-sm">{errors.phoneNumber.message}</p>
+                                        )}
                                     </div>
-                                    <div className='col-lg-6'>
+                                    <div className='col-lg-4'>
                                         <label className='text-[14px] font-semibold'>Country</label>
 
                                         <div className="dropdown relative mb-5">
-                                            <button className="  w-full bg-white border border-[gray-300  h-full   text-gray-400 dropdown-toggle p-2   focus:outline-blue-400 focus:ring-0 active:border-blue-400   transition duration-150 ease-in-out flex justify-between items-center whitespace-nowrap " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                {all_Countries.find((city) => city.isoCode === formModel.country)?.name}
-                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" className="w-2 ml-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"> <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z" /></svg>
-                                            </button>
-                                            <ul className=" dropdown-menu min-w-max w-full  max-h-52 overflow-y-scroll overflow-x-hidden absolute hidden bg-white text-base z-50 float-left py-2 list-none gray-300  shadow-2xl m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton1">
+                                            <select {...register('country')} name="country" className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' >
+                                                <option value="">Select Country </option>
                                                 {all_Countries.map((country) => {
                                                     return (
-                                                        <li key={country.name}>
-                                                            <span onClick={() => handleChangeCountryStateCity(country.isoCode, "country")} className=" cursor-pointer dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "  >{country.name}</span>
-                                                        </li>
+                                                        <option key={country.name} value={country.isoCode}>
+                                                            {country.name}
+
+                                                        </option>
                                                     )
                                                 })}
-                                            </ul>
+
+
+                                            </select>
+                                            {errors.country && (
+                                                <p className="text-red-500 text-sm">{errors.country.message}</p>
+                                            )}
                                         </div>
 
                                     </div>
@@ -293,7 +397,7 @@ const SignUp = () => {
                                             </div>
                                             <h2 className='ml-3  text-[18px] text-green-600'>SignUp with Social Media</h2>
                                         </div>
-                                        <button className='border lg:mx-4 mt-3 lg:mt-0 lg:w-[20%] py-3 w-[100%] rounded-md text-white hover:bg-[#93C234] bg-green-600' onClick={() => setActiveIndex(1)}>SignUp</button>
+                                        <button className='border lg:mx-4 mt-3 lg:mt-0 lg:w-[20%] py-3 w-[100%] rounded-md text-white hover:bg-[#93C234] bg-green-600' type="submit ">SignUp</button>
                                     </div>
 
 
@@ -307,7 +411,7 @@ const SignUp = () => {
                                     <img src={verifygif} className="w-[50%]" alt="gif" />
                                 </div>
                                 <div className='flex justify-center lg:justify-center mt-8 '>
-                                    <button onClick={onSignup} className='w-[25%]  bg-[#42946C] p-3 rounded-md text-white'>Submit</button>
+                                    <button className='w-[25%]  bg-[#42946C] p-3 rounded-md text-white'>Submit</button>
 
                                 </div>
                             </div>

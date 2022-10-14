@@ -86,6 +86,13 @@ import Emailverification from './Pages/Emailverification';
 import DasSignupPage from './Pages/DasSignupPage';
 import DasSignInPage from './Pages/DasSignInPage';
 import DASAccountSignup from './components/DASComponents/AccountSignup';
+import LandingPage from './Pages/LandingPages/Home/Home';
+import MainPage from './Pages/LandingPages/MainPage/MainPage';
+import Stocks from './Pages/LandingPages/Stock/Stock';
+import LocatehomePage from './components/LandingPageComponents/LocaterPage/LocatehomePage';
+import Detail from './components/LandingPageComponents/LayerDetail/Detail';
+import Appointments from './Pages/AdminPages/Appointment/Appointments';
+import CreateAppointment from './Pages/AdminPages/Appointment/CreateAppointment';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -115,9 +122,17 @@ function App() {
   }, [location.pathname]); // triggered on route change
   return (
     <>
+
       <Routes>
+        {/* main beta page  */}
         <Route path="/" element={<PublicBetaLogin />} />
-        <Route path="/email" element={<Emailverification />} />
+        {/* Landing pages  */}
+        <Route path="/landingPage" element={<LandingPage />} />
+        <Route path="/locator" element={<LocatehomePage />} />
+        <Route path="/userDetail" element={<Detail />} />
+        <Route path="/homepage" element={<MainPage />} />
+        <Route path="/stock" element={<Stocks />} />
+        {/* Recuit Pages  */}
         <Route path="/Home" element={<HomePage />} />
         <Route path="/das" element={<DasSignupPage />} />
         {/* <Route path="/das-signup" element={<DASAccountSignup />} /> */}
@@ -129,7 +144,6 @@ function App() {
         <Route path="/joinus" element={<JoinUs />} />
         <Route path="/detail" element={<Resume />} />
         <Route path="/lexicon" element={<Lexicon />} />
-
         <Route path="/dashboard" element={<Dashboard />} >
           <Route index path="new-job" element={<ApplyNewJob />} />
           <Route path="applied-jobs" element={<AppliedJobs />} />
@@ -139,7 +153,7 @@ function App() {
           <Route path="notification-detail" element={<NotificationDetail />} />
         </Route>
 
-
+        {/* Admin Dashboard */}
         <Route path='/comingsoon' element={<CommingSoon />} />
         <Route path='/user-feedback' element={<UserFeedback />} />
         <Route path='/adminsignin' element={<Signin />} />
@@ -156,6 +170,19 @@ function App() {
           {/* <Route path='analytics' element={<Analytics />} /> */}
           {/* <Route path='fintech' element={<Fintech />} /> */}
         </Route>
+
+        <Route
+          path='/appointment'
+          element={
+            <RequireAuth>
+              <MainWrapper />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<Appointments />} />
+          <Route path='create-appointment' element={<CreateAppointment />} />
+        </Route>
+
         <Route
           path='/department'
           element={
