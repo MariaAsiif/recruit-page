@@ -51,7 +51,7 @@ const SmsVerification = (props) => {
                 </div>
                 <div className='text-center'>
                     <button onClick={() => props.onBack("IdentityVerification")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1 m-10'><FaChevronLeft className='inline' /> Back </button>
-                    <button onClick={() => props.onNext("QrVerification")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1'><FaLink className='inline' /> Get Link </button>
+                    <button onClick={() => props.onNext("OtpSelection")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1'><FaLink className='inline' /> Get Link </button>
                     <button className='underline font-sans text-[#707070] text-xs block m-auto font-semibold'>Didn’t recieve Link? RESend Link.</button>
                 </div>
             </div>

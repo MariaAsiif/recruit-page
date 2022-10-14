@@ -77,7 +77,7 @@ const Result = (props) => {
                         <h1 className=' text-[#626973] font-sans  text-xs'>Note: You have to get above then 98% marks otherwise you will be disqualified</h1>
                     </div>
                     <div className='mb-3 text-right col-lg-12'>
-                        <button onClick={() => props.onNext("IdentityVerification")} className='font-sans font-medium text-lg border-2 border-[#4DA676] rounded px-16 py-1 text-[#4DA676] hover:text-white hover:bg-[#4DA676] transition-all'>Next <IoChevronForward className='inline' /></button>
+                        <button onClick={() => props.onNext("Assesment")} className='font-sans font-medium text-lg border-2 border-[#4DA676] rounded px-16 py-1 text-[#4DA676] hover:text-white hover:bg-[#4DA676] transition-all'>Next <IoChevronForward className='inline' /></button>
                     </div>
                 </div>
 

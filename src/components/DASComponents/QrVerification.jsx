@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaCheckCircle, FaCheckDouble, FaRegUser, FaUnlockAlt } from 'react-icons/fa'
+import { FaCheckCircle, FaCheckDouble, FaChevronLeft, FaChevronRight, FaRegUser, FaUnlockAlt } from 'react-icons/fa'
 import QR_code from "../../images/QR_code.png"
 import video_img from "../../images/video_img.png"
 const QrVerification = (props) => {
@@ -67,6 +67,10 @@ const QrVerification = (props) => {
                     <div className='order-3 col-lg-12 lg:order-3'>
                         <img src={video_img} className="m-auto" alt="video img" />
                     </div>
+                </div>
+                <div>
+                    <button onClick={() => props.onBack("QrVerification")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1 m-10'><FaChevronLeft className='inline' /> Back </button>
+                    <button onClick={() => props.onNext("QrVideoProcess")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1'>Next <FaChevronRight className='inline' /></button>
                 </div>
             </div>
         </div>

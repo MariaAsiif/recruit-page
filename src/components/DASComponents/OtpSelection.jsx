@@ -39,8 +39,8 @@ const OtpSelection = (props) => {
 
 
                     <div className='text-center col-lg-12'>
-                        <button onClick={() => props.onBack("LoginPage")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1 m-10'><FaChevronLeft className='inline' /> Back </button>
-                        <button onClick={() => props.onNext("OtpVerification")} className='bg-[#4DA676] text-white px-7 py-2 rounded'>GET OTP</button>
+                        <button onClick={() => props.onBack("SmsVerification")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1 m-10'><FaChevronLeft className='inline' /> Back </button>
+                        <button onClick={() => props.onNext("ReferralLink")} className='bg-[#4DA676] text-white px-7 py-2 rounded'>GET OTP</button>
                     </div>
                 </div>
             </div>
