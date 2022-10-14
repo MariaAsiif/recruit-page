@@ -93,6 +93,12 @@ import LocatehomePage from './components/LandingPageComponents/LocaterPage/Locat
 import Detail from './components/LandingPageComponents/LayerDetail/Detail';
 import Appointments from './Pages/AdminPages/Appointment/Appointments';
 import CreateAppointment from './Pages/AdminPages/Appointment/CreateAppointment';
+import NewDashboardPage from './Pages/NewDashboardPage';
+import Support from './components/NewDashboardComponents/Support';
+import NewDashboard from './components/NewDashboardComponents/NewDashboard';
+import NewServices from './components/NewDashboardComponents/NewServices';
+import Inbox from './components/NewDashboardComponents/Inbox';
+import Orders from './components/NewDashboardComponents/Orders';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -132,6 +138,7 @@ function App() {
         <Route path="/userDetail" element={<Detail />} />
         <Route path="/homepage" element={<MainPage />} />
         <Route path="/stock" element={<Stocks />} />
+        <Route path='/newdashboard' element={<NewDashboardPage />} />
         {/* Recuit Pages  */}
         <Route path="/Home" element={<HomePage />} />
         <Route path="/das" element={<DasSignupPage />} />
@@ -152,6 +159,18 @@ function App() {
           <Route path="notification" element={<Notification />} />
           <Route path="notification-detail" element={<NotificationDetail />} />
         </Route>
+
+        <Route path="/newdashboard" element={<NewDashboardPage />} >
+          <Route index element={<NewDashboard />} />
+          <Route index path="services" element={<NewServices />} />
+          <Route index path="inbox" element={<Inbox />} />
+          <Route index path="orders" element={<Orders />} />
+          <Route index path="support" element={<Support />} />
+
+        </Route>
+
+
+
 
         {/* Admin Dashboard */}
         <Route path='/comingsoon' element={<CommingSoon />} />
