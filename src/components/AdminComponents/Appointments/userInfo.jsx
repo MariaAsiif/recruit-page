@@ -426,7 +426,7 @@ const UserInfo = ({ handleNext }) => {
                 }`}
               name='homeAddress'
               id='homeAddress'
-              placeholder='QUOTATION'
+              placeholder='Home Address'
               cols='20'
             ></textarea>
             {/* <span hidden={watch('quot')} className='absolute text-red-400 text-sm font-medium  top-9 left-[170px]'>(optional)</span> */}
