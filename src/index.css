@@ -248,6 +248,13 @@ select {
   appearance: none;
 }
 
+select > option {
+  font-size: 16px !important ;
+  font-weight: 500;
+  line-height: 1.2rem;
+  color: #9d9d9d;
+}
+
 #dropdown {
   appearance: none;
   padding: 5px;

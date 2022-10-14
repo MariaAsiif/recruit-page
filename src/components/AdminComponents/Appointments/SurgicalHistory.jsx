@@ -6,18 +6,19 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { callApi } from '../../../utils/CallApi';
-import { MdDelete } from 'react-icons/md'
+
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import { BsPlusCircle } from 'react-icons/bs'
+import { BsFillPlusCircleFill } from 'react-icons/bs'
+import { MdDelete } from 'react-icons/md'
 const schema = yup.object({
   name: yup.string().required('Author Name is Required'),
   quote: yup.string().required('Quotation is Required'),
 });
 
-const Schedule = ({ handleNext, handleBack }) => {
+const SurgicalHistory = ({ handleNext, handleBack }) => {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -144,9 +145,18 @@ const Schedule = ({ handleNext, handleBack }) => {
             </header>
           </div> */}
 
+          <div className='flex'>
+            <div className='col-lg-12 flex items-center justify-between '>
+              <h2 className='text-[18px] font-medium'>Surgical History</h2>
+              <button className='p-2 bg-red-500 hover:bg-green-600 text-white flex items-center'>
+                Add <BsFillPlusCircleFill className='ml-2' />
+              </button>
+            </div>
+          </div>
+
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Doctor Name{' '}
+              Operation Name{' '}
             </label>
             <div className='absolute right-5 top-10'>
               {!errors.name && watch('name') ? (
@@ -165,11 +175,11 @@ const Schedule = ({ handleNext, handleBack }) => {
               name='name'
               id='name'
               type='text'
-              placeholder='doctor Name'
+              placeholder='Operational Name'
             />
             <span
               hidden={watch('name')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[145px]'
+              className='absolute text-red-400 text-lg font-medium  top-9 left-[170px]'
             >
               *
             </span>
@@ -181,13 +191,13 @@ const Schedule = ({ handleNext, handleBack }) => {
 
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Specialization
+              Operation Result
             </label>
 
             <select
               className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]  `}
             >
-              <option>Select Specialization</option>
+              <option>Select operationResult</option>
               <option>Admin</option>
               <option>Super Admin</option>
               <option>Hr</option>
@@ -198,9 +208,9 @@ const Schedule = ({ handleNext, handleBack }) => {
 
           <div className='col-lg-4 mb-4 '>
             <label className='block text-sm font-medium mb-1 '>
-              Last Checkup Date
+              Operation Date
             </label>
-            <div className='relative'>
+            <div className='relative flex items-center'>
               <DatePicker
                 value={quoteDate}
                 name='quoteDate'
@@ -209,135 +219,173 @@ const Schedule = ({ handleNext, handleBack }) => {
                 shouldHighlightWeekends
                 calendarPopperPosition='bottom'
               />
+              <button className='p-2 ml-2 bg-red-500 hover:bg-green-600 text-white'>
+                <MdDelete />
+              </button>
+            </div>
+          </div>
+
+          <div className='flex'>
+            <div className='col-lg-12 flex items-center justify-between '>
+              <h2 className='text-[18px] font-medium'>Medications Suppliments</h2>
+              <button className='p-2 bg-red-500 hover:bg-green-600 text-white flex items-center'>
+                Add <BsFillPlusCircleFill className='ml-2' />
+              </button>
             </div>
           </div>
 
           <div className='col-lg-4 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='quote'>
-              Profile Link
+            <label className='block text-sm font-medium mb-1' htmlFor='name'>
+              Medicine{' '}
             </label>
             <div className='absolute right-5 top-10'>
-              {!errors.quote && watch('quote') ? (
+              {!errors.name && watch('name') ? (
                 <FcCheckmark />
-              ) : errors.quote ? (
+              ) : errors.name ? (
                 <div className=' text-red-500'>
                   <MdClose />
                 </div>
               ) : null}
             </div>
-            <input type="text"
-              {...register('quote')}
+            <input
+              {...register('name')}
               autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.quote && 'border-red-500'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.name && 'border-red-400'
                 }`}
-              name='quote'
-              id='quote'
-              placeholder='profile Link'
-              cols='20'
+              name='name'
+              id='name'
+              type='text'
+              placeholder='Medicine'
             />
-            {/* <span hidden={watch('quot')} className='absolute text-red-400 text-sm font-medium  top-9 left-[170px]'>(optional)</span> */}
+            <span
+              hidden={watch('name')}
+              className='absolute text-red-400 text-lg font-medium  top-9 left-[95px]'
+            >
+              *
+            </span>
 
-            {errors.quote && (
-              <p className='text-red-500 text-sm'>{errors.quote.message}</p>
+            {errors.name && (
+              <p className='text-red-500 text-sm'>{errors.name.message}</p>
             )}
           </div>
-          <div className='col-lg-4 mb-4 '>
-            <label className='block text-sm font-medium mb-1 '>
-              Dr Prescription
+
+          <div className='col-lg-4 mb-4 relative'>
+            <label className='block text-sm font-medium mb-1' htmlFor='name'>
+              Dosage
             </label>
-            <div className='relative'>
-              <input
-                type="file"
-                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  `}
-              />
-            </div>
-          </div>
-          <div className='col-lg-4 mb-4 '>
-            <label className='block text-sm font-medium mb-1 '>
-              Medical Reports
-            </label>
-            <div className='relative'>
-              <input
-                type="file"
-                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  `}
-              />
-            </div>
-          </div>
-          <div className="flex justify-between">
-            <h2 className='mb-3 font-medium'>Family Diseases</h2>
-            <button className='p-2 mb-3 flex items-center bg-red-500 hover:bg-green-600 text-white'>
-             Add <BsPlusCircle className='ml-2'/>
-            </button>
-          </div>
-          <div className='col-lg-12 mb-4 border '>
-            <div className='row p-2'>
-
-              <div className='col-lg-4 mb-4 relative'>
-                <label className='block text-sm font-medium mb-1' htmlFor='name'>
-                  Disease
-                </label>
-
-                <select
-                  className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]  `}
-                >
-                  <option>Select Disease</option>
-                  <option>Admin</option>
-                  <option>Super Admin</option>
-                  <option>Hr</option>
-                </select>
-
-
-              </div>
-
-              <div className='col-lg-4 mb-4 relative'>
-                <div>
-                  <div className='text-sm text-slate-800 font-semibold mb-3'>
-                    Nagative / Positive
-                  </div>
-                  <div className='flex items-center'>
-
-                    <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
-                      <input type="checkbox"
-                        checked={companySetting}
-                        onChange={() => setCompanySetting(!companySetting)}
-                        id="default-toggle"
-                        class="sr-only peer"
-                      />
-                      <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                      <div className='text-sm text-slate-400 italic ml-2'>
-                        {companySetting ? 'Positive' : 'Negative'}
-                      </div>
-                    </label>
-
-
-
-                  </div>
+            <div className='absolute right-5 top-10'>
+              {!errors.name && watch('name') ? (
+                <FcCheckmark />
+              ) : errors.name ? (
+                <div className=' text-red-500'>
+                  <MdClose />
                 </div>
-              </div>
+              ) : null}
+            </div>
+            <input
+              {...register('name')}
+              autoComplete='off'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.name && 'border-red-400'
+                }`}
+              name='name'
+              id='name'
+              type='text'
+              placeholder='Dosage'
+            />
+            <span
+              hidden={watch('name')}
+              className='absolute text-red-400 text-lg font-medium  top-9 left-[95px]'
+            >
+              *
+            </span>
 
-              <div className='col-lg-4 mb-4 '>
-                <label className='block text-sm font-medium mb-1 '>
-                  Medical Files
-                </label>
-                <div className='relative flex '>
-                  <input
-                    type="file"
-                    className={`border p-2 focus:outline-blue-500 rounded-sm w-full  `}
+            {errors.name && (
+              <p className='text-red-500 text-sm'>{errors.name.message}</p>
+            )}
+          </div>
+
+          <div className='col-lg-4 mb-4 relative'>
+            <div>
+              <div className='text-sm text-slate-800 font-semibold mb-3'>
+                Taking Now
+              </div>
+              <div className='flex items-center'>
+
+                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                  <input type="checkbox"
+                    checked={companySetting}
+                    onChange={() => setCompanySetting(!companySetting)}
+                    id="default-toggle"
+                    class="sr-only peer"
                   />
-                  <button className='p-2  ml-2 h-full bg-red-500 hover:bg-green-600 text-white'>
-                  <MdDelete/>
-                  </button>
-                </div>
-              </div>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                  <div className='text-sm text-slate-400 italic ml-2'>
+                    {companySetting ? 'True' : 'False'}
+                  </div>
+                </label>
 
+
+
+              </div>
             </div>
           </div>
+
+          <div className='col-lg-6 mb-4 relative'>
+            <label className='block text-sm font-medium mb-1' htmlFor='name'>
+              Times Of Medicine
+            </label>
+            <div className='absolute right-5 top-10'>
+              {!errors.name && watch('name') ? (
+                <FcCheckmark />
+              ) : errors.name ? (
+                <div className=' text-red-500'>
+                  <MdClose />
+                </div>
+              ) : null}
+            </div>
+            <input
+              {...register('name')}
+              autoComplete='off'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.name && 'border-red-400'
+                }`}
+              name='name'
+              id='name'
+              type='text'
+              placeholder='timesOfMedicine'
+            />
+            {/* <span
+              hidden={watch('name')}
+              className='absolute text-red-400 text-lg font-medium  top-9 left-[95px]'
+            >
+              *
+            </span> */}
+
+            {errors.name && (
+              <p className='text-red-500 text-sm'>{errors.name.message}</p>
+            )}
+          </div>
+
+          <div className='col-lg-6 mb-4 relative'>
+            <label className='block text-sm font-medium mb-1' htmlFor='name'>
+              Prescription File
+            </label>
+            <div className='relative flex items-center'>
+              <input
+                type="file"
+                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  `}
+              />
+              <button className='p-2 ml-2 bg-red-500 hover:bg-green-600 text-white'>
+                <MdDelete />
+              </button>
+            </div>
+          </div>
+
 
           <div className='col-lg-12 flex justify-between'>
-            <button onClick={(e) => handleBack( e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
+            <button onClick={(e) => handleBack(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Back
             </button>
-            <button onClick={(e) => handleNext( e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
+            <button onClick={(e) => handleNext(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Next
             </button>
           </div>
@@ -347,4 +395,4 @@ const Schedule = ({ handleNext, handleBack }) => {
   );
 };
 
-export default Schedule;
+export default SurgicalHistory;
