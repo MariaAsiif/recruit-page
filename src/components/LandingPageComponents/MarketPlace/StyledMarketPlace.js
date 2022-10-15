@@ -89,7 +89,7 @@ export const MarketplaceImg = styled.img`
 `
 export const MarketSubHead = styled(SubHeading)`
 margin-top: 2rem;
-text-align:right;
+text-align:center;
 font-size: 2rem;
 `
 export const MarketSubHeadSecond = styled(SubHeadingSecondary)`
@@ -98,6 +98,8 @@ color: #E84025;
 opacity: 0.8;
 `
 export const MarketContentContainer = styled.div`
+text-aign:cener;
+
   @media screen and (max-width : 775px)   {
     padding-bottom: 3rem;
     text-aign:cener;
@@ -107,7 +109,7 @@ export const MarketReHeading = styled(MarketSubHeadSecond)`
   color: red;
   font-size:25px;
   font-style: italic;
-  text-align:right;
+  text-align:center;
 `
 export const MarketTertiaryHeadMedium = styled(TertiaryHeadingMedium)`
 color: #828282;
@@ -137,7 +139,7 @@ width:50%;
 `
 export const MarkSlickImg = styled.img`
 border-radius:1rem ;
-width: 25rem;
+width: 20rem;
 height:15rem;
 @media screen and (min-width:320px) {
   // height:23rem;

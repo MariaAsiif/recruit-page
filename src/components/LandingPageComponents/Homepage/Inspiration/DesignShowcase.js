@@ -7,7 +7,8 @@ import StyleDesignShowcase, { StyleDesignInner, StyleData } from './StyleDesignS
 // import './StyleDesignShowcase.css'
 // import SwiperCore, { EffectCoverflow, Pagination, Navigation, Keyboard, Mousewheel, Autoplay } from 'swiper/core';
 import axios from "axios";
-
+// </>
+import { FaQuoteLeft , FaQuoteRight } from 'react-icons/fa'
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -90,7 +91,7 @@ return (
     <StyleDesignShowcase>
         <h3 >Inspire</h3>
         <StyleDesignInner>
-            <div className="bscontainer-fluid">
+            <div className="bscontainer-fluid ">
                 <Swiper navigation={false}
                     effect={"coverflow"}
                     direction={"vertical"}
@@ -117,18 +118,24 @@ return (
                     mousewheel={true}
                     keyboard={true}
                     pagination={false}
-                    modules={[EffectCoverflow , Autoplay]}
+                    modules={[EffectCoverflow , Autoplay ]}
                     slideToClickedSlide={true}
                     className="mySwiper"
                 >
                     {allinspire.map((item, index) => (
-                        <SwiperSlide  >
+                        <SwiperSlide key={index} >
                             
                             <StyleData>
-                                 <div className="border-b w-full h-[40px] bg-green-100"></div>
+                               <div className="border-b w-full h-[40px] bg-[#C8E0D3]"></div>
                                 <p>{item.authorName}</p>
                                 <small>{"CEO SpaceX"}</small>
-                                <h4>"{item.quoteText}"</h4>
+
+                                <h4 className="flex justify-between">
+                                    <FaQuoteLeft className="text-gray-300"/>
+                                    {item.quoteText}
+                                    <FaQuoteRight className="mt-4 text-gray-300"/>
+
+                                    </h4>
                                 <span>{"08-26-2022"}</span>
                             </StyleData>
 

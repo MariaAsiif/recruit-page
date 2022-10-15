@@ -12,7 +12,7 @@ export const AgricultureSlickContainer = styled.div`
 background-color: red;
 `
 export const AgricultureTertiaryHeading = styled(TertiaryHeading)`
-// margin-top: 2px;
+margin-top: 20px;
 `
 
 export const AgricultureImg = styled.img`

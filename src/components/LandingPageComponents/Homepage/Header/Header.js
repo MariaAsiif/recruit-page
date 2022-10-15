@@ -87,18 +87,23 @@ const Header = ({ id, value }) => {
           value={value}
         />
         <SubBar setShow={setShow} />
-       
-      
-       
-        <HeroSlider/>
+
+
+
+        <HeroSlider />
         <div className="hero-text-container  absolute z-50 left-0 -top-[40px] right-0 text-center">
-          <HomePlayButtonContainer onClick={() => setModalShow(true)}>
+          {/* <HomePlayButtonContainer onClick={() => setModalShow(true)}>
             <HeroPlayIcon src={playIcon} />
-          </HomePlayButtonContainer>
+          </HomePlayButtonContainer> */}
           <HeroHeading>THERAPEUTICS</HeroHeading>
-          <p className="home-main-header-sub-heading">CULTIVATED WELLNESS</p>
+
+          <p className="home-main-header-sub-heading flex justify-center flex-col">
+            <div className="border-t-2 border-red-500 max-w-[600px] m-auto">
+              CULTIVATED WELLNESS
+            </div>
+          </p>
           <HeroButton>Appointment</HeroButton>
-          
+
         </div>
       </StyledHero>
     </div>

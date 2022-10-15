@@ -26,14 +26,22 @@ margin-top: 6rem;
     text-indent: 30px;
     position: relative;
 }
-.testimonial .description:before{
-    content: "\f10d";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    position: absolute;
-    top: 0;
-    left: -15px;
-}
+// .testimonial .description:before{
+//     content: "\f10d";
+//     font-family: "Font Awesome 5 Free";
+//     font-weight: 900;
+//     position: absolute;
+//     top: 0;
+//     left: -15px;
+// }
+// .testimonial .description:after{
+//     content: "\f10d";
+//     font-family: "Font Awesome 5 Free";
+//     font-weight: 900;
+//     position: absolute;
+//     top: 0;
+//     right: -15px;
+// }
 .testimonial .title{
     font-size: 24px;
     font-weight: bold;

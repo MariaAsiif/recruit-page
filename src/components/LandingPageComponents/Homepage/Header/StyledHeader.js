@@ -60,7 +60,7 @@ const HeroButton = styled.button`
   margin-top: 4rem;
    border-color: #fff;
   padding: 0.7rem 3rem;
-  border-radius: 2rem;
+  border-radius: 15px;
   border: 1px solid white;
   background: transparent;
   font-size: 1.2rem;

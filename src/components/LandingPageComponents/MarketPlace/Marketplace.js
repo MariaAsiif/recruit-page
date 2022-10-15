@@ -18,9 +18,9 @@ const Marketplace = ({ id }) => {
             <div className='col-lg-6'>
               <MarketContentContainer>
 
-              <div class="accordion-item bg-white border mt-3 lg:mt-0 lg:w-full  border-gray-200">
-                        <h2 class="accordion-header mb-0" id="headingTwo">
-                            <button class="
+                <div class="accordion-item bg-white border mt-3 lg:mt-0 lg:w-full  border-gray-200">
+                  <h2 class="accordion-header mb-0" id="headingTwo">
+                    <button class="
         accordion-button
         collapsed
         relative
@@ -37,25 +37,25 @@ const Marketplace = ({ id }) => {
         rounded-none
         transition
         focus:outline-none
-      " type="button" data-bs-toggle="collapse" style={{ justifyContent:'inherit'}} data-bs-target="#collapseTwo" aria-expanded="false"
-                                aria-controls="collapseTwo">
-                                 <div className="lg:text-[2rem] md:text-[2rem] text-[1.5rem] font-medium">MARKETPLACE</div>
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body py-4 px-5">
-                            <div className="text-[18px]">Curabitur cursus sagittis varius. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet</div>
-                            </div>
-                        </div>
+      " type="button" data-bs-toggle="collapse" style={{ justifyContent: 'inherit' }} data-bs-target="#collapseTwo" aria-expanded="false"
+                      aria-controls="collapseTwo">
+                      <div className="lg:text-[2rem] md:text-[2rem] text-[1.5rem] font-medium">MARKETPLACE</div>
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body py-4 px-5">
+                      <div className="text-[18px]">Curabitur cursus sagittis varius. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet</div>
                     </div>
+                  </div>
+                </div>
 
-              
-              
+
+
                 <MarketSubHead>HEALTH IS WEALTH</MarketSubHead>
                 <MarketReHeading >“Great health is a great wealth!”</MarketReHeading>
-                <div className='text-[15px] text-gray-400 text-right'>Dr A. E De Mandeville</div>
-                <div className='flex justify-end'>
+                <div className='text-[15px] text-gray-400 text-center'>Dr A. E De Mandeville</div>
+                <div className='flex justify-center'>
                   <MarketViewMoreBtn>View More</MarketViewMoreBtn>
                 </div>
               </MarketContentContainer>

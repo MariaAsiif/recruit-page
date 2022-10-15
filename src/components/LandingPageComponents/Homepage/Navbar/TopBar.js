@@ -55,7 +55,7 @@ const TopBar = ({ setShow }) => {
               <Navbar.Brand href="#">
                 <img className="img-fluid header-topBar-logo" src={logo} alt="logo" />
               </Navbar.Brand>
-              <nav className="flex justify-center p-3 items-end">
+              <nav className="flex justify-center p-3 ">
                 <Nav.Link href="#" className="topbar-nav-icon">
                   <img className="img-fluid mr-[35px]"  src={searchIcon} alt="featherMenu" />
                 </Nav.Link>

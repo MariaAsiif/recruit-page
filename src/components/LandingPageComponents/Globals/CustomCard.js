@@ -8,14 +8,22 @@ import VideoModal from '../Homepage/VideoModal/VideoModal'
 import { BsHeart } from 'react-icons/bs'
 const CustomCard = ({ desc, img, title, price }) => {
   const [modalShow, setModalShow] = useState(false);
+
+
+  function add3Dots(string, limit) {
+    var dots = "...";
+    if (string.length > limit) {
+      // you can also use substr instead of substring
+      string = string.substring(0, limit) + dots;
+    }
+
+    return string;
+  }
+
+
   return (
     <div>
-      <VideoModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        setModalShow={setModalShow}
-        children={<ProductModalDetail desc={desc} img={img} title={title} price={price} />}
-      />
+     
       <CustomCardContainer>
         <Card className="customCard " >
           <div className="customCard-body ">
@@ -29,7 +37,7 @@ const CustomCard = ({ desc, img, title, price }) => {
             </div>
             <div className="content">
               <div className="title">
-                <h1>{title}</h1>
+                <h1>{ add3Dots(title , 25)}</h1>
                 <span>${price}</span>
               </div>
               <div className="rating">
@@ -44,10 +52,10 @@ const CustomCard = ({ desc, img, title, price }) => {
               </div>
               <div className="flex justify-between">
                 <button className="add-to-cart ">
-                Add to Cart <span className="cart"></span>
+                  Add to Cart <span className="cart"></span>
                 </button>
                 <button className="bg-green-200 w-[20%] flex justify-center rounded-md items-center h-[50px] mt-5">
-                  <BsHeart className="text-[20px] text-green-700"/>
+                  <BsHeart className="text-[20px] text-green-700" />
                 </button>
               </div>
             </div>

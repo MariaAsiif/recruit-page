@@ -178,7 +178,7 @@ const Homepage = () => {
         head="Trusted International Brands"
       /> 
       <Diaganose id="DIAGNOSE" />
-      {/* <Prescribe id="PRESCRIBE" /> */}
+      <Prescribe id="PRESCRIBE" />
       {/* <MedicinesSlick id="PRESCRIBE" /> */}
       {/* <MedicinesSlick id="PRODUCTS" /> */}
       {/* <MedicineSmallSlick id="PRODUCTS" /> */}

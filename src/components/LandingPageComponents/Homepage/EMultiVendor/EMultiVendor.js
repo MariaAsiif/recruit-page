@@ -12,6 +12,7 @@ import { BASE_URL, GET_PRODUCTS } from "../../../../utils/config";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { Container } from "react-bootstrap";
+import VideoModal from "../VideoModal/VideoModal";
 
 var settings = {
   dots: false,
@@ -75,6 +76,12 @@ const EMultiVendor = () => {
 
   return (
     <EVendorMain>
+       <VideoModal
+        show={true}
+        // onHide={() => setModalShow(false)}
+        setModalShow={false}
+        // children={<ProductModalDetail desc={desc} img={img} title={title} price={price} />}
+      />
       <div className="bscontainer-fluid overflow-hidden">
         <EvendorHeading style={{ textTransform: "Captilize !important" }}>
           <span style={{textTransform: "lowercase" }}>e</span>

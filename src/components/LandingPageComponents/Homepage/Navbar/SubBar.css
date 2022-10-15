@@ -1337,7 +1337,7 @@ ul.ruby-menu > li.ruby-menu-mega > div,ul.ruby-menu > li.ruby-menu-mega-blog > d
   top: 50px;
   left: 0;
   background: #fff;
-  border-top: 4px solid #19ad86;
+  /* border-top: 4px solid #19ad86; */
   overflow: hidden;
   -webkit-box-shadow: 0 8px 24px -5px #ccc;
   -moz-box-shadow: 0 8px 24px -5px #ccc;
@@ -1774,7 +1774,7 @@ span.ruby-c-content {
       height: 1px;
       position: absolute;
       content: '';
-      background-color: #19ad86;
+      /* background-color: #19ad86; */
       width: 0
   }
 
