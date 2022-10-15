@@ -59,7 +59,7 @@ const Prescribe = ({ id }) => {
     return (
         <PrescribeMainContainer id={id} >
             <PrescribeSlickMain>
-                <div className="bscontainer-fluid pl-2">
+                <div className="bscontainer-fluid ">
                     <Slider {...settings} className='responsive-slick'>
                         <PrescribeImgContainer className='card-overlay'>
                             <div className="overlay">
@@ -86,9 +86,9 @@ const Prescribe = ({ id }) => {
                                 <PrescribeCard key={index} img={img} />
                             ))
                         } */}
-                        <div className='text-container'>
+                        <div className='text-container mt-3'>
                             <PrimaryHeading>Prescribe</PrimaryHeading>
-                            <p>Curabitur cursus sagittis varius. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet.</p>
+                            <p className='mt-3'>Curabitur cursus sagittis varius. Quisque aliquet luctus elit, in hendrerit orci malesuada eu. Morbi feugiat et ligula maximus aliquet.</p>
                             <div className='prescribe-btns'>
                                 <ConsultDarkBtn >CONSULTATION</ConsultDarkBtn>
                                 <ViewMoreBtn className='prescribe-btn2'>View more</ViewMoreBtn>

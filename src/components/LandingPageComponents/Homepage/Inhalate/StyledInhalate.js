@@ -21,7 +21,7 @@ export const InhalateMainContainer = styled.div`
     text-transform: uppercase;
   }
   p {
-    font-size: 1.8rem;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 2.7rem;
     letter-spacing: 0em;
@@ -103,8 +103,8 @@ export const InhalatedImgContainer = styled.div`
       }
       p {
         font-weight: normal;
-        font-size: 1.6rem;
-        line-height: 2.2rem;
+        font-size: 1rem;
+        line-height:2.2rem;
         color: white;
         padding: 0 2rem;
       }

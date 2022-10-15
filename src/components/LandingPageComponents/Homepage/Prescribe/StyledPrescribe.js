@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { ViewMoreBtn, ShopNowBtn, ShopBtnTransparent } from "../../Globals/Globals";
 
 export const PrescribeMainContainer = styled.div`
-  margin-top: 6rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   padding-left:20px;
   .card-overlay{
     padding-right: 2rem;
