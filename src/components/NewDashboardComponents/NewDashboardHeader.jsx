@@ -1,10 +1,11 @@
 import React from 'react'
 
-const NewDashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
+import { FaSearch } from "react-icons/fa";
+const NewDashboardHeader = ({ sidebarOpen, setSidebarOpen, profileBarOpen, setprofileBar }) => {
     return (
         <header style={{ boxShadow: "0px 0px 6px #00000029" }} className="sticky top-0 z-30 bg-[#4DA676] border-b border-slate-200">
             <div className="px-4 bg-white rounded-tl-none sm:px-6 lg:px-6 lg:rounded-tl-3xl">
-                <div className="flex items-center justify-between h-16 -mb-px">
+                <div className="flex items-center justify-between h-[8vh] -mb-px">
                     {/* Header: Left side */}
                     <div className="flex   w-[10%] lg:hidden">
 
@@ -16,9 +17,18 @@ const NewDashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
                     </div>
 
                     {/* Header: Right side */}
-                    <div className="lg:w-[100%] ">
-                        <div className='flex items-center justify-between top_search_bar '>
-
+                    <div className=" w-[100%] ">
+                        <div className='flex items-center justify-between'>
+                            <div className='hidden font-semibold  lg:block text-[#707070] text-xl'>Dashboard</div>
+                            <div className=' grow'>
+                                <div className='flex items-center m-auto  mx-9  px-3 rounded-full bg-[#E3E3E372]'>
+                                    <input placeholder='Search anything here' className='w-full py-2 bg-transparent focus:outline-none text-[#A7A7A7] placeholder:text-[#A7A7A7]' />
+                                    <FaSearch className='inline' />
+                                </div>
+                            </div>
+                            <div className=''>
+                                <img onClick={setprofileBar} src="http://placekitten.com/200/300" alt="test" className='w-10 h-10 rounded-full' />
+                            </div>
 
                         </div>
                     </div>
