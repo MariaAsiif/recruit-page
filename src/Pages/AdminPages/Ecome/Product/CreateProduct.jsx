@@ -78,10 +78,10 @@ const CreateProduct = () => {
                 </li>
                 <li className='flex items-center'>
                   <Link
-                    to='/category'
+                    to='/ecome/products'
                     className='text-slate-500 hover:text-indigo-500'
                   >
-                    Category
+                    Products
                   </Link>
                   <svg
                     className='h-4 w-4 fill-current text-slate-400 mx-3'
@@ -92,12 +92,12 @@ const CreateProduct = () => {
                 </li>
                 <li className='flex items-center'>
 
-                  Create Category
+                  Create Product
                 </li>
               </ul>
             </div>
             <header className='py-4'>
-              <h2 className='font-semibold text-slate-800'>Add new Category</h2>
+              <h2 className='font-semibold text-slate-800'>Add new Product</h2>
             </header>
           </div>
 

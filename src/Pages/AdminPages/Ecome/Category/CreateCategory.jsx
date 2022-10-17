@@ -75,7 +75,7 @@ const CreateCategory = () => {
                 </li>
                 <li className='flex items-center'>
                   <Link
-                    to='/category'
+                    to='/ecome/category'
                     className='text-slate-500 hover:text-indigo-500'
                   >
                     Category
