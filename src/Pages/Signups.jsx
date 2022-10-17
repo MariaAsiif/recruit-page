@@ -199,7 +199,7 @@ function Signup() {
     const newData = {
       ...data,
       active: true,
-      approved: false,
+      approved: "approved",
       is_verified: false,
       country: formdata.country,
       state: formdata.state,

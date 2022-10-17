@@ -99,6 +99,10 @@ import NewDashboard from './components/NewDashboardComponents/NewDashboard';
 import NewServices from './components/NewDashboardComponents/NewServices';
 import Inbox from './components/NewDashboardComponents/Inbox';
 import Orders from './components/NewDashboardComponents/Orders';
+import Categories from './Pages/AdminPages/Ecome/Category/Categories';
+import CreateCategory from './Pages/AdminPages/Ecome/Category/CreateCategory';
+import Products from './Pages/AdminPages/Ecome/Product/Products';
+import CreateProduct from './Pages/AdminPages/Ecome/Product/CreateProduct';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -201,6 +205,21 @@ function App() {
           <Route index element={<Appointments />} />
           <Route path='create-appointment' element={<CreateAppointment />} />
         </Route>
+
+        <Route
+          path='/ecome/'
+          element={
+            <RequireAuth>
+              <MainWrapper />
+            </RequireAuth>
+          }
+        >
+          <Route path='products' element={<Products />} />
+          <Route path='category' element={<Categories />} />
+          <Route path='products/create-products' element={<CreateProduct />} />
+          <Route path='category/create-category' element={<CreateCategory />} />
+        </Route>
+
 
         <Route
           path='/department'
