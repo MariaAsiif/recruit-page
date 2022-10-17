@@ -222,8 +222,7 @@ function Signup() {
       }
       let response = await callApi("/users/signup", "post", newData);
       if (response.status === "Success") {
-        toast.success(`User signup successfully`);
-        // navigate("/signin");
+        // toast.success(`User signup successfully`);
         setTimeout(() => {
         setEmail(data.email)
         }, 5000);

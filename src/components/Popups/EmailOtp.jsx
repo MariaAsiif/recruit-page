@@ -3,6 +3,7 @@ import { Modal } from 'react-responsive-modal';
 import { toast } from 'react-toastify';
 import { callPublicApi } from '../../utils/CallApi';
 import OTPInput from "otp-input-react";
+import { useNavigate } from 'react-router-dom';
 // import OtpInput from 'react-otp-input';
 
 const EmailOtp = ({ permition, Toggle, email }) => {
@@ -11,6 +12,8 @@ const EmailOtp = ({ permition, Toggle, email }) => {
     // const [activeOtp, setActiveOtp] = useState(0);
 
     // const optRef = useRef(null)
+
+    let navigate = useNavigate()
 
 
 
@@ -46,6 +49,10 @@ const EmailOtp = ({ permition, Toggle, email }) => {
             const response = await callPublicApi("/users/verify-code", "post", payload)
             if (response.status === "Success") {
                 toast.success(response.message)
+                setTimeout(() => {
+                    navigate("/adminsignin");
+
+                }, 1000);
             }
             else {
                 toast.error(response.message)
@@ -62,30 +69,30 @@ const EmailOtp = ({ permition, Toggle, email }) => {
         <>
 
             <Modal open={permition} onClose={handleClose} center>
-                    <div>
-                        <div className="max-w-sm mx-auto md:max-w-lg">
-                            <div className="w-full">
-                                <div className="bg-white h-64 py-3 rounded text-center">
-                                    <h1 className="text-2xl font-bold">Email Verification</h1>
-                                    <div className="flex flex-col mt-4">
-                                        <span>we have sent you a code on your Email please verify</span>
-                                    </div>
-                                    <div className='text-center'>
-                                     
-                                        <OTPInput
-                                            value={otp}
-                                            onChange={setOtp}
-                                            autoFocus
-                                            style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', width: '100%' }}
-                                            OTPLength={4}
-                                            otpType="number"
-                                            disabled={false}
-                                            inputStyles={{padding:'0px' , border:'1pt solid'}}
-                                            secure={false}
+                <div>
+                    <div className="max-w-sm mx-auto md:max-w-lg">
+                        <div className="w-full">
+                            <div className="bg-white h-64 py-3 rounded text-center">
+                                <h1 className="text-2xl font-bold">Email Verification</h1>
+                                <div className="flex flex-col mt-4">
+                                    <span>we have sent you a code on your Email please verify</span>
+                                </div>
+                                <div className='text-center'>
 
-                                        />
-                                    </div>
-                                    {/* {otp.map((_, index) => {
+                                    <OTPInput
+                                        value={otp}
+                                        onChange={setOtp}
+                                        autoFocus
+                                        style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', width: '100%' }}
+                                        OTPLength={4}
+                                        otpType="number"
+                                        disabled={false}
+                                        inputStyles={{ padding: '0px', border: '1pt solid' }}
+                                        secure={false}
+
+                                    />
+                                </div>
+                                {/* {otp.map((_, index) => {
                                     return (
                                         <React.Fragment key={index} >
                                             <input
@@ -104,14 +111,14 @@ const EmailOtp = ({ permition, Toggle, email }) => {
                                     );
                                 })} */}
 
-                                    <div className="flex justify-center text-center mt-5">
-                                        <button className="p-2 bg-red-500 hover:bg-green-600 text-white" onClick={Verification}>Submit</button>
-                                    </div>
+                                <div className="flex justify-center text-center mt-5">
+                                    <button className="p-2 bg-red-500 hover:bg-green-600 text-white" onClick={Verification}>Submit</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+                </div>
+
             </Modal>
         </>
 

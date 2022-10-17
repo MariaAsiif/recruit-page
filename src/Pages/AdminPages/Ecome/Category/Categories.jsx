@@ -31,7 +31,7 @@ const Categories = () => {
       id: delId
     }
     try {
-      const res = await callApi("/quotes/removeQuote", "post", value)
+      const res = await callApi("/productcategories/getcategories", "post", value)
       if (res.status === "Success") {
         toast.success(res.message);
         setDelPopup(false)
@@ -65,7 +65,7 @@ const Categories = () => {
           }
           const response = await callApi("/quotes/getQuotesWithFullDetails", "post", payload)
 
-          setallInspires(response.data.quotes)
+          setallInspires(response.data.categories)
         } catch (error) {
           console.log(error);
         }

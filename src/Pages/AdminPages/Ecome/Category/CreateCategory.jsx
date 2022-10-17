@@ -30,9 +30,9 @@ const CreateCategory = () => {
   const onSubmit = async (data) => {
 
     let value = {
-
+      productCategoryTitle: data.name,
     };
-    const res = await callApi('/quotes/createQuote', 'post', value);
+    const res = await callApi('/productcategories/createcategory', 'post', value);
     if (res.status === 'Success') {
       toast.success(res.message);
       reset();
