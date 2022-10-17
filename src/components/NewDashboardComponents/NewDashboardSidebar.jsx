@@ -74,11 +74,42 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                 </div>
                             </li>
 
-
-
-
-
-
+                            <li className={`mb-3 last:mb-0  ${pathname === "/newdashboard/orders" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                                <div className='flex '>
+                                    <NavLink end to="/newdashboard/orders" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/orders" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                        <div className="flex items-center justify-between ">
+                                            <div className="flex items-center grow">
+                                                <BiSearch size={18} />
+                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Orders</span>
+                                            </div>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                            </li>
+                            <li className={`mb-3 last:mb-0  ${pathname === "/newdashboard/notifications" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                                <div className='flex '>
+                                    <NavLink end to="/newdashboard/notifications" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/notifications" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                        <div className="flex items-center justify-between ">
+                                            <div className="flex items-center grow">
+                                                <BiSearch size={18} />
+                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Notifications</span>
+                                            </div>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                            </li>
+                            <li className={`mb-3 last:mb-0  ${pathname === "/newdashboard/support" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                                <div className='flex '>
+                                    <NavLink end to="/newdashboard/support" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/support" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                        <div className="flex items-center justify-between ">
+                                            <div className="flex items-center grow">
+                                                <BiSearch size={18} />
+                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Support</span>
+                                            </div>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     {/* More group */}
