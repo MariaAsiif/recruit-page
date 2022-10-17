@@ -31,6 +31,7 @@ const CreateCategory = () => {
 
     let value = {
       productCategoryTitle: data.name,
+      addedby: data.added
     };
     const res = await callApi('/productcategories/createcategory', 'post', value);
     if (res.status === 'Success') {

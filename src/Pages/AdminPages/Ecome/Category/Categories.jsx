@@ -63,7 +63,8 @@ const Categories = () => {
               lastModifiedBy: "_id email first_name"
             }
           }
-          const response = await callApi("/quotes/getQuotesWithFullDetails", "post", payload)
+          const response = await callApi("/productcategories/getcategories", "post", payload)
+          console.log("res", response )
 
           setallInspires(response.data.categories)
         } catch (error) {
@@ -108,7 +109,7 @@ const Categories = () => {
             </ul>
           </div>
 
-          <Link to="create-category" className="p-2 flex items-center rounded-sm w-[15%] bg-red-500 hover:bg-green-600 text-white" >
+          <Link to="create-category" className="p-2 flex items-center rounded-sm w-[20%] bg-red-500 hover:bg-green-600 text-white" >
             <svg className="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
               <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
             </svg>
@@ -118,7 +119,7 @@ const Categories = () => {
         <div className='col-12 border'>
           <div className="bg-white shadow-lg rounded-sm border border-slate-200 relative">
             <header className="px-5 py-4">
-              <h2 className="font-semibold text-slate-800">All Categories <span className="text-slate-400 font-medium">{allInspires.length}</span></h2>
+              <h2 className="font-semibold text-slate-800">All Categories <span className="text-slate-400 font-medium">{allInspires?.length}</span></h2>
             </header>
           </div>
           <div>
@@ -133,9 +134,9 @@ const Categories = () => {
                       <div className="font-semibold text-left"> CATEGORY NAME</div>
                     </th>
 
-                    <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                    {/* <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                       <div className="font-semibold text-left">ADDED BY</div>
-                    </th>
+                    </th> */}
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                       <div className="font-semibold text-left">Actions</div>
                     </th>
@@ -143,27 +144,16 @@ const Categories = () => {
 
                 </thead>
                 <tbody className="text-sm divide-y divide-slate-200">
-                  {/* {allInspires.map((inspire) => {
+                  {allInspires.map((inspire) => {
                     return (
                       <tr key={inspire._id}>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                           <div className="text-left">{inspire._id}</div>
                         </td>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.authorName}</div>
+                          <div className="text-left">{inspire.productCategoryTitle}</div>
                         </td>
-                        <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.quoteColor}</div>
-                        </td>
-                        <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.quoteDate}</div>
-                        </td>
-                        <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.quoteText}</div>
-                        </td>
-                        <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.active ? "Active" : "Deactive"}</div>
-                        </td>
+                       
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                           <div className="space-x-1">
                             <button className="text-slate-400 hover:text-slate-500 rounded-full" onClick={(e) => openInspirePopup(e, "edit", inspire)}>
@@ -186,7 +176,7 @@ const Categories = () => {
                         </td>
                       </tr>
                     )
-                  })} */}
+                  })}
                 </tbody>
               </table>
             </div>
