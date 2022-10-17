@@ -165,6 +165,7 @@ console.log("label",permission)
                                   <div className="lg:hidden lg:sidebar-expanded:block 2xl:block">
                                     <ul className={`pl-9 mt-1 ${!open && 'hidden'}`}>
                                       {item.subMenuItems.map((subitem, s_index) => {
+                                        console.log("subitem" , subitem)
                                         if (subitem.subMenuItems.length === 0) {
                                           return (
                                             <li key={s_index} className="mb-1 last:mb-0">
@@ -249,7 +250,7 @@ console.log("label",permission)
                                 <div className="grow flex items-center">
                                   {pathname.includes(item.pathname) ? item.activeLeftIcon : item.leftIcon}
                                   <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                    {item.label}/docto
+                                    {item.label}/fhdsjsf
                                   </span>
                                 </div>
                                 <div className="flex flex-shrink-0 ml-2">
@@ -261,10 +262,7 @@ console.log("label",permission)
                         )
                       }
                       else {
-
-
                         return (
-
                           <SidebarLinkGroup key={index} activecondition={pathname.includes(item.pathname)} level={1}>
                             {(handleClick, open) => {
                               return (
@@ -284,7 +282,7 @@ console.log("label",permission)
                                   </a>
                                   <div className="lg:hidden lg:sidebar-expanded:block 2xl:block">
                                     <ul className={`pl-9 mt-1 ${!open && 'hidden'}`}>
-                                      {item.subMenuItems.filter((f) => LabelName.includes(f.label)).map((subitem, s_index) => {
+                                      {item.subMenuItems.filter((f) => LabelName.includes(f.label) || !LabelName.includes(f.label) ).map((subitem, s_index) => {
                                         if (subitem.subMenuItems.length === 0) {
                                           return (
                                             <li key={s_index} className="mb-1 last:mb-0">
