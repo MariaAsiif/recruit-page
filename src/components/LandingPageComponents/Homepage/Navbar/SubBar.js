@@ -291,7 +291,7 @@ const SubBar = ({ setShow }) => {
                   <li className="sub-li"  >Locate Us</li>
                   <li className="sub-li"  >DAS</li>  */}
                   <li style={{ color: "red", fontWeight: 700, fontSize: "2rem" }}> Rx</li>
-                  <li>Merchandise</li>
+                  <li className="text-white">Merchandise</li>
                 </ul>
               </li>
               <li className="main-li">
