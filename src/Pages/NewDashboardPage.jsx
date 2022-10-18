@@ -5,7 +5,7 @@ import NewDashboardHeader from '../components/NewDashboardComponents/NewDashboar
 import NewDashboardSidebar from '../components/NewDashboardComponents/NewDashboardSidebar';
 const NewDashboardPage = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [profileBar, setprofileBar] = useState(true)
+    const [profileBar, setprofileBar] = useState(false)
     const profileRef = useRef(null)
     const onChangeProfileBar = () => {
         setprofileBar(!profileBar)

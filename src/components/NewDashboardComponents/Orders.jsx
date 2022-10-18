@@ -37,8 +37,9 @@ const Orders = () => {
                         </div>
                         <p className='text-[#707070] text-xs font-light italic'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et.</p>
                         <div className='row g-0 bg-[#F2F2F2]'>
-                            <div className='col-lg-6'>kkkk</div>
-                            <div className='col-lg-3'>kkkk</div><div className='col-lg-3'>kkkk</div>
+                            <div className='col-lg-6'>ITEM</div>
+                            <div className='col-lg-3'>QTY</div>
+                            <div className='col-lg-3'>kkkk</div>
                         </div>
                     </div>
                     <div className={`tab-pane fade ${activetab === "tab_requirements" ? "show active" : ""} `}  >
