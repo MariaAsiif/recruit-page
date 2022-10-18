@@ -161,7 +161,7 @@ const SubBar = ({ setShow }) => {
               </li>
               <li className="main-li">
                 <a href="#">Classic</a>
-                <ul className="">
+                <ul className="border">
                   <li>
                     <a href="#">2nd Level #1</a>
                   </li>
