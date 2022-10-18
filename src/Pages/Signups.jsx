@@ -13,6 +13,7 @@ import { callApi } from "../utils/CallApi";
 import { FcCheckmark } from "react-icons/fc";
 import { MdClose } from "react-icons/md";
 import PhoneInput from "react-phone-input-2";
+import EmailOtp from "../components/Popups/EmailOtp";
 
 
 const schema = yup.object({
@@ -52,6 +53,7 @@ function Signup() {
   const [all_States, setall_States] = useState([]);
   const [all_Cities, setall_Cities] = useState([]);
   const [countryCode, setCountryCode] = useState("");
+  const [email, setEmail] = useState("");
   const [roles, setallroles] = useState([]);
 
   // option 1
@@ -98,6 +100,9 @@ function Signup() {
 
 
   const filteredRole = roles.filter((i) => { return i.roleName !== "superadmin" })
+
+
+  console.log("roles", roles)
 
 
   const {
@@ -199,28 +204,32 @@ function Signup() {
     const newData = {
       ...data,
       active: true,
-      approved: false,
+      // approved: "approved",
       is_verified: false,
       country: formdata.country,
       state: formdata.state,
       city: formdata.city,
-      roles: roleName,
+      role: roleName,
       location: location,
     };
     // console.warn(newData)
 
     console.log(`Final =====`, newData);
     try {
-      if (!newData.roles) {
+      if (!newData.role) {
         toast.warning(`Please Select One Role`);
         return;
       }
       let response = await callApi("/users/signup", "post", newData);
       if (response.status === "Success") {
-        toast.success(`User signup successfully`);
+        // toast.success(`User signup successfully`);
         setTimeout(() => {
-          navigate("/signin");
+        setEmail(data.email)
         }, 5000);
+        
+        // setTimeout(() => {
+        //   // navigate("/signin");
+        // }, 5000);
       } else {
         console.log(`Error reponse message ========`, response.message);
 
@@ -283,6 +292,7 @@ function Signup() {
 
   return (
     <main className="bg-white">
+      { email && <EmailOtp permition={true} email={email} Toggle={setEmail} />  }
       <ToastContainer
         position="top-right"
         autoClose={5000}

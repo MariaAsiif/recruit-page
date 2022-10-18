@@ -149,16 +149,15 @@ const CreateUser = () => {
   };
 
   const onSubmit = async (data) => {
-    console.log(`roleName ===========`, roleName);
     const newData = {
       ...data,
       active: isActive,
-      approved,
+      approved: approved === true ? "approved" : "pendding",
       is_verified: verified,
       country: recruitModel.country,
       state: recruitModel.state,
       city: recruitModel.city,
-      role: roleName,
+      role: roleName ,
       location: location,
     };
     console.log(`newData ========`, newData);
@@ -309,10 +308,11 @@ const CreateUser = () => {
                 </div>
               ) : null}
             </div>
-            <div className='text-gray-500 text-base bg-light-gray flex h-11'>
+            <div className='text-gray-500 text-base bg-light-gray flex items-center  h-11'>
               <div className='dropdown relative w-1/5'>
                 <select
-                  className=' w-full h-full'
+                  className=' w-full h-[45px] border '
+                  style={{borderRight:'none'}}
                   {...register('surname')}
                   id='dropdown'
                 >

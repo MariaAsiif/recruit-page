@@ -7,8 +7,9 @@ const StyledHero = styled.div`
   background-repeat: no-repeat;
   height: 100vh;
   background-size: cover; */
+
 .hero-video{
-  height: 135vh;
+  height: 100vh;
   width: 100%;
   object-fit: cover;
   position: relative;

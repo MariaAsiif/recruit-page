@@ -18,7 +18,7 @@ const Index = () => {
           autoPlay
           muted
           loop
-          src="/Videos/hporx.mp4"
+          src="/Videos/ForestFire.mp4"
         /> 
       </SwiperSlide>
       <SwiperSlide>

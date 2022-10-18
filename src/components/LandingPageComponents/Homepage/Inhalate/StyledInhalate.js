@@ -8,7 +8,7 @@ export const InhalateMainContainer = styled.div`
   margin: 0 10px;
 }
 }
-  margin-top: 8.5rem;
+  margin-top: 2rem;
   font-style: normal;
   text-align: center;
 
