@@ -105,6 +105,7 @@ import Products from './Pages/AdminPages/Ecome/Product/Products';
 import CreateProduct from './Pages/AdminPages/Ecome/Product/CreateProduct';
 import CreateStore from './Pages/AdminPages/Ecome/Store/CreateStore';
 import Stores from './Pages/AdminPages/Ecome/Store/Stores';
+import Notifications from './components/NewDashboardComponents/Notifications';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -172,6 +173,7 @@ function App() {
           <Route index path="inbox" element={<Inbox />} />
           <Route index path="orders" element={<Orders />} />
           <Route index path="support" element={<Support />} />
+          <Route index path="notifications" element={<Notifications />} />
 
         </Route>
 

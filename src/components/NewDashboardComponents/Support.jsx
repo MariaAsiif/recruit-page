@@ -2,7 +2,7 @@ import React from 'react'
 
 const Support = () => {
     return (
-        <div>
+        <div style={{ boxShadow: "0px 3px 6px #0000000D" }} className='h-[84vh] overflow-y-auto p-5 bg-white rounded-2xl'>
             <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vehicula libero fringilla sapien ullamcorper, quis elementum arcu commodo. Sed et ornare ex. Nulla a felis egestas magna mollis bibendum eu in nulla. Vestibulum at semper metus, ornare laoreet nibh. Ut consectetur sit amet massa ut ornare. Donec vitae volutpat nisl. Aenean euismod, augue in consequat sollicitudin, purus magna porta mauris, id hendrerit purus ligula a massa. Phasellus imperdiet nibh laoreet, gravida mi sed, sodales dui. Nam eget dolor rutrum, ullamcorper dolor eleifend, eleifend felis. Nunc dictum eu ante quis rhoncus. Suspendisse consequat erat ipsum, posuere rhoncus enim auctor ornare. Nunc augue justo, luctus a tincidunt in, scelerisque sed odio. Vivamus quis scelerisque tellus, a cursus mauris. Nullam dignissim tristique lectus ac maximus.
 
                 Pellentesque consequat diam in dapibus laoreet. Quisque a augue nec elit gravida accumsan eu quis nisl. Maecenas dui odio, interdum a cursus eu, rutrum eu erat. Etiam iaculis viverra semper. Nam semper magna nec dolor eleifend, vitae consequat erat interdum. Mauris odio odio, dictum vel dolor quis, suscipit tristique nulla. Phasellus nisi leo, venenatis at enim ut, commodo egestas eros.
