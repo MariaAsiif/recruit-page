@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import { FaCheckCircle, FaCheckDouble, FaChevronLeft, FaChevronRight, FaRegUser, FaUnlockAlt } from 'react-icons/fa'
 
 const IdentityVerification = (props) => {
-    const [verifyType, setverifyType] = useState("")
+    const [verifyType, setverifyType] = useState("sms")
     const onVerifyChange = (e) => {
-        setverifyType(e.target.value)
+        const type = e.target.value;
+        if (type) {
+            setverifyType(e.target.value)
+        }
     }
     return (
         <div className='w-full px-4 lg:px-16'>

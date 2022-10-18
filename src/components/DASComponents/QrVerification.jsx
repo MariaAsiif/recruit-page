@@ -68,8 +68,8 @@ const QrVerification = (props) => {
                         <img src={video_img} className="m-auto" alt="video img" />
                     </div>
                 </div>
-                <div>
-                    <button onClick={() => props.onBack("QrVerification")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1 m-10'><FaChevronLeft className='inline' /> Back </button>
+                <div style={{ display: "flex", alignItems: "space-between", justifyContent: "space-between" }}>
+                    <button onClick={() => props.onBack("QrVerification")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1 '><FaChevronLeft className='inline' /> Back </button>
                     <button onClick={() => props.onNext("QrVideoProcess")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1'>Next <FaChevronRight className='inline' /></button>
                 </div>
             </div>

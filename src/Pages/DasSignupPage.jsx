@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import OtpSelection from '../components/DASComponents/OtpSelection'
 import ProviderSelection from '../components/DASComponents/ProviderSelection'
 import OtpVerification from '../components/DASComponents/OtpVerification'
@@ -16,27 +17,34 @@ import DasSignInPage from './DasSignInPage'
 import DASAccountSignup from '../components/DASComponents/AccountSignup'
 import QrVideoProcess from '../components/DASComponents/QrVideoProcess'
 import Dashboard from './Dashboard'
+import NewDashboardPage from './NewDashboardPage'
+import { useNavigate } from 'react-router-dom'
 const DasSignupPage = () => {
     const [activeStep, setactiveStep] = useState("LoginPage")
+    const navigate = useNavigate()
+    const [loginFlow, setLoginFlow] = useState(false);
     const [signupForm, setsignupform] = useState({
-        provider: ""
+        provider: "individualProvider"
     })
     const onProviderChange = (e) => {
         console.log("kgsdhfsdfds", e.target.value)
         const provider = e.target.value;
-        setsignupform((prevform) => ({
-            ...prevform,
-            provider: provider
-        }))
-        if (provider === "individualProvider") {
-            setactiveStep("ProviderInformation")
-        } else {
-            setactiveStep("CompanyInformation")
+        if (provider) {
+            setsignupform((prevform) => ({
+                ...prevform,
+                provider: provider
+            }))
+            if (provider === "individualProvider") {
+                setactiveStep("ProviderInformation")
+            } else {
+                setactiveStep("CompanyInformation")
+            }
         }
+
+
 
     }
     const onNext = (data) => {
-        console.log("kjshdgfdsfdsf", data)
         if (signupForm === "individualProvider") {
             setactiveStep("ProviderInformation")
         } else if (signupForm === "companyInformation") {
@@ -49,7 +57,10 @@ const DasSignupPage = () => {
         console.log("kjshdgfdsfdsf", data)
         setactiveStep(data)
     }
-
+    const onFlowChange = (flowStatus) => {
+        setLoginFlow(flowStatus);
+    }
+    console.log("skjgdhfsdf", loginFlow)
     return (
         <div className='h-screen p-0 bscontainer-fluid'>
             <div className='lg:h-full row g-0'>
@@ -61,14 +72,14 @@ const DasSignupPage = () => {
                         </div>
                         <div className='col-lg-12 mt-15'>
                             {
-                                activeStep === "LoginPage" ? <DasSignInPage onNext={(data) => onNext(data)} /> :
+                                activeStep === "LoginPage" ? <DasSignInPage onNext={(data) => onNext(data)} onLogin={(flowStatus) => onFlowChange(flowStatus)} /> :
                                     activeStep === "newAccount" ? <DASAccountSignup onNext={onNext} /> :
                                         activeStep === "IdentityVerification" ? <IdentityVerification onNext={onNext} onBack={onBack} /> :
                                             activeStep === "SmsVerification" ? <SmsVerification onNext={onNext} onBack={onBack} /> :
                                                 activeStep === "OtpSelection" ? <OtpSelection onNext={onNext} onBack={onBack} /> :
                                                     activeStep === "QrVerification" ? <QrVerification onNext={onNext} onBack={onBack} /> :
                                                         activeStep === "QrVideoProcess" ? <QrVideoProcess onNext={onNext} onBack={onBack} /> :
-                                                            activeStep === "ReferralLink" ? <ReferralLink onNext={onNext} /> :
+                                                            activeStep === "ReferralLink" ? <ReferralLink onNext={onNext} flow={loginFlow} /> :
                                                                 activeStep === "ProviderSelection" ? <ProviderSelection onNext={onNext} provider={signupForm.provider} onProviderChange={onProviderChange} /> :
                                                                     activeStep === "ProviderInformation" ? <ProviderInformation onNext={onNext} /> :
                                                                         activeStep === "TermsAndConditions" ? <TermsAndConditions onNext={onNext} /> :
@@ -76,7 +87,7 @@ const DasSignupPage = () => {
                                                                                 activeStep === "Assesment" ? <Assesment onNext={onNext} onBack={onBack} /> :
                                                                                     activeStep === "CompanyInformation" ? <CompanyInformation onNext={onNext} /> :
                                                                                         activeStep === "IndividualProviderInformation" ? <ProviderInformation onNext={onNext} onBack={onBack} /> :
-                                                                                            activeStep === "Dashboard" ? <Dashboard onNext={onNext} onBack={onBack} /> :
+                                                                                            activeStep === "Dashboard" ? navigate("/newdashboard") :
                                                                                                 setactiveStep("LoginPage")
                             }
                         </div>
