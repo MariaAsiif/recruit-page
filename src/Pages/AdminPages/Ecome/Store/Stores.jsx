@@ -154,7 +154,7 @@ const Stores = () => {
 
                                 </thead>
                                 <tbody className="text-sm divide-y divide-slate-200">
-                                    {allInspires.map((inspire) => {
+                                    {/* {allInspires.map((inspire) => {
                                         return (
                                             <tr key={inspire._id}>
                                                 <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
@@ -197,7 +197,7 @@ const Stores = () => {
                                                 </td>
                                             </tr>
                                         )
-                                    })}
+                                    })} */}
                                 </tbody>
                             </table>
                         </div>
