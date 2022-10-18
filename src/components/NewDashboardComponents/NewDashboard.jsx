@@ -5,7 +5,7 @@ const NewDashboard = () => {
     const [show, setshow] = useState(false)
     return (
         <>
-            <div >
+            <div style={{ boxShadow: "0px 3px 6px #0000000D" }} className='h-[84vh] overflow-y-auto p-5 bg-white rounded-2xl'>
                 <button onClick={() => setshow(!show)}>Show</button>
                 <div>
                     {show && <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum, tellus eget sagittis congue, orci nisl hendrerit ante, et bibendum velit massa a arcu. Curabitur scelerisque turpis a dui ultrices, eu rutrum leo pellentesque. Cras consequat non metus ut porttitor. Proin venenatis lobortis molestie. Aenean massa ligula, vehicula ut odio ut, consequat dapibus justo. Nullam commodo leo eros, sed lacinia mauris porta ac. Donec et tristique mauris. Quisque vel porttitor arcu. Donec feugiat tellus at erat cursus, eget convallis quam pellentesque. Nulla iaculis feugiat accumsan. Quisque tempus elementum lacus at pellentesque. Proin ultricies, magna vitae efficitur malesuada, est mauris efficitur est, ac dignissim lorem lacus vel nunc. Proin lobortis ultrices tellus vel consequat. Pellentesque a placerat diam. Aliquam congue magna non ipsum sodales aliquam.
