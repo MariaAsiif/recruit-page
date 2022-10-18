@@ -5,7 +5,6 @@ import logo from '../../images/logo.png'
 const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
     const location = useLocation();
     const { pathname } = location;
-
     const trigger = useRef(null);
     const sidebar = useRef(null);
 

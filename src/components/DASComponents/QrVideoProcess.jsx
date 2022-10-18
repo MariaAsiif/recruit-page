@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaCheckCircle, FaCheckDouble, FaChevronRight, FaRegUser, FaUnlockAlt } from 'react-icons/fa'
+import { FaCheckCircle, FaCheckDouble, FaChevronLeft, FaChevronRight, FaRegUser, FaUnlockAlt } from 'react-icons/fa'
 import video_large from "../../images/video_large.png"
 const QrVideoProcess = (props) => {
     return (
@@ -50,9 +50,10 @@ const QrVideoProcess = (props) => {
                         <img src={video_large} className="m-auto" alt="cideo" />
                     </div>
                 </div>
-                {/* Here ProviderSelection screen will display on next just to design the flow. After design completion its connection has to be settled with the flow. */}
-                <button onClick={() => props.onNext("ReferralLink")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1'>Next <FaChevronRight className='inline' /></button>
-
+                <div style={{ display: "flex", alignItems: "space-between", justifyContent: "space-between" }}>
+                    <button onClick={() => props.onBack("QrVerification")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1 '><FaChevronLeft className='inline' /> Back </button>
+                    <button onClick={() => props.onNext("ReferralLink")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1'>Next <FaChevronRight className='inline' /></button>
+                </div>
             </div>
         </div>
     )

@@ -34,7 +34,10 @@ const DasSignInPage = (props) => {
                             <h1 className='ml-8 text-[#707070] font-normal mb-4'>Enter your chosen password…</h1>
                             <label className=' font-medium text-[#151515]'><input id="loggedin" className='mr-3' type="checkbox" name='loggedin' />Keep me logged in</label>
                             <div className='mt-5 text-center' >
-                                <button onClick={() => props.onNext("IdentityVerification")} className='bg-white hover:bg-[#4DA676] mb-2 border-4 border-[#4DA676] text-black hover:text-white px-16 py-3 rounded text-2xl'>Login</button>
+                                <button onClick={() => {
+                                    props.onLogin(true);
+                                    props.onNext("IdentityVerification")
+                                }} className='bg-white hover:bg-[#4DA676] mb-2 border-4 border-[#4DA676] text-black hover:text-white px-16 py-3 rounded text-2xl'>Login</button>
                                 <h1 className='text-[#707070] font-medium mb-8 text-xs'>Don’t have an account to log in, <Link className='text-[#4DA676] underline' onClick={() => props.onNext("newAccount")}>Click to create the account!</Link></h1>
                             </div>
                             <img src={social_group_2x} alt="social" className='w-full h-auto max-w-[380px] m-auto' />
