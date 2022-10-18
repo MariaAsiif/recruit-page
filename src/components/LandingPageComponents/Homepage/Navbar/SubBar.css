@@ -95,6 +95,7 @@
   width: 100%;
   margin-bottom: 0;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   /* align-items: center; */
 }
@@ -193,6 +194,7 @@
 
 ul.ruby-menu > li > ul,ul.ruby-menu > li > ul > li > ul,ul.ruby-menu > li > ul > li > ul > li > ul {
   position: absolute;
+  justify-content: left;
   -webkit-box-shadow: 0 8px 24px -5px #ccc;
   -moz-box-shadow: 0 8px 24px -5px #ccc;
   box-shadow: 0 8px 24px -5px #ccc;
@@ -205,7 +207,8 @@ ul.ruby-menu > li > ul > li,ul.ruby-menu > li > ul > li > ul > li {
 
 
 ul.ruby-menu > li > ul > li > a,ul.ruby-menu > li > ul > li > ul > li > a,ul.ruby-menu > li > ul > li > ul > li > ul > li > a {
-  display: block;
+  display: flex;
+  align-items: center;
   width: 170px;
   line-height: 40px;
   padding: 0 35px 0 25px;
@@ -226,14 +229,11 @@ ul.ruby-menu > li > ul > li > a:only-child:after,ul.ruby-menu > li > ul > li > u
 
 ul.ruby-menu > li > ul > li > a .fa,ul.ruby-menu > li > ul > li > ul > li > a .fa,ul.ruby-menu > li > ul > li > ul > li > ul > li > a .fa {
   position: relative;
-  width: 24px
 }
 
 ul.ruby-menu > li.ruby-menu-right > ul {
   right: 0
 }
-
-
 
 
 ul.ruby-menu > li > ul > li > ul,ul.ruby-menu > li > ul > li > ul > li > ul {

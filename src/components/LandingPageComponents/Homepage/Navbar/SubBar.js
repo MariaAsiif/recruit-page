@@ -7,7 +7,7 @@ import "./SubBar.css";
 import TopBar from "../Navbar/TopBar";
 import Marquee from "./Marquee";
 import downIcon from '../../../../assets/landingImages/ionic-ios-arrow-down.svg'
-
+import {RiArrowDropDownLine , RiArrowDropRightLine } from 'react-icons/ri'
 const SubBar = ({ setShow }) => {
   // const history = useHistory();
 
@@ -160,16 +160,16 @@ const SubBar = ({ setShow }) => {
                 <a href="https://landing-page-ivory-eta.vercel.app/agency">DAS</a>
               </li>
               <li className="main-li">
-                <a href="#">Classic</a>
-                <ul className="border">
+                <a href="#" className="flex items-center">Classic <RiArrowDropDownLine className="text-[30px]"/></a>
+                <ul >
                   <li>
                     <a href="#">2nd Level #1</a>
                   </li>
                   <li>
-                    <a href="#">2nd Level #2</a>
+                    <a href="#" >2nd Level #2</a>
                   </li>
                   <li>
-                    <a href="#">2nd Level #3</a>
+                    <a href="#" className="flex items-center"> 2nd Level #3 <RiArrowDropRightLine className="text-[30px]" /></a>
                     <ul>
                       <li>
                         <a href="#">
