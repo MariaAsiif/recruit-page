@@ -257,7 +257,7 @@ select > option {
 
 .react-tagsinput-tag {
   background-color: green !important;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid !important;
   color: white !important;
   display: inline-block;

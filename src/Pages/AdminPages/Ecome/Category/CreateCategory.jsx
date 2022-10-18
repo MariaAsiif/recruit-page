@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 const schema = yup.object({
   name: yup.string().required('Category Name is Required'),
-  added: yup.string().required('Added is Required'),
+  // added: yup.string().required('Added is Required'),
 });
 
 const CreateCategory = () => {
@@ -133,7 +133,7 @@ const CreateCategory = () => {
               <p className='text-red-500 text-sm'>{errors.name.message}</p>
             )}
           </div>
-          <div className='col-lg-6 mb-4 relative'>
+          {/* <div className='col-lg-6 mb-4 relative'>
             <label className="block text-sm font-medium mb-1" htmlFor="city">Departmant</label>
             <div className='absolute right-10 top-10'>
               {!errors.added ? <FcCheckmark /> : errors.added ? <div className=' text-red-500'><MdClose /></div> : null}
@@ -154,7 +154,7 @@ const CreateCategory = () => {
             {errors.added && (
               <p className="text-red-500 text-sm">{errors.added.message}</p>
             )}
-          </div>
+          </div> */}
 
           <div className='col-lg-12'>
             <button className='p-2 bg-red-500 hover:bg-green-600 text-white'>
