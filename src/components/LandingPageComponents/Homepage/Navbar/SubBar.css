@@ -9,8 +9,8 @@
   background: white;
   width: 100%;
   color: black;
-  padding: 1.5rem 0;
-  height: 5.5rem;
+  padding: 1rem 0 0 0 ;
+  height: 5rem;
 }
 
 .changebackground {
@@ -211,7 +211,7 @@ ul.ruby-menu > li > ul > li > a,ul.ruby-menu > li > ul > li > ul > li > a,ul.rub
   align-items: center;
   width: 170px;
   line-height: 40px;
-  padding: 0 25px 0 25px;
+  padding: 0 0px 0 20px;
   /* background: #fff; */
   color: white !important;
   text-decoration: none;

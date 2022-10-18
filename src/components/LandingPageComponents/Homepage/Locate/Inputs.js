@@ -289,10 +289,10 @@ const Inputs = () => {
   return (
     <>
       {servicePopup ? <ServicePopup show={servicePopup} onClose={() => setservicePopup(false)} /> : null}
-      <div className='bscontainer-fluid mb-4 input_Select'>
+      <div className='bscontainer-fluid mb-4 ' id="input_Select">
         <div className='row'>
           <div className='col-lg-2'>
-            <select  className=' select_optext-sm flex items-center p-5 ' name="country" value={locationModel.country} onChange={handleChangeCountryStateCity}  >
+            <select  className=' select_op text-sm flex items-center p-5 ' name="country" value={locationModel.country} onChange={handleChangeCountryStateCity}  >
               <option className='text-sm w-0'>Choose Country</option>
               {allCountries.map((country, i) => <option key={i} value={country.isoCode} className='text-sm w-0'>{country.name}</option>)}
             </select>

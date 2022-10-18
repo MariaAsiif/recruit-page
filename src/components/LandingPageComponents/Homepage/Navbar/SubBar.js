@@ -281,7 +281,7 @@ const SubBar = ({ setShow }) => {
               </li>
               <li className="main-li">
                 <Link activeClass="active"  spy={true} smooth={true} offset={-70} duration={500}  >
-                  PRODUCTS 
+                 <span className="flex items-center"> PRODUCTS <RiArrowDropDownLine className="text-[30px]"/></span>
                 </Link>
 
                 <ul className="dropdown-product-link" >
