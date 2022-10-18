@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { FcCheckmark } from 'react-icons/fc';
 import { MdClose } from 'react-icons/md';
 import { toast, ToastContainer } from 'react-toastify';
@@ -12,7 +12,7 @@ import 'react-tagsinput/react-tagsinput.css'
 const schema = yup.object({
   name: yup.string().required('Category Name is Required'),
   brand: yup.string().required('Brand is Required'),
-  ssn: yup.string().required('Ssn is Required'),
+  // ssn: yup.string().required('Ssn is Required'),
   category: yup.string().required('Category is Required'),
   rate: yup.string().required('Rate is Required'),
   initialStock: yup.string().required('initialStock is Required'),
@@ -31,11 +31,15 @@ const schema = yup.object({
   store: yup.string().required('Store is Required'),
   image: yup.string().required('Image is Required'),
 });
-
 const CreateProduct = () => {
- 
-  const [areaofInterest, setareaofInterest] = useState([])
-  const [companySetting, setCompanySetting] = useState(true);
+  const [tags, setTags] = useState([])
+  const [showInStoreFront, setshowInStoreFront] = useState(true);
+  const [isReturnable, setisReturnable] = useState(true);
+  const [isFeatured, setisFeatured] = useState(true);
+  const [isOnSale, setisOnSale] = useState(false);
+  const [active, setactive] = useState(true);
+  const [image, setImage] = useState("");
+  const [tagError, setTagError] = useState("");
   const [allcatagories, setallcatagories] = useState([])
   const {
     register,
@@ -47,45 +51,61 @@ const CreateProduct = () => {
 
 
   const handleAreaofInterest = (tags) => {
-    setareaofInterest(tags)
+    if (tags?.length > 0) {
+      setTags(tags)
+    }
+    else {
+      setTagError("Tags is Required")
+    }
   }
 
+  console.log("tagerror", tagError)
 
   const onSubmit = async (data) => {
 
+
     let value = {
-      productTitle: "",
-      productCategories: "",
-      productDescritpion: "",
+      productTitle: data.name,
+      productCategories: data.category,
+      productDescritpion: data.desc,
       showInStoreFront: true,
-      tags: "",
-      brand: "",
+      tags: tags,
+      brand: data.brand,
       isReturnable: true,
       isFeatured: true,
-      rate: "",
-      initialStock: 100,
-      lowStockLimit: 10,
-      packageDetails: "",
-      sku: 545454,
-      ean: 45445,
-      upc: 2112,
-      mpn: 21212,
-      isbn: 4545,
-      productImagesURLs: "",
-      salePrice: 15,
+      rate: data.rate,
+      initialStock: data.initialStock,
+      lowStockLimit: data.lowStockLimit,
+      packageDetails: {
+        "height": `${data.height}cm`,
+        "weight": `${data.weight}kg`,
+        "width": `${data.width}cm`,
+        "length": `${data.lengh}cm`
+      },
+      sku: data.sku,
+      ean: data.ean,
+      upc: data.upc,
+      mpn: data.mpn,
+      isbn: data.isbn,
+      productImagesURLs: image,
+      salePrice: data.salePrice,
       isOnSale: false,
       active: true,
-      store: ""
+      store: "632da8fd612c3f4220c623b5"
     }
-    const res = await callApi('/products/createProduct', 'post', value);
-    if (res.status === 'Success') {
-      toast.success(res.message);
-      reset();
-    } else {
-      toast.error(res.message);
+    if (tags?.length > 0) {
+      const res = await callApi('/products/createProduct', 'post', value);
+      if (res.status === 'Success') {
+        toast.success(res.message);
+        reset();
+      } else {
+        toast.error(res.message);
+      }
+    }
+    else {
+      setTagError("Tags is Required")
     }
   };
-
 
   useEffect(() => {
     (async () => {
@@ -219,11 +239,11 @@ const CreateProduct = () => {
               className={`border p-[10px] lg:-mt-[1px] focus:outline-blue-500 rounded-sm w-full   ${errors.category && 'border-red-500'}`}
             >
               <option value="">Select Category </option>
-             {
-              allcatagories.map((cat , index) =>(
-                <option key={index} value={cat._id}>{cat.productCategoryTitle}</option>
-              ))
-             }
+              {
+                allcatagories.map((cat, index) => (
+                  <option key={index} value={cat._id}>{cat.productCategoryTitle}</option>
+                ))
+              }
             </select>
             {errors.category && (
               <p className="text-red-500 text-sm">{errors.category.message}</p>
@@ -239,14 +259,14 @@ const CreateProduct = () => {
 
                 <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
                   <input type="checkbox"
-                    checked={companySetting}
-                    onChange={() => setCompanySetting(!companySetting)}
+                    checked={showInStoreFront}
+                    onChange={() => setshowInStoreFront(!showInStoreFront)}
                     id="default-toggle"
                     class="sr-only peer"
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                   <div className='text-sm text-slate-400 italic ml-2'>
-                    {companySetting ? 'True' : 'False'}
+                    {showInStoreFront ? 'True' : 'False'}
                   </div>
                 </label>
 
@@ -258,33 +278,34 @@ const CreateProduct = () => {
 
           <div className='col-lg-4 mb-4 relative'>
             <label className="block text-sm font-medium mb-1" htmlFor="city">Tages </label>
-            <TagsInput
-              maxTags={5}
-              className={"custom-react-tagsinput"}
-              inputProps={{
-                className: 'custom-react-tagsinput-input',
-                placeholder: 'Tages'
-              }}
-              value={areaofInterest}
-              onChange={handleAreaofInterest} />
+            <div className={`border ${tags?.length > 0 ? 'p-1' : 'p-[10px]'}`}>
+
+              <TagsInput
+                maxTags={5}
+                className={"custom-react-tagsinput"}
+                inputProps={{
+                  className: 'custom-react-tagsinput-input',
+                  placeholder:'add a tag'
+                }}
+                value={tags}
+                onChange={handleAreaofInterest}
+              />
+            </div>
+
           </div>
           <div className='col-lg-4 mb-4 relative'>
             <label className="block text-sm font-medium mb-1" htmlFor="city">Brand </label>
             <div className='absolute right-10 top-9'>
-              {!errors.brand ? <FcCheckmark /> : errors.brand ? <div className=' text-red-500'><MdClose /></div> : null}
+              {!errors.brand && watch('brand') ? <FcCheckmark /> : errors.brand ? <div className=' text-red-500'><MdClose /></div> : null}
             </div>
-            <select
+            <input
               {...register('brand')}
-
+              type="text"
               name="brand"
-              id="brand"
+              placeholder='Brand'
               className={`border p-[10px] lg:-mt-[1px] focus:outline-blue-500 rounded-sm w-full   ${errors.brand && 'border-red-500'}`}
-            >
-              <option value="">Select Added By </option>
-              <option >Super Admin</option>
-              <option >Admin</option>
-              <option >Hr</option>
-            </select>
+            />
+
             {errors.brand && (
               <p className="text-red-500 text-sm">{errors.brand.message}</p>
             )}
@@ -299,14 +320,14 @@ const CreateProduct = () => {
 
                 <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
                   <input type="checkbox"
-                    checked={companySetting}
-                    onChange={() => setCompanySetting(!companySetting)}
+                    checked={isReturnable}
+                    onChange={() => setisReturnable(!isReturnable)}
                     id="default-toggle"
                     class="sr-only peer"
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                   <div className='text-sm text-slate-400 italic ml-2'>
-                    {companySetting ? 'True' : 'False'}
+                    {isReturnable ? 'True' : 'False'}
                   </div>
                 </label>
 
@@ -325,14 +346,14 @@ const CreateProduct = () => {
 
                 <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
                   <input type="checkbox"
-                    checked={companySetting}
-                    onChange={() => setCompanySetting(!companySetting)}
+                    checked={isFeatured}
+                    onChange={() => setisFeatured(!isFeatured)}
                     id="default-toggle"
                     class="sr-only peer"
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                   <div className='text-sm text-slate-400 italic ml-2'>
-                    {companySetting ? 'True' : 'False'}
+                    {isFeatured ? 'True' : 'False'}
                   </div>
                 </label>
 
@@ -791,31 +812,7 @@ const CreateProduct = () => {
             )}
           </div>
 
-          <div className='col-lg-2 mb-4 relative'>
-            <div>
-              <div className='text-sm text-slate-800 font-semibold mb-3'>
-                Is On Sale
-              </div>
-              <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
-                  <input type="checkbox"
-                    checked={companySetting}
-                    onChange={() => setCompanySetting(!companySetting)}
-                    id="default-toggle"
-                    class="sr-only peer"
-                  />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
-                    {companySetting ? 'True' : 'False'}
-                  </div>
-                </label>
-
-
-
-              </div>
-            </div>
-          </div>
 
           <div className='col-lg-2 mb-4 relative'>
             <div>
@@ -826,14 +823,14 @@ const CreateProduct = () => {
 
                 <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
                   <input type="checkbox"
-                    checked={companySetting}
-                    onChange={() => setCompanySetting(!companySetting)}
+                    checked={isOnSale}
+                    onChange={() => setisOnSale(!isOnSale)}
                     id="default-toggle"
                     class="sr-only peer"
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                   <div className='text-sm text-slate-400 italic ml-2'>
-                    {companySetting ? 'True' : 'False'}
+                    {isOnSale ? 'True' : 'False'}
                   </div>
                 </label>
 
@@ -852,14 +849,14 @@ const CreateProduct = () => {
 
                 <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
                   <input type="checkbox"
-                    checked={companySetting}
-                    onChange={() => setCompanySetting(!companySetting)}
+                    checked={active}
+                    onChange={() => setactive(!active)}
                     id="default-toggle"
                     class="sr-only peer"
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                   <div className='text-sm text-slate-400 italic ml-2'>
-                    {companySetting ? 'Active' : 'DeActive'}
+                    {active ? 'Active' : 'DeActive'}
                   </div>
                 </label>
 
@@ -868,7 +865,7 @@ const CreateProduct = () => {
               </div>
             </div>
           </div>
-          <div className='col-lg-5 mb-4 relative'>
+          <div className='col-lg-6 mb-4 relative'>
             <label className="block text-sm font-medium mb-1" htmlFor="city">Store</label>
             <div className='absolute right-10 top-9'>
               {!errors.store ? <FcCheckmark /> : errors.store ? <div className=' text-red-500'><MdClose /></div> : null}
@@ -891,11 +888,11 @@ const CreateProduct = () => {
             )}
           </div>
 
-          
-          <div className='col-lg-5 mb-4 relative'>
+
+          <div className='col-lg-6 mb-4 relative'>
             <label className="block text-sm font-medium mb-1" htmlFor="city">Image</label>
             <div className='border p-1'>
-              <input type="file" {...register('image')} name="image" />
+              <input type="file" onChange={(e) => setImage(e.target.files[0])} name="image" />
             </div >
           </div>
 

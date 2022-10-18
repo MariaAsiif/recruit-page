@@ -22,7 +22,7 @@ import {
 import { IoMdLocate } from 'react-icons/io';
 import { IoConstructSharp } from 'react-icons/io5';
 import { GrServices } from 'react-icons/gr';
-import { FaUserCog } from 'react-icons/fa';
+import { FaUserCog , FaStore} from 'react-icons/fa';
 // import {  } from 'react-icons/bi';
 
 const SidebarObj = () => {
@@ -233,6 +233,28 @@ const SidebarObj = () => {
                 {
                   label: 'Create Products',
                   path: '/ecome/products/create-products',
+                  subMenuItems: [],
+                },
+              ],
+            },
+            {
+              label: 'Stores',
+              leftIcon: <FaStore size={22} />,
+              activeLeftIcon: (
+                <FaStore size={22} className=' text-green-500' />
+              ),
+              rightIcon: 'sadf',
+              path: '/store',
+              pathname: 'store',
+              subMenuItems: [
+                {
+                  label: 'Stores',
+                  path: '/ecome/store',
+                  subMenuItems: [],
+                },
+                {
+                  label: 'Create Store',
+                  path: '/ecome/store/create-store',
                   subMenuItems: [],
                 },
               ],

@@ -103,6 +103,8 @@ import Categories from './Pages/AdminPages/Ecome/Category/Categories';
 import CreateCategory from './Pages/AdminPages/Ecome/Category/CreateCategory';
 import Products from './Pages/AdminPages/Ecome/Product/Products';
 import CreateProduct from './Pages/AdminPages/Ecome/Product/CreateProduct';
+import CreateStore from './Pages/AdminPages/Ecome/Store/CreateStore';
+import Stores from './Pages/AdminPages/Ecome/Store/Stores';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -216,8 +218,10 @@ function App() {
         >
           <Route path='products' element={<Products />} />
           <Route path='category' element={<Categories />} />
+          <Route path='store' element={<Stores />} />
           <Route path='products/create-products' element={<CreateProduct />} />
           <Route path='category/create-category' element={<CreateCategory />} />
+          <Route path='store/create-store' element={<CreateStore />}  />
         </Route>
 
 

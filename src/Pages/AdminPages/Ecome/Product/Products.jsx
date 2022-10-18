@@ -4,6 +4,8 @@ import { callApi } from '../../../../utils/CallApi';
 import { IoEyeOutline } from "react-icons/io5";
 // import ViewEditInspire from "../../components/Popups/ViewEditInspire"
 import { toast, ToastContainer } from 'react-toastify';
+import ViewEditProduct from '../../../../components/Popups/ViewEditProduct';
+import DeletePopup from '../../../../components/deletePopups/DeletePopups';
 // import DeletePopup from '../../components/deletePopups/DeletePopups';/
 
 const Products = () => {
@@ -18,7 +20,7 @@ const Products = () => {
     e.stopPropagation()
     setinspirePopup(true)
     setinspireMode(mode)
-    setinspireRow(data)
+    // setinspireRow(data)
   }
 
   const deletePopToggle = (id) => {
@@ -31,7 +33,7 @@ const Products = () => {
       id: delId
     }
     try {
-      const res = await callApi("/quotes/removeQuote", "post", value)
+      const res = await callApi("/products/removeProduct", "post", value)
       if (res.status === "Success") {
         toast.success(res.message);
         setDelPopup(false)
@@ -78,8 +80,13 @@ const Products = () => {
 
   return (
     <div className='bscontainer-fluid'>
-      {/* <ViewEditInspire id="job-modal" data={inspireRow} mode={inspireMode} modalOpen={inspirePopup} onClose={() => setinspirePopup(false)} /> */}
-      {/* {delPopup && <DeletePopup permition={delPopup} callback={deleteInspire} Toggle={() => setDelPopup(false)} />} */}
+      <ViewEditProduct
+        id="user-modal"
+        data={inspireRow}
+        mode={inspireMode}
+        modalOpen={inspirePopup}
+        onClose={() => setinspirePopup(false)} />
+      {delPopup && <DeletePopup permition={delPopup} callback={deleteInspire} Toggle={() => setDelPopup(false)} />}
 
       <ToastContainer
         position="top-right"
@@ -151,7 +158,7 @@ const Products = () => {
 
                 </thead>
                 <tbody className="text-sm divide-y divide-slate-200">
-                  {/* {allInspires.map((inspire) => {
+                  {allInspires.map((inspire) => {
                     return (
                       <tr key={inspire._id}>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
@@ -194,12 +201,19 @@ const Products = () => {
                         </td>
                       </tr>
                     )
-                  })} */}
+                  })}
                 </tbody>
               </table>
             </div>
           </div>
         </div>
+        <button onClick={(e) => openInspirePopup(e)} className="text-rose-500 hover:text-rose-600 rounded-full">
+          <span className="sr-only">Delete</span>
+          <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32">
+            <path d="M13 15h2v6h-2zM17 15h2v6h-2z" />
+            <path d="M20 9c0-.6-.4-1-1-1h-6c-.6 0-1 .4-1 1v2H8v2h1v10c0 .6.4 1 1 1h12c.6 0 1-.4 1-1V13h1v-2h-4V9zm-6 1h4v1h-4v-1zm7 3v9H11v-9h10z" />
+          </svg>
+        </button>
       </div>
     </div>
   )

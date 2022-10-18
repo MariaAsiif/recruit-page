@@ -4,6 +4,8 @@ import { callApi } from '../../../../utils/CallApi';
 import { IoEyeOutline } from "react-icons/io5";
 // import ViewEditInspire from "../../components/Popups/ViewEditInspire"
 import { toast, ToastContainer } from 'react-toastify';
+import ViewEditCategory from '../../../../components/Popups/ViewEditCategory';
+import DeletePopup from '../../../../components/deletePopups/DeletePopups';
 // import DeletePopup from '../../components/deletePopups/DeletePopups';/
 
 const Categories = () => {
@@ -31,7 +33,7 @@ const Categories = () => {
       id: delId
     }
     try {
-      const res = await callApi("/productcategories/getcategories", "post", value)
+      const res = await callApi("/productcategories/removecategory", "post", value)
       if (res.status === "Success") {
         toast.success(res.message);
         setDelPopup(false)
@@ -64,8 +66,6 @@ const Categories = () => {
             }
           }
           const response = await callApi("/productcategories/getcategories", "post", payload)
-          console.log("res", response )
-
           setallInspires(response.data.categories)
         } catch (error) {
           console.log(error);
@@ -79,8 +79,8 @@ const Categories = () => {
 
   return (
     <div className='bscontainer-fluid'>
-      {/* <ViewEditInspire id="job-modal" data={inspireRow} mode={inspireMode} modalOpen={inspirePopup} onClose={() => setinspirePopup(false)} /> */}
-      {/* {delPopup && <DeletePopup permition={delPopup} callback={deleteInspire} Toggle={() => setDelPopup(false)} />} */}
+      <ViewEditCategory id="job-modal" data={inspireRow} mode={inspireMode} modalOpen={inspirePopup} onClose={() => setinspirePopup(false)} />
+      {delPopup && <DeletePopup permition={delPopup} callback={deleteInspire} Toggle={() => setDelPopup(false)} />}
 
       <ToastContainer
         position="top-right"
