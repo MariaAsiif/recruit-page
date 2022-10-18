@@ -169,7 +169,7 @@ const SubBar = ({ setShow }) => {
                     <a href="#" >2nd Level #2</a>
                   </li>
                   <li>
-                    <a href="#" className="flex items-center"> 2nd Level #3 <RiArrowDropRightLine className="text-[30px]" /></a>
+                    <a href="#" className="flex items-center"> 2nd Level #3 <RiArrowDropRightLine className="text-[40px]" /></a>
                     <ul>
                       <li>
                         <a href="#">

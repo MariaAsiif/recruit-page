@@ -211,7 +211,7 @@ ul.ruby-menu > li > ul > li > a,ul.ruby-menu > li > ul > li > ul > li > a,ul.rub
   align-items: center;
   width: 170px;
   line-height: 40px;
-  padding: 0 35px 0 25px;
+  padding: 0 25px 0 25px;
   /* background: #fff; */
   color: white !important;
   text-decoration: none;
