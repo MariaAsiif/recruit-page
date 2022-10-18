@@ -191,4 +191,58 @@
 
 
 
+ul.ruby-menu > li > ul,ul.ruby-menu > li > ul > li > ul,ul.ruby-menu > li > ul > li > ul > li > ul {
+  position: absolute;
+  -webkit-box-shadow: 0 8px 24px -5px #ccc;
+  -moz-box-shadow: 0 8px 24px -5px #ccc;
+  box-shadow: 0 8px 24px -5px #ccc;
+  /* border-top: 4px solid #19ad86 */
+}
+
+ul.ruby-menu > li > ul > li,ul.ruby-menu > li > ul > li > ul > li {
+  position: relative
+}
+
+
+ul.ruby-menu > li > ul > li > a,ul.ruby-menu > li > ul > li > ul > li > a,ul.ruby-menu > li > ul > li > ul > li > ul > li > a {
+  display: block;
+  width: 170px;
+  line-height: 40px;
+  padding: 0 35px 0 25px;
+  /* background: #fff; */
+  color: white !important;
+  text-decoration: none;
+  font-size: 14px
+}
+
+ul.ruby-menu > li > ul > li:hover > a,ul.ruby-menu > li > ul > li > a:hover,ul.ruby-menu > li > ul > li > ul > li:hover > a,ul.ruby-menu > li > ul > li > ul > li > a:hover,ul.ruby-menu > li > ul > li > ul > li > ul > li:hover > a,ul.ruby-menu > li > ul > li > ul > li > ul > li > a:hover {
+  background: #efefef;
+  color: black !important;
+}
+
+ul.ruby-menu > li > ul > li > a:only-child:after,ul.ruby-menu > li > ul > li > ul > li > a:only-child:after,ul.ruby-menu > li > ul > li > ul > li > ul > li > a:only-child:after {
+  content: ""
+}
+
+ul.ruby-menu > li > ul > li > a .fa,ul.ruby-menu > li > ul > li > ul > li > a .fa,ul.ruby-menu > li > ul > li > ul > li > ul > li > a .fa {
+  position: relative;
+  width: 24px
+}
+
+ul.ruby-menu > li.ruby-menu-right > ul {
+  right: 0
+}
+
+
+
+
+ul.ruby-menu > li > ul > li > ul,ul.ruby-menu > li > ul > li > ul > li > ul {
+  left: 170px;
+  top: -4px;
+  z-index: 100
+}
+
+
+
+
 
