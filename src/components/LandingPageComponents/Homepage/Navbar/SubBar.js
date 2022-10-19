@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { SubBarContainer } from "./StyledNavbar";
 // import { Link, animateScroll as scroll } from "react-scroll";
-import {  Link  } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./SubBar.css";
 import TopBar from "../Navbar/TopBar";
 import Marquee from "./Marquee";
 import downIcon from '../../../../assets/landingImages/ionic-ios-arrow-down.svg'
-import {RiArrowDropDownLine , RiArrowDropRightLine } from 'react-icons/ri'
+import { RiArrowDropDownLine, RiArrowDropRightLine } from 'react-icons/ri'
 const SubBar = ({ setShow }) => {
   // const history = useHistory();
 
@@ -58,100 +58,6 @@ const SubBar = ({ setShow }) => {
         <div className={navbar ? "hporx-header-topbar-skew" : navbarbackground ? "changetopBArbackgournd" : "hporx-header-topbar-normal"} ></div>
         <nav className={navbarbackground ? "nav" : "changebackground"} id="navbar"  >
           <div className="nav-content bscontainer-fluid">
-
-
-          {/* <ul className="ruby-menu">
-              <li className="ruby-active-menu-item">
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="#">Classic</a>
-                <ul className="">
-                  <li>
-                    <a href="#">2nd Level #1</a>
-                  </li>
-                  <li>
-                    <a href="#">2nd Level #2</a>
-                  </li>
-                  <li>
-                    <a href="#">2nd Level #3</a>
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i className="fa fa-university" aria-hidden="true" />
-                          3rd Level #1
-                        </a>
-                        <ul>
-                          <li>
-                            <a href="#">4th Level #1</a>
-                          </li>
-                          <li>
-                            <a href="#">4th Level #2</a>
-                          </li>
-                        </ul>
-                        <span className="ruby-dropdown-toggle" />
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fa fa-thumbs-up" aria-hidden="true" />
-                          3rd Level #2
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fa fa-users" aria-hidden="true" />
-                          3rd Level #3
-                        </a>
-                        <ul>
-                          <li>
-                            <a href="#">
-                              <i className="fa fa-paper-plane" aria-hidden="true" />
-                              4th Level #1
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fa fa-print" aria-hidden="true" />
-                              4th Level #2
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fa fa-shopping-bag" aria-hidden="true" />
-                              4th Level #3
-                            </a>
-                          </li>
-                        </ul>
-                        <span className="ruby-dropdown-toggle" />
-                      </li>
-                    </ul>
-                    <span className="ruby-dropdown-toggle" />
-                  </li>
-                  <li className="ruby-open-to-left">
-                    <a href="#">2nd Level #4</a>
-                    <ul>
-                      <li>
-                        <a href="#">3rd Level #1</a>
-                      </li>
-                      <li>
-                        <a href="#">3rd Level #2</a>
-                      </li>
-                      <li>
-                        <a href="#">3rd Level #3</a>
-                      </li>
-                    </ul>
-                    <span className="ruby-dropdown-toggle" />
-                  </li>
-                  <li>
-                    <a href="#">2nd Level #5</a>
-                  </li>
-                </ul>
-                <span className="ruby-dropdown-toggle" />
-              </li>
-
-            </ul> */}
-
-
             <ul className="ruby-menu">
               <li className="main-li" >
                 <Link className="active" to="HOME" spy={true} smooth={true} duration={500}    > HOME{" "} </Link>
@@ -160,8 +66,65 @@ const SubBar = ({ setShow }) => {
                 <a href="https://landing-page-ivory-eta.vercel.app/agency">DAS</a>
               </li>
               <li className="main-li">
-                <a href="#" className="flex items-center">Classic <RiArrowDropDownLine className="text-[30px]"/></a>
-                <ul >
+                <a href="#" className="flex items-center">Classic <RiArrowDropDownLine className="text-[30px]" /></a>
+                <div className="show">
+                  <div className="row">
+                    <div className="col-lg-4 border-r border-white p-2 pl-5 flex items-baseline flex-col">
+                      <h3 className="text-[20px] font-medium">Items1</h3>
+                      <div className="flex flex-col ">
+                        <span>hellow</span>
+                        <span>hellow</span>
+                        <span>hellow</span>
+                        <span>hellow</span>
+                      </div>
+
+                      <h3 className="text-[20px] font-medium">Items4</h3>
+                      <div className="flex flex-col ">
+                        <span>hellow</span>
+                        <span>hellow</span>
+                        <span>hellow</span>
+                        <span>hellow</span>
+                      </div>
+                    </div>
+                    <div className="col-lg-4 border-r border-white p-2 pl-5 flex items-baseline flex-col">
+                      <h3 className="text-[20px] font-medium">Items2</h3>
+                      <div className="flex flex-col ">
+                        <span>hellow</span>
+                        <span>hellow</span>
+                        <span>hellow</span>
+                        <span>hellow</span>
+                      </div>
+
+                      <h3 className="text-[20px] font-medium">Items5</h3>
+                      <div className="flex flex-col ">
+                        <span>hellow</span>
+                        <span>hellow</span>
+                        <span>hellow</span>
+                        <span>hellow</span>
+                      </div>
+                    </div>
+                    <div className="col-lg-4  p-2 pl-5 flex items-baseline flex-col">
+                      <h3 className="text-[20px] font-medium">Items3</h3>
+                      <div className="flex flex-col ">
+                        <span>hellow</span>
+                        <span>hellow</span>
+                        <span>hellow</span>
+                        <span>hellow</span>
+                      </div>
+                      <h3 className="text-[20px] font-medium">Items6</h3>
+                      <div className="flex flex-col ">
+                        <span>hellow</span>
+                        <span>hellow</span>
+                        <span>hellow</span>
+                        <span>hellow</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+
+                {/* <ul >
                   <li>
                     <a href="#">2nd Level #1</a>
                   </li>
@@ -240,14 +203,14 @@ const SubBar = ({ setShow }) => {
                   <li>
                     <a href="#">2nd Level #5</a>
                   </li>
-                </ul>
+                </ul> */}
                 <span className="ruby-dropdown-toggle" />
               </li>
               {/* <li className="main-li">
                 <Link activeClass="active" to="INHALATE" spy={true} smooth={true} duration={500} >  INHALATE  </Link>
               </li> */}
-               <li className="main-li">
-                <Link  to="/Home" > Recruit Page  </Link>
+              <li className="main-li">
+                <Link to="/Home" > Recruit Page  </Link>
               </li>
               {/* <li className="main-li">
                
@@ -280,12 +243,12 @@ const SubBar = ({ setShow }) => {
                 </Link>
               </li>
               <li className="main-li">
-                <Link activeClass="active"  spy={true} smooth={true} offset={-70} duration={500}  >
-                 <span className="flex items-center"> PRODUCTS <RiArrowDropDownLine className="text-[30px]"/></span>
+                <Link activeClass="active" spy={true} smooth={true} offset={-70} duration={500}  >
+                  <span className="flex items-center"> PRODUCTS <RiArrowDropDownLine className="text-[30px]" /></span>
                 </Link>
 
                 <ul className="dropdown-product-link" >
-                 {/* <li>
+                  {/* <li>
                     <span style={{ color: "red", fontSize: "1.5rem" }}>Rx</span>PRODUCTS
                   </li>
                   <li className="sub-li"  >Locate Us</li>

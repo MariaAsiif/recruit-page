@@ -201,52 +201,8 @@ const History = ({ handleNext, handleBack }) => {
 
 
 
-          <div className='col-lg-6 mb-6 '>
-            <label className='block text-sm font-medium mb-1 '>
-              Request Date 
-            </label>
-            <div className='relative'>
-              <DatePicker
-                value={quoteDate}
-                name='quoteDate'
-                onChange={(date) => setquoteDate(date)}
-                renderInput={renderCustomInput} // render a custom input
-                shouldHighlightWeekends
-                calendarPopperPosition='bottom'
-              />
-            </div>
-          </div>
-
-          <div className='col-lg-6 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='quote'>
-            Reason Of Current Visit
-            </label>
-            <div className='absolute right-5 top-10'>
-              {!errors.quote && watch('quote') ? (
-                <FcCheckmark />
-              ) : errors.quote ? (
-                <div className=' text-red-500'>
-                  <MdClose />
-                </div>
-              ) : null}
-            </div>
-            <input
-              type="text"
-              {...register('quote')}
-              autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.quote && 'border-red-500'
-                }`}
-              name='quote'
-              id='quote'
-              placeholder='Reason Of Current Visit'
-              cols='20'
-            />
-            {/* <span hidden={watch('quot')} className='absolute text-red-400 text-sm font-medium  top-9 left-[170px]'>(optional)</span> */}
-
-            {errors.quote && (
-              <p className='text-red-500 text-sm'>{errors.quote.message}</p>
-            )}
-          </div>
+          
+        
 
           <div className='col-lg-12 mb-4 relative'>
             <label className='block text-sm font-medium mb-1' htmlFor='quote'>

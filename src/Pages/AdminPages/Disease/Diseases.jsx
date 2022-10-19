@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { callApi } from '../../../../utils/CallApi';
+import { callApi } from '../../../utils/CallApi';
 import { IoEyeOutline } from "react-icons/io5";
-// import ViewEditInspire from "../../components/Popups/ViewEditInspire"
 import { toast, ToastContainer } from 'react-toastify';
-import ViewEditProduct from '../../../../components/Popups/ViewEditProduct';
-import DeletePopup from '../../../../components/deletePopups/DeletePopups';
-// import DeletePopup from '../../components/deletePopups/DeletePopups';/
+import DeletePopup from '../../../components/deletePopups/DeletePopups';
+import ViewEditDisease from '../../../components/Popups/ViewEditDisease';
 
-const Products = () => {
+
+const Diseases = () => {
 
   const [allInspires, setallInspires] = useState([])
   const [inspirePopup, setinspirePopup] = useState(false)
@@ -20,7 +19,7 @@ const Products = () => {
     e.stopPropagation()
     setinspirePopup(true)
     setinspireMode(mode)
-    // setinspireRow(data)
+    setinspireRow(data)
   }
 
   const deletePopToggle = (id) => {
@@ -33,7 +32,7 @@ const Products = () => {
       id: delId
     }
     try {
-      const res = await callApi("/products/removeProduct", "post", value)
+      const res = await callApi("/diseases/removeDisease", "post", value)
       if (res.status === "Success") {
         toast.success(res.message);
         setDelPopup(false)
@@ -60,14 +59,13 @@ const Products = () => {
             offset: 0,
             limit: 50,
             query: {
-              critarion: { active: true, "quoteColor": "Red" },
+              critarion: { active: true,  },
               addedby: "_id email first_name",
               lastModifiedBy: "_id email first_name"
             }
           }
-          const response = await callApi("/quotes/getQuotesWithFullDetails", "post", payload)
-
-          setallInspires(response.data.quotes)
+          const response = await callApi("/diseases/getDiseasesWithFullDetails", "post", payload)
+          setallInspires(response.data.diseases)
         } catch (error) {
           console.log(error);
         }
@@ -80,12 +78,7 @@ const Products = () => {
 
   return (
     <div className='bscontainer-fluid'>
-      <ViewEditProduct
-        id="user-modal"
-        data={inspireRow}
-        mode={inspireMode}
-        modalOpen={inspirePopup}
-        onClose={() => setinspirePopup(false)} />
+      <ViewEditDisease id="job-modal" data={inspireRow} mode={inspireMode} modalOpen={inspirePopup} onClose={() => setinspirePopup(false)} />
       {delPopup && <DeletePopup permition={delPopup} callback={deleteInspire} Toggle={() => setDelPopup(false)} />}
 
       <ToastContainer
@@ -110,22 +103,22 @@ const Products = () => {
                 </svg>
               </li>
               <li className="flex items-center">
-                Products
+                Catagory
               </li>
             </ul>
           </div>
 
-          <Link to="create-products" className="p-2 flex items-center rounded-sm w-[20%] bg-red-500 hover:bg-green-600 text-white" >
+          <Link to="create-disease" className="p-2 flex items-center rounded-sm w-[20%] bg-red-500 hover:bg-green-600 text-white" >
             <svg className="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
               <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
             </svg>
-            <span className="ml-2">Create Product</span>
+            <span className="ml-2">Create Disease</span>
           </Link>
         </div>
         <div className='col-12 border'>
           <div className="bg-white shadow-lg rounded-sm border border-slate-200 relative">
             <header className="px-5 py-4">
-              <h2 className="font-semibold text-slate-800">All Products <span className="text-slate-400 font-medium">{allInspires.length}</span></h2>
+              <h2 className="font-semibold text-slate-800">All Categories <span className="text-slate-400 font-medium">{allInspires?.length}</span></h2>
             </header>
           </div>
           <div>
@@ -134,22 +127,14 @@ const Products = () => {
                 <thead className="text-xs font-semibold uppercase text-slate-500 bg-slate-50 border-t border-b border-slate-200">
                   <tr>
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                      <div className="font-semibold text-left">P_ID</div>
+                      <div className="font-semibold text-left">ID</div>
                     </th>
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                      <div className="font-semibold text-left">P_NAME</div>
+                      <div className="font-semibold text-left"> DISEASE NAME</div>
                     </th>
+
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                      <div className="font-semibold text-left">P_SSN</div>
-                    </th>
-                    <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                      <div className="font-semibold text-left">P_CATEGORY</div>
-                    </th>
-                    <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                      <div className="font-semibold text-left">ADDED BY</div>
-                    </th>
-                    <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                      <div className="font-semibold text-left">P_IMAGE</div>
+                      <div className="font-semibold text-left">DISEASE TYPE</div>
                     </th>
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                       <div className="font-semibold text-left">Actions</div>
@@ -165,20 +150,12 @@ const Products = () => {
                           <div className="text-left">{inspire._id}</div>
                         </td>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.authorName}</div>
+                          <div className="text-left">{inspire.diseaseName}</div>
                         </td>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.quoteColor}</div>
+                          <div className="text-left">{inspire.diseaseType}</div>
                         </td>
-                        <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.quoteDate}</div>
-                        </td>
-                        <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.quoteText}</div>
-                        </td>
-                        <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.active ? "Active" : "Deactive"}</div>
-                        </td>
+                       
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                           <div className="space-x-1">
                             <button className="text-slate-400 hover:text-slate-500 rounded-full" onClick={(e) => openInspirePopup(e, "edit", inspire)}>
@@ -207,16 +184,9 @@ const Products = () => {
             </div>
           </div>
         </div>
-        <button onClick={(e) => openInspirePopup(e)} className="text-rose-500 hover:text-rose-600 rounded-full">
-          <span className="sr-only">Delete</span>
-          <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32">
-            <path d="M13 15h2v6h-2zM17 15h2v6h-2z" />
-            <path d="M20 9c0-.6-.4-1-1-1h-6c-.6 0-1 .4-1 1v2H8v2h1v10c0 .6.4 1 1 1h12c.6 0 1-.4 1-1V13h1v-2h-4V9zm-6 1h4v1h-4v-1zm7 3v9H11v-9h10z" />
-          </svg>
-        </button>
       </div>
     </div>
   )
 }
 
-export default Products
+export default Diseases

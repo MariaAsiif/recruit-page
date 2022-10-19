@@ -10,6 +10,7 @@ import {
   GiInjustice,
   GiScrollUnfurled,
   GiScrollQuill,
+  GiMedicines,
 } from 'react-icons/gi';
 import {
   MdOutlinePolicy,
@@ -155,6 +156,32 @@ const SidebarObj = () => {
             // {
             //     label: "Fintech",
             //     pathname: "/dashboard/fintech",
+            // },
+          ],
+        },
+        {
+          label: 'Manage I Disease',
+          leftIcon: <GiMedicines size={22} className=' hover:text-black' />,
+          activeLeftIcon: (
+            <GiMedicines size={22} className=' text-green-500' />
+          ),
+          rightIcon: 'sadf',
+          path: '/disease',
+          pathname: 'disease',
+          subMenuItems: [
+            {
+              label: 'All Diseases',
+              path: '/disease',
+              subMenuItems: [],
+            },
+            {
+              label: 'Create Disease',
+              path: '/disease/create-disease',
+              subMenuItems: [],
+            },
+            // {
+            //     label: "Fintech",
+            //     path: "/dashboard/fintech",
             // },
           ],
         },

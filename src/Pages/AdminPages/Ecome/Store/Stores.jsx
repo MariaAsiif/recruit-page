@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { callApi } from '../../../../utils/CallApi';
+import { callApi, HOSTNAME } from '../../../../utils/CallApi';
 import moment from "moment"
 import { IoEyeOutline } from "react-icons/io5";
 // import ViewEditInspire from "../../components/Popups/ViewEditInspire"
@@ -62,14 +62,14 @@ const Stores = () => {
                         offset: 0,
                         limit: 50,
                         query: {
-                            critarion: { active: true, "quoteColor": "Red" },
+                            critarion: { active: true },
                             addedby: "_id email first_name",
                             lastModifiedBy: "_id email first_name"
                         }
                     }
                     const response = await callApi("/stores/getStoresWithFullDetails", "post", payload)
 
-                    setallInspires(response.data.quotes)
+                    setallInspires(response.data.stores)
                 } catch (error) {
                     console.log(error);
                 }
@@ -83,7 +83,7 @@ const Stores = () => {
     return (
         <div className='bscontainer-fluid'>
             <ViewEditStore id="job-modal" data={inspireRow} mode={inspireMode} modalOpen={inspirePopup} onClose={() => setinspirePopup(false)} />
-             {delPopup && <DeletePopup permition={delPopup} callback={deleteInspire} Toggle={() => setDelPopup(false)} />} 
+            {delPopup && <DeletePopup permition={delPopup} callback={deleteInspire} Toggle={() => setDelPopup(false)} />}
 
             <ToastContainer
                 position="top-right"
@@ -131,20 +131,28 @@ const Stores = () => {
                                 <thead className="text-xs font-semibold uppercase text-slate-500 bg-slate-50 border-t border-b border-slate-200">
                                     <tr>
                                         <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                            <div className="font-semibold text-left">ID</div>
-                                        </th>
-                                        <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                            <div className="font-semibold text-left">REGISTRATION NO</div>
+                                            <div className="font-semibold text-left">IMAGE</div>
                                         </th>
                                         <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                             <div className="font-semibold text-left"> STORE NAME</div>
                                         </th>
 
                                         <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                            <div className="font-semibold text-left">QUOTE DATE </div>
+                                            <div className="font-semibold text-left"> STORE OWNER</div>
                                         </th>
                                         <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                            <div className="font-semibold text-left">IMAGE </div>
+                                            <div className="font-semibold text-left">REGISTRATION NO</div>
+                                        </th>
+
+                                        <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                            <div className="font-semibold text-left">DOB </div>
+                                        </th>
+                                        <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                            <div className="font-semibold text-left">START DATE </div>
+                                        </th>
+
+                                        <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                            <div className="font-semibold text-left">CONTACT NO</div>
                                         </th>
 
                                         <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
@@ -154,27 +162,34 @@ const Stores = () => {
 
                                 </thead>
                                 <tbody className="text-sm divide-y divide-slate-200">
-                                    {/* {allInspires.map((inspire) => {
+                                    {allInspires.map((inspire) => {
                                         return (
                                             <tr key={inspire._id}>
-                                                <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                                {/* <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                     <div className="text-left">{inspire._id}</div>
+                                                </td> */}
+                                                <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                                    <img src={`${HOSTNAME}${inspire?.businessImage}`} className="w-[100%] h-[50px] object-cover"/>
+                                                </td>                                                               
+                                                <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                                    <div className="text-left">{inspire.storeName}</div>
                                                 </td>
                                                 <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                    <div className="text-left">{inspire.authorName}</div>
+                                                    <div className="text-left">{inspire.storeOwner}</div>
                                                 </td>
                                                 <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                    <div className="text-left">{inspire.quoteColor}</div>
+                                                    <div className="text-left">{inspire.registrationNo}</div>
                                                 </td>
                                                 <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                    <div className="text-left">{inspire.quoteDate}</div>
+                                                    <div className="text-left">{inspire.dob}</div>
                                                 </td>
                                                 <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                    <div className="text-left">{inspire.quoteText}</div>
+                                                    <div className="text-left">{ moment(inspire.storeStartDate).format('ll')}</div>
                                                 </td>
                                                 <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                    <div className="text-left">{inspire.active ? "Active" : "Deactive"}</div>
+                                                    <div className="text-left">{inspire.contactNo}</div>
                                                 </td>
+
                                                 <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                                                     <div className="space-x-1">
                                                         <button className="text-slate-400 hover:text-slate-500 rounded-full" onClick={(e) => openInspirePopup(e, "edit", inspire)}>
@@ -197,14 +212,14 @@ const Stores = () => {
                                                 </td>
                                             </tr>
                                         )
-                                    })} */}
+                                    })}
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
 
-                
+
             </div>
         </div>
     )

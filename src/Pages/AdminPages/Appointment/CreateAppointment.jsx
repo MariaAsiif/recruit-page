@@ -11,7 +11,7 @@ import SurgicalHistory from '../../../components/AdminComponents/Appointments/Su
 import UserInfo from '../../../components/AdminComponents/Appointments/userInfo'
 
 const CreateAppointment = () => {
-  const listName = ["", "", "Category / Sedule", "Medical History", "Prvious Consulatation", "Surgical History", "Social History", "Consultation Type", "Submit"]
+  const listName = ["", "", "Category / Schedule", "Medical History", "Prvious Consulatation", "Surgical History", "Social History", "Consultation Type", "Submit"]
   const [active, setActive] = useState(0)
   const [activeIndex, setActiveIndex] = useState({
     one: false,
@@ -114,7 +114,7 @@ const CreateAppointment = () => {
                 <div className='lg:w-[4%] w-[8%] text-center relative'>
                   <div className={`${activeIndex.one === true && 'rounded-full border bg-[#DB4446] text-white'} pt-2 text-sm w-[40px] h-[40px] rounded-full border`}>02</div>
                   <span className='absolute bg-white hidden lg:inline  z-10 -left-10 mt-2 w-24 text-[10px] font-semibold text-[#464A53] font-sans'>
-                    Category / Sedule
+                    Category / Schedule
                   </span>
                 </div>
                 <div className={`${activeIndex.two === true ? 'bg-gradient-to-r from-[#DB4446] to-[#E9644F]' : 'bg-gray-100'} md:w-[25%] md:-ml-5 h-2 lg:w-[10%] w-[10.6%]`}></div>

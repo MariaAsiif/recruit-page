@@ -105,6 +105,8 @@ import CreateStore from './Pages/AdminPages/Ecome/Store/CreateStore';
 import Stores from './Pages/AdminPages/Ecome/Store/Stores';
 import Notifications from './components/NewDashboardComponents/Notifications';
 import Table from './components/GlobalComponents/TableComponent';
+import Diseases from './Pages/AdminPages/Disease/Diseases';
+import CreateDisease from './Pages/AdminPages/Disease/CreateDisease';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -225,6 +227,19 @@ function App() {
           <Route path='category/create-category' element={<CreateCategory />} />
           <Route path='store/create-store' element={<CreateStore />} />
         </Route>
+
+        <Route
+          path='/disease'
+          element={
+            <RequireAuth>
+              <MainWrapper />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<Diseases />} />
+          <Route path='create-disease' element={<CreateDisease />} />
+        </Route>
+
 
 
         <Route

@@ -2,7 +2,8 @@ import React from 'react'
 
 import Chat from './SmallComponents/Chat';
 import Notify from './SmallComponents/Notify';
-import { CiSearch } from "react-icons/ci";
+// import { CiSearch } from "react-icons/ci";
+import { FiSearch } from "react-icons/fi";
 const NewDashboardHeader = ({ sidebarOpen, setSidebarOpen, setprofileBar }) => {
     return (
         <header style={{ boxShadow: "0px 0px 6px #00000029" }} className="sticky top-0 z-30 bg-[#4DA676] border-b border-slate-200">
@@ -50,7 +51,7 @@ const NewDashboardHeader = ({ sidebarOpen, setSidebarOpen, setprofileBar }) => {
                             <div className=' col-lg-6 col-7 grow'>
                                 <div className='flex items-center m-auto  px-3 rounded-full bg-[#E3E3E372]'>
                                     <input placeholder='Search anything here' className='w-full py-1 bg-transparent focus:outline-none text-[#A7A7A7] placeholder:text-[#A7A7A7]' />
-                                    <CiSearch className='inline' />
+                                    <FiSearch className='inline' />
                                 </div>
                             </div>
                             <div className='flex items-center justify-center col-lg-1 col-3'>

@@ -196,7 +196,7 @@ const Category = ({ handleNext, handleBack }) => {
             </select>
           </div>
 
-          <h2 className='text-[18px] font-medium mb-2'>Secdual </h2>
+          <h2 className='text-[18px] font-medium mb-2'>Schedule </h2>
 
           <div className='col-lg-6 mb-4 '>
             <label className='block text-sm font-medium mb-1 '>

@@ -273,33 +273,41 @@ const UserInfo = ({ handleNext }) => {
             <label className='block text-sm font-medium  '>
               Family Doctor Name
             </label>
-            <div className='relative -mt-2'>
-              <select
-                name="state"
-                id="state"
-                className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full   ${errors.occupation && 'border-red-500'}`}
-              >
-                <option>Select Doctor</option>
-                <option>Plumbber</option>
-                <option>Farmer</option>
-                <option>Officer</option>
-              </select>
+            <div className='relative '>
+            <input
+              {...register('doctorFax')}
+              autoComplete='off'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.doctorFax && 'border-red-400'
+                }`}
+              name='doctorFax'
+              id='doctorFax'
+              type='text'
+              placeholder=' Other Referral Source'
+            />
+
+            {errors.doctorFax && (
+              <p className='text-red-500 text-sm'>{errors.doctorFax.message}</p>
+            )}
             </div>
           </div>
           <div className='col-lg-4 mb-4 relative'>
-            <label className='block text-sm font-medium ' htmlFor='name'>
+            <label className='block text-sm font-medium  ' htmlFor='name'>
               Referring Doctor Name
             </label>
-            <select
-              name="state"
-              id="state"
-              className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full   ${errors.occupation && 'border-red-500'}`}
-            >
-              <option>Select Doctor</option>
-              <option>Plumbber</option>
-              <option>Farmer</option>
-              <option>Officer</option>
-            </select>
+            <input
+              {...register('doctorFax')}
+              autoComplete='off'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.doctorFax && 'border-red-400'
+                }`}
+              name='doctorFax'
+              id='doctorFax'
+              type='text'
+              placeholder=' Other Referral Source'
+            />
+
+            {errors.doctorFax && (
+              <p className='text-red-500 text-sm'>{errors.doctorFax.message}</p>
+            )}
           </div>
           <div className='col-lg-4 mb-4 '>
             <label className='block text-sm font-medium  '>
@@ -364,18 +372,20 @@ const UserInfo = ({ handleNext }) => {
             <label className='block text-sm font-medium  '>
               Other Referral Source
             </label>
-            <div className='relative -mt-2'>
-              <select
-                name="state"
-                id="state"
-                className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full   ${errors.occupation && 'border-red-500'}`}
-              >
-                <option>Select Doctor</option>
-                <option>Plumbber</option>
-                <option>Farmer</option>
-                <option>Officer</option>
-              </select>
-            </div>
+            <input
+              {...register('doctorFax')}
+              autoComplete='off'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.doctorFax && 'border-red-400'
+                }`}
+              name='doctorFax'
+              id='doctorFax'
+              type='text'
+              placeholder=' Other Referral Source'
+            />
+
+            {errors.doctorFax && (
+              <p className='text-red-500 text-sm'>{errors.doctorFax.message}</p>
+            )}
           </div>
           <div className='col-lg-12 mb-4 relative'>
             <label className='block text-sm font-medium ' htmlFor='quote'>
