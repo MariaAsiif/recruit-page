@@ -151,12 +151,12 @@ const ViewEditStore = ({ id, modalOpen, onClose, mode, data }) => {
                                     <label className="block text-lg font-medium mb-1" htmlFor="description">REGISTRATION NO</label>
                                     {mode === "view" ?
                                         (
-                                            <p>{data.quoteText}</p>
+                                            <p>{data.registrationNo}</p>
                                         ) : (
 
-                                            <input  {...register("quoteText", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.quoteText ? "border-red-500" : "border-green-500"}`} />
+                                            <input  {...register("registrationNo", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.registrationNo ? "border-red-500" : "border-green-500"}`} />
                                         )}
-                                    {errors.quoteText && <span className='text-red-500'>This field is required</span>}
+                                    {errors.registrationNo && <span className='text-red-500'>This field is required</span>}
                                 </div>
                                 <div className='col-lg-4 mb-5'>
                                     <label className="block text-lg font-medium mb-1" htmlFor="description"> STORE OWNER</label>

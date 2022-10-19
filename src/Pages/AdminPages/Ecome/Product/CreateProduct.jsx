@@ -29,18 +29,21 @@ const schema = yup.object({
   salePrice: yup.string().required('salePrice is Required'),
   desc: yup.string().required('Description is Required'),
   store: yup.string().required('Store is Required'),
-  image: yup.string().required('Image is Required'),
+  image: yup.mixed().test("required" ,'Image is Required' , value => {
+    return value && value.length
+  } )
 });
 const CreateProduct = () => {
   const [tags, setTags] = useState([])
   const [showInStoreFront, setshowInStoreFront] = useState(true);
   const [isReturnable, setisReturnable] = useState(true);
   const [isFeatured, setisFeatured] = useState(true);
-  const [isOnSale, setisOnSale] = useState(false);
+  const [isOnSale, setisOnSale] = useState(true);
   const [active, setactive] = useState(true);
   const [image, setImage] = useState("");
   const [tagError, setTagError] = useState("");
   const [allcatagories, setallcatagories] = useState([])
+  const [allstores , setallIStores ] = useState([])
   const {
     register,
     watch,
@@ -68,11 +71,11 @@ const CreateProduct = () => {
       productTitle: data.name,
       productCategories: data.category,
       productDescritpion: data.desc,
-      showInStoreFront: true,
+      showInStoreFront: showInStoreFront,
       tags: tags,
       brand: data.brand,
-      isReturnable: true,
-      isFeatured: true,
+      isReturnable: isReturnable,
+      isFeatured: isFeatured,
       rate: data.rate,
       initialStock: data.initialStock,
       lowStockLimit: data.lowStockLimit,
@@ -87,10 +90,10 @@ const CreateProduct = () => {
       upc: data.upc,
       mpn: data.mpn,
       isbn: data.isbn,
-      productImagesURLs: image,
+      productImagesURLs: data.image[0],
       salePrice: data.salePrice,
-      isOnSale: false,
-      active: true,
+      isOnSale: isOnSale,
+      active: active,
       store: "632da8fd612c3f4220c623b5"
     }
     if (tags?.length > 0) {
@@ -121,9 +124,21 @@ const CreateProduct = () => {
             lastModifiedBy: "_id email first_name"
           }
         }
-        const response = await callApi("/productcategories/getcategories", "post", payload)
-
-        setallcatagories(response.data.categories)
+        const payloadStore = {
+          sortproperty: "created_at",
+          sortorder: -1,
+          offset: 0,
+          limit: 50,
+          query: {
+            critarion: { active: true },
+            addedby: "_id email first_name",
+            lastModifiedBy: "_id email first_name"
+          }
+        }
+        const responseCata = await callApi("/productcategories/getcategories", "post", payload)
+        setallcatagories(responseCata.data.categories)
+        const responseStore = await callApi("/stores/getStoresWithFullDetails", "post", payloadStore)
+        setallIStores(responseStore.data.stores)
       } catch (error) {
         console.log(error);
       }
@@ -285,7 +300,7 @@ const CreateProduct = () => {
                 className={"custom-react-tagsinput"}
                 inputProps={{
                   className: 'custom-react-tagsinput-input',
-                  placeholder:'add a tag'
+                  placeholder: 'add a tag'
                 }}
                 value={tags}
                 onChange={handleAreaofInterest}
@@ -879,9 +894,9 @@ const CreateProduct = () => {
               className={`border p-[10px] lg:-mt-[1px] focus:outline-blue-500 rounded-sm w-full   ${errors.store && 'border-red-500'}`}
             >
               <option value="">Select Store </option>
-              <option >Super Admin</option>
-              <option >Admin</option>
-              <option >Hr</option>
+              {allstores.map((store ) =>(
+                <option key={store._id} value={store._id}>{store.storeName}</option>
+              ))}
             </select>
             {errors.store && (
               <p className="text-red-500 text-sm">{errors.store.message}</p>
@@ -891,9 +906,13 @@ const CreateProduct = () => {
 
           <div className='col-lg-6 mb-4 relative'>
             <label className="block text-sm font-medium mb-1" htmlFor="city">Image</label>
-            <div className='border p-1'>
-              <input type="file" onChange={(e) => setImage(e.target.files[0])} name="image" />
+            <div className={`border p-1  focus:outline-blue-500 rounded-sm w-full   ${errors.image && 'border-red-500'}`}
+>
+              <input type="file" {...register('image')} name="image" />
             </div >
+            {errors.image && (
+              <p className="text-red-500 text-sm">{errors.image.message}</p>
+            )}
           </div>
 
           <div className='col-lg-12 mb-4 relative'>
