@@ -163,7 +163,7 @@ const ConsultationType = ({ handleNext, handleBack }) => {
 
                     <div className='col-lg-4 mb-4 relative'>
                         <label className='block text-sm font-medium mb-1' htmlFor='name'>
-                            consultationFee
+                            Consultation Fee
                         </label>
                         <div className='absolute right-5 top-10'>
                             {!errors.name && watch('name') ? (
@@ -225,7 +225,7 @@ const ConsultationType = ({ handleNext, handleBack }) => {
 
                     <div className='col-lg-4 mb-4 '>
                         <label className='block text-sm font-medium mb-1 '>
-                            Medical Files
+                           Pictures
                         </label>
                         <div className='relative'>
                             <input
@@ -236,7 +236,7 @@ const ConsultationType = ({ handleNext, handleBack }) => {
                     </div>
                     <div className='col-lg-4 mb-4 '>
                         <label className='block text-sm font-medium mb-1 '>
-                            Medical Files
+                            Videos
                         </label>
                         <div className='relative'>
                             <input

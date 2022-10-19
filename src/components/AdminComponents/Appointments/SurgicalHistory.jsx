@@ -191,17 +191,39 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
 
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Operation Result
+              Past Operations
             </label>
 
-            <select
-              className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]  `}
+            <div className='absolute right-5 top-10'>
+              {!errors.name && watch('name') ? (
+                <FcCheckmark />
+              ) : errors.name ? (
+                <div className=' text-red-500'>
+                  <MdClose />
+                </div>
+              ) : null}
+            </div>
+            <input
+              {...register('name')}
+              autoComplete='off'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.name && 'border-red-400'
+                }`}
+              name='name'
+              id='name'
+              type='text'
+              placeholder='Past Operation'
+            />
+            <span
+              hidden={watch('name')}
+              className='absolute text-red-400 text-lg font-medium  top-9 left-[170px]'
             >
-              <option>Select operationResult</option>
-              <option>Admin</option>
-              <option>Super Admin</option>
-              <option>Hr</option>
-            </select>
+              *
+            </span>
+
+            {errors.name && (
+              <p className='text-red-500 text-sm'>{errors.name.message}</p>
+            )}
+
 
 
           </div>
@@ -304,10 +326,35 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
             )}
           </div>
 
-          <div className='col-lg-4 mb-4 relative'>
+          <div className='col-lg-2 mb-4 relative'>
             <div>
               <div className='text-sm text-slate-800 font-semibold mb-3'>
                 Taking Now
+              </div>
+              <div className='flex items-center'>
+
+                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                  <input type="checkbox"
+                    checked={companySetting}
+                    onChange={() => setCompanySetting(!companySetting)}
+                    id="default-toggle"
+                    class="sr-only peer"
+                  />
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                  <div className='text-sm text-slate-400 italic ml-2'>
+                    {companySetting ? 'True' : 'False'}
+                  </div>
+                </label>
+
+
+
+              </div>
+            </div>
+          </div>
+          <div className='col-lg-2 mb-4 relative'>
+            <div>
+              <div className='text-sm text-slate-800 font-semibold mb-3'>
+                Is Surgery Done
               </div>
               <div className='flex items-center'>
 

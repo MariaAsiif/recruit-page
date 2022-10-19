@@ -184,14 +184,10 @@ const Schedule = ({ handleNext, handleBack }) => {
               Specialization
             </label>
 
-            <select
+            <input type="text" placeholder='Specialization'
               className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]  `}
-            >
-              <option>Select Specialization</option>
-              <option>Admin</option>
-              <option>Super Admin</option>
-              <option>Hr</option>
-            </select>
+            />
+              
 
 
           </div>
@@ -266,7 +262,7 @@ const Schedule = ({ handleNext, handleBack }) => {
           <div className="flex justify-between">
             <h2 className='mb-3 font-medium'>Family Diseases</h2>
             <button className='p-2 mb-3 flex items-center bg-red-500 hover:bg-green-600 text-white'>
-             Add <BsPlusCircle className='ml-2'/>
+              Add <BsPlusCircle className='ml-2' />
             </button>
           </div>
           <div className='col-lg-12 mb-4 border '>
@@ -277,67 +273,28 @@ const Schedule = ({ handleNext, handleBack }) => {
                   Disease
                 </label>
 
-                <select
+                <input type="text" {...register('disease')} placeholder="Disease"
                   className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]  `}
-                >
-                  <option>Select Disease</option>
-                  <option>Admin</option>
-                  <option>Super Admin</option>
-                  <option>Hr</option>
-                </select>
-
+                />
 
               </div>
 
               <div className='col-lg-4 mb-4 relative'>
-                <div>
-                  <div className='text-sm text-slate-800 font-semibold mb-3'>
-                    Nagative / Positive
-                  </div>
-                  <div className='flex items-center'>
 
-                    <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
-                      <input type="checkbox"
-                        checked={companySetting}
-                        onChange={() => setCompanySetting(!companySetting)}
-                        id="default-toggle"
-                        class="sr-only peer"
-                      />
-                      <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                      <div className='text-sm text-slate-400 italic ml-2'>
-                        {companySetting ? 'Positive' : 'Negative'}
-                      </div>
-                    </label>
-
-
-
-                  </div>
-                </div>
+                <button className='p-2 ml-2 mt-7 h-[10] bg-red-500 hover:bg-green-600 text-white'>
+                  <MdDelete />
+                </button>
               </div>
 
-              <div className='col-lg-4 mb-4 '>
-                <label className='block text-sm font-medium mb-1 '>
-                  Medical Files
-                </label>
-                <div className='relative flex '>
-                  <input
-                    type="file"
-                    className={`border p-2 focus:outline-blue-500 rounded-sm w-full  `}
-                  />
-                  <button className='p-2  ml-2 h-full bg-red-500 hover:bg-green-600 text-white'>
-                  <MdDelete/>
-                  </button>
-                </div>
-              </div>
 
             </div>
           </div>
 
           <div className='col-lg-12 flex justify-between'>
-            <button onClick={(e) => handleBack( e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
+            <button onClick={(e) => handleBack(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Back
             </button>
-            <button onClick={(e) => handleNext( e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
+            <button onClick={(e) => handleNext(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Next
             </button>
           </div>

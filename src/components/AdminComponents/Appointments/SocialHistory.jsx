@@ -228,14 +228,12 @@ const SocialHistory = ({ handleNext, handleBack }) => {
             Last Time Used
             </label>
             <div className='relative flex items-center'>
-              <DatePicker
-                value={quoteDate}
-                name='quoteDate'
-                onChange={(date) => setquoteDate(date)}
-                renderInput={renderCustomInput} // render a custom input
-                shouldHighlightWeekends
-                calendarPopperPosition='bottom'
-              />
+              <input type="text"
+               {...register('lastTime')}
+               autoComplete='off'
+               className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.lastTime && 'border-red-400'
+                 }`}
+              placeholder='Last Time Used' />
               {/* <button className='p-2 ml-2 bg-red-500 hover:bg-green-600 text-white'>
                 <MdDelete />
               </button> */}
