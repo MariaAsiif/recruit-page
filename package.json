@@ -52,6 +52,7 @@
     "react-time-picker-input": "^2.0.10",
     "react-toastify": "^9.0.8",
     "react-transition-group": "^4.4.5",
+    "reactstrap": "^9.1.4",
     "redux-persist": "^6.0.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.6",
