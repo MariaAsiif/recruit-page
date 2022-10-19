@@ -6,25 +6,22 @@ import { FcCheckmark } from 'react-icons/fc'
 // ========================= 3rd party packages
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import moment from "moment"
 // import { FcCheckmark } from 'react-icons/fc'
 import { toast, ToastContainer } from 'react-toastify';
-
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import axios from 'axios';
 
 
 
 const ViewEditStore = ({ id, modalOpen, onClose, mode, data }) => {
     const modalContent = useRef(null);
-    const { register, reset, handleSubmit, formState: { errors } } = useForm({ mode: 'onChange ', });
+    const { register, reset, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onChange ', });
     const [quoteDate, setquoteDate] = useState({ day: 10, month: 8, year: 2022 })
-
-    // const handleChangeDate = (data) => {
-    //     const date = moment(data).format('yyyy-M-D').split('-')
-
-    //     // setquoteDate({ day: +date[2], month: +date[1], year: +date[0] })
-    //     console.log("quots", date)
-    // }
+    const [dob, setDob] = useState({ day: 10, month: 8, year: 2022 })
+    const [countryCode, setCountryCode] = useState('');
 
 
 
@@ -63,6 +60,18 @@ const ViewEditStore = ({ id, modalOpen, onClose, mode, data }) => {
         </div >
     )
 
+    // ****************** Datepicker Content ***********
+    const renderCustomInputDob = ({ ref }) => (
+        < div className='relative cursor-pointer'>
+            <input readOnly ref={ref} // necessary  placeholder="yyy-mm-dd"
+                value={dob ? `${dob.year}/${dob.month}/${dob.day}` : ''}
+                className={`date_picker border p-2 w-full focus:outline-blue-500 rounded-sm  z-30  px-2 py-2  `}
+            />
+            <div className={`visible absolute top-3 cursor-pointer right-5`}>   <FcCheckmark />   </div>
+
+        </div >
+    )
+
 
     useEffect(() => {
         const keyHandler = ({ keyCode }) => {
@@ -74,10 +83,26 @@ const ViewEditStore = ({ id, modalOpen, onClose, mode, data }) => {
     });
     useEffect(() => {
         reset(data);
-        // var parts = data?.quoteDate?.split('-');
-        // var mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
+
+        try {
+            const fetchData = async () => {
+                const response = await axios(
+                    'https://api.ipregistry.co/?key=m7irmmf8ey12rx7o'
+                );
+                let id = response.data.location.country.tld;
+                let removeDot = id.replace('.', '');
+                setCountryCode(removeDot);
+
+            };
+            fetchData();
+        } catch (error) {
+            console.log(error);
+        }
+
         const date = moment(data?.storeStartDate).format('yyyy-M-D').split('-')
         setquoteDate({ day: +date[2], month: +date[1], year: +date[0] })
+        const dobDate = moment(data?.dob).format('yyyy-M-D').split('-')
+        setDob({ day: +dobDate[2], month: +dobDate[1], year: +dobDate[0] })
     }, [data, reset]);
 
     return (
@@ -171,7 +196,23 @@ const ViewEditStore = ({ id, modalOpen, onClose, mode, data }) => {
                                         )}
                                     {errors.quoteColor && <span className='text-red-500'>This field is required</span>}
                                 </div>
-                                <div className='col-lg-4 mb-5'>
+                                <div className='col-lg-6 mb-5'>
+                                    <label className="block text-lg font-medium mb-1" htmlFor="description"> DATE OF BIRTH</label>
+                                    {mode === "view" ?
+                                        (
+                                            <p>{moment(data.dob).format('MM/DD/YYYY')}</p>
+                                        ) : (
+                                            <DatePicker
+                                                value={dob}
+                                                onChange={(date) => setDob(date)}
+                                                renderInput={renderCustomInputDob} // render a custom input
+                                                shouldHighlightWeekends
+                                            // calendarPopperPosition="bottom"
+                                            />
+                                        )}
+                                </div>
+
+                                <div className='col-lg-6 mb-5'>
                                     <label className="block text-lg font-medium mb-1" htmlFor="description"> STORE START DATE</label>
                                     {mode === "view" ?
                                         (
@@ -186,6 +227,71 @@ const ViewEditStore = ({ id, modalOpen, onClose, mode, data }) => {
                                             />
                                         )}
                                 </div>
+
+                                <div className='col-lg-6 mb-5'>
+                                    <label className="block text-lg font-medium mb-1" htmlFor="description">CONTACT NO</label>
+                                    {mode === "view" ?
+                                        (
+                                            <p>{moment(data.storeStartDate).format('MM/DD/YYYY')}</p>
+                                        ) : (
+                                            <Controller
+                                                name='phone'
+                                                control={control}
+                                                rules={{ required: true }}
+                                                render={({ field: { onChange, value } }) => (
+                                                    <PhoneInput
+                                                        value={value}
+                                                        enableSearch
+                                                        disableSearchIcon
+                                                        country={countryCode}
+                                                        onChange={onChange}
+                                                        placeholder='000 000 000'
+                                                        // countryCodeEditable={false}
+                                                        className={` w-full  ${errors.phone && 'error_form'}`}
+                                                        dropdownClass={'custom-dropdown'}
+                                                    />
+                                                )}
+                                            />
+                                        )}
+                                </div>
+
+
+                                <div className='col-lg-6 mb-5'>
+                                    <label className='block text-sm font-medium mb-1' htmlFor='quote'>
+                                        IMAGE
+                                    </label>
+                                    {mode === "view" ?
+                                        (
+                                            <img src={data.storeimg} />
+                                        ) : (
+                                            <div
+                                                className={`border mt-3 p-[5px] focus:outline-blue-500 rounded-sm w-full  ${errors.image && 'border-red-400'
+                                                    }`}
+                                            >
+                                                <input type="file"
+                                                    {...register('image')}
+                                                />
+                                            </div>
+                                        )}
+                                    {errors.image && (
+                                        <p className='text-red-500 text-sm'>{errors.image.message}</p>
+                                    )}
+
+
+                                </div>
+
+                                <div className='col-lg-12 mb-5'>
+                                    <label className="block text-lg font-medium mb-1" htmlFor="description">VENDER DE</label>
+                                    {mode === "view" ?
+                                        (
+                                            <p>{data.registrationNo}</p>
+                                        ) : (
+
+                                            <input  {...register("registrationNo", { required: true })} className={`border p-2 w-full focus:outline-blue-500 rounded-sm  ${errors.registrationNo ? "border-red-500" : "border-green-500"}`} />
+                                        )}
+                                    {errors.registrationNo && <span className='text-red-500'>This field is required</span>}
+                                </div>
+
                                 {
                                     mode !== "view" ? (
                                         <div className='col-lg-12'>

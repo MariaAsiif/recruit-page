@@ -306,7 +306,7 @@ const CreateStore = () => {
                 onChange={(date) => setDob(date)}
                 renderInput={renderCustomInputDob} // render a custom input
                 shouldHighlightWeekends
-                calendarPopperPosition='bottom'
+                calendarPopperPosition='top'
               />
             </div>
           </div>
@@ -322,7 +322,7 @@ const CreateStore = () => {
                 onChange={(date) => setquoteDate(date)}
                 renderInput={renderCustomInput} // render a custom input
                 shouldHighlightWeekends
-                calendarPopperPosition='bottom'
+                calendarPopperPosition='top'
               />
             </div>
           </div>

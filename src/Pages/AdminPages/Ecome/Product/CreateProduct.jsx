@@ -94,7 +94,7 @@ const CreateProduct = () => {
       salePrice: data.salePrice,
       isOnSale: isOnSale,
       active: active,
-      store: "632da8fd612c3f4220c623b5"
+      store: data.store
     }
     if (tags?.length > 0) {
       const res = await callApi('/products/createProduct', 'post', value);
