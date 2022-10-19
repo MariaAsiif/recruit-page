@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import logoImage from '../images/logo.png'
 import password_icon from "../images/password_icon.svg"
 import mail_icon from "../images/mail_icon.svg"
-import { AiFillEye } from "react-icons/ai";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import social_group_2x from '../images/social_group_2x.png'
-import OtpVerification from '../components/DASComponents/OtpVerification';
 const DasSignInPage = (props) => {
-    const [active, setactive] = useState("login")
+    const [showPassword, setShowPassword] = useState(false);
+
 
     return (
         <div className='h-screen p-0 bscontainer-fluid '>
@@ -28,8 +27,9 @@ const DasSignInPage = (props) => {
                             <h1 className='ml-8 text-[#707070] font-normal mb-8'>Enter your validated email address</h1>
                             <div className='border-b-2 border-[#707070] pb-1 flex items-center'>
                                 <img src={password_icon} alt="mail icon" />
-                                <input className='w-full px-2 font-sans text-lg font-semibold focus:outline-none text-[#151515]' type="password" placeholder='abc@123' />
-                                <AiFillEye size={33} className='inline' />
+                                <input className='w-full px-2 font-sans text-lg font-semibold focus:outline-none text-[#151515]' type={showPassword ? "text" : "password"} placeholder='abc@123' />
+                                {!showPassword ? <AiFillEyeInvisible size={33} className='inline' onClick={() => setShowPassword(!showPassword)} /> :
+                                    <AiFillEye size={33} className='inline' onClick={() => setShowPassword(!showPassword)} />}
                             </div>
                             <h1 className='ml-8 text-[#707070] font-normal mb-4'>Enter your chosen password…</h1>
                             <label className=' font-medium text-[#151515]'><input id="loggedin" className='mr-3' type="checkbox" name='loggedin' />Keep me logged in</label>
@@ -47,7 +47,7 @@ const DasSignInPage = (props) => {
                     </div>
 
 
-                    {active === "otp" && <OtpVerification />}
+                    {/* {active === "otp" && <OtpVerification />} */}
 
 
                 </div>
