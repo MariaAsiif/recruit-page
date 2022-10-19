@@ -8,8 +8,8 @@ import { FiSearch } from "react-icons/fi";
 const NewDashboardHeader = ({ sidebarOpen, setSidebarOpen, setprofileBar }) => {
     return (
         <header style={{ boxShadow: "0px 0px 6px #00000029" }} className="sticky top-0 z-30 bg-[#4DA676] border-b border-slate-200">
-            <div className="pl-4 bg-white rounded-tl-none sm:pl-6 lg:pl-6 lg:rounded-tl-3xl">
-                <div className="flex items-center justify-between h-[8vh] -mb-px">
+            <div className="py-2 pl-4 bg-white rounded-tl-none sm:pl-6 lg:pl-6 lg:rounded-tl-3xl">
+                <div className="flex items-center justify-between -mb-px">
                     {/* Header: Left side */}
                     <div className="flex   w-[10%] lg:hidden">
 
