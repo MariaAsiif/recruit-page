@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { BiSearch } from 'react-icons/bi';
 import { NavLink, useLocation } from 'react-router-dom';
-import logo from '../../images/logo.png'
+import logo from '../../../images/logo.png'
 const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
     const location = useLocation();
     const { pathname } = location;

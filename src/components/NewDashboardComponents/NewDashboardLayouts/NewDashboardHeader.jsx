@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Chat from './SmallComponents/Chat';
-import Notify from './SmallComponents/Notify';
+import Chat from '../SmallComponents/Chat';
+import Notify from '../SmallComponents/Notify';
 // import { CiSearch } from "react-icons/ci";
 import { BsChevronDown } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
