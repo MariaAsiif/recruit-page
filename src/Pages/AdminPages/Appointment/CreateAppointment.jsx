@@ -25,7 +25,7 @@ const CreateAppointment = () => {
 
 
   const handleNext = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     const increse = active + 1
     console.log("inc", increse)
     if (increse === 1) {
@@ -167,11 +167,11 @@ const CreateAppointment = () => {
             <div className='lg:ml-10 lg:mr-24'>
 
 
-              {active === 0 && <UserInfo handleNext={(e) => handleNext(e)} handleBack={(e) => handleBack(e)} />}
-              {active === 1 && <Category handleNext={(e) => handleNext(e)} handleBack={(e) => handleBack(e)} />}
-              {active === 2 && <History handleNext={(e) => handleNext(e)} handleBack={(e) => handleBack(e)} />}
-              {active === 3 && <Schedule handleNext={(e) => handleNext(e)} handleBack={(e) => handleBack(e)} />}
-              {active === 4 && <SurgicalHistory handleNext={(e) => handleNext(e)} handleBack={(e) => handleBack(e)} />}
+              {active === 1 && <UserInfo handleNext={(e) => handleNext(e)} handleBack={(e) => handleBack(e)} />}
+              {active === 2 && <Category handleNext={(e) => handleNext(e)} handleBack={(e) => handleBack(e)} />}
+              {active === 3 && <History handleNext={(e) => handleNext(e)} handleBack={(e) => handleBack(e)} />}
+              {active === 4 && <Schedule handleNext={(e) => handleNext(e)} handleBack={(e) => handleBack(e)} />}
+              {active === 0 && <SurgicalHistory handleNext={(e) => handleNext(e)} handleBack={(e) => handleBack(e)} />}
               {active === 5 && <SocialHistory handleNext={(e) => handleNext(e)} handleBack={(e) => handleBack(e)} />}
               {active === 6 && <ConsultationType handleNext={(e) => handleNext(e)} handleBack={(e) => handleBack(e)} />}
               {active === 7 && <Submit handleNext={(e) => handleNext(e)} handleBack={(e) => handleBack(e)} />}

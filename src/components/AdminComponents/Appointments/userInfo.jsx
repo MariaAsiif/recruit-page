@@ -1,12 +1,12 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { FcCheckmark } from 'react-icons/fc';
 import { MdClose } from 'react-icons/md';
-import { toast, ToastContainer } from 'react-toastify';
+import {ToastContainer } from 'react-toastify';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { callApi } from '../../../utils/CallApi';
+// import { callApi } from '../../../utils/CallApi';/
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 const schema = yup.object({
@@ -29,7 +29,6 @@ const schema = yup.object({
 const UserInfo = ({ handleNext }) => {
 
 
-  const [companySetting, setCompanySetting] = useState(true);
 
   const {
     register,
@@ -43,19 +42,10 @@ const UserInfo = ({ handleNext }) => {
 
 
 
-  const onSubmit = async (data) => {
-
-    let value = {
-
-    };
-    const res = await callApi('/quotes/createQuote', 'post', value);
-    if (res.status === 'Success') {
-      toast.success(res.message);
-      reset();
-    } else {
-      toast.error(res.message);
-    }
+  const onSubmit = async (e) => {
+   handleNext()
   };
+
 
 
   return (
@@ -71,15 +61,14 @@ const UserInfo = ({ handleNext }) => {
         draggable
         pauseOnHover
       />
-      {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-      <form >
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className='row p-11'>
 
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium ' htmlFor='name'>
               SSN
             </label>
-            <div className='absolute right-5 top-10'>
+            <div className='absolute right-5 top-8'>
               {!errors.ssn && watch('ssn') ? (
                 <FcCheckmark />
               ) : errors.ssn ? (
@@ -100,7 +89,7 @@ const UserInfo = ({ handleNext }) => {
             />
             <span
               hidden={watch('ssn')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[120px]'
+              className='absolute text-red-400 text-lg font-medium top-7 left-[95px]'
             >
               *
             </span>
@@ -132,6 +121,10 @@ const UserInfo = ({ handleNext }) => {
                   />
                 )}
               />
+
+              {errors.homePhone && (
+                <p className='text-red-500 text-sm'>{errors.homePhone.message}</p>
+              )}
             </div>
           </div>
           <div className='col-lg-4 mb-4 '>
@@ -140,7 +133,7 @@ const UserInfo = ({ handleNext }) => {
             </label>
             <div className='relative'>
               <Controller
-                name="homePhone"
+                name="workPhone"
                 control={control}
                 rules={{ required: true }}
                 render={({ field: { onChange, value } }) => (
@@ -152,35 +145,55 @@ const UserInfo = ({ handleNext }) => {
                     onChange={onChange}
                     placeholder="000 000 000"
                     // countryCodeEditable={false}
-                    className={` w-full  ${errors.homePhone && 'error_form'}`}
+                    className={` w-full  ${errors.workPhone && 'error_form'}`}
                     dropdownClass={"custom-dropdown"}
                   />
                 )}
               />
+              {errors.workPhone && (
+                <p className='text-red-500 text-sm'>{errors.workPhone.message}</p>
+              )}
             </div>
           </div>
-          <div className='col-lg-4 mb-4 '>
-            <label className='block text-sm font-medium '>
-              Occupation
+          <div className='col-lg-4 mb-4 relative'>
+            <label className='block text-sm font-medium ' htmlFor='name'>
+              Ocuupataion
             </label>
-            <div className='relative -mt-2'>
-              <select
-                name="state"
-                id="state"
-                className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full   ${errors.occupation && 'border-red-500'}`}
-              >
-                <option>Select Occupation</option>
-                <option>Plumbber</option>
-                <option>Farmer</option>
-                <option>Officer</option>
-              </select>
+            <div className='absolute right-5 top-8'>
+              {!errors.ssn && watch('ssn') ? (
+                <FcCheckmark />
+              ) : errors.ssn ? (
+                <div className=' text-red-500'>
+                  <MdClose />
+                </div>
+              ) : null}
             </div>
+            <input
+              {...register('occupation')}
+              autoComplete='off'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.occupation && 'border-red-400'
+                }`}
+              name='occupation'
+              id='ssn'
+              type='text'
+              placeholder='occupation'
+            />
+            <span
+              hidden={watch('occupation')}
+              className='absolute text-red-400 text-lg font-medium top-8 left-[120px]'
+            >
+              *
+            </span>
+
+            {errors.occupation && (
+              <p className='text-red-500 text-sm'>{errors.occupation.message}</p>
+            )}
           </div>
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium ' htmlFor='name'>
               Emergency Contant Name
             </label>
-            <div className='absolute right-5 top-10'>
+            <div className='absolute right-5 top-8'>
               {!errors.emergencyContantName && watch('emergencyContantName') ? (
                 <FcCheckmark />
               ) : errors.emergencyContantName ? (
@@ -214,7 +227,7 @@ const UserInfo = ({ handleNext }) => {
             <label className='block text-sm font-medium ' htmlFor='name'>
               Emergency Contact Relation
             </label>
-            <div className='absolute right-5 top-10'>
+            <div className='absolute right-5 top-8'>
               {!errors.emergencyContactRelation && watch('emergencyContactRelation') ? (
                 <FcCheckmark />
               ) : errors.emergencyContactRelation ? (
@@ -267,46 +280,67 @@ const UserInfo = ({ handleNext }) => {
                   />
                 )}
               />
+              {errors.emergencyContactPhone && (
+                <p className='text-red-500 text-sm'>{errors.emergencyContactPhone.message}</p>
+              )}
             </div>
           </div>
           <div className='col-lg-4 mb-4 '>
             <label className='block text-sm font-medium  '>
               Family Doctor Name
             </label>
+            <div className='absolute right-5 top-8'>
+              {!errors.familyDoctorName && watch('familyDoctorName') ? (
+                <FcCheckmark />
+              ) : errors.familyDoctorName ? (
+                <div className=' text-red-500'>
+                  <MdClose />
+                </div>
+              ) : null}
+            </div>
             <div className='relative '>
-            <input
-              {...register('doctorFax')}
-              autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.doctorFax && 'border-red-400'
-                }`}
-              name='doctorFax'
-              id='doctorFax'
-              type='text'
-              placeholder=' Other Referral Source'
-            />
+              <input
+                {...register('familyDoctorName')}
+                autoComplete='off'
+                className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.familyDoctorName && 'border-red-400'
+                  }`}
+                name='familyDoctorName'
+                id='familyDoctorName'
+                type='text'
+                placeholder='familyDoctorName'
+              />
 
-            {errors.doctorFax && (
-              <p className='text-red-500 text-sm'>{errors.doctorFax.message}</p>
-            )}
+              {errors.familyDoctorName && (
+                <p className='text-red-500 text-sm'>{errors.familyDoctorName.message}</p>
+              )}
             </div>
           </div>
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium  ' htmlFor='name'>
               Referring Doctor Name
             </label>
+            <div className='absolute right-5 top-8'>
+              {!errors.referringDoctorName && watch('referringDoctorName') ? (
+                <FcCheckmark />
+              ) : errors.referringDoctorName ? (
+                <div className=' text-red-500'>
+                  <MdClose />
+                </div>
+              ) : null}
+            </div>
             <input
-              {...register('doctorFax')}
+              {...register('referringDoctorName')}
               autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.doctorFax && 'border-red-400'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.referringDoctorName && 'border-red-400'
                 }`}
-              name='doctorFax'
-              id='doctorFax'
+              name='referringDoctorName'
+              id='referringDoctorName'
               type='text'
-              placeholder=' Other Referral Source'
+              placeholder='referringDoctorName'
             />
 
-            {errors.doctorFax && (
-              <p className='text-red-500 text-sm'>{errors.doctorFax.message}</p>
+            {errors.referringDoctorName && (
+              <p className='text-red-500 text-sm'>{errors.referringDoctorName.message}</p>
             )}
           </div>
           <div className='col-lg-4 mb-4 '>
@@ -330,15 +364,21 @@ const UserInfo = ({ handleNext }) => {
                     className={` w-full  ${errors.doctorPhone && 'error_form'}`}
                     dropdownClass={"custom-dropdown"}
                   />
+
                 )}
+
               />
+
+              {errors.doctorPhone && (
+                <p className='text-red-500 text-sm'>{errors.doctorPhone.message}</p>
+              )}
             </div>
           </div>
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium ' htmlFor='name'>
               Doctor Fax
             </label>
-            <div className='absolute right-5 top-10'>
+            <div className='absolute right-5 top-8'>
               {!errors.doctorFax && watch('doctorFax') ? (
                 <FcCheckmark />
               ) : errors.doctorFax ? (
@@ -372,19 +412,28 @@ const UserInfo = ({ handleNext }) => {
             <label className='block text-sm font-medium  '>
               Other Referral Source
             </label>
+            <div className='absolute right-5 top-8'>
+              {!errors.otherReferralSource && watch('otherReferralSource') ? (
+                <FcCheckmark />
+              ) : errors.otherReferralSource ? (
+                <div className=' text-red-500'>
+                  <MdClose />
+                </div>
+              ) : null}
+            </div>
             <input
-              {...register('doctorFax')}
+              {...register('otherReferralSource')}
               autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.doctorFax && 'border-red-400'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.otherReferralSource && 'border-red-400'
                 }`}
-              name='doctorFax'
-              id='doctorFax'
+              name='otherReferralSource'
+              id='otherReferralSource'
               type='text'
               placeholder=' Other Referral Source'
             />
 
-            {errors.doctorFax && (
-              <p className='text-red-500 text-sm'>{errors.doctorFax.message}</p>
+            {errors.otherReferralSource && (
+              <p className='text-red-500 text-sm'>{errors.otherReferralSource.message}</p>
             )}
           </div>
           <div className='col-lg-12 mb-4 relative'>
@@ -446,7 +495,7 @@ const UserInfo = ({ handleNext }) => {
             )}
           </div>
           <div className='col-lg-12'>
-            <button onClick={(e) => handleNext(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
+            <button className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Next
             </button>
 

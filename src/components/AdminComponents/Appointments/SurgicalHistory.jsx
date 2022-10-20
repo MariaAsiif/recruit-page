@@ -5,17 +5,21 @@ import { toast, ToastContainer } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { callApi } from '../../../utils/CallApi';
-
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import moment from 'moment';
-import { Link } from 'react-router-dom';
 import { BsFillPlusCircleFill } from 'react-icons/bs'
 import { MdDelete } from 'react-icons/md'
+
 const schema = yup.object({
-  name: yup.string().required('Author Name is Required'),
-  quote: yup.string().required('Quotation is Required'),
+  name: yup.string().required('Operation Name is Required'),
+  past: yup.string().required('Past Operations is Required'),
+  medicine: yup.string().required(' Medicine  is Required'),
+  dosage: yup.string().required(' Dosage  is Required'),
+  timeMed: yup.string().required(' Medicine Time  is Required'),
+  image: yup.string().mixed().test('required', ' File  is Required', value => {
+    return value && value.length
+  }),
 });
 
 const SurgicalHistory = ({ handleNext, handleBack }) => {
@@ -64,22 +68,7 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
   };
 
   const onSubmit = async (data) => {
-    let updated = `${quoteDate.year}-${quoteDate.month}-${quoteDate.day}`;
-
-    let value = {
-      quoteText: data.quote,
-      authorName: data.name,
-      quoteColor: 'Red',
-      quoteDate: updated,
-      addedby: '6305dac13c594d3538c790b8',
-    };
-    const res = await callApi('/quotes/createQuote', 'post', value);
-    if (res.status === 'Success') {
-      toast.success(res.message);
-      reset();
-    } else {
-      toast.error(res.message);
-    }
+    handleNext()
   };
 
   return (
@@ -95,8 +84,7 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
         draggable
         pauseOnHover
       />
-      {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-      <form >
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className='row p-11'>
           {/* <div className='col-12 mb-6'>
             <div className='mb-3'>
@@ -270,7 +258,7 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
               ) : null}
             </div>
             <input
-              {...register('name')}
+              {...register('me')}
               autoComplete='off'
               className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.name && 'border-red-400'
                 }`}
@@ -296,33 +284,33 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
               Dosage
             </label>
             <div className='absolute right-5 top-10'>
-              {!errors.name && watch('name') ? (
+              {!errors.dosage && watch('dosage') ? (
                 <FcCheckmark />
-              ) : errors.name ? (
+              ) : errors.dosage ? (
                 <div className=' text-red-500'>
                   <MdClose />
                 </div>
               ) : null}
             </div>
             <input
-              {...register('name')}
+              {...register('dosage')}
               autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.name && 'border-red-400'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.dosage && 'border-red-400'
                 }`}
-              name='name'
-              id='name'
+              name='dosage'
+              id='dosage'
               type='text'
               placeholder='Dosage'
             />
             <span
-              hidden={watch('name')}
+              hidden={watch('dosage')}
               className='absolute text-red-400 text-lg font-medium  top-9 left-[95px]'
             >
               *
             </span>
 
             {errors.name && (
-              <p className='text-red-500 text-sm'>{errors.name.message}</p>
+              <p className='text-red-500 text-sm'>{errors.dosage.message}</p>
             )}
           </div>
 
@@ -432,7 +420,7 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
             <button onClick={(e) => handleBack(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Back
             </button>
-            <button onClick={(e) => handleNext(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
+            <button className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Next
             </button>
           </div>
