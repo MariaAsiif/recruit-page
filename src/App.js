@@ -82,10 +82,8 @@ import Lexicon from './Pages/lexicon/Lexicon';
 import PublicBetaLogin from './Pages/PublicBetaLogin';
 import CreateLexicon from './Pages/adminLexicon/CreateLexicon';
 import Lexicons from './Pages/adminLexicon/Lexicon';
-import Emailverification from './Pages/Emailverification';
 import DasSignupPage from './Pages/DasSignupPage';
 import DasSignInPage from './Pages/DasSignInPage';
-import DASAccountSignup from './components/DASComponents/AccountSignup';
 import LandingPage from './Pages/LandingPages/Home/Home';
 import MainPage from './Pages/LandingPages/MainPage/MainPage';
 import Stocks from './Pages/LandingPages/Stock/Stock';
@@ -106,6 +104,7 @@ import CreateProduct from './Pages/AdminPages/Ecome/Product/CreateProduct';
 import CreateStore from './Pages/AdminPages/Ecome/Store/CreateStore';
 import Stores from './Pages/AdminPages/Ecome/Store/Stores';
 import Notifications from './components/NewDashboardComponents/Notifications';
+import Table from './components/GlobalComponents/TableComponent';
 import Diseases from './Pages/AdminPages/Disease/Diseases';
 import CreateDisease from './Pages/AdminPages/Disease/CreateDisease';
 
@@ -174,6 +173,7 @@ function App() {
           <Route index path="services" element={<NewServices />} />
           <Route index path="inbox" element={<Inbox />} />
           <Route index path="orders" element={<Orders />} />
+          <Route index path="ordersTable" element={<Table />} />
           <Route index path="support" element={<Support />} />
           <Route index path="notifications" element={<Notifications />} />
 
@@ -225,7 +225,7 @@ function App() {
           <Route path='store' element={<Stores />} />
           <Route path='products/create-products' element={<CreateProduct />} />
           <Route path='category/create-category' element={<CreateCategory />} />
-          <Route path='store/create-store' element={<CreateStore />}  />
+          <Route path='store/create-store' element={<CreateStore />} />
         </Route>
 
         <Route
@@ -239,7 +239,7 @@ function App() {
           <Route index element={<Diseases />} />
           <Route path='create-disease' element={<CreateDisease />} />
         </Route>
-        
+
 
 
         <Route

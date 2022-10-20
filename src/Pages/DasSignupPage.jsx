@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-
 import OtpSelection from '../components/DASComponents/OtpSelection'
 import ProviderSelection from '../components/DASComponents/ProviderSelection'
-import OtpVerification from '../components/DASComponents/OtpVerification'
 import logoImage from '../images/logo.png'
 import CompanyInformation from '../components/DASComponents/CompanyInformation'
 import ReferralLink from '../components/DASComponents/ReferralLink'
@@ -16,8 +14,6 @@ import Result from '../components/DASComponents/Result'
 import DasSignInPage from './DasSignInPage'
 import DASAccountSignup from '../components/DASComponents/AccountSignup'
 import QrVideoProcess from '../components/DASComponents/QrVideoProcess'
-import Dashboard from './Dashboard'
-import NewDashboardPage from './NewDashboardPage'
 import { useNavigate } from 'react-router-dom'
 const DasSignupPage = () => {
     const [activeStep, setactiveStep] = useState("LoginPage")
@@ -40,9 +36,6 @@ const DasSignupPage = () => {
                 setactiveStep("CompanyInformation")
             }
         }
-
-
-
     }
     const onNext = (data) => {
         if (signupForm === "individualProvider") {
@@ -74,12 +67,12 @@ const DasSignupPage = () => {
                             {
                                 activeStep === "LoginPage" ? <DasSignInPage onNext={(data) => onNext(data)} onLogin={(flowStatus) => onFlowChange(flowStatus)} /> :
                                     activeStep === "newAccount" ? <DASAccountSignup onNext={onNext} /> :
-                                        activeStep === "IdentityVerification" ? <IdentityVerification onNext={onNext} onBack={onBack} /> :
-                                            activeStep === "SmsVerification" ? <SmsVerification onNext={onNext} onBack={onBack} /> :
-                                                activeStep === "OtpSelection" ? <OtpSelection onNext={onNext} onBack={onBack} /> :
+                                        activeStep === "IdentityVerification" ? <IdentityVerification onNext={onNext} onBack={onBack} flow={loginFlow} /> :
+                                            activeStep === "OtpSelection" ? <OtpSelection onNext={onNext} onBack={onBack} /> :
+                                                activeStep === "SmsVerification" ? <SmsVerification onNext={onNext} onBack={onBack} flow={loginFlow} /> :
                                                     activeStep === "QrVerification" ? <QrVerification onNext={onNext} onBack={onBack} /> :
-                                                        activeStep === "QrVideoProcess" ? <QrVideoProcess onNext={onNext} onBack={onBack} /> :
-                                                            activeStep === "ReferralLink" ? <ReferralLink onNext={onNext} flow={loginFlow} /> :
+                                                        activeStep === "QrVideoProcess" ? <QrVideoProcess onNext={onNext} onBack={onBack} flow={loginFlow} /> :
+                                                            activeStep === "ReferralLink" ? <ReferralLink onNext={onNext} /> :
                                                                 activeStep === "ProviderSelection" ? <ProviderSelection onNext={onNext} provider={signupForm.provider} onProviderChange={onProviderChange} /> :
                                                                     activeStep === "ProviderInformation" ? <ProviderInformation onNext={onNext} /> :
                                                                         activeStep === "TermsAndConditions" ? <TermsAndConditions onNext={onNext} /> :
