@@ -17,9 +17,9 @@ const schema = yup.object({
   medicine: yup.string().required(' Medicine  is Required'),
   dosage: yup.string().required(' Dosage  is Required'),
   timeMed: yup.string().required(' Medicine Time  is Required'),
-  image: yup.string().mixed().test('required', ' File  is Required', value => {
-    return value && value.length
-  }),
+  // image: yup.string().mixed().test('required', ' File  is Required', value => {
+  //   return value && value.length
+  // }),
 });
 
 const SurgicalHistory = ({ handleNext, handleBack }) => {
@@ -44,7 +44,7 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
 
   // ****************** Datepicker Content ***********
   const renderCustomInput = ({ ref }) => (
-    <div className='relative cursor-pointe w-full'>
+    <div className='relative w-full cursor-pointe'>
       <input
         readOnly
         ref={ref} // necessary  placeholder="yyy-mm-dd"
@@ -86,7 +86,7 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
       />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='row p-11'>
-          {/* <div className='col-12 mb-6'>
+          {/* <div className='mb-6 col-12'>
             <div className='mb-3'>
               <ul className='inline-flex flex-wrap text-sm font-medium'>
                 <li className='flex items-center'>
@@ -97,7 +97,7 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
                     Dashboard{' '}
                   </Link>
                   <svg
-                    className='h-4 w-4 fill-current text-slate-400 mx-3'
+                    className='w-4 h-4 mx-3 fill-current text-slate-400'
                     viewBox='0 0 16 16'
                   >
                     <path d='M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z' />
@@ -111,7 +111,7 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
                     Inspire{' '}
                   </Link>
                   <svg
-                    className='h-4 w-4 fill-current text-slate-400 mx-3'
+                    className='w-4 h-4 mx-3 fill-current text-slate-400'
                     viewBox='0 0 16 16'
                   >
                     <path d='M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z' />
@@ -134,23 +134,23 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
           </div> */}
 
           <div className='flex'>
-            <div className='col-lg-12 flex items-center justify-between '>
+            <div className='flex items-center justify-between col-lg-12 '>
               <h2 className='text-[18px] font-medium'>Surgical History</h2>
-              <button className='p-2 bg-red-500 hover:bg-green-600 text-white flex items-center'>
+              <button className='flex items-center p-2 text-white bg-red-500 hover:bg-green-600'>
                 Add <BsFillPlusCircleFill className='ml-2' />
               </button>
             </div>
           </div>
 
-          <div className='col-lg-4 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
+          <div className='relative mb-4 col-lg-4'>
+            <label className='block mb-1 text-sm font-medium' htmlFor='name'>
               Operation Name{' '}
             </label>
             <div className='absolute right-5 top-10'>
               {!errors.name && watch('name') ? (
                 <FcCheckmark />
               ) : errors.name ? (
-                <div className=' text-red-500'>
+                <div className='text-red-500 '>
                   <MdClose />
                 </div>
               ) : null}
@@ -173,12 +173,12 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
             </span>
 
             {errors.name && (
-              <p className='text-red-500 text-sm'>{errors.name.message}</p>
+              <p className='text-sm text-red-500'>{errors.name.message}</p>
             )}
           </div>
 
-          <div className='col-lg-4 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
+          <div className='relative mb-4 col-lg-4'>
+            <label className='block mb-1 text-sm font-medium' htmlFor='name'>
               Past Operations
             </label>
 
@@ -186,7 +186,7 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
               {!errors.name && watch('name') ? (
                 <FcCheckmark />
               ) : errors.name ? (
-                <div className=' text-red-500'>
+                <div className='text-red-500 '>
                   <MdClose />
                 </div>
               ) : null}
@@ -209,15 +209,15 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
             </span>
 
             {errors.name && (
-              <p className='text-red-500 text-sm'>{errors.name.message}</p>
+              <p className='text-sm text-red-500'>{errors.name.message}</p>
             )}
 
 
 
           </div>
 
-          <div className='col-lg-4 mb-4 '>
-            <label className='block text-sm font-medium mb-1 '>
+          <div className='mb-4 col-lg-4 '>
+            <label className='block mb-1 text-sm font-medium '>
               Operation Date
             </label>
             <div className='relative flex items-center'>
@@ -229,30 +229,30 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
                 shouldHighlightWeekends
                 calendarPopperPosition='bottom'
               />
-              <button className='p-2 ml-2 bg-red-500 hover:bg-green-600 text-white'>
+              <button className='p-2 ml-2 text-white bg-red-500 hover:bg-green-600'>
                 <MdDelete />
               </button>
             </div>
           </div>
 
           <div className='flex'>
-            <div className='col-lg-12 flex items-center justify-between '>
+            <div className='flex items-center justify-between col-lg-12 '>
               <h2 className='text-[18px] font-medium'>Medications Suppliments</h2>
-              <button className='p-2 bg-red-500 hover:bg-green-600 text-white flex items-center'>
+              <button className='flex items-center p-2 text-white bg-red-500 hover:bg-green-600'>
                 Add <BsFillPlusCircleFill className='ml-2' />
               </button>
             </div>
           </div>
 
-          <div className='col-lg-4 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
+          <div className='relative mb-4 col-lg-4'>
+            <label className='block mb-1 text-sm font-medium' htmlFor='name'>
               Medicine{' '}
             </label>
             <div className='absolute right-5 top-10'>
               {!errors.name && watch('name') ? (
                 <FcCheckmark />
               ) : errors.name ? (
-                <div className=' text-red-500'>
+                <div className='text-red-500 '>
                   <MdClose />
                 </div>
               ) : null}
@@ -275,19 +275,19 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
             </span>
 
             {errors.name && (
-              <p className='text-red-500 text-sm'>{errors.name.message}</p>
+              <p className='text-sm text-red-500'>{errors.name.message}</p>
             )}
           </div>
 
-          <div className='col-lg-4 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
+          <div className='relative mb-4 col-lg-4'>
+            <label className='block mb-1 text-sm font-medium' htmlFor='name'>
               Dosage
             </label>
             <div className='absolute right-5 top-10'>
               {!errors.dosage && watch('dosage') ? (
                 <FcCheckmark />
               ) : errors.dosage ? (
-                <div className=' text-red-500'>
+                <div className='text-red-500 '>
                   <MdClose />
                 </div>
               ) : null}
@@ -310,13 +310,13 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
             </span>
 
             {errors.name && (
-              <p className='text-red-500 text-sm'>{errors.dosage.message}</p>
+              <p className='text-sm text-red-500'>{errors.dosage.message}</p>
             )}
           </div>
 
-          <div className='col-lg-2 mb-4 relative'>
+          <div className='relative mb-4 col-lg-2'>
             <div>
-              <div className='text-sm text-slate-800 font-semibold mb-3'>
+              <div className='mb-3 text-sm font-semibold text-slate-800'>
                 Taking Now
               </div>
               <div className='flex items-center'>
@@ -329,7 +329,7 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
                     class="sr-only peer"
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
+                  <div className='ml-2 text-sm italic text-slate-400'>
                     {companySetting ? 'True' : 'False'}
                   </div>
                 </label>
@@ -339,9 +339,9 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
               </div>
             </div>
           </div>
-          <div className='col-lg-2 mb-4 relative'>
+          <div className='relative mb-4 col-lg-2'>
             <div>
-              <div className='text-sm text-slate-800 font-semibold mb-3'>
+              <div className='mb-3 text-sm font-semibold text-slate-800'>
                 Is Surgery Done
               </div>
               <div className='flex items-center'>
@@ -354,7 +354,7 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
                     class="sr-only peer"
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
+                  <div className='ml-2 text-sm italic text-slate-400'>
                     {companySetting ? 'True' : 'False'}
                   </div>
                 </label>
@@ -365,15 +365,15 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
             </div>
           </div>
 
-          <div className='col-lg-6 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
+          <div className='relative mb-4 col-lg-6'>
+            <label className='block mb-1 text-sm font-medium' htmlFor='name'>
               Times Of Medicine
             </label>
             <div className='absolute right-5 top-10'>
               {!errors.name && watch('name') ? (
                 <FcCheckmark />
               ) : errors.name ? (
-                <div className=' text-red-500'>
+                <div className='text-red-500 '>
                   <MdClose />
                 </div>
               ) : null}
@@ -396,12 +396,12 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
             </span> */}
 
             {errors.name && (
-              <p className='text-red-500 text-sm'>{errors.name.message}</p>
+              <p className='text-sm text-red-500'>{errors.name.message}</p>
             )}
           </div>
 
-          <div className='col-lg-6 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
+          <div className='relative mb-4 col-lg-6'>
+            <label className='block mb-1 text-sm font-medium' htmlFor='name'>
               Prescription File
             </label>
             <div className='relative flex items-center'>
@@ -409,18 +409,18 @@ const SurgicalHistory = ({ handleNext, handleBack }) => {
                 type="file"
                 className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  `}
               />
-              <button className='p-2 ml-2 bg-red-500 hover:bg-green-600 text-white'>
+              <button className='p-2 ml-2 text-white bg-red-500 hover:bg-green-600'>
                 <MdDelete />
               </button>
             </div>
           </div>
 
 
-          <div className='col-lg-12 flex justify-between'>
-            <button onClick={(e) => handleBack(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
+          <div className='flex justify-between col-lg-12'>
+            <button onClick={(e) => handleBack(e)} className='p-2 text-white bg-red-500 hover:bg-green-600'>
               Back
             </button>
-            <button className='p-2 bg-red-500 hover:bg-green-600 text-white'>
+            <button className='p-2 text-white bg-red-500 hover:bg-green-600'>
               Next
             </button>
           </div>

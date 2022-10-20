@@ -19,7 +19,7 @@ const NewDashboardPage = () => {
                 {/*  Site header */}
                 < NewDashboardHeader sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setprofileBar={onChangeProfileBar} />
                 <main className='h-full row g-0'>
-                    <div className='col-lg-10 grow transition-all bg-[#F2F2F2] p-[2%]'>
+                    <div className='col-lg-5 grow transition-all bg-[#F2F2F2] p-[2%]'>
                         <Outlet />
                     </div>
                     {profileBar && <ProfileBar />}

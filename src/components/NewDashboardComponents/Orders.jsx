@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { GoCheck } from "react-icons/go";
 const Orders = () => {
-    const [activetab, setactivetab] = useState("tab_requirements")
+    const [activetab, setactivetab] = useState("active_orders")
     const onChangeTab = (tabname) => {
         setactivetab(tabname)
     }
@@ -17,6 +17,9 @@ const Orders = () => {
                     </li>
                     <li onClick={() => setactivetab("tab_requirements")} className={`lg:px-4 px-2`}>
                         <span className={`text-[#707070] font-medium uppercase cursor-pointer ${activetab === "tab_requirements" ? "text-[#4DA676] font-semibold underline" : ""}`}>Requirements</span>
+                    </li>
+                    <li onClick={() => setactivetab("active_orders")} className={`lg:px-4 px-2`}>
+                        <span className={`text-[#707070] font-medium uppercase cursor-pointer ${activetab === "active_orders" ? "text-[#4DA676] font-semibold underline" : ""}`}>Active</span>
                     </li>
                 </ul>
                 <div className="tab-content" id="tabs-tabContent">
@@ -68,6 +71,57 @@ const Orders = () => {
                             <h1 className='text-[#707070] text-lg font-semibold mb-3'>Please Explain your requirement or if you want my help let me know.</h1>
                             <p className='text-[#3F3F44] font-light text-sm leading-6'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata.</p>
                             <p className='text-[#3F3F44] font-light text-sm leading-6'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata.</p>
+                        </div>
+                    </div>
+
+                    <div className={`tab-pane fade ${activetab === "active_orders" ? "show active" : ""} `}  >
+                        <div>
+                            <div className="flex flex-col">
+                                <div className="overflow-x-auto ">
+                                    <div className="inline-block min-w-full ">
+                                        <div className="overflow-hidden">
+                                            <table className="min-w-full">
+                                                <thead style={{ boxShadow: "2px 3px 10px #7777771A" }}>
+                                                    <tr  >
+                                                        {Array(19).fill("").map(() => {
+                                                            return (
+                                                                <th scope="col" className="px-6 py-2 text-sm font-semibold text-left font-sans text-[#464A53]"> Handle </th>
+                                                            )
+                                                        })}
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {Array(19).fill("").map(() => {
+                                                        return (
+                                                            <tr style={{ boxShadow: "2px 3px 10px #7777771A" }}  >
+                                                                <td className="flex items-center px-6 py-4 space-x-2 whitespace-nowrap ">
+                                                                    <img src="http://placekitten.com/200/200" alt="profile" className="flex-none object-cover m-auto w-full h-auto max-w-[30px] rounded-full" loading="lazy" decoding="async" />
+                                                                    <div className="flex-auto"><div className="text-sm font-medium text-[#ABAFB3] ">Arslan ahmed shaad</div>
+
+                                                                    </div>
+                                                                </td>
+
+                                                                {Array(19).fill("").map(() => {
+                                                                    return (
+                                                                        <td className="px-6 py-4 text-sm font-medium text-[#ABAFB3] whitespace-nowrap"> Mark </td>
+                                                                    )
+                                                                })}
+
+                                                            </tr>
+                                                        )
+                                                    })}
+
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
 

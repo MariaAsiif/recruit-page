@@ -4,7 +4,7 @@ import { IoMdMail } from "react-icons/io";
 import { FaMapMarker } from "react-icons/fa";
 const ProfileBar = () => {
     return (
-        <div className="fixed right-0 flex-none w-full h-full bg-white col-lg-2 lg:static lg:w-1/6 lg:h-auto">
+        <div className="fixed right-0 flex-none w-full h-full bg-white col-lg-3 lg:static lg:w-1/5 lg:h-auto">
             <div className='px-1 pt-3 pb-3 mb-2 text-center border-b'>
                 <img className='m-auto w-full h-auto max-w-[70px] mb-3 rounded-full' src="http://placekitten.com/200/200" alt="logo" loading="lazy" />
                 <h1 className='text-[10px] text-center font-semibold'>Senior UI/UX Designer</h1>
