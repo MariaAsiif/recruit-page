@@ -109,6 +109,7 @@ import CreateDisease from './Pages/AdminPages/Disease/CreateDisease';
 import TableComponent from './components/GlobalComponents/table';
 import OrderList from './components/NewDashboardComponents/OrderList';
 import MedicalLandingPage from './Pages/Medical/LandingPage';
+import Invoice from './components/NewDashboardComponents/Invoice';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -179,6 +180,8 @@ function App() {
           <Route index path="ordersTable" element={<TableComponent />} />
           <Route index path="support" element={<Support />} />
           <Route index path="notifications" element={<Notifications />} />
+          <Route index path="invoice" element={<Invoice />} />
+
         </Route>
 
         {/* Medical and Customer Module */}
