@@ -8,7 +8,6 @@ function SidebarLinkGroup({
 
   console.log("acc", activecondition)
   const [open, setOpen] = useState(activecondition);
-  const [subopen, setSubopen] = useState();
 
   const handleClick = () => {
     setOpen(!open);

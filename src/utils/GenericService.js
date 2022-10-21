@@ -4,7 +4,7 @@ axios.defaults.baseURL = "https://test.zaptatechnologies.com/api/";
 // axios.defaults.baseURL = "unstationary-1-3bzm31lzq-arslan456.vercel.app";
 
 class GenericService {
-  constructor() { }
+  // constructor() { }
   get = (url) =>
     new Promise((resolve, reject) => {
       axios

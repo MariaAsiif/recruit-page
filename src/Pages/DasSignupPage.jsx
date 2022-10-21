@@ -53,7 +53,6 @@ const DasSignupPage = () => {
     const onFlowChange = (flowStatus) => {
         setLoginFlow(flowStatus);
     }
-    console.log("skjgdhfsdf", loginFlow)
     return (
         <div className='h-screen p-0 bscontainer-fluid'>
             <div className='lg:h-full row g-0'>
@@ -85,7 +84,6 @@ const DasSignupPage = () => {
                             }
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

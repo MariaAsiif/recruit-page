@@ -67,7 +67,7 @@ function Sidebar({
   let LabelName = []
   permission?.permissions?.map((f) => {
 
-    if(f.moduleName === "Manage I Locate" || "Manage I Role"){
+    if (f.moduleName === "Manage I Locate" || "Manage I Role") {
       const index = f.permissionName.indexOf('/');
       const [first] = [f.permissionName.slice(0, index), f.permissionName.slice(index + 1)];
       LabelName.push(first)
@@ -76,7 +76,7 @@ function Sidebar({
 
   })
 
-console.log("label",permission)
+  console.log("label", permission)
 
 
   return (
@@ -165,7 +165,7 @@ console.log("label",permission)
                                   <div className="lg:hidden lg:sidebar-expanded:block 2xl:block">
                                     <ul className={`pl-9 mt-1 ${!open && 'hidden'}`}>
                                       {item.subMenuItems.map((subitem, s_index) => {
-                                        console.log("subitem" , subitem)
+                                        console.log("subitem", subitem)
                                         if (subitem.subMenuItems.length === 0) {
                                           return (
                                             <li key={s_index} className="mb-1 last:mb-0">
@@ -282,7 +282,7 @@ console.log("label",permission)
                                   </a>
                                   <div className="lg:hidden lg:sidebar-expanded:block 2xl:block">
                                     <ul className={`pl-9 mt-1 ${!open && 'hidden'}`}>
-                                      {item.subMenuItems.filter((f) => LabelName.includes(f.label) || !LabelName.includes(f.label) ).map((subitem, s_index) => {
+                                      {item.subMenuItems.filter((f) => LabelName.includes(f.label) || !LabelName.includes(f.label)).map((subitem, s_index) => {
                                         if (subitem.subMenuItems.length === 0) {
                                           return (
                                             <li key={s_index} className="mb-1 last:mb-0">

@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useEffect } from 'react';
 import CommingSoon from './components/CommingSoon/CommingSoon';
-
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 // import Header from './components/SharedComponents/Header/Header';
 import HomePage from './Pages/HomePage';
@@ -107,6 +106,9 @@ import Notifications from './components/NewDashboardComponents/Notifications';
 import Table from './components/GlobalComponents/TableComponent';
 import Diseases from './Pages/AdminPages/Disease/Diseases';
 import CreateDisease from './Pages/AdminPages/Disease/CreateDisease';
+import TableComponent from './components/GlobalComponents/table';
+import OrderList from './components/NewDashboardComponents/OrderList';
+import MedicalLandingPage from './Pages/Medical/LandingPage';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -173,11 +175,14 @@ function App() {
           <Route index path="services" element={<NewServices />} />
           <Route index path="inbox" element={<Inbox />} />
           <Route index path="orders" element={<Orders />} />
-          <Route index path="ordersTable" element={<Table />} />
+          <Route index path="ordersList" element={<OrderList />} />
+          <Route index path="ordersTable" element={<TableComponent />} />
           <Route index path="support" element={<Support />} />
           <Route index path="notifications" element={<Notifications />} />
-
         </Route>
+
+        {/* Medical and Customer Module */}
+        <Route path="/medical" element={<MedicalLandingPage />}></Route>
 
 
 
