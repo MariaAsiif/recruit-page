@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FcCheckmark } from 'react-icons/fc';
 import { MdClose } from 'react-icons/md';
 import { toast, ToastContainer } from 'react-toastify';
@@ -6,15 +6,17 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { callApi } from '../../../utils/CallApi';
-
-import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
+// import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
-import moment from 'moment';
-import { Link } from 'react-router-dom';
+// import moment from 'moment';
+// import { Link } from 'react-router-dom';
 
 const schema = yup.object({
-  name: yup.string().required('Author Name is Required'),
-  quote: yup.string().required('Quotation is Required'),
+  name: yup.string().required('Category Name is Required'),
+  desc: yup.string().required('Description is Required'),
+  image: yup.mixed().test("required", "File is required", value => {
+    return value && value.length
+  })
 });
 
 const History = ({ handleNext, handleBack }) => {
@@ -28,6 +30,7 @@ const History = ({ handleNext, handleBack }) => {
     year: yyyy,
   });
   const [companySetting, setCompanySetting] = useState(true);
+  const [allDisease, setallDisease] = useState([])
 
   const {
     register,
@@ -57,29 +60,35 @@ const History = ({ handleNext, handleBack }) => {
     </div>
   );
 
-  const handleChangeDate = (data) => {
-    const date = moment(data).format('yyyy-M-D').split('-');
-    setquoteDate({ day: +date[2], month: +date[1], year: +date[0] });
-  };
 
   const onSubmit = async (data) => {
-    let updated = `${quoteDate.year}-${quoteDate.month}-${quoteDate.day}`;
-
-    let value = {
-      quoteText: data.quote,
-      authorName: data.name,
-      quoteColor: 'Red',
-      quoteDate: updated,
-      addedby: '6305dac13c594d3538c790b8',
-    };
-    const res = await callApi('/quotes/createQuote', 'post', value);
-    if (res.status === 'Success') {
-      toast.success(res.message);
-      reset();
-    } else {
-      toast.error(res.message);
-    }
+    handleNext()
   };
+
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const payload = {
+          sortproperty: "created_at",
+          sortorder: -1,
+          offset: 0,
+          limit: 50,
+          query: {
+            critarion: { active: true, },
+            addedby: "_id email first_name",
+            lastModifiedBy: "_id email first_name"
+          }
+        }
+        const response = await callApi("/diseases/getDiseasesWithFullDetails", "post", payload)
+        setallDisease(response.data.diseases)
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+
+  }, [])
+
 
   return (
     <div className='bscontainer-fluid'>
@@ -94,8 +103,7 @@ const History = ({ handleNext, handleBack }) => {
         draggable
         pauseOnHover
       />
-      {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-      <form >
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className='row p-11'>
           {/* <div className='col-12 mb-6'>
             <div className='mb-3'>
@@ -148,16 +156,19 @@ const History = ({ handleNext, handleBack }) => {
             <label className='block text-sm font-medium mb-1' htmlFor='name'>
               Disease
             </label>
-
             <select
-              className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]  `}
+              className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]  ${errors.name && 'border-red-500'
+                  }`}
             >
-              <option>Select Disease</option>
-              <option>Admin</option>
-              <option>Super Admin</option>
-              <option>Hr</option>
-            </select>
+              <option value="">Select Disease</option>
+              {allDisease.map((dis) => (
+                <option key={dis._id} value={dis._id}>{dis?.diseaseName}</option>
+              ))}
 
+            </select>
+            {errors.name && (
+                <p className='text-red-500 text-sm'>{errors.name.message}</p>
+              )}
 
           </div>
 
@@ -194,43 +205,49 @@ const History = ({ handleNext, handleBack }) => {
             <div className='relative'>
               <input
                 type="file"
-                className={`border p-2 focus:outline-blue-500 rounded-sm w-full  `}
+                className={`border p-1 focus:outline-blue-500 rounded-sm w-full  ${errors.image && 'border-red-500'
+                  }`}
+
               />
+
+              {errors.image && (
+                <p className='text-red-500 text-sm'>{errors.image.message}</p>
+              )}
             </div>
           </div>
 
 
 
-          
-        
+
+
 
           <div className='col-lg-12 mb-4 relative'>
             <label className='block text-sm font-medium mb-1' htmlFor='quote'>
               Description
             </label>
             <div className='absolute right-5 top-10'>
-              {!errors.quote && watch('quote') ? (
+              {!errors.desc && watch('desc') ? (
                 <FcCheckmark />
-              ) : errors.quote ? (
+              ) : errors.desc ? (
                 <div className=' text-red-500'>
                   <MdClose />
                 </div>
               ) : null}
             </div>
             <textarea
-              {...register('quote')}
+              {...register('desc')}
               autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.quote && 'border-red-500'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.desc && 'border-red-500'
                 }`}
-              name='quote'
-              id='quote'
+              name='desc'
+              id='desc'
               placeholder='Description'
               cols='20'
             ></textarea>
             {/* <span hidden={watch('quot')} className='absolute text-red-400 text-sm font-medium  top-9 left-[170px]'>(optional)</span> */}
 
-            {errors.quote && (
-              <p className='text-red-500 text-sm'>{errors.quote.message}</p>
+            {errors.desc && (
+              <p className='text-red-500 text-sm'>{errors.desc.message}</p>
             )}
           </div>
 
@@ -239,7 +256,7 @@ const History = ({ handleNext, handleBack }) => {
               <button onClick={(e) => handleBack(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
                 Back
               </button>
-              <button onClick={(e) => handleNext(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
+              <button className='p-2 bg-red-500 hover:bg-green-600 text-white'>
                 Next
               </button>
             </div>

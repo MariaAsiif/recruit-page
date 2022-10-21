@@ -10,11 +10,19 @@ import { MdDelete } from 'react-icons/md'
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import moment from 'moment';
-import { Link } from 'react-router-dom';
 import { BsPlusCircle } from 'react-icons/bs'
 const schema = yup.object({
-  name: yup.string().required('Author Name is Required'),
+  name: yup.string().required('Doctor Name is Required'),
+  special: yup.string().required('Specialization is Required'),
+  link: yup.string().required('Profile link is Required'),
   quote: yup.string().required('Quotation is Required'),
+  prs: yup.mixed().test('required ', "File is required", value => {
+    return value && value.length
+  }),
+  med: yup.mixed().test('required ', "File is required", value => {
+    return value && value.length
+  })
+
 });
 
 const Schedule = ({ handleNext, handleBack }) => {
@@ -27,7 +35,6 @@ const Schedule = ({ handleNext, handleBack }) => {
     month: mm,
     year: yyyy,
   });
-  const [companySetting, setCompanySetting] = useState(true);
 
   const {
     register,
@@ -57,28 +64,10 @@ const Schedule = ({ handleNext, handleBack }) => {
     </div>
   );
 
-  const handleChangeDate = (data) => {
-    const date = moment(data).format('yyyy-M-D').split('-');
-    setquoteDate({ day: +date[2], month: +date[1], year: +date[0] });
-  };
+
 
   const onSubmit = async (data) => {
-    let updated = `${quoteDate.year}-${quoteDate.month}-${quoteDate.day}`;
-
-    let value = {
-      quoteText: data.quote,
-      authorName: data.name,
-      quoteColor: 'Red',
-      quoteDate: updated,
-      addedby: '6305dac13c594d3538c790b8',
-    };
-    const res = await callApi('/quotes/createQuote', 'post', value);
-    if (res.status === 'Success') {
-      toast.success(res.message);
-      reset();
-    } else {
-      toast.error(res.message);
-    }
+    handleNext()
   };
 
   return (
@@ -94,56 +83,8 @@ const Schedule = ({ handleNext, handleBack }) => {
         draggable
         pauseOnHover
       />
-      {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-      <form >
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className='row p-11'>
-          {/* <div className='col-12 mb-6'>
-            <div className='mb-3'>
-              <ul className='inline-flex flex-wrap text-sm font-medium'>
-                <li className='flex items-center'>
-                  <Link
-                    to='/dashboard'
-                    className='text-slate-500 hover:text-indigo-500'
-                  >
-                    Dashboard{' '}
-                  </Link>
-                  <svg
-                    className='h-4 w-4 fill-current text-slate-400 mx-3'
-                    viewBox='0 0 16 16'
-                  >
-                    <path d='M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z' />
-                  </svg>
-                </li>
-                <li className='flex items-center'>
-                  <Link
-                    to='/inspire'
-                    className='text-slate-500 hover:text-indigo-500'
-                  >
-                    Inspire{' '}
-                  </Link>
-                  <svg
-                    className='h-4 w-4 fill-current text-slate-400 mx-3'
-                    viewBox='0 0 16 16'
-                  >
-                    <path d='M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z' />
-                  </svg>
-                </li>
-                <li className='flex items-center'>
-                  <Link
-                    to='/inspire/create-inspire'
-                    className='text-slate-500 hover:text-indigo-500'
-                    href='#0'
-                  >
-                    Create inspire
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <header className='py-4'>
-              <h2 className='font-semibold text-slate-800'>Add new Inspire</h2>
-            </header>
-          </div> */}
-
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium mb-1' htmlFor='name'>
               Doctor Name{' '}
@@ -184,10 +125,32 @@ const Schedule = ({ handleNext, handleBack }) => {
               Specialization
             </label>
 
-            <input type="text" placeholder='Specialization'
-              className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]  `}
+            <div className='absolute right-5 top-10'>
+              {!errors.special && watch('special') ? (
+                <FcCheckmark />
+              ) : errors.special ? (
+                <div className=' text-red-500'>
+                  <MdClose />
+                </div>
+              ) : null}
+            </div>
+            <input type="text"
+              {...register('special')}
+              autoComplete='off'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.special && 'border-red-500'
+                }`}
+              name='special'
+              id='special'
+              placeholder='Specialization'
             />
-              
+            {/* <span hidden={watch('quot')} className='absolute text-red-400 text-sm font-medium  top-9 left-[170px]'>(optional)</span> */}
+
+            {errors.link && (
+              <p className='text-red-500 text-sm'>{errors.link.message}</p>
+            )}
+
+
+
 
 
           </div>
@@ -222,19 +185,19 @@ const Schedule = ({ handleNext, handleBack }) => {
               ) : null}
             </div>
             <input type="text"
-              {...register('quote')}
+              {...register('link')}
               autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.quote && 'border-red-500'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.link && 'border-red-500'
                 }`}
-              name='quote'
-              id='quote'
+              name='link'
+              id='link'
               placeholder='profile Link'
               cols='20'
             />
             {/* <span hidden={watch('quot')} className='absolute text-red-400 text-sm font-medium  top-9 left-[170px]'>(optional)</span> */}
 
-            {errors.quote && (
-              <p className='text-red-500 text-sm'>{errors.quote.message}</p>
+            {errors.link && (
+              <p className='text-red-500 text-sm'>{errors.link.message}</p>
             )}
           </div>
           <div className='col-lg-4 mb-4 '>
@@ -244,8 +207,12 @@ const Schedule = ({ handleNext, handleBack }) => {
             <div className='relative'>
               <input
                 type="file"
-                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  `}
+                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  ${errors.prs && 'border-red-500'
+                  }`}
               />
+              {errors.prs && (
+                <p className='text-red-500 text-sm'>{errors.prs.message}</p>
+              )}
             </div>
           </div>
           <div className='col-lg-4 mb-4 '>
@@ -255,8 +222,12 @@ const Schedule = ({ handleNext, handleBack }) => {
             <div className='relative'>
               <input
                 type="file"
-                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  `}
+                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  ${errors.med && 'border-red-500'
+                  }`}
               />
+              {errors.med && (
+                <p className='text-red-500 text-sm'>{errors.med.message}</p>
+              )}
             </div>
           </div>
           <div className="flex justify-between">
@@ -294,7 +265,7 @@ const Schedule = ({ handleNext, handleBack }) => {
             <button onClick={(e) => handleBack(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Back
             </button>
-            <button onClick={(e) => handleNext(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
+            <button  className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Next
             </button>
           </div>
