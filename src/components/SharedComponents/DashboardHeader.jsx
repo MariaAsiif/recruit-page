@@ -2,9 +2,10 @@ import React from 'react'
 import { BiSearch } from "react-icons/bi";
 import { AiTwotoneCloud } from 'react-icons/ai'
 import { IoMdNotificationsOutline, IoIosBody } from 'react-icons/io'
-import profileImage from '../../images/people.png'
-import DateSelect from '../DateSelect';
 import ProfileDropdown from '../ProfileDropdown';
+import flag from '../../assets/images/usflag_logo.png'
+import { MdOutlineDarkMode } from 'react-icons/md';
+
 const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbarOpen, rightbarOpen, Toggle }) => {
     return (
         <header style={{ boxShadow: "0px 0px 6px #00000029" }} className="sticky top-0  bg-white border-b border-slate-200 z-30">
@@ -41,7 +42,7 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
                                         <IoMdNotificationsOutline className='text-[20px]' />
                                     </div>
                                     <div className='lg:flex lg:items-center border rounded-full ml-2  lg:pl-2 lg:pr-2  hidden '>
-                                        <img src={profileImage} className="w-6" alt="profile" />
+                                        <img src={flag} className="w-6" alt="profile" />
                                         <select className='w-auto p-0 m-0 border-0 text-[13px] focus:outline-none px-1'>
                                             <option>Uk</option>
                                         </select>
@@ -50,13 +51,15 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
                                         </svg>
                                     </div>
                                     <div className='lg:flex lg:items-center   lg:p-[2px] ml-3  hidden border rounded-full '>
-                                        <img src={profileImage} className=" w-6" alt="profile" />
                                         <select className='w-auto p-0 m-0 border-0 text-[13px] focus:outline-none px-1'>
                                             <option>Dark Mode</option>
                                         </select>
+                                        <div className='border rounded-full bg-black'>
+                                            <MdOutlineDarkMode className='text-[22px] text-white '/>
+                                        </div>
                                     </div>
                                     <div className='lg:flex lg:items-center   lg:p-[2px] border rounded-full ml-3  hidden '>
-                                        <img src={profileImage} className=" w-6" alt="profile" />
+                                        <img src={flag} className=" w-6" alt="profile" />
                                         <select className='w-auto p-0 m-0 border-0 text-[13px] focus:outline-none px-1'>
                                             <option>English</option>
                                         </select>

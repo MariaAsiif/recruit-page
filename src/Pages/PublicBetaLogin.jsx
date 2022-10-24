@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import slider1 from '../assets/videos/slider1.mp4'
 import slider2 from '../assets/videos/slider2.mp4'
-import slider3 from '../assets/videos/slider3.mp4'
+// import slider3 from '../assets/videos/slider3.mp4'
 import slider4 from '../assets/videos/slider4.mp4'
 import slider5 from '../assets/videos/slider5.mp4'
 import logoImage from '../images/hporx-1.png'
@@ -9,8 +9,8 @@ import logoImage from '../images/hporx-1.png'
 import { IoMail } from 'react-icons/io5'
 import { FaLock } from 'react-icons/fa'
 // import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
-import { HiCheckCircle } from 'react-icons/hi'
-import { Link, useNavigate } from 'react-router-dom'
+// import { HiCheckCircle } from 'react-icons/hi'
+import { Link } from 'react-router-dom'
 // import ReactPlayer from 'react-player/lazy'
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -45,7 +45,7 @@ const schema = yup.object({
 
 });
 const PublicBetaLogin = () => {
-    const [login, setLogin] = useState({ email: '', password: '' })
+    // const [login, setLogin] = useState({ email: '', password: '' })
     const [show, setShow] = useState(false)
     const [showpass, setShowPass] = useState(false)
     const [term, setterm] = useState(false)
@@ -54,30 +54,30 @@ const PublicBetaLogin = () => {
     const [play, setplay] = useState(false)
     const [lang, setlang] = useState("en")
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const Images = [
         slider1,
         slider2,
-        slider3,
+        // slider3,
         slider4,
         slider5,
 
     ]
 
 
-    const { register, watch, reset, handleSubmit, formState: { errors } } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
+    const { register, watch, handleSubmit, formState: { errors } } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
 
 
-    const handleChange = (e) => {
-        const { value, name } = e.target
+    // const handleChange = (e) => {
+    //     const { value, name } = e.target
 
-        setLogin((prev) => ({
-            ...prev,
-            [name]: value
-        }))
-    }
+    //     setLogin((prev) => ({
+    //         ...prev,
+    //         [name]: value
+    //     }))
+    // }
 
 
 
@@ -91,42 +91,14 @@ const PublicBetaLogin = () => {
 
     }
 
-    const changeLanguage = () => {
-        if (lang == "en") {
-            setlang("es")
-        }
-        else {
-            setlang("en")
-        }
-    }
-
-    const handleLogin = () => {
-        console.log("handleLogin");
-
-        if (login.password !== "123456") {
-            toast.error('Password not correct', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-            return
-        }
 
 
-
-
-        navigate("/Home")
-    }
 
 
     const onSubmit = async (values) => {
         console.log(values);
         try {
-            const response = await axios.post("https://hporxadminbackend.herokuapp.com/users/signin", values)
+            await axios.post("https://hporxadminbackend.herokuapp.com/users/signin", values)
         } catch (error) {
             console.log(error);
         }
@@ -143,11 +115,7 @@ const PublicBetaLogin = () => {
         })
     }, [])
 
-    console.log("play", play)
-    const demo = () => {
-        console.log("Data")
-    }
-
+    
 
 
     return (
