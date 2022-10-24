@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom';
+import { Navigate, NavLink, useLocation } from 'react-router-dom';
 import logo from '../../../images/logo.png'
 import { BiSearch, BiUserCircle } from "react-icons/bi";
 import { BsBarChartFill } from "react-icons/bs";
@@ -9,7 +9,7 @@ import { AiOutlinePoweroff } from 'react-icons/ai'
 const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
     const location = useLocation();
     const { pathname } = location;
-
+    const [back, setBack] = useState(false)
     const trigger = useRef(null);
     const sidebar = useRef(null);
 
@@ -33,8 +33,21 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
             document.querySelector('body').classList.remove('sidebar-expanded');
         }
     }, [sidebarExpanded]);
+
+
+
+
+
     return (
         <div>
+
+
+            {
+                back &&
+                <Navigate to="/signin" replace={true} />
+            }
+
+
             {/* Sidebar backdrop (mobile only) */}
             <div
                 className={`fixed inset-0 bg-slate-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200 ${sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} aria-hidden="true"  ></div>
@@ -64,14 +77,17 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                             {/* Messages */}
                             <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0  `}>
                                 <div className='flex '>
-                                    <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
+                                    {
+                                        pathname.includes('new-job') &&
+                                        <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
+                                    }
                                     <NavLink
                                         end to="/dashboard/new-job" className={`block text-slate-200 ml-2 hover:text-white truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="grow flex items-center">
 
-                                                <BiSearch size={24} className={`${pathname.includes('new-job') ? 'text-[#65A33A]  ' : "text-[#999FA9]"} `} />
-                                                <span className={`${pathname.includes('new-job') ? 'text-[#65A33A] font-medium' : "text-[#999FA9] font-light"} text-sm ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Apply New Job</span>
+                                                <BiSearch size={24} className={`${pathname.includes('new-job') ? 'text-[#42946C]  ' : "text-[#999FA9]"} `} />
+                                                <span className={`${pathname.includes('new-job') ? 'text-[#42946C] font-medium' : "text-[#999FA9] font-light"} text-sm ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Apply New Job</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -79,13 +95,16 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                             </li>
                             <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`}>
                                 <div className='flex '>
-                                    <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
+                                    {
+                                        pathname.includes('applied-jobs') &&
+                                        <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
+                                    }
                                     <NavLink
                                         end to="/dashboard/applied-jobs" className={`block ml-2 text-slate-200 truncate transition duration-150`} >
                                         <div className="flex items-center justify-between">
                                             <div className="grow flex items-center">
-                                                <IoMail size={24} className={`${pathname.includes('applied-jobs') ? 'text-[#65A33A]  ' : "text-[#999FA9]"} `} />
-                                                <span className={`${pathname.includes('applied-jobs') ? 'text-[#65A33A] font-medium' : "text-[#999FA9] font-light"} text-sm   ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Recent Applied Job</span>
+                                                <IoMail size={24} className={`${pathname.includes('applied-jobs') ? 'text-[#42946C]  ' : "text-[#999FA9]"} `} />
+                                                <span className={`${pathname.includes('applied-jobs') ? 'text-[#42946C] font-medium' : "text-[#999FA9] font-light"} text-sm   ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Recent Applied Job</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -93,13 +112,16 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                             </li>
                             <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`}>
                                 <div className='flex '>
-                                    <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
+                                    {
+                                        pathname.includes('recent-jobs') &&
+                                        <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
+                                    }
                                     <NavLink
                                         end to="/dashboard/recent-jobs" className={`block ml-2 text-slate-200 truncate transition duration-150`} >
                                         <div className="flex items-center justify-between">
                                             <div className="grow flex items-center">
-                                                <BsBarChartFill size={24} className={`${pathname.includes('recent-jobs') ? 'text-[#65A33A]  ' : "text-[#999FA9]"} `} />
-                                                <span className={`${pathname.includes('recent-jobs') ? 'text-[#65A33A] font-medium' : "text-[#999FA9] font-light"} text-sm   ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Jobs History</span>
+                                                <BsBarChartFill size={24} className={`${pathname.includes('recent-jobs') ? 'text-[#42946C]  ' : "text-[#999FA9]"} `} />
+                                                <span className={`${pathname.includes('recent-jobs') ? 'text-[#42946C] font-medium' : "text-[#999FA9] font-light"} text-sm   ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Jobs History</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -107,13 +129,16 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                             </li>
                             <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`}>
                                 <div className='flex '>
-                                    <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
+                                    {
+                                        pathname.includes('profile-setting') &&
+                                        <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
+                                    }
                                     <NavLink
                                         end to="/dashboard/profile-setting" className={`block ml-2 text-slate-200 truncate transition duration-150`} >
                                         <div className="flex items-center justify-between">
                                             <div className="grow flex items-center">
-                                                <BiUserCircle size={24} className={`${pathname.includes('profile-setting') ? 'text-[#65A33A]  ' : "text-[#999FA9]"} `} />
-                                                <span className={`${pathname.includes('profile-setting') ? 'text-[#65A33A] font-medium' : "text-[#999FA9] font-light"} text-sm   ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Profile Setting</span>
+                                                <BiUserCircle size={24} className={`${pathname.includes('profile-setting') ? 'text-[#42946C]  ' : "text-[#999FA9]"} `} />
+                                                <span className={`${pathname.includes('profile-setting') ? 'text-[#42946C] font-medium' : "text-[#999FA9] font-light"} text-sm   ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Profile Setting</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -121,13 +146,16 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                             </li>
                             <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`}>
                                 <div className='flex '>
-                                    <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
+                                    {
+                                        pathname.includes('notification') &&
+                                        <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
+                                    }
                                     <NavLink
                                         end to="/dashboard/notification" className={`block ml-2 text-slate-200 truncate transition duration-150`} >
                                         <div className="flex items-center justify-between">
                                             <div className="grow flex items-center">
-                                                <FaRegBell size={24} className={`${pathname.includes('notification') ? 'text-[#65A33A]  ' : "text-[#999FA9]"} `} />
-                                                <span className={`${pathname.includes('notification') ? 'text-[#65A33A] font-medium' : "text-[#999FA9] font-light"} text-sm   ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Notification</span>
+                                                <FaRegBell size={24} className={`${pathname.includes('notification') ? 'text-[#42946C]  ' : "text-[#999FA9]"} `} />
+                                                <span className={`${pathname.includes('notification') ? 'text-[#42946C] font-medium' : "text-[#999FA9] font-light"} text-sm   ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Notification</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -144,12 +172,12 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                 {/* Expand / collapse button */}
 
 
-              
+
                 <div className="pt-3 hidden lg:inline-flex 2xl:hidden justify-center mt-auto">
-                <div className='flex items-center -mt-[3rem]'>
-                    <AiOutlinePoweroff className='text-gray-400' />
-                    <h2 className='mx-3 text-gray-400'>Sign Out </h2>
-                </div>
+                    <div className='flex items-center -mt-[3rem] cursor-pointer' onClick={() => setBack(true)}>
+                        <AiOutlinePoweroff className='text-gray-400' />
+                        <h2 className='mx-3 text-gray-400'>Sign Out </h2>
+                    </div>
                     {/* <div className="px-3 py-2">
                         <button onClick={() => setSidebarExpanded(!sidebarExpanded)}>
                             <span className="sr-only">Expand / collapse sidebar</span>

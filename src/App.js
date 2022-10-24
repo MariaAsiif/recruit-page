@@ -152,7 +152,7 @@ function App() {
         <Route path='/newdashboard' element={<NewDashboardPage />} />
         {/* Recuit Pages  */}
         <Route path="/Home" element={<HomePage />} />
-        <Route path="/candidateDashboard" element={<DasSignupPage />} />
+        <Route path="/das" element={<DasSignupPage />} />
         {/* <Route path="/das-signup" element={<DASAccountSignup />} /> */}
         <Route path="/das-signin" element={<DasSignInPage />} />
         <Route path="/signin" element={<Login />} />

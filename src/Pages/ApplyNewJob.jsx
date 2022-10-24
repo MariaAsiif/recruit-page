@@ -11,8 +11,8 @@ const ApplyNewJob = () => {
 
             <div className='row g-0'>
                 <div className={sidebar ? 'col-lg-9' : 'col-lg-12'}>
-                    <div className='row g-0 px-4'>
-                        <div className='col-lg-12'>
+                    <div className='row g-0 px-4 py-2'>
+                        {/* <div className='col-lg-12'>
                             <div className='lg:flex lg:justify-between apply_job'>
                                 <div className='m-3'>
                                     <h2 className='text-[20px] font-semibold'>Here, we found job!</h2>
@@ -28,7 +28,7 @@ const ApplyNewJob = () => {
                                 </div>
 
                             </div>
-                        </div>
+                        </div> */}
                         {jobs.map(() => {
                             return (
                                 <div className={`${layout === "grid" ? sidebar ? "col-lg-4 " : "col-lg-3" : "col-lg-12"} mb-5 px-2`} onClick={() => setSetSidebar(true)}>
