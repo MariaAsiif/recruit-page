@@ -112,6 +112,7 @@ const Lexicon = () => {
                             className="p-3 h-full w-full border "
                         /> */}
                         {/* <BiSearch className='ml-2' /> */}
+                    "dayda fasdfkjasdhf afhaskd fsdjk"
 
                     </div>
                 </div>
