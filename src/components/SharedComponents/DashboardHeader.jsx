@@ -40,7 +40,7 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
                                     <div className={'ml-2'}>
                                         <IoMdNotificationsOutline className='text-[20px]' />
                                     </div>
-                                    <div className='lg:flex lg:items-center border rounded-full ml-3  lg:pl-2 lg:pr-2  hidden '>
+                                    <div className='lg:flex lg:items-center border rounded-full ml-2  lg:pl-2 lg:pr-2  hidden '>
                                         <img src={profileImage} className="w-6" alt="profile" />
                                         <select className='w-auto p-0 m-0 border-0 text-[13px] focus:outline-none px-1'>
                                             <option>Uk</option>
@@ -65,7 +65,7 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
                                         </svg>
                                     </div>
 
-                                    <div className=' p-[2px] ml-3  '>
+                                    <div className=' p-[2px] ml-1 '>
                                         <ProfileDropdown />
                                         {/* <img src={profileImage} className=" w-8" alt="profile" />
                                         <select className='w-auto p-0 m-0 border-0 text-[13px] focus:outline-none mx-1'>

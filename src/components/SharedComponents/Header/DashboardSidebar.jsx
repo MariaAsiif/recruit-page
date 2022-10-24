@@ -145,12 +145,12 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
 
 
               
-                <div className="pt-3 hidden lg:inline-flex 2xl:hidden justify-end mt-auto">
+                <div className="pt-3 hidden lg:inline-flex 2xl:hidden justify-center mt-auto">
                 <div className='flex items-center -mt-[3rem]'>
                     <AiOutlinePoweroff className='text-gray-400' />
                     <h2 className='mx-3 text-gray-400'>Sign Out </h2>
                 </div>
-                    <div className="px-3 py-2">
+                    {/* <div className="px-3 py-2">
                         <button onClick={() => setSidebarExpanded(!sidebarExpanded)}>
                             <span className="sr-only">Expand / collapse sidebar</span>
                             <svg className="w-6 h-6 fill-current sidebar-expanded:rotate-180" viewBox="0 0 24 24">
@@ -158,7 +158,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                                 <path className="text-slate-600" d="M3 23H1V1h2z" />
                             </svg>
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
