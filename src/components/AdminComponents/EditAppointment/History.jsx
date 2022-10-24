@@ -2,34 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { FcCheckmark } from 'react-icons/fc';
 import { MdClose } from 'react-icons/md';
 import { toast, ToastContainer } from 'react-toastify';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+// import { useForm } from 'react-hook-form';
+// import { yupResolver } from '@hookform/resolvers/yup';
+// import * as yup from 'yup';
 import { callApi } from '../../../utils/CallApi';
 // import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 // import moment from 'moment';
 // import { Link } from 'react-router-dom';
 
-const schema = yup.object({
-  disease: yup.string().required('Disease is Required'),
-  description: yup.string().required('Description is Required'),
+// const schema = yup.object({
+ 
 
-});
+// });
 
-const History = ({ handleNext, handleBack, data, updateState }) => {
+const History = ({ control, register, watch, errors }) => {
 
   const [companySetting, setCompanySetting] = useState(true);
   const [file, setFile] = useState("");
   const [allDisease, setallDisease] = useState([])
-
-  const {
-    register,
-    watch,
-    reset,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
 
 
@@ -37,8 +28,8 @@ const History = ({ handleNext, handleBack, data, updateState }) => {
     try {
       let file = e.target.files[0]
       let formdata = new FormData()
-      formdata.append('prescription', file)
-      let res = await callApi("/appointmentrequests/uploadMedicinePrescription", "post", formdata)
+      formdata.append('picture', file)
+      let res = await callApi("/appointmentrequests/uploadMedicalImages", "post", file)
       if (res.status === "Success") {
         setFile(res.data)
         toast.success(res.message);
@@ -56,19 +47,6 @@ const History = ({ handleNext, handleBack, data, updateState }) => {
   }
 
 
-
-  const onSubmit = async (values) => {
-
-    let payload = {
-      medicalFiles: file,
-      disease: values.disease,
-      positive: companySetting,
-      description: values.description,
-    }
-
-    updateState(payload)
-    handleNext()
-  };
 
 
   useEffect(() => {
@@ -95,18 +73,8 @@ const History = ({ handleNext, handleBack, data, updateState }) => {
   }, [])
 
 
-
-  useEffect(() => {
-    if (data?.disease) {
-      reset(data)
-      console.log("data" ,data )
-    }
-  }, [reset, data])
-  
-
-
   return (
-    <div className='bscontainer-fluid'>
+    <div >
       <ToastContainer
         position='top-right'
         autoClose={5000}
@@ -119,7 +87,7 @@ const History = ({ handleNext, handleBack, data, updateState }) => {
         pauseOnHover
       />
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      {/* <form onSubmit={handleSubmit(onSubmit)}> */}
         <div className='row p-11'>
 
           <div className='col-lg-4 mb-4 relative'>
@@ -199,43 +167,34 @@ const History = ({ handleNext, handleBack, data, updateState }) => {
               Description
             </label>
             <div className='absolute right-5 top-10'>
-              {!errors.description && watch('description') ? (
+              {!errors.desc && watch('desc') ? (
                 <FcCheckmark />
-              ) : errors.description ? (
+              ) : errors.desc ? (
                 <div className=' text-red-500'>
                   <MdClose />
                 </div>
               ) : null}
             </div>
             <textarea
-              {...register('description')}
+              {...register('desc')}
               autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.description && 'border-red-500'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.desc && 'border-red-500'
                 }`}
-              name='description'
-              id='description'
+              name='desc'
+              id='desc'
               placeholder='Description'
               cols='20'
             ></textarea>
             {/* <span hidden={watch('quot')} className='absolute text-red-400 text-sm font-medium  top-9 left-[170px]'>(optional)</span> */}
 
-            {errors.description && (
-              <p className='text-red-500 text-sm'>{errors.description.message}</p>
+            {errors.desc && (
+              <p className='text-red-500 text-sm'>{errors.desc.message}</p>
             )}
           </div>
 
-          <div className='col-lg-12'>
-            <div className='col-lg-12 flex justify-between'>
-              <button onClick={(e) => handleBack(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
-                Back
-              </button>
-              <button className='p-2 bg-red-500 hover:bg-green-600 text-white'>
-                Next
-              </button>
-            </div>
-          </div>
+         
         </div>
-      </form>
+      {/* </form> */}
     </div>
   );
 };

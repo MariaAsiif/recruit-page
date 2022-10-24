@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FcCheckmark } from 'react-icons/fc';
 import { MdClose, MdDelete } from 'react-icons/md';
 // import { toast, ToastContainer } from 'react-toastify';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+// import { useForm } from 'react-hook-form';
+// import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 // import { callApi } from '../../../utils/CallApi';
 import { useFieldArray } from "react-hook-form";
@@ -12,7 +12,6 @@ import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 // import moment from 'moment';
 // import { Link } from 'react-router-dom';
 import { BsFillPlusCircleFill } from 'react-icons/bs'
-import moment from 'moment';
 // import { MdDelete } from 'react-icons/md'
 const schema = yup.object({
   children: yup.string().required(),
@@ -32,7 +31,7 @@ const schema = yup.object({
     .required(),
 });
 
-const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
+const SocialHistory = ({control, register, watch, errors }) => {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -62,17 +61,17 @@ const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
 
   let defaultValue = { addictionName: "", everUsed: "", howLongUsed: "", whenStarted: "", whenQuited: "", description: "", lastTimeUsed: "" }
 
-  const marital = ["single", "married" , "partner", "widowed", "divorced"]
-  const sex = ["hetrosexual", "homosexual", "bisexual", "transsexual"]
+  const marital = ["Single", "Married/Partner", "Widowed", "Divorced"]
+  const sex = ["Heterosexual", "Homosexual", "Bisexual", "Transsexual"]
 
-  const {
-    register,
-    watch,
-    reset,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ mode: 'onChange', resolver: yupResolver(schema), defaultValues: { addictions: [{ addictionName: "", everUsed: false, howLongUsed: "", whenStarted: "", whenQuited: "", description: "", lastTimeUsed: "" }] } });
+  // const {
+  //   register,
+  //   watch,
+  //   reset,
+  //   control,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm({ mode: 'onChange', resolver: yupResolver(schema), defaultValues: { addictions: [{ addictionName: "", everUsed: false, howLongUsed: "", whenStarted: "", whenQuited: "", description: "", lastTimeUsed: "" }] } });
 
 
   const { fields, append, remove } = useFieldArray({
@@ -170,55 +169,37 @@ const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
 
 
 
-  const onSubmit = async (values) => {
-    // handleNext()
-    let arr = []
-    for (let index = 0; index < values.addictions.length; index++) {
-      const element = values.addictions[index];
-      const start = startDate[index]
-      const end = startDate[index]
-      let updatedStart = `${start.year}-${start.month}-${start.day}`;
-      let updatedEnd = `${end.year}-${end.month}-${end.day}`;
-      element.whenStarted = updatedStart
-      element.whenQuited = updatedEnd
-      arr.push(element)
-    }
+  // const onSubmit = async (values) => {
+  //   // handleNext()
+  //   let arr = []
+  //   for (let index = 0; index < values.addictions.length; index++) {
+  //     const element = values.addictions[index];
+  //     const start = startDate[index]
+  //     const end = startDate[index]
+  //     let updatedStart = `${start.year}-${start.month}-${start.day}`;
+  //     let updatedEnd = `${end.year}-${end.month}-${end.day}`;
+  //     element.whenStarted = updatedStart
+  //     element.whenQuited = updatedEnd
+  //     arr.push(element)
+  //   }
 
+  //   let payload = {
+  //     ...values,
+  //     hurt,
+  //     carrier,
+  //     excise,
+  //     pregnet,
+  //     feeding,
+  //     injury,
+  //   }
+  //   updateState(payload)
+  //   handleNext()
 
-    console.log("values " , values )
-    let updatedquoteDate = `${quoteDate.year}-${quoteDate.month}-${quoteDate.day}`;
-    let payload = {
-      ...values,
-      lastMenstrualDate : updatedquoteDate,
-      hurt,
-      carrier,
-      excise,
-      pregnet,
-      feeding,
-      injury,
-    }
-    updateState(payload)
-    handleNext()
+  // };
 
-  };
-
-
-  useEffect(() => {
-    if (data?.addictions) {
-
-      reset(data)
-      const date = moment(data?.whenStarted).format('yyyy-M-D').split('-')
-      setStart({ day: +date[2], month: +date[1], year: +date[0] })
-      const dateEnd = moment(data?.whenQuited).format('yyyy-M-D').split('-')
-      setEnd({ day: +dateEnd[2], month: +dateEnd[1], year: +dateEnd[0] })
-      const datelast = moment(data?.whenQuited).format('yyyy-M-D').split('-')
-      setquoteDate({ day: +datelast[2], month: +datelast[1], year: +datelast[0] })
-      reset(data)
-    }
-  }, [reset, data])
   return (
-    <div className='bscontainer-fluid'>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div >
+      {/* <form onSubmit={handleSubmit(onSubmit)}> */}
         <div className='row p-11'>
 
 
@@ -722,16 +703,16 @@ const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
 
 
 
-          <div className='col-lg-12 flex justify-between'>
+          {/* <div className='col-lg-12 flex justify-between'>
             <button onClick={(e) => handleBack(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Back
             </button>
             <button className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Next
             </button>
-          </div>
+          </div> */}
         </div>
-      </form>
+      {/* </form> */}
     </div>
   );
 };

@@ -1,65 +1,23 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FcCheckmark } from 'react-icons/fc';
 import { MdClose } from 'react-icons/md';
-import { ToastContainer } from 'react-toastify';
-import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import {ToastContainer } from 'react-toastify';
+import { Controller } from 'react-hook-form';
+// import { yupResolver } from '@hookform/resolvers/yup';
+// import * as yup from 'yup';
 // import { callApi } from '../../../utils/CallApi';/
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-const schema = yup.object({
-  ssn: yup.string().required('Field is Required'),
-  homeAddress: yup.string().required('homeAddress is Required'),
-  homePhone: yup.string().required('homePhone is Required'),
-  workPhone: yup.string().required('workPhone is Required'),
-  occupation: yup.string().required('occupation is Required'),
-  emergencyContantName: yup.string().required('emergencyContantName is Required'),
-  emergencyContactRelation: yup.string().required('emergencyContactRelation is Required'),
-  emergencyContactPhone: yup.string().required('emergencyContactPhone is Required'),
-  familyDoctorName: yup.string().required('familyDoctorName is Required'),
-  referringDoctorName: yup.string().required('referringDoctorName is Required'),
-  doctorAddress: yup.string().required('doctorAddress is Required'),
-  doctorPhone: yup.string().required('doctorPhone is Required'),
-  doctorFax: yup.string().required('doctorFax is Required'),
-  otherReferralSource: yup.string().required('otherReferralSource is Required'),
 
-});
-const UserInfo = ({ handleNext, updateState, data }) => {
+const UserInfo = ({ control, register, watch, errors ,  }) => {
 
-
-
-  const {
-    register,
-    watch,
-    reset,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
-
-
-
-
-  const onSubmit = async (values) => {
-    updateState(values)
-    handleNext()
-  };
-
-
-
-  useEffect(() => {
-    if (data?.ssn) {
-      reset(data)
-    }
-  }, [reset, data])
 
 
 
 
   return (
-    <div className='bscontainer-fluid'>
+    <div>
       <ToastContainer
         position='top-right'
         autoClose={5000}
@@ -71,7 +29,7 @@ const UserInfo = ({ handleNext, updateState, data }) => {
         draggable
         pauseOnHover
       />
-      <form onSubmit={handleSubmit(onSubmit)}>
+      {/* <form onSubmit={handleSubmit(onSubmit)}> */}
         <div className='row p-11'>
 
           <div className='col-lg-4 mb-4 relative'>
@@ -504,14 +462,14 @@ const UserInfo = ({ handleNext, updateState, data }) => {
               <p className='text-red-500 text-sm'>{errors.homeAddress.message}</p>
             )}
           </div>
-          <div className='col-lg-12'>
+          {/* <div className='col-lg-12'>
             <button className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Next
             </button>
 
-          </div>
+          </div> */}
         </div>
-      </form>
+      {/* </form> */}
     </div>
   )
 }

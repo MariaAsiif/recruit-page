@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState } from 'react';
 import { FcCheckmark } from 'react-icons/fc';
 import { MdClose } from 'react-icons/md';
 import { useForm } from 'react-hook-form';
@@ -9,25 +9,19 @@ import { toast, ToastContainer } from 'react-toastify';
 
 
 const schema = yup.object({
-    symptoms: yup.string().required('symptoms is Required'),
-    consultationFee: yup.string().required('consultation Fee is Required'),
-    communication: yup.string().required('communication  is Required'),
-    allergies: yup.string().required('allergies is Required'),
+    // symptoms: yup.string().required('symptoms is Required'),
+    // consultationFee: yup.string().required('consultation Fee is Required'),
+    // communication: yup.string().required('communication  is Required'),
+    // allergies: yup.string().required('allergies is Required'),
     // image: yup.mixed().test('required', 'file is Required', value => { return value && value.length }),
     // video: yup.mixed().test('required', 'file is Required', value => { return value && value.length }),
 });
 
-const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
+const ConsultationType = ({ control, register, watch, errors }) => {
 
     const [image, setImage] = useState('')
     const [video, setVideo] = useState('')
-    const {
-        register,
-        watch,
-        reset,
-        handleSubmit,
-        formState: { errors },
-    } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
+  
 
 
 
@@ -74,25 +68,19 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
 
 
 
-    const onSubmit = async (values) => {
+    // const onSubmit = async (values) => {
 
-        let payload = {
-            ...values,
-            pictures : image,
-            videos: video
-        }
-        updateState(payload)
-        handleNext()
-    };
-
-    useEffect(() => {
-        if (data?.communication) {
-          reset(data)
-        }
-      }, [reset, data])
+    //     let payload = {
+    //         ...values,
+    //         image,
+    //         video
+    //     }
+    //     updateState(payload)
+    //     handleNext()
+    // };
 
     return (
-        <div className='bscontainer-fluid'>
+        <div >
 
             <ToastContainer
                 position='top-right'
@@ -106,7 +94,7 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
                 pauseOnHover
             />
 
-            <form onSubmit={handleSubmit(onSubmit)}>
+            {/* <form onSubmit={handleSubmit(onSubmit)}> */}
                 <div className='row p-11'>
 
                     <div className='col-lg-4 mb-4 relative'>
@@ -248,14 +236,14 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
                             )} */}
                         </div>
                     </div>
-                    <div className='col-lg-12 flex justify-between'>
+                    {/* <div className='col-lg-12 flex justify-between'>
                         <button onClick={(e) => handleBack(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
                             Back
                         </button>
-                        <button type='submit' className='p-2 bg-red-500 hover:bg-green-600 text-white'>Finish</button>
-                    </div>
+                        <button type='submit' className='p-2 bg-red-500 hover:bg-green-600 text-white'>Next</button>
+                    </div> */}
                 </div>
-            </form>
+            {/* </form> */}
         </div>
     );
 };

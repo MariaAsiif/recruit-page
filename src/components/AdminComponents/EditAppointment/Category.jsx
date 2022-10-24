@@ -4,21 +4,17 @@ import { MdClose } from 'react-icons/md';
 import { toast, ToastContainer } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+// import * as yup from 'yup';
 // import { callApi } from '../../../utils/CallApi';
 import TimeInput from 'react-time-picker-input';
 import "react-time-picker-input/dist/components/TimeInput.css"
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import { useEffect } from 'react';
-import moment from 'moment';
 // import moment from 'moment';
 
-const schema = yup.object({
-  requestCategory: yup.string().required('Request Category is Required'),
-  reasonOfCurrentVisit: yup.string().required('Problem is Required'),
-});
-const Category = ({ handleNext, handleBack, data, updateState }) => {
+
+const Category = ({ control, register, watch, errors }) => {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -37,18 +33,11 @@ const Category = ({ handleNext, handleBack, data, updateState }) => {
 
   useEffect(() => {
     setValue(time)
-  }, [])
-
-  console.log("time is", value)
+  }, [time])
 
 
-  const {
-    register,
-    watch,
-    reset,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
+
+
 
   // ****************** Datepicker Content ***********
   const renderCustomInput = ({ ref }) => (
@@ -71,39 +60,24 @@ const Category = ({ handleNext, handleBack, data, updateState }) => {
   );
 
 
-  console.log("time", value)
 
 
-  const onSubmit = async (values) => {
-    let updatedDate = `${quoteDate.year}-${quoteDate.month}-${quoteDate.day} ${value}`;
 
-    let payload = {
-      reasonOfCurrentVisit: values.reasonOfCurrentVisit,
-      requestCategory: values.requestCategory,
-      status: "pending",
-      requestDate: updatedDate,
-    }
-    updateState(payload)
-    handleNext()
-
-  };
-
-  useEffect(() => {
+  // useEffect(() => {
     // var parts = data?.quoteDate?.split('-');
     // var mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
-    if (data.requestDate) {
-      reset(data);
-      const date = moment(data?.requestDate).format('yyyy-M-D').split('-')
-      const time = data?.requestDate?.substring(11, 18)
-      console.log("time is here " , time )
-      setquoteDate({ day: +date[2], month: +date[1], year: +date[0] })
-      setValue(time)
-    }
-  }, [data, reset])
+  //   if (data.requestDate) {
+  //     reset(data);
+  //     const date = moment(data?.requestDate).format('yyyy-M-D').split('-')
+  //     const time = data?.requestDate?.substring(11, 16)
+  //     setquoteDate({ day: +date[2], month: +date[1], year: +date[0] })
+  //     setValue(time)
+  //   }
+  // }, [data, reset])
 
 
   return (
-    <div className='bscontainer-fluid'>
+    <div >
       <ToastContainer
         position='top-right'
         autoClose={5000}
@@ -115,8 +89,8 @@ const Category = ({ handleNext, handleBack, data, updateState }) => {
         draggable
         pauseOnHover
       />
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className='row p-5'>
+      {/* <form onSubmit={handleSubmit(onSubmit)}> */}
+        <div className='row p-10'>
 
           <h2 className='text-[18px] mb-2 font-medium'>Category</h2>
 
@@ -218,16 +192,9 @@ const Category = ({ handleNext, handleBack, data, updateState }) => {
             )}
           </div>
 
-          <div className='col-lg-12 flex justify-between'>
-            <button onClick={(e) => handleBack(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
-              Back
-            </button>
-            <button className='p-2 bg-red-500 hover:bg-green-600 text-white'>
-              Next
-            </button>
-          </div>
+         
         </div>
-      </form>
+      {/* </form> */}
     </div>
   )
 }

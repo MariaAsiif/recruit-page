@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -16,20 +16,21 @@ const schema = yup.object({
     .array()
     .of(
       yup.object({
-        operationName: yup.string().required(),
-        operationResult: yup
+        name: yup.string().required(),
+        past: yup
           .string()
+
           .required(),
       })
     )
     .required(),
-  medicationsSuppliments: yup
+    medicationsSuppliments: yup
     .array()
     .of(
       yup.object({
         medicine: yup.string().required(),
         dosage: yup.string().required(),
-        timesOfMedicine: yup.string().required(),
+        time: yup.string().required(),
       })
     )
   // image: yup.string().mixed().test('required', ' File  is Required', value => {
@@ -39,52 +40,41 @@ const schema = yup.object({
 
 
 
-const SurgicalHistory = ({ handleNext, handleBack, updateState, data }) => {
+const SurgicalHistory = ({ control, register, watch, errors  }) => {
 
   const [dates, setDates] = useState([]);
   const [imagefile, setImageFile] = useState('');
-  // const [medicationDate, setMedicationDate] = useState('');
 
-  const {
-    register,
-    watch,
-    reset,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    mode: 'onChange', resolver: yupResolver(schema),
-    defaultValues: {
-      operationType: [{ operationName: "", operationResult: "", operationDate: "" }],
-      medicationsSuppliments: [{ medicine: "", dosage: "", takingNow: true, isSurgeyDone : true , timesOfMedicine: "", prescriptionFile: "" }]
+  // const {
+  //   register,
+  //   watch,
+  //   control,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm({
+  //   mode: 'onChange', resolver: yupResolver(schema),
+  //   defaultValues: {
+  //     operationType: [{ operationName: "", operationResult: "", operationDate: "" }],
+  //     medicationsSuppliments: [{ medicine: "", dosage: "", takingNow: true, timesOfMedicine: "", prescriptionFile: "" }]
 
-    }
-  });
+  //   }
+  // });
 
-  useEffect(() => {
-    if (data?.operationType) {
-      reset(data)
-    }
-  }, [reset, data])
+
 
   const onSubmit = async (values) => {
 
     let surgical = []
-    for (let index = 0; index < values.operationType.length; index++) {
-      const element = values.operationType[index];
+    for (let index = 0; index < values.test.length; index++) {
+      const element = values.test[index];
       const d = dates[index]
       let updated = `${d.year}-${d.month}-${d.day}`;
       element.operationDate = updated
       surgical.push(element)
     }
-
-    for (let index = 0; index < values.medicationsSuppliments.length; index++) {
-      const element = values.medicationsSuppliments[index];
-      element.prescriptionFile = imagefile
-      surgical.push(element)
-    }
-    updateState(values)
-    handleNext()
+    console.log("value", values)
+    // updateState(values)
+    // handleNext()
 
 
   };
@@ -93,7 +83,7 @@ const SurgicalHistory = ({ handleNext, handleBack, updateState, data }) => {
 
 
   return (
-    <div className='bscontainer-fluid'>
+    <div>
 
       <ToastContainer
         position='top-right'
@@ -107,7 +97,7 @@ const SurgicalHistory = ({ handleNext, handleBack, updateState, data }) => {
         pauseOnHover
       />
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      {/* <form onSubmit={handleSubmit(onSubmit)}> */}
         <div className='row p-11'>
 
 
@@ -116,16 +106,9 @@ const SurgicalHistory = ({ handleNext, handleBack, updateState, data }) => {
           <Medications {...{ control, register, watch, errors, setImageFile }} />
 
 
-          <div className='flex justify-between col-lg-12'>
-            <button onClick={(e) => handleBack(e)} className='p-2 text-white bg-red-500 hover:bg-green-600'>
-              Back
-            </button>
-            <button type='submit' className='p-2 text-white bg-red-500 hover:bg-green-600'>
-              Next
-            </button>
-          </div>
+         
         </div>
-      </form>
+      {/* </form> */}
     </div>
   );
 };

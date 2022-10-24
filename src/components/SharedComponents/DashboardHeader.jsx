@@ -1,7 +1,7 @@
 import React from 'react'
 import { BiSearch } from "react-icons/bi";
 import { AiTwotoneCloud } from 'react-icons/ai'
-import { IoMdNotificationsOutline } from 'react-icons/io'
+import { IoMdNotificationsOutline , IoIosBody} from 'react-icons/io'
 import profileImage from '../../images/people.png'
 const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbarOpen, rightbarOpen ,Toggle }) => {
     return (
@@ -32,15 +32,15 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
                                         <AiTwotoneCloud className='text-[20px]' />
                                         <span className='ml-2 text-[12px]'>Rain-1'C</span>
                                     </div>
-                                    <div className='ml-2'>
+                                    <div className={ checkExpand ? 'ml-0 mt-2' : 'ml-2' }>
                                         <IoMdNotificationsOutline className='text-[20px]' />
                                     </div>
-                                    <div className='ml-2'>
-                                        <IoMdNotificationsOutline className='text-[20px]' />
+                                    <div  className={ checkExpand ? 'ml-1 mt-2' : 'ml-2' }>
+                                        <IoIosBody className='text-[20px]' />
                                     </div>
                                     <div className='lg:flex lg:items-center border rounded-full ml-2  lg:p-1  hidden '>
                                         <img src={profileImage} className="w-6" alt="profile" />
-                                        <select className=' text-[13px] focus:outline-none px-1'>
+                                        <select className='w-auto p-0 m-0 border-0 text-[13px] focus:outline-none px-1'>
                                             <option>Uk</option>
                                         </select>
                                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" className="w-2 ml-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -49,13 +49,13 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
                                     </div>
                                     <div className='lg:flex lg:items-center   lg:p-1 ml-2  hidden border rounded-full '>
                                         <img src={profileImage} className=" w-6" alt="profile" />
-                                        <select className=' text-[13px] focus:outline-none px-1'>
+                                        <select className='w-auto p-0 m-0 border-0 text-[13px] focus:outline-none px-1'>
                                             <option>Dark Mode</option>
                                         </select>
                                     </div>
                                     <div className='lg:flex lg:items-center   lg:p-1 border rounded-full ml-2  hidden '>
                                         <img src={profileImage} className=" w-6" alt="profile" />
-                                        <select className=' text-[13px] focus:outline-none px-1'>
+                                        <select className='w-auto p-0 m-0 border-0 text-[13px] focus:outline-none px-1'>
                                             <option>English</option>
                                         </select>
                                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" className="w-2 ml-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -64,7 +64,7 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
                                     </div>
                                     <div className='lg:flex lg:items-center p-1 ml-2 hidden'>
                                         <img src={profileImage} className=" w-8" alt="profile" />
-                                        <select className=' text-[13px] focus:outline-none mx-1'>
+                                        <select className='w-auto p-0 m-0 border-0 text-[13px] focus:outline-none mx-1'>
                                             <option>Islamabad</option>
                                         </select>
                                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" className="w-2 ml-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">

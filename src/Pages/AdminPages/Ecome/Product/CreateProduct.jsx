@@ -29,9 +29,9 @@ const schema = yup.object({
   salePrice: yup.string().required('salePrice is Required'),
   desc: yup.string().required('Description is Required'),
   store: yup.string().required('Store is Required'),
-  image: yup.mixed().test("required" ,'Image is Required' , value => {
+  image: yup.mixed().test("required", 'Image is Required', value => {
     return value && value.length
-  } )
+  })
 });
 const CreateProduct = () => {
   const [tags, setTags] = useState([])
@@ -43,7 +43,7 @@ const CreateProduct = () => {
   const [image, setImage] = useState("");
   const [tagError, setTagError] = useState("");
   const [allcatagories, setallcatagories] = useState([])
-  const [allstores , setallIStores ] = useState([])
+  const [allstores, setallIStores] = useState([])
   const {
     register,
     watch,
@@ -67,7 +67,10 @@ const CreateProduct = () => {
   const onSubmit = async (data) => {
 
 
-    let value = {
+    let formdata = new FormData()
+
+    formdata.append('pictures', data.image[0])
+    formdata.append('request', JSON.stringify({
       productTitle: data.name,
       productCategories: data.category,
       productDescritpion: data.desc,
@@ -90,17 +93,18 @@ const CreateProduct = () => {
       upc: data.upc,
       mpn: data.mpn,
       isbn: data.isbn,
-      productImagesURLs: data.image[0],
       salePrice: data.salePrice,
       isOnSale: isOnSale,
       active: active,
       store: data.store
-    }
+    })
+    )
     if (tags?.length > 0) {
-      const res = await callApi('/products/createProduct', 'post', value);
+      const res = await callApi('/products/createProduct', 'post', formdata);
       if (res.status === 'Success') {
         toast.success(res.message);
         reset();
+        setTags([])
       } else {
         toast.error(res.message);
       }
@@ -114,16 +118,13 @@ const CreateProduct = () => {
     (async () => {
       try {
         const payload = {
-          sortproperty: "created_at",
-          sortorder: -1,
-          offset: 0,
-          limit: 50,
-          query: {
-            critarion: { active: true, "quoteColor": "Red" },
-            addedby: "_id email first_name",
-            lastModifiedBy: "_id email first_name"
-          }
-        }
+          "sortproperty": "createdAt",
+          "sortorder": -1,
+          "offset" : 0,
+          "limit": 15
+          
+        }           
+
         const payloadStore = {
           sortproperty: "created_at",
           sortorder: -1,
@@ -894,7 +895,7 @@ const CreateProduct = () => {
               className={`border p-[10px] lg:-mt-[1px] focus:outline-blue-500 rounded-sm w-full   ${errors.store && 'border-red-500'}`}
             >
               <option value="">Select Store </option>
-              {allstores.map((store ) =>(
+              {allstores.map((store) => (
                 <option key={store._id} value={store._id}>{store.storeName}</option>
               ))}
             </select>
@@ -907,7 +908,7 @@ const CreateProduct = () => {
           <div className='col-lg-6 mb-4 relative'>
             <label className="block text-sm font-medium mb-1" htmlFor="city">Image</label>
             <div className={`border p-1  focus:outline-blue-500 rounded-sm w-full   ${errors.image && 'border-red-500'}`}
->
+            >
               <input type="file" {...register('image')} name="image" />
             </div >
             {errors.image && (

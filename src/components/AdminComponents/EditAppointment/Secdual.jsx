@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FcCheckmark } from 'react-icons/fc';
 import { MdClose } from 'react-icons/md';
 // import { toast, ToastContainer } from 'react-toastify';
@@ -14,7 +14,6 @@ import { BsPlusCircle } from 'react-icons/bs'
 import { useFieldArray } from "react-hook-form";
 import { callApi } from '../../../utils/CallApi';
 import { toast, ToastContainer } from 'react-toastify';
-import moment from 'moment';
 
 const schema = yup.object({
   name: yup.string().required('Doctor Name is Required'),
@@ -39,7 +38,7 @@ const schema = yup.object({
 
 });
 
-const Schedule = ({ handleNext, handleBack, updateState, data }) => {
+const Schedule = ({ control, register, watch, errors }) => {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -53,14 +52,6 @@ const Schedule = ({ handleNext, handleBack, updateState, data }) => {
   const [file, setFile] = useState('')
   const [report, setReport] = useState('')
 
-  const {
-    register,
-    watch,
-    reset,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ mode: 'onChange', resolver: yupResolver(schema), defaultValues: { familyDiseases: [{ description: "" }] } });
 
 
 
@@ -132,32 +123,8 @@ const Schedule = ({ handleNext, handleBack, updateState, data }) => {
 
 
 
-  const onSubmit = async (values) => {
-
-    let lastDate = `${quoteDate.year}/${quoteDate.month}/${quoteDate.day}`
-
-    let payload = {
-      ...values,
-      lastCheckupDate : lastDate,
-      file,
-      report
-    }
-
-    updateState(payload)
-    handleNext()
-  };
-
-
-  useEffect(() => {
-    if (data?.familyDiseases) {
-      reset(data)
-      const date = moment(data?.lastCheckupDate).format('yyyy-M-D').split('-')
-      setquoteDate({ day: +date[2], month: +date[1], year: +date[0] })
-    }
-  }, [reset, data])
-
   return (
-    <div className='bscontainer-fluid'>
+    <div>
       <ToastContainer
         position='top-right'
         autoClose={5000}
@@ -169,7 +136,7 @@ const Schedule = ({ handleNext, handleBack, updateState, data }) => {
         draggable
         pauseOnHover
       />
-      <form onSubmit={handleSubmit(onSubmit)}>
+      {/* <form onSubmit={handleSubmit(onSubmit)}> */}
         <div className='row p-11'>
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium mb-1' htmlFor='name'>
@@ -366,16 +333,9 @@ const Schedule = ({ handleNext, handleBack, updateState, data }) => {
 
             </div>
           </div>
-          <div className='col-lg-12 flex justify-between'>
-            <button onClick={(e) => handleBack(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
-              Back
-            </button>
-            <button className='p-2 bg-red-500 hover:bg-green-600 text-white'>
-              Next
-            </button>
-          </div>
+          
         </div>
-      </form>
+      {/* </form> */}
     </div>
   );
 };
