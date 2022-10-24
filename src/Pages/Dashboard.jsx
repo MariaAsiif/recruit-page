@@ -18,7 +18,7 @@ const Dashboard = () => {
         {/*  Site header */}
         <DashboardHeader rightbarOpen={rightbarOpen} setRightbarOpen={setRightbarOpen} Toggle={setToggle} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} checkExpand={checkExpand} />
         {toggle &&
-          <div className='mx-5'>
+          <div className=''>
             <div className="border bg-white rounded-b-xl ">
               <div className='row'>
                 <div className='col-lg-6 p-5'>

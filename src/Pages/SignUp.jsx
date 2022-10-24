@@ -16,7 +16,8 @@ import * as yup from "yup";
 import { FcCheckmark } from 'react-icons/fc'
 import { MdClose } from 'react-icons/md';
 import { toast, ToastContainer } from 'react-toastify';
-import {  callPublicApi } from '../utils/CallApi'
+import { callPublicApi } from '../utils/CallApi'
+import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 
 const schema = yup.object({
@@ -60,7 +61,7 @@ const SignUp = () => {
 
     const all_Roles = ["vendors", "manufacturer", "customer", "doctor", "finance admin", "superadmin", "HR", "admin"]
 
-    const { register, watch, reset,  handleSubmit, control ,  formState: { errors } } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
+    const { register, watch, reset, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
 
 
@@ -125,31 +126,31 @@ const SignUp = () => {
         try {
             let option = {
                 first_name: data.first_name,
-               first_family_name: data.first_family_name,
-               second_family_name: data.second_family_name,
-               third_family_name : data.third_family_name,
-               email: data.email,
-               password: data.password,
-               phoneNumber: data.phoneNumber,
-               channel:"sms",
-               role:data.role,
-               approved:"pending",
-               location: {
-                   type:"Point",
+                first_family_name: data.first_family_name,
+                second_family_name: data.second_family_name,
+                third_family_name: data.third_family_name,
+                email: data.email,
+                password: data.password,
+                phoneNumber: data.phoneNumber,
+                channel: "sms",
+                role: data.role,
+                approved: "pending",
+                location: {
+                    type: "Point",
                     "coordinates": [
                         74.28911289869138,
                         31.624848273644956
                     ]
                 }
             }
-           
-            const res = await callPublicApi('/users/signup' , 'post', option)
+
+            const res = await callPublicApi('/users/signup', 'post', option)
             if (res.status === 'Success') {
                 toast.success(res.message);
                 reset();
-              } else {
+            } else {
                 toast.error(res.message);
-              }
+            }
         } catch (error) {
             console.log(error);
         }
@@ -178,7 +179,7 @@ const SignUp = () => {
     return (
 
         <div className='container h-screen'>
-              <ToastContainer
+            <ToastContainer
                 position="top-right"
                 autoClose={5000}
                 hideProgressBar={false}
@@ -189,7 +190,7 @@ const SignUp = () => {
                 draggable
                 pauseOnHover
             />
-            
+
             <div className='row h-full g-0 '>
                 <div className='col-lg-4 left_img '>
                     <img src={loginImage} className="lg:h-full " alt="login_image" />
@@ -303,7 +304,8 @@ const SignUp = () => {
                                     </div>
 
                                     <div className='col-lg-4'>
-                                        <label className='text-[14px] font-semibold'>Roles</label>
+                                        <label className='text-[14px] font-semibold'>Roles
+                                        <span className='pt-1 text-green-600 ml-2'> * </span></label>
 
                                         <div className="dropdown relative mb-5">
                                             <select {...register('role')} name="role" className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' >
@@ -354,8 +356,8 @@ const SignUp = () => {
                                         )}
                                     </div>
                                     <div className='col-lg-4'>
-                                        <label className='text-[14px] font-semibold'>Country</label>
-
+                                        <label className='text-[14px] font-semibold'>Country
+                                        <span className='pt-1 text-green-600 ml-2'> * </span></label>
                                         <div className="dropdown relative mb-5">
                                             <select {...register('country')} name="country" className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' >
                                                 <option value="">Select Country </option>
@@ -400,7 +402,14 @@ const SignUp = () => {
                                         <button className='border lg:mx-4 mt-3 lg:mt-0 lg:w-[20%] py-3 w-[100%] rounded-md text-white hover:bg-[#93C234] bg-green-600' type="submit ">SignUp</button>
                                     </div>
 
-
+                                    <div className='mt-6 '>
+                                        <span className='text-[12px] flex justify-center text-gray-400'>
+                                            You have an account to login,
+                                            <Link to="/signin">
+                                                <span className='hover:underline text-[#42946C] text-[12px] pl-1'>Click here to login account!</span>
+                                            </Link>
+                                        </span>
+                                    </div>
 
                                 </div>
                             </form>
