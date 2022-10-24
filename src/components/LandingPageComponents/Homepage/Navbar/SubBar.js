@@ -218,7 +218,7 @@ const SubBar = ({ setShow }) => {
                 </a>
               </li> */}
               <li className="main-li">
-                <Link activeClass="active" to="PORTABLES" spy={true} smooth={true} offset={-70} duration={500}   >
+                <Link activeClass="active" to="" spy={true} smooth={true} offset={-70} duration={500}   >
                   PORTABLES
                 </Link>
               </li>
@@ -258,12 +258,12 @@ const SubBar = ({ setShow }) => {
                 </ul>
               </li>
               <li className="main-li">
-                <Link activeClass="active" to="MARKETPLACE" spy={true} smooth={true} offset={-70} duration={500}  >
+                <Link  to="MARKETPLACE" spy={true} smooth={true} offset={-70} duration={500}  >
                   MARKETPLACE{" "}
                 </Link>
               </li>
               <li className="main-li" >
-                <Link activeClass="active" to="LOCATE" spy={true} smooth={true} offset={-70} duration={500} >
+                <Link  to="/locator" spy={true} smooth={true} offset={-70} duration={500} >
                   LOCATE{" "}
                 </Link>
               </li>

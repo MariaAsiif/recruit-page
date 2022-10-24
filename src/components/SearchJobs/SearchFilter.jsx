@@ -18,7 +18,7 @@ const SearchFilter = () => {
                         <div className='col-lg-6 lg:border-l-2 md:border-0  h-[60px] pt-4 search_filter'>
                             <div className='flex items-center relative location_search'>
                                 <IoLocationOutline className='text-[25px] text-gray-300' />
-                                <select className=' custom_select border-0 focus:outline-none'>
+                                <select className='!p-0  custom_select border-0 focus:outline-none'>
                                     <option>Select Loction</option>
                                     <option>Select Loction</option>
                                     <option>Select Loction</option>

@@ -75,7 +75,7 @@ const CreateAppointment = () => {
     if (increse === 7) {
       try {
         let payload = {
-          customer: "63318e11a76d42266881a7e8",
+          customer: "630ce0ffc7f3f40016ddb01d",
           customerfields: {
             "ssn": formData.ssn,
             "homeAddress": formData.homeAddress,
@@ -94,7 +94,7 @@ const CreateAppointment = () => {
           },
           "reasonOfCurrentVisit": formData.reasonOfCurrentVisit,
           "requestCategory": formData.requestCategory,
-          "status": "pending",
+          // "status": "pendding",
           "requestDate": formData.requestDate,
           "medicalHistory": [{
             "description": formData.description,

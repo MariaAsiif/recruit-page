@@ -125,127 +125,68 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
         return () => document.removeEventListener('keydown', keyHandler);
     });
 
+
+    console.log("Data from update" , data )
+
     useEffect(() => {
         let d = {
-            "ssn": "45644654646",
-            "homeAddress": "1 Main Hatten New York, USA",
-            "homePhone": "65464646",
-            "workPhone": "5464644",
-            "occupation": "Plumber Update",
-            "emergencyContantName": "45456446",
-            "emergencyContactRelation": "Son",
-            "emergencyContactPhone": "5646466",
-            "familyDoctorName": "Dr. Antonio",
-            "referringDoctorName": "Dr. Christopher",
-            "doctorAddress": "4 Flordia, USA",
-            "doctorPhone": "5454646",
-            "doctorFax": "89846546",
-            "otherReferralSource": "No",
-            "reasonOfCurrentVisit": "I am ill",
-            "requestCategory": "Request Category",
-            "status": "pending",
-            "requestDate": "2022-10-10 11:00:00",
+            "ssn": data.ssn,
+            "homeAddress": data.homeAddress,
+            "homePhone": data.workPhone,
+            "workPhone": data.workPhone,
+            "occupation": data.occupation,
+            "emergencyContantName": data.emergencyContantName,
+            "emergencyContactRelation": data.emergencyContactRelation,
+            "emergencyContactPhone": data.emergencyContactPhone,
+            "familyDoctorName": data.familyDoctorName,
+            "referringDoctorName": data.referringDoctorName,
+            "doctorAddress": data.doctorAddress,
+            "doctorPhone": data.doctorPhone,
+            "doctorFax": data.doctorFax,
+            "otherReferralSource": data.otherReferralSource,
+            "reasonOfCurrentVisit": data.reasonOfCurrentVisit,
+            "requestCategory": data.requestCategory,
+            "status": "approved",
+            "requestDate": data.requestDate,
             "medicalHistory": [{
-                "medicalFiles": ["/uploads/medicalfiles/1664898270888-file-example_PDF_1MB.pdf"],
-                "disease": "63349f8569c0360478797203",
-                "positive": false,
-                "description": "This is description "
+                "description": data.description,
             }],
             "pastConsultants": [{
-                "doctorName": "Adam",
-                "specialization": "Heart",
-                "lastCheckupDate": "2020-01-10",
-                "profileLink": "www.dor.com",
-                "drPrescription": "/uploads/medicalfiles/1664898270888-file-example_PDF_1MB.pdf",
-                "medicalReports": ["/uploads/medicalfiles/1664898270888-file-example_PDF_1MB.pdf", "/uploads/medicalfiles/1664898270888-file-example_PDF_1MB.pdf"]
+                "doctorName": data.doctorName,
+                "specialization": data.specialization,
+                "lastCheckupDate": data.lastCheckupDate,
+                "profileLink": data.profileLink,
+                "drPrescription": data.drPrescription,
+                "medicalReports": data.medicalReports,
             }],
-            "familyDiseases": [{
-                "disease": "63349f8569c0360478797203",
-                "positive": false,
-                "description": "This is description"
-            }, {
-                "disease": "63349f8569c0360478797203",
-                "positive": false,
-                "description": "This is description"
-            }],
+            "familyDiseases": data.familyDiseases,
             "surgicalHistory": {
-                "isSurgeyDone": true,
-                "operationType": [{
-                    "operationName": "Heart",
-                    "operationDate": "2001-01-21",
-                    "operationResult": "Successfull"
-                },
-                {
-                    "operationName": "Brain",
-                    "operationDate": "2022-10-01",
-                    "operationResult": "Successfull"
-                }]
+                "isSurgeyDone": data.isSurgeyDone,
+                "operationType": data.operationType
             },
             "socialHistory": {
-                "addictions": [
-                    {
-                        "addictionName": "Mauarijuana",
-                        "everUsed": true,
-                        "howLongUsed": "5 Years",
-                        "whenStarted": "2017-10-01",
-                        "whenQuited": "2022-10-03",
-                        "description": "I used this drug to get relaxation",
-                        "lastTimeUsed": "3 Days ago"
-                    },
-                    {
-                        "addictionName": "Cannibies",
-                        "everUsed": true,
-                        "howLongUsed": "2 Years",
-                        "whenStarted": "2015-10-01",
-                        "whenQuited": "2027-10-03",
-                        "description": "I used this drug to get relaxation",
-                        "lastTimeUsed": "5 Years ago"
-                    }
-                ],
-                "maritalStatus": "single",
-                "sexualOrientation": "hetrosexual",
-                "everHurt": true,
-                "needCarrier": false,
-                "exercise": false,
-                "pregnant": false,
-                "breastFeeding": false,
-                "lastMenstrualDate": "",
-                "noOfChildrens": "0",
-                "deliveryMethod": "N.A.",
-                "deliveryInjury": false
+                "addictions": data.addictions,
+                "maritalStatus": data.maritalStatus,
+                "sexualOrientation": data.sexualOrientation,
+                "everHurt": data.everHurt,
+                "needCarrier": data.needCarrier,
+                "exercise": data.exercise,
+                "pregnant": data.pregnant,
+                "breastFeeding": data.breastFeeding,
+                "lastMenstrualDate": data.lastMenstrualDate,
+                "noOfChildrens": data.noOfChildrens,
+                "deliveryMethod": data.deliveryMethod,
+                "deliveryInjury": data.deliveryInjury,
             },
-            "allergies": ["Panadol", "Banana", "Day Light"],
-            "medicationsSuppliments": [
-                {
-                    "medicine": "Panadol",
-                    "dosage": "2 Tabs",
-                    "takingNow": false,
-                    "timesOfMedicine": " 3 times a Day",
-                    "prescriptionFile": "/uploads/medicalfiles/1664898270888-file-example_PDF_1MB.pdf"
-                },
-                {
-                    "medicine": "Softin",
-                    "dosage": "1 Tabs",
-                    "takingNow": true,
-                    "timesOfMedicine": " 4 times a Day",
-                    "prescriptionFile": "/uploads/medicalfiles/1664898270888-file-example_PDF_1MB.pdf"
-                }
-            ],
-            "symptoms": ["6334a3a86eb91e4094eea399"],
-            "consultationType": [
-                {
-                    "consultationFee": "200",
-                    "communication": "chat"
-                }
-            ],
-            "pictures": [
-                "/uploads/medicalfiles/1664898229251-sample.gif",
-                "/uploads/medicalfiles/1664898229255-sample.jpg"
-            ],
-            "videos": [
-                "/uploads/medicalvideofiles/1664898256121-shah mardan complete.mp4",
-                "/uploads/medicalvideofiles/1664898256617-Tu kuja man kuja.mp4"
-            ]
+            "allergies": data.allergies,
+            "medicationsSuppliments": data.medicationsSuppliments,
+            "symptoms": data.symptoms,
+            "consultationType": [{
+                "consultationFee": data.consultationFee,
+                "communication": data.communication
+            }],
+            "pictures": data.picturs,
+            "videos": data.videos
         }
         reset(d)
     }, [reset])
