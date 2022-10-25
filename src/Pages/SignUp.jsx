@@ -365,7 +365,7 @@ const SignUp = () => {
                                             <span className='pt-1 text-green-600 ml-2'> * </span></label>
                                         <div className="dropdown relative mb-5">
                                             <div className='w-full  font-sans flex items-center border rounded-none border-gray-300 mt-[2px] py-[9px] px-2 '>
-                                                <select {...register('country')} name="country" className='border-0 p-0 m-0  focus:outline-none placeholder:text-sm placeholder:font-medium' >
+                                                <select {...register('country')} name="country" className='border-0 pt-0 pb-0 m-0  focus:outline-none placeholder:text-sm placeholder:font-medium' >
                                                     <option value="">Select Country </option>
                                                     {all_Countries.map((country) => {
                                                         return (

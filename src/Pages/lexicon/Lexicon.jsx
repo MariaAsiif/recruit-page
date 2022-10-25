@@ -121,7 +121,7 @@ const Lexicon = () => {
                             <div className="mt-4" key={index}>
                                 <h2 className='font-bold text-[25px]'>{lexi?.lexiconName}
                                 </h2>
-                                <span className='text-[16px] text-gray-500'>
+                                <span className='text-[16px] text-gray-500 text-justify'>
                                     {lexi?.description}
                                 </span>
                             </div>
