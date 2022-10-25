@@ -115,7 +115,7 @@ const Lexicon = () => {
 
                     </div>
                 </div>
-                {/* <div className='mt-5'>
+                <div className='mt-5'>
                     {
                         lexicon.map((lexi, index) => (
                             <div className="mt-4" key={index}>
@@ -130,9 +130,9 @@ const Lexicon = () => {
                     }
 
 
-                </div> */}
+                </div>
 
-                <div className='mt-5'>
+                {/* <div className='mt-5'>
                     <div className="">
                         <h2 className='font-bold text-[25px]'>ART’s</h2>
                         <span className='text-[16px] text-gray-500'>The term Arts, when applied to the medical filed, equals any substance used in treating disease or illness. The art, science, or profession of preserving health and of curing or alleviating disease.
@@ -188,7 +188,7 @@ const Lexicon = () => {
                         </span>
                     </div>
 
-                </div>
+                </div> */}
 
             </div>
             <hr className='mt-3' />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { IoSaveOutline, IoPrintOutline, IoMailOutline } from "react-icons/io5";
 import { BsFacebook, BsTwitter, BsLinkedin, BsWhatsapp, BsFillShareFill, BsHeart } from "react-icons/bs";
-
+import flag from '../assets/images/usflag_logo.png'
 const ApplyNewJob = () => {
     const [layout, setlayout] = useState("grid")
     const [sidebar, setSetSidebar] = useState(false)
@@ -40,9 +40,15 @@ const ApplyNewJob = () => {
                                                     <div className={` flex justify-between items-center`}>
                                                         <h1 className={`${layout !== "grid" && "text-[20px]"} 'text-[#0D1829] hover:text-[#65A33A] text-[14px] font-medium`}>Front end Developer</h1>
                                                         <div>
-                                                            <span className='w-4 h-4 bg-red-600 rounded-full inline-block mr-1 align-middle'></span>
-                                                            <span className='w-4 h-4 bg-red-600 rounded-full inline-block mr-1 align-middle'></span>
-                                                            <span className='w-4 h-4 bg-red-600 rounded-full inline-block mr-1 align-middle'></span>
+                                                            <span className='w-4 h-4  rounded-full inline-block mr-1 align-middle'>
+                                                                <img src={flag} alt="flag" />
+                                                            </span>
+                                                            <span className='w-4 h-4  rounded-full inline-block mr-1 align-middle'>
+                                                                <img src={flag} alt="flag" />
+                                                            </span>
+                                                            <span className='w-4 h-4  rounded-full inline-block align-middle'>
+                                                                <img src={flag} alt="flag" />
+                                                            </span>
                                                         </div>
                                                     </div>
                                                     <h1 className={`${layout !== "grid" && "text-[15px] pt-2"} text-[#626973] mb-4 text-[10px] mt-2 font-light leading-4`}>Lor liqua equat. Duis aute irure dolor in repre hend erit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,</h1>
@@ -50,7 +56,7 @@ const ApplyNewJob = () => {
                                                         <div>
                                                             <button className='text-[10px] transition-all text-white hover:bg-[#E84025] hover:text-white  rounded-sm pl-2 pr-2 p-[6px] bg-[#42946C] mr-1'>Fulltime</button>
                                                             <button className='text-[10px] transition-all text-[#42946C]  p-[5px] border-[#42946C] border rounded-sm mr-1'>Senior level</button>
-                                                            <BsHeart className='inline mx-1 ' />  
+                                                            <BsHeart className='inline mx-1 ' />
                                                             <BsFillShareFill className='inline' />
                                                         </div>
                                                         <div className='text-[10px]'>
@@ -82,9 +88,15 @@ const ApplyNewJob = () => {
                             <div className='flex justify-between items-center mb-4'>
                                 <h1 className='text-[#626973] text-[8px]'>Full Time Job at Google, Inc</h1>
                                 <div>
-                                    <span className='w-4 h-4 bg-red-600 rounded-full inline-block mr-1 align-middle'></span>
-                                    <span className='w-4 h-4 bg-red-600 rounded-full inline-block mr-1 align-middle'></span>
-                                    <span className='w-4 h-4 bg-red-600 rounded-full inline-block align-middle'></span>
+                                    <span className='w-4 h-4  rounded-full inline-block mr-1 align-middle'>
+                                        <img src={flag} alt="flag" />
+                                    </span>
+                                    <span className='w-4 h-4  rounded-full inline-block mr-1 align-middle'>
+                                        <img src={flag} alt="flag" />
+                                    </span>
+                                    <span className='w-4 h-4  rounded-full inline-block align-middle'>
+                                        <img src={flag} alt="flag" />
+                                    </span>
                                 </div>
                             </div>
                             <div className='mb-4'>

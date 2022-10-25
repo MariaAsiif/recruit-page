@@ -305,24 +305,29 @@ const SignUp = () => {
 
                                     <div className='col-lg-4'>
                                         <label className='text-[14px] font-semibold'>Roles
-                                        <span className='pt-1 text-green-600 ml-2'> * </span></label>
+                                            <span className='pt-1 text-green-600 ml-2'> * </span></label>
 
-                                        <div className="dropdown relative mb-5">
-                                            <select {...register('role')} name="role" className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' >
-                                                <option value="">Select Role </option>
-                                                {all_Roles.map((country) => {
-                                                    return (
-                                                        <option key={country} value={country}>
-                                                            {country}
+                                        <div className="dropdown relative ">
+                                            <div className='w-full  font-sans flex items-center border rounded-none border-gray-300 mt-[2px] py-[9px] px-2 '>
+                                                <select {...register('role')} name="role" className='w-full  font-sans  focus:outline-none border-0  pt-0 pb-0 m-0  placeholder:text-sm placeholder:font-medium' >
+                                                    <option value="">Select Role </option>
+                                                    {all_Roles.map((country) => {
+                                                        return (
+                                                            <option  key={country} value={country}>
+                                                                {country}
 
-                                                        </option>
-                                                    )
-                                                })}
+                                                            </option>
+                                                        )
+                                                    })}
 
 
-                                            </select>
+                                                </select>
+                                                <svg className="shrink-0 ml-1 fill-current text-slate-400" width="11" height="7" viewBox="0 0 11 7">
+                                                    <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
+                                                </svg>
+                                            </div>
                                             {errors.role && (
-                                                <p className="text-red-500 text-sm">{errors.role.message}</p>
+                                                <p className="text-red-500 text-sm -mt-[7px]">{errors.role.message}</p>
                                             )}
 
                                         </div>
@@ -357,23 +362,28 @@ const SignUp = () => {
                                     </div>
                                     <div className='col-lg-4'>
                                         <label className='text-[14px] font-semibold'>Country
-                                        <span className='pt-1 text-green-600 ml-2'> * </span></label>
+                                            <span className='pt-1 text-green-600 ml-2'> * </span></label>
                                         <div className="dropdown relative mb-5">
-                                            <select {...register('country')} name="country" className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' >
-                                                <option value="">Select Country </option>
-                                                {all_Countries.map((country) => {
-                                                    return (
-                                                        <option key={country.name} value={country.isoCode}>
-                                                            {country.name}
+                                            <div className='w-full  font-sans flex items-center border rounded-none border-gray-300 mt-[2px] py-[9px] px-2 '>
+                                                <select {...register('country')} name="country" className='border-0 p-0 m-0  focus:outline-none placeholder:text-sm placeholder:font-medium' >
+                                                    <option value="">Select Country </option>
+                                                    {all_Countries.map((country) => {
+                                                        return (
+                                                            <option key={country.name} value={country.isoCode}>
+                                                                {country.name}
 
-                                                        </option>
-                                                    )
-                                                })}
+                                                            </option>
+                                                        )
+                                                    })}
 
 
-                                            </select>
+                                                </select>
+                                                <svg className="shrink-0 ml-1 fill-current text-slate-400" width="11" height="7" viewBox="0 0 11 7">
+                                                    <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
+                                                </svg>
+                                            </div>
                                             {errors.country && (
-                                                <p className="text-red-500 text-sm">{errors.country.message}</p>
+                                                <p className="text-red-500 text-sm -mt-[7px]">{errors.country.message}</p>
                                             )}
                                         </div>
 

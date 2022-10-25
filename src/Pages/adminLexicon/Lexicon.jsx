@@ -56,29 +56,36 @@ const Lexicons = () => {
         }
     }
 
-    const openImagePopup = (url) => {
-        setimagePopup(true)
-        setimagePopupUrl(`https://hporxadminbackend.herokuapp.com${url}`)
+    // const openImagePopup = (url) => {
+    //     setimagePopup(true)
+    //     setimagePopupUrl(`https://hporxadminbackend.herokuapp.com${url}`)
+    // }
+
+
+
+    function truncate(source, size) {
+        return source.length > size ? source.slice(0, size - 1) + "…" : source;
     }
+
 
     useEffect(() => {
         if (!tickerPopup) {
             (async () => {
                 try {
                     const payload = {
-    
+
                         "sortproperty": "createdAt",
                         "sortorder": -1,
                         "offset": 0,
                         "limit": 50,
                         "query": {
-                            "critarion": {"active" : true},
-                            
+                            "critarion": { "active": true },
+
                             "addedby": "_id email first_name",
-                            
+
                             "lastModifiedBy": "_id email first_name"
                         }
-                    
+
                     }
                     const response = await callApi("/lexicons/getLexiconsWithFullDetails", "post", payload)
                     setLexicon(response.data.lexicons)
@@ -102,12 +109,12 @@ const Lexicons = () => {
                 draggable
                 pauseOnHover
             />
-           
+
             {
-                
-                    <ViewEditLexicon id="job-modal" data={jobRow} mode={jobMode} open={tickerPopup} onClose={() => settickerPopup(false)} />
-              
-            } 
+
+                <ViewEditLexicon id="job-modal" data={jobRow} mode={jobMode} open={tickerPopup} onClose={() => settickerPopup(false)} />
+
+            }
 
             {delPopup && <DeletePopup permition={delPopup} Toggle={() => setDelPopup(false)} callback={deleteTicker} />}
             <div className='row py-5'>
@@ -153,7 +160,7 @@ const Lexicons = () => {
                                             <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="font-semibold text-left">DESCRIPTION</div>
                                             </th>
-                                            
+
 
                                             <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="font-semibold text-left">Actions</div>
@@ -168,15 +175,15 @@ const Lexicons = () => {
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                         <div className="text-left">{tiker?._id}</div>
                                                     </td>
-                                                    
+
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                         <div className="text-left">{tiker?.lexiconName}</div>
                                                     </td>
-                                                        
+
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                        <div className="text-left">{tiker?.description}</div>
+                                                        <div className="text-left"> {truncate(tiker?.description , 40)}</div>
                                                     </td>
-                                                
+
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                                                         <div className="space-x-1">
                                                             <button className="text-slate-400 hover:text-slate-500 rounded-full" onClick={(e) => openJobPopup(e, "edit", tiker)}>
