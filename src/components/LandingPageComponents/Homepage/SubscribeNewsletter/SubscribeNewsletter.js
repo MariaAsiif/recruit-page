@@ -50,7 +50,7 @@ const SubscribeNewsletter = () => {
     <NewsLetterMainContianer>
       <div className="bscontainer-fluid">
         <ToastContainer style={{ fontSize: "1.4rem" }} />
-        <div className=" mt-3 bg-green-800 row">
+        <div className=" mt-3 bg-green-800 row pb-3">
           <div className="col-lg-6 pt-[3rem]  ">
             <div className="pl-6">
               <h2 className="text-[2rem] font-semibold text-white">Subscribe to Our Channel</h2>
