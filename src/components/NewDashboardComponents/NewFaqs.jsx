@@ -47,9 +47,8 @@ const NewFaqs = () => {
                                         <img alt="ppp" className='w-full cursor-pointer ' src="http://placekitten.com/200/200" />
                                         <FiPlayCircle size={74} className='absolute inline top-[35%] left-[35%]' />
                                         <AiOutlineHeart size={24} className='absolute top-[5%] text-black bg-white rounded-full p-1 inline left-[70%]' />
-                                        <AiOutlineStar size={24} className='absolute top-[5%] text-black bg-white rounded-full p-1 inline left-[80%]' />
+                                        <AiOutlineStar size={24} className='absolute top-[5%] text-black bg-white rounded-full p-1 inline left-[85%]' />
                                     </div>
-
                                 </div>
                             )
                         })}
