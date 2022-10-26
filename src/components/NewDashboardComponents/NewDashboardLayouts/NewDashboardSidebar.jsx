@@ -1,8 +1,7 @@
 import React, { useRef } from 'react'
-import { BiSearch, BiSupport } from 'react-icons/bi';
+import { BiSupport } from 'react-icons/bi';
 import { FaQuestion } from 'react-icons/fa';
 import { FiBell } from 'react-icons/fi';
-import { GrServices } from 'react-icons/gr';
 import { HiOutlineMail } from 'react-icons/hi';
 import { MdMiscellaneousServices } from 'react-icons/md';
 import { TbBorderAll, TbFileInvoice, TbLayoutDashboard } from 'react-icons/tb';
@@ -134,6 +133,18 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                             <div className="flex items-center grow">
                                                 <FaQuestion size={18} />
                                                 <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>FAQ's</span>
+                                            </div>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                            </li>
+                            <li className={`mb-3 last:mb-0  ${pathname === "/newdashboard/gig" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                                <div className='flex '>
+                                    <NavLink end to="/newdashboard/gig" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/gig" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                        <div className="flex items-center justify-between ">
+                                            <div className="flex items-center grow">
+                                                <FaQuestion size={18} />
+                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Gig</span>
                                             </div>
                                         </div>
                                     </NavLink>

@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ImFileText2 } from 'react-icons/im'
 import gig_dashboard from "../../images/gig_dashboard.png"
 import forward from "../../forward.json"
 import Lottie from "lottie-react"
-import { FaChevronCircleDown } from 'react-icons/fa'
 import { AiOutlineCaretDown } from 'react-icons/ai'
 
 const NewDashboard = () => {
