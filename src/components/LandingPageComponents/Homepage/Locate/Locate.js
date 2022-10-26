@@ -32,9 +32,9 @@ const Locate = ({ id }) => {
 
 
           <div className="list_data mt-3">
-            <ul className="flex items-center justify-between cursor-pointer" >
+            <ul className="lg:flex items-center justify-between cursor-pointer" >
               {manus.map((manu, index) => (
-                <li className='w-full flex items-center justify-center border mr-1 text-[18px] p-2 bg-[#DC3545] text-white rounded-md' onClick={() => handleIndex(index)}>
+                <li className='lg:w-full flex items-center justify-center border mr-1 text-[18px] p-2 bg-[#DC3545] text-white rounded-md' onClick={() => handleIndex(index)}>
                   {manu}
                   {active === index ?
                     <IoMdArrowDropup className="icons" />
