@@ -27,7 +27,7 @@ const Terms = ({ toggle, prev }) => {
     return (
         <div className={`terms  text-black ${prev === false && 'hover:bg-[#e84025] hover:text-white  cursor-pointer'}  cursor-pointer `}>
 
-            <footer className={` ${prev === false && 'hover:text-white bscontainer  d-flex  text-xs text-center font-normal py-3 footer'} bscontainer  d-flex  text-xs text-center text-black font-normal py-3 footer `}>
+            <footer className={` ${prev === false && 'hover:text-white bscontainer   d-flex  text-xs text-center font-normal py-3 footer'} bscontainer  d-flex  text-xs text-center text-black font-normal py-3 footer `}>
                 <div className='lg:flex items-center justify-center'>
                     <div className="text-[10px] pt-3">
                         COPYRIGHTS © 2022 HPORX LTD, IRELAND. ALL RIGHTS RESERVED.
@@ -47,14 +47,14 @@ const Terms = ({ toggle, prev }) => {
 
                                     <span className='lg:mx-2 sm:mx-1  md:mx-2 icons'   >
                                         <FacebookShareButton url={"https://hporx.eu/"}>
-                                            <div className={`${!prev ? 'hover:border-white   border  text-center flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]' : 'border  border-black text-center text-black flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]'}`}>
+                                            <div className={`${prev ? 'hover:border-white text-white   border  text-center flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]' : 'border  border-black text-center !text-black flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]'}`}>
                                                 <FiFacebook />
                                             </div>
                                         </FacebookShareButton>
                                     </span>
                                     <span className='lg:mx-2 sm:mx-1  md:mx-2 icons'   >
                                         <LinkedinShareButton url={"https://hporx.eu/"}>
-                                            <div className={`${!prev ? 'hover:border-white   border  text-center flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]' : 'border  border-black text-center text-black flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]'}`}>
+                                            <div className={`${!prev ? 'hover:border-white text-white border  text-center flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]' : 'border  border-black text-center !text-black flex justify-center   rounded-full pt-1 text-[18px]  w-[28px] h-[28px]'}`}>
                                                 <BsLinkedin />
                                             </div>
                                         </LinkedinShareButton>
