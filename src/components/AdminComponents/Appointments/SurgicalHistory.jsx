@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -42,6 +42,7 @@ const schema = yup.object({
 const SurgicalHistory = ({ handleNext, handleBack, updateState, data }) => {
 
   const [dates, setDates] = useState([]);
+  const [checkBox, setCheckbox] = useState([]);
   const [imagefile, setImageFile] = useState('');
   // const [medicationDate, setMedicationDate] = useState('');
 
@@ -56,7 +57,7 @@ const SurgicalHistory = ({ handleNext, handleBack, updateState, data }) => {
     mode: 'onChange', resolver: yupResolver(schema),
     defaultValues: {
       operationType: [{ operationName: "", operationResult: "", operationDate: "" }],
-      medicationsSuppliments: [{ medicine: "", dosage: "", takingNow: true, isSurgeyDone : true , timesOfMedicine: "", prescriptionFile: "" }]
+      medicationsSuppliments: [{ medicine: "", dosage: "", takingNow: true, isSurgeyDone: true, timesOfMedicine: "", prescriptionFile: "" }]
 
     }
   });
@@ -81,8 +82,13 @@ const SurgicalHistory = ({ handleNext, handleBack, updateState, data }) => {
     for (let index = 0; index < values.medicationsSuppliments.length; index++) {
       const element = values.medicationsSuppliments[index];
       element.prescriptionFile = imagefile
+      // const talk = checkBox[index].takingNow
+      // const surg = checkBox[index].takingNow
+      // element.takingNow = talk
+      // element.isSurgeyDone = surg
       surgical.push(element)
     }
+
     updateState(values)
     handleNext()
 
@@ -113,7 +119,7 @@ const SurgicalHistory = ({ handleNext, handleBack, updateState, data }) => {
 
           <Surgical {...{ control, register, watch, errors, setDates }} />
 
-          <Medications {...{ control, register, watch, errors, setImageFile }} />
+          <Medications {...{ control, register, watch, errors, setImageFile, setCheckbox }} />
 
 
           <div className='flex justify-between col-lg-12'>

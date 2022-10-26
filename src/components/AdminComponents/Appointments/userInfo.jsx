@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FcCheckmark } from 'react-icons/fc';
 import { MdClose } from 'react-icons/md';
 import { ToastContainer } from 'react-toastify';
@@ -9,7 +9,9 @@ import * as yup from 'yup';
 // import { callApi } from '../../../utils/CallApi';/
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import { callApi } from '../../../utils/CallApi';
 const schema = yup.object({
+  customer : yup.string().required('Customer is Required'),
   ssn: yup.string().required('Field is Required'),
   homeAddress: yup.string().required('homeAddress is Required'),
   homePhone: yup.string().required('homePhone is Required'),
@@ -28,6 +30,7 @@ const schema = yup.object({
 });
 const UserInfo = ({ handleNext, updateState, data }) => {
 
+  const [users, setUsers] = useState([])
 
 
   const {
@@ -56,6 +59,31 @@ const UserInfo = ({ handleNext, updateState, data }) => {
   }, [reset, data])
 
 
+  
+  useEffect(() => {
+    (async () => {
+      try {
+        let payload = {
+          sortProperty: 'createdAt',
+          sortOrder: -1,
+          offset: 0,
+          limit: 50,
+          query: {
+            critarion: { role: "customer" },
+            addedBy: '_id email first_name',
+            lastModifiedBy: '_id email first_name',
+          },
+        };
+
+        let response = await callApi('/users/listAllUsers', 'post', payload);
+        setUsers(response?.data?.users);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+}, []);
+
+
 
 
   return (
@@ -73,6 +101,26 @@ const UserInfo = ({ handleNext, updateState, data }) => {
       />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='row p-11'>
+
+          <div className='col-lg-4 mb-4 relative'>
+            <label className='block text-sm font-medium ' htmlFor='name'>
+              Customer
+            </label>
+            <select
+            {...register('customer')}
+            className={`mt-[2px] pt-[10px] pb-2  border focus:outline-blue-500 rounded-sm w-full  ${errors.customer && 'border-red-400'
+                }`}>
+              <option value="">Select Customer</option>
+              {
+                users?.map((user) => (
+                  <option key={user?._id} value={user?._id}>{user?.first_name}</option>
+                ))
+              }
+            </select>
+            {errors.customer && (
+              <p className='text-red-500 text-sm -mt-[6px]'>{errors.customer.message}</p>
+            )}
+          </div>
 
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium ' htmlFor='name'>
@@ -295,9 +343,9 @@ const UserInfo = ({ handleNext, updateState, data }) => {
               )}
             </div>
           </div>
-          <div className='col-lg-4 mb-4 '>
-            <label className='block text-sm font-medium  '>
-              Family Doctor Name
+          <div className='col-lg-4 mb-4 relative'>
+            <label className='block text-sm font-medium ' htmlFor='name'>
+            Family Doctor Name
             </label>
             <div className='absolute right-5 top-8'>
               {!errors.familyDoctorName && watch('familyDoctorName') ? (
@@ -308,24 +356,29 @@ const UserInfo = ({ handleNext, updateState, data }) => {
                 </div>
               ) : null}
             </div>
-            <div className='relative '>
-              <input
-                {...register('familyDoctorName')}
-                autoComplete='off'
-                className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.familyDoctorName && 'border-red-400'
-                  }`}
-                name='familyDoctorName'
-                id='familyDoctorName'
-                type='text'
-                placeholder='familyDoctorName'
-              />
+            <input
+              {...register('familyDoctorName')}
+              autoComplete='off'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.familyDoctorName && 'border-red-400'
+                }`}
+              name='familyDoctorName'
+              id='familyDoctorName'
+              type='text'
+              placeholder='Fax'
+            />
+            {/* <span
+              hidden={watch('familyDoctorName')}
+              className='absolute text-red-400 text-lg font-medium  top-9 left-[145px]'
+            >
+              *
+            </span> */}
 
-              {errors.familyDoctorName && (
-                <p className='text-red-500 text-sm'>{errors.familyDoctorName.message}</p>
-              )}
-            </div>
+            {errors.familyDoctorName && (
+              <p className='text-red-500 text-sm'>{errors.familyDoctorName.message}</p>
+            )}
           </div>
-          <div className='col-lg-4 mb-4 relative'>
+         
+          <div className='col-lg-6 mb-4 relative'>
             <label className='block text-sm font-medium  ' htmlFor='name'>
               Referring Doctor Name
             </label>
@@ -353,7 +406,7 @@ const UserInfo = ({ handleNext, updateState, data }) => {
               <p className='text-red-500 text-sm'>{errors.referringDoctorName.message}</p>
             )}
           </div>
-          <div className='col-lg-4 mb-4 '>
+          <div className='col-lg-6 mb-4 '>
             <label className='block text-sm font-medium  '>
               Doctor Phone
             </label>
@@ -384,7 +437,7 @@ const UserInfo = ({ handleNext, updateState, data }) => {
               )}
             </div>
           </div>
-          <div className='col-lg-4 mb-4 relative'>
+          <div className='col-lg-6 mb-4 relative'>
             <label className='block text-sm font-medium ' htmlFor='name'>
               Doctor Fax
             </label>
@@ -418,9 +471,10 @@ const UserInfo = ({ handleNext, updateState, data }) => {
               <p className='text-red-500 text-sm'>{errors.doctorFax.message}</p>
             )}
           </div>
-          <div className='col-lg-4 mb-4 '>
-            <label className='block text-sm font-medium  '>
-              Other Referral Source
+
+          <div className='col-lg-6 mb-4 relative'>
+            <label className='block text-sm font-medium ' htmlFor='name'>
+            Other Referral Source
             </label>
             <div className='absolute right-5 top-8'>
               {!errors.otherReferralSource && watch('otherReferralSource') ? (
@@ -439,13 +493,20 @@ const UserInfo = ({ handleNext, updateState, data }) => {
               name='otherReferralSource'
               id='otherReferralSource'
               type='text'
-              placeholder=' Other Referral Source'
+              placeholder='Fax'
             />
+            {/* <span
+              hidden={watch('otherReferralSource')}
+              className='absolute text-red-400 text-lg font-medium  top-9 left-[145px]'
+            >
+              *
+            </span> */}
 
             {errors.otherReferralSource && (
               <p className='text-red-500 text-sm'>{errors.otherReferralSource.message}</p>
             )}
           </div>
+         
           <div className='col-lg-12 mb-4 relative'>
             <label className='block text-sm font-medium ' htmlFor='quote'>
               Doctor Address

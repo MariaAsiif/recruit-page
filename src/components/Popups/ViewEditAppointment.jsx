@@ -90,7 +90,7 @@ const schema = yup.object({
 
 const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
     const modalContent = useRef(null);
-
+    console.log("data", data)
 
     const {
         register,
@@ -126,66 +126,58 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
     });
 
 
-    console.log("Data from update" , data )
+    console.log("Data from update", data)
 
     useEffect(() => {
         let d = {
-            "ssn": data.ssn,
-            "homeAddress": data.homeAddress,
-            "homePhone": data.workPhone,
-            "workPhone": data.workPhone,
-            "occupation": data.occupation,
-            "emergencyContantName": data.emergencyContantName,
-            "emergencyContactRelation": data.emergencyContactRelation,
-            "emergencyContactPhone": data.emergencyContactPhone,
-            "familyDoctorName": data.familyDoctorName,
-            "referringDoctorName": data.referringDoctorName,
-            "doctorAddress": data.doctorAddress,
-            "doctorPhone": data.doctorPhone,
-            "doctorFax": data.doctorFax,
-            "otherReferralSource": data.otherReferralSource,
+            "ssn": "laterasuf",
+            "homeAddress": data?.customerfields?.homeAddress,
+            "homePhone": data?.customerfields?.workPhone,
+            "workPhone": data?.customerfields?.workPhone,
+            "occupation": data?.customerfields?.occupation,
+            "emergencyContantName": data?.customerfields?.emergencyContantName,
+            "emergencyContactRelation": data?.customerfields?.emergencyContactRelation,
+            "emergencyContactPhone": data?.customerfields?.emergencyContactPhone,
+            "familyDoctorName": data?.customerfields?.familyDoctorName,
+            "referringDoctorName": data?.customerfields?.referringDoctorName,
+            "doctorAddress": data?.customerfields?.doctorAddress,
+            "doctorPhone": data?.customerfields?.doctorPhone,
+            "doctorFax": data?.customerfields?.doctorFax,
+            "otherReferralSource": data?.customerfields?.otherReferralSource,
             "reasonOfCurrentVisit": data.reasonOfCurrentVisit,
             "requestCategory": data.requestCategory,
             "status": "approved",
             "requestDate": data.requestDate,
-            "medicalHistory": [{
-                "description": data.description,
-            }],
-            "pastConsultants": [{
-                "doctorName": data.doctorName,
-                "specialization": data.specialization,
-                "lastCheckupDate": data.lastCheckupDate,
-                "profileLink": data.profileLink,
-                "drPrescription": data.drPrescription,
-                "medicalReports": data.medicalReports,
-            }],
+            "description": data.description,
+            "doctorName": data?.pastConsultants?.doctorName,
+            "specialization": data?.pastConsultants?.specialization,
+            "lastCheckupDate": data?.pastConsultants?.lastCheckupDate,
+            "profileLink": data?.pastConsultants?.profileLink,
+            "drPrescription": data?.pastConsultants?.drPrescription,
+            "medicalReports": data?.pastConsultants?.medicalReports,
             "familyDiseases": data.familyDiseases,
-            "surgicalHistory": {
-                "isSurgeyDone": data.isSurgeyDone,
-                "operationType": data.operationType
-            },
-            "socialHistory": {
-                "addictions": data.addictions,
-                "maritalStatus": data.maritalStatus,
-                "sexualOrientation": data.sexualOrientation,
-                "everHurt": data.everHurt,
-                "needCarrier": data.needCarrier,
-                "exercise": data.exercise,
-                "pregnant": data.pregnant,
-                "breastFeeding": data.breastFeeding,
-                "lastMenstrualDate": data.lastMenstrualDate,
-                "noOfChildrens": data.noOfChildrens,
-                "deliveryMethod": data.deliveryMethod,
-                "deliveryInjury": data.deliveryInjury,
-            },
+            "isSurgeyDone": data?.surgicalHistory?.isSurgeyDone,
+            "operationType": data?.surgicalHistory?.operationType,
+
+            "addictions": data?.socialHistory?.addictions,
+            "maritalStatus": data?.socialHistory?.maritalStatus,
+            "sexualOrientation": data?.socialHistory?.sexualOrientation,
+            "everHurt": data?.socialHistory?.everHurt,
+            "needCarrier": data?.socialHistory?.needCarrier,
+            "exercise": data?.socialHistory?.exercise,
+            "pregnant": data?.socialHistory?.pregnant,
+            "breastFeeding": data?.socialHistory?.breastFeeding,
+            "lastMenstrualDate": data?.socialHistory?.lastMenstrualDate,
+            "noOfChildrens": data?.socialHistory?.noOfChildrens,
+            "deliveryMethod": data?.socialHistory?.deliveryMethod,
+            "deliveryInjury": data?.socialHistory?.deliveryInjury,
+
             "allergies": data.allergies,
             "medicationsSuppliments": data.medicationsSuppliments,
             "symptoms": data.symptoms,
-            "consultationType": [{
-                "consultationFee": data.consultationFee,
-                "communication": data.communication
-            }],
-            "pictures": data.picturs,
+            "consultationFee": data?.consultationType?.consultationFee,
+            "communication": data?.consultationType?.communication,
+            "pictures": data.pictures,
             "videos": data.videos
         }
         reset(d)
@@ -236,13 +228,13 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
                     </div>
                     <div className='bscontainer'>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <UserInfo  {...{ control, register, watch, errors }} />
-                            <Category  {...{ control, register, watch, errors }} />
-                            <History  {...{ control, register, watch, errors }} />
-                            <Schedule  {...{ control, register, watch, errors }} />
-                            <SurgicalHistory  {...{ control, register, watch, errors }} />
-                            <SocialHistory  {...{ control, register, watch, errors }} />
-                            <ConsultationType  {...{ control, register, watch, errors }} />
+                            <UserInfo  {...{ control, register, watch, errors, mode }} />
+                            <Category  {...{ control, register, watch, errors, mode }} />
+                            <History  {...{ control, register, watch, errors, mode  }} />
+                            <Schedule  {...{ control, register, watch, errors, mode }} />
+                            <SurgicalHistory  {...{ control, register, watch, errors, mode }} />
+                            <SocialHistory  {...{ control, register, watch, errors, mode }} />
+                            <ConsultationType  {...{ control, register, watch, errors, mode }} />
                             <button type="submit" className='p-2 ml-9 mb-7 bg-red-500 hover:bg-green-600 text-white'>Update </button>
                         </form>
                     </div>

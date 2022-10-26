@@ -20,6 +20,7 @@ const schema = yup.object({
 const History = ({ handleNext, handleBack, data, updateState }) => {
 
   const [companySetting, setCompanySetting] = useState(true);
+  const [error, setError] = useState("");
   const [file, setFile] = useState("");
   const [allDisease, setallDisease] = useState([])
 
@@ -36,16 +37,25 @@ const History = ({ handleNext, handleBack, data, updateState }) => {
   const handleFile = async (e) => {
     try {
       let file = e.target.files[0]
-      let formdata = new FormData()
-      formdata.append('prescription', file)
-      let res = await callApi("/appointmentrequests/uploadMedicinePrescription", "post", formdata)
-      if (res.status === "Success") {
-        setFile(res.data)
-        toast.success(res.message);
+      var re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png|\.pdf)$/i;
+      if (!re.exec(file.name)) {
+        toast.error("Only Pdf file and image allowed");
+        // setError('Only Pdf file are allowed')
+
       }
       else {
-        toast.error(res.message);
+        let formdata = new FormData()
+        formdata.append('prescription', file)
+        setError('')
+        let res = await callApi("/appointmentrequests/uploadMedicinePrescription", "post", formdata)
+        if (res.status === "Success") {
+          setFile(res.data)
+          toast.success(res.message);
+        }
+        else {
+          toast.error(res.message);
 
+        }
       }
 
 
@@ -65,9 +75,13 @@ const History = ({ handleNext, handleBack, data, updateState }) => {
       positive: companySetting,
       description: values.description,
     }
-
-    updateState(payload)
-    handleNext()
+    if (file !== "") {
+      updateState(payload)
+      handleNext()
+    }
+    else {
+      setError("File is required")
+    }
   };
 
 
@@ -95,14 +109,15 @@ const History = ({ handleNext, handleBack, data, updateState }) => {
   }, [])
 
 
+  console.log("daa", data)
+
 
   useEffect(() => {
     if (data?.disease) {
       reset(data)
-      console.log("data" ,data )
     }
   }, [reset, data])
-  
+
 
 
   return (
@@ -178,14 +193,20 @@ const History = ({ handleNext, handleBack, data, updateState }) => {
                 type="file"
                 // {...register('image')}
                 onChange={(e) => handleFile(e)}
-                className={`border p-1 focus:outline-blue-500 rounded-sm w-full  ${'border-red-500'
+                className={`border p-1 focus:outline-blue-500 rounded-sm w-full  ${error && 'border-red-500'
                   }`}
 
               />
 
-              {/* {errors.image && (
-                <p className='text-red-500 text-sm'>{errors.image.message}</p>
-              )} */}
+              {error !== "" ? (
+                <p className='text-red-500 text-sm'>{error}</p>
+              )
+              :
+              (
+                <p className='text-red-500 text-sm'>Pdf, jpg, png  allow</p>
+              )
+               
+              }
             </div>
           </div>
 

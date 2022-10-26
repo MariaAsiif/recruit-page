@@ -28,7 +28,6 @@ const Category = ({ handleNext, handleBack, data, updateState }) => {
     month: mm,
     year: yyyy,
   });
-  // const [companySetting, setCompanySetting] = useState(true);
 
   let current = new Date();
   const [value, setValue] = useState("")
@@ -37,9 +36,8 @@ const Category = ({ handleNext, handleBack, data, updateState }) => {
 
   useEffect(() => {
     setValue(time)
-  }, [])
+  }, [value])
 
-  console.log("time is", value)
 
 
   const {
@@ -71,7 +69,6 @@ const Category = ({ handleNext, handleBack, data, updateState }) => {
   );
 
 
-  console.log("time", value)
 
 
   const onSubmit = async (values) => {

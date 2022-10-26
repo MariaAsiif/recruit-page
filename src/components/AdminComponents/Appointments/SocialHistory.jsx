@@ -315,10 +315,10 @@ const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
                     </div>
                     <div className='flex items-center'>
 
-                      <label for="default-toggle" className="inline-flex relative items-center cursor-pointer">
+                      <label for={`${index}default-toggle`} className="inline-flex relative items-center cursor-pointer">
                         <input type="checkbox"
                           {...register(`addictions[${index}].everUsed`)}
-                          id="default-toggle"
+                          id={`${index}default-toggle`}
                           class="sr-only peer"
                         />
                         <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
@@ -497,11 +497,11 @@ const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
               </div>
               <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                <label for="hurt" class="inline-flex relative items-center cursor-pointer">
                   <input type="checkbox"
                     checked={hurt}
                     onChange={() => setHurt(!hurt)}
-                    id="default-toggle"
+                    id="hurt"
                     class="sr-only peer"
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
@@ -523,11 +523,11 @@ const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
               </div>
               <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                <label for="carrier" class="inline-flex relative items-center cursor-pointer">
                   <input type="checkbox"
                     checked={carrier}
                     onChange={() => setcarrier(!carrier)}
-                    id="default-toggle"
+                    id="carrier"
                     class="sr-only peer"
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
@@ -548,11 +548,11 @@ const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
               </div>
               <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                <label for="excercise" class="inline-flex relative items-center cursor-pointer">
                   <input type="checkbox"
                     checked={excise}
                     onChange={() => setexcise(!excise)}
-                    id="default-toggle"
+                    id="excercise"
                     class="sr-only peer"
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
@@ -573,11 +573,11 @@ const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
               </div>
               <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                <label for="pregent" class="inline-flex relative items-center cursor-pointer">
                   <input type="checkbox"
                     checked={pregnet}
                     onChange={() => setpregnet(!pregnet)}
-                    id="default-toggle"
+                    id="pregent"
                     class="sr-only peer"
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
@@ -598,11 +598,11 @@ const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
               </div>
               <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                <label for="feeding" class="inline-flex relative items-center cursor-pointer">
                   <input type="checkbox"
                     checked={feeding}
                     onChange={() => setfeeding(!feeding)}
-                    id="default-toggle"
+                    id="feeding"
                     class="sr-only peer"
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
@@ -623,11 +623,11 @@ const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
               </div>
               <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                <label for="injury" class="inline-flex relative items-center cursor-pointer">
                   <input type="checkbox"
                     checked={injury}
                     onChange={() => setinjury(!injury)}
-                    id="default-toggle"
+                    id="injury"
                     class="sr-only peer"
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>

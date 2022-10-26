@@ -54,17 +54,23 @@ const Appointments = () => {
       (async () => {
         try {
           const payload = {
-            sortproperty: "created_at",
-            sortorder: -1,
-            offset: 0,
-            limit: 50,
-            query: {
-              critarion: { active: true,  },
-              addedby: "_id email first_name",
-              lastModifiedBy: "_id email first_name"
+            "sortproperty": "createdAt",
+            "sortorder": -1,
+            "offset": 0,
+            "limit": 50,
+            "query": {
+              "critarion": { "active": true },
+              "customerfields": "_id dob ssn familyDoctorName",
+              "customeruserfields": "_id email first_name",
+              "medicalHistoryDiseaseFields": "diseaseName diseaseType",
+              "symptomsfields": "symptomName symptomType",
+              "addedby": "_id email first_name",
+              "lastModifiedBy": "_id email first_name"
             }
+
           }
           const response = await callApi("/appointmentrequests/getAppointmentRequestsWithFullDetails", "post", payload)
+          console.log("res", response)
           setallInspires(response.data.appointmentRequests)
         } catch (error) {
           console.log(error);
@@ -112,9 +118,16 @@ const Appointments = () => {
             <svg className="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
               <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
             </svg>
-            <span className="ml-2">Create Disease</span>
+            <span className="ml-2">Create Appointment</span>
           </Link>
         </div>
+
+        <button className="text-slate-400 hover:text-slate-500 rounded-full" onClick={(e) => openInspirePopup(e, "edit", "data")}>
+          <span className="sr-only">Edit</span>
+          <svg className="w-8 h-8 fill-current text-red-500 hover:text-green-600" viewBox="0 0 32 32">
+            <path d="M19.7 8.3c-.4-.4-1-.4-1.4 0l-10 10c-.2.2-.3.4-.3.7v4c0 .6.4 1 1 1h4c.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4l-4-4zM12.6 22H10v-2.6l6-6 2.6 2.6-6 6zm7.4-7.4L17.4 12l1.6-1.6 2.6 2.6-1.6 1.6z" />
+          </svg>
+        </button>
         <div className='col-12 border'>
           <div className="bg-white shadow-lg rounded-sm border border-slate-200 relative">
             <header className="px-5 py-4">
@@ -130,11 +143,14 @@ const Appointments = () => {
                       <div className="font-semibold text-left">ID</div>
                     </th>
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                      <div className="font-semibold text-left"> DISEASE NAME</div>
+                      <div className="font-semibold text-left"> AP_SSN</div>
                     </th>
 
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                      <div className="font-semibold text-left">DISEASE TYPE</div>
+                      <div className="font-semibold text-left">AP_occupation</div>
+                    </th>
+                    <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                      <div className="font-semibold text-left">AP_familyDoctorName</div>
                     </th>
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                       <div className="font-semibold text-left">Actions</div>
@@ -150,12 +166,15 @@ const Appointments = () => {
                           <div className="text-left">{inspire._id}</div>
                         </td>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.diseaseName}</div>
+                          <div className="text-left">{inspire?.customerfields?.ssn}</div>
                         </td>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.diseaseType}</div>
+                          <div className="text-left">{inspire?.customerfields?.occupation}</div>
                         </td>
-                       
+                        <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                          <div className="text-left">{inspire?.customerfields?.familyDoctorName}</div>
+                        </td>
+
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                           <div className="space-x-1">
                             <button className="text-slate-400 hover:text-slate-500 rounded-full" onClick={(e) => openInspirePopup(e, "edit", inspire)}>

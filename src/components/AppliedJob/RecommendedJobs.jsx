@@ -15,14 +15,14 @@ const FavouriteJobs = ({ status }) => {
     const swiper = document.querySelector('.swiper')?.swiper;
 
     // Now you can use all slider methods like
-    const SliderNext = () => {
-        swiper.slideNext();
-    }
+    // const SliderNext = () => {
+    //     swiper.slideNext();
+    // }
 
-    const SliderPrev = () => {
-        swiper.sliderPrev();
+    // const SliderPrev = () => {
+    //     swiper.sliderPrev();
 
-    }
+    // }
 
     return (
         <>
@@ -32,10 +32,10 @@ const FavouriteJobs = ({ status }) => {
                         <h1 className='text-[#0D1829] font-semibold mb-2'>Recommended Jobs</h1>
                         <h1 className='text-[#626973] text-xs font-normal'>Based on your preferences</h1>
                     </div>
-                    <div className='flex items-center justify-end '>
+                    {/* <div className='flex items-center justify-end '>
                         <div className='swiper-button-prev' onClick={() => SliderPrev()}><AiFillLeftCircle className='text-[2rem] cursor-pointer text-gray-400 hover:text-red-500 ' /></div>
                         <div className='swiper-button-next' onClick={() => SliderNext()}> <AiFillRightCircle className='text-[2rem] cursor-pointer text-gray-400 hover:text-red-500 ' /></div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className='col-lg-12 '>
                     <div className='relative'>

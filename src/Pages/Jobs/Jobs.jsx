@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import moment from "moment"
 import { Link } from 'react-router-dom';
 
-import ViewJob from '../../components/EditJob/ViewJob';
-import EditJob from '../../components/EditJob/EditJob';
 import ShowUser from '../../components/UerShow/ShowUser';
 import { callApi } from '../../utils/CallApi';
 
@@ -243,10 +241,10 @@ const Jobs = () => {
 
             {/* <button onClick={(e) => { e.stopPropagation(); setshowUser(true); setUserType('edit') }}>Show</button>
             <button onClick={(e) => { e.stopPropagation(); setviewUser(true); setUserType('view') }}>View </button> */}
-            <ViewJob permition={showUser} toggle={(value) => setshowUser(value)} title={"View"} />
-            <EditJob permition={viewUser} toggle={(value) => setviewUser(value)} title={"Edit a Job"} />
+            {/* <ViewJob permition={showUser} toggle={(value) => setshowUser(value)} title={"View"} />
+            <EditJob permition={viewUser} toggle={(value) => setviewUser(value)} title={"Edit a Job"} /> */}
 
-            {showUser && <ShowUser show={showUser} setShow={("")} title={showUser} />}
+            {/* {showUser && <ShowUser show={showUser} setShow={("")} title={showUser} />} */}
         </div>
     )
 }

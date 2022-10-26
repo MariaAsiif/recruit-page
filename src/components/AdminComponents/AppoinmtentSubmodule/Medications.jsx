@@ -1,19 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BsFillPlusCircleFill } from 'react-icons/bs'
 import { FcCheckmark } from 'react-icons/fc';
 import { MdClose, MdDelete } from 'react-icons/md';
-import { useFieldArray } from "react-hook-form";
+import { Controller, useFieldArray } from "react-hook-form";
 import { callApi } from '../../../utils/CallApi';
 import { toast } from 'react-toastify';
 
-const Medications = ({ control, register, watch, errors, setImageFile  }) => {
+const Medications = ({ control, register, watch, errors, setImageFile }) => {
 
     const { fields, append, remove } = useFieldArray({
         control,
         name: "medicationsSuppliments"
     });
 
+    const [toggle, setToggle] = useState([{
+        takingNow: true,
+        isSurgeyDone: true
+    }])
 
+
+
+    const handleChange = (e, index) => {
+        const { checked, name } = e.target
+        const t = [...toggle]
+        t[index][name] = checked
+        setToggle(t)
+    }
+
+    const addMore = () => {
+        setToggle([...toggle, { takingNow: true, isSurgeyDone: true }])
+    }
 
     const handleFile = async (e) => {
         try {
@@ -40,7 +56,6 @@ const Medications = ({ control, register, watch, errors, setImageFile  }) => {
 
 
 
-
     return (
         <div className='row'>
             <div className='flex'>
@@ -48,7 +63,7 @@ const Medications = ({ control, register, watch, errors, setImageFile  }) => {
                     <h2 className='text-[18px] font-medium'>Medications Suppliments</h2>
                     <button
                         type='button'
-                        onClick={() => { return append({ medicine: "", dosage: "", takingNow: true, isSurgeyDone : true , timesOfMedicine: "", prescriptionFile: "" }) }}
+                        onClick={() => { return append({ medicine: "", dosage: "", takingNow: true, isSurgeyDone: true, timesOfMedicine: "", prescriptionFile: "" }), addMore() }}
                         className='flex items-center p-2 text-white bg-red-500 hover:bg-green-600'>
                         Add <BsFillPlusCircleFill className='ml-2' />
                     </button>
@@ -57,6 +72,7 @@ const Medications = ({ control, register, watch, errors, setImageFile  }) => {
 
             {
                 fields.map((item, index) => (
+                    console.log("itm", item),
                     <>
 
                         <div className='relative mb-4 col-lg-4'>
@@ -147,21 +163,35 @@ const Medications = ({ control, register, watch, errors, setImageFile  }) => {
                                 </div>
                                 <div className='flex items-center'>
 
-                                    <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                                    {/* <label for={`${index}default-toggles`} class="inline-flex relative items-center cursor-pointer">
                                         <input
-                                            name={`medicationsSuppliments[${index}].takingNow`}
-                                            {...register(`medicationsSuppliments[${index}].takingNow`)}
-                                            checked={`medicationsSuppliments[${index}].takingNow`}
+                                            name={`takingNow`}
+                                            checked={toggle[index]?.takingNow}
+                                            onChange={(e) => handleChange(e, index)}
+
                                             type="checkbox"
-                                            id="default-toggle"
-                                            className={` sr-only peer 
+                                            id={`${index}default-toggles`}
+                                            className={`sr-only peer 
                                                 }`}
                                         />
 
 
+
                                         <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                                         <div className='ml-2 text-sm italic text-slate-400'>
-                                            {`medicationsSuppliments[${index}].takingNow` ? 'True' : 'False'}
+                                            {toggle[index]?.takingNow ? 'True' : 'False'}
+                                        </div>
+                                    </label> */}
+
+                                    <label for={`${index}default-toggles`} className="inline-flex relative items-center cursor-pointer">
+                                        <input type="checkbox"
+                                            {...register(`medicationsSuppliments[${index}].takingNow`)}
+                                            id={`${index}default-toggles`}
+                                            class="sr-only peer"
+                                        />
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                                        <div className='text-sm text-slate-400 italic ml-2'>
+                                            {watch(`medicationsSuppliments[${index}].takingNow`) ? 'True' : 'False'}
                                         </div>
                                     </label>
 
@@ -178,24 +208,34 @@ const Medications = ({ control, register, watch, errors, setImageFile  }) => {
                                 </div>
                                 <div className='flex items-center'>
 
-                                    <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                                    {/* <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
                                         <input
                                             name="isSurgeyDone"
-                                            {...register('isSurgeyDone')}
-                                            checked={`medicationsSuppliments[${index}].isSurgeyDone`}
+                                            checked={toggle[index]?.isSurgeyDone}
+                                            onChange={(e) => handleChange(e, index)}
                                             type="checkbox"
                                             id="default-toggle"
-                                            className={` sr-only peer 
+                                            className={`sr-only peer 
                                                 }`}
                                         />
 
 
                                         <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                                         <div className='ml-2 text-sm italic text-slate-400'>
-                                            {`medicationsSuppliments[${index}].isSurgeyDone` ? 'True' : 'False'}
+                                            {toggle[index]?.isSurgeyDone ? 'True' : 'False'}
+                                        </div>
+                                    </label> */}
+                                    <label for={`${index}default-toggle`} className="inline-flex relative items-center cursor-pointer">
+                                        <input type="checkbox"
+                                            {...register(`medicationsSuppliments[${index}].isSurgeyDone`)}
+                                            id={`${index}default-toggle`}
+                                            class="sr-only peer"
+                                        />
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                                        <div className='text-sm text-slate-400 italic ml-2'>
+                                            {watch(`medicationsSuppliments[${index}].isSurgeyDone`) ? 'True' : 'False'}
                                         </div>
                                     </label>
-
 
 
                                 </div>
@@ -253,7 +293,7 @@ const Medications = ({ control, register, watch, errors, setImageFile  }) => {
                 ))
             }
 
-        </div>
+        </div >
     )
 }
 

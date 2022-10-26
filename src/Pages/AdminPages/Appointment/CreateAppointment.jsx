@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 import Category from '../../../components/AdminComponents/Appointments/Category'
 import ConsultationType from '../../../components/AdminComponents/Appointments/ConsultationType'
 import History from '../../../components/AdminComponents/Appointments/History'
@@ -15,6 +16,10 @@ const CreateAppointment = () => {
   const listName = ["", "", "Category / Schedule", "Medical History", "Prvious Consulatation", "Surgical History", "Social History", "Consultation Type", "Submit"]
   const [active, setActive] = useState(0)
   const [formData, setFormData] = useState({})
+
+  // const default = {
+
+
   const [activeIndex, setActiveIndex] = useState({
     one: false,
     two: false,
@@ -24,6 +29,22 @@ const CreateAppointment = () => {
     six: false,
     seven: false
   })
+
+
+
+  const handleBack = () => {
+    const increse = active - 1
+    setActive(increse)
+  }
+
+
+
+  const updateForm = (data) => {
+    setFormData((prev) => ({
+      ...prev,
+      ...data
+    }))
+  }
 
 
   const handleNext = async (e) => {
@@ -73,99 +94,111 @@ const CreateAppointment = () => {
       )
     }
     if (increse === 7) {
-      try {
-        let payload = {
-          customer: "630ce0ffc7f3f40016ddb01d",
-          customerfields: {
-            "ssn": formData.ssn,
-            "homeAddress": formData.homeAddress,
-            "homePhone": formData.workPhone,
-            "workPhone": formData.workPhone,
-            "occupation": formData.occupation,
-            "emergencyContantName": formData.emergencyContantName,
-            "emergencyContactRelation": formData.emergencyContactRelation,
-            "emergencyContactPhone": formData.emergencyContactPhone,
-            "familyDoctorName": formData.familyDoctorName,
-            "referringDoctorName": formData.referringDoctorName,
-            "doctorAddress": formData.doctorAddress,
-            "doctorPhone": formData.doctorPhone,
-            "doctorFax": formData.doctorFax,
-            "otherReferralSource": formData.otherReferralSource,
-          },
-          "reasonOfCurrentVisit": formData.reasonOfCurrentVisit,
-          "requestCategory": formData.requestCategory,
-          // "status": "pendding",
-          "requestDate": formData.requestDate,
-          "medicalHistory": [{
-            "description": formData.description,
-          }],
-          "pastConsultants": [{
-            "doctorName": formData.name,
-            "specialization": formData.special,
-            "lastCheckupDate": formData.lastCheckupDate,
-            "profileLink": formData.link,
-            "drPrescription": formData.file,
-            "medicalReports": formData.report,
-          }],
-          "familyDiseases": formData.familyDiseases,
-          "surgicalHistory": {
-            "isSurgeyDone": formData.isSurgeyDone,
-            "operationType": formData.operationType
-          },
-          "socialHistory": {
-            "addictions": formData.addictions,
-            "maritalStatus": formData.maritalStatus,
-            "sexualOrientation": formData.sexualOrientation,
-            "everHurt": formData.hurt,
-            "needCarrier": formData.carrier,
-            "exercise": formData.excise,
-            "pregnant": formData.pregnet,
-            "breastFeeding": formData.feeding,
-            "lastMenstrualDate": formData.lastMenstrualDate,
-            "noOfChildrens": formData.children,
-            "deliveryMethod": formData.deliveryMethod,
-            "deliveryInjury": formData.injury,
-          },
-          "allergies": formData.allergies,
-          "medicationsSuppliments": formData.medicationsSuppliments,
-          "symptoms": formData.symptoms,
-          "consultationType": [{
-            "consultationFee": formData.consultationFee,
-            "communication": formData.communication
-          }],
-          "pictures": formData.picturs,
-          "videos": formData.videos
-        }
-        let res = await callApi('/appointmentrequests/createAppointmentRequest', 'post', payload)
-        console.log("res", res)
-      } catch (error) {
-
-      }
+      setActiveIndex((prev) => ({
+        ...prev,
+        seven: true
+      })
+      )
     }
 
-
-
     setActive(increse)
   }
 
 
 
-  const handleBack = () => {
-    const increse = active - 1
-    setActive(increse)
+  let SubmitData = async () => {
+    try {
+      let payload = {
+        customer: formData.customer,
+        customerfields: {
+          "ssn": formData.ssn,
+          "homeAddress": formData.homeAddress,
+          "homePhone": formData.workPhone,
+          "workPhone": formData.workPhone,
+          "occupation": formData.occupation,
+          "emergencyContantName": formData.emergencyContantName,
+          "emergencyContactRelation": formData.emergencyContactRelation,
+          "emergencyContactPhone": formData.emergencyContactPhone,
+          "familyDoctorName": formData.familyDoctorName,
+          "referringDoctorName": formData.referringDoctorName,
+          "doctorAddress": formData.doctorAddress,
+          "doctorPhone": formData.doctorPhone,
+          "doctorFax": formData.doctorFax,
+          "otherReferralSource": formData.otherReferralSource,
+        },
+        "reasonOfCurrentVisit": formData.reasonOfCurrentVisit,
+        "requestCategory": formData.requestCategory,
+        // "status": "pendding",
+        "requestDate": formData.requestDate,
+        "medicalHistory": [{
+          "description": formData.description,
+        }],
+        "pastConsultants": [{
+          "doctorName": formData.name,
+          "specialization": formData.special,
+          "lastCheckupDate": formData.lastCheckupDate,
+          "profileLink": formData.link,
+          "drPrescription": formData.file,
+          "medicalReports": formData.report,
+        }],
+        "familyDiseases": formData.familyDiseases,
+        "surgicalHistory": {
+          "isSurgeyDone": formData.isSurgeyDone,
+          "operationType": formData.operationType
+        },
+        "socialHistory": {
+          "addictions": formData.addictions,
+          "maritalStatus": formData.maritalStatus,
+          "sexualOrientation": formData.sexualOrientation,
+          "everHurt": formData.hurt,
+          "needCarrier": formData.carrier,
+          "exercise": formData.excise,
+          "pregnant": formData.pregnet,
+          "breastFeeding": formData.feeding,
+          "lastMenstrualDate": formData.lastMenstrualDate,
+          "noOfChildrens": formData.children,
+          "deliveryMethod": formData.deliveryMethod,
+          "deliveryInjury": formData.injury,
+        },
+        "allergies": formData.allergies,
+        "medicationsSuppliments": formData.medicationsSuppliments,
+        "symptoms": formData.symptoms,
+        "consultationType": [{
+          "consultationFee": formData.consultationFee,
+          "communication": formData.communication
+        }],
+
+        "pictures": formData.pictures,
+        "videos": formData.videos
+      }
+      console.log("pay", payload)
+      let res = await callApi('/appointmentrequests/createAppointmentRequest', 'post', payload)
+      if (res.status === "Success") {
+        toast.success(res.message)
+        setActive({
+          one: false,
+          two: false,
+          three: false,
+          for: false,
+          five: false,
+          six: false,
+          seven: false
+        })
+      }
+    } catch (error) {
+
+    }
+
   }
 
-  const updateForm = (data) => {
-    setFormData((prev) => ({
-      ...prev,
-      ...data
-    }))
-  }
+
+  useEffect(() => {
+    if (activeIndex.seven === true) {
+      SubmitData()
+    }
+  }, [activeIndex])
 
 
-
-
-  console.log("index", formData)
   //  )) 
 
   return (

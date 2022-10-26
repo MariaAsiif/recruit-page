@@ -52,6 +52,8 @@ const Schedule = ({ handleNext, handleBack, updateState, data }) => {
 
   const [file, setFile] = useState('')
   const [report, setReport] = useState('')
+  const [fileError, setFileError] = useState('')
+  const [reportError, setReportError] = useState('')
 
   const {
     register,
@@ -93,32 +95,48 @@ const Schedule = ({ handleNext, handleBack, updateState, data }) => {
 
   const handleFile = async (e, type) => {
     try {
+      let file = e.target.files[0]
+      var re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png|\.pdf)$/i;
       if (type === "file") {
-        let file = e.target.files[0]
-        let formData = new FormData();
-        formData.append('prescription', file)
-        let res = await callApi('/appointmentrequests/uploadMedicinePrescription', "post", formData)
-        if (res.status === "Success") {
-          toast.success(res.message);
-          setFile(res?.data)
+        if (!re.exec(file.name)) {
+          toast.error("Only Pdf file and image allowed");
+          // setError('Only Pdf file are allowed')
+
         }
         else {
-          toast.error(res.message);
+          let formData = new FormData();
+          formData.append('prescription', file)
+          let res = await callApi('/appointmentrequests/uploadMedicinePrescription', "post", formData)
+          if (res.status === "Success") {
+            toast.success(res.message);
+            setFile(res?.data)
+          }
+          else {
+            toast.error(res.message);
 
+          }
         }
       }
+
       else {
-        let file = e.target.files[0]
-        let formData = new FormData();
-        formData.append('prescription', file)
-        let res = await callApi('/appointmentrequests/uploadMedicinePrescription', "post", formData)
-        if (res.status === "Success") {
-          toast.success(res.message);
-          setReport(res?.data)
+        if (!re.exec(file.name)) {
+          toast.error("Only Pdf file and image allowed");
+          // setError('Only Pdf file are allowed')
+
         }
         else {
-          toast.error(res.message);
+          let file = e.target.files[0]
+          let formData = new FormData();
+          formData.append('prescription', file)
+          let res = await callApi('/appointmentrequests/uploadMedicinePrescription', "post", formData)
+          if (res.status === "Success") {
+            toast.success(res.message);
+            setReport(res?.data)
+          }
+          else {
+            toast.error(res.message);
 
+          }
         }
       }
 
@@ -138,13 +156,24 @@ const Schedule = ({ handleNext, handleBack, updateState, data }) => {
 
     let payload = {
       ...values,
-      lastCheckupDate : lastDate,
+      lastCheckupDate: lastDate,
       file,
       report
     }
+    if (file !== "") {
+      setFileError("File are required")
 
-    updateState(payload)
-    handleNext()
+    }
+
+    else if (report !== "") {
+      setReportError("Report are required")
+
+    }
+
+    else {
+      updateState(payload)
+      handleNext()
+    }
   };
 
 
@@ -294,8 +323,18 @@ const Schedule = ({ handleNext, handleBack, updateState, data }) => {
               <input
                 onChange={(e) => handleFile(e, "file")}
                 type="file"
-                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  `}
+                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  ${fileError && 'border-red-500'
+                  }`}
               />
+
+              {fileError !== "" ? (
+                <p className='text-red-500 text-sm'>{fileError}</p>
+              )
+                : (
+                  <p className='text-red-500 text-sm'>Pdf, jpg, png file uploaded</p>
+
+                )
+              }
 
             </div>
           </div>
@@ -307,9 +346,17 @@ const Schedule = ({ handleNext, handleBack, updateState, data }) => {
               <input
                 onChange={(e) => handleFile(e, "report")}
                 type="file"
-                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full`}
+                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full ${reportError && 'border-red-500'
+                  }`}
               />
+              {reportError !== "" ? (
+                <p className='text-red-500 text-sm'>{reportError}</p>
+              )
+                : (
+                  <p className='text-red-500 text-sm'>Pdf, jpg, png file uploaded</p>
 
+                )
+              }
             </div>
           </div>
           <div className="flex justify-between">
