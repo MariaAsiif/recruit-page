@@ -64,7 +64,7 @@ const SubscribeNewsletter = () => {
           </div>
           <div className="col-lg-6 mb-4" >
             <div className="flex justify-center">
-              <NewsLetterImg src={newletterImg} alt={newletterImg} />
+              {/* <NewsLetterImg src={newletterImg} alt={newletterImg} /> */}
 
             </div>
           </div>
