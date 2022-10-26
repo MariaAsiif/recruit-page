@@ -90,6 +90,9 @@ const schema = yup.object({
 
 const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
     const modalContent = useRef(null);
+    const [categoryDate , setCategoryDate] = useState("")
+    const [history , setHistory] = useState('')
+    const [seduleData , setSeduleDate] = useState('')
     console.log("data", data)
 
     const {
@@ -130,7 +133,8 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
 
     useEffect(() => {
         let d = {
-            "ssn": "laterasuf",
+             
+            "ssn": data.customerfields.ssn,
             "homeAddress": data?.customerfields?.homeAddress,
             "homePhone": data?.customerfields?.workPhone,
             "workPhone": data?.customerfields?.workPhone,
@@ -229,12 +233,12 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
                     <div className='bscontainer'>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <UserInfo  {...{ control, register, watch, errors, mode }} />
-                            <Category  {...{ control, register, watch, errors, mode }} />
-                            <History  {...{ control, register, watch, errors, mode  }} />
-                            <Schedule  {...{ control, register, watch, errors, mode }} />
-                            <SurgicalHistory  {...{ control, register, watch, errors, mode }} />
+                            <Category  {...{ control, register, watch, reset , errors, mode , data , setCategoryDate  }} />
+                            <History  {...{ control, register, watch, errors, mode , data , setHistory }} />
+                            <Schedule  {...{ control, register, watch, errors, mode , data , setSeduleDate }} />
+                            <SurgicalHistory  {...{ control, register, watch, errors, mode , data }} />
                             <SocialHistory  {...{ control, register, watch, errors, mode }} />
-                            <ConsultationType  {...{ control, register, watch, errors, mode }} />
+                            <ConsultationType  {...{ control, register, watch, reset,  errors, mode , data }} />
                             <button type="submit" className='p-2 ml-9 mb-7 bg-red-500 hover:bg-green-600 text-white'>Update </button>
                         </form>
                     </div>

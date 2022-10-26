@@ -12,23 +12,23 @@ import Symptoms from '../AppoinmtentSubmodule/Symptoms';
 
 const schema = yup.object({
 
-    consultationFee: yup.string().required('consultation Fee is Required'),
-    communication: yup.string().required('communication  is Required'),
-    allergies: yup
-        .array()
-        .of(
-            yup.object({
-                name: yup.string().required(),
-            })
-        )
-        .required(),
-    symptoms: yup
-        .array()
-        .of(
-            yup.object({
-                name: yup.string().required(),
-            }))
-        .required(),
+    // consultationFee: yup.string().required('consultation Fee is Required'),
+    // communication: yup.string().required('communication  is Required'),
+    // allergies: yup
+    //     .array()
+    //     .of(
+    //         yup.object({
+    //             name: yup.string().required(),
+    //         })
+    //     )
+    //     .required(),
+    // symptoms: yup
+    //     .array()
+    //     .of(
+    //         yup.object({
+    //             name: yup.string().required(),
+    //         }))
+    //     .required(),
     // image: yup.mixed().test('required', 'file is Required', value => { return value && value.length }),
     // video: yup.mixed().test('required', 'file is Required', value => { return value && value.length }),
 });

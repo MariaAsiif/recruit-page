@@ -40,7 +40,7 @@ const schema = yup.object({
 
 
 
-const SurgicalHistory = ({ control, register, watch, errors  }) => {
+const SurgicalHistory = ({ control, register, watch, errors , mode , data }) => {
 
   const [dates, setDates] = useState([]);
   const [imagefile, setImageFile] = useState('');
@@ -101,9 +101,9 @@ const SurgicalHistory = ({ control, register, watch, errors  }) => {
         <div className='row p-11'>
 
 
-          <Surgical {...{ control, register, watch, errors, setDates }} />
+          <Surgical {...{ control, register, watch, errors, setDates , mode ,  }} />
 
-          <Medications {...{ control, register, watch, errors, setImageFile }} />
+          <Medications {...{ control, register, watch, errors, setImageFile , mode , data   }} />
 
 
          

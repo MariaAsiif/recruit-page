@@ -6,7 +6,7 @@ import { BsFillPlusCircleFill } from 'react-icons/bs';
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import { useEffect } from 'react';
-export default function Surgical({ control, register, watch, errors, setDates }) {
+export default function Surgical({ control, register, watch, errors, setDates, mode }) {
 
 
     var today = new Date();
@@ -73,29 +73,32 @@ export default function Surgical({ control, register, watch, errors, setDates })
 
 
 
-   
+
 
     useEffect(() => {
         setDates(dynamic)
-    },[dynamic])
+    }, [dynamic])
 
 
 
     return (
         <div className='row'>
-            <div className='flex'>
-                <div className='flex items-center justify-between col-lg-12 '>
-                    <h2 className='text-[18px] font-medium'>Surgical History</h2>
-                    <button type='button' onClick={() => {
-                        return append({ name: "", past: "", date: "" }),
-                            addMore()
+            {
+                mode !== "view" &&
+                <div className='flex'>
+                    <div className='flex items-center justify-between col-lg-12 '>
+                        <h2 className='text-[18px] font-medium'>Surgical History</h2>
+                        <button type='button' onClick={() => {
+                            return append({ name: "", past: "", date: "" }),
+                                addMore()
 
-                    }
-                    } className='flex items-center p-2 text-white bg-red-500 hover:bg-green-600'>
-                        Add <BsFillPlusCircleFill className='ml-2' />
-                    </button>
+                        }
+                        } className='flex items-center p-2 text-white bg-red-500 hover:bg-green-600'>
+                            Add <BsFillPlusCircleFill className='ml-2' />
+                        </button>
+                    </div>
                 </div>
-            </div>
+            }
 
             {
                 fields.map((item, index) => (
@@ -105,24 +108,30 @@ export default function Surgical({ control, register, watch, errors, setDates })
                             <label className='block mb-1 text-sm font-medium' htmlFor='name'>
                                 Operation Name{' '}
                             </label>
-                            <div className='absolute right-5 top-10'>
-                                {!errors.operationType?.[index]?.operationName && watch(`operationType[${index}].operationName`) ? (
-                                    <FcCheckmark />
-                                ) : errors.operationType?.[index]?.operationName ? (
-                                    <div className='text-red-500 '>
-                                        <MdClose />
-                                    </div>
-                                ) : null}
-                            </div>
-                            <input
-                                name={`operationType[${index}].operationName`}
-                                {...register(`operationType[${index}].operationName`)}
-                                autoComplete='off'
-                                className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.operationType?.[index]?.operationName && 'border-red-400'
-                                    }`}
-                                id='name'
-                                placeholder='Operational Name'
-                            />
+                            {mode === "view" &&
+                                <div className='absolute right-5 top-10'>
+                                    {!errors.operationType?.[index]?.operationName && watch(`operationType[${index}].operationName`) ? (
+                                        <FcCheckmark />
+                                    ) : errors.operationType?.[index]?.operationName ? (
+                                        <div className='text-red-500 '>
+                                            <MdClose />
+                                        </div>
+                                    ) : null}
+                                </div>
+                            }
+                            {mode === "view" ?
+                                (<p>{watch(`operationType[${index}].operationName`)}</p>)
+                                :
+                                <input
+                                    name={`operationType[${index}].operationName`}
+                                    {...register(`operationType[${index}].operationName`)}
+                                    autoComplete='off'
+                                    className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.operationType?.[index]?.operationName && 'border-red-400'
+                                        }`}
+                                    id='name'
+                                    placeholder='Operational Name'
+                                />
+                            }
 
 
                             <span
@@ -151,15 +160,19 @@ export default function Surgical({ control, register, watch, errors, setDates })
                                     </div>
                                 ) : null}
                             </div>
-                            <input
-                                name={`operationType[${index}].operationResult`}
-                                {...register(`operationType[${index}].operationResult`)}
-                                autoComplete='off'
-                                className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.operationType?.[index]?.operationResult && 'border-red-400'
-                                    }`}
-                                id='name'
-                                placeholder='Past Operational'
-                            />
+                            {mode === "view" ?
+                                (<p>{watch(`operationType[${index}].operationResult`)}</p>)
+                                :
+                                <input
+                                    name={`operationType[${index}].operationResult`}
+                                    {...register(`operationType[${index}].operationResult`)}
+                                    autoComplete='off'
+                                    className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.operationType?.[index]?.operationResult && 'border-red-400'
+                                        }`}
+                                    id='name'
+                                    placeholder='Past Operational'
+                                />
+                            }
 
 
                             <span
@@ -187,7 +200,7 @@ export default function Surgical({ control, register, watch, errors, setDates })
                                 <DatePicker
                                     value={dynamic[index]}
                                     name='dynamic'
-                                    onChange={(date) => handleChangeDate(date , index )}
+                                    onChange={(date) => handleChangeDate(date, index)}
                                     renderInput={(ref) => renderCustomInput(ref, index)} // render a custom input
                                     shouldHighlightWeekends
                                     calendarPopperPosition='bottom'

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { FcCheckmark } from 'react-icons/fc';
 import { MdClose } from 'react-icons/md';
 import { toast, ToastContainer } from 'react-toastify';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+// import { useForm } from 'react-hook-form';
+// import { yupResolver } from '@hookform/resolvers/yup';
 // import * as yup from 'yup';
 // import { callApi } from '../../../utils/CallApi';
 import TimeInput from 'react-time-picker-input';
@@ -11,10 +11,11 @@ import "react-time-picker-input/dist/components/TimeInput.css"
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import { useEffect } from 'react';
+import moment from 'moment/moment';
 // import moment from 'moment';
 
 
-const Category = ({ control, register, watch, errors }) => {
+const Category = ({ register, watch, errors, mode, data, reset, setCategoryDate }) => {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -63,17 +64,20 @@ const Category = ({ control, register, watch, errors }) => {
 
 
 
-  // useEffect(() => {
+  useEffect(() => {
     // var parts = data?.quoteDate?.split('-');
     // var mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
-  //   if (data.requestDate) {
-  //     reset(data);
-  //     const date = moment(data?.requestDate).format('yyyy-M-D').split('-')
-  //     const time = data?.requestDate?.substring(11, 16)
-  //     setquoteDate({ day: +date[2], month: +date[1], year: +date[0] })
-  //     setValue(time)
-  //   }
-  // }, [data, reset])
+    if (data.requestDate) {
+      reset(data);
+      const date = moment(data?.requestDate).format('yyyy-M-D').split('-')
+      const time = data?.requestDate?.substring(11, 16)
+      setquoteDate({ day: +date[2], month: +date[1], year: +date[0] })
+      setValue(time)
+      let d = `${quoteDate.year}/${quoteDate.month}/${quoteDate.day}`
+      let t = `${d}${value}`
+      setCategoryDate(t)
+    }
+  }, [data, reset])
 
 
   return (
@@ -90,14 +94,15 @@ const Category = ({ control, register, watch, errors }) => {
         pauseOnHover
       />
       {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-        <div className='row p-10'>
+      <div className='row p-10'>
 
-          <h2 className='text-[18px] mb-2 font-medium'>Category</h2>
+        <h2 className='text-[18px] mb-2 font-medium'>Category</h2>
 
-          <div className='col-lg-6 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Category Name{' '}
-            </label>
+        <div className='col-lg-6 mb-4 relative'>
+          <label className='block text-sm font-medium mb-1' htmlFor='name'>
+            Category Name{' '}
+          </label>
+          {mode !== "view" &&
             <div className='absolute right-5 top-10'>
               {!errors.requestCategory && watch('requestCategory') ? (
                 <FcCheckmark />
@@ -107,35 +112,50 @@ const Category = ({ control, register, watch, errors }) => {
                 </div>
               ) : null}
             </div>
-            <input
-              {...register('requestCategory')}
-              autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.requestCategory && 'border-red-400'
-                }`}
-              name='requestCategory'
-              id='name'
-              type='text'
-              placeholder='Category Name'
-            />
-            <span
-              hidden={watch('requestCategory')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[150px]'
-            >
-              *
-            </span>
+          }
+          {
+            mode === "view" ?
+              (
+                <p>{watch('requestCategory')}</p>
+              )
+              :
+              <>
+                <input
+                  {...register('requestCategory')}
+                  autoComplete='off'
+                  className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.requestCategory && 'border-red-400'
+                    }`}
+                  name='requestCategory'
+                  id='name'
+                  type='text'
+                  placeholder='Category Name'
+                />
+                <span
+                  hidden={watch('requestCategory')}
+                  className='absolute text-red-400 text-lg font-medium  top-9 left-[150px]'
+                >
+                  *
+                </span>
+              </>
+          }
 
-            {errors.requestCategory && (
-              <p className='text-red-500 text-sm'>{errors.requestCategory.message}</p>
-            )}
-          </div>
+          {errors.requestCategory && (
+            <p className='text-red-500 text-sm'>{errors.requestCategory.message}</p>
+          )}
+        </div>
 
 
-          <h2 className='text-[18px] font-medium mb-2'>Schedule </h2>
+        <h2 className='text-[18px] font-medium mb-2'>Schedule </h2>
 
-          <div className='col-lg-6 mb-4 '>
-            <label className='block text-sm font-medium mb-1 '>
-              Date
-            </label>
+        <div className='col-lg-6 mb-4 '>
+          <label className='block text-sm font-medium mb-1 '>
+            Date
+          </label>
+          {mode === "view" ?
+            <p>
+              {`${quoteDate.year}/${quoteDate.month}/${quoteDate.day}`}
+            </p>
+            :
             <div className='relative'>
               <DatePicker
                 value={quoteDate}
@@ -146,11 +166,17 @@ const Category = ({ control, register, watch, errors }) => {
                 calendarPopperPosition='bottom'
               />
             </div>
-          </div>
-          <div className='col-lg-6 mb-4 '>
-            <label className='block text-sm font-medium mb-1 '>
-              Time
-            </label>
+          }
+        </div>
+        <div className='col-lg-6 mb-4 '>
+          <label className='block text-sm font-medium mb-1 '>
+            Time
+          </label>
+          {mode === "view" ?
+            <p>
+              {value}
+            </p>
+            :
             <div className='relative z-10'>
 
               <TimeInput
@@ -160,12 +186,14 @@ const Category = ({ control, register, watch, errors }) => {
                 manuallyDisplayDropdown
                 onChange={(dateString) => setValue(dateString)} />
             </div>
-          </div>
+          }
+        </div>
 
-          <div className='col-lg-12 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='quote'>
-              Problem
-            </label>
+        <div className='col-lg-12 mb-4 relative'>
+          <label className='block text-sm font-medium mb-1' htmlFor='quote'>
+            Problem
+          </label>
+          {mode === "view" &&
             <div className='absolute right-5 top-10'>
               {!errors.reasonOfCurrentVisit && watch('reasonOfCurrentVisit') ? (
                 <FcCheckmark />
@@ -175,6 +203,12 @@ const Category = ({ control, register, watch, errors }) => {
                 </div>
               ) : null}
             </div>
+          }
+          {mode === "view" ?
+            <p>
+              {watch('reasonOfCurrentVisit')}
+            </p>
+            :
             <textarea
               {...register('reasonOfCurrentVisit')}
               autoComplete='off'
@@ -185,15 +219,16 @@ const Category = ({ control, register, watch, errors }) => {
               placeholder='Problem'
               cols='20'
             ></textarea>
-            {/* <span hidden={watch('quot')} className='absolute text-red-400 text-sm font-medium  top-9 left-[170px]'>(optional)</span> */}
+          }
+          {/* <span hidden={watch('quot')} className='absolute text-red-400 text-sm font-medium  top-9 left-[170px]'>(optional)</span> */}
 
-            {errors.reasonOfCurrentVisit && (
-              <p className='text-red-500 text-sm'>{errors.reasonOfCurrentVisit.message}</p>
-            )}
-          </div>
-
-         
+          {errors.reasonOfCurrentVisit && (
+            <p className='text-red-500 text-sm'>{errors.reasonOfCurrentVisit.message}</p>
+          )}
         </div>
+
+
+      </div>
       {/* </form> */}
     </div>
   )

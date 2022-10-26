@@ -31,7 +31,7 @@ const schema = yup.object({
     .required(),
 });
 
-const SocialHistory = ({control, register, watch, errors }) => {
+const SocialHistory = ({ control, register, watch, errors, mode, data }) => {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -200,9 +200,9 @@ const SocialHistory = ({control, register, watch, errors }) => {
   return (
     <div >
       {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-        <div className='row p-11'>
+      <div className='row p-11'>
 
-
+        {mode !== "view" &&
           <div className='flex'>
             <div className='col-lg-12 flex items-center justify-between '>
               <h2 className='text-[18px] font-medium'>Addictions</h2>
@@ -211,16 +211,18 @@ const SocialHistory = ({control, register, watch, errors }) => {
               </button>
             </div>
           </div>
+        }
 
-          {
-            fields.map((item, index) => (
-              <>
+        {
+          fields.map((item, index) => (
+            <>
 
 
-                <div className='col-lg-4 mb-4 relative'>
-                  <label className='block text-sm font-medium mb-1' htmlFor='name'>
-                    Addiction Name{' '}
-                  </label>
+              <div className='col-lg-4 mb-4 relative'>
+                <label className='block text-sm font-medium mb-1' htmlFor='name'>
+                  Addiction Name{' '}
+                </label>
+                {mode !== "view" &&
                   <div className='absolute right-5 top-10'>
                     {!errors.addictions?.[index]?.addictionName && watch(`addictions[${index}].addictionName`) ? (
                       <FcCheckmark />
@@ -230,33 +232,43 @@ const SocialHistory = ({control, register, watch, errors }) => {
                       </div>
                     ) : null}
                   </div>
-                  <input
-                    name={`addictions[${index}].addictionName`}
-                    {...register(`addictions[${index}].addictionName`)}
-                    autoComplete='off'
-                    className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.test?.[index]?.addictionName && 'border-red-400'
-                      }`}
-                    id='name'
-                    type='text'
-                    placeholder='Addiction Name'
-                  />
-                  <span
-                    hidden={watch('name')}
-                    className='absolute text-red-400 text-lg font-medium  top-9 left-[170px]'
-                  >
-                    *
-                  </span>
+                }
+                {
+                  mode === "view" ?
+                    (
+                      <p>{watch('addictionName')}</p>
+                    )
+                    :
+                    <>
+                      <input
+                        name={`addictions[${index}].addictionName`}
+                        {...register(`addictions[${index}].addictionName`)}
+                        autoComplete='off'
+                        className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.test?.[index]?.addictionName && 'border-red-400'
+                          }`}
+                        id='name'
+                        type='text'
+                        placeholder='Addiction Name'
+                      />
+                      <span
+                        hidden={watch('name')}
+                        className='absolute text-red-400 text-lg font-medium  top-9 left-[170px]'
+                      >
+                        *
+                      </span>
+                    </>
+                }
 
-                  {errors.addictions?.[index]?.addictionName && (
-                    <p className='text-red-500 text-sm'>{errors.addictions?.[index]?.addictionName.message}</p>
-                  )}
-                </div>
+                {errors.addictions?.[index]?.addictionName && (
+                  <p className='text-red-500 text-sm'>{errors.addictions?.[index]?.addictionName.message}</p>
+                )}
+              </div>
 
-                <div className='col-lg-4 mb-4 relative'>
-                  <label className='block text-sm font-medium mb-1' htmlFor='name'>
-                    How Long Used
-                  </label>
-
+              <div className='col-lg-4 mb-4 relative'>
+                <label className='block text-sm font-medium mb-1' htmlFor='name'>
+                  How Long Used
+                </label>
+                {mode === "view" &&
                   <div className='absolute right-5 top-10'>
                     {!errors.addictions?.[index]?.howLongUsed && watch('name') ? (
                       <FcCheckmark />
@@ -266,104 +278,129 @@ const SocialHistory = ({control, register, watch, errors }) => {
                       </div>
                     ) : null}
                   </div>
-                  <input
-                    name={`addictions[${index}].howLongUsed`}
-                    {...register(`addictions[${index}].howLongUsed`)}
-                    autoComplete='off'
-                    className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.addictions?.[index]?.howLongUsed && 'border-red-400'
-                      }`}
-                    id='name'
-                    type='text'
-                    placeholder='How long used'
-                  />
-                  <span
-                    hidden={watch(`addictions[${index}].howLongUsed`)}
-                    className='absolute text-red-400 text-lg font-medium  top-9 left-[170px]'
-                  >
-                    *
-                  </span>
+                }
+                {
+                  mode === "view" ?
+                    (
+                      <p>{watch('addictionName')}</p>
+                    )
+                    :
+                    <>
+                      <input
+                        name={`addictions[${index}].howLongUsed`}
+                        {...register(`addictions[${index}].howLongUsed`)}
+                        autoComplete='off'
+                        className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.addictions?.[index]?.howLongUsed && 'border-red-400'
+                          }`}
+                        id='name'
+                        type='text'
+                        placeholder='How long used'
+                      />
+                      <span
+                        hidden={watch(`addictions[${index}].howLongUsed`)}
+                        className='absolute text-red-400 text-lg font-medium  top-9 left-[170px]'
+                      >
+                        *
+                      </span>
+                    </>
+                }
 
-                  {errors.addictions?.[index]?.howLongUsed && (
-                    <p className='text-red-500 text-sm'>{errors.addictions?.[index]?.howLongUsed.message}</p>
-                  )}
+                {errors.addictions?.[index]?.howLongUsed && (
+                  <p className='text-red-500 text-sm'>{errors.addictions?.[index]?.howLongUsed.message}</p>
+                )}
 
-                </div>
+              </div>
 
-                <div className='col-lg-2 mb-4 relative'>
-                  <div>
-                    <div className='text-sm text-slate-800 font-semibold mb-3'>
-                      Ever Used
-                    </div>
-                    <div className='flex items-center'>
-
-                      <label for="default-toggle" className="inline-flex relative items-center cursor-pointer">
-                        <input type="checkbox"
-                          {...register(`addictions[${index}].everUsed`)}
-                          id="default-toggle"
-                          class="sr-only peer"
-                        />
-                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                        <div className='text-sm text-slate-400 italic ml-2'>
-                          {watch(`addictions[${index}].everUsed`) ? 'True' : 'False'}
-                        </div>
-                      </label>
-
-
-
-                    </div>
+              <div className='col-lg-2 mb-4 relative'>
+                <div>
+                  <div className='text-sm text-slate-800 font-semibold mb-3'>
+                    Ever Used
                   </div>
-                </div>
-                <div className='col-lg-2'>
+                  <div className='flex items-center'>
 
-                  {
-                    index > 0 &&
-                    <button onClick={() => remove(index)} className='p-2 ml-2 mt-5 text-white bg-red-500 hover:bg-green-600'>
-                      <MdDelete />
-                    </button>
-                  }
-                </div>
+                    <label for="default-toggle" className="inline-flex relative items-center cursor-pointer">
+                      <input type="checkbox"
+                        {...register(`addictions[${index}].everUsed`)}
+                        id="default-toggle"
+                        disabled={mode === "view" ? true : false}
+                        class="sr-only peer"
+                      />
+                      <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                      <div className='text-sm text-slate-400 italic ml-2'>
+                        {watch(`addictions[${index}].everUsed`) ? 'True' : 'False'}
+                      </div>
+                    </label>
 
-                <div className='col-lg-4 mb-4 '>
-                  <label className='block text-sm font-medium mb-1 '>
-                    When Started
-                  </label>
-                  <div className='relative flex items-center'>
-                    <DatePicker
-                      value={startDate[index]}
-                      name='quoteDate'
-                      onChange={(date) => handleChangeDate(date, index)}
-                      renderInput={(ref) => renderCustomInputStart(ref, index)} // render a custom input
-                      shouldHighlightWeekends
-                      calendarPopperPosition='bottom'
-                    />
+
 
                   </div>
                 </div>
+              </div>
+              <div className='col-lg-2'>
 
-                <div className='col-lg-4 mb-4 '>
-                  <label className='block text-sm font-medium mb-1 '>
-                    When Quited
-                  </label>
-                  <div className='relative flex items-center'>
-                    <DatePicker
-                      value={endDate[index]}
-                      name='quoteDate'
-                      onChange={(date) => handleChangeDateEnd(date, index)}
-                      renderInput={(ref) => renderCustomInputEnd(ref, index)} // render a custom input
-                      shouldHighlightWeekends
-                      calendarPopperPosition='bottom'
-                    />
-                    {/* <button className='p-2 ml-2 bg-red-500 hover:bg-green-600 text-white'>
+                {
+                  index > 0 &&
+                  <button onClick={() => remove(index)} className='p-2 ml-2 mt-5 text-white bg-red-500 hover:bg-green-600'>
+                    <MdDelete />
+                  </button>
+                }
+              </div>
+
+              <div className='col-lg-4 mb-4 '>
+                <label className='block text-sm font-medium mb-1 '>
+                  When Started
+                </label>
+                {
+                  mode === "view" ?
+                    (<p>
+                      {watch(`${startDate[index].year}/${startDate[index].month}/${startDate[index].day}`)}
+                    </p>)
+                    :
+                    <div className='relative flex items-center'>
+                      <DatePicker
+                        value={startDate[index]}
+                        name='quoteDate'
+                        onChange={(date) => handleChangeDate(date, index)}
+                        renderInput={(ref) => renderCustomInputStart(ref, index)} // render a custom input
+                        shouldHighlightWeekends
+                        calendarPopperPosition='bottom'
+                      />
+
+                    </div>
+                }
+              </div>
+
+              <div className='col-lg-4 mb-4 '>
+                <label className='block text-sm font-medium mb-1 '>
+                  When Quited
+                </label>
+                {
+                  mode === "view" ?
+                    (<p>
+                      {watch(`${endDate[index].year}/${endDate[index].month}/${endDate[index].day}`)}
+                    </p>)
+                    :
+                    <div className='relative flex items-center'>
+                      <DatePicker
+                        value={endDate[index]}
+                        name='quoteDate'
+                        onChange={(date) => handleChangeDateEnd(date, index)}
+                        renderInput={(ref) => renderCustomInputEnd(ref, index)} // render a custom input
+                        shouldHighlightWeekends
+                        calendarPopperPosition='bottom'
+                      />
+                      {/* <button className='p-2 ml-2 bg-red-500 hover:bg-green-600 text-white'>
                 <MdDelete />
               </button> */}
-                  </div>
-                </div>
+                    </div>
+                }
+              </div>
 
-                <div className='col-lg-4 mb-4 relative'>
-                  <label className='block text-sm font-medium mb-1' htmlFor='name'>
-                    Last Time Used
-                  </label>
-
+              <div className='col-lg-4 mb-4 relative'>
+                <label className='block text-sm font-medium mb-1' htmlFor='name'>
+                  Last Time Used
+                </label>
+                {mode !== "view" &&
                   <div className='absolute right-5 top-10'>
                     {!errors.addictions?.[index]?.lastTimeUsed && watch('name') ? (
                       <FcCheckmark />
@@ -372,34 +409,46 @@ const SocialHistory = ({control, register, watch, errors }) => {
                         <MdClose />
                       </div>
                     ) : null}
+
                   </div>
-                  <input
-                    name={`addictions[${index}].lastTimeUsed`}
-                    {...register(`addictions[${index}].lastTimeUsed`)}
-                    autoComplete='off'
-                    className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.addictions?.[index]?.lastTimeUsed && 'border-red-400'
-                      }`}
-                    id='name'
-                    type='text'
-                    placeholder='How long used'
-                  />
-                  <span
-                    hidden={watch(`addictions[${index}].lastTimeUsed`)}
-                    className='absolute text-red-400 text-lg font-medium  top-9 left-[170px]'
-                  >
-                    *
-                  </span>
+                }
+                {
+                  mode === "view" ?
+                    (<p>
+                      {watch(`addictions[${index}].lastTimeUsed`)}
+                    </p>)
+                    :
+                    <>
+                      <input
+                        name={`addictions[${index}].lastTimeUsed`}
+                        {...register(`addictions[${index}].lastTimeUsed`)}
+                        autoComplete='off'
+                        className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.addictions?.[index]?.lastTimeUsed && 'border-red-400'
+                          }`}
+                        id='name'
+                        type='text'
+                        placeholder='How long used'
+                      />
+                      <span
+                        hidden={watch(`addictions[${index}].lastTimeUsed`)}
+                        className='absolute text-red-400 text-lg font-medium  top-9 left-[170px]'
+                      >
+                        *
+                      </span>
+                    </>
+                }
 
-                  {errors.addictions?.[index]?.lastTimeUsed && (
-                    <p className='text-red-500 text-sm'>{errors.addictions?.[index]?.lastTimeUsed.message}</p>
-                  )}
+                {errors.addictions?.[index]?.lastTimeUsed && (
+                  <p className='text-red-500 text-sm'>{errors.addictions?.[index]?.lastTimeUsed.message}</p>
+                )}
 
-                </div>
+              </div>
 
-                <div className='col-lg-12 mb-4 relative'>
-                  <label className='block text-sm font-medium mb-1' htmlFor='name'>
-                    Description
-                  </label>
+              <div className='col-lg-12 mb-4 relative'>
+                <label className='block text-sm font-medium mb-1' htmlFor='name'>
+                  Description
+                </label>
+                {mode !== "view" &&
                   <div className='absolute right-5 top-10'>
                     {!errors.addictions?.[index]?.description && watch(`addictions[${index}].description`) ? (
                       <FcCheckmark />
@@ -409,6 +458,11 @@ const SocialHistory = ({control, register, watch, errors }) => {
                       </div>
                     ) : null}
                   </div>
+                }
+                {mode === "view" ? (
+                  <p>{watch(`addictions[${index}].description`)}</p>
+                )
+                  :
                   <textarea
                     name={`addictions[${index}].description`}
                     {...register(`addictions[${index}].description`)}
@@ -418,215 +472,241 @@ const SocialHistory = ({control, register, watch, errors }) => {
                     id='name'
                     placeholder='Description'
                   ></textarea>
+                }
 
 
-                  {errors.addictions?.[index]?.description && (
-                    <p className='text-red-500 text-sm'>{errors.addictions?.[index]?.description.message}</p>
-                  )}
-                </div>
-              </>
-            ))
+                {errors.addictions?.[index]?.description && (
+                  <p className='text-red-500 text-sm'>{errors.addictions?.[index]?.description.message}</p>
+                )}
+              </div>
+            </>
+          ))
+        }
+
+        <hr className='mb-4' />
+
+        <div className='col-lg-4 mb-4 relative'>
+          <label className='block text-sm font-medium mb-1' htmlFor='name'>
+            Marital Status
+          </label>
+
+          {
+            mode === "view" ?
+              (
+                <p>{watch('maritalStatus')}</p>
+              )
+              :
+              <select
+                {...register('maritalStatus')}
+                autoComplete='off'
+                className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]   ${errors.maritalStatus && 'border-red-400'
+                  }`}
+              >
+                <option value="">Select Marital </option>
+                {marital.map((m, i) => (
+                  <option key={i} value={m}>{m}</option>
+                ))}
+
+              </select>
           }
 
-          <hr className='mb-4' />
 
-          <div className='col-lg-4 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Marital Status
-            </label>
+        </div>
+        <div className='col-lg-4 mb-4 relative'>
+          <label className='block text-sm font-medium mb-1' htmlFor='name'>
+            Sexual Orientation
+          </label>
+          {
+            mode === "view" ?
+              (
+                <p>{watch('sexualOrientation')}</p>
+              )
+              :
+              <select
+                {...register('sexualOrientation')}
+                autoComplete='off'
 
-            <select
-              {...register('maritalStatus')}
-              autoComplete='off'
-              className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]   ${errors.maritalStatus && 'border-red-400'
-                }`}
-            >
-              <option value="">Select Marital </option>
-              {marital.map((m, i) => (
-                <option key={i} value={m}>{m}</option>
-              ))}
-
-            </select>
-
-
-          </div>
-          <div className='col-lg-4 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Sexual Orientation
-            </label>
-
-            <select
-              {...register('sexualOrientation')}
-              autoComplete='off'
-
-              className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]   ${errors.sexualOrientation && 'border-red-400'
-                }`}
-            >
-              <option value="">Sexual Orientation</option>
-              {sex.map((m, i) => (
-                <option key={i} value={m}>{m}</option>
-              ))}
-            </select>
+                className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]   ${errors.sexualOrientation && 'border-red-400'
+                  }`}
+              >
+                <option value="">Sexual Orientation</option>
+                {sex.map((m, i) => (
+                  <option key={i} value={m}>{m}</option>
+                ))}
+              </select>
+          }
 
 
-          </div>
+        </div>
 
-          <div className='col-lg-2 mb-4 relative'>
-            <div>
-              <div className='text-sm text-slate-800 font-semibold mb-3'>
-                Ever Hurt
-              </div>
-              <div className='flex items-center'>
+        <div className='col-lg-2 mb-4 relative'>
+          <div>
+            <div className='text-sm text-slate-800 font-semibold mb-3'>
+              Ever Hurt
+            </div>
+            <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
-                  <input type="checkbox"
-                    checked={hurt}
-                    onChange={() => setHurt(!hurt)}
-                    id="default-toggle"
-                    class="sr-only peer"
-                  />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
-                    {hurt ? 'True' : 'False'}
-                  </div>
-                </label>
+              <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                <input type="checkbox"
+                  checked={hurt}
+                  onChange={() => setHurt(!hurt)}
+                  disabled={mode === "view" ? true : false}
+                  id="default-toggle"
+                  class="sr-only peer"
+                />
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <div className='text-sm text-slate-400 italic ml-2'>
+                  {hurt ? 'True' : 'False'}
+                </div>
+              </label>
 
 
 
-              </div>
             </div>
           </div>
+        </div>
 
-          <div className='col-lg-2 mb-4 relative'>
-            <div>
-              <div className='text-sm text-slate-800 font-semibold mb-3'>
-                Need Carrier
-              </div>
-              <div className='flex items-center'>
+        <div className='col-lg-2 mb-4 relative'>
+          <div>
+            <div className='text-sm text-slate-800 font-semibold mb-3'>
+              Need Carrier
+            </div>
+            <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
-                  <input type="checkbox"
-                    checked={carrier}
-                    onChange={() => setcarrier(!carrier)}
-                    id="default-toggle"
-                    class="sr-only peer"
-                  />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
-                    {carrier ? 'True' : 'False'}
-                  </div>
-                </label>
+              <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                <input type="checkbox"
+                  checked={carrier}
+                  onChange={() => setcarrier(!carrier)}
+                  id="default-toggle"
+                  disabled={mode === "view" ? true : false}
+
+                  class="sr-only peer"
+                />
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <div className='text-sm text-slate-400 italic ml-2'>
+                  {carrier ? 'True' : 'False'}
+                </div>
+              </label>
 
 
 
-              </div>
             </div>
           </div>
-          <div className='col-lg-2 mb-4 relative'>
-            <div>
-              <div className='text-sm text-slate-800 font-semibold mb-3'>
-                Exercise
-              </div>
-              <div className='flex items-center'>
+        </div>
+        <div className='col-lg-2 mb-4 relative'>
+          <div>
+            <div className='text-sm text-slate-800 font-semibold mb-3'>
+              Exercise
+            </div>
+            <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
-                  <input type="checkbox"
-                    checked={excise}
-                    onChange={() => setexcise(!excise)}
-                    id="default-toggle"
-                    class="sr-only peer"
-                  />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
-                    {excise ? 'True' : 'False'}
-                  </div>
-                </label>
+              <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                <input type="checkbox"
+                  checked={excise}
+                  onChange={() => setexcise(!excise)}
+                  disabled={mode === "view" ? true : false}
+
+                  id="default-toggle"
+                  class="sr-only peer"
+                />
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <div className='text-sm text-slate-400 italic ml-2'>
+                  {excise ? 'True' : 'False'}
+                </div>
+              </label>
 
 
 
-              </div>
             </div>
           </div>
-          <div className='col-lg-2 mb-4 relative'>
-            <div>
-              <div className='text-sm text-slate-800 font-semibold mb-3'>
-                Pregnant
-              </div>
-              <div className='flex items-center'>
+        </div>
+        <div className='col-lg-2 mb-4 relative'>
+          <div>
+            <div className='text-sm text-slate-800 font-semibold mb-3'>
+              Pregnant
+            </div>
+            <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
-                  <input type="checkbox"
-                    checked={pregnet}
-                    onChange={() => setpregnet(!pregnet)}
-                    id="default-toggle"
-                    class="sr-only peer"
-                  />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
-                    {pregnet ? 'True' : 'False'}
-                  </div>
-                </label>
+              <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                <input type="checkbox"
+                  checked={pregnet}
+                  onChange={() => setpregnet(!pregnet)}
+                  disabled={mode === "view" ? true : false}
+
+                  id="default-toggle"
+                  class="sr-only peer"
+                />
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <div className='text-sm text-slate-400 italic ml-2'>
+                  {pregnet ? 'True' : 'False'}
+                </div>
+              </label>
 
 
 
-              </div>
             </div>
           </div>
-          <div className='col-lg-2 mb-4 relative'>
-            <div>
-              <div className='text-sm text-slate-800 font-semibold mb-3'>
-                Breast Feeding
-              </div>
-              <div className='flex items-center'>
+        </div>
+        <div className='col-lg-2 mb-4 relative'>
+          <div>
+            <div className='text-sm text-slate-800 font-semibold mb-3'>
+              Breast Feeding
+            </div>
+            <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
-                  <input type="checkbox"
-                    checked={feeding}
-                    onChange={() => setfeeding(!feeding)}
-                    id="default-toggle"
-                    class="sr-only peer"
-                  />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
-                    {feeding ? 'True' : 'False'}
-                  </div>
-                </label>
+              <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                <input type="checkbox"
+                  checked={feeding}
+                  onChange={() => setfeeding(!feeding)}
+                  disabled={mode === "view" ? true : false}
+
+                  id="default-toggle"
+                  class="sr-only peer"
+                />
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <div className='text-sm text-slate-400 italic ml-2'>
+                  {feeding ? 'True' : 'False'}
+                </div>
+              </label>
 
 
 
-              </div>
             </div>
           </div>
-          <div className='col-lg-2 mb-4 relative'>
-            <div>
-              <div className='text-sm text-slate-800 font-semibold mb-3'>
-                Delivery Injury
-              </div>
-              <div className='flex items-center'>
+        </div>
+        <div className='col-lg-2 mb-4 relative'>
+          <div>
+            <div className='text-sm text-slate-800 font-semibold mb-3'>
+              Delivery Injury
+            </div>
+            <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
-                  <input type="checkbox"
-                    checked={injury}
-                    onChange={() => setinjury(!injury)}
-                    id="default-toggle"
-                    class="sr-only peer"
-                  />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
-                    {injury ? 'True' : 'False'}
-                  </div>
-                </label>
+              <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                <input type="checkbox"
+                  checked={injury}
+                  onChange={() => setinjury(!injury)}
+                  disabled={mode === "view" ? true : false}
+
+                  id="default-toggle"
+                  class="sr-only peer"
+                />
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <div className='text-sm text-slate-400 italic ml-2'>
+                  {injury ? 'True' : 'False'}
+                </div>
+              </label>
 
 
 
-              </div>
             </div>
           </div>
+        </div>
 
-          <div className='col-lg-4 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              No Of Childrens
-            </label>
+        <div className='col-lg-4 mb-4 relative'>
+          <label className='block text-sm font-medium mb-1' htmlFor='name'>
+            No Of Childrens
+          </label>
+          {mode !== "view" &&
             <div className='absolute right-5 top-10'>
               {!errors.children && watch('children') ? (
                 <FcCheckmark />
@@ -636,45 +716,64 @@ const SocialHistory = ({control, register, watch, errors }) => {
                 </div>
               ) : null}
             </div>
-            <input
-              {...register('children')}
-              autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.children && 'border-red-400'
-                }`}
-              name='children'
-              id='name'
-              type='number'
-              placeholder='no Of Childrens'
-            />
-
-
-            {errors.children && (
-              <p className='text-red-500 text-sm'>{errors.children.message}</p>
-            )}
-          </div>
-
-          <div className='col-lg-6 mb-4 '>
-            <label className='block text-sm font-medium mb-1 '>
-              Last Menstrual Date
-            </label>
-            <div className='relative flex items-center'>
-              <DatePicker
-                value={quoteDate}
-                name='quoteDate'
-                onChange={(date) => setquoteDate(date)}
-                renderInput={renderCustomInput} // render a custom input
-                shouldHighlightWeekends
-                calendarPopperPosition='bottom'
+          }
+          {
+            mode === "view" ?
+              (<p>
+                {watch('children')}
+              </p>)
+              :
+              <input
+                {...register('children')}
+                autoComplete='off'
+                className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.children && 'border-red-400'
+                  }`}
+                name='children'
+                id='name'
+                type='number'
+                placeholder='no Of Childrens'
               />
-
-            </div>
-          </div>
+          }
 
 
-          <div className='col-lg-6 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Delivery Method
-            </label>
+          {errors.children && (
+            <p className='text-red-500 text-sm'>{errors.children.message}</p>
+          )}
+        </div>
+
+        <div className='col-lg-6 mb-4 '>
+          <label className='block text-sm font-medium mb-1 '>
+            Last Menstrual Date
+          </label>
+          {
+            mode === "view" ?
+              (<p>
+                {watch(`${quoteDate.year}/${quoteDate.month}/${quoteDate.day}`)}
+              </p>)
+              :
+
+              <div className='relative flex items-center'>
+                <DatePicker
+                  value={quoteDate}
+                  name='quoteDate'
+                  onChange={(date) => setquoteDate(date)}
+                  renderInput={renderCustomInput} // render a custom input
+                  shouldHighlightWeekends
+                  calendarPopperPosition='bottom'
+                />
+
+              </div>
+          }
+        </div>
+
+
+        <div className='col-lg-6 mb-4 relative'>
+          <label className='block text-sm font-medium mb-1' htmlFor='name'>
+            Delivery Method
+          </label>
+          {
+            mode !== "view" &&
+
             <div className='absolute right-5 top-10'>
               {!errors.deliveryMethod && watch('deliveryMethod') ? (
                 <FcCheckmark />
@@ -684,6 +783,12 @@ const SocialHistory = ({control, register, watch, errors }) => {
                 </div>
               ) : null}
             </div>
+          }
+          {mode === "view" ?
+
+
+            (<p>{watch('deliveryMethod')}</p>)
+            :
             <input
               {...register('deliveryMethod')}
               autoComplete='off'
@@ -694,16 +799,17 @@ const SocialHistory = ({control, register, watch, errors }) => {
               type='text'
               placeholder=' Delivery Method'
             />
+          }
 
 
-            {errors.deliveryMethod && (
-              <p className='text-red-500 text-sm'>{errors.deliveryMethod.message}</p>
-            )}
-          </div>
+          {errors.deliveryMethod && (
+            <p className='text-red-500 text-sm'>{errors.deliveryMethod.message}</p>
+          )}
+        </div>
 
 
 
-          {/* <div className='col-lg-12 flex justify-between'>
+        {/* <div className='col-lg-12 flex justify-between'>
             <button onClick={(e) => handleBack(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Back
             </button>
@@ -711,7 +817,7 @@ const SocialHistory = ({control, register, watch, errors }) => {
               Next
             </button>
           </div> */}
-        </div>
+      </div>
       {/* </form> */}
     </div>
   );
