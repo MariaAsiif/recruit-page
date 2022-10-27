@@ -25,7 +25,7 @@ const NewServices = () => {
                         <p className='mb-2 text-xs font-normal leading-5 text-center text-white'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.</p>
                     </div>
                     <div>
-                        <img className='' alt="image" src="http://placekitten.com/200/200" />
+                        <img alt="test" src="http://placekitten.com/200/200" />
                     </div>
                 </div>
             </div>
