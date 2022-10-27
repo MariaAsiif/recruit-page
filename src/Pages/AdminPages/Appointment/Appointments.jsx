@@ -60,9 +60,9 @@ const Appointments = () => {
             "limit": 50,
             "query": {
               "critarion": { "active": true },
-              "customerfields": "_id dob ssn familyDoctorName",
+              "customerfields": "",
               "customeruserfields": "_id email first_name",
-              "medicalHistoryDiseaseFields": "diseaseName diseaseType",
+              "medicalHistory": " disease positive description medicalFiles",
               "symptomsfields": "symptomName symptomType",
               "addedby": "_id email first_name",
               "lastModifiedBy": "_id email first_name"

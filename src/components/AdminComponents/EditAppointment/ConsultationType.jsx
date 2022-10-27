@@ -33,10 +33,10 @@ const schema = yup.object({
     // video: yup.mixed().test('required', 'file is Required', value => { return value && value.length }),
 });
 
-const ConsultationType = ({ control, register, watch, errors, mode, reset , data }) => {
+const ConsultationType = ({ control, register, watch, errors, mode, reset , data , setPicturs , setVideos}) => {
 
-    const [image, setImage] = useState('')
-    const [video, setVideo] = useState('')
+    // const [image, setImage] = useState('')
+    // const [video, setVideo] = useState('')
     // const {
     //     register,
     //     watch,
@@ -62,7 +62,7 @@ const ConsultationType = ({ control, register, watch, errors, mode, reset , data
                 if (res.status === "Success") {
                     console.log("Res", res)
                     toast.success(res.message);
-                    setImage(res?.data)
+                    setPicturs(res?.data)
                 }
                 else {
                     toast.error(res.message);
@@ -78,7 +78,7 @@ const ConsultationType = ({ control, register, watch, errors, mode, reset , data
                 if (res.status === "Success") {
                     console.log("Res", res)
                     toast.success(res.message);
-                    setVideo(res?.data)
+                    setVideos(res?.data)
                 }
                 else {
                     toast.error(res.message);

@@ -10,6 +10,7 @@ import History from '../AdminComponents/EditAppointment/History';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { ToastContainer } from 'react-toastify';
 const schema = yup.object({
     ssn: yup.string().required('Field is Required'),
     homeAddress: yup.string().required('homeAddress is Required'),
@@ -90,10 +91,29 @@ const schema = yup.object({
 
 const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
     const modalContent = useRef(null);
-    const [categoryDate , setCategoryDate] = useState("")
-    const [history , setHistory] = useState('')
-    const [seduleData , setSeduleDate] = useState('')
-    console.log("data", data)
+    const [categoryDate, setCategoryDate] = useState("")
+    const [history, setHistory] = useState('')
+    const [seduleData, setSeduleDate] = useState({ file: "", report: "" })
+    const [dates, setDates] = useState([]);
+    const [imagefile, setImageFile] = useState([]);
+    const [picturs, setPicturs] = useState('');
+    const [videos, setVideos] = useState('');
+    const [startDate, setStartDate] = useState({ start: "", end: "", last: "" });
+    const [surDate, setSurDate] = useState([]);
+
+    let d = {
+        categoryDate,
+        history,
+        seduleData,
+        dates,
+        picturs,
+        videos,
+        startDate,
+        surDate
+    }
+
+
+    console.log("data", d)
 
     const {
         register,
@@ -132,33 +152,50 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
     console.log("Data from update", data)
 
     useEffect(() => {
+
+        let sm = []
+        let al = []
+
+        for (let index = 0; index < data?.symptoms?.length; index++) {
+            const element = data.symptoms[index];
+            let ob = { "name": element }
+            sm.push(ob)
+        }
+
+        for (let index = 0; index < data?.allergies?.length; index++) {
+            const element = data.allergies[index];
+            let ob = { "name": element }
+            al.push(ob)
+        }
+
+
+
         let d = {
-             
-            "ssn": data.customerfields.ssn,
-            "homeAddress": data?.customerfields?.homeAddress,
-            "homePhone": data?.customerfields?.workPhone,
-            "workPhone": data?.customerfields?.workPhone,
-            "occupation": data?.customerfields?.occupation,
-            "emergencyContantName": data?.customerfields?.emergencyContantName,
-            "emergencyContactRelation": data?.customerfields?.emergencyContactRelation,
-            "emergencyContactPhone": data?.customerfields?.emergencyContactPhone,
-            "familyDoctorName": data?.customerfields?.familyDoctorName,
-            "referringDoctorName": data?.customerfields?.referringDoctorName,
-            "doctorAddress": data?.customerfields?.doctorAddress,
-            "doctorPhone": data?.customerfields?.doctorPhone,
-            "doctorFax": data?.customerfields?.doctorFax,
-            "otherReferralSource": data?.customerfields?.otherReferralSource,
+            "ssn": data?.customer?.ssn,
+            "homeAddress": data?.customer?.homeAddress,
+            "homePhone": data?.customer?.workPhone,
+            "workPhone": data?.customer?.workPhone,
+            "occupation": data?.customer?.occupation,
+            "emergencyContantName": data?.customer?.emergencyContantName,
+            "emergencyContactRelation": data?.customer?.emergencyContactRelation,
+            "emergencyContactPhone": data?.customer?.emergencyContactPhone,
+            "familyDoctorName": data?.customer?.familyDoctorName,
+            "referringDoctorName": data?.customer?.referringDoctorName,
+            "doctorAddress": data?.customer?.doctorAddress,
+            "doctorPhone": data?.customer?.doctorPhone,
+            "doctorFax": data?.customer?.doctorFax,
+            "otherReferralSource": data?.customer?.otherReferralSource,
             "reasonOfCurrentVisit": data.reasonOfCurrentVisit,
             "requestCategory": data.requestCategory,
             "status": "approved",
             "requestDate": data.requestDate,
-            "description": data.description,
-            "doctorName": data?.pastConsultants?.doctorName,
-            "specialization": data?.pastConsultants?.specialization,
-            "lastCheckupDate": data?.pastConsultants?.lastCheckupDate,
-            "profileLink": data?.pastConsultants?.profileLink,
-            "drPrescription": data?.pastConsultants?.drPrescription,
-            "medicalReports": data?.pastConsultants?.medicalReports,
+            "description": data?.medicalHistory?.description,
+            "doctorName": data.pastConsultants ? data?.pastConsultants[0]?.doctorName : null ,
+            "specialization": data.pastConsultants ? data?.pastConsultants[0]?.specialization : null ,
+            "lastCheckupDate": data.pastConsultants ? data?.pastConsultants[0]?.lastCheckupDate : null ,
+            "profileLink": data.pastConsultants ? data?.pastConsultants[0]?.profileLink : null ,
+            "drPrescription": data.pastConsultants ? data?.pastConsultants[0]?.drPrescription : null ,
+            "medicalReports": data.pastConsultants ? data?.pastConsultants[0]?.medicalReports : null ,
             "familyDiseases": data.familyDiseases,
             "isSurgeyDone": data?.surgicalHistory?.isSurgeyDone,
             "operationType": data?.surgicalHistory?.operationType,
@@ -176,21 +213,32 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
             "deliveryMethod": data?.socialHistory?.deliveryMethod,
             "deliveryInjury": data?.socialHistory?.deliveryInjury,
 
-            "allergies": data.allergies,
+            "allergies": al,
             "medicationsSuppliments": data.medicationsSuppliments,
-            "symptoms": data.symptoms,
-            "consultationFee": data?.consultationType?.consultationFee,
-            "communication": data?.consultationType?.communication,
+            "symptoms": sm,
+            "consultationFee": data.consultationType ? data?.consultationType[0]?.consultationFee : null ,
+            "communication": data.consultationType ? data?.consultationType[0]?.communication : null ,
             "pictures": data.pictures,
             "videos": data.videos
         }
         reset(d)
-    }, [reset])
+    }, [reset, data])
 
 
 
     return (
         <>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             {/* Modal backdrop */}
             <Transition
                 className="fixed inset-0 bg-slate-900 bg-opacity-30 z-50 transition-opacity"
@@ -233,12 +281,12 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
                     <div className='bscontainer'>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <UserInfo  {...{ control, register, watch, errors, mode }} />
-                            <Category  {...{ control, register, watch, reset , errors, mode , data , setCategoryDate  }} />
-                            <History  {...{ control, register, watch, errors, mode , data , setHistory }} />
-                            <Schedule  {...{ control, register, watch, errors, mode , data , setSeduleDate }} />
-                            <SurgicalHistory  {...{ control, register, watch, errors, mode , data }} />
-                            <SocialHistory  {...{ control, register, watch, errors, mode }} />
-                            <ConsultationType  {...{ control, register, watch, reset,  errors, mode , data }} />
+                            <Category  {...{ control, register, watch, reset, errors, mode, data, setCategoryDate }} />
+                            <History  {...{ control, register, watch, errors, mode, data, setHistory }} />
+                            <Schedule  {...{ control, register, watch, errors, mode, data, setSeduleDate }} />
+                            <SurgicalHistory  {...{ control, register, watch, errors, mode, data, setDates, imagefile, setSurDate, setImageFile }} />
+                            <SocialHistory  {...{ control, register, watch, errors, mode, setStartDate }} />
+                            <ConsultationType  {...{ control, register, watch, reset, errors, mode, data, setPicturs, setVideos }} />
                             <button type="submit" className='p-2 ml-9 mb-7 bg-red-500 hover:bg-green-600 text-white'>Update </button>
                         </form>
                     </div>

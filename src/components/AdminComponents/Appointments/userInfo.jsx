@@ -11,7 +11,7 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { callApi } from '../../../utils/CallApi';
 const schema = yup.object({
-  customer : yup.string().required('Customer is Required'),
+  customer: yup.string().required('Customer is Required'),
   ssn: yup.string().required('Field is Required'),
   homeAddress: yup.string().required('homeAddress is Required'),
   homePhone: yup.string().required('homePhone is Required'),
@@ -59,29 +59,31 @@ const UserInfo = ({ handleNext, updateState, data }) => {
   }, [reset, data])
 
 
-  
+
   useEffect(() => {
     (async () => {
       try {
-        let payload = {
-          sortProperty: 'createdAt',
-          sortOrder: -1,
-          offset: 0,
-          limit: 50,
-          query: {
-            critarion: { role: "customer" },
-            addedBy: '_id email first_name',
-            lastModifiedBy: '_id email first_name',
-          },
-        };
 
-        let response = await callApi('/users/listAllUsers', 'post', payload);
-        setUsers(response?.data?.users);
+        let payload = {
+          "sortproperty": "createdAt",
+          "sortorder": -1,
+          "offset": 0,
+          "limit": 50,
+          "query": {
+            "critarion": { "active": true },
+            "fields": "_id dob",
+            "user": "_id email first_name"
+          }
+
+        }
+
+        let response = await callApi('/customers/getCustomersList', 'post', payload);
+        setUsers(response?.data?.customer);
       } catch (error) {
         console.log(error);
       }
     })();
-}, []);
+  }, []);
 
 
 
@@ -107,13 +109,13 @@ const UserInfo = ({ handleNext, updateState, data }) => {
               Customer
             </label>
             <select
-            {...register('customer')}
-            className={`mt-[2px] pt-[10px] pb-2  border focus:outline-blue-500 rounded-sm w-full  ${errors.customer && 'border-red-400'
+              {...register('customer')}
+              className={`mt-[2px] pt-[10px] pb-2  border focus:outline-blue-500 rounded-sm w-full  ${errors.customer && 'border-red-400'
                 }`}>
               <option value="">Select Customer</option>
               {
-                users?.map((user) => (
-                  <option key={user?._id} value={user?._id}>{user?.first_name}</option>
+                users?.map((cus) => (
+                  <option key={cus?._id} value={cus?._id}>{cus?.user?.first_name}</option>
                 ))
               }
             </select>
@@ -345,7 +347,7 @@ const UserInfo = ({ handleNext, updateState, data }) => {
           </div>
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium ' htmlFor='name'>
-            Family Doctor Name
+              Family Doctor Name
             </label>
             <div className='absolute right-5 top-8'>
               {!errors.familyDoctorName && watch('familyDoctorName') ? (
@@ -377,7 +379,7 @@ const UserInfo = ({ handleNext, updateState, data }) => {
               <p className='text-red-500 text-sm'>{errors.familyDoctorName.message}</p>
             )}
           </div>
-         
+
           <div className='col-lg-6 mb-4 relative'>
             <label className='block text-sm font-medium  ' htmlFor='name'>
               Referring Doctor Name
@@ -474,7 +476,7 @@ const UserInfo = ({ handleNext, updateState, data }) => {
 
           <div className='col-lg-6 mb-4 relative'>
             <label className='block text-sm font-medium ' htmlFor='name'>
-            Other Referral Source
+              Other Referral Source
             </label>
             <div className='absolute right-5 top-8'>
               {!errors.otherReferralSource && watch('otherReferralSource') ? (
@@ -506,7 +508,7 @@ const UserInfo = ({ handleNext, updateState, data }) => {
               <p className='text-red-500 text-sm'>{errors.otherReferralSource.message}</p>
             )}
           </div>
-         
+
           <div className='col-lg-12 mb-4 relative'>
             <label className='block text-sm font-medium ' htmlFor='quote'>
               Doctor Address

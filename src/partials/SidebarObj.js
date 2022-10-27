@@ -2,7 +2,7 @@ import { FaUserGraduate, FaBriefcase, FaDna } from 'react-icons/fa';
 import { AiFillDashboard } from 'react-icons/ai';
 import { VscFeedback } from 'react-icons/vsc';
 import { BiSticker, BiMessageAltDetail , BiCategory } from 'react-icons/bi';
-import { RiLuggageDepositLine , RiShoppingBag3Fill } from 'react-icons/ri';
+import { RiLuggageDepositLine , RiShoppingBag3Fill , RiCustomerService2Line} from 'react-icons/ri';
 import { SiSlideshare } from 'react-icons/si';
 import { BsCalendar2DateFill } from 'react-icons/bs'
 import {
@@ -131,6 +131,34 @@ const SidebarObj = () => {
         },
 
         {
+         
+          label: 'Manage I Customer',
+          leftIcon: <RiCustomerService2Line size={22} className=' hover:text-black' />,
+          activeLeftIcon: (
+            <RiCustomerService2Line size={22} className='text-green-500' />
+          ),
+          rightIcon: 'sadf',
+          path: '/customer',
+          pathname: 'customer',
+          subMenuItems: [
+            {
+              label: 'All Customers',
+              path: '/customer',
+              subMenuItems: [],
+            },
+            {
+              label: 'Create customer',
+              path: '/customer/create-customer',
+              subMenuItems: [],
+            },
+            // {
+            //     label: "Fintech",
+            //     pathname: "/dashboard/fintech",
+            // },
+          ],
+        },
+
+        {
           // <<<<<<< HEAD
           label: 'Manage I Department',
           leftIcon: (
@@ -220,6 +248,7 @@ const SidebarObj = () => {
           path: '/ecome',
           pathname: 'ecome',
           subMenuItems: [
+            
             {
               label: 'Category',
               leftIcon: <BiCategory size={22} />,

@@ -91,7 +91,7 @@ const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleDate
         let res = await callApi('/appointmentrequests/uploadMedicinePrescription', "post", formData)
         if (res.status === "Success") {
           toast.success(res.message);
-          setFile(res?.data)
+          setSeduleDate((prev)=>({ ...prev ,  file : res?.data}))
         }
         else {
           toast.error(res.message);
@@ -105,7 +105,7 @@ const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleDate
         let res = await callApi('/appointmentrequests/uploadMedicinePrescription', "post", formData)
         if (res.status === "Success") {
           toast.success(res.message);
-          setReport(res?.data)
+          setSeduleDate((prev)=>({ ...prev ,  report : res?.data}))
         }
         else {
           toast.error(res.message);

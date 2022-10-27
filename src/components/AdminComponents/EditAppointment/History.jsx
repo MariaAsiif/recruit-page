@@ -16,10 +16,10 @@ import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 
 // });
 
-const History = ({ register, watch, errors, mode , data  }) => {
+const History = ({ register, watch, errors, mode , data , setHistory  }) => {
 
   const [companySetting, setCompanySetting] = useState(true);
-  const [file, setFile] = useState("");
+  // const [file, setFile] = useState("");
   const [allDisease, setallDisease] = useState([])
 
 
@@ -28,10 +28,10 @@ const History = ({ register, watch, errors, mode , data  }) => {
     try {
       let file = e.target.files[0]
       let formdata = new FormData()
-      formdata.append('picture', file)
-      let res = await callApi("/appointmentrequests/uploadMedicalImages", "post", file)
+      formdata.append('prescription', file)
+      let res = await callApi("/appointmentrequests/uploadMedicinePrescription", "post", formdata)
       if (res.status === "Success") {
-        setFile(res.data)
+        setHistory(res.data)
         toast.success(res.message);
       }
       else {

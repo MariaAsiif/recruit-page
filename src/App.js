@@ -111,6 +111,9 @@ import OrderList from './components/NewDashboardComponents/OrderList';
 import MedicalLandingPage from './Pages/Medical/LandingPage';
 import Invoice from './components/NewDashboardComponents/Invoice';
 import NewFaqs from './components/NewDashboardComponents/NewFaqs';
+import Customers from './Pages/ecommerce/Customers';
+import CreateCustomer from './Pages/customer/CreateCustomer';
+import AllCustomers from './Pages/customer/customers';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -220,6 +223,18 @@ function App() {
         >
           <Route index element={<Appointments />} />
           <Route path='create-appointment' element={<CreateAppointment />} />
+        </Route>
+
+        <Route
+          path='/customer'
+          element={
+            <RequireAuth>
+              <MainWrapper />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<AllCustomers />} />
+          <Route path='create-customer' element={<CreateCustomer />} />
         </Route>
 
         <Route

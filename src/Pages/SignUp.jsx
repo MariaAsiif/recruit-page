@@ -336,7 +336,7 @@ const SignUp = () => {
 
 
                                     <div className='col-lg-4 mb-4'>
-                                        <label className='text-[14px] font-semibold  flex items-center'>Phone Number<span className='pt-1 text-green-600 ml-2'> * </span></label>
+                                        <label className='text-[14px] font-semibold  flex items-center mb-1'>Phone Number<span className='pt-1 text-green-600 ml-2'> * </span></label>
                                         <Controller
                                             control={control}
                                             name="phoneNumber"
@@ -348,7 +348,7 @@ const SignUp = () => {
                                                     // enableSearch
                                                     // disableSearchIcon
                                                     // containerStyle={{ marginBottom: "20px" }}
-                                                    inputStyle={{ width: "100%", height: "40px", border: "1px solid #6D6E71", borderRadius: "8px", }}
+                                                    inputStyle={{ width: "100%", height: "40px",  border: "1px solid #6D6E71", borderRadius: "8px", }}
                                                     buttonStyle={{ border: "1px solid #6D6E71", borderRadius: "8px 0 0 8px" }}
                                                     countryCodeEditable={false}
                                                 // value={formModel.mobile}

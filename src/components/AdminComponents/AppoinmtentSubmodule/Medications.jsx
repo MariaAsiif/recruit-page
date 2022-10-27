@@ -6,32 +6,32 @@ import { Controller, useFieldArray } from "react-hook-form";
 import { callApi, HOSTNAME } from '../../../utils/CallApi';
 import { toast } from 'react-toastify';
 
-const Medications = ({ control, register, watch, errors, setImageFile, mode , data  }) => {
+const Medications = ({ control, register, watch, errors, setImageFile, imagefile, mode, data }) => {
 
     const { fields, append, remove } = useFieldArray({
         control,
         name: "medicationsSuppliments"
     });
 
-    const [toggle, setToggle] = useState([{
-        takingNow: true,
-        isSurgeyDone: true
-    }])
+    // const [toggle, setToggle] = useState([{
+    //     takingNow: true,
+    //     isSurgeyDone: true
+    // }])
 
 
 
-    const handleChange = (e, index) => {
-        const { checked, name } = e.target
-        const t = [...toggle]
-        t[index][name] = checked
-        setToggle(t)
-    }
+    // const handleChange = (e, index) => {
+    //     const { checked, name } = e.target
+    //     const t = [...toggle]
+    //     t[index][name] = checked
+    //     setToggle(t)
+    // }
 
     const addMore = () => {
-        setToggle([...toggle, { takingNow: true, isSurgeyDone: true }])
+        setImageFile([...imagefile, ""])
     }
 
-    const handleFile = async (e) => {
+    const handleFile = async (e, index) => {
         try {
             let file = e.target.files[0]
             let formData = new FormData();
@@ -40,7 +40,11 @@ const Medications = ({ control, register, watch, errors, setImageFile, mode , da
             if (res.status === "Success") {
                 console.log("Res", res)
                 toast.success(res.message);
-                setImageFile(res?.data)
+                for (let i = 0; i < imagefile.length; i++) {
+                    const el = imagefile[i]
+                    let d = el = res?.data
+                    setImageFile(d)
+                }
             }
             else {
                 toast.error(res.message);
@@ -58,7 +62,7 @@ const Medications = ({ control, register, watch, errors, setImageFile, mode , da
 
     return (
         <div className='row'>
-            {mode === "view" &&
+            {mode !== "view" &&
                 <div className='flex'>
                     <div className='flex items-center justify-between col-lg-12 '>
                         <h2 className='text-[18px] font-medium'>Medications Suppliments</h2>
@@ -319,7 +323,7 @@ const Medications = ({ control, register, watch, errors, setImageFile, mode , da
                                         <>
                                             <input
                                                 type="file"
-                                                onChange={(e) => handleFile(e)}
+                                                onChange={(e) => handleFile(e , index )}
                                                 className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  `}
                                             />
                                             {index > 0 &&

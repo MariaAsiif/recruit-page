@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FcCheckmark } from 'react-icons/fc';
 import { MdClose, MdDelete } from 'react-icons/md';
 // import { toast, ToastContainer } from 'react-toastify';
@@ -14,7 +14,7 @@ import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import { BsFillPlusCircleFill } from 'react-icons/bs'
 // import { MdDelete } from 'react-icons/md'
 const schema = yup.object({
-  children: yup.string().required(),
+  noOfChildrens: yup.string().required(),
   sexualOrientation: yup.string().required(),
   maritalStatus: yup.string().required(),
   deliveryMethod: yup.string().required(),
@@ -31,7 +31,7 @@ const schema = yup.object({
     .required(),
 });
 
-const SocialHistory = ({ control, register, watch, errors, mode, data }) => {
+const SocialHistory = ({ control, register, watch, errors, mode, data, setStartDate }) => {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -108,6 +108,14 @@ const SocialHistory = ({ control, register, watch, errors, mode, data }) => {
     }])
   }
 
+
+  useEffect(() => {
+    setStartDate({
+      start: startDate,
+      end: endDate,
+      last: quoteDate
+    })
+  }, [startDate , endDate , quoteDate ])
 
   // ****************** Datepicker Content ***********
   const renderCustomInputStart = ({ ref }, index) => (
@@ -720,15 +728,15 @@ const SocialHistory = ({ control, register, watch, errors, mode, data }) => {
           {
             mode === "view" ?
               (<p>
-                {watch('children')}
+                {watch('noOfChildrens')}
               </p>)
               :
               <input
-                {...register('children')}
+                {...register('noOfChildrens')}
                 autoComplete='off'
-                className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.children && 'border-red-400'
+                className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.noOfChildrens && 'border-red-400'
                   }`}
-                name='children'
+                name='noOfChildrens'
                 id='name'
                 type='number'
                 placeholder='no Of Childrens'
@@ -736,8 +744,8 @@ const SocialHistory = ({ control, register, watch, errors, mode, data }) => {
           }
 
 
-          {errors.children && (
-            <p className='text-red-500 text-sm'>{errors.children.message}</p>
+          {errors.noOfChildrens && (
+            <p className='text-red-500 text-sm'>{errors.noOfChildrens.message}</p>
           )}
         </div>
 

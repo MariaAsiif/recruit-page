@@ -175,7 +175,7 @@ const CreateAppointment = () => {
       let res = await callApi('/appointmentrequests/createAppointmentRequest', 'post', payload)
       if (res.status === "Success") {
         toast.success(res.message)
-        setActive({
+        setActiveIndex({
           one: false,
           two: false,
           three: false,
@@ -184,6 +184,8 @@ const CreateAppointment = () => {
           six: false,
           seven: false
         })
+        setActive(0)
+        setFormData({})
       }
     } catch (error) {
 

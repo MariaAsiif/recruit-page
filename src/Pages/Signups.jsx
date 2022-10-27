@@ -14,7 +14,8 @@ import { FcCheckmark } from "react-icons/fc";
 import { MdClose } from "react-icons/md";
 import PhoneInput from "react-phone-input-2";
 import EmailOtp from "../components/Popups/EmailOtp";
-
+import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
+import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 
 const schema = yup.object({
   first_name: yup.string().required(),
@@ -88,21 +89,20 @@ function Signup() {
     userError: "",
     roleError: "",
   });
-  //   "location": {
-  //     "type": "Point",
-  //     "coordinates": [
-  //         74.28911285869138,
-  //         31.624888273644956
-  //     ]
-  // }
-
-  // const [first, setfirst] = useState(latitude)
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  const [quoteDate, setquoteDate] = useState({
+    day: dd,
+    month: mm,
+    year: yyyy,
+  });
 
 
   const filteredRole = roles.filter((i) => { return i.roleName !== "superadmin" })
 
 
-  console.log("roles", roles)
 
 
   const {
@@ -212,9 +212,9 @@ function Signup() {
       role: roleName,
       location: location,
     };
-    // console.warn(newData)
 
-    console.log(`Final =====`, newData);
+
+
     try {
       if (!newData.role) {
         toast.warning(`Please Select One Role`);
@@ -223,10 +223,21 @@ function Signup() {
       let response = await callApi("/users/signup", "post", newData);
       if (response.status === "Success") {
         // toast.success(`User signup successfully`);
+
+        let update  = `${quoteDate.year}/${quoteDate.month}/${quoteDate.day}`
+
+        let cus = {
+          dob: update,
+          user: response.data?._id
+        }
+
+        let res = await callApi("/customers/createCustomer", "post", cus);
+        console.log("REs", res)
+
         setTimeout(() => {
-        setEmail(data.email)
+          setEmail(data.email)
         }, 5000);
-        
+
         // setTimeout(() => {
         //   // navigate("/signin");
         // }, 5000);
@@ -290,9 +301,32 @@ function Signup() {
     })();
   }, []);
 
+
+
+  // ****************** Datepicker Content ***********
+  const renderCustomInput = ({ ref }) => (
+    <div className='relative cursor-pointe w-full mt-2'>
+      <input
+        readOnly
+        ref={ref} // necessary  placeholder="yyy-mm-dd"
+        value={
+          quoteDate
+            ? `${quoteDate.year}/${quoteDate.month}/${quoteDate.day}`
+            : ''
+        }
+        className={` border p-2 focus:outline-blue-500 rounded-sm w-full cursor-pointer z-30  px-2 py-2 `}
+      />
+      <div className={`visible absolute top-3 cursor-pointer right-5`}>
+        {' '}
+        <FcCheckmark />{' '}
+      </div>
+    </div>
+  );
+
+
   return (
     <main className="bg-white">
-      { email && <EmailOtp permition={true} email={email} Toggle={setEmail} />  }
+      {email && <EmailOtp permition={true} email={email} Toggle={setEmail} />}
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -585,7 +619,7 @@ function Signup() {
                           *
                         </span>
                       </label>
-                      <div className="w-full ">
+                      <div className="w-full mt-2 ">
                         <Controller
                           name="phoneNumber"
                           control={control}
@@ -623,7 +657,7 @@ function Signup() {
                         </span>
                       </label>
 
-                      <div className="absolute right-5 top-10">
+                      <div className="absolute right-5 top-[10%]">
                         {!error.roleError ? (
                           <FcCheckmark className="mr-5" />
                         ) : error.roleError ? (
@@ -634,7 +668,7 @@ function Signup() {
                       </div>
                       <select
                         onChange={handleChangeRole}
-                        className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${error.roleError ? "border-red-400" : "border-gray-400"
+                        className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full  ${error.roleError ? "border-red-400" : "border-gray-400"
                           }`}
                       >
                         <option>Select Role</option>
@@ -661,6 +695,22 @@ function Signup() {
                           {error.roleError}
                         </p>
                       )}
+                    </div>
+
+                    <div className='col-lg-6 mb-4 '>
+                      <label className='block text-sm font-medium mb-1 '>
+                        Date of Birth
+                      </label>
+                      <div className='relative'>
+                        <DatePicker
+                          value={quoteDate}
+                          name='quoteDate'
+                          onChange={(date) => setquoteDate(date)}
+                          renderInput={renderCustomInput} // render a custom input
+                          shouldHighlightWeekends
+                          calendarPopperPosition='bottom'
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>

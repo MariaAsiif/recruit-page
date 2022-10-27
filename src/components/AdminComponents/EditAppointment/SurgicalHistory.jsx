@@ -40,10 +40,8 @@ const schema = yup.object({
 
 
 
-const SurgicalHistory = ({ control, register, watch, errors , mode , data }) => {
+const SurgicalHistory = ({ control, register, watch, errors , mode , data , setDates , imagefile ,  setImageFile , setSurDate}) => {
 
-  const [dates, setDates] = useState([]);
-  const [imagefile, setImageFile] = useState('');
 
   // const {
   //   register,
@@ -64,15 +62,15 @@ const SurgicalHistory = ({ control, register, watch, errors , mode , data }) => 
 
   const onSubmit = async (values) => {
 
-    let surgical = []
-    for (let index = 0; index < values.test.length; index++) {
-      const element = values.test[index];
-      const d = dates[index]
-      let updated = `${d.year}-${d.month}-${d.day}`;
-      element.operationDate = updated
-      surgical.push(element)
-    }
-    console.log("value", values)
+    // let surgical = []
+    // for (let index = 0; index < values.test.length; index++) {
+    //   const element = values.test[index];
+    //   const d = dates[index]
+    //   let updated = `${d.year}-${d.month}-${d.day}`;
+    //   element.operationDate = updated
+    //   surgical.push(element)
+    // }
+    // console.log("value", values)
     // updateState(values)
     // handleNext()
 
@@ -101,9 +99,9 @@ const SurgicalHistory = ({ control, register, watch, errors , mode , data }) => 
         <div className='row p-11'>
 
 
-          <Surgical {...{ control, register, watch, errors, setDates , mode ,  }} />
+          <Surgical {...{ control, register, watch, errors, setDates , mode  , setSurDate,  }} />
 
-          <Medications {...{ control, register, watch, errors, setImageFile , mode , data   }} />
+          <Medications {...{ control, register, watch, errors, imagefile,  setImageFile , mode , data   }} />
 
 
          

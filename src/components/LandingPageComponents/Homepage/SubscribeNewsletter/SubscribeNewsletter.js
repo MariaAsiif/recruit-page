@@ -3,10 +3,10 @@ import { Col, Container, Row, Spinner } from "react-bootstrap";
 import {
   NewsLetterImg,
   NewsLetterMainContianer,
-  SubscribeButton,
-  SubscribeHeading,
+  // SubscribeButton,
+  // SubscribeHeading,
 } from "./StyledNewsLetter";
-import newletterImg from "../../../../assets/landingImages/subscribe2.jpg";
+import newletterImg from "../../../../assets/landingImages/subs.png";
 import Select from "../Select/Select";
 import InputField from "./InputField";
 import { Formik, Form } from "formik";
@@ -64,7 +64,7 @@ const SubscribeNewsletter = () => {
           </div>
           <div className="col-lg-6 mb-4" >
             <div className="flex justify-center">
-              {/* <NewsLetterImg src={newletterImg} alt={newletterImg} /> */}
+              <NewsLetterImg src={newletterImg} alt={newletterImg} />
 
             </div>
           </div>

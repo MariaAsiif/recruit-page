@@ -6,7 +6,7 @@ import { BsFillPlusCircleFill } from 'react-icons/bs';
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import { useEffect } from 'react';
-export default function Surgical({ control, register, watch, errors, setDates, mode }) {
+export default function Surgical({ control, register, watch, errors, setDates, mode , }) {
 
 
     var today = new Date();
