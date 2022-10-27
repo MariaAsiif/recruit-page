@@ -14,10 +14,10 @@ import { toast, ToastContainer } from 'react-toastify';
 import { callPublicApi } from '../utils/CallApi'
 
 const schema = yup.object({
-   
+
     email: yup.string().email("Invalid email format").required(),
     password: yup.string().required(),
-   
+
 });
 const Login = () => {
     const [login, setLogin] = useState({ email: '', password: '' })
@@ -40,7 +40,7 @@ const Login = () => {
     }
     return (
         <div className='container h-screen'>
-              <ToastContainer
+            <ToastContainer
                 position="top-right"
                 autoClose={5000}
                 hideProgressBar={false}
@@ -72,11 +72,11 @@ const Login = () => {
                                     }
                                 </div>
                                 {errors.email && (
-                                            <p className="text-red-500 text-sm -mt-3 ">{errors.email.message}</p>
-                                        )}
+                                    <p className="text-red-500 text-sm -mt-3 ">{errors.email.message}</p>
+                                )}
 
                                 <div className={` border-b mb-4  cursor-pointer  flex items-center'`}>
-                                    <FaLock className={`${ 'text-[18px] ml-2 mr-2 mt-3 text-[#4DA676]'}`} />
+                                    <FaLock className={`${'text-[18px] ml-2 mr-2 mt-3 text-[#4DA676]'}`} />
                                     <input type={showPass ? "text" : "password"} {...register('password')} name="password" placeholder='Password' className='focus:outline-none text-black w-full rounded-md  h-[45px] ' />
                                     {
                                         showPass ?
@@ -87,15 +87,16 @@ const Login = () => {
                                     }
                                 </div>
                                 {errors.password && (
-                                            <p className="text-red-500 text-sm -mt-3">{errors.password.message}</p>
-                                        )}
+                                    <p className="text-red-500 text-sm -mt-3">{errors.password.message}</p>
+                                )}
                             </div>
                             <div className='mt-6 flex items-center'>
                                 <input type="checkbox" className='text-gray-400 remminder' />
                                 <span className='text-[12px] ml-2 text-gray-400'>Keep me logged in</span>
                             </div>
                             <div className='text-center mt-6' >
-                                <button className='border border-[#42946C]  rounded-md text-black w-[50%] p-2 text-[18px] font-medium  '>Login</button>
+                                <Link to="/dashboard" className='border border-[#42946C]  rounded-md text-black w-[200px] p-2 text-[18px] font-medium  '>Login</Link>
+                                {/* <button className='border border-[#42946C]  rounded-md text-black w-[50%] p-2 text-[18px] font-medium  '>Login</button> */}
                             </div>
                             <div className='mt-6'>
                                 <span className='text-[12px] text-gray-400'>

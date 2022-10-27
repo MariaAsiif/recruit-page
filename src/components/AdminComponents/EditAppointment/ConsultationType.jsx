@@ -4,10 +4,10 @@ import { MdClose, MdDelete } from 'react-icons/md';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { callApi } from '../../../utils/CallApi';
+import { callApi, HOSTNAME } from '../../../utils/CallApi';
 import { toast, ToastContainer } from 'react-toastify';
 import { BsPlusCircle } from 'react-icons/bs';
-import Symptoms from '../AppoinmtentSubmodule/Symptoms';
+import Symptoms from '../EditAppointment/Symptoms';
 
 
 const schema = yup.object({
@@ -33,24 +33,25 @@ const schema = yup.object({
     // video: yup.mixed().test('required', 'file is Required', value => { return value && value.length }),
 });
 
-const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
+const ConsultationType = ({ control, register, watch, errors, mode, reset , data }) => {
 
     const [image, setImage] = useState('')
     const [video, setVideo] = useState('')
-    const {
-        register,
-        watch,
-        reset,
-        control,
-        handleSubmit,
-        formState: { errors },
-    } = useForm({ mode: 'onChange', resolver: yupResolver(schema), defaultValues: { allergies: [{ name: "" }], symptoms: [{ name: "" }] } });
+    // const {
+    //     register,
+    //     watch,
+    //     reset,
+    //     control,
+    //     handleSubmit,
+    //     formState: { errors },
+    // } = useForm({ mode: 'onChange', resolver: yupResolver(schema), defaultValues: { allergies: [{ name: "" }], symptoms: [{ name: "" }] } });
 
 
     const { fields, append, remove } = useFieldArray({
         control,
         name: "allergies",
     });
+
     const handleFile = async (e, type) => {
         try {
             if (type === "image") {
@@ -111,25 +112,24 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
 
         }
 
-    
 
-        let payload = {
-            allergies: al,
-            symptoms: sm,
-            consultationFee: values.consultationFee,
-            communication: values.communication,
-            pictures: image,
-            videos: video
-        }
-        updateState(payload)
-        handleNext()
+
+        // let payload = {
+        //     allergies: al,
+        //     symptoms: sm,
+        //     consultationFee: values.consultationFee,
+        //     communication: values.communication,
+        //     pictures: image,
+        //     videos: video
+        // }
+
     };
 
-    useEffect(() => {
-        if (data?.communication) {
-            reset(data)
-        }
-    }, [reset, data])
+    // useEffect(() => {
+    //     if (data?.communication) {
+    //         reset(data)
+    //     }
+    // }, [reset, data])
 
     return (
         <div className='bscontainer-fluid'>
@@ -146,7 +146,7 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
                 pauseOnHover
             />
 
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form >
                 <div className='row p-11'>
 
 
@@ -155,25 +155,33 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
                         <label className='block text-sm font-medium mb-1' htmlFor='name'>
                             Consultation Fee
                         </label>
-                        <div className='absolute right-5 top-10'>
-                            {!errors.consultationFee && watch('consultationFee') ? (
-                                <FcCheckmark />
-                            ) : errors.consultationFee ? (
-                                <div className=' text-red-500'>
-                                    <MdClose />
-                                </div>
-                            ) : null}
-                        </div>
-                        <input
-                            {...register('consultationFee')}
-                            autoComplete='off'
-                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.consultationFee && 'border-red-400'
-                                }`}
-                            name='consultationFee'
-                            id='name'
-                            type='text'
-                            placeholder='consultation Fee'
-                        />
+                        {
+                            mode !== "view" &&
+
+                            <div className='absolute right-5 top-10'>
+                                {!errors.consultationFee && watch('consultationFee') ? (
+                                    <FcCheckmark />
+                                ) : errors.consultationFee ? (
+                                    <div className=' text-red-500'>
+                                        <MdClose />
+                                    </div>
+                                ) : null}
+                            </div>
+                        }
+                        {mode === "view" ?
+                            (<p>{watch('consultationFee')}</p>)
+                            :
+                            <input
+                                {...register('consultationFee')}
+                                autoComplete='off'
+                                className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.consultationFee && 'border-red-400'
+                                    }`}
+                                name='consultationFee'
+                                id='name'
+                                type='text'
+                                placeholder='consultation Fee'
+                            />
+                        }
 
                         {errors.consultationFee && (
                             <p className='text-red-500 text-sm'>{errors.consultationFee.message}</p>
@@ -184,15 +192,18 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
                         <label className='block text-sm font-medium mb-1' htmlFor='name'>
                             Communication
                         </label>
+                        {mode === "view" ?
+                            (<p>{watch('communication')}</p>)
+                            :
+                            <select
+                                {...register('communication')}
+                                className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]   ${errors.communication && 'border-red-400'
+                                    }`}>
+                                <option value="">Select Communication</option>
+                                <option>chat</option>
 
-                        <select
-                            {...register('communication')}
-                            className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]   ${errors.communication && 'border-red-400'
-                                }`}>
-                            <option value="">Select Communication</option>
-                            <option>chat</option>
-
-                        </select>
+                            </select>
+                        }
                         {errors.communication && (
                             <p className='text-red-500 text-sm'>{errors.communication.message}</p>
                         )}
@@ -231,45 +242,59 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
                         <label className='block text-sm font-medium mb-1 '>
                             Pictures
                         </label>
-                        <div className='relative'>
-                            <input
-                                type="file"
-                                onChange={(e) => handleFile(e, 'image')}
-                                className={`border p-2 focus:outline-blue-500 rounded-sm w-full  `}
-                            />
+                        {mode === "view" ?
+                            (
+                                <img src={`${HOSTNAME}${data?.pictures}`} />
+                            )
+                            :
+                            <div className='relative'>
+                                <input
+                                    type="file"
+                                    onChange={(e) => handleFile(e, 'image')}
+                                    className={`border p-2 focus:outline-blue-500 rounded-sm w-full  `}
+                                />
 
-                            {/* {errors.image && (
+                                {/* {errors.image && (
                                 <p className='text-red-500 text-sm'>{errors.image.message}</p>
                             )} */}
 
-                        </div>
+                            </div>
+                        }
                     </div>
                     <div className='col-lg-6 mb-4 '>
                         <label className='block text-sm font-medium mb-1 '>
                             Videos
                         </label>
-                        <div className='relative'>
-                            <input
-                                // {...register('')}
-                                type="file"
-                                onChange={(e) => handleFile(e, "video")}
-                                className={`border p-2 focus:outline-blue-500 rounded-sm w-full  `}
-                            />
+                        {mode === "view" ?
+                            (
+                                <img src={`${HOSTNAME}${data?.videos}`} />
+                            )
+                            :
+                            <div className='relative'>
+                                <input
+                                    // {...register('')}
+                                    type="file"
+                                    onChange={(e) => handleFile(e, "video")}
+                                    className={`border p-2 focus:outline-blue-500 rounded-sm w-full  `}
+                                />
 
-                            {/* {errors.video && (
+                                {/* {errors.video && (
                                 <p className='text-red-500 text-sm'>{errors.video.message}</p>
                             )} */}
-                        </div>
+                            </div>
+                        }
                     </div>
 
                     <Symptoms {...{ register, watch, errors, control }} />
-
-                    <div className="flex justify-between">
-                        <h2 className='mb-3 font-medium'></h2>
-                        <button type="button" onClick={() => append({ name: "" })} className='p-2 mb-3 flex items-center bg-red-500 hover:bg-green-600 text-white'>
-                            Add <BsPlusCircle className='ml-2' />
-                        </button>
-                    </div>
+                    {
+                        mode !== "view" &&
+                        <div className="flex justify-between">
+                            <h2 className='mb-3 font-medium'></h2>
+                            <button type="button" onClick={() => append({ name: "" })} className='p-2 mb-3 flex items-center bg-red-500 hover:bg-green-600 text-white'>
+                                Add <BsPlusCircle className='ml-2' />
+                            </button>
+                        </div>
+                    }
                     <div className='col-lg-12 mb-4 border '>
                         <div className='row p-2 '>
                             {
@@ -279,24 +304,34 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
                                         <div className='col-lg-4 relative'>
                                             <div className=' mt-2 mb-2'>
                                                 <div className="flex items-center">
-                                                    <input
-                                                        name={`allergies[${index}].name`}
-                                                        {...register(`allergies[${index}].name`)}
-                                                        autoComplete='off'
-                                                        className={`border p-2  focus:outline-blue-500 rounded-sm  ${errors.allergies?.[index]?.name && 'border-red-400'
-                                                            }`}
-                                                        id='name'
-                                                        placeholder='Allergies'
-                                                    />
-                                                    <div>
-                                                        {index > 0 &&
-                                                            <button onClick={() => remove(index)} className='p-2 ml-2  h-[10] bg-red-500 hover:bg-green-600 text-white'>
-                                                                <MdDelete />
-                                                            </button>
-                                                        }
+                                                    {
+                                                        mode === "view" ?
+                                                            (
+                                                                <p>{watch(`allergies[${index}].name`)}</p>
+                                                            )
+                                                            :
+                                                            <>
+                                                                <input
+                                                                    name={`allergies[${index}].name`}
+                                                                    {...register(`allergies[${index}].name`)}
+                                                                    autoComplete='off'
+                                                                    className={`border p-2  focus:outline-blue-500 rounded-sm  ${errors.allergies?.[index]?.name && 'border-red-400'
+                                                                        }`}
+                                                                    id='name'
+                                                                    placeholder='Allergies'
+                                                                />
+
+                                                                <div>
+                                                                    {index > 0 &&
+                                                                        <button onClick={() => remove(index)} className='p-2 ml-2  h-[10] bg-red-500 hover:bg-green-600 text-white'>
+                                                                            <MdDelete />
+                                                                        </button>
+                                                                    }
 
 
-                                                    </div>
+                                                                </div>
+                                                            </>
+                                                    }
                                                 </div>
                                                 <span
                                                     hidden={watch(`allergies[${index}].name`)}
@@ -321,12 +356,7 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
                     </div>
 
 
-                    <div className='col-lg-12 flex justify-between'>
-                        <button onClick={(e) => handleBack(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
-                            Back
-                        </button>
-                        <button type='submit' className='p-2 bg-red-500 hover:bg-green-600 text-white'>Finish</button>
-                    </div>
+
                 </div>
             </form>
         </div>

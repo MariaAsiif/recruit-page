@@ -49,7 +49,7 @@ const Quote = ({ value }) => {
     <Container>
 
       <QuoteContainer>
-        <img src={beta} style={{ width: '50px' , marginLeft:'20px'}} alt="beta" />
+        {/* <img src={beta} style={{ width: '50px' , marginLeft:'20px'}} alt="beta" /> */}
 
         <div className="controles-button">
 

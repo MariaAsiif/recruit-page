@@ -44,7 +44,7 @@ export const SubscribeHeading = styled(PrimaryHeading)`
   }
 `;
 export const NewsLetterImg = styled.img`
-  margin-top: 3rem;
+  margin-top: 1rem;
   height: 70%;
   width: 50%;
   object-fit:cover;

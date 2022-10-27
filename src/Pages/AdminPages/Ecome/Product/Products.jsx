@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { callApi } from '../../../../utils/CallApi';
+import { callApi, HOSTNAME } from '../../../../utils/CallApi';
 import { IoEyeOutline } from "react-icons/io5";
 // import ViewEditInspire from "../../components/Popups/ViewEditInspire"
 import { toast, ToastContainer } from 'react-toastify';
@@ -20,7 +20,7 @@ const Products = () => {
     e.stopPropagation()
     setinspirePopup(true)
     setinspireMode(mode)
-    // setinspireRow(data)
+    setinspireRow(data)
   }
 
   const deletePopToggle = (id) => {
@@ -60,14 +60,14 @@ const Products = () => {
             offset: 0,
             limit: 50,
             query: {
-              critarion: { active: true, "quoteColor": "Red" },
+              critarion: { active: true, },
               addedby: "_id email first_name",
               lastModifiedBy: "_id email first_name"
             }
           }
-          const response = await callApi("/quotes/getQuotesWithFullDetails", "post", payload)
+          const response = await callApi("/products/getProductsWithFullDetails", "post", payload)
 
-          setallInspires(response.data.quotes)
+          setallInspires(response.data.products)
         } catch (error) {
           console.log(error);
         }
@@ -80,12 +80,12 @@ const Products = () => {
 
   return (
     <div className='bscontainer-fluid'>
-      <ViewEditProduct
+      {/* <ViewEditProduct
         id="user-modal"
         data={inspireRow}
         mode={inspireMode}
         modalOpen={inspirePopup}
-        onClose={() => setinspirePopup(false)} />
+        onClose={() => setinspirePopup(false)} /> */}
       {delPopup && <DeletePopup permition={delPopup} callback={deleteInspire} Toggle={() => setDelPopup(false)} />}
 
       <ToastContainer
@@ -134,22 +134,25 @@ const Products = () => {
                 <thead className="text-xs font-semibold uppercase text-slate-500 bg-slate-50 border-t border-b border-slate-200">
                   <tr>
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                      <div className="font-semibold text-left">P_ID</div>
+                      <div className="font-semibold text-left">P_IMAGE</div>
                     </th>
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                       <div className="font-semibold text-left">P_NAME</div>
                     </th>
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                      <div className="font-semibold text-left">P_SSN</div>
+                      <div className="font-semibold text-left">P_BRAND</div>
                     </th>
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                      <div className="font-semibold text-left">P_CATEGORY</div>
+                      <div className="font-semibold text-left">INITAIL_STOCK</div>
                     </th>
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                      <div className="font-semibold text-left">ADDED BY</div>
+                      <div className="font-semibold text-left">LOW_STOCK</div>
                     </th>
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                      <div className="font-semibold text-left">P_IMAGE</div>
+                      <div className="font-semibold text-left">SALE_PRICE</div>
+                    </th>
+                    <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                      <div className="font-semibold text-left">Active</div>
                     </th>
                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                       <div className="font-semibold text-left">Actions</div>
@@ -162,19 +165,24 @@ const Products = () => {
                     return (
                       <tr key={inspire._id}>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire._id}</div>
+                          <div >
+                            <img src={`${HOSTNAME}${inspire.productImagesURLs}`} className="w-9" />
+                          </div>
                         </td>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.authorName}</div>
+                          <div className="text-left">{inspire.productTitle}</div>
                         </td>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.quoteColor}</div>
+                          <div className="text-left">{inspire.brand}</div>
                         </td>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.quoteDate}</div>
+                          <div className="text-left">{inspire.initialStock}</div>
                         </td>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire.quoteText}</div>
+                          <div className="text-left">{inspire.lowStockLimit}</div>
+                        </td>
+                        <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                          <div className="text-left">{inspire.salePrice}</div>
                         </td>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                           <div className="text-left">{inspire.active ? "Active" : "Deactive"}</div>

@@ -1,5 +1,10 @@
 import React, { useRef } from 'react'
-import { BiSearch } from 'react-icons/bi';
+import { BiSupport } from 'react-icons/bi';
+import { FaQuestion } from 'react-icons/fa';
+import { FiBell } from 'react-icons/fi';
+import { HiOutlineMail } from 'react-icons/hi';
+import { MdMiscellaneousServices } from 'react-icons/md';
+import { TbBorderAll, TbFileInvoice, TbLayoutDashboard } from 'react-icons/tb';
 import { NavLink, useLocation } from 'react-router-dom';
 import logo from '../../../images/logo.png'
 const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
@@ -41,7 +46,7 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     <NavLink end to="/newdashboard" className={`block w-full px-3 py-2  ${pathname === "/newdashboard" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
-                                                <BiSearch size={18} />
+                                                <TbLayoutDashboard size={18} />
                                                 <span className={`font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Dashboard</span>
                                             </div>
                                         </div>
@@ -53,7 +58,7 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     <NavLink end to="/newdashboard/services" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/services" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
-                                                <BiSearch size={18} />
+                                                <MdMiscellaneousServices size={18} />
                                                 <span className={`font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Services</span>
                                             </div>
                                         </div>
@@ -65,7 +70,7 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     <NavLink end to="/newdashboard/inbox" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/inbox" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
-                                                <BiSearch size={18} />
+                                                <HiOutlineMail size={18} />
                                                 <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Inbox</span>
                                             </div>
                                         </div>
@@ -78,7 +83,7 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     <NavLink end to="/newdashboard/orders" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/orders" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
-                                                <BiSearch size={18} />
+                                                <TbBorderAll size={18} />
                                                 <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Orders</span>
                                             </div>
                                         </div>
@@ -90,7 +95,7 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     <NavLink end to="/newdashboard/notifications" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/notifications" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
-                                                <BiSearch size={18} />
+                                                <FiBell size={18} />
                                                 <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Notifications</span>
                                             </div>
                                         </div>
@@ -102,7 +107,7 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     <NavLink end to="/newdashboard/support" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/support" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
-                                                <BiSearch size={18} />
+                                                <BiSupport size={18} />
                                                 <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Support</span>
                                             </div>
                                         </div>
@@ -114,8 +119,32 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     <NavLink end to="/newdashboard/invoice" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/invoice" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
-                                                <BiSearch size={18} />
+                                                <TbFileInvoice size={18} />
                                                 <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Invoice</span>
+                                            </div>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                            </li>
+                            <li className={`mb-3 last:mb-0  ${pathname === "/newdashboard/faqs" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                                <div className='flex '>
+                                    <NavLink end to="/newdashboard/faqs" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/faqs" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                        <div className="flex items-center justify-between ">
+                                            <div className="flex items-center grow">
+                                                <FaQuestion size={18} />
+                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>FAQ's</span>
+                                            </div>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                            </li>
+                            <li className={`mb-3 last:mb-0  ${pathname === "/newdashboard/gig" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                                <div className='flex '>
+                                    <NavLink end to="/newdashboard/gig" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/gig" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                        <div className="flex items-center justify-between ">
+                                            <div className="flex items-center grow">
+                                                <FaQuestion size={18} />
+                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Gig</span>
                                             </div>
                                         </div>
                                     </NavLink>

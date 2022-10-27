@@ -1,110 +1,134 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { ImFileText2 } from 'react-icons/im'
+import gig_dashboard from "../../images/gig_dashboard.png"
+import forward from "../../forward.json"
+import Lottie from "lottie-react"
+import { AiOutlineCaretDown } from 'react-icons/ai'
 
 const NewDashboard = () => {
 
-    const [show, setshow] = useState(false)
     return (
         <>
-            <div style={{ boxShadow: "0px 3px 6px #0000000D" }} className='h-[84vh] overflow-y-auto p-5 bg-white rounded-2xl'>
-                <button onClick={() => setshow(!show)}>Show</button>
-                <div>
-                    {show && <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum, tellus eget sagittis congue, orci nisl hendrerit ante, et bibendum velit massa a arcu. Curabitur scelerisque turpis a dui ultrices, eu rutrum leo pellentesque. Cras consequat non metus ut porttitor. Proin venenatis lobortis molestie. Aenean massa ligula, vehicula ut odio ut, consequat dapibus justo. Nullam commodo leo eros, sed lacinia mauris porta ac. Donec et tristique mauris. Quisque vel porttitor arcu. Donec feugiat tellus at erat cursus, eget convallis quam pellentesque. Nulla iaculis feugiat accumsan. Quisque tempus elementum lacus at pellentesque. Proin ultricies, magna vitae efficitur malesuada, est mauris efficitur est, ac dignissim lorem lacus vel nunc. Proin lobortis ultrices tellus vel consequat. Pellentesque a placerat diam. Aliquam congue magna non ipsum sodales aliquam.
-
-                        Sed eu elit orci. Nulla ornare lacus feugiat, elementum mauris ut, commodo quam. Quisque vel ornare justo, nec lacinia magna. Curabitur varius pulvinar lorem sagittis eleifend. Morbi vulputate fringilla enim ut suscipit. Vestibulum eu elit tellus. Etiam eget nisl ac felis aliquet feugiat. In pharetra mollis nulla. Nunc aliquet a ex sed vehicula. Mauris tempor gravida tempor.
-
-                        Vestibulum consectetur libero id diam euismod dapibus. Ut convallis aliquam dolor nec pretium. Fusce eleifend vel eros vel ullamcorper. Donec nec sagittis sapien, eget pulvinar dui. Suspendisse non nunc vitae purus volutpat sagittis ut at ante. Maecenas tincidunt tempus commodo. Aliquam varius purus eget lectus ultrices, convallis lacinia purus ultricies. Duis quis felis auctor, pulvinar augue eget, consequat enim. Fusce pretium consequat justo nec hendrerit. Phasellus interdum commodo cursus. Suspendisse potenti. Sed nec interdum diam. Ut id augue augue.
-
-                        Curabitur porttitor elit eleifend aliquet ultrices. Proin nulla velit, mattis nec maximus ac, eleifend eu arcu. Vestibulum placerat varius ex quis viverra. Etiam scelerisque nunc eu dolor dictum, ac consectetur turpis tempus. Nam suscipit ligula sit amet bibendum aliquam. In vel ipsum a lacus laoreet elementum. Integer a dui at ipsum tempor ornare fermentum cursus ante. Nullam porta sapien feugiat nisl congue, a pellentesque orci dapibus. Nam bibendum lectus leo, eu dapibus risus scelerisque quis. Mauris et pellentesque neque, et laoreet orci. Duis bibendum luctus gravida. Ut non porta quam. Proin quis nisi in elit elementum vestibulum. Cras et magna sed mauris blandit convallis. Praesent condimentum ligula et sem sodales posuere. Fusce cursus nunc eu erat facilisis tristique.
-
-                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc at vestibulum elit, eget congue risus. Proin dignissim eu mi ac auctor. Vivamus consequat iaculis nisl, in sagittis quam commodo sit amet. Fusce posuere lacus elit, in efficitur orci rutrum in. Pellentesque euismod enim ut mi pharetra, sed facilisis tortor elementum. Pellentesque blandit velit non justo tempus bibendum. Nam semper, eros eu tincidunt sagittis, est magna luctus eros, ac condimentum ipsum lacus a nisi. Vestibulum at maximus leo, a tincidunt elit. Curabitur gravida suscipit risus. Integer tempor purus vitae vulputate pretium. Vestibulum sapien nisl, tincidunt nec viverra varius, imperdiet sit amet urna.
-
-                        Vestibulum aliquet non nibh egestas lacinia. Donec sed orci purus. In hac habitasse platea dictumst. Quisque imperdiet nunc sit amet laoreet hendrerit. Phasellus hendrerit turpis vel orci vestibulum, quis interdum nulla malesuada. Suspendisse ornare, tortor eu eleifend bibendum, dolor nisl maximus diam, at tempus ex neque non nibh. Cras tristique massa lacus, a maximus enim sodales in. Praesent elit nisl, scelerisque feugiat neque id, molestie rhoncus justo. Aliquam at tempor mi. In non dui quam. Donec aliquam consectetur tellus, vel fermentum ex venenatis id. Nulla bibendum erat quam, eu faucibus lorem ultrices non. In ullamcorper metus nisl, id rhoncus sapien aliquam et. Aliquam et nisi vitae ante venenatis suscipit. Aliquam consequat sapien et arcu porttitor accumsan. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-
-                        Donec justo mi, malesuada vel posuere id, tempus eget sapien. Suspendisse facilisis fringilla dignissim. Aliquam id nisi id odio luctus sagittis id at enim. Fusce non justo velit. Nullam tempus velit laoreet eros aliquet malesuada. Ut a lorem ultricies, suscipit lectus in, pellentesque eros. Integer dictum, tortor eget lobortis iaculis, augue enim dictum ipsum, ut laoreet nunc eros quis mi. Pellentesque placerat eu arcu quis sollicitudin.
-
-                        Aenean consectetur elit sed molestie luctus. Suspendisse potenti. Fusce maximus risus et nulla egestas, condimentum laoreet arcu convallis. Vestibulum nisi velit, fermentum sed condimentum vitae, dapibus ut lacus. Integer aliquet lectus in augue posuere, at egestas leo feugiat. Ut suscipit accumsan metus at auctor. Curabitur ultrices, lacus sit amet vestibulum consectetur, lorem turpis tincidunt orci, vitae commodo felis nisi at mauris. Nam fermentum ex id sem hendrerit, nec volutpat risus venenatis. Aenean at laoreet ante. Curabitur nec tellus eu sapien vehicula ullamcorper. Sed lobortis id diam ac consequat. Phasellus hendrerit leo vel sapien porta finibus. Ut in neque nisi. Aliquam tempor feugiat diam ac commodo. Phasellus sagittis, odio sit amet dapibus posuere, lectus libero fringilla enim, id porta massa velit nec felis.
-
-                        Aliquam tincidunt semper erat. Ut nec porttitor leo. Nulla et lacinia diam. Aliquam et ante vestibulum, vulputate sem sit amet, aliquam massa. Integer vitae hendrerit purus, nec tempor metus. Donec lectus tortor, efficitur ut posuere dignissim, iaculis ut dui. Aliquam erat volutpat. Cras eget pulvinar arcu.
-
-                        Sed sagittis elit id orci posuere, a aliquam enim posuere. Cras placerat convallis nisi ut dapibus. Nam blandit, diam sit amet semper mattis, orci elit efficitur est, vel lobortis leo leo nec massa. Maecenas porta ultricies mauris. Proin hendrerit nibh non velit gravida suscipit. Sed ex nunc, auctor vitae mattis in, pharetra at odio. Fusce sagittis interdum ligula non pharetra. Aenean eros lacus, tincidunt ac est ut, elementum aliquet magna. Aliquam pellentesque lobortis interdum. Nullam luctus suscipit nisi sed rutrum. Nunc tempor dictum velit nec luctus. Ut vitae massa laoreet, convallis lacus et, bibendum ligula. Donec placerat nec turpis nec imperdiet.
-
-                        Sed tincidunt mauris ac erat bibendum, eu pharetra velit tincidunt. Vestibulum tincidunt accumsan purus, at dignissim lorem condimentum sit amet. Donec finibus in neque vitae varius. Aenean ornare arcu nec imperdiet vulputate. Morbi eu molestie lorem. Morbi tristique ligula in augue dictum, in elementum felis hendrerit. Proin non leo et dui efficitur luctus. Fusce sed orci neque. Proin tempor condimentum hendrerit. Pellentesque vel malesuada dolor.
-
-                        Etiam porttitor pretium est quis vestibulum. Nullam vitae scelerisque lectus, in pretium purus. Nullam vestibulum nunc in purus imperdiet elementum. Vivamus mollis a urna sed pulvinar. In enim nisl, accumsan ut urna nec, molestie pretium ante. Maecenas commodo metus quis tortor tincidunt pretium. Aliquam erat volutpat. Suspendisse ut sapien pharetra, eleifend metus sit amet, pulvinar metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi consectetur nunc vitae vehicula tincidunt. Proin in congue ipsum, vitae finibus ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent dictum eu risus in ultricies. Morbi consectetur ultricies porttitor. Mauris id neque leo.
-
-                        Nullam id semper metus. Nulla luctus facilisis enim vitae viverra. Aenean non ex velit. Suspendisse pretium dictum lacus, eget vulputate ipsum ultricies nec. Duis ipsum dolor, eleifend vel iaculis euismod, malesuada vitae sapien. Aenean cursus nibh vel consectetur volutpat. Morbi molestie enim enim, sit amet tincidunt purus efficitur nec. Morbi ac ipsum ac sem ornare accumsan. Suspendisse porttitor ante et justo ullamcorper, quis varius dolor faucibus. Sed vitae justo nec neque venenatis feugiat. Etiam efficitur efficitur quam sit amet lacinia. Integer semper neque ligula, eget cursus erat consequat id. Donec feugiat neque rhoncus risus lobortis congue. Mauris commodo viverra ligula, nec tempus leo condimentum sit amet. Nullam dictum sodales semper. Vivamus ac nibh feugiat, dictum risus nec, venenatis risus.
-
-                        Ut nec elit pretium, dapibus enim sit amet, ultricies dui. Sed vestibulum nisi ut tempus lobortis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus non libero molestie, venenatis metus tristique, elementum nisi. Aenean hendrerit, velit eget commodo placerat, lacus arcu varius ipsum, eu dignissim nisl leo vitae lorem. Pellentesque viverra quis dui et gravida. Nunc sodales tempus enim, id euismod lorem consectetur id. Suspendisse hendrerit interdum pellentesque.
-
-                        Ut nec venenatis lectus, vitae commodo orci. Praesent scelerisque odio vel purus scelerisque, eu maximus ex aliquet. Suspendisse potenti. Nullam dignissim eget sem nec commodo. Duis eu velit leo. Aliquam nec magna vulputate, ultrices diam in, semper sapien. Fusce eget urna at nisl volutpat imperdiet vitae quis magna. Quisque dignissim ultrices imperdiet. Proin dictum velit non scelerisque vestibulum. Sed maximus iaculis dui ac dapibus. Ut elementum semper diam, a facilisis purus blandit ac. Ut volutpat aliquet commodo. Suspendisse luctus, dolor nec sagittis porta, nibh risus laoreet turpis, non lobortis nulla velit in neque. Proin nec nibh eget lacus tristique tempor.
-
-                        Vestibulum blandit lectus quis ornare convallis. Quisque vel consectetur nulla. Curabitur at justo leo. Donec enim sapien, pretium ac eros nec, lacinia sodales neque. Pellentesque tempor tincidunt consectetur. Fusce id urna id orci vehicula mattis. Aliquam sed auctor lorem.
-
-                        Duis cursus risus lectus, non tristique erat fringilla a. Vestibulum fringilla neque in diam egestas tincidunt. Aenean ultrices facilisis neque, sit amet porta velit dignissim sit amet. Fusce sit amet maximus enim. Donec gravida lectus massa, et consequat lorem ultricies sit amet. Vivamus ac tincidunt sapien. Ut est erat, eleifend non massa sed, venenatis auctor lectus. Nam ultricies, risus quis aliquet efficitur, risus ligula ultricies leo, vel tincidunt ante diam nec ante.
-
-                        Etiam ullamcorper urna ut consequat vulputate. Nullam ullamcorper eget purus mollis elementum. Mauris efficitur leo in ex consectetur scelerisque. Donec fringilla accumsan lectus non sagittis. In hac habitasse platea dictumst. Sed accumsan sollicitudin iaculis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas a libero ultricies, tempor risus a, rutrum mi. Ut vitae tellus neque. Phasellus rutrum lacinia eros, sit amet vestibulum metus rutrum nec. Duis ullamcorper, felis ac venenatis porttitor, ex purus maximus arcu, sed semper justo dolor sit amet dui. Phasellus tristique feugiat quam ullamcorper tincidunt. Phasellus ultricies ipsum nec molestie feugiat. Phasellus consequat urna eu nibh tempor, nec bibendum est pulvinar. Pellentesque fermentum consequat dolor a lacinia.
-
-                        Pellentesque rhoncus, sem eu imperdiet iaculis, mi metus tincidunt lacus, tincidunt dictum ex enim nec est. Maecenas ullamcorper justo nisl, iaculis tincidunt elit iaculis id. Morbi augue ante, tristique viverra luctus nec, vehicula id nisl. Duis varius nunc nibh, eget pharetra velit ultrices in. Donec in enim ante. Nulla cursus purus non sapien faucibus, tincidunt gravida lacus cursus. Curabitur id magna quam. Quisque varius est ut fermentum posuere. Fusce imperdiet quam a odio luctus, vel viverra quam semper. Suspendisse sed mi quis massa interdum tristique. Nunc ultrices vehicula aliquam. Donec at tempus erat, ac pulvinar velit. Nullam non erat nec purus facilisis sodales non sollicitudin elit. Morbi condimentum elementum justo, vulputate condimentum nisi varius at. Nulla eget urna convallis, efficitur erat nec, pretium tortor.
-
-                        In dignissim dictum sem, in mattis erat. Etiam ex elit, facilisis viverra egestas commodo, rutrum ut magna. Nunc rutrum nisi ipsum, eget mollis nisi eleifend vel. Vestibulum nunc mauris, fringilla ac eros quis, consequat volutpat dui. Fusce dui augue, bibendum sit amet felis nec, molestie luctus quam. Suspendisse mattis fringilla tellus vitae pellentesque. Sed sit amet consectetur diam.
-
-                        Nullam in consequat quam. Integer in sodales sem. Aenean porta sodales neque, at bibendum tortor feugiat id. Cras pellentesque lectus eu urna placerat viverra. Proin blandit quis justo sit amet ullamcorper. Suspendisse ut justo eu mauris maximus elementum in quis arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec dignissim massa mi, eget luctus sapien faucibus vel. Aenean viverra vel sem ac dictum. Nam facilisis condimentum enim at efficitur. Nulla eu dignissim magna.
-
-                        In vehicula eleifend libero, sit amet faucibus diam. Suspendisse semper purus quis orci rutrum imperdiet. Integer at efficitur felis. Pellentesque at risus vestibulum, cursus ipsum sit amet, rhoncus diam. Proin sagittis interdum ipsum sit amet hendrerit. Pellentesque ut est lobortis dui aliquam iaculis at nec risus. Aliquam mattis, libero eget finibus varius, nunc metus congue ipsum, eget auctor ex eros a eros. Pellentesque vestibulum auctor magna. Nulla facilisi. Nulla lobortis, elit eget sagittis pharetra, velit nibh tincidunt leo, ac porttitor urna mi sed lorem. Aenean dolor eros, maximus vel varius ut, molestie porttitor nunc. Nam turpis eros, tempus nec lorem at, faucibus hendrerit mauris. Donec vitae viverra nunc. Ut sem leo, rutrum quis sem quis, tempor vestibulum metus.
-
-                        Nulla sem diam, imperdiet sed sagittis vel, bibendum sed nulla. Maecenas sagittis tempus pharetra. Quisque sit amet orci sagittis, ultricies diam ac, ultrices est. Nam mi ante, faucibus sed dignissim tincidunt, condimentum ut odio. Vivamus sit amet velit libero. In sit amet leo quis nulla iaculis pulvinar. Ut vulputate gravida ex, fringilla aliquet neque consequat quis. Nam ac sollicitudin metus. Phasellus gravida elit ante, et dignissim metus tempus in. Aliquam vitae lorem et metus fermentum iaculis. Mauris in porta diam. Suspendisse consectetur sollicitudin ex, vel ullamcorper ipsum pretium et. Vestibulum turpis nulla, commodo sit amet ex sed, interdum sagittis odio. Sed sapien nulla, laoreet eget maximus eget, vulputate ac dolor. Donec venenatis congue elit et porttitor.
-
-                        Nam sed orci ultricies, egestas odio nec, lacinia odio. Mauris a augue maximus, dictum purus vitae, congue ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean gravida arcu ante, vitae malesuada lacus tempor et. Etiam auctor ligula enim, ut laoreet neque hendrerit et. Aliquam vitae vulputate ante. Integer sed purus lorem. Duis eget vulputate erat. Integer lobortis metus at nunc egestas euismod. Quisque aliquam justo lacus, nec accumsan elit mattis nec. Sed vitae quam iaculis, finibus dolor at, commodo sem. Nam ornare neque nec tincidunt congue. Mauris ullamcorper ullamcorper pulvinar.
-
-                        Fusce ligula sapien, maximus ac purus nec, eleifend pharetra magna. Nunc ac tellus vitae ligula imperdiet vehicula. Nam porta est erat, condimentum iaculis libero tempus et. Ut sed ligula venenatis, molestie ex vel, lobortis tellus. Maecenas non lorem at risus iaculis pellentesque. Nullam iaculis suscipit varius. Nunc et condimentum sapien. Morbi a dictum tortor. Praesent vestibulum nisl sem, in imperdiet libero semper et. Vivamus a nibh ut elit mattis tincidunt. Aliquam sed magna vitae ligula luctus ornare. Nunc mattis tellus et hendrerit ultrices.
-
-                        Nunc dapibus pharetra elit a egestas. Sed facilisis tellus at purus congue, sit amet placerat nibh rutrum. Etiam sit amet scelerisque enim. Nam scelerisque tortor aliquet, pharetra ligula non, tristique sem. Quisque leo odio, tincidunt ac metus at, rutrum luctus ante. Aenean ultrices, tortor quis sagittis ultrices, urna elit dictum tellus, vitae accumsan velit sapien ut purus. Ut interdum est eget commodo fringilla. Cras id justo pretium massa interdum congue. Vestibulum tempor ipsum ut ex pharetra, vel dignissim tortor aliquet. Maecenas cursus luctus sem lacinia consectetur. Quisque dapibus convallis nisl et rhoncus. Ut non nisi mollis, luctus urna sed, rhoncus eros. Sed et dolor lectus. Donec ultricies eleifend nulla, vitae consectetur ligula scelerisque non. In ex tortor, varius sit amet molestie ut, blandit nec diam. Nulla nec libero maximus, malesuada ante consectetur, placerat nulla.
-
-                        Donec sed odio at risus malesuada rhoncus pharetra sit amet ipsum. Cras eget velit enim. Maecenas sit amet tellus vel elit egestas lobortis ac ut ante. Phasellus faucibus porta justo vitae laoreet. Vestibulum et mi id orci fringilla vehicula. Maecenas sollicitudin molestie velit, in ornare lacus semper nec. Nam iaculis ullamcorper risus eu bibendum. Integer mattis facilisis sapien. Duis imperdiet in neque quis aliquam.
-
-                        Proin lacinia in eros eget ullamcorper. Aenean viverra magna sed tortor pellentesque commodo. Fusce ac diam sit amet est porta convallis in at lectus. Duis a posuere ex, eu cursus risus. Curabitur euismod imperdiet pellentesque. Cras sodales condimentum sagittis. Vivamus ac magna magna. Integer eget mauris sed mauris malesuada accumsan at sit amet tortor. Etiam tempus sagittis hendrerit. Etiam ut sollicitudin tortor. Sed ut varius ligula, nec hendrerit justo.
-
-                        In rutrum sollicitudin consequat. In a nunc ut nisl ultricies dictum. Sed iaculis gravida eros, in rutrum tortor mattis vitae. Mauris egestas, nibh nec pretium feugiat, urna urna tempus ex, nec finibus neque sapien at neque. Duis placerat eleifend tellus, ut suscipit tortor varius ut. Mauris nec odio consectetur, efficitur justo luctus, egestas dolor. Fusce fringilla lectus nec neque auctor accumsan. Nunc mollis maximus pellentesque. Aliquam mattis risus pulvinar nisl tincidunt, vitae mattis libero finibus. Pellentesque rutrum ultricies libero vitae dictum. Suspendisse ac commodo mauris, quis facilisis arcu. Curabitur fermentum hendrerit nunc, at finibus risus.
-
-                        Etiam feugiat, tellus ac congue efficitur, lorem massa commodo risus, vitae facilisis urna elit et ante. Donec aliquam ligula ut sapien pellentesque aliquet. Vestibulum eleifend orci libero, eu tempor dui sagittis at. Vestibulum fermentum ligula at nunc tristique, eu bibendum nibh volutpat. Donec nec aliquet ex, in pretium orci. Sed auctor suscipit nunc, non lobortis odio. Sed ante metus, tincidunt in sem eu, consectetur finibus sem. Vestibulum sit amet finibus metus. Aenean ultrices lectus nec lectus congue, luctus dictum nunc rutrum.
-
-                        Ut sed volutpat libero. Duis vehicula mi at semper volutpat. Ut sed fermentum nisi, vel laoreet felis. Etiam ultricies, lectus in pellentesque faucibus, leo lectus fermentum massa, sit amet pellentesque risus enim ac sem. Cras pulvinar orci sit amet sem facilisis pretium. Sed urna est, pretium nec imperdiet eget, elementum aliquet velit. Praesent sed vehicula ex. Quisque et sem id elit blandit condimentum eu at orci. Cras at ante eget arcu faucibus finibus id non ipsum. Fusce faucibus rutrum felis sed vulputate.
-
-                        Sed dapibus ac felis eu consequat. Praesent elementum vehicula viverra. Aliquam hendrerit malesuada augue, quis auctor sapien suscipit nec. Sed non eros sed turpis ultrices fringilla. Cras vehicula nunc et ante mattis fringilla ut non diam. Aenean varius, metus at maximus dapibus, lectus lectus vestibulum sapien, a auctor turpis nisi vitae risus. In augue orci, tristique non nisi id, tincidunt vulputate felis. Vivamus non est orci. Praesent fringilla sed nulla a accumsan. Nulla neque sem, pulvinar a vehicula eget, sollicitudin ac ante.
-
-                        Phasellus hendrerit quis urna at varius. Integer libero lorem, tempor at justo non, dapibus pharetra ligula. Sed non faucibus eros. Integer mollis justo a diam fringilla luctus. Donec quis vehicula purus. Morbi dapibus, purus non sagittis iaculis, magna orci malesuada elit, sed condimentum leo nibh a massa. Donec purus lorem, finibus consectetur lacus id, dignissim lobortis augue. Suspendisse id dolor aliquet, scelerisque dolor nec, porttitor massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hac habitasse platea dictumst. In dictum nisi id fermentum aliquet.
-
-                        Integer nec arcu placerat, elementum turpis ac, malesuada dui. Nam vitae augue semper, viverra eros vel, ullamcorper arcu. Nam sollicitudin risus quis tristique luctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur dignissim non ipsum nec fermentum. Cras eros arcu, varius ut dignissim in, mattis in mauris. Mauris accumsan feugiat ipsum eget efficitur. Nulla purus libero, mattis vitae gravida eu, rhoncus nec odio. In ornare nisl pulvinar enim facilisis, pellentesque laoreet justo pulvinar. Nullam ac metus mattis, vestibulum odio vitae, venenatis urna. Phasellus interdum ultricies metus, varius convallis mi auctor at. Vestibulum sem nulla, laoreet id pellentesque ut, cursus sagittis lectus. Donec bibendum nisi nisi, quis tempor sapien pretium accumsan. Etiam cursus euismod lacus eleifend ultrices.
-
-                        Nullam id euismod tortor. Vivamus finibus nisi eu sollicitudin bibendum. Etiam at velit faucibus, egestas justo at, pulvinar diam. Cras feugiat est lobortis tellus dictum, pharetra tristique purus consectetur. Duis ante dolor, varius a porta vel, suscipit id purus. Vivamus in sapien rhoncus lacus tristique imperdiet. Nunc arcu turpis, rutrum nec tellus eget, consequat efficitur arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam ac sapien in lorem aliquet pharetra. Sed tempor dolor eget ligula fringilla aliquet. Morbi risus nulla, lacinia quis luctus eget, interdum id leo. Aenean pulvinar lectus in hendrerit ornare. Quisque rutrum, mauris non tempor blandit, nisi justo egestas nisi, eu ultrices diam ante ac ex. Nullam suscipit magna lacus, vel ultricies metus vehicula quis. Donec tellus nisi, venenatis eu mauris vel, dapibus ultricies est.
-
-                        Donec vestibulum elementum lacus sed interdum. Integer id varius orci. Mauris tincidunt pharetra ipsum, vitae hendrerit ex pharetra finibus. Mauris massa ex, vulputate non imperdiet vitae, auctor quis tortor. Nunc blandit faucibus nibh, et finibus leo imperdiet quis. Vivamus pulvinar pellentesque enim, ut suscipit augue venenatis a. Curabitur sed ex vel lacus pretium eleifend sit amet ac purus. Etiam ligula quam, imperdiet nec suscipit commodo, varius sed nibh. Suspendisse non est sed turpis vehicula auctor in nec elit. Vestibulum ut sapien molestie, sollicitudin justo non, consectetur ante. Duis dapibus vitae sapien sit amet fringilla. Nullam sit amet iaculis metus.
-
-                        Integer sed accumsan diam. Donec non ligula eget nibh iaculis condimentum ac quis lectus. Quisque tempus nisl est, pharetra feugiat ex rhoncus quis. Integer dapibus metus vitae nunc consectetur pellentesque. Vivamus tincidunt felis vitae felis tempor, id pellentesque nisi molestie. Etiam auctor enim in neque porta tristique. Proin viverra tempor porttitor. In ultrices suscipit nisl, a viverra odio feugiat vel. Suspendisse faucibus odio mi, vel ultrices nisl consectetur at. Donec pretium mollis nunc at pretium. Nullam tincidunt pellentesque erat, ut iaculis magna accumsan quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec eu felis vel ipsum gravida blandit nec a urna. Sed convallis dignissim nibh, eget egestas nulla ultrices ac.
-
-                        In blandit, sapien ut accumsan auctor, nunc enim mollis ligula, et suscipit sapien metus eget nisl. In porttitor diam vitae mauris rutrum ultrices. Nulla vehicula lorem at ornare rhoncus. Nulla venenatis iaculis justo quis commodo. Mauris mattis ut mi in lacinia. Donec ornare varius sodales. Etiam laoreet ac quam eu malesuada. Sed scelerisque mi et viverra porta. Pellentesque diam purus, accumsan et velit quis, suscipit elementum mauris. Nulla turpis ligula, feugiat eget accumsan suscipit, pulvinar viverra velit. Cras at aliquam nisi. In laoreet, purus eget eleifend mollis, arcu libero facilisis elit, eget porta ligula mauris ac orci. Nam egestas libero eu enim semper, ac varius sapien lobortis. Cras lobortis sem id maximus tempor.
-
-                        Quisque molestie turpis et sagittis mattis. Sed ultricies vel neque quis rhoncus. Etiam sed venenatis felis, nec venenatis ex. Quisque eget metus consequat, euismod eros ac, gravida dolor. Aenean ultricies, orci egestas pulvinar vehicula, nisl lacus elementum nunc, eget consectetur massa ligula quis dui. Sed in faucibus mi, a pretium eros. Maecenas facilisis libero massa, nec ultrices leo iaculis eget.
-
-                        Proin et ex eget velit aliquam rutrum. Nam eget porta velit. Proin vel turpis consequat, vestibulum metus id, gravida ex. Sed in quam ut mi tincidunt rhoncus. Sed et felis neque. Ut sit amet lorem sed neque ullamcorper sagittis vitae eget diam. Quisque feugiat nec justo vel facilisis. Suspendisse potenti. Nullam sagittis ullamcorper tortor, sit amet vestibulum ligula dapibus eget. Quisque varius, nisl a lacinia consectetur, elit urna hendrerit leo, a varius nisi odio feugiat ipsum.
-
-                        Quisque lacinia lacus vitae condimentum cursus. Donec pretium et dolor quis suscipit. Vestibulum tempor ante urna, sed sagittis mi rhoncus vel. Ut ullamcorper vulputate semper. Fusce blandit, justo pulvinar porttitor tincidunt, elit mauris consequat elit, at egestas justo ligula non tortor. Aenean scelerisque dictum leo quis sodales. Donec non laoreet odio.
-
-                        Suspendisse convallis purus dignissim, consectetur neque nec, placerat ipsum. Nulla ligula erat, ultricies in ligula id, porttitor pretium tortor. Sed accumsan elit et sapien interdum, eu aliquam felis facilisis. Vestibulum ornare justo eget mi tristique, ut dictum augue volutpat. Aliquam nec tortor ut justo efficitur porttitor id id libero. Vestibulum a pharetra lorem. Phasellus dapibus mauris sed ornare eleifend. Nam accumsan ac nunc id viverra. Vestibulum vel nisl fringilla, tincidunt ante sollicitudin, fringilla urna. Sed auctor eros enim, quis dictum lectus euismod eget. Aliquam ultrices a ligula a rutrum. Aliquam faucibus nulla at tortor tristique, non congue turpis sodales. Mauris vitae erat bibendum, consectetur leo at, porta nunc. Praesent nec tincidunt nisi, a blandit libero.
-
-                        Suspendisse condimentum ut lorem ac dictum. Donec id nibh sollicitudin, aliquam lacus vitae, finibus quam. Nam varius iaculis turpis a feugiat. Curabitur viverra ullamcorper velit vitae hendrerit. Mauris diam orci, imperdiet vitae rutrum a, tempor nec lectus. Duis vel feugiat nulla, nec mollis leo. Praesent vitae libero vitae est vestibulum auctor. Sed pretium, risus at faucibus blandit, nunc ex ornare nunc, non tempus orci ligula vel tortor. Ut dictum ipsum orci, a consectetur libero pulvinar et.
-
-                        Etiam dolor diam, viverra eget condimentum vel, suscipit vel ligula. Nulla sem augue, consectetur sollicitudin nunc sit amet, molestie rhoncus massa. Donec pellentesque, turpis at aliquam pharetra, quam enim aliquet velit, a iaculis enim nisl ac risus. Morbi ut ex vitae justo laoreet elementum. Nulla gravida luctus lectus quis tempus. Duis mollis aliquam sem, vel facilisis tortor venenatis eu. Duis auctor elit risus, sed elementum arcu pulvinar id.
-
-                        Curabitur sodales dui quis lobortis tristique. Aenean et purus condimentum, ultricies dui ut, fermentum purus. Nulla ut tellus risus. Vivamus dapibus viverra massa sit amet efficitur. Maecenas molestie enim sed eleifend volutpat. Nullam maximus, augue sed lobortis posuere, lectus dui scelerisque tortor, vel vestibulum ex turpis nec mi. Aenean a tortor et arcu molestie posuere. Maecenas ipsum lectus, semper auctor libero ac, sodales mattis diam. Cras non imperdiet sapien, vitae gravida justo. Maecenas justo ex, lacinia ullamcorper nunc a, consectetur posuere mi. Nam dictum arcu in risus ultricies pretium. Vestibulum eu mauris et diam mollis rhoncus quis non lorem. Vestibulum lobortis pharetra odio sit amet sagittis. Sed elementum, sem non sodales pulvinar, nisl metus finibus mauris, at vestibulum turpis diam id lacus. Cras vitae scelerisque orci.</p>}
-
+            <div style={{ boxShadow: "0px 3px 6px #0000000D" }} className='p-5 mb-5 bg-white rounded-2xl'>
+                <div className='mb-4 row'>
+                    <div className='col-lg-6'>
+                        <h1 className='text-[#626973] font-bold font-sans text-lg'>Active orders - 1 ($550)</h1>
+                    </div>
+                    <div className='text-right col-lg-6'>
+                        <div className="flex justify-end ">
+                            <div>
+                                <div className="relative dropdown">
+                                    <button className=" dropdown-toggle px-3 py-2  border border-[#4DA676]  text-[#4DA676] font-medium text-xs leading-tight rounded focus:outline-none transition duration-150 ease-in-out flex items-center whitespace-nowrap" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Active Order
+                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" className="w-2 ml-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">  <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z" />  </svg>
+                                    </button>
+                                    <ul className="absolute z-50 hidden float-left py-2 m-0 mt-1 text-base text-left list-none bg-white border-none rounded-lg shadow-lg dropdown-menu min-w-max bg-clip-padding" aria-labelledby="dropdownMenuButton2">
+                                        <li>
+                                            <span className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"  >Action</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                Sed eu elit orci. Nulla ornare lacus feugiat, elementum mauris ut, commodo quam. Quisque vel ornare justo, nec lacinia magna. Curabitur varius pulvinar lorem sagittis eleifend. Morbi vulputate fringilla enim ut suscipit. Vestibulum eu elit tellus. Etiam eget nisl ac felis aliquet feugiat. In pharetra mollis nulla. Nunc aliquet a ex sed vehicula. Mauris tempor gravida tempor.
+                <div>
+                    <div className="flex flex-col">
+                        <div className="overflow-x-auto ">
+                            <div className="inline-block min-w-full ">
+                                <div className="overflow-hidden">
+                                    <table className="min-w-full">
+                                        <tbody>
+                                            {Array(2).fill("").map(() => {
+                                                return (
+                                                    <tr style={{ boxShadow: "0px 2px 5px #0000001A" }}  >
+                                                        <td className="px-3 py-3 whitespace-nowrap">
+                                                            <div className='flex items-center space-x-2 '>
+                                                                <img src="http://placekitten.com/200/200" alt="profile" className="  object-cover  w-full h-auto max-w-[30px] rounded-full" loading="lazy" decoding="async" />
+                                                                <div className="text-xs font-normal text-[#ABAFB3] ">Arslan ahmed shaad</div>
+                                                            </div>
+                                                        </td>
+                                                        <td className="px-3 py-3 text-xs font-medium text-[#464A53] whitespace-nowrap"> Social Media Marketing </td>
+                                                        <td className="px-3 py-3 text-xs font-medium text-[#464A53] whitespace-nowrap"> 25 Day 17 Hours </td>
+                                                        <td className="px-3 py-3 text-xs font-medium text-[#464A53] whitespace-nowrap"> $550 </td>
+                                                        <td className="px-3 py-3 text-xs font-medium text-[#464A53] whitespace-nowrap"> <ImFileText2 /> </td>
+                                                        <td className="px-3 py-3 text-xs font-medium text-[#4DA676] whitespace-nowrap"> Active</td>
+                                                    </tr>
+                                                )
+                                            })}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style={{ boxShadow: "0px 3px 6px #0000000D" }} className='p-5 mb-5 bg-white'>
+                <div className='row'>
+                    <div className='flex items-center justify-center mb-2 lg:mb-0 lg:justify-start col-lg-1 '>
+                        <img src={gig_dashboard} alt="logo" loading="lazy" />
+                    </div>
+                    <div className='mb-2 lg:mb-0 col-lg-10'>
+                        <h1 className='text-[#626973] font-bold text-lg mb-1'>Make your Gigs easier to find</h1>
+                        <p className='text-[#626973] text-xs'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo</p>
+                    </div>
+                    <div className='mb-2 lg:mb-0 col-lg-1'>
+                        <div className='w-16 m-auto'>
+                            <Lottie animationData={forward} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style={{ boxShadow: "0px 3px 6px #0000000D" }} className='mb-5 bg-white '>
+                <div className="flex flex-col">
+                    <div className="overflow-x-auto ">
+                        <div className="inline-block min-w-full ">
+                            <div className="overflow-hidden">
+                                <table className="min-w-full">
+                                    <tbody>
+                                        {Array(2).fill("").map(() => {
+                                            return (
+                                                <tr style={{ boxShadow: "0px 2px 5px #0000001A" }} >
+                                                    <td className="px-3 py-3 whitespace-nowrap">
+                                                        <div className='flex items-center space-x-2 '>
+                                                            <img src="http://placekitten.com/200/200" alt="profile" className="  object-cover  w-full h-auto max-w-[40px] rounded-md" loading="lazy" decoding="async" />
+                                                            <div className="text-xs font-semibold text-[#626973] ">design and develop Website</div>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-3 py-3 text-xs font-medium text-[#464A53] whitespace-nowrap"> 350</td>
+                                                    <td className="px-3 py-3 text-xs font-medium text-[#464A53] whitespace-nowrap"> 331</td>
+                                                    <td className="px-3 py-3 text-xs font-medium text-[#464A53] whitespace-nowrap"> 12 </td>
+                                                    <td className="px-3 py-3 text-xs font-medium text-[#464A53] whitespace-nowrap"> 1</td>
+                                                    <td className="px-3 py-3 text-xs italic font-medium whitespace-nowrap"> Subscription plan</td>
+                                                    <td className="px-3 py-3 text-xs font-medium whitespace-nowrap">
+                                                        <div className="flex justify-end ">
+                                                            <div>
+                                                                <div className="relative dropdown">
+                                                                    <button className=" dropdown-toggle px-1 py-1 bg-[#B4B0B0] text-[white] rounded-full font-medium text-xs  focus:outline-none transition duration-150 ease-in-out flex items-center whitespace-nowrap" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                        <AiOutlineCaretDown size={18} />
+                                                                    </button>
+                                                                    <ul className="absolute z-50 hidden float-left py-2 m-0 mt-1 text-base text-left list-none bg-white border-none rounded-lg shadow-lg dropdown-menu min-w-max bg-clip-padding" aria-labelledby="dropdownMenuButton2">
+                                                                        <li>
+                                                                            <span className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"  >Action</span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
 
-                Donec justo mi, malesuada vel posuere id, tempus eget sapien. Suspendisse facilisis fringilla dignissim. Aliquam id nisi id odio luctus sagittis id at enim. Fusce non justo velit. Nullam tempus velit laoreet eros aliquet malesuada. Ut a lorem ultricies, suscipit lectus in, pellentesque eros. Integer dictum, tortor eget lobortis iaculis, augue enim dictum ipsum, ut laoreet nunc eros quis mi. Pellentesque placerat eu arcu quis sollicitudin.
 
 
-
+                                                </tr>
+                                            )
+                                        })}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
 

@@ -18,7 +18,7 @@ const Dashboard = () => {
         {/*  Site header */}
         <DashboardHeader rightbarOpen={rightbarOpen} setRightbarOpen={setRightbarOpen} Toggle={setToggle} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} checkExpand={checkExpand} />
         {toggle &&
-          <div className='mx-5'>
+          <div className=''>
             <div className="border bg-white rounded-b-xl ">
               <div className='row'>
                 <div className='col-lg-6 p-5'>
@@ -30,7 +30,7 @@ const Dashboard = () => {
                   <div>
                     <h2 className='text-[18px] font-medium mb-2'>Search or add up to  10 skills</h2>
                     <div className='border border-black rounded-full flex items-center h-full p-2'>
-                      <input type="text" className=' rounded-full w-full' />
+                      <input type="text" className=' w-full focus:outline-none h-full ' />
                       <BiSearch />
                     </div>
                     <span className='text-[10px] ml-5'>For the best results, add 3-5 skills</span>

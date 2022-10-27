@@ -12,24 +12,16 @@ import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 // import { Link } from 'react-router-dom';
 
 const schema = yup.object({
-  name: yup.string().required('Category Name is Required'),
-  desc: yup.string().required('Description is Required'),
-  image: yup.mixed().test("required", "File is required", value => {
-    return value && value.length
-  })
+  disease: yup.string().required('Disease is Required'),
+  description: yup.string().required('Description is Required'),
+
 });
 
-const History = ({ handleNext, handleBack }) => {
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  var yyyy = today.getFullYear();
-  const [quoteDate, setquoteDate] = useState({
-    day: dd,
-    month: mm,
-    year: yyyy,
-  });
+const History = ({ handleNext, handleBack, data, updateState }) => {
+
   const [companySetting, setCompanySetting] = useState(true);
+  const [error, setError] = useState("");
+  const [file, setFile] = useState("");
   const [allDisease, setallDisease] = useState([])
 
   const {
@@ -40,29 +32,56 @@ const History = ({ handleNext, handleBack }) => {
     formState: { errors },
   } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
-  // ****************** Datepicker Content ***********
-  const renderCustomInput = ({ ref }) => (
-    <div className='relative cursor-pointe w-full'>
-      <input
-        readOnly
-        ref={ref} // necessary  placeholder="yyy-mm-dd"
-        value={
-          quoteDate
-            ? `${quoteDate.year}/${quoteDate.month}/${quoteDate.day}`
-            : ''
+
+
+  const handleFile = async (e) => {
+    try {
+      let file = e.target.files[0]
+      var re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png|\.pdf)$/i;
+      if (!re.exec(file.name)) {
+        toast.error("Only Pdf file and image allowed");
+        // setError('Only Pdf file are allowed')
+
+      }
+      else {
+        let formdata = new FormData()
+        formdata.append('prescription', file)
+        setError('')
+        let res = await callApi("/appointmentrequests/uploadMedicinePrescription", "post", formdata)
+        if (res.status === "Success") {
+          setFile(res.data)
+          toast.success(res.message);
         }
-        className={` border p-2 focus:outline-blue-500 rounded-sm w-full cursor-pointer z-30  px-2 py-2 `}
-      />
-      <div className={`visible absolute top-3 cursor-pointer right-5`}>
-        {' '}
-        <FcCheckmark />{' '}
-      </div>
-    </div>
-  );
+        else {
+          toast.error(res.message);
+
+        }
+      }
 
 
-  const onSubmit = async (data) => {
-    handleNext()
+    } catch (error) {
+      toast.error(error);
+
+    }
+  }
+
+
+
+  const onSubmit = async (values) => {
+
+    let payload = {
+      medicalFiles: file,
+      disease: values.disease,
+      positive: companySetting,
+      description: values.description,
+    }
+    if (file !== "") {
+      updateState(payload)
+      handleNext()
+    }
+    else {
+      setError("File is required")
+    }
   };
 
 
@@ -90,6 +109,17 @@ const History = ({ handleNext, handleBack }) => {
   }, [])
 
 
+  console.log("daa", data)
+
+
+  useEffect(() => {
+    if (data?.disease) {
+      reset(data)
+    }
+  }, [reset, data])
+
+
+
   return (
     <div className='bscontainer-fluid'>
       <ToastContainer
@@ -103,62 +133,18 @@ const History = ({ handleNext, handleBack }) => {
         draggable
         pauseOnHover
       />
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='row p-11'>
-          {/* <div className='col-12 mb-6'>
-            <div className='mb-3'>
-              <ul className='inline-flex flex-wrap text-sm font-medium'>
-                <li className='flex items-center'>
-                  <Link
-                    to='/dashboard'
-                    className='text-slate-500 hover:text-indigo-500'
-                  >
-                    Dashboard{' '}
-                  </Link>
-                  <svg
-                    className='h-4 w-4 fill-current text-slate-400 mx-3'
-                    viewBox='0 0 16 16'
-                  >
-                    <path d='M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z' />
-                  </svg>
-                </li>
-                <li className='flex items-center'>
-                  <Link
-                    to='/inspire'
-                    className='text-slate-500 hover:text-indigo-500'
-                  >
-                    Inspire{' '}
-                  </Link>
-                  <svg
-                    className='h-4 w-4 fill-current text-slate-400 mx-3'
-                    viewBox='0 0 16 16'
-                  >
-                    <path d='M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z' />
-                  </svg>
-                </li>
-                <li className='flex items-center'>
-                  <Link
-                    to='/inspire/create-inspire'
-                    className='text-slate-500 hover:text-indigo-500'
-                    href='#0'
-                  >
-                    Create inspire
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <header className='py-4'>
-              <h2 className='font-semibold text-slate-800'>Add new Inspire</h2>
-            </header>
-          </div> */}
 
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium mb-1' htmlFor='name'>
               Disease
             </label>
             <select
-              className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]  ${errors.name && 'border-red-500'
-                  }`}
+              {...register('disease')}
+              className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]  ${errors.disease && 'border-red-500'
+                }`}
             >
               <option value="">Select Disease</option>
               {allDisease.map((dis) => (
@@ -166,9 +152,9 @@ const History = ({ handleNext, handleBack }) => {
               ))}
 
             </select>
-            {errors.name && (
-                <p className='text-red-500 text-sm'>{errors.name.message}</p>
-              )}
+            {errors.disease && (
+              <p className='text-red-500 text-sm'>{errors.disease.message}</p>
+            )}
 
           </div>
 
@@ -205,14 +191,22 @@ const History = ({ handleNext, handleBack }) => {
             <div className='relative'>
               <input
                 type="file"
-                className={`border p-1 focus:outline-blue-500 rounded-sm w-full  ${errors.image && 'border-red-500'
+                // {...register('image')}
+                onChange={(e) => handleFile(e)}
+                className={`border p-1 focus:outline-blue-500 rounded-sm w-full  ${error && 'border-red-500'
                   }`}
 
               />
 
-              {errors.image && (
-                <p className='text-red-500 text-sm'>{errors.image.message}</p>
-              )}
+              {error !== "" ? (
+                <p className='text-red-500 text-sm'>{error}</p>
+              )
+              :
+              (
+                <p className='text-red-500 text-sm'>Pdf, jpg, png  allow</p>
+              )
+               
+              }
             </div>
           </div>
 
@@ -226,28 +220,28 @@ const History = ({ handleNext, handleBack }) => {
               Description
             </label>
             <div className='absolute right-5 top-10'>
-              {!errors.desc && watch('desc') ? (
+              {!errors.description && watch('description') ? (
                 <FcCheckmark />
-              ) : errors.desc ? (
+              ) : errors.description ? (
                 <div className=' text-red-500'>
                   <MdClose />
                 </div>
               ) : null}
             </div>
             <textarea
-              {...register('desc')}
+              {...register('description')}
               autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.desc && 'border-red-500'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.description && 'border-red-500'
                 }`}
-              name='desc'
-              id='desc'
+              name='description'
+              id='description'
               placeholder='Description'
               cols='20'
             ></textarea>
             {/* <span hidden={watch('quot')} className='absolute text-red-400 text-sm font-medium  top-9 left-[170px]'>(optional)</span> */}
 
-            {errors.desc && (
-              <p className='text-red-500 text-sm'>{errors.desc.message}</p>
+            {errors.description && (
+              <p className='text-red-500 text-sm'>{errors.description.message}</p>
             )}
           </div>
 

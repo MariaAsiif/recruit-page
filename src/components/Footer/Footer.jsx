@@ -11,8 +11,8 @@ import Terms from './Terms'
 
 const Footer = ({type}) => {
 
-    const [active, setActive] = useState(true)
-    const [colorClass, setColorClass] = useState(true)
+    const [active, setActive] = useState(false)
+    const [colorClass, setColorClass] = useState(false)
     const [op, setop] = useState()
 
     const ToggleSwitch = (data) => {

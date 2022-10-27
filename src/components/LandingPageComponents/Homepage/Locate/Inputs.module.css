@@ -106,7 +106,7 @@
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url"(data:image/svg+xml;utf8,<svg fill=%27black%27 height=%2730%27 viewBox=%270 0 24 24%27 width=%2730%27 xmlns=%27http://www.w3.org/2000/svg%27><path d=%27M7 10l5 5 5-5z%27/><path d=%27M0 0h24v24H0z%27 fill=%27none%27/></svg>)";
+    background-image: none !important;
     background-repeat: no-repeat;
     background-position-x: 100%;
     font-size: 16px;

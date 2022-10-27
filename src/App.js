@@ -110,7 +110,12 @@ import TableComponent from './components/GlobalComponents/table';
 import OrderList from './components/NewDashboardComponents/OrderList';
 import MedicalLandingPage from './Pages/Medical/LandingPage';
 import Invoice from './components/NewDashboardComponents/Invoice';
+
 import Sidebar from './Pages/Medical/Layout/Sidebar';
+
+import NewFaqs from './components/NewDashboardComponents/NewFaqs';
+import SingleGig from './components/NewDashboardComponents/SingleGig';
+
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -182,6 +187,8 @@ function App() {
           <Route index path="support" element={<Support />} />
           <Route index path="notifications" element={<Notifications />} />
           <Route index path="invoice" element={<Invoice />} />
+          <Route index path="faqs" element={<NewFaqs />} />
+          <Route index path="gig" element={<SingleGig />} />
 
         </Route>
 

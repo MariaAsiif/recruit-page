@@ -1,31 +1,45 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FcCheckmark } from 'react-icons/fc';
 import { MdClose } from 'react-icons/md';
-import { toast, ToastContainer } from 'react-toastify';
+// import { toast, ToastContainer } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { callApi } from '../../../utils/CallApi';
+// import { callApi } from '../../../utils/CallApi';
 import { MdDelete } from 'react-icons/md'
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
-import moment from 'moment';
+// import moment from 'moment';
 import { BsPlusCircle } from 'react-icons/bs'
+import { useFieldArray } from "react-hook-form";
+import { callApi } from '../../../utils/CallApi';
+import { toast, ToastContainer } from 'react-toastify';
+import moment from 'moment';
+
 const schema = yup.object({
   name: yup.string().required('Doctor Name is Required'),
   special: yup.string().required('Specialization is Required'),
   link: yup.string().required('Profile link is Required'),
-  quote: yup.string().required('Quotation is Required'),
-  prs: yup.mixed().test('required ', "File is required", value => {
-    return value && value.length
-  }),
-  med: yup.mixed().test('required ', "File is required", value => {
-    return value && value.length
-  })
+  // quote: yup.string().required('Quotation is Required'),
+  familyDiseases: yup
+    .array()
+    .of(
+      yup.object({
+        description: yup.string().required(),
+
+      })
+    )
+    .required(),
+  // prs: yup.mixed().test('required ', "File is required", value => {
+  //   return value && value.length
+  // }),
+  // med: yup.mixed().test('required ', "File is required", value => {
+  //   return value && value.length
+  // })
 
 });
 
-const Schedule = ({ handleNext, handleBack }) => {
+const Schedule = ({ handleNext, handleBack, updateState, data }) => {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -36,13 +50,27 @@ const Schedule = ({ handleNext, handleBack }) => {
     year: yyyy,
   });
 
+  const [file, setFile] = useState('')
+  const [report, setReport] = useState('')
+  const [fileError, setFileError] = useState('')
+  const [reportError, setReportError] = useState('')
+
   const {
     register,
     watch,
     reset,
+    control,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
+  } = useForm({ mode: 'onChange', resolver: yupResolver(schema), defaultValues: { familyDiseases: [{ description: "" }] } });
+
+
+
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "familyDiseases"
+  });
+
 
   // ****************** Datepicker Content ***********
   const renderCustomInput = ({ ref }) => (
@@ -65,10 +93,97 @@ const Schedule = ({ handleNext, handleBack }) => {
   );
 
 
+  const handleFile = async (e, type) => {
+    try {
+      let file = e.target.files[0]
+      var re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png|\.pdf)$/i;
+      if (type === "file") {
+        // if (!re.exec(file.name)) {
+        //   toast.error("Only Pdf file and image allowed");
+        //   // setError('Only Pdf file are allowed')
 
-  const onSubmit = async (data) => {
-    handleNext()
+        // }
+        // else {
+          let formData = new FormData();
+          formData.append('prescription', file)
+          let res = await callApi('/appointmentrequests/uploadMedicinePrescription', "post", formData)
+          if (res.status === "Success") {
+            toast.success(res.message);
+            setFile(res?.data)
+          }
+          else {
+            toast.error(res.message);
+
+          // }
+        }
+      }
+
+      else {
+        // if (!re.exec(file.name)) {
+        //   toast.error("Only Pdf file and image allowed");
+        //   // setError('Only Pdf file are allowed')
+
+        // }
+        // else {
+          let file = e.target.files[0]
+          let formData = new FormData();
+          formData.append('prescription', file)
+          let res = await callApi('/appointmentrequests/uploadMedicinePrescription', "post", formData)
+          if (res.status === "Success") {
+            toast.success(res.message);
+            setReport(res?.data)
+          }
+          else {
+            toast.error(res.message);
+
+          }
+        // }
+      }
+
+    } catch (error) {
+      toast.error(error);
+
+
+    }
+  }
+
+
+
+
+  const onSubmit = async (values) => {
+
+    let lastDate = `${quoteDate.year}/${quoteDate.month}/${quoteDate.day}`
+
+    let payload = {
+      ...values,
+      lastCheckupDate: lastDate,
+      file,
+      report
+    }
+    // if (file !== "") {
+    //   setFileError("File are required")
+
+    // }
+
+    // else if (report !== "") {
+    //   setReportError("Report are required")
+
+    // }
+
+    // else {
+      updateState(payload)
+      handleNext()
+    // }
   };
+
+
+  useEffect(() => {
+    if (data?.familyDiseases) {
+      reset(data)
+      const date = moment(data?.lastCheckupDate).format('yyyy-M-D').split('-')
+      setquoteDate({ day: +date[2], month: +date[1], year: +date[0] })
+    }
+  }, [reset, data])
 
   return (
     <div className='bscontainer-fluid'>
@@ -172,13 +287,13 @@ const Schedule = ({ handleNext, handleBack }) => {
           </div>
 
           <div className='col-lg-4 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='quote'>
+            <label className='block text-sm font-medium mb-1' htmlFor='link'>
               Profile Link
             </label>
             <div className='absolute right-5 top-10'>
-              {!errors.quote && watch('quote') ? (
+              {!errors.link && watch('link') ? (
                 <FcCheckmark />
-              ) : errors.quote ? (
+              ) : errors.link ? (
                 <div className=' text-red-500'>
                   <MdClose />
                 </div>
@@ -206,13 +321,21 @@ const Schedule = ({ handleNext, handleBack }) => {
             </label>
             <div className='relative'>
               <input
+                onChange={(e) => handleFile(e, "file")}
                 type="file"
-                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  ${errors.prs && 'border-red-500'
+                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  ${fileError && 'border-red-500'
                   }`}
               />
-              {errors.prs && (
-                <p className='text-red-500 text-sm'>{errors.prs.message}</p>
-              )}
+
+              {fileError !== "" ? (
+                <p className='text-red-500 text-sm'>{fileError}</p>
+              )
+                : (
+                  <p className='text-red-500 text-sm'>Pdf, jpg, png file uploaded</p>
+
+                )
+              }
+
             </div>
           </div>
           <div className='col-lg-4 mb-4 '>
@@ -221,51 +344,80 @@ const Schedule = ({ handleNext, handleBack }) => {
             </label>
             <div className='relative'>
               <input
+                onChange={(e) => handleFile(e, "report")}
                 type="file"
-                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  ${errors.med && 'border-red-500'
+                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full ${reportError && 'border-red-500'
                   }`}
               />
-              {errors.med && (
-                <p className='text-red-500 text-sm'>{errors.med.message}</p>
-              )}
+              {reportError !== "" ? (
+                <p className='text-red-500 text-sm'>{reportError}</p>
+              )
+                : (
+                  <p className='text-red-500 text-sm'>Pdf, jpg, png file uploaded</p>
+
+                )
+              }
             </div>
           </div>
           <div className="flex justify-between">
             <h2 className='mb-3 font-medium'>Family Diseases</h2>
-            <button className='p-2 mb-3 flex items-center bg-red-500 hover:bg-green-600 text-white'>
+            <button type="button" onClick={() => append({ description: "" })} className='p-2 mb-3 flex items-center bg-red-500 hover:bg-green-600 text-white'>
               Add <BsPlusCircle className='ml-2' />
             </button>
           </div>
           <div className='col-lg-12 mb-4 border '>
-            <div className='row p-2'>
+            <div className='row p-2 '>
+              {
+                fields.map((item, index) => (
+                  <>
+                    <div className='col-lg-4 relative'>
+                      <div className=' mt-2 mb-2'>
+                        <div className="flex items-center">
+                          <input
+                            name={`familyDiseases[${index}].description`}
+                            {...register(`familyDiseases[${index}].description`)}
+                            autoComplete='off'
+                            className={`border p-2  focus:outline-blue-500 rounded-sm  ${errors.familyDiseases?.[index]?.description && 'border-red-400'
+                              }`}
+                            id='name'
+                            placeholder='Disease Name'
+                          />
+                          <div>
+                            {index > 0 &&
+                              <button onClick={() => remove(index)} className='p-2 ml-2  h-[10] bg-red-500 hover:bg-green-600 text-white'>
+                                <MdDelete />
+                              </button>
+                            }
 
-              <div className='col-lg-4 mb-4 relative'>
-                <label className='block text-sm font-medium mb-1' htmlFor='name'>
-                  Disease
-                </label>
 
-                <input type="text" {...register('disease')} placeholder="Disease"
-                  className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]  `}
-                />
+                          </div>
+                        </div>
+                        <span
+                          hidden={watch(`familyDiseases[${index}].description`)}
+                          className='absolute text-red-400 text-lg font-medium  top-4 left-[140px]'
+                        >
+                          *
+                        </span>
 
-              </div>
+                        {errors.familyDiseases?.[index]?.description && (
+                          <p className='text-sm text-red-500'>{errors.familyDiseases?.[index]?.description.message}</p>
+                        )}
 
-              <div className='col-lg-4 mb-4 relative'>
+                      </div>
+                    </div>
 
-                <button className='p-2 ml-2 mt-7 h-[10] bg-red-500 hover:bg-green-600 text-white'>
-                  <MdDelete />
-                </button>
-              </div>
+                  </>
 
+
+                ))}
 
             </div>
           </div>
-
           <div className='col-lg-12 flex justify-between'>
             <button onClick={(e) => handleBack(e)} className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Back
             </button>
-            <button  className='p-2 bg-red-500 hover:bg-green-600 text-white'>
+            <button className='p-2 bg-red-500 hover:bg-green-600 text-white'>
               Next
             </button>
           </div>
