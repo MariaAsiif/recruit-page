@@ -10,7 +10,8 @@ import History from '../AdminComponents/EditAppointment/History';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+import { callApi } from '../../utils/CallApi';
 const schema = yup.object({
     ssn: yup.string().required('Field is Required'),
     homeAddress: yup.string().required('homeAddress is Required'),
@@ -29,16 +30,12 @@ const schema = yup.object({
     requestCategory: yup.string().required('Request Category is Required'),
     reasonOfCurrentVisit: yup.string().required('Problem is Required'),
     disease: yup.string().required('Disease is Required'),
-    desc: yup.string().required('Description is Required'),
-    name: yup.string().required('Doctor Name is Required'),
-    special: yup.string().required('Specialization is Required'),
-    link: yup.string().required('Profile link is Required'),
-    symptoms: yup.string().required('symptoms is Required'),
+    description: yup.string().required('Description is Required'),
+    doctorName: yup.string().required('Doctor Name is Required'),
+    specialization: yup.string().required('Specialization is Required'),
+    profileLink: yup.string().required('Profile link is Required'),
     consultationFee: yup.string().required('consultation Fee is Required'),
     communication: yup.string().required('communication  is Required'),
-    allergies: yup.string().required('allergies is Required'),
-
-    // quote: yup.string().required('Quotation is Required'),
     familyDiseases: yup
         .array()
         .of(
@@ -52,8 +49,8 @@ const schema = yup.object({
         .array()
         .of(
             yup.object({
-                name: yup.string().required(),
-                past: yup.string().required(),
+                operationName: yup.string().required(),
+                operationResult: yup.string().required(),
             })
         )
         .required(),
@@ -63,11 +60,11 @@ const schema = yup.object({
             yup.object({
                 medicine: yup.string().required(),
                 dosage: yup.string().required(),
-                time: yup.string().required(),
+                timesOfMedicine: yup.string().required(),
             })
         ),
 
-    children: yup.string().required(),
+    noOfChildrens: yup.string().required(),
     sexualOrientation: yup.string().required(),
     maritalStatus: yup.string().required(),
     deliveryMethod: yup.string().required(),
@@ -93,18 +90,24 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
     const modalContent = useRef(null);
     const [categoryDate, setCategoryDate] = useState("")
     const [history, setHistory] = useState('')
-    const [seduleData, setSeduleDate] = useState({ file: "", report: "" })
+    const [seduleFiles, setSeduleFiles] = useState({ file: "", report: "" })
+    const [seduledate, setSeduleDate] = useState({})
+    // dates -> surgical
     const [dates, setDates] = useState([]);
+
     const [imagefile, setImageFile] = useState([]);
     const [picturs, setPicturs] = useState('');
     const [videos, setVideos] = useState('');
+    // startDate -> addictions
     const [startDate, setStartDate] = useState({ start: "", end: "", last: "" });
     const [surDate, setSurDate] = useState([]);
+    const [error, setError] = useState("");
 
     let d = {
         categoryDate,
         history,
-        seduleData,
+        seduleFiles,
+        seduledate,
         dates,
         picturs,
         videos,
@@ -113,7 +116,6 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
     }
 
 
-    console.log("data", d)
 
     const {
         register,
@@ -135,6 +137,85 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
 
     const onSubmit = async (values) => {
         console.log("values", values)
+        if (history == "") {
+            setError("File is required")
+        }
+        else {
+            try {
+                let payload = {
+                    "appointmentRequestid": data._id,
+                    "customer": data?.customer?._id,
+                    customerfields: {
+                        "ssn": data?.ssn,
+                        "homeAddress": data?.homeAddress,
+                        "homePhone": data?.workPhone,
+                        "workPhone": data?.workPhone,
+                        "occupation": data?.occupation,
+                        "emergencyContantName": data?.emergencyContantName,
+                        "emergencyContactRelation": data?.emergencyContactRelation,
+                        "emergencyContactPhone": data?.emergencyContactPhone,
+                        "familyDoctorName": data?.familyDoctorName,
+                        "referringDoctorName": data?.referringDoctorName,
+                        "doctorAddress": data?.doctorAddress,
+                        "doctorPhone": data?.doctorPhone,
+                        "doctorFax": data?.doctorFax,
+                        "otherReferralSource": data?.otherReferralSource,
+                    },
+                    "reasonOfCurrentVisit": data?.reasonOfCurrentVisit,
+                    "requestCategory": data?.requestCategory,
+                    // "status": "pendding",
+                    "requestDate": data?.requestDate,
+                    "medicalHistory": [{
+                        "description": data?.description,
+                    }],
+                    "pastConsultants": [{
+                        "doctorName": data?.doctorName,
+                        "specialization": data?.specialization,
+                        "lastCheckupDate": data?.lastCheckupDate,
+                        "profileLink": data?.profileLink,
+                        "drPrescription": data?.file,
+                        "medicalReports": data?.report,
+                    }],
+                    "familyDiseases": data?.familyDiseases,
+                    "surgicalHistory": {
+                        "isSurgeyDone": data?.isSurgeyDone,
+                        "operationType": data?.operationType
+                    },
+                    "socialHistory": {
+                        "addictions": data?.addictions,
+                        "maritalStatus": data?.maritalStatus,
+                        "sexualOrientation": data?.sexualOrientation,
+                        "everHurt": data?.hurt,
+                        "needCarrier": data?.carrier,
+                        "exercise": data?.excise,
+                        "pregnant": data?.pregnet,
+                        "breastFeeding": data?.feeding,
+                        "lastMenstrualDate": data?.lastMenstrualDate,
+                        "noOfChildrens": data?.children,
+                        "deliveryMethod": data?.deliveryMethod,
+                        "deliveryInjury": data?.injury,
+                    },
+                    "allergies": data?.allergies,
+                    "medicationsSuppliments": data?.medicationsSuppliments,
+                    "symptoms": data?.symptoms,
+                    "consultationType": [{
+                        "consultationFee": data?.consultationFee,
+                        "communication": data?.communication
+                    }],
+
+                    "pictures": data?.pictures,
+                    "videos": data?.videos
+                }
+                console.log("pay", payload)
+                let res = await callApi('/appointmentrequests/createAppointmentRequest', 'post', payload)
+                if (res.status === "Success") {
+                    toast.success(res.message)
+                    onClose();
+                }
+            } catch (error) {
+
+            }
+        }
     }
 
 
@@ -190,17 +271,18 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
             "status": "approved",
             "requestDate": data.requestDate,
             "description": data?.medicalHistory?.description,
-            "doctorName": data.pastConsultants ? data?.pastConsultants[0]?.doctorName : null ,
-            "specialization": data.pastConsultants ? data?.pastConsultants[0]?.specialization : null ,
-            "lastCheckupDate": data.pastConsultants ? data?.pastConsultants[0]?.lastCheckupDate : null ,
-            "profileLink": data.pastConsultants ? data?.pastConsultants[0]?.profileLink : null ,
-            "drPrescription": data.pastConsultants ? data?.pastConsultants[0]?.drPrescription : null ,
-            "medicalReports": data.pastConsultants ? data?.pastConsultants[0]?.medicalReports : null ,
+            "doctorName": data.pastConsultants ? data?.pastConsultants[0]?.doctorName : null,
+            "specialization": data.pastConsultants ? data?.pastConsultants[0]?.specialization : null,
+            "lastCheckupDate": data.pastConsultants ? data?.pastConsultants[0]?.lastCheckupDate : null,
+            "profileLink": data.pastConsultants ? data?.pastConsultants[0]?.profileLink : null,
+            "drPrescription": data.pastConsultants ? data?.pastConsultants[0]?.drPrescription : null,
+            "medicalReports": data.pastConsultants ? data?.pastConsultants[0]?.medicalReports : null,
             "familyDiseases": data.familyDiseases,
             "isSurgeyDone": data?.surgicalHistory?.isSurgeyDone,
             "operationType": data?.surgicalHistory?.operationType,
 
             "addictions": data?.socialHistory?.addictions,
+
             "maritalStatus": data?.socialHistory?.maritalStatus,
             "sexualOrientation": data?.socialHistory?.sexualOrientation,
             "everHurt": data?.socialHistory?.everHurt,
@@ -216,13 +298,19 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
             "allergies": al,
             "medicationsSuppliments": data.medicationsSuppliments,
             "symptoms": sm,
-            "consultationFee": data.consultationType ? data?.consultationType[0]?.consultationFee : null ,
-            "communication": data.consultationType ? data?.consultationType[0]?.communication : null ,
+            "consultationFee": data.consultationType ? data?.consultationType[0]?.consultationFee : null,
+            "communication": data.consultationType ? data?.consultationType[0]?.communication : null,
             "pictures": data.pictures,
             "videos": data.videos
         }
+
+        console.log("data", d)
+
         reset(d)
     }, [reset, data])
+
+
+
 
 
 
@@ -280,14 +368,16 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
                     </div>
                     <div className='bscontainer'>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <UserInfo  {...{ control, register, watch, errors, mode }} />
+                            <UserInfo  {...{ control, register, watch, errors, mode, data }} />
                             <Category  {...{ control, register, watch, reset, errors, mode, data, setCategoryDate }} />
-                            <History  {...{ control, register, watch, errors, mode, data, setHistory }} />
-                            <Schedule  {...{ control, register, watch, errors, mode, data, setSeduleDate }} />
+                            <History  {...{ control, register, watch, errors, mode, data, setHistory, error }} />
+                            <Schedule  {...{ control, register, watch, errors, mode, data, setSeduleFiles, setSeduleDate }} />
                             <SurgicalHistory  {...{ control, register, watch, errors, mode, data, setDates, imagefile, setSurDate, setImageFile }} />
                             <SocialHistory  {...{ control, register, watch, errors, mode, setStartDate }} />
                             <ConsultationType  {...{ control, register, watch, reset, errors, mode, data, setPicturs, setVideos }} />
-                            <button type="submit" className='p-2 ml-9 mb-7 bg-red-500 hover:bg-green-600 text-white'>Update </button>
+                            {mode !== "view" &&
+                                <button type="submit" className='p-2 ml-9 mb-7 bg-red-500 hover:bg-green-600 text-white'>Update </button>
+                            }
                         </form>
                     </div>
                 </div>

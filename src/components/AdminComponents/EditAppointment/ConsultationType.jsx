@@ -33,8 +33,7 @@ const schema = yup.object({
     // video: yup.mixed().test('required', 'file is Required', value => { return value && value.length }),
 });
 
-const ConsultationType = ({ control, register, watch, errors, mode, reset , data , setPicturs , setVideos}) => {
-
+const ConsultationType = ({ control, register, watch, errors, mode, reset, data, setPicturs, setVideos }) => {
     // const [image, setImage] = useState('')
     // const [video, setVideo] = useState('')
     // const {
@@ -147,9 +146,9 @@ const ConsultationType = ({ control, register, watch, errors, mode, reset , data
             />
 
             <form >
-                <div className='row p-11'>
+                <div className='row px-10 pb-3'>
 
-
+                    <h2 className='text-[20px] font-medium'>Consultation Type</h2>
 
                     <div className='col-lg-6 mb-4 relative'>
                         <label className='block text-sm font-medium mb-1' htmlFor='name'>
@@ -200,7 +199,7 @@ const ConsultationType = ({ control, register, watch, errors, mode, reset , data
                                 className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full -mt-[1px]   ${errors.communication && 'border-red-400'
                                     }`}>
                                 <option value="">Select Communication</option>
-                                <option>chat</option>
+                                <option>{watch('communication')}</option>
 
                             </select>
                         }
@@ -244,7 +243,7 @@ const ConsultationType = ({ control, register, watch, errors, mode, reset , data
                         </label>
                         {mode === "view" ?
                             (
-                                <img src={`${HOSTNAME}${data?.pictures}`} />
+                                data?.pictures ? <img src={`${HOSTNAME}${data?.pictures[0]}`} alt="pic" /> : null
                             )
                             :
                             <div className='relative'>
@@ -267,7 +266,11 @@ const ConsultationType = ({ control, register, watch, errors, mode, reset , data
                         </label>
                         {mode === "view" ?
                             (
-                                <img src={`${HOSTNAME}${data?.videos}`} />
+                                data?.videos ?
+                                    <video controls loop style={{ height: '160px' }}>
+                                        <source src={`${HOSTNAME}${data?.videos[0]}`} type="video/mp4" />
+                                    </video>
+                                    : null
                             )
                             :
                             <div className='relative'>
@@ -285,7 +288,7 @@ const ConsultationType = ({ control, register, watch, errors, mode, reset , data
                         }
                     </div>
 
-                    <Symptoms {...{ register, watch, errors, control }} />
+                    <Symptoms {...{ register, watch, errors, control, mode }} />
                     {
                         mode !== "view" &&
                         <div className="flex justify-between">
@@ -295,50 +298,50 @@ const ConsultationType = ({ control, register, watch, errors, mode, reset , data
                             </button>
                         </div>
                     }
-                    <div className='col-lg-12 mb-4 border '>
+                    <h2 className='text-[20px] font-medium pb-3'>Allergies</h2>
+                    <div className='col-lg-12 mb-4 border mx-2'>
                         <div className='row p-2 '>
                             {
                                 fields.map((item, index) => (
-                                    console.log("items", item),
                                     <>
                                         <div className='col-lg-4 relative'>
                                             <div className=' mt-2 mb-2'>
                                                 <div className="flex items-center">
-                                                    {
-                                                        mode === "view" ?
-                                                            (
-                                                                <p>{watch(`allergies[${index}].name`)}</p>
-                                                            )
-                                                            :
-                                                            <>
-                                                                <input
-                                                                    name={`allergies[${index}].name`}
-                                                                    {...register(`allergies[${index}].name`)}
-                                                                    autoComplete='off'
-                                                                    className={`border p-2  focus:outline-blue-500 rounded-sm  ${errors.allergies?.[index]?.name && 'border-red-400'
-                                                                        }`}
-                                                                    id='name'
-                                                                    placeholder='Allergies'
-                                                                />
+                                                    {mode === "view" ?
+                                                        (<p>{watch(`allergies[${index}].name`)}</p>)
+                                                        :
+                                                        <>
+                                                            <input
+                                                                name={`allergies[${index}].name`}
+                                                                {...register(`allergies[${index}].name`)}
+                                                                autoComplete='off'
+                                                                className={`border p-2  focus:outline-blue-500 rounded-sm  ${errors.allergies?.[index]?.name && 'border-red-400'
+                                                                    }`}
+                                                                id='name'
+                                                                placeholder='Allergies'
+                                                            />
 
-                                                                <div>
-                                                                    {index > 0 &&
-                                                                        <button onClick={() => remove(index)} className='p-2 ml-2  h-[10] bg-red-500 hover:bg-green-600 text-white'>
-                                                                            <MdDelete />
-                                                                        </button>
-                                                                    }
+                                                            <div>
+                                                                {index > 0 &&
+                                                                    <button onClick={() => remove(index)} className='p-2 ml-2  h-[10] bg-red-500 hover:bg-green-600 text-white'>
+                                                                        <MdDelete />
+                                                                    </button>
+                                                                }
 
 
-                                                                </div>
-                                                            </>
+                                                            </div>
+                                                        </>
                                                     }
                                                 </div>
-                                                <span
-                                                    hidden={watch(`allergies[${index}].name`)}
-                                                    className='absolute text-red-400 text-lg font-medium  top-4 left-[95px]'
-                                                >
-                                                    *
-                                                </span>
+                                                {/* {
+                                                    mode !== "view" &&
+                                                    <span
+                                                        hidden={watch(`allergies[${index}].name`)}
+                                                        className='absolute text-red-400 text-lg font-medium  top-4 left-[95px]'
+                                                    >
+                                                        *
+                                                    </span>
+                                                } */}
 
                                                 {errors.allergies?.[index].name && (
                                                     <p className='text-sm text-red-500'>{errors.allergies?.[index].name?.message}</p>

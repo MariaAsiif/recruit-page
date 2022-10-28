@@ -73,11 +73,15 @@ const Category = ({ register, watch, errors, mode, data, reset, setCategoryDate 
       const time = data?.requestDate?.substring(11, 16)
       setquoteDate({ day: +date[2], month: +date[1], year: +date[0] })
       setValue(time)
-      let d = `${quoteDate.year}/${quoteDate.month}/${quoteDate.day}`
-      let t = `${d}${value}`
-      setCategoryDate(t)
+      
     }
   }, [data, reset])
+
+  useEffect(()=>{
+    let d = `${quoteDate.year}/${quoteDate.month}/${quoteDate.day}`
+    let t = `${d}${value}`
+    setCategoryDate(t)
+  },[quoteDate])
 
 
   return (
@@ -94,7 +98,7 @@ const Category = ({ register, watch, errors, mode, data, reset, setCategoryDate 
         pauseOnHover
       />
       {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-      <div className='row p-10'>
+      <div className='row px-10'>
 
         <h2 className='text-[18px] mb-2 font-medium'>Category</h2>
 
@@ -193,7 +197,7 @@ const Category = ({ register, watch, errors, mode, data, reset, setCategoryDate 
           <label className='block text-sm font-medium mb-1' htmlFor='quote'>
             Problem
           </label>
-          {mode === "view" &&
+          {mode !== "view" &&
             <div className='absolute right-5 top-10'>
               {!errors.reasonOfCurrentVisit && watch('reasonOfCurrentVisit') ? (
                 <FcCheckmark />

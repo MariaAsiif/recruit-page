@@ -30,16 +30,23 @@ const Category = ({ handleNext, handleBack, data, updateState }) => {
   });
 
   let current = new Date();
-  const [value, setValue] = useState("")
-  let time = current.toLocaleTimeString();
+  const [value, setValue] = useState('08:06:03 AM');
+
 
 
   useEffect(() => {
-    setValue(time)
-  }, [value])
+    let time = current.toLocaleTimeString();
+    const t = time?.substring(0, 1)
+    if (t < 10) {
+      let n = `0${time}`
+      console.log("default time ", n)
+      setValue(n)
+    }
+    else {
+      setValue(time)
 
-
-
+    }
+  }, [])
   const {
     register,
     watch,
@@ -92,7 +99,6 @@ const Category = ({ handleNext, handleBack, data, updateState }) => {
       reset(data);
       const date = moment(data?.requestDate).format('yyyy-M-D').split('-')
       const time = data?.requestDate?.substring(11, 18)
-      console.log("time is here " , time )
       setquoteDate({ day: +date[2], month: +date[1], year: +date[0] })
       setValue(time)
     }

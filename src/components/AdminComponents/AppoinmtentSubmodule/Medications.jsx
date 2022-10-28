@@ -13,6 +13,8 @@ const Medications = ({ control, register, watch, errors, setImageFile, imagefile
         name: "medicationsSuppliments"
     });
 
+    const [fileError, setFileError] = useState('')
+
     // const [toggle, setToggle] = useState([{
     //     takingNow: true,
     //     isSurgeyDone: true
@@ -36,19 +38,25 @@ const Medications = ({ control, register, watch, errors, setImageFile, imagefile
             let file = e.target.files[0]
             let formData = new FormData();
             formData.append('prescription', file)
-            let res = await callApi('/appointmentrequests/uploadMedicinePrescription', "post", formData)
-            if (res.status === "Success") {
-                console.log("Res", res)
-                toast.success(res.message);
-                for (let i = 0; i < imagefile.length; i++) {
-                    const el = imagefile[i]
-                    let d = el = res?.data
-                    setImageFile(d)
-                }
+            var re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png|\.pdf)$/i;
+            if (!re.exec(file.name)) {
+                toast.error("Only Pdf file and image allowed");
+                // setError('Only Pdf file are allowed')
+
             }
             else {
-                toast.error(res.message);
+                let res = await callApi('/appointmentrequests/uploadMedicinePrescription', "post", formData)
+                if (res.status === "Success") {
+                    console.log("Res", res)
+                    toast.success(res.message);
+                    for (let i = 0; i < imagefile.length; i++) {
+                        setImageFile(imagefile[i] = res?.data)
+                    }
+                }
+                else {
+                    toast.error(res.message);
 
+                }
             }
         }
         catch (err) {
@@ -58,7 +66,7 @@ const Medications = ({ control, register, watch, errors, setImageFile, imagefile
 
 
 
-
+    let re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png|)$/i;
 
     return (
         <div className='row'>
@@ -85,15 +93,17 @@ const Medications = ({ control, register, watch, errors, setImageFile, imagefile
                             <label className='block mb-1 text-sm font-medium' htmlFor='name'>
                                 Medicine{' '}
                             </label>
-                            <div className='absolute right-5 top-10'>
-                                {!errors.medicationsSuppliments?.[index]?.medicine && watch(`medicationsSuppliments[${index}].medicine`) ? (
-                                    <FcCheckmark />
-                                ) : errors.medicationsSuppliments?.[index]?.medicine ? (
-                                    <div className='text-red-500 '>
-                                        <MdClose />
-                                    </div>
-                                ) : null}
-                            </div>
+                            {mode !== "view" &&
+                                <div className='absolute right-5 top-10'>
+                                    {!errors.medicationsSuppliments?.[index]?.medicine && watch(`medicationsSuppliments[${index}].medicine`) ? (
+                                        <FcCheckmark />
+                                    ) : errors.medicationsSuppliments?.[index]?.medicine ? (
+                                        <div className='text-red-500 '>
+                                            <MdClose />
+                                        </div>
+                                    ) : null}
+                                </div>
+                            }
                             {/* <input
                                 {...register('me')}
                                 autoComplete='off'
@@ -138,7 +148,7 @@ const Medications = ({ control, register, watch, errors, setImageFile, imagefile
                             <label className='block mb-1 text-sm font-medium' htmlFor='name'>
                                 Dosage
                             </label>
-                            {mode === "view" &&
+                            {mode !== "view" &&
                                 <div className='absolute right-5 top-10'>
                                     {!errors.medicationsSuppliments?.[index]?.dosage && watch('dosage') ? (
                                         <FcCheckmark />
@@ -213,7 +223,7 @@ const Medications = ({ control, register, watch, errors, setImageFile, imagefile
                                             {...register(`medicationsSuppliments[${index}].takingNow`)}
                                             id={`${index}default-toggles`}
                                             disabled={mode === "view" ? true : false}
-                                            class="sr-only peer"
+                                            className="sr-only peer"
                                         />
                                         <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                                         <div className='text-sm text-slate-400 italic ml-2'>
@@ -274,7 +284,7 @@ const Medications = ({ control, register, watch, errors, setImageFile, imagefile
                             <label className='block mb-1 text-sm font-medium' htmlFor='name'>
                                 Times Of Medicine
                             </label>
-                            {mode === "view" &&
+                            {mode !== "view" &&
                                 <div className='absolute right-5 top-10'>
                                     {!errors.medicationsSuppliments?.[index]?.timesOfMedicine && watch(`medicationsSuppliments[${index}].timesOfMedicine`) ? (
                                         <FcCheckmark />
@@ -317,17 +327,35 @@ const Medications = ({ control, register, watch, errors, setImageFile, imagefile
                                 {
                                     mode === "view" ?
                                         (
-                                            <img src={`${HOSTNAME}${data?.prescriptionFile}`} />
+                                            re.exec(data?.prescriptionFile) ?
+                                                <img src={`${HOSTNAME}${data?.prescriptionFile}`} />
+                                                :
+                                                <a href={`${HOSTNAME}${data?.prescriptionFile}`} without rel="noopener noreferrer" target="_blank">
+                                                    <button trailingIcon="picture_as_pdf" label="Resume">
+                                                        Pdf
+                                                    </button>
+                                                </a>
                                         )
                                         :
                                         <>
-                                            <input
-                                                type="file"
-                                                onChange={(e) => handleFile(e , index )}
-                                                className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  `}
-                                            />
+                                            <div className='flex flex-col'>
+                                                <input
+                                                    type="file"
+                                                    onChange={(e) => handleFile(e, index)}
+                                                    className={`border p-[5px] focus:outline-blue-500 rounded-sm w-full  ${fileError && 'border-red-500'
+                                                        }`}
+                                                />
+                                                {fileError !== "" ? (
+                                                    <p className='text-red-500 text-sm'>{fileError}</p>
+                                                )
+                                                    : (
+                                                        <p className='text-red-500 text-sm'>Pdf, jpg, png file uploaded</p>
+
+                                                    )
+                                                }
+                                            </div>
                                             {index > 0 &&
-                                                <button onClick={() => remove(index)} className='p-2 ml-2 text-white bg-red-500 hover:bg-green-600'>
+                                                <button onClick={() => remove(index)} className='p-2 -mt-[5px] ml-2 text-white bg-red-500 hover:bg-green-600'>
                                                     <MdDelete />
                                                 </button>
                                             }

@@ -37,6 +37,8 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
 
     const [image, setImage] = useState('')
     const [video, setVideo] = useState('')
+    const [error, setError] = useState({ img: "", vido: "" })
+
     const {
         register,
         watch,
@@ -55,33 +57,49 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
         try {
             if (type === "image") {
                 let file = e.target.files[0]
-                let formData = new FormData();
-                formData.append('pictures', file)
-                let res = await callApi('/appointmentrequests/uploadMedicalImages', "post", formData)
-                if (res.status === "Success") {
-                    console.log("Res", res)
-                    toast.success(res.message);
-                    setImage(res?.data)
+                var re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png|\.pdf)$/i;
+                if (!re.exec(file.name)) {
+                    toast.error("Only Pdf file and image allowed");
+                    // setError('Only Pdf file are allowed')
+
                 }
                 else {
-                    toast.error(res.message);
+                    let formData = new FormData();
+                    formData.append('pictures', file)
+                    let res = await callApi('/appointmentrequests/uploadMedicalImages', "post", formData)
+                    if (res.status === "Success") {
+                        console.log("Res", res)
+                        toast.success(res.message);
+                        setImage(res?.data)
+                    }
+                    else {
+                        toast.error(res.message);
 
+                    }
                 }
             }
             else {
                 let file = e.target.files[0]
-                let formData = new FormData();
-                formData.append('videos', file)
+                var re = /(\.mp4)$/i;
+                if (!re.exec(file.name)) {
+                    toast.error("Only video file are allowed");
+                    // setError('Only Pdf file are allowed')
 
-                let res = await callApi('/appointmentrequests/uploadMedicalVideos', "post", formData)
-                if (res.status === "Success") {
-                    console.log("Res", res)
-                    toast.success(res.message);
-                    setVideo(res?.data)
                 }
                 else {
-                    toast.error(res.message);
+                    let formData = new FormData();
+                    formData.append('videos', file)
 
+                    let res = await callApi('/appointmentrequests/uploadMedicalVideos', "post", formData)
+                    if (res.status === "Success") {
+                        console.log("Res", res)
+                        toast.success(res.message);
+                        setVideo(res?.data)
+                    }
+                    else {
+                        toast.error(res.message);
+
+                    }
                 }
             }
 
@@ -111,18 +129,27 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
 
         }
 
-    
-
-        let payload = {
-            allergies: al,
-            symptoms: sm,
-            consultationFee: values.consultationFee,
-            communication: values.communication,
-            pictures: image,
-            videos: video
+        if (image === "") {
+            setError((prev) => ({ img: "File is required" }))
         }
-        updateState(payload)
-        handleNext()
+        else if (video === "") {
+            setError((prev) => ({ vido: "Video is required" }))
+
+        }
+        else {
+
+
+            let payload = {
+                allergies: al,
+                symptoms: sm,
+                consultationFee: values.consultationFee,
+                communication: values.communication,
+                pictures: image,
+                videos: video
+            }
+            updateState(payload)
+            handleNext()
+        }
     };
 
     useEffect(() => {
@@ -235,12 +262,18 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
                             <input
                                 type="file"
                                 onChange={(e) => handleFile(e, 'image')}
-                                className={`border p-2 focus:outline-blue-500 rounded-sm w-full  `}
+                                className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${error.img && 'border-red-500'
+                                    }`}
                             />
 
-                            {/* {errors.image && (
-                                <p className='text-red-500 text-sm'>{errors.image.message}</p>
-                            )} */}
+                            {error.img !== "" ? (
+                                <p className='text-red-500 text-sm'>{error.img}</p>
+                            )
+                                : (
+                                    <p className='text-red-500 text-sm'>Pdf, jpg, png file uploaded</p>
+
+                                )
+                            }
 
                         </div>
                     </div>
@@ -253,12 +286,18 @@ const ConsultationType = ({ handleNext, handleBack, updateState, data }) => {
                                 // {...register('')}
                                 type="file"
                                 onChange={(e) => handleFile(e, "video")}
-                                className={`border p-2 focus:outline-blue-500 rounded-sm w-full  `}
+                                className={`border p-2 focus:outline-blue-500 rounded-sm w-full ${error.vido && 'border-red-500'
+                                    }`}
                             />
 
-                            {/* {errors.video && (
-                                <p className='text-red-500 text-sm'>{errors.video.message}</p>
-                            )} */}
+                            {error.vido !== "" ? (
+                                <p className='text-red-500 text-sm'>{error.vido}</p>
+                            )
+                                : (
+                                    <p className='text-red-500 text-sm'>Video File 5MB only allow</p>
+
+                                )
+                            }
                         </div>
                     </div>
 

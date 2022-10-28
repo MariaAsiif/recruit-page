@@ -11,7 +11,7 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { callApi } from '../../../utils/CallApi';
 
-const UserInfo = ({ control, register, watch, errors, mode }) => {
+const UserInfo = ({ control, register, watch, errors, mode, data }) => {
   const [users, setUsers] = useState([])
 
 
@@ -70,7 +70,7 @@ const UserInfo = ({ control, register, watch, errors, mode }) => {
           </label>
           {mode === "view" ?
             <p>
-              {users.filter((item) => item._id === watch('customer'))}
+             { data?.customer?.user?.first_name}
             </p>
             :
             <select {...register('customer')} className={`mt-[2px] pt-1 pb-1 h-[65%] border focus:outline-blue-500 rounded-sm w-full  ${errors.customer && 'border-red-400'

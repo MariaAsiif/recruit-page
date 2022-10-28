@@ -16,13 +16,13 @@ import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 
 // });
 
-const History = ({ register, watch, errors, mode , data , setHistory  }) => {
+const History = ({ register, watch, errors, mode, data, setHistory , error }) => {
 
   const [companySetting, setCompanySetting] = useState(true);
   // const [file, setFile] = useState("");
   const [allDisease, setallDisease] = useState([])
-
-
+  let d = allDisease.find((item) => item.name === watch('disease')?.diseaseName)
+  console.log("watches", d)
 
   const handleFile = async (e) => {
     try {
@@ -88,8 +88,8 @@ const History = ({ register, watch, errors, mode , data , setHistory  }) => {
       />
 
       {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-      <div className='row p-11'>
-
+      <div className='row px-10'>
+        <h2 className="text-[20px] font-medium mb-3">Medical History</h2>
         <div className='col-lg-4 mb-4 relative'>
           <label className='block text-sm font-medium mb-1' htmlFor='name'>
             Disease
@@ -149,21 +149,27 @@ const History = ({ register, watch, errors, mode , data , setHistory  }) => {
           </label>
           <div className='relative'>
             {mode === "view" ?
-              <img src={`${HOSTNAME}${watch(data?.medicalFiles)}`} />
+              <img src={`${HOSTNAME}${data?.medicalFiles}`} />
               :
               <input
                 type="file"
                 // {...register('image')}
                 onChange={(e) => handleFile(e)}
-                className={`border p-1 focus:outline-blue-500 rounded-sm w-full  ${'border-red-500'
+                className={`border p-1 focus:outline-blue-500 rounded-sm w-full  ${error && 'border-red-500'
                   }`}
 
               />
             }
 
-            {/* {errors.image && (
-                <p className='text-red-500 text-sm'>{errors.image.message}</p>
-              )} */}
+            {error !== "" ? (
+              <p className='text-red-500 text-sm'>{error}</p>
+            )
+              :
+              (
+                <p className='text-red-500 text-sm'>Pdf, jpg, png  allow</p>
+              )
+
+            }
           </div>
         </div>
 
@@ -176,7 +182,7 @@ const History = ({ register, watch, errors, mode , data , setHistory  }) => {
           <label className='block text-sm font-medium mb-1' htmlFor='quote'>
             Description
           </label>
-          {mode === "view" &&
+          {mode !== "view" &&
             <div className='absolute right-5 top-10'>
               {!errors.desc && watch('desc') ? (
                 <FcCheckmark />
@@ -189,7 +195,7 @@ const History = ({ register, watch, errors, mode , data , setHistory  }) => {
           }
           {mode === "view" ?
             <p>
-              {watch('description')}
+              {data?.medicalHistory?.description}
             </p>
             :
 

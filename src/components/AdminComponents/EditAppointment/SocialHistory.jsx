@@ -115,7 +115,7 @@ const SocialHistory = ({ control, register, watch, errors, mode, data, setStartD
       end: endDate,
       last: quoteDate
     })
-  }, [startDate , endDate , quoteDate ])
+  }, [startDate, endDate, quoteDate])
 
   // ****************** Datepicker Content ***********
   const renderCustomInputStart = ({ ref }, index) => (
@@ -210,6 +210,8 @@ const SocialHistory = ({ control, register, watch, errors, mode, data, setStartD
       {/* <form onSubmit={handleSubmit(onSubmit)}> */}
       <div className='row p-11'>
 
+        <h2 className='font-medium text-[20px] pb-3'>Social History</h2>
+
         {mode !== "view" &&
           <div className='flex'>
             <div className='col-lg-12 flex items-center justify-between '>
@@ -244,7 +246,7 @@ const SocialHistory = ({ control, register, watch, errors, mode, data, setStartD
                 {
                   mode === "view" ?
                     (
-                      <p>{watch('addictionName')}</p>
+                      <p>{watch(`addictions[${index}].addictionName`)}</p>
                     )
                     :
                     <>
@@ -290,7 +292,7 @@ const SocialHistory = ({ control, register, watch, errors, mode, data, setStartD
                 {
                   mode === "view" ?
                     (
-                      <p>{watch('addictionName')}</p>
+                      <p>{watch(`addictions[${index}].howLongUsed`)}</p>
                     )
                     :
                     <>
@@ -361,7 +363,7 @@ const SocialHistory = ({ control, register, watch, errors, mode, data, setStartD
                 {
                   mode === "view" ?
                     (<p>
-                      {watch(`${startDate[index].year}/${startDate[index].month}/${startDate[index].day}`)}
+                      {watch(`addictions[${index}].whenStarted`)}
                     </p>)
                     :
                     <div className='relative flex items-center'>
@@ -385,7 +387,7 @@ const SocialHistory = ({ control, register, watch, errors, mode, data, setStartD
                 {
                   mode === "view" ?
                     (<p>
-                      {watch(`${endDate[index].year}/${endDate[index].month}/${endDate[index].day}`)}
+                      {watch(`addictions[${index}].whenQuited`)}
                     </p>)
                     :
                     <div className='relative flex items-center'>
@@ -756,7 +758,7 @@ const SocialHistory = ({ control, register, watch, errors, mode, data, setStartD
           {
             mode === "view" ?
               (<p>
-                {watch(`${quoteDate.year}/${quoteDate.month}/${quoteDate.day}`)}
+                {watch('lastMenstrualDate')}
               </p>)
               :
 

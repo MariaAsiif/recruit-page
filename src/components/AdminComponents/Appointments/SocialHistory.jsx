@@ -62,7 +62,7 @@ const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
 
   let defaultValue = { addictionName: "", everUsed: "", howLongUsed: "", whenStarted: "", whenQuited: "", description: "", lastTimeUsed: "" }
 
-  const marital = ["single", "married" , "partner", "widowed", "divorced"]
+  const marital = ["single", "married", "partner", "widowed", "divorced"]
   const sex = ["hetrosexual", "homosexual", "bisexual", "transsexual"]
 
   const {
@@ -185,11 +185,11 @@ const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
     }
 
 
-    console.log("values " , values )
+    console.log("values ", values)
     let updatedquoteDate = `${quoteDate.year}-${quoteDate.month}-${quoteDate.day}`;
     let payload = {
       ...values,
-      lastMenstrualDate : updatedquoteDate,
+      lastMenstrualDate: updatedquoteDate,
       hurt,
       carrier,
       excise,
@@ -213,6 +213,12 @@ const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
       setEnd({ day: +dateEnd[2], month: +dateEnd[1], year: +dateEnd[0] })
       const datelast = moment(data?.whenQuited).format('yyyy-M-D').split('-')
       setquoteDate({ day: +datelast[2], month: +datelast[1], year: +datelast[0] })
+      setHurt(data?.socialHistory?.everHurt)
+      setcarrier(data?.socialHistory?.needCarrier)
+      setexcise(data?.socialHistory?.exercise)
+      setpregnet(data?.socialHistory?.pregnant)
+      setfeeding(data?.socialHistory?.breastFeeding)
+      setinjury(data?.socialHistory?.deliveryInjury)
       reset(data)
     }
   }, [reset, data])

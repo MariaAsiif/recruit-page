@@ -6,7 +6,7 @@ import { BsFillPlusCircleFill } from 'react-icons/bs';
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import { useEffect } from 'react';
-export default function Surgical({ control, register, watch, errors, setDates, mode , }) {
+export default function Surgical({ control, register, watch, errors, setDates, mode, }) {
 
 
     var today = new Date();
@@ -108,7 +108,7 @@ export default function Surgical({ control, register, watch, errors, setDates, m
                             <label className='block mb-1 text-sm font-medium' htmlFor='name'>
                                 Operation Name{' '}
                             </label>
-                            {mode === "view" &&
+                            {mode !== "view" &&
                                 <div className='absolute right-5 top-10'>
                                     {!errors.operationType?.[index]?.operationName && watch(`operationType[${index}].operationName`) ? (
                                         <FcCheckmark />
@@ -151,15 +151,17 @@ export default function Surgical({ control, register, watch, errors, setDates, m
                                 Past Operations
                             </label>
 
-                            <div className='absolute right-5 top-10'>
-                                {!errors.operationType?.[index]?.operationResult && watch(`operationType[${index}].operationResult`) ? (
-                                    <FcCheckmark />
-                                ) : errors.operationType?.[index]?.operationResult ? (
-                                    <div className='text-red-500 '>
-                                        <MdClose />
-                                    </div>
-                                ) : null}
-                            </div>
+                            {mode !== "view" &&
+                                <div className='absolute right-5 top-10'>
+                                    {!errors.operationType?.[index]?.operationResult && watch(`operationType[${index}].operationResult`) ? (
+                                        <FcCheckmark />
+                                    ) : errors.operationType?.[index]?.operationResult ? (
+                                        <div className='text-red-500 '>
+                                            <MdClose />
+                                        </div>
+                                    ) : null}
+                                </div>
+                            }
                             {mode === "view" ?
                                 (<p>{watch(`operationType[${index}].operationResult`)}</p>)
                                 :
@@ -197,19 +199,26 @@ export default function Surgical({ control, register, watch, errors, setDates, m
                                 Operation Date
                             </label>
                             <div className='relative flex items-center'>
-                                <DatePicker
-                                    value={dynamic[index]}
-                                    name='dynamic'
-                                    onChange={(date) => handleChangeDate(date, index)}
-                                    renderInput={(ref) => renderCustomInput(ref, index)} // render a custom input
-                                    shouldHighlightWeekends
-                                    calendarPopperPosition='bottom'
-                                />
-                                {
-                                    index > 0 &&
-                                    <button onClick={() => remove(index)} className='p-2 ml-2 text-white bg-red-500 hover:bg-green-600'>
-                                        <MdDelete />
-                                    </button>
+                                {mode === "view" ?
+                                    (<p>{watch(`operationType[${index}].operationDate`)}</p>)
+                                    :
+                                    <>
+                                        <DatePicker
+                                            value={dynamic[index]}
+                                            name='dynamic'
+                                            onChange={(date) => handleChangeDate(date, index)}
+                                            renderInput={(ref) => renderCustomInput(ref, index)} // render a custom input
+                                            shouldHighlightWeekends
+                                            calendarPopperPosition='bottom'
+                                        />
+                                        {
+                                            index > 0 &&
+                                            <button onClick={() => remove(index)} className='p-2 ml-2 text-white bg-red-500 hover:bg-green-600'>
+                                                <MdDelete />
+                                            </button>
+
+                                        }
+                                    </>
                                 }
                             </div>
                         </div>

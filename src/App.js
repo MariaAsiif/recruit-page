@@ -112,6 +112,7 @@ import MedicalLandingPage from './Pages/Medical/LandingPage';
 import Invoice from './components/NewDashboardComponents/Invoice';
 import NewFaqs from './components/NewDashboardComponents/NewFaqs';
 import SingleGig from './components/NewDashboardComponents/SingleGig';
+import Landingpage from './Pages/EcomePages/Landing/Landingpage';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -154,9 +155,6 @@ function App() {
         <Route path='/newdashboard' element={<NewDashboardPage />} />
         {/* Recuit Pages  */}
         <Route path="/Home" element={<HomePage />} />
-        <Route path="/das" element={<DasSignupPage />} />
-        {/* <Route path="/das-signup" element={<DASAccountSignup />} /> */}
-        <Route path="/das-signin" element={<DasSignInPage />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/verify" element={<Verify />} />
@@ -172,6 +170,13 @@ function App() {
           <Route path="notification" element={<Notification />} />
           <Route path="notification-detail" element={<NotificationDetail />} />
         </Route>
+        {/* Das pages  */}
+        <Route path="/das" element={<DasSignupPage />} />
+        {/* <Route path="/das-signup" element={<DASAccountSignup />} /> */}
+        <Route path="/das-signin" element={<DasSignInPage />} />
+
+
+        {/* New Dashboard */}
 
         <Route path="/newdashboard" element={<NewDashboardPage />} >
           <Route index element={<NewDashboard />} />
@@ -191,7 +196,9 @@ function App() {
         {/* Medical and Customer Module */}
         <Route path="/medical" element={<MedicalLandingPage />}></Route>
 
+        {/* E-commerace landing page  */}
 
+        <Route path="/e-landing" element={<Landingpage />} />
 
 
         {/* Admin Dashboard */}
@@ -224,7 +231,7 @@ function App() {
           <Route path='create-appointment' element={<CreateAppointment />} />
         </Route>
 
-        <Route
+        {/* <Route
           path='/customer'
           element={
             <RequireAuth>
@@ -234,7 +241,7 @@ function App() {
         >
           <Route index element={<AllCustomers />} />
           <Route path='create-customer' element={<CreateCustomer />} />
-        </Route>
+        </Route> */}
 
         <Route
           path='/ecome/'

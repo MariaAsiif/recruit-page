@@ -98,12 +98,12 @@ const Schedule = ({ handleNext, handleBack, updateState, data }) => {
       let file = e.target.files[0]
       var re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png|\.pdf)$/i;
       if (type === "file") {
-        // if (!re.exec(file.name)) {
-        //   toast.error("Only Pdf file and image allowed");
-        //   // setError('Only Pdf file are allowed')
+        if (!re.exec(file.name)) {
+          toast.error("Only Pdf file and image allowed");
+          // setError('Only Pdf file are allowed')
 
-        // }
-        // else {
+        }
+        else {
           let formData = new FormData();
           formData.append('prescription', file)
           let res = await callApi('/appointmentrequests/uploadMedicinePrescription', "post", formData)
@@ -114,17 +114,17 @@ const Schedule = ({ handleNext, handleBack, updateState, data }) => {
           else {
             toast.error(res.message);
 
-          // }
+          }
         }
       }
 
       else {
-        // if (!re.exec(file.name)) {
-        //   toast.error("Only Pdf file and image allowed");
-        //   // setError('Only Pdf file are allowed')
+        if (!re.exec(file.name)) {
+          toast.error("Only Pdf file and image allowed");
+          // setError('Only Pdf file are allowed')
 
-        // }
-        // else {
+        }
+        else {
           let file = e.target.files[0]
           let formData = new FormData();
           formData.append('prescription', file)
@@ -137,7 +137,7 @@ const Schedule = ({ handleNext, handleBack, updateState, data }) => {
             toast.error(res.message);
 
           }
-        // }
+        }
       }
 
     } catch (error) {
@@ -160,20 +160,20 @@ const Schedule = ({ handleNext, handleBack, updateState, data }) => {
       file,
       report
     }
-    // if (file !== "") {
-    //   setFileError("File are required")
+    if (file === "") {
+      setFileError("File are required")
 
-    // }
+    }
 
-    // else if (report !== "") {
-    //   setReportError("Report are required")
+    else if (report === "") {
+      setReportError("Report are required")
 
-    // }
+    }
 
-    // else {
+    else {
       updateState(payload)
       handleNext()
-    // }
+    }
   };
 
 

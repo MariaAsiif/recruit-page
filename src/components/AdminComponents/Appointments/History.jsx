@@ -114,6 +114,7 @@ const History = ({ handleNext, handleBack, data, updateState }) => {
 
   useEffect(() => {
     if (data?.disease) {
+      setCompanySetting(data?.positive)
       reset(data)
     }
   }, [reset, data])
@@ -165,16 +166,16 @@ const History = ({ handleNext, handleBack, data, updateState }) => {
               </div>
               <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+                <label for="default-toggles" class="inline-flex relative items-center cursor-pointer">
                   <input type="checkbox"
                     checked={companySetting}
                     onChange={() => setCompanySetting(!companySetting)}
-                    id="default-toggle"
+                    id="default-toggles"
                     class="sr-only peer"
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                   <div className='text-sm text-slate-400 italic ml-2'>
-                    {companySetting ? 'Positive' : 'Negative'}
+                    {companySetting ? 'True' : 'False'}
                   </div>
                 </label>
 
@@ -201,11 +202,11 @@ const History = ({ handleNext, handleBack, data, updateState }) => {
               {error !== "" ? (
                 <p className='text-red-500 text-sm'>{error}</p>
               )
-              :
-              (
-                <p className='text-red-500 text-sm'>Pdf, jpg, png  allow</p>
-              )
-               
+                :
+                (
+                  <p className='text-red-500 text-sm'>Pdf, jpg, png  allow</p>
+                )
+
               }
             </div>
           </div>

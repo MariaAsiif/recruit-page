@@ -16,19 +16,19 @@ import { callApi, HOSTNAME } from '../../../utils/CallApi';
 import { toast, ToastContainer } from 'react-toastify';
 
 const schema = yup.object({
-  name: yup.string().required('Doctor Name is Required'),
-  special: yup.string().required('Specialization is Required'),
-  link: yup.string().required('Profile link is Required'),
-  // quote: yup.string().required('Quotation is Required'),
-  familyDiseases: yup
-    .array()
-    .of(
-      yup.object({
-        description: yup.string().required(),
+  // name: yup.string().required('Doctor Name is Required'),
+  // special: yup.string().required('Specialization is Required'),
+  // link: yup.string().required('Profile link is Required'),
+  // // quote: yup.string().required('Quotation is Required'),
+  // familyDiseases: yup
+  //   .array()
+  //   .of(
+  //     yup.object({
+  //       description: yup.string().required(),
 
-      })
-    )
-    .required(),
+  //     })
+  //   )
+  //   .required(),
   // prs: yup.mixed().test('required ', "File is required", value => {
   //   return value && value.length
   // }),
@@ -38,7 +38,7 @@ const schema = yup.object({
 
 });
 
-const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleDate, data }) => {
+const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleFiles, data, setSeduleDate }) => {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -79,6 +79,8 @@ const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleDate
         <FcCheckmark />{' '}
       </div>
     </div>
+
+
   );
 
 
@@ -91,7 +93,7 @@ const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleDate
         let res = await callApi('/appointmentrequests/uploadMedicinePrescription', "post", formData)
         if (res.status === "Success") {
           toast.success(res.message);
-          setSeduleDate((prev)=>({ ...prev ,  file : res?.data}))
+          setSeduleFiles((prev) => ({ ...prev, file: res?.data }))
         }
         else {
           toast.error(res.message);
@@ -105,7 +107,7 @@ const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleDate
         let res = await callApi('/appointmentrequests/uploadMedicinePrescription', "post", formData)
         if (res.status === "Success") {
           toast.success(res.message);
-          setSeduleDate((prev)=>({ ...prev ,  report : res?.data}))
+          setSeduleFiles((prev) => ({ ...prev, report: res?.data }))
         }
         else {
           toast.error(res.message);
@@ -133,6 +135,12 @@ const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleDate
     }
   }, [data, reset])
 
+
+  useEffect(() => {
+    let d = `${quoteDate.year}/${quoteDate.month}/${quoteDate.day}`
+    setSeduleDate(d)
+  }, [quoteDate])
+
   return (
     <div>
       <ToastContainer
@@ -147,7 +155,8 @@ const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleDate
         pauseOnHover
       />
       {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-      <div className='row p-11'>
+      <div className='row px-10'>
+        <h2 className='font-medium text-[20px] pb-3'>Prvious Consulatation</h2>
         <div className='col-lg-4 mb-4 relative'>
           <label className='block text-sm font-medium mb-1' htmlFor='name'>
             Doctor Name{' '}
@@ -262,27 +271,29 @@ const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleDate
           <label className='block text-sm font-medium mb-1' htmlFor='link'>
             Profile Link
           </label>
-          <div className='absolute right-5 top-10'>
-            {!errors.link && watch('link') ? (
-              <FcCheckmark />
-            ) : errors.link ? (
-              <div className=' text-red-500'>
-                <MdClose />
-              </div>
-            ) : null}
-          </div>
+          {mode !== "view" &&
+            <div className='absolute right-5 top-10'>
+              {!errors.profileLink && watch('profileLink') ? (
+                <FcCheckmark />
+              ) : errors.profileLink ? (
+                <div className=' text-red-500'>
+                  <MdClose />
+                </div>
+              ) : null}
+            </div>
+          }
 
           {mode === "view" ?
             (
-              <p>{watch('link')}</p>
+              <p>{watch('profileLink')}</p>
             )
             :
             <input type="text"
-              {...register('link')}
+              {...register('profileLink')}
               autoComplete='off'
-              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.link && 'border-red-500'
+              className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.profileLink && 'border-red-500'
                 }`}
-              name='link'
+              name='profileLink'
               id='link'
               placeholder='profile Link'
               cols='20'
@@ -290,8 +301,8 @@ const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleDate
           }
           {/* <span hidden={watch('quot')} className='absolute text-red-400 text-sm font-medium  top-9 left-[170px]'>(optional)</span> */}
 
-          {errors.link && (
-            <p className='text-red-500 text-sm'>{errors.link.message}</p>
+          {errors.profileLink && (
+            <p className='text-red-500 text-sm'>{errors.profileLink.message}</p>
           )}
         </div>
         <div className='col-lg-4 mb-4 '>
@@ -302,7 +313,7 @@ const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleDate
 
             {mode === "view" ?
               (
-                <img src={`${HOSTNAME}${data.drPrescription}`} />
+                data.drPrescription ?  <img src={`${HOSTNAME}${data.drPrescription}`} /> : null 
               )
               :
               <input
@@ -321,7 +332,7 @@ const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleDate
           <div className='relative'>
             {mode === "view" ?
               (
-                <img src={`${HOSTNAME}${data.medicalReports}`} />
+                data.medicalReports ?  <img src={`${HOSTNAME}${data.medicalReports[0]}`} /> :  null 
               )
               :
 
@@ -335,9 +346,11 @@ const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleDate
         </div>
         <div className="flex justify-between">
           <h2 className='mb-3 font-medium'>Family Diseases</h2>
-          <button type="button" onClick={() => append({ description: "" })} className='p-2 mb-3 flex items-center bg-red-500 hover:bg-green-600 text-white'>
-            Add <BsPlusCircle className='ml-2' />
-          </button>
+          {mode !== "view" &&
+            <button type="button" onClick={() => append({ description: "" })} className='p-2 mb-3 flex items-center bg-red-500 hover:bg-green-600 text-white'>
+              Add <BsPlusCircle className='ml-2' />
+            </button>
+          }
         </div>
         <div className='col-lg-12 mb-4 border '>
           <div className='row p-2 '>
@@ -349,7 +362,7 @@ const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleDate
                       <div className="flex items-center">
                         {mode === "view" ?
                           (
-                            <p>{ watch(`familyDiseases[${index}].description`) }</p>
+                            <p>{watch(`familyDiseases[${index}].description`)}</p>
                           )
                           :
                           <>

@@ -24,7 +24,7 @@ const schema = yup.object({
       })
     )
     .required(),
-    medicationsSuppliments: yup
+  medicationsSuppliments: yup
     .array()
     .of(
       yup.object({
@@ -40,7 +40,7 @@ const schema = yup.object({
 
 
 
-const SurgicalHistory = ({ control, register, watch, errors , mode , data , setDates , imagefile ,  setImageFile , setSurDate}) => {
+const SurgicalHistory = ({ control, register, watch, errors, mode, data, setDates, imagefile, setImageFile, setSurDate }) => {
 
 
   // const {
@@ -96,16 +96,17 @@ const SurgicalHistory = ({ control, register, watch, errors , mode , data , setD
       />
 
       {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-        <div className='row p-11'>
+      <div className='row px-10'>
+
+        <h2 className='font-medium text-[20px] pb-3'>Surgical</h2>
+        <Surgical {...{ control, register, watch, errors, setDates, mode, setSurDate, }} />
+
+        <h2 className='font-medium text-[20px] pb-3'>Medication</h2>
+        <Medications {...{ control, register, watch, errors, imagefile, setImageFile, mode, data }} />
 
 
-          <Surgical {...{ control, register, watch, errors, setDates , mode  , setSurDate,  }} />
 
-          <Medications {...{ control, register, watch, errors, imagefile,  setImageFile , mode , data   }} />
-
-
-         
-        </div>
+      </div>
       {/* </form> */}
     </div>
   );
