@@ -943,3 +943,30 @@ video {
   width: 4px;
   height: 4px;
 }
+
+
+.gigwrapper {
+  height: 300px;
+  /* margin: 0px 18px; */
+  position: relative;
+  border-radius: 0.5rem;
+  /* box-shadow: 0 0 12px -5px rgba(0, 0, 0, 0.75); */
+}
+
+.gig_dots {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.gig_dots li {
+  display: inline-block;
+  flex-grow: 1;
+  width: 20%;
+  /* margin: 0 5px; */
+  padding: 0;
+  cursor: pointer;
+}

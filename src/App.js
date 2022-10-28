@@ -110,9 +110,13 @@ import TableComponent from './components/GlobalComponents/table';
 import OrderList from './components/NewDashboardComponents/OrderList';
 import MedicalLandingPage from './Pages/Medical/LandingPage';
 import Invoice from './components/NewDashboardComponents/Invoice';
+
+import Sidebar from './Pages/Medical/Layout/Sidebar';
+
 import NewFaqs from './components/NewDashboardComponents/NewFaqs';
 import SingleGig from './components/NewDashboardComponents/SingleGig';
 import Landingpage from './Pages/EcomePages/Landing/Landingpage';
+
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -194,7 +198,10 @@ function App() {
         </Route>
 
         {/* Medical and Customer Module */}
-        <Route path="/medical" element={<MedicalLandingPage />}></Route>
+        <Route path="/medical" element={<MedicalLandingPage />}>
+          {/* <Route index element={<MedicalLandingPage />} /> */}
+        </Route>
+        <Route index path='customer-dashboard' element={<Sidebar />} />
 
         {/* E-commerace landing page  */}
 
