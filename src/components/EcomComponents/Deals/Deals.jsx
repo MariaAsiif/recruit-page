@@ -22,11 +22,11 @@ const Deals = () => {
             </div>
             <div className='bscontainer-fluid mt-5'>
                 <div className='row'>
-                    <div className='col-lg-3'>
-                        <div className=' px-2 py-4 shadow-lg'>
+                    <div className='col-lg-3 '>
+                        <div className=' px-2 py-4 shadow-lg border'>
                             <div className='flex '>
-                                <img src={oil} alt="oil" className='w-[20%]' />
-                                <div className='pl-6'>
+                                <img src={oil} alt="oil" className='w-[120px] h-[150px] object-contain' />
+                                <div className='pl-3'>
                                     <h2 className='text-[#313131] text-[16px] font-medium'>Hemp & argan nourishing facial oil</h2>
                                     <Rating value={3.5} />
                                     <div className='pt-2'>
@@ -36,7 +36,7 @@ const Deals = () => {
                                     </div>
                                     <hr className='mt-2' />
                                     <div className='mt-2'>
-                                        <button className='border flex items-center p-2 w-[60%] bg-[#35373C] text-[14px] text-white '>
+                                        <button className='border flex items-center p-2 w-[70%] bg-[#35373C] text-[14px] text-white '>
                                             <FiShoppingCart className='mr-1 text-[20px]' />
                                             Add to Cart
                                         </button>
@@ -44,10 +44,10 @@ const Deals = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className=' px-2 py-4 shadow-lg mt-3'>
-                            <div className='flex '>
-                                <img src={oil} alt="oil" className='w-[20%]' />
-                                <div className='pl-6'>
+                        <div className=' px-2 py-4 shadow-lg mt-3 border'>
+                            <div className='flex justify-between '>
+                                <img src={drop} alt="oil" className='w-[120px] h-[150px]  object-contain' />
+                                <div className='pl-1' >
                                     <h2 className='text-[#313131] text-[16px] font-medium'>Hemp & argan nourishing facial oil</h2>
                                     <Rating value={3.5} />
                                     <div className='pt-2'>
@@ -57,7 +57,7 @@ const Deals = () => {
                                     </div>
                                     <hr className='mt-2' />
                                     <div className='mt-2'>
-                                        <button className='border flex items-center p-2 w-[60%] bg-[#35373C] text-[14px] text-white '>
+                                        <button className='border flex items-center p-2 w-[80%] bg-[#35373C] text-[14px] text-white '>
                                             <FiShoppingCart className='mr-1 text-[20px]' />
                                             Add to Cart
                                         </button>
@@ -66,7 +66,7 @@ const Deals = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='col-lg-6'>
+                    <div className='col-lg-6 '>
                         <div className='border h-full border-[#24D29F] relative'>
                             
                             <div className='row'>
@@ -121,11 +121,11 @@ const Deals = () => {
                             <h2 className='-rotate-45 text-white absolute top-10 left-5 z-30 font-medium text-[20px]' >-20%</h2>
                         </div>
                     </div>
-                    <div className='col-lg-3 '>
-                        <div className=' px-2 py-4 shadow-lg'>
+                    <div className='col-lg-3  '>
+                        <div className=' px-2 py-4 shadow-lg border'>
                             <div className='flex '>
-                                <img src={oil} alt="oil" className='w-[20%]' />
-                                <div className='pl-6'>
+                                <img src={vap} alt="oil" className='w-[120px] object-contain' />
+                                <div className='pl-3'>
                                     <h2 className='text-[#313131] text-[16px] font-medium'>Hemp & argan nourishing facial oil</h2>
                                     <Rating value={3.5} />
                                     <div className='pt-2'>
@@ -135,7 +135,7 @@ const Deals = () => {
                                     </div>
                                     <hr className='mt-2' />
                                     <div className='mt-2'>
-                                        <button className='border flex items-center p-2 w-[60%] bg-[#35373C] text-[14px] text-white '>
+                                        <button className='border flex items-center p-2 w-[80%] bg-[#35373C] text-[14px] text-white '>
                                             <FiShoppingCart className='mr-1 text-[20px]' />
                                             Add to Cart
                                         </button>
@@ -143,10 +143,10 @@ const Deals = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className=' px-2 py-4 shadow-lg mt-3'>
+                        <div className=' px-2 py-4 shadow-lg mt-3 border'>
                             <div className='flex '>
-                                <img src={oil} alt="oil" className='w-[20%]' />
-                                <div className='pl-6'>
+                                <img src={medrel} alt="oil" className='w-[120px] object-contain' />
+                                <div className='pl-3'>
                                     <h2 className='text-[#313131] text-[16px] font-medium'>Hemp & argan nourishing facial oil</h2>
                                     <Rating value={3.5} />
                                     <div className='pt-2'>
@@ -156,7 +156,7 @@ const Deals = () => {
                                     </div>
                                     <hr className='mt-2' />
                                     <div className='mt-2'>
-                                        <button className='border flex items-center p-2 w-[60%] bg-[#35373C] text-[14px] text-white '>
+                                        <button className='border flex items-center p-2 w-[80%] bg-[#35373C] text-[14px] text-white '>
                                             <FiShoppingCart className='mr-1 text-[20px]' />
                                             Add to Cart
                                         </button>

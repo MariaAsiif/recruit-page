@@ -5,6 +5,7 @@ import Category from '../../../components/EcomComponents/Category/Category';
 import Deals from '../../../components/EcomComponents/Deals/Deals';
 import FeatureMarketContainer from '../../../components/EcomComponents/Feature/FeatureMarketContainer';
 import HomePageNav from "../../../components/EcomComponents/Nav/HomePageNav";
+import Products from '../../../components/EcomComponents/Products/Products';
 import Shopping from '../../../components/EcomComponents/Shopping/Shopping';
 import Trending from '../../../components/EcomComponents/ViewedToday/Ternding';
 
@@ -22,6 +23,7 @@ const Landingpage = () => {
             </div>
             <Deals />
             <Banner/>
+            <Products/>
         </div>
     )
 }
