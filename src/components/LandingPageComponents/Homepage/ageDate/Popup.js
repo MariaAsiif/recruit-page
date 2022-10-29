@@ -74,7 +74,6 @@ function Popup(props) {
         props.setModalShow(false)
         // setMsg("Congratulation You can accces this website");
       } else {
-        console.log("two birthdaty");
         setMsg("Sorry you cannot acces this website.");
       }
     }

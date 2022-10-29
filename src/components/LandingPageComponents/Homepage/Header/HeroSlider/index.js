@@ -8,18 +8,26 @@ import "swiper/css/navigation";
 
 
 // import required modules
-import { Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 const Index = () => {
   return (
 
-    <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+    <Swiper
+      navigation={true}
+      modules={[Navigation , Autoplay]}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
+      className="mySwiper z-40">
       <SwiperSlide>
         <video
           autoPlay
           muted
           loop
+          className="hero-video"
           src="/Videos/ForestFire.mp4"
-        /> 
+        />
       </SwiperSlide>
       <SwiperSlide>
         <video
@@ -28,7 +36,7 @@ const Index = () => {
           loop
           className="hero-video"
           src="/Videos/heroSliderVideoTwo.mp4"
-        /> 
+        />
       </SwiperSlide>
 
     </Swiper>

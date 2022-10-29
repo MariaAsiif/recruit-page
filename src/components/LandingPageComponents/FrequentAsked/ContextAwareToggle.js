@@ -5,14 +5,12 @@ import { AccordionValue } from './FrequentAsked';
 export default function ContextAwareToggle({ children, eventKey, callback,message }) {
     const sendValue=useContext(AccordionValue)
     const { activeEventKey } = useContext(AccordionValue);
-  console.log(message)
     const decoratedOnClick = useAccordionButton(
       eventKey,
       () => callback && callback(eventKey),
     );
   sendValue(isCurrentEventKey)
     const isCurrentEventKey = activeEventKey === eventKey;
-  console.log(isCurrentEventKey)
     return (
       <button
         type="button"

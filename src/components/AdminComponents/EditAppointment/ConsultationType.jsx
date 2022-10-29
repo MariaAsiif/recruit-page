@@ -59,7 +59,6 @@ const ConsultationType = ({ control, register, watch, errors, mode, reset, data,
                 formData.append('pictures', file)
                 let res = await callApi('/appointmentrequests/uploadMedicalImages', "post", formData)
                 if (res.status === "Success") {
-                    console.log("Res", res)
                     toast.success(res.message);
                     setPicturs(res?.data)
                 }
@@ -75,7 +74,6 @@ const ConsultationType = ({ control, register, watch, errors, mode, reset, data,
 
                 let res = await callApi('/appointmentrequests/uploadMedicalVideos', "post", formData)
                 if (res.status === "Success") {
-                    console.log("Res", res)
                     toast.success(res.message);
                     setVideos(res?.data)
                 }

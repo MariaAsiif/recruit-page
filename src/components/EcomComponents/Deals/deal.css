@@ -1,0 +1,8 @@
+    /* .swiper-slide {
+        cursor: pointer;
+        border: 1px solid #dddbdb;
+    } */
+
+     .swiper-slide-thumb-active {
+        border-color: #ff0000;
+    }

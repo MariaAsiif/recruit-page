@@ -28,7 +28,6 @@ const ChillumCard = ({ img }) => {
 
 
 
-console.log("vewimg" , viewImage)
 
   return (
     <ChillumImgContainer>

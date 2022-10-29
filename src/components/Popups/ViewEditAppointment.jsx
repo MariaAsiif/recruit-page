@@ -93,7 +93,7 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
     const [seduleFiles, setSeduleFiles] = useState({ file: "", report: "" })
     const [seduledate, setSeduleDate] = useState({})
     // dates -> surgical
-    const [dates, setDates] = useState([]);
+    const [dates, setDates] = useState("");
 
     const [imagefile, setImageFile] = useState([]);
     const [picturs, setPicturs] = useState('');
@@ -136,7 +136,6 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
 
 
     const onSubmit = async (values) => {
-        console.log("values", values)
         if (history == "") {
             setError("File is required")
         }
@@ -164,17 +163,20 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
                     "reasonOfCurrentVisit": data?.reasonOfCurrentVisit,
                     "requestCategory": data?.requestCategory,
                     // "status": "pendding",
-                    "requestDate": data?.requestDate,
+                    "requestDate": categoryDate,
                     "medicalHistory": [{
-                        "description": data?.description,
+                        "medicalFiles": [history],
+                        "disease": data?.disease,
+                        "positive": false,
+                        "description": data?.description
                     }],
                     "pastConsultants": [{
                         "doctorName": data?.doctorName,
                         "specialization": data?.specialization,
-                        "lastCheckupDate": data?.lastCheckupDate,
+                        "lastCheckupDate": data?.seduledate,                      
                         "profileLink": data?.profileLink,
-                        "drPrescription": data?.file,
-                        "medicalReports": data?.report,
+                        "drPrescription": data?.seduleFiles.file,
+                        "medicalReports": data?.seduleFiles.report,
                     }],
                     "familyDiseases": data?.familyDiseases,
                     "surgicalHistory": {
@@ -206,7 +208,6 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
                     "pictures": data?.pictures,
                     "videos": data?.videos
                 }
-                console.log("pay", payload)
                 let res = await callApi('/appointmentrequests/createAppointmentRequest', 'post', payload)
                 if (res.status === "Success") {
                     toast.success(res.message)
@@ -230,7 +231,7 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
     });
 
 
-    console.log("Data from update", data)
+    console.log("Data from update", d)
 
     useEffect(() => {
 
@@ -252,6 +253,7 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
 
 
         let d = {
+            "customer": data?.customer?._id,
             "ssn": data?.customer?.ssn,
             "homeAddress": data?.customer?.homeAddress,
             "homePhone": data?.customer?.workPhone,
@@ -268,9 +270,8 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
             "otherReferralSource": data?.customer?.otherReferralSource,
             "reasonOfCurrentVisit": data.reasonOfCurrentVisit,
             "requestCategory": data.requestCategory,
-            "status": "approved",
             "requestDate": data.requestDate,
-            "description": data?.medicalHistory?.description,
+            "description": data?.medicalHistory ? data?.medicalHistory[0]?.description : null,
             "doctorName": data.pastConsultants ? data?.pastConsultants[0]?.doctorName : null,
             "specialization": data.pastConsultants ? data?.pastConsultants[0]?.specialization : null,
             "lastCheckupDate": data.pastConsultants ? data?.pastConsultants[0]?.lastCheckupDate : null,

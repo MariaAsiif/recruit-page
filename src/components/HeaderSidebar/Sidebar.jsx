@@ -42,7 +42,6 @@ function Sidebar({
   }, [sidebarExpanded]);
 
 
-  console.log("data", sidebarOpen)
 
 
 

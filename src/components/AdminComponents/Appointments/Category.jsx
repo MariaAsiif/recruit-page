@@ -39,7 +39,6 @@ const Category = ({ handleNext, handleBack, data, updateState }) => {
     const t = time?.substring(0, 1)
     if (t < 10) {
       let n = `0${time}`
-      console.log("default time ", n)
       setValue(n)
     }
     else {

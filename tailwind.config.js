@@ -17,6 +17,7 @@ module.exports = {
         'outer-notif': "url('./images/outerbg.svg')",
         'login-img': "url('./images/Login_left_side.jpg')",
         'sidenave': " url(./assets/landingImages/canvas-bg.gif)"
+        
       },
       fontFamily: {
         'sans': ['Open Sans', 'system-ui',],

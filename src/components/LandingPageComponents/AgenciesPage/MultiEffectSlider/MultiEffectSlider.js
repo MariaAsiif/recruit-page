@@ -18,7 +18,6 @@ import { Modal, Button } from "react-bootstrap";
 import BeforeAfterSlider from "../AgenciesShowCase/BeforeAfterSlider";
 
 function MyVerticallyCenteredModal(props) {
-  console.log(props.name, "name is ")
   return (
     <div className="pop-before-model">
       <Modal

@@ -185,7 +185,6 @@ const SocialHistory = ({ handleNext, handleBack, updateState, data }) => {
     }
 
 
-    console.log("values ", values)
     let updatedquoteDate = `${quoteDate.year}-${quoteDate.month}-${quoteDate.day}`;
     let payload = {
       ...values,

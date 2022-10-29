@@ -109,7 +109,6 @@ const History = ({ handleNext, handleBack, data, updateState }) => {
   }, [])
 
 
-  console.log("daa", data)
 
 
   useEffect(() => {

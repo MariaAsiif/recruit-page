@@ -100,7 +100,6 @@ const InfoForm = (props) => {
             }))
         }
         else if (fieldname === "state") {
-            console.log("state", value);
             updatedCities = City.getCitiesOfState(formModel.country, value)
             cityName = updatedCities.length > 0 ? updatedCities[0].name : ""
             setall_Cities(updatedCities)
@@ -118,7 +117,6 @@ const InfoForm = (props) => {
     const onNext = () => {
         let my_validation = setValidation();
         if (my_validation) {
-            console.log('Api will not run', my_validation);
         }
         else {
 

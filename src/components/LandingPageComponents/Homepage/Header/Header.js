@@ -91,12 +91,11 @@ const Header = ({ id, value }) => {
 
 
         <HeroSlider />
-        <div className="hero-text-container  absolute z-50 left-0 -top-[40px] right-0 text-center">
+        <div className="hero-text-container max-w-[700px] m-auto absolute z-40 left-0 -top-[40px] right-0 text-center">
           {/* <HomePlayButtonContainer onClick={() => setModalShow(true)}>
             <HeroPlayIcon src={playIcon} />
           </HomePlayButtonContainer> */}
           <HeroHeading>THERAPEUTICS</HeroHeading>
-
           <p className="home-main-header-sub-heading flex justify-center flex-col">
             <div className="border-t-2 border-red-500 max-w-[600px] m-auto">
               CULTIVATED WELLNESS

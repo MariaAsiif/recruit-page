@@ -22,7 +22,6 @@ const History = ({ register, watch, errors, mode, data, setHistory , error }) =>
   // const [file, setFile] = useState("");
   const [allDisease, setallDisease] = useState([])
   let d = allDisease.find((item) => item.name === watch('disease')?.diseaseName)
-  console.log("watches", d)
 
   const handleFile = async (e) => {
     try {

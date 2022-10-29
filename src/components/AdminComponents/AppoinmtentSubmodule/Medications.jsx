@@ -47,7 +47,6 @@ const Medications = ({ control, register, watch, errors, setImageFile, imagefile
             else {
                 let res = await callApi('/appointmentrequests/uploadMedicinePrescription', "post", formData)
                 if (res.status === "Success") {
-                    console.log("Res", res)
                     toast.success(res.message);
                     for (let i = 0; i < imagefile.length; i++) {
                         setImageFile(imagefile[i] = res?.data)
@@ -86,7 +85,6 @@ const Medications = ({ control, register, watch, errors, setImageFile, imagefile
 
             {
                 fields.map((item, index) => (
-                    console.log("itm", item),
                     <>
 
                         <div className='relative mb-4 col-lg-4'>

@@ -61,8 +61,8 @@ const SocialHistory = ({ control, register, watch, errors, mode, data, setStartD
 
   let defaultValue = { addictionName: "", everUsed: "", howLongUsed: "", whenStarted: "", whenQuited: "", description: "", lastTimeUsed: "" }
 
-  const marital = ["Single", "Married/Partner", "Widowed", "Divorced"]
-  const sex = ["Heterosexual", "Homosexual", "Bisexual", "Transsexual"]
+  const marital = ["single", "married", "partner", "widowed", "divorced"]
+  const sex = ["hetrosexual", "homosexual", "bisexual", "transsexual"]
 
   // const {
   //   register,

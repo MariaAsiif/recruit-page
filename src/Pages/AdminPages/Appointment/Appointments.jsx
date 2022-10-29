@@ -166,13 +166,13 @@ const Appointments = () => {
                           <div className="text-left">{inspire._id}</div>
                         </td>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire?.customerfields?.ssn}</div>
+                          <div className="text-left">{inspire?.customer?.ssn}</div>
                         </td>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire?.customerfields?.occupation}</div>
+                          <div className="text-left">{inspire?.customer?.occupation}</div>
                         </td>
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                          <div className="text-left">{inspire?.customerfields?.familyDoctorName}</div>
+                          <div className="text-left">{inspire?.customer?.familyDoctorName}</div>
                         </td>
 
                         <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">

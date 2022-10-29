@@ -27,19 +27,19 @@ const UserInfo = ({ control, register, watch, errors, mode, data }) => {
     (async () => {
       try {
         let payload = {
-          sortProperty: 'createdAt',
-          sortOrder: -1,
-          offset: 0,
-          limit: 50,
-          query: {
-            critarion: { role: "customer" },
-            addedBy: '_id email first_name',
-            lastModifiedBy: '_id email first_name',
-          },
-        };
+          "sortproperty": "createdAt",
+          "sortorder": -1,
+          "offset": 0,
+          "limit": 50,
+          "query": {
+            "critarion": { "active": true },
+            "fields": "_id dob",
+            "user": "_id email first_name"
+          }
 
-        let response = await callApi('/users/listAllUsers', 'post', payload);
-        setUsers(response?.data?.users);
+        }
+        let response = await callApi('/customers/getCustomersList', 'post', payload);
+        setUsers(response?.data?.customer);
       } catch (error) {
         console.log(error);
       }
@@ -70,15 +70,15 @@ const UserInfo = ({ control, register, watch, errors, mode, data }) => {
           </label>
           {mode === "view" ?
             <p>
-             { data?.customer?.user?.first_name}
+              {data?.customer?.user?.first_name}
             </p>
             :
             <select {...register('customer')} className={`mt-[2px] pt-1 pb-1 h-[65%] border focus:outline-blue-500 rounded-sm w-full  ${errors.customer && 'border-red-400'
               }`}>
               <option value="">Select Customer</option>
               {
-                users?.map((user) => (
-                  <option key={user?._id} value={user?._id}>{user?.first_name}</option>
+                users?.map((cus) => (
+                  <option key={cus?._id} value={cus?._id}>{cus?.user?.first_name}</option>
                 ))
               }
             </select>

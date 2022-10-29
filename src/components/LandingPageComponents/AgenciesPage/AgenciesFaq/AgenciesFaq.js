@@ -27,7 +27,6 @@ const AgenciesFaq = () => {
     }
   }
 
-  console.log('e-->2', saveAccordianKey)
 
   return (
 

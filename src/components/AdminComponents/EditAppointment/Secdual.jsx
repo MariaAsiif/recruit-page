@@ -131,7 +131,7 @@ const Schedule = ({ control, register, watch, errors, mode, reset, setSeduleFile
       const date = moment(data?.lastCheckupDate).format('yyyy-M-D').split('-')
       setquoteDate({ day: +date[2], month: +date[1], year: +date[0] })
       let d = `${quoteDate.year}/${quoteDate.month}/${quoteDate.day}`
-      setSeduleDate(d)
+      setquoteDate(d)
     }
   }, [data, reset])
 

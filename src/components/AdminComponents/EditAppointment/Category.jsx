@@ -27,14 +27,14 @@ const Category = ({ register, watch, errors, mode, data, reset, setCategoryDate 
   });
   // const [companySetting, setCompanySetting] = useState(true);
 
-  let current = new Date();
+  // let current = new Date();
   const [value, setValue] = useState("")
-  let time = current.toLocaleTimeString();
+  // let time = current.toLocaleTimeString();
 
 
-  useEffect(() => {
-    setValue(time)
-  }, [time])
+  // useEffect(() => {
+  //   setValue(time)
+  // }, [time])
 
 
 
@@ -73,7 +73,9 @@ const Category = ({ register, watch, errors, mode, data, reset, setCategoryDate 
       const time = data?.requestDate?.substring(11, 16)
       setquoteDate({ day: +date[2], month: +date[1], year: +date[0] })
       setValue(time)
+
       
+
     }
   }, [data, reset])
 
@@ -81,7 +83,7 @@ const Category = ({ register, watch, errors, mode, data, reset, setCategoryDate 
     let d = `${quoteDate.year}/${quoteDate.month}/${quoteDate.day}`
     let t = `${d}${value}`
     setCategoryDate(t)
-  },[quoteDate])
+  },[value])
 
 
   return (
