@@ -116,6 +116,8 @@ import Sidebar from './Pages/Medical/Layout/Sidebar';
 import NewFaqs from './components/NewDashboardComponents/NewFaqs';
 import SingleGig from './components/NewDashboardComponents/SingleGig';
 import Landingpage from './Pages/EcomePages/Landing/Landingpage';
+import OrderDetails from './components/NewDashboardComponents/OrderDetails';
+import InvoiceInformation from './components/NewDashboardComponents/InvoiceInformation';
 
 
 const RequireAuth = ({ children }) => {
@@ -194,7 +196,8 @@ function App() {
           <Route index path="invoice" element={<Invoice />} />
           <Route index path="faqs" element={<NewFaqs />} />
           <Route index path="gig" element={<SingleGig />} />
-
+          <Route index path="orderdetails" element={<OrderDetails />} />
+          <Route index path="invoiceinfo" element={<InvoiceInformation />} />
         </Route>
 
         {/* Medical and Customer Module */}

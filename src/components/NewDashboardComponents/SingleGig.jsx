@@ -1,6 +1,6 @@
 import React from 'react'
 import { BiHeart } from 'react-icons/bi';
-import { FaCheck, FaChevronDown, FaShareAlt } from 'react-icons/fa';
+import { FaChevronDown, FaShareAlt } from 'react-icons/fa';
 import { GoCheck, GoThreeBars } from 'react-icons/go';
 import { RiFlagFill } from 'react-icons/ri';
 
