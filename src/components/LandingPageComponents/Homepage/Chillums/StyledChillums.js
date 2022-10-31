@@ -107,7 +107,7 @@ font-size:15px
 
 export const ChillumSlick = styled.div`
 .responsive-slick{
-    margin-top: 5.6rem;
+    margin-top: 3rem;
     
   @media screen and (min-width:1024px) {
     .slick-prev{

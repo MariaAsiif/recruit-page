@@ -56,11 +56,11 @@ color:#333333;
 
 }
 .mini-title{
-margin-top:1rem;
-font-size: 1.2rem;
+margin-top:10px;
+font-size: 1rem;
 font-style: normal;
 font-weight: 400;
-line-height: 24rem.4rem;
+// line-height: 24rem.4rem;
 letter-spacing: 0em;
 color:#828282;
 
@@ -69,23 +69,17 @@ color:#828282;
 export const PortableMiniImgContainer = styled.div`
 position:relative;
 transition: .5s ease;
-.overlay {
-    position: absolute;
-    bottom: 0;
-    height: 89%;
-    width: 97%;
-    top: 5%;
-    left: 8%;
-    right: 0;
-    opacity: 0;
-    transition: 0.5s ease;
-    background-color: rgba(0, 0, 0, 0.71);
-  }
+
 .inner-overlay{
-  color: white;
+    color: white;
+    height: 100%;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.71);
   position: absolute;
   top: 50%;
   left: 50%;
+  text-align: center;
+ padding-top: 8rem;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -101,21 +95,15 @@ transition: .5s ease;
 export const PortableMiniImgContainer2 = styled.div`
 position:relative;
 transition: .5s ease;
-.overlay {
-    position: absolute;
-    bottom: 0;
-    height: 89%;
-    width: 97%;
-    top: 5%;
-    left: 8%;
-    right: 0;
-    opacity: 0;
-    transition: 0.5s ease;
-    background-color: rgba(0, 0, 0, 0.71);
-  }
+
 .inner-overlay{
   color: white;
   position: absolute;
+  background-color: rgba(0, 0, 0, 0.71);
+  text-align: center;
+ padding-top: 8rem;
+  width: 86%;
+  height: 92%;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);

@@ -38,9 +38,9 @@ const Chillum = ({ id }) => {
                         </Accordion.Body>
                         </Accordion.Item>
                     </Accordion> */}
-                <div class="accordion-item bg-white border border-gray-200">
-                    <h2 class="accordion-header mb-0" id="headingTwo">
-                        <button class="
+                <div className="accordion-item ml-[30px] mr-[30px] bg-white border border-gray-200">
+                    <h2 className="accordion-header mb-0" id="headingTwo">
+                        <button className="
         accordion-button
         collapsed
         relative
@@ -57,7 +57,7 @@ const Chillum = ({ id }) => {
         rounded-none
         transition
         focus:outline-none
-      " type="button" data-bs-toggle="collapse" style={{ justifyContent:'inherit'}} data-bs-target="#collapseTwo" aria-expanded="false"
+      " type="button" data-bs-toggle="collapse" style={{ justifyContent: 'inherit' }} data-bs-target="#collapseTwo" aria-expanded="false"
                             aria-controls="collapseTwo">
                             <h2 className='lg:text-[3rem] md:text-[2rem] text-[1.5rem] font-medium text-black'> CHILLUMS</h2>
                         </button>

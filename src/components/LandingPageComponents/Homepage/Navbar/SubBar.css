@@ -9,15 +9,15 @@
   background: white;
   width: 100%;
   color: black;
-  padding: 1rem 0 0 0 ;
-  height: 5rem;
+  padding: 1.5rem 0;
+  height: 3.5rem !important;
 }
 
 .changebackground {
   background-color: transparent;
   width: 100%;
+  color: white;
   padding-top: 2rem;
-  color: #fff;
   opacity: 0.8;
 
 }
@@ -45,6 +45,15 @@
   transition: all .5s linear;
   /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
 }
+
+
+.hporx-header-topbar-skew {
+  transform-origin: top;
+  transform: scaleY(0);
+  opacity: 0;
+
+}
+
 
 
 .hporx-header-topbar-skew {
@@ -100,41 +109,37 @@
   /* align-items: center; */
 }
 
-.ruby-menu>.main-li {
+.nav-items>.main-li {
   display: inline;
   font-weight: normal;
-  font-size: 15px;
-  /* line-height: 24px; */
+  font-size: 16px;
+  line-height: 24px;
   color: inherit;
   /* border-bottom: 2px solid transparent; */
-  /* margin-right: 2rem; */
+  margin-right: 2.5rem;
 
 }
 
-
-
-
-.ruby-menu>.main-li a {
-  /* padding: 1.5rem 0; */
-  color: black;
-  font-weight: 500;
+.nav-items>.main-li a {
+  padding: 1.5rem 0;
+  color: inherit;
   text-decoration: none;
 }
 
-.ruby-menu>.main-li .active {
+.nav-items>.main-li .active {
   display: inline;
   cursor: pointer;
   opacity: 1;
   /* border-bottom: 2px solid #E84025; */
   /* text-decoration: none; */
-  color: black;
+  color: inherit;
   font-weight: 600;
   text-decoration: underline !important;
   text-decoration-color: #E84025 !important;
   text-underline-offset: 2px;
 }
 
-.ruby-menu>.main-li:hover {
+.nav-items>.main-li:hover {
   cursor: pointer;
   opacity: 1;
   /* border-bottom: 2px solid #E84025; */
@@ -142,6 +147,7 @@
   text-decoration-color: #E84025 !important;
   text-underline-offset: 2px;
 }
+
 
 .main-li img {
   width: 10px;

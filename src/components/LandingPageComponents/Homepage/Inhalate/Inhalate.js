@@ -32,10 +32,6 @@ const Inhalate = ({ id }) => {
 
       <InhalateMainContainer>
         <InhalateTextContainer>
-
-         
-
-
           <div class="accordion-item bg-white border border-gray-200">
             <h2 class="accordion-header mb-0" id="headingTwo">
               <button class="

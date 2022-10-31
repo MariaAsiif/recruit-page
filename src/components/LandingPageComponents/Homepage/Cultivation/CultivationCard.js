@@ -1,6 +1,6 @@
 import React from 'react'
 import { CultivationiImg, CultivationImgContainer } from './StyledCultivation';
-import { AddToCartBtn} from '../../Globals/Globals';
+import { AddToCartBtn } from '../../Globals/Globals';
 const CultivationCard = ({ heading,description,img }) => {
     return (
         <CultivationImgContainer>

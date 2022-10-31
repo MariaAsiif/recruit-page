@@ -29,9 +29,9 @@ export const InhalateMainContainer = styled.div`
   }
 `;
 export const InhalateTextContainer = styled.div`
-  padding: 3rem 4rem;
+   padding: 0px 15px 50px 15px;
   @media screen and (max-width:480px) {
-  padding: 3rem 0rem;
+  // padding: 3rem 0rem;
     
   }
 `;

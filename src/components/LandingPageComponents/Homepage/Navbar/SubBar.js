@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { SubBarContainer } from "./StyledNavbar";
+// import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+// import { SubBarContainer } from "./StyledNavbar";
 // import { Link, animateScroll as scroll } from "react-scroll";
 import { Link } from "react-router-dom";
 import "./SubBar.css";
 import TopBar from "../Navbar/TopBar";
 import Marquee from "./Marquee";
-import downIcon from '../../../../assets/landingImages/ionic-ios-arrow-down.svg'
+// import downIcon from '../../../../assets/landingImages/ionic-ios-arrow-down.svg'
 import { RiArrowDropDownLine, RiArrowDropRightLine } from 'react-icons/ri'
 const SubBar = ({ setShow }) => {
   // const history = useHistory();

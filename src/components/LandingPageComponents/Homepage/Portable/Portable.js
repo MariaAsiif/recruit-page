@@ -48,11 +48,13 @@ const Portable = ({ id }) => {
       />
       <div className='bscontainer-fluid' id={id}>
         <Row>
-          <Col xs={12} md={6}>
-            <PrimaryHeading>PORTABLES</PrimaryHeading>
-            <p >"You can take it with you"</p>
-            <p className="mini-title">Under Legal prescription</p>
-            <PortableMoreBtn>View More</PortableMoreBtn>
+          <Col xs={12} md={6} >
+            <div className="px-3">
+              <h2 className="text-[30px] leading-none" >PORTABLES</h2>
+              <p className="leading-none">"You can take it with you"</p>
+              <p className="mini-title  leading-none">Under Legal prescription</p>
+              <PortableMoreBtn>View More</PortableMoreBtn>
+            </div>
             <PortableSlick />
           </Col>
           <Col xs={12} md={6}>

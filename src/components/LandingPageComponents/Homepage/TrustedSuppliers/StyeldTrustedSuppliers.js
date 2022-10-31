@@ -33,7 +33,7 @@ object-fit: contain;
 
 
 export const TrustedCompanyContainer = styled.div`
-    margin-top: 3.8rem;
+    margin-top: 3rem;
     padding: 2rem;
     background: #FBFAFA;
 

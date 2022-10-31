@@ -66,7 +66,7 @@ border: 1px solid #FFFFFF;
 background: transparent;
 `
 export const FeatureMarkTextContainer = styled.div`
-padding:30px;
+// padding:30px;
 margin-left:4rem;
 text-align: start ;
 `

@@ -160,12 +160,12 @@ export const AddToCartBtn = styled.button`
   }
 `;
 export const PriceBtn = styled.button`
-  padding: 0.8rem 4rem;
+  padding: 0.3rem 2rem;
   border: 1px solid white;
   color: black;
   border-radius: 2rem;
   background: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
 `;
 

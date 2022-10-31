@@ -45,7 +45,7 @@ const TopBar = ({ setShow }) => {
   return (
     <HeaderTopBar>
       <SideNavBar sidebarOpen={sideNavShow} setSidebarOpen={setSideNavShow} />
-      <div className="topBar-Header">
+      <div className="topBar-Header p-2">
         <Navbar bg="transparent" variant="dark" className="flex justify-between">
           <div className="reponsive-topbar-toggler" >
             <img className="img-fluid mt-3 cursor-pointer" src={featherMenu} alt="featherMenu" onClick={handleShow} />
