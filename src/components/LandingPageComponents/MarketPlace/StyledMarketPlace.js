@@ -7,6 +7,19 @@ export const MarketPlaceMain = styled.div`
 `
 export const MarkInnerContainer = styled.div`
  position: relative;
+
+
+// .market{
+//   @media screen and (max-width:1200px)and (min-width: 768px) {
+//   margin-top:2rem;
+//    }
+
+//    @media screen and (max-width:600px) {
+//     margin-top:16rem;
+
+//    }
+// }
+
 `
 export const MarketSlickContainer = styled.div`
   @media screen and (min-width:1140px) {
@@ -57,7 +70,7 @@ export const MarketSlickContainer = styled.div`
 
  width: 80%;
  position: absolute;
- bottom: 3rem;
+ top: 0;
  right: 0;
  outline: none;
  border: none;

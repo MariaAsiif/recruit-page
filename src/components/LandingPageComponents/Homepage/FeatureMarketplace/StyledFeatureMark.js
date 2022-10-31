@@ -22,7 +22,7 @@ line-height: 2rem;
 }
 
 @media screen and (max-width:1200px)and (min-width: 768px) {
-  font-size:2rem;
+  padding-top:20rem 
 }
 
 `

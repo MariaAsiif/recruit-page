@@ -58,7 +58,7 @@ const Marketplace = ({ id }) => {
                 </div>
               </MarketContentContainer>
             </div>
-            <div className="md:mt-[2rem] lg:mt-0 mt-[17rem]" >
+            <div className="market" >
               <MarketPlaceSlick />
             </div>
           </div>
