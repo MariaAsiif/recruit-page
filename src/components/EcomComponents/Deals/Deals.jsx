@@ -68,7 +68,7 @@ const Deals = () => {
                     </div>
                     <div className='col-lg-6 '>
                         <div className='border h-full border-[#24D29F] relative'>
-                            
+
                             <div className='row'>
                                 <div className='col-lg-6 '>
                                     <Swiper
@@ -108,8 +108,17 @@ const Deals = () => {
                                     </Swiper>
                                 </div>
                                 <div className='col-lg-6'>
-                                    <div>
-                                        <h2>Hamp & organ nuturation facial oil</h2>
+                                    <div className='pt-4'>
+                                        <h2 className='text-[#24D29F] text-[20px] font-medium'>Hamp & organ nuturation facial oil</h2>
+                                        <Rating value={3.1} text={"54"} />
+
+                                        <div className='pt-3'>
+                                            <p className='text-[14px]'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt ducimus, similique dicta nisi sit fugiat reprehenderit architecto cumque reiciendis cupiditate inventore autem iste assumenda asperiores, voluptatem libero labore doloremque itaque.</p>
+                                        </div>
+                                        <div>
+                                            <span className='border rounded-full bg-[#DD2E44] h-[120px] w-[120px]'></span>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>

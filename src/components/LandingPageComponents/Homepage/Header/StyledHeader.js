@@ -10,7 +10,7 @@ const StyledHero = styled.div`
 
 .hero-video{
   width: 100%;
-  height:125.1vh;
+  height:125vh;
   object-fit: cover;
   position: relative;
   z-index: -1;
@@ -36,6 +36,20 @@ const StyledHero = styled.div`
   }
 }
 
+
+.heroslider-videoOver:before {
+  content: "";
+  position: absolute;
+  background: #000;
+  opacity: .7;
+  border-radius: 5px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 
 

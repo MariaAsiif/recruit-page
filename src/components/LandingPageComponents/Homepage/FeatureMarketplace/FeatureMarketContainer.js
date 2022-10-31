@@ -10,7 +10,7 @@ const FeatureMarketContainer = ({order}) => {
         <div className='p-0 bscontainer-fluid'>
             <FeatureMarkMain>
                 <Container>
-                    <Row>
+                    <Row className="p-10">
                         <Col lg={6} className={order === 'first' ? 'order-0' : 'order-1'}>
                             <FeatureMarkImg src={featureMark} alt={featureMark} />
                         </Col>

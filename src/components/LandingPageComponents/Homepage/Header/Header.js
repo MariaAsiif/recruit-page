@@ -88,10 +88,10 @@ const Header = ({ id, value }) => {
         />
         <SubBar setShow={setShow} />
 
-
+<div className="absolute bg-black top-[20%] left-[20%] "></div>
 
         <HeroSlider />
-        <div className="hero-text-container max-w-[700px] m-auto absolute z-40 left-0 -top-[40px] right-0 text-center">
+        <div className="hero-text-container max-w-[700px]  m-auto absolute z-40 left-0 -top-[40px] right-0 text-center">
           {/* <HomePlayButtonContainer onClick={() => setModalShow(true)}>
             <HeroPlayIcon src={playIcon} />
           </HomePlayButtonContainer> */}

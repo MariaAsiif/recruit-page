@@ -53,7 +53,8 @@ line-height:30px;
 `
 export const FeatureHeading = styled(PrimaryHeading)`
 text-transform: capitalize;
-font-size:35px;
+padding-bottom:10px;
+font-size:40px;
 color:white ;
 `
 export const FeatureMarketPlaceBtn = styled(ViewMoreBtn)`
@@ -65,6 +66,7 @@ border: 1px solid #FFFFFF;
 background: transparent;
 `
 export const FeatureMarkTextContainer = styled.div`
+padding:30px;
 margin-left:4rem;
 text-align: start ;
 `

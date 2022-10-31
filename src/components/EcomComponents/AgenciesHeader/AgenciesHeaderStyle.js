@@ -17,7 +17,7 @@ export const AgenciesHeaderContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 40rem;
+	width: 35rem;
 
     img{
         width: 20px;
@@ -31,7 +31,7 @@ export const AgenciesHeaderContainer = styled.div`
 	border: 1px solid #C4C4C4;
 	border-right: none;
 	box-sizing: border-box;
-	border-radius: 100px 0 0 100px;
+	border-radius: 10px 0 0 10px;
 	width: 100%;
 	padding: 1rem 1.7rem;
 
@@ -52,9 +52,9 @@ export const AgenciesHeaderContainer = styled.div`
 
 .search-box button{
 	height: 3rem;
-	width: 6.5rem;
+	width: 2rem;
 	background: #F0F0F0;
-	border-radius: 0px 100px 100px 0px;
+	border-radius: 0px 10px 10px 0px;
 	border: 1px solid #C4C4C4;
 
 }
