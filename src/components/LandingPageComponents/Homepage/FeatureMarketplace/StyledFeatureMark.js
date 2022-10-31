@@ -5,7 +5,7 @@ import { PrimaryHeading, TertiaryHeadingMedium, TertiaryHeadSecondary, ViewMoreB
 
 export const FeatureMarketText=styled.div`
 text-align: center;
-margin-top: 9rem;
+margin-top:2rem;
 
 `
 
@@ -21,8 +21,8 @@ color: #FFFFFF;
 line-height: 2rem;
 }
 
-@media screen and (max-width:1200px)and (min-width: 768px) {
-  padding-top:20rem 
+@media screen and (min-width:768px)and (max-width: 992px) {
+  font-size:2rem 
 }
 
 `

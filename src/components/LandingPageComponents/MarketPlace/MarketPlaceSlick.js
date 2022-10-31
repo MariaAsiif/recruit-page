@@ -30,6 +30,7 @@ export const MarketPlaceSlick = () => {
           arrows: true,
         },
       },
+     
       {
         breakpoint: 480,
         settings: {
@@ -77,7 +78,7 @@ export const MarketPlaceSlick = () => {
           )
         }
       />
-      <Slider {...settings} className="inhalate-slick lg:w-[65%] md:w-[50%] lg:-ml-[270px] md:-ml-[380px]">
+      <Slider {...settings} className="inhalate-slick lg:w-[65%]  lg:-ml-[270px] ">
         {marketPlaceImgs.map((img, index) => (
           <MarkSlickImgContainer key={index}>
             {/* <div className="inner-overlay">

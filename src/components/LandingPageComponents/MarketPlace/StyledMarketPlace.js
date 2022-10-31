@@ -8,18 +8,6 @@ export const MarketPlaceMain = styled.div`
 export const MarkInnerContainer = styled.div`
  position: relative;
 
-
-// .market{
-//   @media screen and (max-width:1200px)and (min-width: 768px) {
-//   margin-top:2rem;
-//    }
-
-//    @media screen and (max-width:600px) {
-//     margin-top:16rem;
-
-//    }
-// }
-
 `
 export const MarketSlickContainer = styled.div`
   @media screen and (min-width:1140px) {
@@ -52,6 +40,7 @@ export const MarketSlickContainer = styled.div`
 @media screen and (min-width:425px) and (max-width:767px) {
   .inhalate-slick .slick-prev {
   left:-3px !important ;
+
   }
   .inhalate-slick .slick-next {
     right: 22px !important;
@@ -66,11 +55,23 @@ export const MarketSlickContainer = styled.div`
     right: 50px !important;
     z-index: 1;
 }
+
+position: absolute;
+top: 0rem;
+right: 0;
+}
+
+@media screen and (min-width:768px) and (max-width:992px) {
+ 
+position: absolute;
+top: 20%;
+width: 98% !important;
+right: 0;
 }
 
  width: 80%;
  position: absolute;
- top: 0;
+ top: 5rem;
  right: 0;
  outline: none;
  border: none;
@@ -112,9 +113,7 @@ export const MarketSubHead = styled(SubHeading)`
 margin-top: 2rem;
 text-align:center;
 font-size: 2rem;
-@media screen and (max-width:1200px)and (min-width: 768px) {
-  margin-left:13rem !important;
- }
+
 `
 export const MarketSubHeadSecond = styled(SubHeadingSecondary)`
 margin-top: 1rem;
@@ -134,9 +133,7 @@ export const MarketReHeading = styled(MarketSubHeadSecond)`
   font-size:25px;
   font-style: italic;
   text-align:center;
-  @media screen and (max-width:1200px)and (min-width: 768px) {
-    margin-left:20rem !important;
-   }
+ 
 `
 export const MarketTertiaryHeadMedium = styled(TertiaryHeadingMedium)`
 color: #828282;
@@ -146,9 +143,7 @@ margin-top: 0.9rem;
 export const MarketViewMoreBtn = styled(ViewMoreBtn)`
 margin-top: 2rem;
 
-@media screen and (max-width:1200px)and (min-width: 768px) {
-  margin-left:6rem
-}
+
 
 
 `

@@ -5,6 +5,13 @@ export const LocateMainContainer = styled.div`
 text-align: center;
 margin-top: 10px;
 
+ .inp > select{
+      @media screen and (min-width:768px) and (max-width:992px) {
+      width:100%;
+    }
+    width:100%;
+ }
+
 h3{
  margin-top: 1.6rem;
 font-size: 1.7rem;
