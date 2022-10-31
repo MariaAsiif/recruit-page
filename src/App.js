@@ -103,7 +103,7 @@ import CreateProduct from './Pages/AdminPages/Ecome/Product/CreateProduct';
 import CreateStore from './Pages/AdminPages/Ecome/Store/CreateStore';
 import Stores from './Pages/AdminPages/Ecome/Store/Stores';
 import Notifications from './components/NewDashboardComponents/Notifications';
-import Table from './components/GlobalComponents/TableComponent';
+// import Table from './components/GlobalComponents/TableComponent';
 import Diseases from './Pages/AdminPages/Disease/Diseases';
 import CreateDisease from './Pages/AdminPages/Disease/CreateDisease';
 import TableComponent from './components/GlobalComponents/table';
@@ -115,6 +115,8 @@ import Sidebar from './Pages/Medical/Layout/Sidebar';
 
 import NewFaqs from './components/NewDashboardComponents/NewFaqs';
 import SingleGig from './components/NewDashboardComponents/SingleGig';
+import Cart from './Pages/Cart';
+
 
 
 const RequireAuth = ({ children }) => {
@@ -163,6 +165,7 @@ function App() {
         <Route path="/das-signin" element={<DasSignInPage />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/verify" element={<Verify />} />
         <Route path="/recruit" element={<RecruitPage />} />
         <Route path="/joinus" element={<JoinUs />} />
