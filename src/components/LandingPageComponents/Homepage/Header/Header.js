@@ -93,12 +93,9 @@ const Header = ({ id, value }) => {
         <div className="absolute bg-black opacity-[0.5] h-full m-auto border z-40 left-0 top-[1px] right-0 ">
         </div>
         <div className="hero-text-container max-w-[700px]  m-auto absolute z-40 left-0 -top-[40px] right-0 text-center">
-          {/* <HomePlayButtonContainer onClick={() => setModalShow(true)}>
-            <HeroPlayIcon src={playIcon} />
-          </HomePlayButtonContainer> */}
-          <HeroHeading>THERAPEUTICS</HeroHeading>
+          <h2 className="home-main-header-main-heading lg:text-[5rem] md:text-[5rem] text-[2rem] text-white font-bold lg:pt-[20rem] ">THERAPEUTICS</h2>
           <p className="home-main-header-sub-heading flex justify-center flex-col">
-            <div className="border-t-2 border-red-500 max-w-[600px] m-auto">
+            <div className="border-t-2 text-[20px] lg:text-[2rem] md:text-[2.5rem] lg:pt-0 mt-[20px] border-red-500 max-w-[600px] m-auto">
               CULTIVATED WELLNESS
             </div>
           </p>

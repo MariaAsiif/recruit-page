@@ -11,11 +11,11 @@ const Marketplace = ({ id }) => {
         <MarkInnerContainer  >
           <div className='row'>
 
-            <div className='col-lg-6'>
-              <MarketplaceImg className='img-fluid' src={marketplace} alt={marketplace} />
+            <div className='col-lg-6 col-md-12'>
+              <MarketplaceImg className='img-fluid ' src={marketplace} alt={marketplace} />
             </div>
 
-            <div className='col-lg-6'>
+            <div className='col-lg-6 col-md-12'>
               <MarketContentContainer>
 
                 <div class="accordion-item bg-white border mt-3 lg:mt-0 lg:w-full  border-gray-200">
@@ -50,17 +50,15 @@ const Marketplace = ({ id }) => {
                   </div>
                 </div>
 
-
-
                 <MarketSubHead>HEALTH IS WEALTH</MarketSubHead>
                 <MarketReHeading >“Great health is a great wealth!”</MarketReHeading>
-                <div className='text-[15px] text-gray-400 text-center'>Dr A. E De Mandeville</div>
+                <div className=' text-[15px] text-gray-400 text-center lg:ml-0 md:ml-[4rem]'>Dr A. E De Mandeville</div>
                 <div className='flex justify-center'>
                   <MarketViewMoreBtn>View More</MarketViewMoreBtn>
                 </div>
               </MarketContentContainer>
             </div>
-            <div >
+            <div className="md:mt-[2rem] lg:mt-0 mt-[17rem]" >
               <MarketPlaceSlick />
             </div>
           </div>

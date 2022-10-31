@@ -47,23 +47,29 @@ text-align: -moz-center;
     text-align: center;
    }
 }
-.overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 15%;
-    right: 0;
-    width: 70%;
-    opacity:0;
-    height: 340px;
-    transition: 0.5s ease;
-    z-index:9999;
-    background-color: rgba(0,0,0,0.71);
-  }
+// .overlay {
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     left: 15%;
+//     right: 0;
+//     width: 70%;
+//     opacity:0;
+//     height: 340px;
+//     transition: 0.5s ease;
+//     z-index:9999;
+//     background-color: rgba(0,0,0,0.71);
+//   }
 .inner-overlay{
   position: absolute;
   top: 50%;
   left: 50%;
+  transition: 0.5s ease;
+    background-color: rgba(0,0,0,0.71) !important;
+    padding-top: 10rem;
+    margin-top: -40px;
+    width: 79%;
+    height: 84%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -77,13 +83,13 @@ h3{
 font-size: 1.3rem;
 font-style: normal;
 font-weight: 600;
-line-height: 3rem;
+line-height: 2rem;
 letter-spacing: 0em;
 text-align: center;
 color: #242424;
 }
 p{
-font-size: 1rem;
+font-size: 16px;
 font-style: normal;
 font-weight: 400;
 line-height: 2.7rem;
@@ -101,5 +107,5 @@ object-fit:cover;
 `
 
 export const CultivationiImg = styled.img`
-width: 70%;
+width: 80%;
 `

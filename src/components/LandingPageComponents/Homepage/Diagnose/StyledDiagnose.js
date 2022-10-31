@@ -43,23 +43,27 @@ opacity: 0.8;
 export const DiagnoseImgContainer = styled.div`
 position: relative;
 margin-right: 2rem;
-.overlay {
-    position: absolute;
-    top: 0;
-    bottom: 2.8rem;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    right: 2rem;
-    opacity: 0;
-    transition: 0.5s ease;
-    background-color: rgba(0, 0, 0, 0.6);
-  }
+// .overlay {
+//     position: absolute;
+//     top: 0;
+//     bottom: 2.8rem;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     right: 2rem;
+//     opacity: 0;
+//     transition: 0.5s ease;
+//     background-color: rgba(0, 0, 0, 0.6);
+//   }
 .inner-overlay{
   position: absolute;
   top: 50%;
   left: 50%;
   width: 100%;
+  transition: 0.5s ease;
+  padding-top:4rem;
+  height:100%;
+  background-color: rgba(0, 0, 0, 0.6);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);

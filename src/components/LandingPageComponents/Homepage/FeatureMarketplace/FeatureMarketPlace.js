@@ -1,14 +1,14 @@
 import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
-import { FeatureHeading, MarketPlaceHeading, FeatureMarketPlaceBtn, FeatureMarketSub, FeatureMarketText, FeatureMarkImg, FeatureMarkMain, FeatureMarkTextContainer, FeatureSubHeading } from './StyledFeatureMark'
-import { PrimaryHeading } from '../../Globals/Globals'
+// import { Col, Container, Row } from 'react-bootstrap'
+import { MarketPlaceHeading, FeatureMarketSub, FeatureMarketText, } from './StyledFeatureMark'
+// import { PrimaryHeading } from '../../Globals/Globals'
 import FeatureMarketContainer from './FeatureMarketContainer'
 
 const FeatureMarketPlace = () => {
     return (
         <>
             <FeatureMarketText>
-                <div className="accordion-item lg:w-[99%] md:w-[105%]   mx-1  mb-[30px] bg-white border border-gray-200">
+                <div className="accordion-item lg:w-[99%] md:w-[98%]  mx-1  mb-[30px] bg-white border border-gray-200">
                     <h2 className="accordion-header mb-0" id="headingTwo">
                         <button className="
         accordion-button

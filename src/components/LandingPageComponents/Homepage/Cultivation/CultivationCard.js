@@ -4,8 +4,8 @@ import { AddToCartBtn } from '../../Globals/Globals';
 const CultivationCard = ({ heading,description,img }) => {
     return (
         <CultivationImgContainer>
-             <div className="overlay">
-            </div>
+             {/* <div className="overlay">
+            </div> */}
             <div className='inner-overlay'>
                 <AddToCartBtn>Add to Cart</AddToCartBtn>
             </div>

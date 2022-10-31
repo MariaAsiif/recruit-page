@@ -21,8 +21,7 @@ const AdCard = ({ img }) => {
         </div>
       </div>
 
-      <div className="overlay">
-      </div>
+      
       <div className='inner-overlay'>
         <div className=" h-[40px] bg-green-600 w-full">
            <div className="flex items-center justify-center pt-2 ">

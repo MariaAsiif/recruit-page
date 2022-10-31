@@ -102,7 +102,7 @@ text-transform: capitalize;
 font-size:45px;
 
 @media screen and (max-width:600px) {
-  font-size:20px;
+  font-size:19px !important;
 }
 @media screen and (max-width:992px) {
   font-size:2rem;

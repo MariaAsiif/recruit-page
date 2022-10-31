@@ -19,6 +19,10 @@ padding: 0 5rem;
  @media screen and (max-width:480px) {
   padding: 0 0;
  }
+
+ @media screen and (max-width:600px) {
+  font-size:1.2rem;
+ }
  
 }
 p{

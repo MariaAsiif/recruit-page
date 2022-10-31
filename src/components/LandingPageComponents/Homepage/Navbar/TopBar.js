@@ -69,7 +69,7 @@ const TopBar = ({ setShow }) => {
                   <img className="img-fluid mr-[35px]"  src={cart} alt="featherMenu" />
                 </Nav.Link>
                 <Nav.Link href="#" className="topbar-nav-icon">
-                  <img onClick={() => setShow(true)} className="img-fluid" src={featherMenu} alt="featherMenu" />
+                  <img onClick={() => setShow(true)} className="img-fluid w-[40px]" src={featherMenu} alt="featherMenu" />
                   
                 </Nav.Link>
               </nav>

@@ -10,7 +10,7 @@ export const PortableMainContainer = styled.div`
     
 }
     .portable-slick  .slick-next {
-    right:0rem;
+    right:5rem;
     z-index: 1;
     
 }
@@ -21,7 +21,7 @@ export const PortableMainContainer = styled.div`
 
 @media screen and (min-width: 1024px) { 
 .portable-slick .slick-next {
-    right: 8px !important;
+    right: 3rem !important;
     z-index: 1;
 }
 }
@@ -43,27 +43,34 @@ export const PortableMainContainer = styled.div`
 }
 h2{
     font-size: 3rem;
-   
+    @media screen and (max-width:600px) {
+        font-size:2rem
+     }
 }
 p{
 margin-top: 0.5rem;
 font-size: 1.5rem;
 font-style: normal;
 font-weight: 500;
-line-height: 3rem;
+line-height: 2rem;
 letter-spacing: 0em;
 color:#333333;
 
+@media screen and (max-width:600px) {
+    font-size:1.2rem
+ }
+
 }
 .mini-title{
-margin-top:10px;
-font-size: 1rem;
+font-size: 1.2rem;
 font-style: normal;
 font-weight: 400;
 // line-height: 24rem.4rem;
 letter-spacing: 0em;
 color:#828282;
-
+@media screen and (max-width:600px) {
+    font-size:1rem
+ }
 }
 `
 export const PortableMiniImgContainer = styled.div`
@@ -72,8 +79,8 @@ transition: .5s ease;
 
 .inner-overlay{
     color: white;
-    height: 100%;
-    width: 80%;
+    height: 87%;
+    width: 85%;
     background-color: rgba(0, 0, 0, 0.71);
   position: absolute;
   top: 50%;
@@ -102,8 +109,9 @@ transition: .5s ease;
   background-color: rgba(0, 0, 0, 0.71);
   text-align: center;
  padding-top: 8rem;
-  width: 86%;
-  height: 92%;
+ transition: .5s ease;
+  width: 85%;
+  height: 90%;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -149,4 +157,7 @@ export const PortableMiniImg = styled.img`
 export const PortableMoreBtn = styled(ViewMoreBtn)`
 margin-top: 2.8rem;
 font-size:16px;
+@media screen and (max-width:600px) {
+margin:1rem 0px;
+ }
 `

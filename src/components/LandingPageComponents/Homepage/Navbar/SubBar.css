@@ -9,7 +9,7 @@
   background: white;
   width: 100%;
   color: black;
-  padding: 1.5rem 0;
+  padding: 1rem 0px !important;
   height: 3.5rem !important;
 }
 

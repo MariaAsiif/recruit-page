@@ -21,10 +21,8 @@ color: #FFFFFF;
 line-height: 2rem;
 }
 
-@media screen and (min-width:786px) and (max-width:992px) {
-  font-size: 2rem;
-line-height: 2rem;
-
+@media screen and (max-width:1200px)and (min-width: 768px) {
+  font-size:2rem;
 }
 
 `
@@ -56,6 +54,11 @@ text-transform: capitalize;
 padding-bottom:10px;
 font-size:40px;
 color:white ;
+@media screen and (max-width:600px) {
+  font-size: 1.5rem;
+  padding:0px;
+}
+
 `
 export const FeatureMarketPlaceBtn = styled(ViewMoreBtn)`
 
@@ -69,6 +72,11 @@ export const FeatureMarkTextContainer = styled.div`
 // padding:30px;
 margin-left:4rem;
 text-align: start ;
+@media screen and (max-width:992px) {
+
+  margin-bottom:1rem;
+  
+  }
 `
 export const FeatureMarketSub = styled(TertiaryHeadSecondary)`
 padding: 2rem;

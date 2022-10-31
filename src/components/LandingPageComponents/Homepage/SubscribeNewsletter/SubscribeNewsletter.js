@@ -48,24 +48,26 @@ const SubscribeNewsletter = () => {
   });
   return (
     <NewsLetterMainContianer>
-      <div className="bscontainer-fluid">
-        <ToastContainer style={{ fontSize: "1.4rem" }} />
-        <div className=" mt-3 bg-green-800 row pb-3">
-          <div className="col-lg-6 pt-[3rem]  ">
-            <div className="pl-6">
-              <h2 className="text-[2rem] font-semibold text-white">Subscribe to Our Channel</h2>
-              <p className="mt-8 text-[26px] text-white">You Are in  Good Company</p>
-              <span className="text-[12px] text-white">This is a subscribe channel form data </span>
-              <br />
-              <button className="mt-5 border p-4 pl-7 pr-7 text-[16px] text-white">
-                Subscribe Now
-              </button>
+      <div className=" mt-3 bg-green-800  pb-3 w-full">
+        <div className="bscontainer-fluid">
+          <ToastContainer style={{ fontSize: "1.4rem" }} />
+          <div className="row">
+            <div className="col-lg-6 pt-[3rem]">
+              <div className="pl-6">
+                <h2 className="text-[2rem] font-semibold text-white">Subscribe to Our Channel</h2>
+                <p className="mt-8 text-[26px] text-white">You Are in  Good Company</p>
+                <span className="text-[12px] text-white">This is a subscribe channel form data </span>
+                <br />
+                <button className="mt-5 border p-4 pl-7 pr-7 text-[16px] text-white">
+                  Subscribe Now
+                </button>
+              </div>
             </div>
-          </div>
-          <div className="col-lg-6 mb-4" >
-            <div className="flex justify-center">
-              <NewsLetterImg src={newletterImg} alt={newletterImg} />
+            <div className="col-lg-6 mb-4" >
+              <div className="flex justify-center">
+                <NewsLetterImg src={newletterImg} alt={newletterImg} />
 
+              </div>
             </div>
           </div>
         </div>

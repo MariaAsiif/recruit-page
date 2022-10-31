@@ -26,9 +26,9 @@ const Locate = ({ id }) => {
       <div className='bscontainer-fluid text-center'>
         <div className='text-center w-full'>
 
-          <PrimaryHeading>LOCATE</PrimaryHeading>
+          <h2 className='lg:text-[3rem] text-[2rem] '>LOCATE</h2>
 
-          <h3>DOCTORS, ASSOCIATIONS, CANNABIS CLUBS, CAFES, DISPENSARIES AND LAWYERS</h3>
+          <h3 className=''>DOCTORS, ASSOCIATIONS, CANNABIS CLUBS, CAFES, DISPENSARIES AND LAWYERS</h3>
 
 
           <div className="list_data mt-3">

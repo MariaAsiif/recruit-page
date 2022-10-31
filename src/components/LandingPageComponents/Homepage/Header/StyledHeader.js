@@ -15,12 +15,12 @@ const StyledHero = styled.div`
   position: relative;
   z-index: -1;
   margin-top: -9.8rem;
-  @media screen and (max-width: 992px){
-    height: 70vh;
+  @media screen and (max-width:1200px)and (min-width: 768px) {
+    height: 115vh;
   }
 
   @media screen and (max-width: 600px){
-    height: 80vh;
+    height: 123vh;
   }
 }
 .home-main-header-sub-heading{
@@ -31,8 +31,16 @@ const StyledHero = styled.div`
    @media screen and (max-width: 600px){
     font-size: 1rem;
   }
-  @media screen and (max-width: 992px){
-    font-size: 2rem;
+ 
+}
+
+.home-main-header-main-heading{
+  @media screen and (max-width:768px)and (min-width: 300px) {
+    padding-top:20rem
+  }
+
+  @media screen and (max-width:1200px)and (min-width: 768px) {
+    padding-top:25rem
   }
 }
 
@@ -49,7 +57,18 @@ const StyledHero = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+
+  @media screen and (max-width: 600px){
+    border:1pt solid red;
+  }
+  @media screen and (max-width: 992px){
+    width: 100%;
+    height: 100%;
+  }
 }
+
+
+
 
 
 

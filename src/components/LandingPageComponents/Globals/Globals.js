@@ -310,26 +310,17 @@ export const CustomCardContainer = styled.div`
 export const AddCardContainer = styled.div`
 position: relative;
 z-index: 0;
-  .overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 3%;
-    right: 0;
-    width: 94%;
-    border-radius:10px;
-    opacity: 0;
-z-index: 999;
-    transition: 0.5s ease;
-    background-color: rgba(0, 0, 0, 0.71);
-  }
+
   .inner-overlay {
     color: white;
     position: absolute;
+    width:94%;
+    border-radius:10px;
+    transition: 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.71) !important;
     top: 50%;
     z-index:9999;
     left: 50%;
-    width: 100%;
     text-align: center;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
