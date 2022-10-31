@@ -185,7 +185,7 @@ function Cart() {
             <img
               class="object-cover object-center rounded"
               alt="hero"
-              src="https://dummyimage.com/720x600"
+              src="https://dummyimage.com/599x481"
             />
           </div>
         </div>
