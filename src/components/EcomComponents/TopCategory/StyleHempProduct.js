@@ -17,7 +17,7 @@ margin-top:2rem;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 21px;
     line-height: 30px;
     color: #414141;
 }
@@ -67,55 +67,10 @@ gap:15.23px
     left: 0;
 }
 
-.hemp-slick .card-body .overlay{
-    top: 0;
-    left: 0;
-    padding: 22px 6px;
-    background: black;
-    opacity: 1;
-    height: 100%;
-    width: 100%;
 
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    mix-blend-mode: darken !important;
-    
-}
 
-.hemp-slick .card-body .overlay h1{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 20px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
 
-    /* HEMP 06 */
 
-}
-
-.hemp-slick .card-body .overlay span{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 14px;
-    text-align: center;
-
-    /* HEMP 06 */
-
-    color: #FFFFFF;
-}
 
 
 .viewToday-slick{

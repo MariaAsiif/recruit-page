@@ -6,15 +6,15 @@ const Sales = () => {
     return (
         <>
             <div className='bscontainer mb-2'>
-                <div className='bscontainer mb-2 mt-6'>
+                <div className='mb-2 mt-6'>
                     <div className="tranding-heading relative">
-                        <h1 className=" font-medium text-[20px] uppercase">Seller of The Month</h1>
+                        <h1 className=" font-medium text-[20px] ">Seller of The Month</h1>
                         <hr className="mt-2 " />
                         <hr className="border-[2px] -bottom-[1px] absolute z-99 rounded-sm border-[#24D29F] w-[20%]" />
                     </div>
                 </div>
 
-                <div className='row mt-2'>
+                <div className='row mt-[2rem]'>
                     {
                         Array(8).fill(8).map((s, index) => (
                             <div className='col-lg-3 '>

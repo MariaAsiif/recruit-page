@@ -50,6 +50,7 @@ function HempProduct() {
   var settings = {
     arrows: true,
     dots: false,
+    autoplay:true ,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -117,27 +118,12 @@ function HempProduct() {
   return (
     <StyleHemp>
       <div className="bscontainer">
-        {/* {stateIsLoading && (
-          <div>
-            <Placeholder as="p" animation="glow" size="lg">
-              <Placeholder xs={12} />
-            </Placeholder>
-            <Placeholder as="p" animation="wave" size="lg">
-              <Placeholder xs={12} />
-            </Placeholder>
-            <Placeholder as="p" animation="glow" size="lg">
-              <Placeholder xs={12} />
-            </Placeholder>
-            <Placeholder as="p" animation="wave" size="lg">
-              <Placeholder xs={12} />
-            </Placeholder>
-          </div>
-        )} */}
         <div className="row">
           <div className="col-lg-3">
             <div className="top-categories">
-              <h1>Top Categories</h1>
-              <div className="slick-btns">
+              <h1>The best Top Categories</h1>
+              <span className="text-[15px] text-gray-400">lorem ipsum dolor</span>
+              <div className="slick-btns mt-2">
                 <button onClick={next} type="button" className="prev-btn">
                   <img src={slideprev} alt="Pre icon" />
                 </button>
@@ -160,9 +146,9 @@ function HempProduct() {
                           className="cardimage"
                           alt="cardimage"
                         />
-                        <div className="overlay">
-                          <h1>{item.title}</h1>
-                          <span>{item.price}k Products</span>
+                        <div className="absolute top-0 w-full h-full  bg-black opacity-[0.8]">
+                          <h1 className="!text-[20px]  !text-white text-right absolute right-3 bottom-7 !leading-normal ">{item.title}</h1>
+                          <span className="!text-[16px]  !text-white !text-right right-3 bottom-1 absolute  ">{item.price}k Products</span>
                         </div>
                       </div>
                     </Card>
@@ -171,7 +157,7 @@ function HempProduct() {
             </Slider>
           </div>
         </div>
-        {/* <Banner /> */}
+ 
       </div>
     </StyleHemp>
   );

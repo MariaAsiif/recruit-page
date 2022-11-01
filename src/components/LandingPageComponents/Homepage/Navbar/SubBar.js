@@ -243,27 +243,28 @@ const SubBar = ({ setShow }) => {
                 </Link>
               </li>
               <li className="main-li">
-                <Link activeClass="active" spy={true} smooth={true} offset={-70} duration={500}  >
-                  <span className="flex items-center"> PRODUCTS <RiArrowDropDownLine className="text-[30px]" /></span>
-                </Link>
+                <a href="#" className="flex items-center">PRODUCTS <RiArrowDropDownLine className="text-[30px]" /></a>
+                <div className="shows">
+                  <div style={{ color: "red", fontWeight: 700, fontSize: "2rem" }}>Rx</div>
+                  <div className="text-white">Merchandise</div>
+                </div>
+                {/* <Link activeClass="active" spy={true} smooth={true} offset={-70} duration={500}  >
+                  <span className="flex items-center "> PRODUCTS <RiArrowDropDownLine className="text-[30px]" /></span>
+                </Link> */}
 
-                <ul className="dropdown-product-link" >
-                  {/* <li>
-                    <span style={{ color: "red", fontSize: "1.5rem" }}>Rx</span>PRODUCTS
-                  </li>
-                  <li className="sub-li"  >Locate Us</li>
-                  <li className="sub-li"  >DAS</li>  */}
+                {/* <ul className="dropdown-product-link" >
+                 
                   <li style={{ color: "red", fontWeight: 700, fontSize: "2rem" }}> Rx</li>
                   <li className="text-white">Merchandise</li>
-                </ul>
+                </ul> */}
               </li>
               <li className="main-li">
-                <Link  to="MARKETPLACE" spy={true} smooth={true} offset={-70} duration={500}  >
+                <Link to="MARKETPLACE" spy={true} smooth={true} offset={-70} duration={500}  >
                   MARKETPLACE{" "}
                 </Link>
               </li>
               <li className="main-li" >
-                <Link  to="/locator" spy={true} smooth={true} offset={-70} duration={500} >
+                <Link to="/locator" spy={true} smooth={true} offset={-70} duration={500} >
                   LOCATE{" "}
                 </Link>
               </li>

@@ -92,15 +92,15 @@ const Homepage = () => {
   const handleVolume = (value) => {
     setVolumeValue(value);
   };
-  const fashionDiscountImgs = [
-    mensFashionDiscount,
-    mensFashionDiscount,
-    mensFashionDiscount,
-    mensFashionDiscount,
-    mensFashionDiscount,
-    mensFashionDiscount,
-  ];
-  const giftImgs = [giftCard, giftCard, giftCard, giftCard, giftCard, giftCard];
+  // const fashionDiscountImgs = [
+  //   mensFashionDiscount,
+  //   mensFashionDiscount,
+  //   mensFashionDiscount,
+  //   mensFashionDiscount,
+  //   mensFashionDiscount,
+  //   mensFashionDiscount,
+  // ];
+  // const giftImgs = [giftCard, giftCard, giftCard, giftCard, giftCard, giftCard];
   const trustedSuppliers = [
     trustedSupplier2,
     trustedSupplier3,
@@ -142,16 +142,16 @@ const Homepage = () => {
     { img: hygie8, title: "Spain" },
     { img: hygie9, title: "Dubai" },
   ];
-  const aboveCopyrightImgs = [
-    aboveCopyright1,
-    aboveCopyright2,
-    aboveCopyright3,
-    aboveCopyright6,
-    aboveCopyright4,
-    aboveCopyright5,
-    aboveCopyright7,
-    aboveCopyright8,
-  ];
+  // const aboveCopyrightImgs = [
+  //   aboveCopyright1,
+  //   aboveCopyright2,
+  //   aboveCopyright3,
+  //   aboveCopyright6,
+  //   aboveCopyright4,
+  //   aboveCopyright5,
+  //   aboveCopyright7,
+  //   aboveCopyright8,
+  // ];
   return (
     <div className="">
       {/* <Popup/> */}

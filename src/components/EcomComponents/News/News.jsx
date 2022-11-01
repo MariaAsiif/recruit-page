@@ -4,7 +4,7 @@ const News = () => {
     return (
         <>
             <div className='bscontainer mb-2'>
-                <div className='bscontainer mb-2 mt-6'>
+                <div className='mb-2 ml-2 mt-6'>
                     <div className="tranding-heading relative">
                         <h1 className=" font-medium text-[20px] uppercase">Latest News</h1>
                         <hr className="mt-2 " />
@@ -12,7 +12,7 @@ const News = () => {
                     </div>
                 </div>
 
-                <div className='row mt-2'>
+                <div className='row mt-[2rem]'>
                     <div className='col-lg-4 '>
                         <div className='p-2 pb-3'>
                             <img src={dp_img} className=" object-cover   " alt="img_pro" />
