@@ -118,6 +118,7 @@ import SingleGig from './components/NewDashboardComponents/SingleGig';
 import Landingpage from './Pages/EcomePages/Landing/Landingpage';
 import OrderDetails from './components/NewDashboardComponents/OrderDetails';
 import InvoiceInformation from './components/NewDashboardComponents/InvoiceInformation';
+import NewInvoice from './components/NewDashboardComponents/NewInvoice';
 
 
 const RequireAuth = ({ children }) => {
@@ -182,7 +183,7 @@ function App() {
         <Route path="/das-signin" element={<DasSignInPage />} />
 
 
-        {/* New Dashboard */}
+        {/* New Dashboardx */}
 
         <Route path="/newdashboard" element={<NewDashboardPage />} >
           <Route index element={<NewDashboard />} />
@@ -198,6 +199,7 @@ function App() {
           <Route index path="gig" element={<SingleGig />} />
           <Route index path="orderdetails" element={<OrderDetails />} />
           <Route index path="invoiceinfo" element={<InvoiceInformation />} />
+          <Route index path="newinvoice" element={<NewInvoice />} />
         </Route>
 
         {/* Medical and Customer Module */}
