@@ -40,7 +40,21 @@ opacity: 1;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-  padding: 3rem 0;
+  padding: 2rem 0 10px 0; 
+
+.banner-swipper{
+  .swiper-pagination-bullets.swiper-pagination-horizontal{
+    display:flex;
+    justify-content:start;
+    left:6%;
+  }
+
+  .swiper-pagination-bullet-active{
+    background-color:#24D29F !important;
+  }
+}
+
+
 `
 export const FeatureMarkImg = styled.img`
 @media screen and (max-width:480px) {

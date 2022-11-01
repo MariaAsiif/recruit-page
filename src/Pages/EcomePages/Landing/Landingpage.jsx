@@ -9,14 +9,18 @@ import News from '../../../components/EcomComponents/News/News';
 import Products from '../../../components/EcomComponents/Products/Products';
 import Sales from '../../../components/EcomComponents/Sales/Sales';
 import Shopping from '../../../components/EcomComponents/Shopping/Shopping';
+import HempProduct from '../../../components/EcomComponents/TopCategory/HempProduct';
+import TopHeader from '../../../components/EcomComponents/TopHeader/TopHeader';
 import Trending from '../../../components/EcomComponents/ViewedToday/Ternding';
 
 const Landingpage = () => {
     return (
         <div>
+            <TopHeader />
             <AgenciesHeader />
             <HomePageNav />
             <FeatureMarketContainer />
+            <HempProduct />
             <Trending section='trending' />
             <Shopping />
             <Category />

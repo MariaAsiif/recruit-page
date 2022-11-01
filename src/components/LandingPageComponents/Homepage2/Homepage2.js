@@ -1,13 +1,13 @@
 import React from "react";
-import BrowserHistory from "./BrowserHistory.js/BrowserHistory";
+// import BrowserHistory from "./BrowserHistory.js/BrowserHistory";
 import HempProduct from "./HempProducts/HempProduct";
-import HempProductMIni from "./HempProducts/HempProductMIni";
-import TrendingNow from "./TrendingNow/TrendingNow";
+// import HempProductMIni from "./HempProducts/HempProductMIni";
+// import TrendingNow from "./TrendingNow/TrendingNow";
 import ViewedToday from "./ViewedToday/ViewedToday";
 import catagory1 from "../../../assets/landingImages/catagory1.png";
 import catagory2 from "../../../assets/landingImages/catagory2.png";
 import trendingNow from "../../../assets/landingImages/TrendingNows.png";
-import Banner from "./HempProducts/Banner";
+// import Banner from "./HempProducts/Banner";
 import {
   SimilarProductsContainer,
   ViewTodayContainer,
