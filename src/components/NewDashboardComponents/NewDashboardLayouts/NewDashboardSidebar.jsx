@@ -150,6 +150,30 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     </NavLink>
                                 </div>
                             </li>
+                            <li className={`mb-3 last:mb-0  ${pathname === "/newdashboard/orderdetails" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                                <div className='flex '>
+                                    <NavLink end to="/newdashboard/orderdetails" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/orderdetails" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                        <div className="flex items-center justify-between ">
+                                            <div className="flex items-center grow">
+                                                <FaQuestion size={18} />
+                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Order Details</span>
+                                            </div>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                            </li>
+                            <li className={`mb-3 last:mb-0  ${pathname === "/newdashboard/invoiceinfo" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                                <div className='flex '>
+                                    <NavLink end to="/newdashboard/invoiceinfo" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/invoiceinfo" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                        <div className="flex items-center justify-between ">
+                                            <div className="flex items-center grow">
+                                                <FaQuestion size={18} />
+                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Invoice Info</span>
+                                            </div>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     {/* More group */}
