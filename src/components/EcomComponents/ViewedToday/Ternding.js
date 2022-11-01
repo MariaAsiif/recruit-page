@@ -8,7 +8,8 @@ import { useQuery } from "react-query";
 // import CustomCard from '../../Globals/CustomCard'
 import { Card } from "react-bootstrap";
 import star from "../../../assets/landingImages/icons/star.png";
-import { BsHeart } from 'react-icons/bs'
+// import { BsHeart } from 'react-icons/bs'
+import { RiShoppingCartLine } from 'react-icons/ri'
 function Trending({ heading, section }) {
   const {
     data: productData,
@@ -35,9 +36,10 @@ function Trending({ heading, section }) {
   // console.log("section" , section )
 
   var settings = {
-    arrows: true,
+    arrows: false,
     dots: false,
     infinite: true,
+    autoplay: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -122,7 +124,7 @@ function Trending({ heading, section }) {
                             alt="Trending-Now"
                           />
                         </div>
-                        <div className="content">
+                        <div className="content relative">
                           <div className="title">
                             <h1>{add3Dots(item.title, 30)}</h1>
 
@@ -139,6 +141,11 @@ function Trending({ heading, section }) {
                               <div className="review">(43 Reviews)</div>
                             </div>
                             <span>${item.price}</span>
+                          </div>
+                          <div className="absolute w-full left-0 shop_show">
+                            <button className="add-to-cart !w-[90%] !bg-[#27D6A5]  ">
+                               <RiShoppingCartLine className="text-[20px]"/> Add to Cart <span className="cart"></span>
+                            </button>
                           </div>
                           {/* <div className="flex justify-between">
                             <button className="add-to-cart ">

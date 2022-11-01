@@ -33,7 +33,7 @@ const Category = () => {
             refetchOnWindowFocus: "false",
             keepPreviousData: "false",
             select: (data) =>
-                data.data.data.filter((item) => item.productType === "Trending"),
+                data.data.data.filter((item) => item.productType === "trending"),
             enabled: true,
         }
     );
@@ -43,7 +43,7 @@ const Category = () => {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         initialSlide: 0,
         responsive: [
@@ -101,7 +101,7 @@ const Category = () => {
             </div>
             <div className='bscontainer-fluid'>
                 <div className='row mt-6 '>
-                    <div className=' col-lg-3'>
+                    <div className='col-lg-3'>
                         <ul className='border-r'>
                             <li className='cursor-pointer bg-[#149F76] text-white p-3 border-b'>
                                 <div className='flex items-center '>
@@ -172,7 +172,7 @@ const Category = () => {
                                                         />
                                                     </div>
                                                     <div className="content">
-                                                        <div className="title">
+                                                        <div className="text-[14px] font-medium">
                                                             <h1>{add3Dots(item.title, 30)}</h1>
 
                                                         </div>

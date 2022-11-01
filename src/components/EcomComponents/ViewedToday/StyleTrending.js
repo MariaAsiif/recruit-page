@@ -169,11 +169,28 @@ export const CustomCardContainer = styled.div`
     border-radius: 10px !important;
     margin-left:10px;
     
+    .shop_show{
+      display:none;
+    }
+
+    &:hover{
+      
+      .shop_show{
+        display:block;
+      }
+    }
 
     @media screen and (max-width: 600px) {
       height: 100%;
     }
+
+
+
+
   }
+
+
+  
 
   .customCard .customCard-body {
     padding: 0;

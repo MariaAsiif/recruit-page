@@ -11,9 +11,25 @@ import Sales from '../../../components/EcomComponents/Sales/Sales';
 import Shopping from '../../../components/EcomComponents/Shopping/Shopping';
 import HempProduct from '../../../components/EcomComponents/TopCategory/HempProduct';
 import TopHeader from '../../../components/EcomComponents/TopHeader/TopHeader';
+import TrustedSuppliers from '../../../components/EcomComponents/TrustedSuppliers/TrustedSuppliers';
 import Trending from '../../../components/EcomComponents/ViewedToday/Ternding';
-
+import interOrg1 from "../../../assets/landingImages/interOrg1.svg";
+import interOrg2 from "../../../assets/landingImages/interOrg2.svg";
+import interOrg3 from "../../../assets/landingImages/interOrg3.svg";
+import interOrg4 from "../../../assets/landingImages/interOrg4.svg";
+import interOrg5 from "../../../assets/landingImages/interOrg5.svg";
+import FollowUs from '../../../components/FollowUs/FollowUs';
+import Footer from '../../../components/Footer/Footer';
 const Landingpage = () => {
+    const trustedOrganizations = [
+        interOrg1,
+        interOrg2,
+        interOrg3,
+        interOrg4,
+        interOrg5,
+        interOrg1,
+      ];
+
     return (
         <div>
             <TopHeader />
@@ -32,6 +48,10 @@ const Landingpage = () => {
             <Products />
             <News />
             <Sales />
+            <TrustedSuppliers imgs={trustedOrganizations}/>
+            <FollowUs/>
+            <Footer/>
+
         </div>
     )
 }
