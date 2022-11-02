@@ -57,11 +57,11 @@ const OrderDetails = () => {
                 }
                 <div>
                     <div style={{ boxShadow: "0px 3px 6px #0000000D" }} className='mb-5 bg-white rounded-b-2xl'>
-                        <div className='lg:px-10 text-[#626973] text-lg font-semibold border-b mb-3 '>
+                        <div className='lg:px-10 px-5 text-[#626973] text-lg font-semibold border-b mb-3 '>
                             <h1>Your order details</h1>
                         </div>
 
-                        <div className='mb-5 lg:px-10'>
+                        <div className='px-5 mb-5 lg:px-10'>
                             <div className='mb-5 row g-0'>
                                 <div className='grid grid-cols-24 col-lg-6'>
                                     <div className='col-span-3 '>
@@ -86,8 +86,8 @@ const OrderDetails = () => {
                             </div>
 
                         </div>
-                        <div className=' row g-0 py-3 px-10 lg:px-10 border-t border-[#4DA676]'>
-                            <div className='col-lg-3'>
+                        <div className=' row g-0 py-3 px-5 lg:px-10 border-t border-[#4DA676]'>
+                            <div className='col-lg-3 col-3'>
                                 <BiSend className='inline text-[#4DA676]' />
                                 <BiSend className='inline text-[#4DA676]' />
                                 <BiSend className='inline text-[#4DA676]' />
@@ -95,17 +95,16 @@ const OrderDetails = () => {
                                 <BiSend className='inline text-[#4DA676]' />
                                 <BiSend className='inline text-[#4DA676]' />
                             </div>
-                            <div className='p-1 text-center border border-[#707070] col-lg-6 rounded-2xl'>
+                            <div className='p-1 text-center border border-[#707070] col-lg-6 col-6 rounded-2xl'>
                                 <div>
-                                    <input className='w-11/12 focus:outline-none' />
+                                    <input className='w-28 lg:w-11/12 focus:outline-none' />
                                     <BiSend className='inline text-[#4DA676]' />
                                 </div>
                             </div>
-                            <div className='text-right col-lg-3'>
+                            <div className='text-right col-lg-3 col-3'>
                                 <small className='text-[#44444F] mr-3'>Saved</small>
                                 <RiDeleteBinLine className='inline mr-3 text-[#4DA676]' />
                                 <BiDotsHorizontal className='inline text-[#4DA676]' />
-
                             </div>
                         </div>
                     </div>

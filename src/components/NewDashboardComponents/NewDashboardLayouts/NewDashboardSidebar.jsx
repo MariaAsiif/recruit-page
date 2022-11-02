@@ -24,7 +24,7 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
             {/* Sidebar */}
             <div id="sidebar" ref={sidebar} className={`flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-52 lg:w-20 lg:sidebar-expanded:!w-40 2xl:!w-64 shrink-0 bg-[#4DA676] transition-all duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-64'}`}  >
                 {/* Sidebar header */}
-                <div className="flex mt-4 mb-10 lg:justify-center justify-evenly ">
+                <div className="flex mt-4 mb-3 lg:justify-center justify-evenly ">
                     {/* Close button */}
                     <button ref={trigger} className="lg:hidden text-slate-500 hover:text-slate-400" onClick={() => setSidebarOpen(!sidebarOpen)} aria-controls="sidebar" aria-expanded={sidebarOpen} >
                         <span className="sr-only">Close sidebar</span>
@@ -40,7 +40,6 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 <div className="space-y-8">
                     <div>
                         <ul className="mt-3">
-
                             <li className={`mb-3 last:mb-0  ${pathname === "/newdashboard" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
                                 <div className='flex '>
                                     <NavLink end to="/newdashboard" className={`block w-full px-3 py-2  ${pathname === "/newdashboard" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >

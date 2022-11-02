@@ -17,7 +17,7 @@ const NewFaqs = () => {
                     <span className={`text-[#707070] font-medium cursor-pointer px-3 p-1 rounded-lg ${activetab === "tab_tutorials" ? "!text-white bg-[#42946C] font-semibold" : ""}`}>Tutorials</span>
                 </li>
                 <li onClick={() => setactivetab("tab_requirements")} className={`lg:px-4 px-2`}>
-                    <span className={`text-[#707070] font-medium cursor-pointer px-3 p-1 rounded-lg ${activetab === "tab_requirements" ? "!text-white bg-[#42946C] font-semibold" : ""}`}>Email Ticketing</span>
+                    <span className={`text-[#707070] font-medium cursor-pointer px-3 p-1 rounded-lg ${activetab === "tab_requirements" ? "!text-white bg-[#42946C] font-semibold" : ""}`}>Email</span>
                 </li>
             </ul>
             <div className="tab-content" id="tabs-tabContent">
