@@ -9,7 +9,7 @@ const SubBar = ({ setShow }) => {
   // const history = useHistory();
 
   return (
-    <div className="bg-[#27D6A5]">
+    <div className="bg-[#27D6A5] hidden lg:block ">
       <div className="homeNav bscontainer">
         <div className="nav-content">
           <ul className="nav-items">

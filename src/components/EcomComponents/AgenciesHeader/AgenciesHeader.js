@@ -1,29 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { AgenciesHeaderContainer } from "./AgenciesHeaderStyle";
 import agenciyCart from "../../../assets/landingImages/agenciyCart.svg";
 // import agencydrop from "../../../assets/landingImages/agency-drop-dummy.png";
 import agencyLogo from "../../../assets/landingImages/agencyLogo.png";
-import agencysearch from "../../../assets/landingImages/agency-search-icon.svg";
+// import agencysearch from "../../../assets/landingImages/agency-search-icon.svg";
 // import agencyuser from "../../../assets/landingImages/agency-user.svg";
 import dp_img from "../../../assets/images/Botanist.jpg";
 import { BsHeartFill } from 'react-icons/bs'
+import { GoThreeBars } from "react-icons/go"; 
+import Sidebar from '../Sidebar/SideCanvas'
+// import featherMenu from "../../../assets/landingImages/Icon feather-menu.svg";
+
 // import { useHistory } from "react-router-dom";
 // import { BiMicrophone } from 'react-icons/bi'
 const AgenciesHeader = () => {
   // const history = useHistory()
+  const [sideNavShow, setSideNavShow] = useState(false);
   return (
     <AgenciesHeaderContainer>
+      <Sidebar  sidebarOpen={sideNavShow} setSidebarOpen={setSideNavShow} />
       <header className="top-bar">
         <div className="bscontainer">
           <div className="p-5">
             <div className="row">
               <div className="col-lg-2">
-                <div className="logo">
-                  <img style={{ cursor: 'pointer' , marginTop:'-8px' }} src={agencyLogo} alt="agencyLogo" />
+                <div className="logo md:flex md:justify-center">
+                  <img style={{ cursor: 'pointer', marginTop: '-8px' }} src={agencyLogo} alt="agencyLogo" />
                 </div>
               </div>
-              <div className="col-lg-10 hidden lg:block ">
-                <div className="flex items-center justify-between">
+              <div className="col-lg-10 mt-5 lg:mt-0 ">
+                <div className="flex items-center justify-between ">
 
                   {/* <div className="search-box">
                     <input type="search" name="" className="focus:outline-none" placeholder="Search" />
@@ -40,8 +46,8 @@ const AgenciesHeader = () => {
                     </button>
                   </div> */}
                   <form>
-                    <div className="flex">
-                      <div className=" w-full border flex items-center rounded-r-lg rounded-l-lg ">
+                    <div className="lg:flex lg:w-full md:w-[400px]">
+                      <div className=" lg:w-full w-[80%] border flex items-center rounded-r-lg rounded-l-lg  ">
                         <input
                           type="search"
                           id="search-dropdown"
@@ -146,21 +152,24 @@ const AgenciesHeader = () => {
                       </div>
                     </div>
                   </form>
-
                   <div className=" flex items-center justify-between mx-1">
-                    <BsHeartFill className="text-[30px] text-[#24D29F]" />
-                    <h3 className="text-[14px] px-1 text-[#24D29F] ">Whichlist(21)</h3>
+                    <BsHeartFill className="text-[30px] text-[#24D29F] md:mx-2" />
+                    <h3 className="text-[14px] px-1 text-[#24D29F] hidden lg:block ">Whichlist(21)</h3>
                   </div>
                   <div className=" flex items-center justify-between">
-                    <img src={agenciyCart} className="h-[35px]" alt="agencyuser" />
-                    <div>
+                    <img src={agenciyCart} className="h-[35px] " alt="agencyuser" />
+                    <div className="hidden lg:block">
                       <h2 className="text-[14px]">Your cart</h2>
-                      <p className="text-[14px] px-2 text-[#24D29F] font-medium">$132.142</p>
+                      <p className="text-[14px] px-2 text-[#24D29F] font-medium ">$132.142</p>
                     </div>
                   </div>
                   <div className="icons">
-                    <img src={dp_img} className="rounded-full w-[55px] object-cover h-[55px] border border-[#24D29F]" alt="agenciyCart" />
+                    <img src={dp_img} className="md:mx-2 rounded-full lg:w-[55px] w-[40px] h-[40px] object-cover lg:h-[55px] border border-[#24D29F]" alt="agenciyCart" />
                   </div>
+                  <div className="lg:hidden " onClick={() => setSideNavShow(true)}>
+                     <GoThreeBars className="text-[30px]"/>
+                    </div>
+
                 </div>
               </div>
             </div>

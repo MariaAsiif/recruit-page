@@ -6,3 +6,9 @@
      .swiper-slide-thumb-active {
         border-color: #27D6A5;
     }
+
+    @media screen and (max-width:786px) and (min-width:992px) {
+        .swiper-slide-thumb-active {
+            width:50%;
+        } 
+    }

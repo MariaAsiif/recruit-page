@@ -47,9 +47,9 @@ const Deals = () => {
                             </div>
                         </div>
                         <div className=' px-2 py-4 shadow-lg mt-3 border'>
-                            <div className='flex justify-between '>
-                                <img src={drop} alt="oil" className='w-[120px] h-[150px]  object-contain' />
-                                <div className='pl-1' >
+                            <div className='flex '>
+                                <img src={drop} alt="oil" className='w-[120px] h-[150px] object-contain' />
+                                <div className='pl-3'>
                                     <h2 className='text-[#313131] text-[16px] font-medium'>Hemp & argan nourishing facial oil</h2>
                                     <Rating value={3.5} />
                                     <div className='pt-2'>
@@ -85,7 +85,7 @@ const Deals = () => {
                                         {
                                             images.map((item, index) => (
                                                 <SwiperSlide key={index}>
-                                                    <img src={item} alt="product images" style={{ height: '100%', objectFit: 'cover' }} />
+                                                    <img src={item} alt="product images" className='w-full h-full object-cover' />
                                                 </SwiperSlide>
                                             ))
                                         }
@@ -96,13 +96,13 @@ const Deals = () => {
                                         spaceBetween={6}
                                         slidesPerView={4}
                                         modules={[Navigation, Autoplay, Thumbs]}
-                                        
+
                                     >
                                         {
                                             images.map((item, index) => (
-                                                <SwiperSlide key={index} className="!border ml-[1px]">
-                                                    <div className="product-images-slider-thumbs-wrapper ">
-                                                        <img src={item} style={{ objectFit: 'cover' }} alt="product images" />
+                                                <SwiperSlide key={index} className="!border ml-[1px] ">
+                                                    <div className="product-images-slider-thumbs-wrapper  ">
+                                                        <img src={item} className='object-cover '  alt="product images" />
                                                     </div>
                                                 </SwiperSlide>
                                             ))
@@ -110,7 +110,7 @@ const Deals = () => {
                                     </Swiper>
                                 </div>
                                 <div className='col-lg-6'>
-                                    <div className='pt-4'>
+                                    <div className='lg:pt-4 pt-[5rem] pl-[10px] pb-1'>
                                         <h2 className='text-[#24D29F] text-[20px] font-medium'>Hamp & organ nuturation facial oil</h2>
                                         <Rating value={3.1} text={"54"} font={""} />
 
