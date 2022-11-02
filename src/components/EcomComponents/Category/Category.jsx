@@ -8,7 +8,7 @@ import Slider from "react-slick";
 import { Card } from 'react-bootstrap'
 import { CustomCardContainer } from './StyleCategory'
 import star from "../../../assets/landingImages/icons/star.png";
-import dp_img from "../../../assets/ecome/bag.jpg";
+import dp_img from "../../../assets/landingImages/ViewToday.png";
 import axios from 'axios'
 import { BASE_URL, GET_PRODUCTS, IMAGE_URL } from '../../../utils/config'
 import { useQuery } from "react-query";

@@ -21,7 +21,7 @@ export const CustomCardContainer = styled.div`
     top: 0;
     right: 0;
     left: 0;
-    bottom: 0;
+    bottom: 10;
     object-fit: contain;
     opacity: 0;
     transition: opacity .2s;
