@@ -8,11 +8,12 @@ import Slider from "react-slick";
 import { Card } from 'react-bootstrap'
 import { CustomCardContainer } from './StyleCategory'
 import star from "../../../assets/landingImages/icons/star.png";
-import dp_img from "../../../assets/images/Botanist.jpg";
+import dp_img from "../../../assets/ecome/bag.jpg";
 import axios from 'axios'
 import { BASE_URL, GET_PRODUCTS, IMAGE_URL } from '../../../utils/config'
 import { useQuery } from "react-query";
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
+import { RiShoppingCartLine } from 'react-icons/ri'
 
 const Category = () => {
 
@@ -43,7 +44,7 @@ const Category = () => {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         initialSlide: 0,
         responsive: [
@@ -163,15 +164,21 @@ const Category = () => {
                                         <CustomCardContainer>
                                             <Card className="customCard " >
                                                 <div className="customCard-body ">
-                                                    <div className="image-section">
+                                                    <div className="image-section relative">
                                                         <img
                                                             // onClick={() => setModalShow(true)}
                                                             className="main-img"
                                                             src={IMAGE_URL + item.productImage}
                                                             alt="Trending-Now"
                                                         />
+                                                        <img
+                                                            // onClick={() => setModalShow(true)}
+                                                            className="main-img img_hover"
+                                                            src={dp_img}
+                                                            alt="Trending-Now"
+                                                        />
                                                     </div>
-                                                    <div className="content">
+                                                    <div className="content relative">
                                                         <div className="text-[14px] font-medium">
                                                             <h1>{add3Dots(item.title, 30)}</h1>
 
@@ -188,6 +195,12 @@ const Category = () => {
                                                                 <div className="review">(43 Reviews)</div>
                                                             </div>
                                                             <span>${item.price}</span>
+                                                        </div>
+
+                                                        <div className="absolute w-full left-0 shop_show">
+                                                            <button className="add-to-cart !w-[100%] !bg-[#27D6A5]  ">
+                                                                <RiShoppingCartLine className="text-[20px]" /> Add to Cart <span className="cart"></span>
+                                                            </button>
                                                         </div>
 
                                                     </div>

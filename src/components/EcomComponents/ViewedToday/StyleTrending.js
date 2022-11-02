@@ -177,6 +177,7 @@ export const CustomCardContainer = styled.div`
       
       .shop_show{
         display:block;
+        transition: .5 ease;
       }
     }
 

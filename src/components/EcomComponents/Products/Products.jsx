@@ -1,15 +1,18 @@
 import React from 'react'
 
 import dp_img from "../../../assets/images/Botanist.jpg";
+import product_2 from "../../../assets/ecome/watch.jpg";
+import product_1 from "../../../assets/ecome/women-cloth.jpg";
+import product_3 from "../../../assets/ecome/bag.jpg";
 import { TfiWorld } from 'react-icons/tfi'
 import { GiReceiveMoney } from 'react-icons/gi'
 import { FaShippingFast } from 'react-icons/fa'
 const Products = () => {
 
     const product = [
-        { title: "Mens Shopping", desc: "Lorem ipsum dolor sit amet..." },
-        { title: "Mens Shopping", desc: "Lorem ipsum dolor sit amet..." },
-        { title: "Mens Shopping", desc: "Lorem ipsum dolor sit amet..." }]
+        { title: "Mens Shopping", desc: "Lorem ipsum dolor sit amet..." , img:product_1 },
+        { title: "Mens Shopping", desc: "Lorem ipsum dolor sit amet...", img:product_2 },
+        { title: "Mens Shopping", desc: "Lorem ipsum dolor sit amet...", img:product_3 }]
     const support = [
         { icon: <TfiWorld />, title: "24x7 Support", desc: "We at 24x7 Support specilizationin providing support to individual consumer" },
         { icon: <GiReceiveMoney />, title: "24x7 Support", desc: "We at 24x7 Support specilizationin providing support to individual consumer" },
@@ -21,11 +24,10 @@ const Products = () => {
                     {
                         product?.map((p, index) => (
                             <div className='col-lg-4 ' key={index}>
-                                <div className=' bg-[#E0DFDF]  p-2 pb-6'>
-                                    <div className='flex bg-[#E0DFDF]  flex-col justify-center text-center   '>
-                                        <div className='flex justify-center pt-4 '>
-
-                                            <img src={dp_img} className=" object-cover w-[130px]  h-[130px]" alt="img_pro" />
+                                <div className=' bg-[#F5F5F5]  p-2 pb-6'>
+                                    <div className='flex bg-[#F5F5F5]  flex-col justify-center text-center   '>
+                                        <div className='flex justify-center pt-4 bg-[#F5F5F5]'>
+                                            <img src={p?.img} className=" object-cover w-[80%]  h-full" alt="img_pro" />
                                         </div>
                                         <div className='pt-5'>
                                             <h2 className='text-[20px] text-black  font-bold'>{p.title}</h2>

@@ -10,7 +10,36 @@ export const CustomCardContainer = styled.div`
     box-shadow: 0px;
     border-radius: 10px !important;
     margin-left:10px;
-    width:50%;
+    // width:50%;
+
+    .shop_show{
+      display:none;
+    }
+
+    .img_hover{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity .2s;
+    }
+
+    &:hover{
+      
+      .shop_show{
+        display:block;
+        transition: .5 ease;
+        margin-top:10px;
+      }
+
+      .img_hover{
+        opacity: 1;
+      }
+
+    }
     
 
     @media screen and (max-width: 600px) {

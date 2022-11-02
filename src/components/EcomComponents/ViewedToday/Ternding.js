@@ -147,14 +147,7 @@ function Trending({ heading, section }) {
                                <RiShoppingCartLine className="text-[20px]"/> Add to Cart <span className="cart"></span>
                             </button>
                           </div>
-                          {/* <div className="flex justify-between">
-                            <button className="add-to-cart ">
-                              Add to Cart <span className="cart"></span>
-                            </button>
-                            <button className="bg-green-200 w-[20%] flex justify-center rounded-md items-center h-[50px] mt-5">
-                              <BsHeart className="text-[20px] text-green-700" />
-                            </button>
-                          </div> */}
+                         
                         </div>
                       </div>
                     </Card>

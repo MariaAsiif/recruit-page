@@ -207,7 +207,6 @@ function App() {
         <Route index path='customer-dashboard' element={<Sidebar />} />
 
         {/* E-commerace landing page  */}
-
         <Route path="/e-landing" element={<Landingpage />} />
 
 
