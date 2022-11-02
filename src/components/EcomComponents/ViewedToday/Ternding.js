@@ -90,7 +90,7 @@ function Trending({ heading, section }) {
     <StyleTrending>
       <div className="bscontainer">
         <div className="tranding-heading relative">
-          <h1 className=" font-medium text-[20px]">Trending Products</h1>
+          <h1 className=" font-medium text-[20px] tranding">Trending Products</h1>
           <hr className="mt-2 ml-5" />
           <hr className="border-[2px] left-4 -bottom-[1px] absolute z-99 rounded-sm border-[#24D29F] w-[19%]" />
         </div>

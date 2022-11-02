@@ -13,17 +13,17 @@ import { useQuery } from "react-query";
 
 function HempProduct() {
   const customeSlider = useRef();
-  const hempImgs = [
-    HempCardIcon,
-    HempCardIcon,
-    HempCardIcon,
-    HempCardIcon,
-    HempCardIcon,
-    HempCardIcon,
-    HempCardIcon,
-    HempCardIcon,
-    HempCardIcon,
-  ];
+  // const hempImgs = [
+  //   HempCardIcon,
+  //   HempCardIcon,
+  //   HempCardIcon,
+  //   HempCardIcon,
+  //   HempCardIcon,
+  //   HempCardIcon,
+  //   HempCardIcon,
+  //   HempCardIcon,
+  //   HempCardIcon,
+  // ];
 
   const {
     data: productData,
@@ -69,7 +69,7 @@ function HempProduct() {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 1,
           initialSlide: 1,
         },

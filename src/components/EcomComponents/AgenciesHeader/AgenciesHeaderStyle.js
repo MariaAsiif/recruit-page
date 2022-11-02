@@ -2,12 +2,46 @@ import styled from "styled-components";
 
 export const AgenciesHeaderContainer = styled.div`
 
+
+.search_bar{
+@media screen and (min-width: 768px) and (max-width:992px){
+		width: 400px;
+}
+}
+
+
+
+#main{
+	@media screen and (min-width: 768px) and (max-width:992px){
+		display:flex;
+		align-items:center;
+		justify-centent:center;
+	}
+	
+	
+	.right_side{
+		@media screen and (min-width: 768px) and (max-width:992px){
+	margin-top:-1px;
+		}
+
+}
+
+	@media screen and (max-width:600px){
+			flex-direction:column;
+	}
+
+}
+
+
 .top-bar .inner-content{
 	min-height: 8rem;
 	background: #FFFFFF;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	
+}
 
 
 }

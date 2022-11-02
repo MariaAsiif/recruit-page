@@ -52,6 +52,9 @@ gap:15.23px
     position: relative;
     border:none;
 }
+.hemp-slick{
+    margin-right:13px;
+}
 
 .hemp-slick .card-body{
     width: 100%;

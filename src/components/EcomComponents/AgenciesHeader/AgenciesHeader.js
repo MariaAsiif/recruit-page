@@ -7,7 +7,7 @@ import agencyLogo from "../../../assets/landingImages/agencyLogo.png";
 // import agencyuser from "../../../assets/landingImages/agency-user.svg";
 import dp_img from "../../../assets/images/Botanist.jpg";
 import { BsHeartFill } from 'react-icons/bs'
-import { GoThreeBars } from "react-icons/go"; 
+import { GoThreeBars } from "react-icons/go";
 import Sidebar from '../Sidebar/SideCanvas'
 // import featherMenu from "../../../assets/landingImages/Icon feather-menu.svg";
 
@@ -18,40 +18,25 @@ const AgenciesHeader = () => {
   const [sideNavShow, setSideNavShow] = useState(false);
   return (
     <AgenciesHeaderContainer>
-      <Sidebar  sidebarOpen={sideNavShow} setSidebarOpen={setSideNavShow} />
+      <Sidebar sidebarOpen={sideNavShow} setSidebarOpen={setSideNavShow} />
       <header className="top-bar">
         <div className="bscontainer">
           <div className="p-5">
             <div className="row">
               <div className="col-lg-2">
-                <div className="logo md:flex md:justify-center">
+                <div className="logo flex justify-center">
                   <img style={{ cursor: 'pointer', marginTop: '-8px' }} src={agencyLogo} alt="agencyLogo" />
                 </div>
               </div>
               <div className="col-lg-10 mt-5 lg:mt-0 ">
-                <div className="flex items-center justify-between ">
-
-                  {/* <div className="search-box">
-                    <input type="search" name="" className="focus:outline-none" placeholder="Search" />
-                    <div>
-                      <select className="p-1 w-[120px]">
-                        <option>Select Option</option>
-                        <option>Select Option</option>
-                        <option>Select Option</option>
-                      </select>
-                    </div>
-
-                    <button type="submit" className="flex justify-around items-center">
-                      <img src={agencysearch} alt="second" />
-                    </button>
-                  </div> */}
+                <div className="flex items-center justify-between" id="main">
                   <form>
-                    <div className="lg:flex lg:w-full md:w-[400px]">
-                      <div className=" lg:w-full w-[80%] border flex items-center rounded-r-lg rounded-l-lg  ">
+                    <div className="flex w-full ">
+                      <div className="search_bar lg:w-full  border flex items-center rounded-r-lg rounded-l-lg  ">
                         <input
                           type="search"
                           id="search-dropdown"
-                          className="block p-2.5 w-[360px] z-20 text-sm text-gray-900 bg-white rounded-md    pr-2  dark:placeholder-gray-400 dark:text-white focus:outline-none"
+                          className=" p-2.5 w-[360px] z-20 text-sm text-gray-900 bg-white rounded-md    pr-2  dark:placeholder-gray-400 dark:text-white focus:outline-none"
                           placeholder="Search for Item"
                           required=""
                         />
@@ -152,23 +137,25 @@ const AgenciesHeader = () => {
                       </div>
                     </div>
                   </form>
-                  <div className=" flex items-center justify-between mx-1">
-                    <BsHeartFill className="text-[30px] text-[#24D29F] md:mx-2" />
-                    <h3 className="text-[14px] px-1 text-[#24D29F] hidden lg:block ">Whichlist(21)</h3>
-                  </div>
-                  <div className=" flex items-center justify-between">
-                    <img src={agenciyCart} className="h-[35px] " alt="agencyuser" />
-                    <div className="hidden lg:block">
-                      <h2 className="text-[14px]">Your cart</h2>
-                      <p className="text-[14px] px-2 text-[#24D29F] font-medium ">$132.142</p>
+                  <div className="flex items-center justify-between lg:mt-0 mt-[20px] right_side">
+                    <div className=" flex items-center justify-between mx-1">
+                      <BsHeartFill className="text-[30px] text-[#24D29F] lg:mx-0 mx-3" />
+                      <h3 className="text-[14px] px-1 text-[#24D29F] hidden lg:block ">Whichlist(21)</h3>
+                    </div>
+                    <div className=" flex items-center justify-between">
+                      <img src={agenciyCart} className="h-[35px] lg:mx-0 mx-5 " alt="agencyuser" />
+                      <div className="hidden lg:block">
+                        <h2 className="text-[14px]">Your cart</h2>
+                        <p className="text-[14px] px-2 text-[#24D29F] font-medium ">$132.142</p>
+                      </div>
+                    </div>
+                    <div className="icons">
+                      <img src={dp_img} className="lg:mx-0 mx-5 rounded-full lg:w-[55px] w-[40px] h-[40px] object-cover lg:h-[55px] border border-[#24D29F]" alt="agenciyCart" />
+                    </div>
+                    <div className="lg:hidden  lg:mx-0 mx-5" onClick={() => setSideNavShow(true)}>
+                      <GoThreeBars className="text-[30px]" />
                     </div>
                   </div>
-                  <div className="icons">
-                    <img src={dp_img} className="md:mx-2 rounded-full lg:w-[55px] w-[40px] h-[40px] object-cover lg:h-[55px] border border-[#24D29F]" alt="agenciyCart" />
-                  </div>
-                  <div className="lg:hidden " onClick={() => setSideNavShow(true)}>
-                     <GoThreeBars className="text-[30px]"/>
-                    </div>
 
                 </div>
               </div>

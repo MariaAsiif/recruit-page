@@ -14,6 +14,14 @@ export const StyleTrending = styled.div`
     /* border-bottom: 1px solid #DADADA; */
 }
 
+.tranding{
+  @media screen and (max-width: 600px) {
+     font-size:20px !important;
+     font-weight:500;
+     
+  }
+}
+
 .top-categories h1{
     font-family: 'Poppins';
     font-style: normal;

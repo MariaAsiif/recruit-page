@@ -88,6 +88,11 @@ cursor:pointer;
 &:hover{
    background-color:red
 }
+
+@media screen and (max-width:600px) {
+  width:50%;
+}
+
 `
 export const FeatureMarkTextContainer = styled.div`
 margin-left:4rem;
