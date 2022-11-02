@@ -138,19 +138,19 @@ const AgenciesHeader = () => {
                     </div>
                   </form>
                   <div className="flex items-center justify-between lg:mt-0 mt-[20px] right_side">
-                    <div className=" flex items-center justify-between mx-1">
+                    <div className=" flex items-center justify-between lg:mx-1">
                       <BsHeartFill className="text-[30px] text-[#24D29F] lg:mx-0 mx-3" />
                       <h3 className="text-[14px] px-1 text-[#24D29F] hidden lg:block ">Whichlist(21)</h3>
                     </div>
-                    <div className=" flex items-center justify-between">
-                      <img src={agenciyCart} className="h-[35px] lg:mx-0 mx-5 " alt="agencyuser" />
+                    <div className=" flex items-center justify-between ">
+                      <img src={agenciyCart} className="h-[35px] lg:mx-2 mx-5 " alt="agencyuser" />
                       <div className="hidden lg:block">
                         <h2 className="text-[14px]">Your cart</h2>
                         <p className="text-[14px] px-2 text-[#24D29F] font-medium ">$132.142</p>
                       </div>
                     </div>
                     <div className="icons">
-                      <img src={dp_img} className="lg:mx-0 mx-5 rounded-full lg:w-[55px] w-[40px] h-[40px] object-cover lg:h-[55px] border border-[#24D29F]" alt="agenciyCart" />
+                      <img src={dp_img} className="lg:mx-1 mx-5 rounded-full lg:w-[55px] w-[40px] h-[40px] object-cover lg:h-[55px] border border-[#24D29F]" alt="agenciyCart" />
                     </div>
                     <div className="lg:hidden  lg:mx-0 mx-5" onClick={() => setSideNavShow(true)}>
                       <GoThreeBars className="text-[30px]" />
