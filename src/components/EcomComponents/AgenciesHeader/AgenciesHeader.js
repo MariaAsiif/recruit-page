@@ -22,7 +22,7 @@ const AgenciesHeader = () => {
                   <img style={{ cursor: 'pointer' , marginTop:'-8px' }} src={agencyLogo} alt="agencyLogo" />
                 </div>
               </div>
-              <div className="col-lg-10 ">
+              <div className="col-lg-10 hidden lg:block ">
                 <div className="flex items-center justify-between">
 
                   {/* <div className="search-box">

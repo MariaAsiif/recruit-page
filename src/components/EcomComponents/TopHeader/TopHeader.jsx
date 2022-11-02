@@ -54,7 +54,7 @@ const TopHeader = () => {
 
     return (
         <>
-            <div className='bg-[#707070] lg:h-[40px] lg:p-0 pb-2'>
+            <div className='bg-[#707070] lg:h-[40px] lg:p-0 pb-2 hidden lg:block md:block'>
                 <div className='bscontainer'>
                     <div className="row">
                         <div className="col-lg-4">
