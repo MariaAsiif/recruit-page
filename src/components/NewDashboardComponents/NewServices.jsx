@@ -14,15 +14,15 @@ const NewServices = () => {
                 })}
             </div>
             <div className='grid grid-cols-12 gap-5 mb-5'>
-                <div className='col-span-4 bg-[#F2F2F2] p-5 rounded-xl flex flex-col items-center justify-center'>
+                <div className='lg:col-span-4 col-span-12 bg-[#F2F2F2] p-5 rounded-xl flex flex-col items-center justify-center'>
                     <h1 className='text-[#626973] text-lg font-semibold mb-2 '>Hi AB,</h1>
                     <p className='text-[#92929D] text-xs font-normal leading-5 text-center mb-2'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero</p>
                     <button className='block bg-[#42946C] rounded-md px-5 py-2 font-medium text-white'>Post a request</button>
                 </div>
-                <div className='col-span-8 bg-[#42946C] rounded-xl p-5 flex justify-between '>
+                <div className='lg:col-span-8 col-span-12 bg-[#42946C] rounded-xl p-5 flex justify-between '>
                     <div>
                         <h1 className='mb-3 text-lg font-semibold text-white'>Start Your Dropshipping Business Now…!!</h1>
-                        <p className='mb-2 text-xs font-normal leading-5 text-center text-white'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.</p>
+                        <p className='mb-2 text-xs font-normal leading-5 text-white lg:text-center'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.</p>
                     </div>
                     <div>
                         <img alt="test" src="http://placekitten.com/200/200" />

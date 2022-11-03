@@ -119,6 +119,12 @@ import Landingpage from './Pages/EcomePages/Landing/Landingpage';
 import OrderDetails from './components/NewDashboardComponents/OrderDetails';
 import InvoiceInformation from './components/NewDashboardComponents/InvoiceInformation';
 import NewInvoice from './components/NewDashboardComponents/NewInvoice';
+import BrandAdvertisement from './Pages/Advertisement/BrandAdvertisement/BrandAdvertisement';
+import CreateBrandAdvertisement from './Pages/Advertisement/BrandAdvertisement/CreateBrandAdvertisement';
+import BusinessAdvertisement from './Pages/Advertisement/BusinessAdvertisement/BusinessAdvertisement';
+import OrganizationAdvertisement from './Pages/Advertisement/OrganizationAdvertisement/OrganizationAdvertisement';
+import CreateOrganizationAdvertisement from './Pages/Advertisement/OrganizationAdvertisement/CreateOrganizationAdvertisement';
+import CreateBusinessAdvertisement from './Pages/Advertisement/BusinessAdvertisement/CreateBusinessAdvertisement';
 
 
 const RequireAuth = ({ children }) => {
@@ -387,6 +393,22 @@ function App() {
         >
           <Route index element={<FeedBack />} />
           <Route path='create-feedback' element={<CreateFeedback />} />
+        </Route>
+
+
+        <Route path='/brand-advertisement' element={<RequireAuth><MainWrapper /></RequireAuth>}    >
+          <Route index element={<BrandAdvertisement />} />
+          <Route path='create-brand-advertisement' element={<CreateBrandAdvertisement />} />
+        </Route>
+
+        <Route path='/business-advertisement' element={<RequireAuth><MainWrapper /></RequireAuth>}    >
+          <Route index element={<BusinessAdvertisement />} />
+          <Route path='create-business-advertisement' element={<CreateBusinessAdvertisement />} />
+        </Route>
+
+        <Route path='/organization-advertisement' element={<RequireAuth><MainWrapper /></RequireAuth>}    >
+          <Route index element={<OrganizationAdvertisement />} />
+          <Route path='create-organization-advertisement' element={<CreateOrganizationAdvertisement />} />
         </Route>
 
         <Route
