@@ -1,27 +1,39 @@
 import React from "react";
 // import { Link } from "react-router-dom";
+// import { AiOutlineMail } from "react-icons/ai";
 
 function Cart() {
   return (
     <>
       <div className="mt-10 col-10 font-medium text-lg text-[#24D29F] flex bscontainer-fluid truncate">
         <div className="col-2">
-          <h1>Product</h1>
+          <h1 className="h-[89px]">Product</h1>
+          <section className="flex">
+          <img className="w-[46px] h-[50px] mt-2 mr-1" src="" alt="" />
+          <p className="font-sans w-[208px] h-[60px] text-[#313131] whitespace-normal py-1 pr-2">Hemp & argan nourishing facial oil</p>
+          </section>
           <button className="h-[65px] w-[217px] px-7 py-2 mt-5 text-lg text-[#313131] bg-[#73E6C5] border-0 font-medium">
             Update Cart
           </button>
         </div>
         <div className="col-1">
-          <h1>Price</h1>
+          <h1 className="h-[89px]">Price</h1>
+          <p className="font-sans w-[82px] h-[30px] text-[#313131] whitespace-normal py-1 pr-2">$799.00</p>
         </div>
         <div className="col-1">
-          <h1>Quantity</h1>
+          <h1 className="h-[89px]">Quantity</h1>
+          <p className="font-sans w-[13px] h-[30px] text-[#313131] whitespace-normal py-1 pr-2">2</p>
         </div>
         <div className="col-2">
-          <h1>Subtotal</h1>
+          <h1 className="h-[89px]">Subtotal</h1>
+          <p className="font-sans w-[100px] h-[30px] text-[#313131] whitespace-normal py-1 pr-2">$1,598.00</p>
         </div>
         <div className="text-xl col-4">
-          <h1>Cart Totals</h1>
+          <h1 className="h-[89px]">Cart Totals</h1>
+          <section className="flex">
+          <p className="font-sans w-[13px] h-[30px] text-[#313131] whitespace-normal py-1 pr-2">Subtotal</p>
+          <p className="font-sans w-[13px] h-[30px] text-[#313131] whitespace-normal py-1 pr-2">$1,598.00</p>
+          </section>
           <button className="h-[65px] w-[417px] items-start text-center justify-center mx-auto px-4 py-2 mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
             Proceed to Checkout
           </button>
@@ -120,73 +132,86 @@ function Cart() {
           </div>
         </div>
       </section>
-      <div className="flex items-center justify-center p-12 py-6 bg-white">
-        <div className="w-full max-w-screen-lg px-5 py-10 mx-auto bg-blue-700">
-          <div className="grid gap-5 md:grid-cols-2 md:gap-10 lg:gap-20">
-            <div className="flex justify-center md:justify-end">
+
+      <section className="text-gray-600 body-font">
+        <div className="container flex flex-wrap px-5 mx-auto">
+          <div className="mx-auto">
+            <div className="relative flex flex-wrap w-full px-10 py-32 mb-4 bg-gray-100">
               <img
-                className="w-[1920px] h-[466px]"
-                src="https://ouch-cdn2.icons8.com/sKnF2PmYhkmP28DzIm6KqWSknT03UVWjg3FLlGYIOp4/rs:fit:684:456/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvOTI3/L2U4OWQ2NmZiLTg0/NzEtNDc3NS1hNTA0/LTMwNWRiYmJkNzg0/MC5zdmc.png"
-                alt="Marketing newsletter via computer Illustration in PNG, SVG"
+                alt="gallery"
+                className="absolute inset-0 block object-cover object-center opacity-25 w-[1920px] h-[456px]"
+                src="https://dummyimage.com/1920x456"
               />
-            </div>
-            <div className="flex items-center">
-              <div className="mx-auto md:mx-0">
-                <h3 className="text-4xl font-bold text-white">Subscribe</h3>
-                <p className="mt-2 max-w-[20rem] text-lg text-white/80">
-                  Join our weekly digest. You'll also receive some of our best
-                  posts today.
+              <div className="relative z-10 w-full text-center">
+                <h2 className="mb-2 text-2xl font-medium text-gray-900 title-font w-1403 h-71">
+                  Discount up to 35% for first purchase only this month.
+                </h2>
+                <p className="leading-relaxed w-1391 h-66">
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                  justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                  sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                  ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                  nonumy eirmod tempor invidunt ut labore et dolore magna
+                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                  justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                  sea takimata sanctus est
                 </p>
-                <form action="" className="flex flex-col mt-4">
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Enter your email"
-                    className="w-full rounded border border-white/50 bg-transparent px-3 py-2 text-white placeholder:text-white/50 md:max-w-[18rem]"
-                  />
-                  <button
-                    type="submit"
-                    className="mt-4 w-full max-w-[14rem] rounded bg-white/30 px-14 py-2 text-center text-white"
-                  >
-                    Subscribe
-                  </button>
-                </form>
+                <button className="h-[94px] w-[382px] items-start text-center justify-center mx-auto px-4 py-2 mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
+                  Shop Now
+                </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <section class="text-gray-600 body-font">
-        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-          <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h1 class="font-sans font-bold w-[485px] h-[76px] title-font sm:text-4xl text-3xl mb-4 text-[#313131]">
+      </section>
+
+      <section className="text-gray-600 body-font">
+        <div className="container flex flex-col items-center px-5 py-24 mx-auto md:flex-row">
+          <div className="flex flex-col items-center mb-16 text-center lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:items-start md:text-left md:mb-0">
+            <h1 className="font-sans font-bold w-[485px] h-[76px] title-font sm:text-4xl text-3xl mb-4 text-[#313131]">
               For More Update
-              <br class="inline-block" />
+              <br className="inline-block" />
               Join Our{" "}
               <h1 className="inline-block text-[#24D29F]">News Letter</h1>
             </h1>
-            <p class="mt-8 leading-relaxed">
+            <p className="mt-8 leading-relaxed">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             </p>
-            <p class="mb-8 leading-relaxed">
+            <p className="mb-8 leading-relaxed">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             </p>
-            <div class="flex justify-center">
-              <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                Button
+            {/* <div className="flex justify-center">
+              <input
+                type="email"
+                id="email-signup"
+                name="email-signup"
+                className="w-[406px] h-[81px] text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-gray-100 bg-opacity-50 border border-gray-300 rounded outline-none focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500"
+              />
+              <button type="submit" className="w-[195px] h-[81px] bg-[#24D29F]">
+                Sign Up
               </button>
-              <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
-                Button
-              </button>
-            </div>
+            </div> */}
+            <form className="w-full max-w-sm">
+              <div className="flex items-center py-2">
+                <input
+                  className="appearance-none bg-[#E0DFDF] border-none text-gray-700 leading-tight focus:outline-none w-[406px] h-[81px] px-4"
+                  type="text"
+                  placeholder="Email"
+                  aria-label="Full name"
+                />
+                <button
+                  className="flex-shrink-0 bg-[#24D29F] text-sm text-white w-[195px] h-[81px]"
+                  type="button"
+                >
+                  Sign Up
+                </button>
+              </div>
+            </form>
           </div>
-          <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-            <img
-              class="object-cover object-center rounded"
-              alt="hero"
-              src="https://dummyimage.com/599x481"
-            />
+          <div>
+            <img className="" alt="hero" src="https://dummyimage.com/599x481" />
           </div>
         </div>
       </section>
