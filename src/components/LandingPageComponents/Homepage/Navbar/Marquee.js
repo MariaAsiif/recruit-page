@@ -12,21 +12,16 @@ const MarqueeView = () => {
   useEffect(() => {
     (async () => {
       try {
-
         let payload = {
-
           "sortproperty": "created_at",
           "sortorder": -1,
           "offset": 0,
           "limit": 100,
           "query": {
             "critarion": { "active": true },
-
             "addedby": "_id email first_name",
-
             "lastModifiedBy": "_id email first_name"
           }
-
         }
         const response = await callPublicApi("/tickers/getTickersWithFullDetailsPublic", "post", payload)
         // let response = await axios.post("https://hporxadminbackend.herokuapp.com/tickers/getTickersWithFullDetailsPublic", payload);
@@ -34,6 +29,7 @@ const MarqueeView = () => {
         // setTickers(response.data.tickers)
         // console.log("ticker", response)
 
+        console.log("ticker reponse", response);
         let arr = []
         let arr2 = []
         let arr3 = []
@@ -100,6 +96,7 @@ const MarqueeView = () => {
         direction="left"
         speed="70"
       >
+
         {tickers.map((ticker, i) => (
           <>
             <span style={{ display: "inline-block", margin: "0 2px" }} key={i}>
