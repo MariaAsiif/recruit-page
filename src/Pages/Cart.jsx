@@ -1,6 +1,7 @@
 import React from "react";
 // import { Link } from "react-router-dom";
 // import { AiOutlineMail } from "react-icons/ai";
+import CartImg from '../../src/assets/images/cart-img.jpg';
 
 function Cart() {
   return (
@@ -72,6 +73,7 @@ function Cart() {
                 </button>
               </div>
             </div>
+            
             <div className="p-4 xl:w-1/3 md:w-1/2">
               <div className="p-6 border border-gray-200 rounded-lg">
                 <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 text-green-500 bg-green-100 rounded-full">
@@ -133,17 +135,17 @@ function Cart() {
         </div>
       </section>
 
-      <section className="text-gray-600 body-font">
-        <div className="container flex flex-wrap px-5 mx-auto">
+      <section className="text-white body-font">
+        <div className="container flex flex-wrap mx-auto">
           <div className="mx-auto">
-            <div className="relative flex flex-wrap w-full px-10 py-32 mb-4 bg-gray-100">
+            <div className="relative flex flex-wrap w-full px-10 py-32 mb-4">
               <img
                 alt="gallery"
-                className="absolute inset-0 block object-cover object-center opacity-25 w-[1920px] h-[456px]"
-                src="https://dummyimage.com/1920x456"
+                className="absolute inset-0 block object-cover object-center w-[1920px] h-[456px]"
+                src={CartImg}
               />
               <div className="relative z-10 w-full text-center">
-                <h2 className="mb-2 text-2xl font-medium text-gray-900 title-font w-1403 h-71">
+                <h2 className="mb-2 text-2xl font-medium title-font w-1403 h-71">
                   Discount up to 35% for first purchase only this month.
                 </h2>
                 <p className="leading-relaxed w-1391 h-66">
