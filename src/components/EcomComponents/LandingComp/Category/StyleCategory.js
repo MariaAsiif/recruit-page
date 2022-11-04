@@ -1,6 +1,6 @@
 
-import cartwhite from "../../../assets/landingImages/whiteCart.svg";
-import cartgreen from "../../../assets/landingImages/blackCart.svg";
+import cartwhite from "../../../../assets/landingImages/whiteCart.svg";
+import cartgreen from "../../../../assets/landingImages/blackCart.svg";
 
 import styled from "styled-components";
 export const CustomCardContainer = styled.div`

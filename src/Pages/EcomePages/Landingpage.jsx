@@ -1,15 +1,15 @@
 import React from 'react'
-import Banner from '../../components/EcomComponents/Banner/Banner';
-import Category from '../../components/EcomComponents/Category/Category';
-import Deals from '../../components/EcomComponents/Deals/Deals';
-import FeatureMarketContainer from '../../components/EcomComponents/Feature/FeatureMarketContainer';
-import News from '../../components/EcomComponents/News/News';
-import Products from '../../components/EcomComponents/Products/Products';
-import Sales from '../../components/EcomComponents/Sales/Sales';
-import Shopping from '../../components/EcomComponents/Shopping/Shopping';
-import HempProduct from '../../components/EcomComponents/LandingPage/TopCategory/HempProduct';
-import TrustedSuppliers from '../../components/EcomComponents/TrustedSuppliers/TrustedSuppliers';
-import Trending from '../../components/EcomComponents/ViewedToday/Ternding';
+import Banner from '../../components/EcomComponents/LandingComp/Banner/Banner';
+import Category from '../../components/EcomComponents/LandingComp/Category/Category';
+import Deals from '../../components/EcomComponents/LandingComp/Deals/Deals';
+import FeatureMarketContainer from '../../components/EcomComponents/LandingComp/Feature/FeatureMarketContainer';
+import News from '../../components/EcomComponents/LandingComp/News/News';
+import Products from '../../components/EcomComponents/LandingComp/Products/Products';
+import Sales from '../../components/EcomComponents/LandingComp/Sales/Sales';
+import Shopping from '../../components/EcomComponents/LandingComp/Shopping/Shopping';
+import HempProduct from '../../components/EcomComponents/LandingComp/TopCategory/HempProduct';
+import TrustedSuppliers from '../../components/EcomComponents/LandingComp/TrustedSuppliers/TrustedSuppliers';
+import Trending from '../../components/EcomComponents/LandingComp/ViewedToday/Ternding';
 import interOrg1 from "../../assets/landingImages/interOrg1.svg";
 import interOrg2 from "../../assets/landingImages/interOrg2.svg";
 import interOrg3 from "../../assets/landingImages/interOrg3.svg";
@@ -27,7 +27,7 @@ const Landingpage = () => {
       ];
 
     return (
-        <Layout>
+        <Layout homenav={false}>
             <FeatureMarketContainer />
             <HempProduct />
             <Trending section='trending' />

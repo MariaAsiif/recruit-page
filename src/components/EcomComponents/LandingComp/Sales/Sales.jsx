@@ -1,6 +1,6 @@
 import React from 'react'
-import dp_img from "../../../assets/images/Botanist.jpg";
-import Rating from '../RatingStarts'
+import dp_img from "../../../../assets/images/Botanist.jpg";
+import Rating from '../../RatingStarts'
 const Sales = () => {
 
     return (

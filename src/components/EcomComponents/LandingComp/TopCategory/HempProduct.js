@@ -1,13 +1,13 @@
 import React, { useRef } from "react";
 import { Card, Placeholder } from "react-bootstrap";
 import { StyleHemp } from "./StyleHempProduct";
-import HempCardIcon from "../../../assets/landingImages/HempCardIcon.svg";
+import HempCardIcon from "../../../../assets/landingImages/HempCardIcon.svg";
 import Slider from "react-slick";
 // import Banner from "./Banner";
-import slidenext from "../../../assets/landingImages/icons/angle-right.png";
-import slideprev from "../../../assets/landingImages/icons/angle-left.png";
-// import cardimage from "../../../assets/landingImages/card-img.png";
-import { BASE_URL, GET_PRODUCTS, IMAGE_URL } from "../../../utils/config";
+import slidenext from "../../../../assets/landingImages/icons/angle-right.png";
+import slideprev from "../../../../assets/landingImages/icons/angle-left.png";
+// import cardimage from "../../../../assets/landingImages/card-img.png";
+import { BASE_URL, GET_PRODUCTS, IMAGE_URL } from "../../../../utils/config";
 import axios from "axios";
 import { useQuery } from "react-query";
 

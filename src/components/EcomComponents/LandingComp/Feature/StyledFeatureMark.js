@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import featureMarkBack from '../../../assets/landingImages/featureMarketBack.png'
+import featureMarkBack from '../../../../assets/landingImages/featureMarketBack.png'
 // import { PrimaryHeading, TertiaryHeadingMedium, TertiaryHeadSecondary, ViewMoreBtn } from "";
 
 

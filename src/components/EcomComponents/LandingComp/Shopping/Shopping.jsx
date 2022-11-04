@@ -1,6 +1,6 @@
 import React from 'react'
 
-import dp_img from "../../../assets/images/Botanist.jpg";
+import dp_img from "../../../../assets/images/Botanist.jpg";
 import { ShopingWrapper } from './Styleshopping'
 const Shopping = () => {
     return (

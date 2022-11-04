@@ -1,7 +1,7 @@
 import React from 'react'
-import blog_1 from "../../../assets/ecome/blog-01.jpg";
-import blog_2 from "../../../assets/ecome/blog-02.jpg";
-import blog_3 from "../../../assets/ecome/blog-03.jpg";
+import blog_1 from "../../../../assets/ecome/blog-01.jpg";
+import blog_2 from "../../../../assets/ecome/blog-02.jpg";
+import blog_3 from "../../../../assets/ecome/blog-03.jpg";
 
 const News = () => {
 

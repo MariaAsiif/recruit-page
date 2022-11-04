@@ -1,14 +1,14 @@
 import React, { createContext, Suspense } from "react";
-import Agriculture from "./Agriculture/Agriculture";
-import BelowGrowProfit from "./BelowGrowProfit/BelowGrowProfit";
+// import Agriculture from "./Agriculture/Agriculture";
+// import BelowGrowProfit from "./BelowGrowProfit/BelowGrowProfit";
 import Chillum from "./Chillums/Chillums";
 import Cutivation from "./Cultivation/Cultivation";
-import GrowProfit from "./GrowProfit/GrowProfit";
+// import GrowProfit from "./GrowProfit/GrowProfit";
 import Header from "./Header/Header";
-import MedicinesSlick from "./Medicines Slick/MedicinesSlick";
-import MedicineSmallSlick from "./MedicineSmallSlick/MedicineSmallSlick";
+// import MedicinesSlick from "./Medicines Slick/MedicinesSlick";
+// import MedicineSmallSlick from "./MedicineSmallSlick/MedicineSmallSlick";
 import Portable from "./Portable/Portable";
-import Prescribe from "./Prescribe/Prescribe";
+// import Prescribe from "./Prescribe/Prescribe";
 import Statistics from "./Statistics/Statistics";
 import SubscribeNewsletter from "./SubscribeNewsletter/SubscribeNewsletter";
 import TrustedSuppliers from "./TrustedSuppliers/TrustedSuppliers";
@@ -18,8 +18,8 @@ import Vaporize from "./Vaporize/Vaporize";
 import Marketplace from "../MarketPlace/Marketplace";
 import Diaganose from "./Diagnose/Diaganose";
 import EMultiVendor from "./EMultiVendor/EMultiVendor";
-import mensFashionDiscount from "../../../assets/landingImages/mensFashionDiscount.svg";
-import giftCard from "../../../assets/landingImages/giftCard.jpg";
+// import mensFashionDiscount from "../../../assets/landingImages/mensFashionDiscount.svg";
+// import giftCard from "../../../assets/landingImages/giftCard.jpg";
 import Locate from "./Locate/Locate";
 // LANDINF PAGE
 import interOrg1 from "../../../assets/landingImages/interOrg1.svg";
@@ -50,39 +50,39 @@ import hygie6 from "../../../assets/landingImages/hygie6.svg";
 import hygie7 from "../../../assets/landingImages/hygie7.svg";
 import hygie8 from "../../../assets/landingImages/hygie8.svg";
 import hygie9 from "../../../assets/landingImages/hygie9.svg";
-import aboveCopyright1 from "../../../assets/landingImages/aboveCopyright1.svg";
-import aboveCopyright2 from "../../../assets/landingImages/aboveCopyright2.svg";
-import aboveCopyright3 from "../../../assets/landingImages/aboveCopyright3.svg";
-import aboveCopyright4 from "../../../assets/landingImages/aboveCopyright4.svg";
-import aboveCopyright5 from "../../../assets/landingImages/aboveCopyright5.svg";
-import aboveCopyright6 from "../../../assets/landingImages/aboveCopyright6.svg";
-import aboveCopyright7 from "../../../assets/landingImages/aboveCopyright7.svg";
-import aboveCopyright8 from "../../../assets/landingImages/aboveCopyright8.svg";
+// import aboveCopyright1 from "../../../assets/landingImages/aboveCopyright1.svg";
+// import aboveCopyright2 from "../../../assets/landingImages/aboveCopyright2.svg";
+// import aboveCopyright3 from "../../../assets/landingImages/aboveCopyright3.svg";
+// import aboveCopyright4 from "../../../assets/landingImages/aboveCopyright4.svg";
+// import aboveCopyright5 from "../../../assets/landingImages/aboveCopyright5.svg";
+// import aboveCopyright6 from "../../../assets/landingImages/aboveCopyright6.svg";
+// import aboveCopyright7 from "../../../assets/landingImages/aboveCopyright7.svg";
+// import aboveCopyright8 from "../../../assets/landingImages/aboveCopyright8.svg";
 import FeatureMarketPlace from "./FeatureMarketplace/FeatureMarketPlace";
-import SSL from "./SSL/SSL";
-import Terms from "../Terms/Terms";
+// import SSL from "./SSL/SSL";
+// import Terms from "../Terms/Terms";
 import Testimonials from "./Testimonials/Testimonials";
 import Quote from "./Quote/Quote";
 import { ViewTodayContainer } from "../Homepage2/StyledHomepage2";
 import ViewedToday from "../Homepage2/ViewedToday/ViewedToday";
 import SectionPlaceHolder from '../Globals/SectionPlaceHolder'
 import DesignShowcase from "./Inspiration/DesignShowcase";
-import { RiMessage2Line } from "react-icons/ri";
+// import { RiMessage2Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Feedback from "../Feedback/FeedBack";
-import Popup from "./ageDate/Popup";
+// import Popup from "./ageDate/Popup";
 // import TrustedSuppliers from "./TrustedSuppliers/TrustedSuppliers";
 import Footer from "../../Footer/Footer";
 // import SSL from "./SSL/SSL";
 // import Quote from "./Quote/Quote";
 // import Terms from "./Terms/Terms";
 export const VolumeContext = createContext();
-const styles = {
-  margin: "1rem 2rem",
-  border: "none",
-  borderTop: "1px solid rgba(0, 0, 0, 0.1)",
-  padding: " 0 2rem",
-};
+// const styles = {
+//   margin: "1rem 2rem",
+//   border: "none",
+//   borderTop: "1px solid rgba(0, 0, 0, 0.1)",
+//   padding: " 0 2rem",
+// };
 const Homepage = () => {
   const [volumeValue, setVolumeValue] = React.useState(false);
 

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { FiShoppingCart } from 'react-icons/fi'
-import oil from "../../../assets/landingImages/drop.png";
-import drop from "../../../assets/landingImages/drop.png";
-import vap from "../../../assets/landingImages/vaporize2.png";
-import medrel from "../../../assets/landingImages/box.png";
-import bed from "../../../assets/landingImages/bed.png";
-import Rating from '../RatingStarts';
+import oil from "../../../../assets/landingImages/drop.png";
+import drop from "../../../../assets/landingImages/drop.png";
+import vap from "../../../../assets/landingImages/vaporize2.png";
+import medrel from "../../../../assets/landingImages/box.png";
+import bed from "../../../../assets/landingImages/bed.png";
+import Rating from '../../RatingStarts';
 import { BsStopwatch } from 'react-icons/bs';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Thumbs, Autoplay } from 'swiper'

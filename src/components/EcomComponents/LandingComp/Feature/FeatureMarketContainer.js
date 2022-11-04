@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import featureMark from '../../../assets/landingImages/featureMarketplace.svg'
+import featureMark from '../../../../assets/landingImages/featureMarketplace.svg'
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles

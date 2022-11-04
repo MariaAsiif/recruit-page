@@ -2,12 +2,12 @@ import React from "react";
 import { CustomCardContainer, StyleTrending } from "./StyleTrending";
 import { Placeholder } from "react-bootstrap";
 import Slider from "react-slick";
-import { BASE_URL, GET_PRODUCTS, IMAGE_URL } from "../../../utils/config";
+import { BASE_URL, GET_PRODUCTS, IMAGE_URL } from "../../../../utils/config";
 import axios from "axios";
 import { useQuery } from "react-query";
 // import CustomCard from '../../Globals/CustomCard'
 import { Card } from "react-bootstrap";
-import star from "../../../assets/landingImages/icons/star.png";
+import star from "../../../../assets/landingImages/icons/star.png";
 // import { BsHeart } from 'react-icons/bs'
 import { RiShoppingCartLine } from 'react-icons/ri'
 function Trending({ heading, section }) {
@@ -144,10 +144,10 @@ function Trending({ heading, section }) {
                           </div>
                           <div className="absolute w-full left-0 shop_show">
                             <button className="add-to-cart !w-[90%] !bg-[#27D6A5]  ">
-                               <RiShoppingCartLine className="text-[20px]"/> Add to Cart <span className="cart"></span>
+                              <RiShoppingCartLine className="text-[20px]" /> Add to Cart <span className="cart"></span>
                             </button>
                           </div>
-                         
+
                         </div>
                       </div>
                     </Card>

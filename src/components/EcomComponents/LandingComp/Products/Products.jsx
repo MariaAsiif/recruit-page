@@ -1,9 +1,9 @@
 import React from 'react'
 
-import dp_img from "../../../assets/images/Botanist.jpg";
-import product_2 from "../../../assets/ecome/watch.jpg";
-import product_1 from "../../../assets/ecome/women-cloth.jpg";
-import product_3 from "../../../assets/ecome/bag.jpg";
+import dp_img from "../../../../assets/images/Botanist.jpg";
+import product_2 from "../../../../assets/ecome/watch.jpg";
+import product_1 from "../../../../assets/ecome/women-cloth.jpg";
+import product_3 from "../../../../assets/ecome/bag.jpg";
 import { TfiWorld } from 'react-icons/tfi'
 import { GiReceiveMoney } from 'react-icons/gi'
 import { FaShippingFast } from 'react-icons/fa'

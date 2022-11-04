@@ -4,12 +4,14 @@ import Footer from '../../Footer/Footer'
 import AgenciesHeader from '../AgenciesHeader/AgenciesHeader'
 import TopHeader from '../TopHeader/TopHeader'
 import HomePageNav from '../Nav/HomePageNav'
-const Layout = ({ children }) => {
+import HomeNav from '../HomeNav/HomeNav'
+const Layout = ({ children }, homeNav) => {
     return (
         <>
             <TopHeader />
             <AgenciesHeader />
             <HomePageNav />
+            {homeNav === true ? <HomeNav /> : null}
             {
                 children
             }
