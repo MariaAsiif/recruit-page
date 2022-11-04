@@ -115,11 +115,14 @@ import Sidebar from './Pages/Medical/Layout/Sidebar';
 
 import NewFaqs from './components/NewDashboardComponents/NewFaqs';
 import SingleGig from './components/NewDashboardComponents/SingleGig';
-import Landingpage from './Pages/EcomePages/Landing/Landingpage';
+
 import OrderDetails from './components/NewDashboardComponents/OrderDetails';
 import InvoiceInformation from './components/NewDashboardComponents/InvoiceInformation';
 import NewInvoice from './components/NewDashboardComponents/NewInvoice';
 
+// Ecommerace
+import Landingpage from './Pages/EcomePages/Landingpage';
+import EDashboard from './Pages/EcomePages/Dashboard';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -210,6 +213,8 @@ function App() {
 
         {/* E-commerace landing page  */}
         <Route path="/e-landing" element={<Landingpage />} />
+        <Route path="/e-dashboard" element={<EDashboard />} />
+
 
 
         {/* Admin Dashboard */}

@@ -127,7 +127,7 @@ const Deals = () => {
                                             <p className='px-1 text-black font-bold text-[14px]'>-20%</p>
                                             <del className='px-1 text-[#E0DFDF] font-medium text-[14px]'>$20</del>
                                         </div>
-                                        <div className='border w-[47%] mt-2 p-1 bg-[#EEEEEE] rounded-md flex items-center'>
+                                        <div className='time_btn border text-center w-[50%] mt-2 p-1 bg-[#EEEEEE] rounded-md flex items-center'>
                                             <BsStopwatch className='text-[18px]' />
                                             <div className='px-2'>
                                                 <span className='text-[14px] font-semibold'>471 : 10 : 16 : <span className='text-[#DD2E44]'>08</span></span>

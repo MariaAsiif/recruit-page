@@ -16,7 +16,8 @@ module.exports = {
         'notification': "url('./images/notifi.svg')",
         'outer-notif': "url('./images/outerbg.svg')",
         'login-img': "url('./images/Login_left_side.jpg')",
-        'sidenave': " url(./assets/landingImages/canvas-bg.gif)"
+        'sidenave': " url(./assets/landingImages/canvas-bg.gif)",
+        'navbanner': " url(./assets/ecome/banner.png)"
         
       },
       fontFamily: {

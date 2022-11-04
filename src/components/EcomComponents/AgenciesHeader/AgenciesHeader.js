@@ -153,7 +153,7 @@ const AgenciesHeader = () => {
                       <img src={dp_img} className="lg:mx-1 mx-5 rounded-full lg:w-[55px] w-[40px] h-[40px] object-cover lg:h-[55px] border border-[#24D29F]" alt="agenciyCart" />
                     </div>
                     <div className="lg:hidden  lg:mx-0 mx-5" onClick={() => setSideNavShow(true)}>
-                      <GoThreeBars className="text-[30px]" />
+                      <GoThreeBars className="text-[30px] cursor-pointer" />
                     </div>
                   </div>
 

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 // import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 // import { SubBarContainer } from "../Homepage/Navbar/StyledNavbar";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 // import { useHistory } from "react-router-dom";
 import "./homePageNav.css";
 
-const SubBar = ({ setShow }) => {
+const SubBar = () => {
   // const history = useHistory();
 
   return (
