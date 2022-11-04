@@ -4,6 +4,7 @@ import Info from '../../components/EcomComponents/DashboardComp/Info/Info'
 import Sales from '../../components/EcomComponents/DashboardComp/ItemSales/Sales'
 import LineChart from '../../components/EcomComponents/DashboardComp/Chart/Line'
 import Product from '../../components/EcomComponents/DashboardComp/productItem/Product'
+import Statistic from '../../components/EcomComponents/DashboardComp/Statistic/Statistic'
 const Dashboard = () => {
 
 
@@ -13,6 +14,7 @@ const Dashboard = () => {
           <Sales/>
           <LineChart/>
           <Product/>
+          <Statistic/>
         </Layout>
     )
 }

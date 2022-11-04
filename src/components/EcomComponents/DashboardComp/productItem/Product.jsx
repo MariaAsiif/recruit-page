@@ -6,7 +6,7 @@ const Product = () => {
     return (
         <>
 
-            <div className='bscontainer'>
+            <div className='bscontainer mt-8'>
                 <div className="row">
                     <div className="col-lg-8">
                         <div className="border shadow-lg  ">
@@ -27,7 +27,9 @@ const Product = () => {
                                                 <h2 className='pt-4 text-[#B8B8B8] text-[14px]'>Fleece Hooded Longline Jacket</h2>
                                             </div>
                                             <div>
-
+                                                <h2 className='text-[#24D29F] pt-4 font-medium'>$34.25</h2>
+                                            </div>
+                                            <div>
                                                 <h2 className='text-[#24D29F] pt-4 font-medium'>$34.25</h2>
                                             </div>
                                         </div>
@@ -52,9 +54,9 @@ const Product = () => {
                             {
                                 Array(5).fill(5).map((_, i) => (
 
-                                    <div className='flex items-center justify-between p-[16px]'>
+                                    <div className='p-[16px]'>
                                         <div className="flex items-center ">
-                                            <img src={user} className="w-[25%]" alt="img" />
+                                            <img src={user} className="w-[17%]" alt="img" />
                                             <div className='px-2 '>
                                                 <h2 className='text-[14px] text-semibold flex flex-col'>
                                                     James Anderson
@@ -64,10 +66,7 @@ const Product = () => {
                                             </div>
 
                                         </div>
-                                        <div>
-                                            <h2 className='text-semibold text-[14px]'>$34</h2>
-                                        </div>
-
+                                       
                                     </div>
 
                                 ))
