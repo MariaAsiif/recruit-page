@@ -1,4 +1,4 @@
-const Rating = ({ value, color, text, font }) => {
+const Rating = ({ value, color, text, font, view }) => {
   return (
     <div className='rating '>
       <span >
@@ -61,7 +61,10 @@ const Rating = ({ value, color, text, font }) => {
           }
         ></i>
       </span>
-      <span className={`ml-1 text-[#E0DFDF] ${font === "sm"? 'text-[8px]':'text-[12px]'}`} >({text && value !== '0' && `${value} reviews`})</span>
+      {
+        !view === "none" &&
+        <span className={`ml-1 text-[#E0DFDF] ${font === "sm" ? 'text-[8px]' : 'text-[12px]'}`} >({text && value !== '0' && `${value} reviews`})</span>
+      }
     </div>
   )
 }

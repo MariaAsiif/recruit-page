@@ -130,6 +130,8 @@ import CreateBusinessAdvertisement from './Pages/Advertisement/BusinessAdvertise
 import Landingpage from './Pages/EcomePages/Landingpage';
 import EDashboard from './Pages/EcomePages/Dashboard';
 import Setting from './Pages/EcomePages/Setting';
+import Purchase from './Pages/EcomePages/Purchase';
+import Credit from './Pages/EcomePages/Credit';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -222,6 +224,8 @@ function App() {
         <Route path="/e-landing" element={<Landingpage />} />
         <Route path="/e-dashboard" element={<EDashboard />} />
         <Route path="/e-setting" element={<Setting />} />
+        <Route path="/e-purchase" element={<Purchase />} />
+        <Route path="/e-credit" element={<Credit />} />
 
 
 

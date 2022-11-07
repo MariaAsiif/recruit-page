@@ -70,12 +70,7 @@ const HomeNav = ({ title }) => {
               </li>
               <li className="nav-itemlist">
                 <Link
-
-                  to="PORTABLES"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
+                  to="/e-credit"
                 >
                   <div className={`flex items-center ${location.pathname === "/e-credit" ? "active" : ""}`}>
                   <RiShoppingCartLine className="mx-1" />
