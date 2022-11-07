@@ -10,7 +10,7 @@ const Setting = () => {
 
   return (
     <Layout homenav={true}>
-      <HomeNav title={"Vender Profile"}/>
+      <HomeNav title={"Vendor Profile"}/>
       <div className='bscontainer p-0 border bg-white shadow-lg  mt-6 mb-6 pb-6 '>
         <Info />
         <Personal />
