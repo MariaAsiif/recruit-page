@@ -5,18 +5,21 @@ import Sales from '../../components/EcomComponents/DashboardComp/ItemSales/Sales
 import LineChart from '../../components/EcomComponents/DashboardComp/Chart/Line'
 import Product from '../../components/EcomComponents/DashboardComp/productItem/Product'
 import Statistic from '../../components/EcomComponents/DashboardComp/Statistic/Statistic'
+import Comments from '../../components/EcomComponents/DashboardComp/Comments/Comments'
 const Dashboard = () => {
 
 
-    return (
-        <Layout homenav={true}>
-          <Info/>
-          <Sales/>
-          <LineChart/>
-          <Product/>
-          <Statistic/>
-        </Layout>
-    )
+  return (
+    <Layout homenav={true}>
+      <Info />
+      <Sales />
+      <LineChart />
+      <Product />
+      <Statistic />
+      <Comments />
+      <LineChart type={"total"} />
+    </Layout>
+  )
 }
 
 export default Dashboard

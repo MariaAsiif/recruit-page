@@ -6,12 +6,14 @@ import TopHeader from '../TopHeader/TopHeader'
 import HomePageNav from '../Nav/HomePageNav'
 import HomeNav from '../HomeNav/HomeNav'
 const Layout = ({ children }, homeNav) => {
+    
+    console.log("homeNav" , homeNav)
     return (
         <>
             <TopHeader />
             <AgenciesHeader />
             <HomePageNav />
-            {homeNav === true ? <HomeNav /> : null}
+            {homeNav === false ? <HomeNav /> : null}
             {
                 children
             }

@@ -16,18 +16,22 @@ const HomeNav = () => {
 
   return (
     <div className="">
-      <div>
+      <div className="relative">
         <img src={banner} alt="banner" />
+        <div className="bscontainer">
+          <h2 className="absolute top-[30%] text-white font-semibold text-[40px]">Dashboard</h2>
+
+        </div>
       </div>
       <div className="bg-[#0B694D] hidden lg:block ">
         <div className="homeNavs bscontainer">
           <div className="nav-content">
-            <ul className="nav-itemss">
+            <ul className="nav-itemss cursor-pointer">
               <li className="nav-itemlist ">
 
                 <Link
                   to="HOME"
-                  
+
                   spy={true}
                   smooth={true}
                   duration={500}
@@ -41,7 +45,7 @@ const HomeNav = () => {
               </li>
               <li className="nav-itemlist">
                 <Link
-                 
+
                   to="INHALATE"
                   spy={true}
                   smooth={true}
@@ -55,7 +59,7 @@ const HomeNav = () => {
               </li>
               <li className="nav-itemlist">
                 <Link
-                 
+
                   to="VAPORIZE"
                   spy={true}
                   smooth={true}
@@ -70,7 +74,7 @@ const HomeNav = () => {
               </li>
               <li className="nav-itemlist">
                 <Link
-                 
+
                   to="PORTABLES"
                   spy={true}
                   smooth={true}
@@ -85,7 +89,7 @@ const HomeNav = () => {
               </li>
               <li className="nav-itemlist">
                 <Link
-                 
+
                   to="CHILLUMS"
                   spy={true}
                   smooth={true}
@@ -100,7 +104,7 @@ const HomeNav = () => {
               </li>
               <li className="nav-itemlist">
                 <Link
-                 
+
                   to="CULTIVATE"
                   spy={true}
                   smooth={true}
@@ -115,7 +119,7 @@ const HomeNav = () => {
               </li>
               <li className="nav-itemlist">
                 <Link
-                 
+
                   to="DIAGNOSE"
                   spy={true}
                   smooth={true}
@@ -130,7 +134,7 @@ const HomeNav = () => {
               </li>
               <li className="nav-itemlist">
                 <Link
-                 
+
                   to="PRESCRIBE"
                   spy={true}
                   smooth={true}
@@ -143,7 +147,7 @@ const HomeNav = () => {
                   </div>
                 </Link>
               </li>
-             
+
 
 
             </ul>

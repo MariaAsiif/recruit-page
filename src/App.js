@@ -129,6 +129,7 @@ import CreateBusinessAdvertisement from './Pages/Advertisement/BusinessAdvertise
 // Ecommerace
 import Landingpage from './Pages/EcomePages/Landingpage';
 import EDashboard from './Pages/EcomePages/Dashboard';
+import Setting from './Pages/EcomePages/Setting';
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -220,6 +221,7 @@ function App() {
         {/* E-commerace landing page  */}
         <Route path="/e-landing" element={<Landingpage />} />
         <Route path="/e-dashboard" element={<EDashboard />} />
+        <Route path="/e-setting" element={<Setting />} />
 
 
 
