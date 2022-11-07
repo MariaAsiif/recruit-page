@@ -55,12 +55,7 @@ const HomeNav = ({ title }) => {
               </li>
               <li className="nav-itemlist">
                 <Link
-
-                  to="VAPORIZE"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
+                  to="/e-purchase"
                 >
                    <div className={`flex items-center ${location.pathname === "/e-purchase" ? "active" : ""}`}>
                   <IoWalletSharp className="mx-1" />
