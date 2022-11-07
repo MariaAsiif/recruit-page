@@ -1,8 +1,7 @@
 import React from "react";
 // import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 // import { SubBarContainer } from "../Homepage/Navbar/StyledNavbar";
-import { Link } from "react-scroll";
-// import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./homePageNav.css";
 import banner from '../../../assets/ecome/banner.png'
 import { BiHomeAlt } from "react-icons/bi";
@@ -11,15 +10,19 @@ import { RiShoppingCartLine } from "react-icons/ri";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { FaPrescriptionBottle } from "react-icons/fa";
-const HomeNav = () => {
+import { useLocation } from "react-router-dom";
+const HomeNav = ({ title }) => {
   // const history = useHistory();
+
+  const location = useLocation()
+  console.log("location", location)
 
   return (
     <div className="">
       <div className="relative">
         <img src={banner} alt="banner" />
         <div className="bscontainer">
-          <h2 className="absolute top-[30%] text-white font-semibold text-[40px]">Dashboard</h2>
+          <h2 className="absolute top-[30%] text-white font-semibold text-[40px]">{title}</h2>
 
         </div>
       </div>
@@ -30,14 +33,9 @@ const HomeNav = () => {
               <li className="nav-itemlist ">
 
                 <Link
-                  to="HOME"
-
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                // onClick={() => history.push("/home")}
+                  to="/e-dashboard"
                 >
-                  <div className="flex items-center active ">
+                  <div className={`flex items-center ${location.pathname === "/e-dashboard" ? "active" : ""}`}>
                     <BiHomeAlt className="mx-1" />
                     Dashboard
                   </div>
@@ -46,13 +44,11 @@ const HomeNav = () => {
               <li className="nav-itemlist">
                 <Link
 
-                  to="INHALATE"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
+                  to="/e-setting"
+                 
                 >
-                  <div className="flex items-center ">
-                    <IoSettingsOutline className="mx-1" />
+                  <div className={`flex items-center ${location.pathname === "/e-setting" ? "active" : ""}`}>
+                  <IoSettingsOutline className="mx-1" />
                     Setting
                   </div>
                 </Link>
@@ -66,8 +62,8 @@ const HomeNav = () => {
                   offset={-70}
                   duration={500}
                 >
-                  <div className="flex items-center ">
-                    <RiShoppingCartLine className="mx-1" />
+                   <div className={`flex items-center ${location.pathname === "/e-purchase" ? "active" : ""}`}>
+                  <IoWalletSharp className="mx-1" />
                     Purchase
                   </div>
                 </Link>
@@ -81,8 +77,8 @@ const HomeNav = () => {
                   offset={-70}
                   duration={500}
                 >
-                  <div className="flex items-center ">
-                    <IoWalletSharp className="mx-1" />
+                  <div className={`flex items-center ${location.pathname === "/e-credit" ? "active" : ""}`}>
+                  <RiShoppingCartLine className="mx-1" />
                     Add Credits
                   </div>
                 </Link>
@@ -96,8 +92,8 @@ const HomeNav = () => {
                   offset={-70}
                   duration={500}
                 >
-                  <div className="flex items-center ">
-                    <IoStatsChartOutline className="mx-1" />
+                  <div className={`flex items-center ${location.pathname === "/e-statement" ? "active" : ""}`}>
+                  <IoStatsChartOutline className="mx-1" />
                     Statements
                   </div>
                 </Link>
@@ -111,8 +107,8 @@ const HomeNav = () => {
                   offset={-70}
                   duration={500}
                 >
-                  <div className="flex items-center ">
-                    <AiOutlineCloudUpload className="mx-1" />
+                  <div className={`flex items-center ${location.pathname === "/e-upload" ? "active" : ""}`}>
+                  <AiOutlineCloudUpload className="mx-1" />
                     Upload Items
                   </div>
                 </Link>
@@ -126,7 +122,7 @@ const HomeNav = () => {
                   offset={-70}
                   duration={500}
                 >
-                  <div className="flex items-center ">
+                  <div className={`flex items-center ${location.pathname === "/e-items" ? "active" : ""}`}>
                     <FiEdit className="mx-1" />
                     Manage Items
                   </div>
@@ -141,7 +137,7 @@ const HomeNav = () => {
                   offset={-70}
                   duration={500}
                 >
-                  <div className="flex items-center ">
+                  <div className={`flex items-center ${location.pathname === "/e-withdral" ? "active" : ""}`}>
                     <FaPrescriptionBottle className="mx-1" />
                     Withdrawals
                   </div>

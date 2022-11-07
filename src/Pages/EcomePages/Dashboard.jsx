@@ -6,11 +6,13 @@ import LineChart from '../../components/EcomComponents/DashboardComp/Chart/Line'
 import Product from '../../components/EcomComponents/DashboardComp/productItem/Product'
 import Statistic from '../../components/EcomComponents/DashboardComp/Statistic/Statistic'
 import Comments from '../../components/EcomComponents/DashboardComp/Comments/Comments'
+import HomeNav from '../../components/EcomComponents/HomeNav/HomeNav'
 const Dashboard = () => {
 
 
   return (
-    <Layout homenav={true}>
+    <Layout >
+      <HomeNav title={"Dashboard"} />
       <Info />
       <Sales />
       <LineChart />

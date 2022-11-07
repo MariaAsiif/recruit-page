@@ -5,15 +5,14 @@ import AgenciesHeader from '../AgenciesHeader/AgenciesHeader'
 import TopHeader from '../TopHeader/TopHeader'
 import HomePageNav from '../Nav/HomePageNav'
 import HomeNav from '../HomeNav/HomeNav'
-const Layout = ({ children }, homeNav) => {
+const Layout = ({ children }) => {
     
-    console.log("homeNav" , homeNav)
     return (
         <>
             <TopHeader />
             <AgenciesHeader />
             <HomePageNav />
-            {homeNav === false ? <HomeNav /> : null}
+            {/* {homeNav === false ? <HomeNav /> : null} */}
             {
                 children
             }

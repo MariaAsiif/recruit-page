@@ -1,4 +1,5 @@
 import React from 'react'
+import HomeNav from '../../components/EcomComponents/HomeNav/HomeNav'
 import Layout from '../../components/EcomComponents/Layout/Layout'
 import Info from '../../components/EcomComponents/settingComp/Info'
 import Notification from '../../components/EcomComponents/settingComp/Notification'
@@ -9,6 +10,7 @@ const Setting = () => {
 
   return (
     <Layout homenav={true}>
+      <HomeNav title={"Vender Profile"}/>
       <div className='bscontainer p-0 border bg-white shadow-lg  mt-6 mb-6 pb-6 '>
         <Info />
         <Personal />
