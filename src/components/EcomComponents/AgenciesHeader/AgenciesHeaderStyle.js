@@ -3,9 +3,19 @@ import styled from "styled-components";
 export const AgenciesHeaderContainer = styled.div`
 
 
+.logo{
+	@media only screen and (max-width: 600px){
+		width: 90px;
+		height:40px;
+		margin-top:10px !important;
+		object-fit:contain;
+
+	}
+}
+
 .search_bar{
 @media screen and (min-width: 768px) and (max-width:992px){
-		width: 400px;
+		width: 630px !important;
 }
 }
 
@@ -55,6 +65,7 @@ export const AgenciesHeaderContainer = styled.div`
 
     img{
         width: 20px;
+		
     }
 	
 }

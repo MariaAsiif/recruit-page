@@ -15,15 +15,13 @@ const HomeNav = ({ title }) => {
   // const history = useHistory();
 
   const location = useLocation()
-  console.log("location", location)
 
   return (
     <div className="">
       <div className="relative">
-        <img src={banner} alt="banner" />
+        <img src={banner} alt="banner" className="lg:h-full h-[120px] object-cover" />
         <div className="bscontainer">
           <h2 className="absolute top-[30%] text-white font-semibold text-[40px]">{title}</h2>
-
         </div>
       </div>
       <div className="bg-[#0B694D] hidden lg:block ">

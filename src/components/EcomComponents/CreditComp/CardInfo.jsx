@@ -37,9 +37,9 @@ const CardInfo = () => {
 
             <div className='mb-6 mt-8 w-full'>
                 <div className="tranding-heading relative">
-                    <h1 className=" font-medium text-[20px] pl-6">Payment Method & Confirmation</h1>
+                    <h1 className=" font-medium text-[20px] pl-6">Credit Amount</h1>
                     <hr className="mt-2 " />
-                    <hr className="border-[2px] -bottom-[1px] absolute z-99 rounded-sm border-[#24D29F] w-[20%]" />
+                    <hr className="border-[2px] -bottom-[1px] absolute z-99 rounded-sm border-[#24D29F] w-[17%]" />
                 </div>
             </div>
 
@@ -98,7 +98,7 @@ const CardInfo = () => {
                 <div className="tranding-heading relative">
                     <h1 className=" font-medium text-[20px] pl-6">Payment Method & Confirmation</h1>
                     <hr className="mt-2 " />
-                    <hr className="border-[2px] -bottom-[1px] absolute z-99 rounded-sm border-[#24D29F] w-[20%]" />
+                    <hr className="border-[2px] -bottom-[1px] absolute z-99 rounded-sm border-[#24D29F] w-[33%]" />
                 </div>
             </div>
             <div className='flex justify-between pl-6 w-full'>
@@ -320,7 +320,13 @@ const CardInfo = () => {
 
 
                     <div className='col-lg-12 mb-4 relative'>
-
+                        <div className='flex items-center '>
+                            <input type="checkbox" className='w-[15px] h-[15px] ' />
+                            <p className="text-[14px] px-2 text-[#B8B8B8]">Save card for next time</p>
+                        </div>
+                        <div className='mt-5'>
+                            <button className='bg-[#24D29F] text-white rounded-md p-2 pl-4 pr-4'>Add Credit Card</button>
+                        </div>
                     </div>
 
 

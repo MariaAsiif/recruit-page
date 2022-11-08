@@ -16,16 +16,34 @@ import Sidebar from '../Sidebar/SideCanvas'
 const AgenciesHeader = () => {
   // const history = useHistory()
   const [sideNavShow, setSideNavShow] = useState(false);
+  const [sidebaropen, setSideBarOpen] = useState("");
   return (
     <AgenciesHeaderContainer>
-      <Sidebar sidebarOpen={sideNavShow} setSidebarOpen={setSideNavShow} />
+      <Sidebar bar={sidebaropen} sidebarOpen={sideNavShow} setSidebarOpen={setSideNavShow} />
       <header className="top-bar">
         <div className="bscontainer">
           <div className="p-5">
             <div className="row">
               <div className="col-lg-2">
-                <div className="logo flex justify-center">
-                  <img style={{ cursor: 'pointer', marginTop: '-8px' }} src={agencyLogo} alt="agencyLogo" />
+                <div className=" flex justify-between items-center ">
+                  <img style={{ cursor: 'pointer', marginTop: '-8px' }} className="logo" src={agencyLogo} alt="agencyLogo" />
+                  <div className="lg:hidden flex items-center justify-between  mt-[20px] right_side">
+                    <div className=" flex items-center justify-between  mx-2">
+                      <BsHeartFill className="text-[30px] text-[#24D29F]  mx-3" />
+                      <h3 className="text-[14px] px-1 text-[#24D29F] hidden lg:block ">Whichlist(21)</h3>
+                    </div>
+                    <div className=" flex items-center justify-between ">
+                      <img src={agenciyCart} className="h-[30px]  mx-5 " alt="agencyuser" />
+                      <div className="hidden ">
+                        <h2 className="text-[14px]">Your cart</h2>
+                        <p className="text-[14px] px-2 text-[#24D29F] font-medium ">$132.142</p>
+                      </div>
+                    </div>
+                    <div className="icons">
+                      <img src={dp_img} className=" mx-5 rounded-full  w-[40px] h-[40px] object-cover border border-[#24D29F]" alt="agenciyCart" />
+                    </div>
+
+                  </div>
                 </div>
               </div>
               <div className="col-lg-10 mt-5 lg:mt-0 ">
@@ -36,7 +54,7 @@ const AgenciesHeader = () => {
                         <input
                           type="search"
                           id="search-dropdown"
-                          className=" p-2.5 w-[360px] z-20 text-sm text-gray-900 bg-white rounded-md    pr-2  dark:placeholder-gray-400 dark:text-white focus:outline-none"
+                          className=" p-2.5 w-full z-20 text-sm text-gray-900 bg-white rounded-md    pr-2  dark:placeholder-gray-400 dark:text-white focus:outline-none"
                           placeholder="Search for Item"
                           required=""
                         />
@@ -137,7 +155,7 @@ const AgenciesHeader = () => {
                       </div>
                     </div>
                   </form>
-                  <div className="flex items-center justify-between lg:mt-0 mt-[20px] right_side">
+                  <div className="hidden lg:flex lg:items-center lg:justify-between lg:mt-0 mt-[20px] right_side">
                     <div className=" flex items-center justify-between lg:mx-1">
                       <BsHeartFill className="text-[30px] text-[#24D29F] lg:mx-0 mx-3" />
                       <h3 className="text-[14px] px-1 text-[#24D29F] hidden lg:block ">Whichlist(21)</h3>
@@ -157,6 +175,15 @@ const AgenciesHeader = () => {
                     </div>
                   </div>
 
+                </div>
+
+                <div className="lg:hidden  flex justify-between items-center mt-6">
+                  <div className="lg:hidden  lg:mx-0 mx-5" onClick={() => {return  setSideNavShow(true), setSideBarOpen("topbar")}}>
+                    <GoThreeBars className="text-[30px] cursor-pointer" />
+                  </div>
+                  <div className="lg:hidden  lg:mx-0 mx-5" onClick={() => {return setSideNavShow(true), setSideBarOpen("homebar")}}>
+                    <GoThreeBars className="text-[30px] cursor-pointer" />
+                  </div>
                 </div>
               </div>
             </div>

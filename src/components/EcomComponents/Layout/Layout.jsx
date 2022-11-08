@@ -4,7 +4,7 @@ import Footer from '../../Footer/Footer'
 import AgenciesHeader from '../AgenciesHeader/AgenciesHeader'
 import TopHeader from '../TopHeader/TopHeader'
 import HomePageNav from '../Nav/HomePageNav'
-import HomeNav from '../HomeNav/HomeNav'
+// import HomeNav from '../HomeNav/HomeNav'
 const Layout = ({ children }) => {
     
     return (
