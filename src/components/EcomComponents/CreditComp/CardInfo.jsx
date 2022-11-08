@@ -11,7 +11,7 @@ const schema = yup.object({
     holder: yup.string().required('Holder is Required'),
     card: yup.string().required('Card is Required'),
     state: yup.string().required('State is Required'),
-    zip: yup.string().required('Zip Code is Required'),
+    cvv: yup.string().required('CVV Code is Required'),
 
 });
 const CardInfo = () => {
@@ -121,19 +121,20 @@ const CardInfo = () => {
                     <div className='col-lg-6 mb-4 relative'>
                         <label className='flex items-center text-sm font-medium ' htmlFor='name'>
                             <h2 >Payment Method</h2>
-                            <span className='text-red-400 text-lg font-medium ml-1 mt-1 '>*</span>
+                            {/* <span className='text-red-400 text-lg font-medium ml-1 mt-1 '>*</span> */}
                         </label>
 
                         <div className='absolute right-5 top-10'>
                             {!errors.country && watch('country') ? (
                                 <FcCheckmark />
-                            ) : errors.name ? (
+                            ) : errors.country ? (
                                 <div className=' text-red-500'>
                                     <MdClose />
                                 </div>
                             ) : null}
                         </div>
-                        <select className='pt-3 pb-3 mt-[1px]' >
+                        <select className={`border p-2 focus:outline-blue-500 h-[50px] w-full rounded-md  ${errors.country && 'border-red-400'
+                            }`} >
                             <option>Select Country</option>
                             <option>Select Country</option>
                             <option>Select Country</option>
@@ -144,29 +145,57 @@ const CardInfo = () => {
                             <p className='text-red-500 text-sm'>{errors.country.message}</p>
                         )}
                     </div>
+
                     <div className='col-lg-6 mb-4 relative'>
                         <label className='flex items-center text-sm font-medium ' htmlFor='name'>
-                            <h2 >Full  Name </h2>
-                            <span className='text-red-400 text-lg font-medium ml-1 mt-1 '>*</span>
+                            <h2 >Currency</h2>
+                            {/* <span className='text-red-400 text-lg font-medium ml-1 mt-1 '>*</span> */}
+                        </label>
+
+                        <div className='absolute right-5 top-10'>
+                            {!errors.currency && watch('currency') ? (
+                                <FcCheckmark />
+                            ) : errors.currency ? (
+                                <div className=' text-red-500'>
+                                    <MdClose />
+                                </div>
+                            ) : null}
+                        </div>
+                        <select className={`border p-2 focus:outline-blue-500 h-[50px] w-full rounded-md  ${errors.currency && 'border-red-400'
+                            }`} >
+                            <option>Select Currency</option>
+                            <option>Select Country</option>
+                            <option>Select Country</option>
+                            <option>Select Country</option>
+                        </select>
+
+                        {errors.currency && (
+                            <p className='text-red-500 text-sm'>{errors.currency.message}</p>
+                        )}
+                    </div>
+                    <div className='col-lg-6 mb-4 relative'>
+                        <label className='flex items-center text-sm font-medium mb-1 ' htmlFor='name'>
+                            <h2 >Card Holder Name </h2>
+                            {/* <span className='text-red-400 text-lg font-medium ml-1 mt-1 '>*</span> */}
                         </label>
                         <div className='absolute right-5 top-10'>
-                            {!errors.name && watch('name') ? (
+                            {!errors.card && watch('card') ? (
                                 <FcCheckmark />
-                            ) : errors.name ? (
+                            ) : errors.card ? (
                                 <div className=' text-red-500'>
                                     <MdClose />
                                 </div>
                             ) : null}
                         </div>
                         <input
-                            {...register('name')}
+                            {...register('card')}
                             autoComplete='off'
-                            className={`border p-2 focus:outline-blue-500 h-[50px] w-full rounded-md  ${errors.name && 'border-red-400'
+                            className={`border p-2 focus:outline-blue-500 h-[50px] w-full rounded-md  ${errors.card && 'border-red-400'
                                 }`}
-                            name='name'
-                            id='name'
+                            name='card'
+                            id='card'
                             type='text'
-                            placeholder='Account Name'
+                            placeholder='Enter Name Here'
                         />
 
 
@@ -175,167 +204,123 @@ const CardInfo = () => {
                         )}
                     </div>
                     <div className='col-lg-6 mb-4 relative'>
-                        <label className='flex items-center text-sm font-medium ' htmlFor='name'>
-                            <h2 >Company Name </h2>
-                            <span className='text-red-400 text-lg font-medium ml-1 mt-1 '>*</span>
+                        <label className='flex items-center text-sm font-medium mb-1' htmlFor='name'>
+                            <h2 >Card Number </h2>
+                            {/* <span className='text-red-400 text-lg font-medium ml-1 mt-1 '>*</span> */}
                         </label>
 
                         <div className='absolute right-5 top-10'>
-                            {!errors.compname && watch('compname') ? (
+                            {!errors.cardno && watch('cardno') ? (
                                 <FcCheckmark />
-                            ) : errors.compname ? (
+                            ) : errors.cardno ? (
                                 <div className=' text-red-500'>
                                     <MdClose />
                                 </div>
                             ) : null}
                         </div>
                         <input
-                            {...register('compname')}
+                            {...register('cardno')}
                             autoComplete='off'
-                            className={`border p-2 focus:outline-blue-500 h-[50px] w-full rounded-md  ${errors.compname && 'border-red-400'
+                            className={`border p-2 focus:outline-blue-500 h-[50px] w-full rounded-md  ${errors.cardno && 'border-red-400'
                                 }`}
-                            name='compname'
-                            id='compname'
+                            name='cardno'
+                            id='cardno'
                             type='text'
-                            placeholder='Compnay Name'
+                            placeholder='Enter Card Number'
                         />
 
 
-                        {errors.compname && (
-                            <p className='text-red-500 text-sm'>{errors.compname.message}</p>
+                        {errors.cardno && (
+                            <p className='text-red-500 text-sm'>{errors.cardno.message}</p>
                         )}
                     </div>
-                    <div className='col-lg-6 mb-4 relative'>
+                    <div className='col-lg-3 mb-4 relative'>
                         <label className='flex items-center text-sm font-medium ' htmlFor='name'>
-                            <h2 >Email Address</h2>
-                            <span className='text-red-400 text-lg font-medium ml-1 mt-1 '>*</span>
+                            <h2 >Expire Date</h2>
+                            {/* <span className='text-red-400 text-lg font-medium ml-1 mt-1 '>*</span> */}
                         </label>
 
                         <div className='absolute right-5 top-10'>
-                            {!errors.email && watch('email') ? (
+                            {!errors.datemonth && watch('datemonth') ? (
                                 <FcCheckmark />
-                            ) : errors.email ? (
+                            ) : errors.datemonth ? (
                                 <div className=' text-red-500'>
                                     <MdClose />
                                 </div>
                             ) : null}
                         </div>
-                        <input
-                            {...register('email')}
-                            autoComplete='off'
-                            className={`border p-2 focus:outline-blue-500 h-[50px] w-full rounded-md  ${errors.email && 'border-red-400'
-                                }`}
-                            name='email'
-                            id='email'
-                            type='email'
-                            placeholder='demo@gmail.com'
-                        />
 
-
-                        {errors.email && (
-                            <p className='text-red-500 text-sm'>{errors.email.message}</p>
-                        )}
-                    </div>
-                    <div className='col-lg-6 mb-4 relative'>
-                        <label className='flex items-center text-sm font-medium ' htmlFor='name'>
-                            <h2 >Country</h2>
-                            <span className='text-red-400 text-lg font-medium ml-1 mt-1 '>*</span>
-                        </label>
-
-                        <div className='absolute right-5 top-10'>
-                            {!errors.country && watch('country') ? (
-                                <FcCheckmark />
-                            ) : errors.name ? (
-                                <div className=' text-red-500'>
-                                    <MdClose />
-                                </div>
-                            ) : null}
-                        </div>
-                        <select className='pt-3 pb-3 mt-[1px]' >
-                            <option>Select Country</option>
+                        <select className={`border p-2 focus:outline-blue-500 h-[50px] w-full rounded-md  ${errors.datemonth && 'border-red-400'
+                            }`} >
+                            <option>Month</option>
                             <option>Select Country</option>
                             <option>Select Country</option>
                             <option>Select Country</option>
                         </select>
 
-                        {errors.country && (
-                            <p className='text-red-500 text-sm'>{errors.country.message}</p>
+                        {errors.datemonth && (
+                            <p className='text-red-500 text-sm'>{errors.datemonth.message}</p>
+                        )}
+                    </div>
+                    <div className='col-lg-3 mt-5 relative'>
+                        <div className='absolute right-5 top-10'>
+                            {!errors.dateyear && watch('dateyear') ? (
+                                <FcCheckmark />
+                            ) : errors.dateyear ? (
+                                <div className=' text-red-500'>
+                                    <MdClose />
+                                </div>
+                            ) : null}
+                        </div>
+
+                        <select className={`border p-2 focus:outline-blue-500 h-[50px] w-full rounded-md  ${errors.dateyear && 'border-red-400'
+                            }`} >
+                            <option>Year</option>
+                            <option>Select Country</option>
+                            <option>Select Country</option>
+                            <option>Select Country</option>
+                        </select>
+
+                        {errors.dateyear && (
+                            <p className='text-red-500 text-sm'>{errors.dateyear.message}</p>
                         )}
                     </div>
 
-
-
                     <div className='col-lg-6 mb-4 relative'>
-                        <label className='flex items-center text-sm font-medium ' htmlFor='name'>
-                            <h2 >Address Line 1 </h2>
-                        </label>
-
-
-                        <input
-                            {...register('address')}
-                            autoComplete='off'
-                            className={`border p-2 focus:outline-blue-500 h-[50px] w-full rounded-md  `}
-                            name='profile'
-                            id='profile'
-                            type='text'
-                            placeholder='Address'
-                        />
-
-
-
-                    </div>
-                    <div className='col-lg-6 mb-4 relative'>
-                        <label className='flex items-center text-sm font-medium ' htmlFor='name'>
-                            <h2 >Address Line 2 </h2>
-                        </label>
-
-
-                        <input
-                            {...register('address2')}
-                            autoComplete='off'
-                            className={`border p-2 focus:outline-blue-500 h-[50px] w-full rounded-md  `}
-                            name='profile'
-                            id='profile'
-                            type='text'
-                            placeholder='Address'
-                        />
-
-
-
-                    </div>
-
-
-
-                    <div className='col-lg-6 mb-4 relative'>
-                        <label className='flex items-center text-sm font-medium ' htmlFor='name'>
-                            <h2 >Zip/ Postal Code</h2>
-                            <span className='text-red-400 text-lg font-medium ml-1 mt-1 '>*</span>
+                        <label className='flex items-center text-sm font-medium mb-2 ' htmlFor='name'>
+                            <h2 >CVV Code</h2>
+                            {/* <span className='text-red-400 text-lg font-medium ml-1 mt-1 '>*</span> */}
                         </label>
 
                         <div className='absolute right-5 top-10'>
-                            {!errors.zip && watch('zip') ? (
+                            {!errors.cvv && watch('cvv') ? (
                                 <FcCheckmark />
-                            ) : errors.zip ? (
+                            ) : errors.cvv ? (
                                 <div className=' text-red-500'>
                                     <MdClose />
                                 </div>
                             ) : null}
                         </div>
                         <input
-                            {...register('zip')}
+                            {...register('cvv')}
                             autoComplete='off'
-                            className={`border p-2 focus:outline-blue-500 h-[50px] w-full rounded-md  ${errors.zip && 'border-red-400'
+                            className={`border p-2 focus:outline-blue-500 h-[50px] w-full rounded-md  ${errors.cvv && 'border-red-400'
                                 }`}
-                            name='zip'
-                            id='zip'
+                            name='cvv'
+                            id='cvv'
                             type='text'
-                            placeholder='Zip code'
+                            placeholder='Enter Security Code '
                         />
 
 
-                        {errors.email && (
-                            <p className='text-red-500 text-sm'>{errors.email.message}</p>
+                        {errors.cvv && (
+                            <p className='text-red-500 text-sm'>{errors.cvv.message}</p>
                         )}
+                    </div>
+
+
+                    <div className='col-lg-12 mb-4 relative'>
+
                     </div>
 
 

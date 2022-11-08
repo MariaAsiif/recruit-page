@@ -41,21 +41,21 @@ const PurchaseList = () => {
                 </div>
                 <div className="overflow-x-auto">
                     <table className="table-auto w-full">
-                        <thead className="text-xs font-semibold uppercase text-slate-500 bg-slate-50 border-t border-b border-slate-200">
+                        <thead className="text-xs  uppercase text-[#B8B8B8] text-[14px] bg-white border-t border-b border-slate-200">
                             <tr>
                                 <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <div className="font-semibold text-left">ID</div>
+                                    <div className=" font-semibold text-left">Product Details</div>
                                 </th>
-                                <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <div className="font-semibold text-left"> AUTHOR NAME</div>
-                                </th>
-
-                                <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <div className="font-semibold text-left">QUOTE COLOR</div>
+                                <th className="px-1 first:pl-4 last:pr-5 py-3 whitespace-nowrap">
+                                    <div className=" font-semibold text-left"> Additional Info</div>
                                 </th>
 
                                 <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <div className="font-semibold text-left">QUOTE DATE </div>
+                                    <div className=" font-semibold text-left">Price</div>
+                                </th>
+
+                                <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                    <div className=" font-semibold text-center">Download </div>
                                 </th>
 
 
