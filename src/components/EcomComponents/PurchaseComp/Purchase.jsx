@@ -4,6 +4,7 @@ import DropdownDynamic from '../../DropdownDynamic'
 import user from '../../../assets/ecome/shirt.png'
 import Rating from '../../EcomComponents/RatingStarts'
 import ReactPaginate from 'react-paginate'
+import './purchase.css'
 const PurchaseList = () => {
 
     let options = [
@@ -27,7 +28,7 @@ const PurchaseList = () => {
         <>
             <div>
                 <div className='border-b flex items-center justify-between p-4'>
-                    <h2 className='font-semibold text-[22px]'>230 Product Purchased</h2>
+                    <h2 className='purchase_heading font-semibold text-[22px]'>230 Product Purchased</h2>
                     <div className="flex items-center justify-between ">
                         <div>
                             <DropdownDynamic options={options} />

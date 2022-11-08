@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import credit from '../../../assets/ecome/credit.png'
+import './cardinfo.css'
 const schema = yup.object({
     payment: yup.string().required('Payment is Required'),
     currency: yup.string().required('Currency  is Required'),
@@ -39,30 +40,31 @@ const CardInfo = () => {
                 <div className="tranding-heading relative">
                     <h1 className=" font-medium text-[20px] pl-6">Credit Amount</h1>
                     <hr className="mt-2 " />
-                    <hr className="border-[2px] -bottom-[1px] absolute z-99 rounded-sm border-[#24D29F] w-[17%]" />
+                    <hr className="credit_heading border-[2px] -bottom-[1px] absolute z-99 rounded-sm border-[#24D29F] w-[17%] " />
                 </div>
             </div>
 
-            <div className='pl-6'>
+            <div className='lg:pl-6'>
                 <p className="text-[#707070]">How much credit would you like to add?</p>
-                <div className='flex mt-4'>
-                    <div className={`border w-[15%] h-[60px] text-[24px]  text-[#707070] text-center pt-3 ${active === 0 ? 'bg-[#24D29F] text-white' : "text-[#707070]"} `}>
-                        $10
+                <div className='credit flex justify-between  mt-4'>
+                    <div className='flex justify-center'>
+                        <div className={`border lg:w-[115px] w-[55px] h-[60px] text-[24px]  text-[#707070] text-center pt-3 ${active === 0 ? 'bg-[#24D29F] text-white' : "text-[#707070]"} `}>
+                            $10
+                        </div>
+                        <div className={`border lg:w-[115px] w-[55px] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 0 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
+                            $10
+                        </div>
+                        <div className={`border lg:w-[115px] w-[55px] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 1 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
+                            $10
+                        </div>
+                        <div className={`border lg:w-[115px] w-[55px] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 2 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
+                            $10
+                        </div>
+                        <div className={`border lg:w-[115px] w-[55px] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 3 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
+                            $10
+                        </div>
                     </div>
-                    <div className={`border w-[15%] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 0 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
-                        $10
-                    </div>
-                    <div className={`border w-[15%] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 1 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
-                        $10
-                    </div>
-                    <div className={`border w-[15%] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 2 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
-                        $10
-                    </div>
-                    <div className={`border w-[15%] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 3 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
-                        $10
-                    </div>
-
-                    <div className="ml-5 w-[100%] flex justify-end mr-5 ">
+                    <div className=" credit_input ml-5 w-[100%] flex justify-end  mr-5 ">
                         <div className='absolute right-5 top-10'>
                             {!errors.amount && watch('amount') ? (
                                 <FcCheckmark />
@@ -75,7 +77,7 @@ const CardInfo = () => {
                         <input
                             {...register('amount')}
                             autoComplete='off'
-                            className={`border p-2 focus:outline-blue-500 h-[50px] w-[90%] rounded-md  ${errors.name && 'border-red-400'
+                            className={`border p-2 focus:outline-blue-500 h-[50px] lg:w-[90%] w-full rounded-md  ${errors.name && 'border-red-400'
                                 }`}
                             name='amount'
                             id='amount'
@@ -96,22 +98,22 @@ const CardInfo = () => {
 
             <div className='mb-6 mt-8 w-full'>
                 <div className="tranding-heading relative">
-                    <h1 className=" font-medium text-[20px] pl-6">Payment Method & Confirmation</h1>
+                    <h1 className=" font-medium lg:text-[20px] text-[18px] pl-6">Payment Method & Confirmation</h1>
                     <hr className="mt-2 " />
-                    <hr className="border-[2px] -bottom-[1px] absolute z-99 rounded-sm border-[#24D29F] w-[33%]" />
+                    <hr className="heading_title border-[2px] -bottom-[1px] absolute z-99 rounded-sm border-[#24D29F] w-[33%] " />
                 </div>
             </div>
-            <div className='flex justify-between pl-6 w-full'>
-                <div className={`flex items-center ${card === 1 ? "border-l-0" : "border-r-0"}  border h-[45px] rounded-md border-[#24D29F]`}>
-                    <div onClick={() => setCard(1)} className={`${card === 1 ? 'border' : ''}  p-3 cursor-pointer text-[14px] h-[45px]  rounded-md  ${card === 1 ? 'bg-[#24D29F] text-white' : "text-[#B8B8B8]"} `}>
+            <div className='flex justify-between pl-6 w-full card_wrapper'>
+                <div className={` flex card_container  items-center ${card === 1 ? "border-l-0" : "border-r-0"}  border h-[45px] rounded-md border-[#24D29F]`}>
+                    <div onClick={() => setCard(1)} className={`${card === 1 ? 'border' : ''} card_detail lg:w-full  p-3 cursor-pointer text-[14px] h-[45px]  rounded-md  ${card === 1 ? 'bg-[#24D29F] text-white' : "text-[#B8B8B8]"} `}>
                         Credit Card
                     </div>
-                    <div onClick={() => setCard(2)} className={`${card === 2 ? 'border' : ''} p-3 cursor-pointer text-[14px] h-[45px] rounded-md  ${card === 2 ? 'bg-[#24D29F] text-white' : "text-[#B8B8B8]"} `}>
+                    <div onClick={() => setCard(2)} className={`${card === 2 ? 'border' : ''} card_detail lg:w-full  p-3 cursor-pointer text-[14px] h-[45px] rounded-md  ${card === 2 ? 'bg-[#24D29F] text-white' : "text-[#B8B8B8]"} `}>
                         Paypal
                     </div>
                 </div>
-                <div className='flex justify-end'>
-                    <img src={credit} className="w-[50%]" alt="credit" />
+                <div className='flex lg:justify-end justify-center mt-2 lg:mt-0'>
+                    <img src={credit} className="lg:w-[50%] w-[70%]" alt="credit" />
                 </div>
             </div>
             {/* form */}

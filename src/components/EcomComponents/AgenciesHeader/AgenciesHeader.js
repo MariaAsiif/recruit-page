@@ -54,7 +54,7 @@ const AgenciesHeader = () => {
                         <input
                           type="search"
                           id="search-dropdown"
-                          className=" p-2.5 w-full z-20 text-sm text-gray-900 bg-white rounded-md    pr-2  dark:placeholder-gray-400 dark:text-white focus:outline-none"
+                          className=" p-2.5 lg:w-[350px] w-[100%] z-20 text-sm text-gray-900 bg-white rounded-md    pr-2  dark:placeholder-gray-400 dark:text-white focus:outline-none"
                           placeholder="Search for Item"
                           required=""
                         />

@@ -8,7 +8,7 @@ const Credit = () => {
   return (
     <Layout homenav={true}>
       <HomeNav title={"Vendor Purchases"}/>
-      <div className='bscontainer p-0 border bg-white shadow-lg  mt-6 mb-6 pb-6 '>
+      <div className='bscontainer lg:p-0 border bg-white shadow-lg  mt-6 mb-6 pb-6 '>
         <CardInfo />
        
       </div>

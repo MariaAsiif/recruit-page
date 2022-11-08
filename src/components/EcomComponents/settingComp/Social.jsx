@@ -9,7 +9,7 @@ const Socialprofile = () => {
                 <div className="tranding-heading relative">
                     <h1 className=" font-medium text-[20px] pl-2">Social Profiles</h1>
                     <hr className="mt-2 " />
-                    <hr className="border-[2px] -bottom-[1px] absolute z-99 rounded-sm border-[#24D29F] w-[14%]" />
+                    <hr className="social_heading border-[2px] -bottom-[1px] absolute z-99 rounded-sm border-[#24D29F] w-[14%]" />
                 </div>
             </div>
 
@@ -19,12 +19,12 @@ const Socialprofile = () => {
                         <li >
                             <div className='flex items-center w-full p-4'>
                                 <div className='w-[15%]'>
-                                    <img src={facebook} className="w-[40%] ml-5" alt="social" />
+                                    <img src={facebook} className="social_img w-[40%]  lg:ml-5 " alt="social" />
                                 </div>
                                 <div className='w-full'>
                                     <input
                                         autoComplete='off'
-                                        className={`border p-2 h-[50px] focus:outline-blue-500  w-[98%] rounded-md  `}
+                                        className={`border mx-2 lg:mx-0 p-2 h-[50px] focus:outline-blue-500  w-[98%] rounded-md  `}
                                         name='compname'
                                         id='compname'
                                         type='text'

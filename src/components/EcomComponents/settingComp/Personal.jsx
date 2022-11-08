@@ -38,7 +38,7 @@ const Personal = () => {
                 <div className="tranding-heading relative">
                     <h1 className=" font-medium text-[20px] pl-2">Personal Information</h1>
                     <hr className="mt-2 " />
-                    <hr className="border-[2px] -bottom-[1px] absolute z-99 rounded-sm border-[#24D29F] w-[20%]" />
+                    <hr className="border-[2px] personal_heading -bottom-[1px] absolute z-99 rounded-sm border-[#24D29F] w-[20%]" />
                 </div>
             </div>
             {/* form */}
