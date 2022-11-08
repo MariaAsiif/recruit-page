@@ -104,11 +104,11 @@ const CardInfo = () => {
                 </div>
             </div>
             <div className='flex justify-between pl-6 w-full card_wrapper'>
-                <div className={` flex card_container  items-center ${card === 1 ? "border-l-0" : "border-r-0"}  border h-[45px] rounded-md border-[#24D29F]`}>
-                    <div onClick={() => setCard(1)} className={`${card === 1 ? 'border' : ''} card_detail lg:w-full  p-3 cursor-pointer text-[14px] h-[45px]  rounded-md  ${card === 1 ? 'bg-[#24D29F] text-white' : "text-[#B8B8B8]"} `}>
+                <div className={` flex card_container w-[30%]  items-center ${card === 1 ? "border-l-0" : "border-r-0"}  border h-[45px] rounded-md border-[#24D29F]`}>
+                    <div onClick={() => setCard(1)} className={`${card === 1 ? 'border' : ''} card_detail w-full  p-3 cursor-pointer text-[14px] h-[45px]  rounded-md  ${card === 1 ? 'bg-[#24D29F] text-white' : "text-[#B8B8B8]"} `}>
                         Credit Card
                     </div>
-                    <div onClick={() => setCard(2)} className={`${card === 2 ? 'border' : ''} card_detail lg:w-full  p-3 cursor-pointer text-[14px] h-[45px] rounded-md  ${card === 2 ? 'bg-[#24D29F] text-white' : "text-[#B8B8B8]"} `}>
+                    <div onClick={() => setCard(2)} className={`${card === 2 ? 'border' : ''} card_detail w-full  p-3 cursor-pointer text-[14px] h-[45px] rounded-md  ${card === 2 ? 'bg-[#24D29F] text-white' : "text-[#B8B8B8]"} `}>
                         Paypal
                     </div>
                 </div>
