@@ -24,7 +24,7 @@ function ProductInfo() {
             <div className="w-full mt-6 lg:w-1/2 lg:pl-10 lg:py-6 lg:mt-0">
               <h1 className="mb-1 text-3xl font-medium text-gray-900 title-font">
                 Hemp & argan nourishing facial <br />
-                oil
+                oils
               </h1>
               <div className="flex mb-2">
                 <span className="flex items-center">
