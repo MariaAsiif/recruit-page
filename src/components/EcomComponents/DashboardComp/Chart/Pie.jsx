@@ -18,7 +18,7 @@ export const options = {
 };
 
 export const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['Green', 'Red', 'Blue', 'Yellow',   'Orange'],
 
     datasets: [
         {

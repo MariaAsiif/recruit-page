@@ -66,7 +66,7 @@ const PurchaseList = () => {
                         <tbody className="text-sm divide-y divide-slate-200">
                             {Array(5).fill(5).map((item, i) => (
 
-                                <tr key={i} >
+                                <tr key={i} className="hover:bg-slick-400">
                                     <td className='p-2'>
                                         <div className='flex items-center p-1'>
                                             <img src={user} className="w-[15%] object-cover" alt="usa" />

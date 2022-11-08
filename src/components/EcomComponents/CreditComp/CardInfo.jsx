@@ -16,7 +16,7 @@ const schema = yup.object({
 
 });
 const CardInfo = () => {
-    const [active, setActive] = useState(2)
+    const [active, setActive] = useState()
     const [card, setCard] = useState(1)
     const {
         register,
@@ -48,19 +48,19 @@ const CardInfo = () => {
                 <p className="text-[#707070]">How much credit would you like to add?</p>
                 <div className='credit flex justify-between  mt-4'>
                     <div className='flex justify-center'>
-                        <div className={`border lg:w-[115px] w-[55px] h-[60px] text-[24px]  text-[#707070] text-center pt-3 ${active === 0 ? 'bg-[#24D29F] text-white' : "text-[#707070]"} `}>
+                        <div onClick={( ) => setActive(0)} className={`border cursor-pointer lg:w-[115px] w-[55px] h-[60px] text-[24px] text-center pt-3 ${active === 0 ? 'bg-[#24D29F] text-white' : "text-[#707070]"} `}>
                             $10
                         </div>
-                        <div className={`border lg:w-[115px] w-[55px] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 0 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
+                        <div onClick={( ) => setActive(1)} className={`border cursor-pointer lg:w-[115px] w-[55px] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 1 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
                             $10
                         </div>
-                        <div className={`border lg:w-[115px] w-[55px] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 1 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
+                        <div onClick={( ) => setActive(2)} className={`border cursor-pointer lg:w-[115px] w-[55px] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 2 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
                             $10
                         </div>
-                        <div className={`border lg:w-[115px] w-[55px] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 2 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
+                        <div onClick={( ) => setActive(3)} className={`border cursor-pointer lg:w-[115px] w-[55px] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 3 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
                             $10
                         </div>
-                        <div className={`border lg:w-[115px] w-[55px] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 3 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
+                        <div onClick={( ) => setActive(4)} className={`border cursor-pointer lg:w-[115px] w-[55px] h-[60px] text-[24px]   ml-4 text-center pt-3 ${active === 4 ? 'bg-[#24D29F] text-white' : "text-[#707070]"}`}>
                             $10
                         </div>
                     </div>
