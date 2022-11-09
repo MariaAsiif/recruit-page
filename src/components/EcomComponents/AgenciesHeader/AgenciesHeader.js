@@ -26,8 +26,14 @@ const AgenciesHeader = () => {
             <div className="row">
               <div className="col-lg-2">
                 <div className=" flex justify-between items-center ">
+                  <div className="lg:hidden  lg:mx-0 mx-5" onClick={() => { return setSideNavShow(true), setSideBarOpen("homebar") }}>
+                    <GoThreeBars className="text-[30px] cursor-pointer" />
+                  </div>
                   <img style={{ cursor: 'pointer', marginTop: '-8px' }} className="logo" src={agencyLogo} alt="agencyLogo" />
-                  <div className="lg:hidden flex items-center justify-between  mt-[20px] right_side">
+                  <div className="lg:hidden  lg:mx-0 mx-5" onClick={() => { return setSideNavShow(true), setSideBarOpen("topbar") }}>
+                    <GoThreeBars className="text-[30px] cursor-pointer" />
+                  </div>
+                  {/* <div className="lg:hidden flex items-center justify-between  mt-[20px] right_side">
                     <div className=" flex items-center justify-between  mx-2">
                       <BsHeartFill className="text-[30px] text-[#24D29F]  mx-3" />
                       <h3 className="text-[14px] px-1 text-[#24D29F] hidden lg:block ">Whichlist(21)</h3>
@@ -43,10 +49,10 @@ const AgenciesHeader = () => {
                       <img src={dp_img} className=" mx-5 rounded-full  w-[40px] h-[40px] object-cover border border-[#24D29F]" alt="agenciyCart" />
                     </div>
 
-                  </div>
+                  </div> */}
                 </div>
               </div>
-              <div className="col-lg-10 mt-5 lg:mt-0 ">
+              <div className="col-lg-10 mt-5 lg:mt-0 hidden lg:block">
                 <div className="flex items-center justify-between" id="main">
                   <form>
                     <div className="flex w-full ">
@@ -177,14 +183,7 @@ const AgenciesHeader = () => {
 
                 </div>
 
-                <div className="lg:hidden  flex justify-between items-center mt-6">
-                  <div className="lg:hidden  lg:mx-0 mx-5" onClick={() => {return  setSideNavShow(true), setSideBarOpen("topbar")}}>
-                    <GoThreeBars className="text-[30px] cursor-pointer" />
-                  </div>
-                  <div className="lg:hidden  lg:mx-0 mx-5" onClick={() => {return setSideNavShow(true), setSideBarOpen("homebar")}}>
-                    <GoThreeBars className="text-[30px] cursor-pointer" />
-                  </div>
-                </div>
+
               </div>
             </div>
           </div>

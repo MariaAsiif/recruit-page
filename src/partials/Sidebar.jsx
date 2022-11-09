@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-
 import SidebarLinkGroup from './SidebarLinkGroup';
-import SidebarObj from './SidebarObj';
-
+import SidebarObj from './SidebarObj'
 import logo from '../images/logo-curtain.png';
 import hproxlogo from '../images/hporx_logo.png';
 import { useSelector } from 'react-redux'
@@ -20,27 +18,9 @@ function Sidebar({
   const sidebar = useRef(null);
 
   const { permission, role } = useSelector((state) => state.userAuth.userInfo)
-
-
   const storedSidebarExpanded = localStorage.getItem('sidebar-expanded');
   const [sidebarExpanded, setSidebarExpanded] = useState(storedSidebarExpanded === null ? false : storedSidebarExpanded === 'true');
-  // const [expand] = useState(storedSidebarExpanded)
-
-  // close on click outside
-  // useEffect(() => {
-  //   const clickHandler = ({ target }) => {
-  //     // if (!sidebar.current || !trigger.current) return;
-  //     // if (!sidebarOpen || sidebar.current.contains(target) || trigger.current.contains(target)) return;
-  //     // setSidebarOpen(false);
-  //     if (sidebar.current && !sidebar.current.contains(target)) {
-  //       console.log("i clicked outside");
-  //       setSidebarExpanded(false)
-  //     }
-  //   };
-  //   document.addEventListener('click', clickHandler);
-  //   return () => document.removeEventListener('click', clickHandler);
-  // }, [sidebar]);
-
+ 
   // close if the esc key is pressed
   useEffect(() => {
     const keyHandler = ({ keyCode }) => {
@@ -52,7 +32,7 @@ function Sidebar({
   });
 
   useEffect(() => {
-    let expand = localStorage.setItem('sidebar-expanded', sidebarExpanded);
+    // let expand = localStorage.setItem('sidebar-expanded', sidebarExpanded);
     if (sidebarExpanded) {
       document.querySelector('body').classList.add('sidebar-expanded');
     } else {
@@ -60,24 +40,15 @@ function Sidebar({
     }
   }, [sidebarExpanded]);
 
-
-
-
-
   let LabelName = []
   permission?.permissions?.map((f) => {
-
     if (f.moduleName === "Manage I Locate" || "Manage I Role") {
       const index = f.permissionName.indexOf('/');
       const [first] = [f.permissionName.slice(0, index), f.permissionName.slice(index + 1)];
-      LabelName.push(first)
-
+       LabelName.push(first)
     }
-
+    else return f
   })
-
-  console.log("label", permission)
-
 
   return (
     <div>
@@ -98,9 +69,7 @@ function Sidebar({
           {/* Logo */}
           <NavLink end to="/admindashboard" className="block">
             {sidebarExpanded ?
-              // <<<<<<< HEAD
-              //               <img src={hproxlogo} alt="hprox_lgo" className="lg:sidebar-expanded:block  lg:sidebar-expanded:w-[300px] h-[50px] " style={{objectFit:'contain'}}/>
-              // =======
+             
               <img src={hproxlogo} alt="hprox_lgo" className=" w-10/12 " />
               :
               <img src={logo} alt="logo" className="w-[50px]  lg:sidebar-expanded:hidden  h-[50px]" />
@@ -141,10 +110,7 @@ function Sidebar({
                         )
                       }
                       else {
-
-
                         return (
-
                           <SidebarLinkGroup key={index} activecondition={pathname.includes(item.pathname)} level={1}>
                             {(handleClick, open) => {
                               return (
@@ -219,9 +185,6 @@ function Sidebar({
                                             </SidebarLinkGroup>
                                           )
                                         }
-
-
-
 
                                       }
                                       )
