@@ -1,6 +1,6 @@
 import React from "react";
 import Newsletter from "../components/Newsletter";
-import CartImg from "../../src/assets/images/cart-img.jpg";
+// import CartImg from "../../src/assets/images/cart-img.jpg";
 import Group238 from "../assets/images/Group 238.png";
 import Trending01 from "../assets/images/Trending-01.png";
 import Trending02 from "../assets/images/Trending-02.png";
@@ -20,7 +20,7 @@ function ProductInfo() {
             />
             <div className="w-full mt-6 lg:w-1/2 lg:pl-10 lg:py-6 lg:mt-0">
               <h1 className="mb-1 text-[#24D29F] font-sans font-bold text-[50px]">
-                Hemp & argan nourishing facial oil
+                Hemp & argan nourishing facial oils
               </h1>
               <div className="flex mb-2">
                 <span className="flex items-center">
@@ -236,21 +236,21 @@ function ProductInfo() {
         </div>
       </section>
 
-      <section className="text-white bg-gray-900">
-        <div className="max-w-screen-xl px-4 py-32 mx-auto lg:flex lg:h-screen lg:items-center">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="">
+      <section class="bg-gray-900 text-white">
+        <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
+          <div class="mx-auto max-w-3xl text-center">
+            <h1 class="">
               Discount up to 35% for first purchase only this month.
             </h1>
 
-            <p className="max-w-xl mx-auto mt-4 sm:text-xl sm:leading-relaxed">
+            <p class="mx-auto mt-4 max-w-xl sm:text-xl sm:leading-relaxed">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
               illo tenetur fuga ducimus numquam ea!
             </p>
 
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
               <button
-                className="block w-full px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-blue-600 rounded hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+                class="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
                 href="/get-started"
               >
                 Button
