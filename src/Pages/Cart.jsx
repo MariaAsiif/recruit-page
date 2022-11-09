@@ -1,6 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-// import { AiOutlineMail } from "react-icons/ai";
 import { BiSupport } from "react-icons/bi";
 import { MdGroups } from "react-icons/md";
 import { SiKnowledgebase } from "react-icons/si";

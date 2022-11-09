@@ -1,30 +1,26 @@
 import React from "react";
-import TopHeader from "../components/EcomComponents/TopHeader/TopHeader";
-import AgenciesHeader from "../components/LandingPageComponents/AgenciesPage/AgenciesHeader/AgenciesHeader";
-import HomePageNav from "../components/EcomComponents/Nav/HomePageNav";
 import Newsletter from "../components/Newsletter";
-import FollowUs from "../components/FollowUs/FollowUs";
-import Footer from "../components/Footer/Footer";
 import CartImg from "../../src/assets/images/cart-img.jpg";
+import Group238 from "../assets/images/Group 238.png";
+import Trending01 from "../assets/images/Trending-01.png";
+import Trending02 from "../assets/images/Trending-02.png";
+import Trending03 from "../assets/images/Trending-03.png";
+import Layout from "../components/EcomComponents/Layout/Layout";
 
 function ProductInfo() {
   return (
-    <>
-      <TopHeader />
-      <AgenciesHeader />
-      <HomePageNav />
+    <Layout>
       <section className="overflow-hidden text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap mx-auto lg:w-4/5">
             <img
               alt="ecommerce"
-              className="object-cover object-center w-full h-64 rounded lg:w-1/2 lg:h-auto"
-              src="https://dummyimage.com/400x400"
+              className="object-cover object-center w-[601] h-[641px] lg:w-1/2 lg:h-1/2"
+              src={Group238}
             />
             <div className="w-full mt-6 lg:w-1/2 lg:pl-10 lg:py-6 lg:mt-0">
-              <h1 className="mb-1 text-3xl font-medium text-gray-900 title-font">
-                Hemp & argan nourishing facial <br />
-                oil
+              <h1 className="mb-1 text-[#24D29F] font-sans font-bold text-[50px]">
+                Hemp & argan nourishing facial oil
               </h1>
               <div className="flex mb-2">
                 <span className="flex items-center">
@@ -108,55 +104,164 @@ function ProductInfo() {
                 consetetur
               </p>
 
-              <div className="flex mt-6">
-                {/* <span className="text-2xl font-medium text-gray-900 title-font">
-                  $10
-                </span> */}
-                <button className="flex px-6 py-2 font-sans font-semibold text-[30px] text-[#313131] bg-[#24D29F] shadow-lg">
-                  Add To Cart
-                </button>
+              <div className="flex items-center pb-5 mt-6 mb-5 border-b-2 border-gray-100">
+                <div className="flex items-center ml-6">
+                  <div className="relative">
+                    <select className="py-2 pl-3 pr-10 text-base border border-gray-300 rounded appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500">
+                      <option>SM</option>
+                      <option>M</option>
+                      <option>L</option>
+                      <option>XL</option>
+                    </select>
+                    <span className="absolute top-0 right-0 flex items-center justify-center w-10 h-full text-center text-gray-600 pointer-events-none">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        className="w-4 h-4"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </span>
+                  </div>
+                  <button className="flex px-6 py-2 font-sans font-semibold text-[30px] text-[#313131] bg-[#24D29F] shadow-lg">
+                    Add To Cart
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="text-white body-font">
-        <div className="container flex flex-wrap mx-auto">
-          <div className="mx-auto">
-            <div className="relative flex flex-wrap w-full px-10 py-32 mb-4">
-              <img
-                alt="gallery"
-                className="absolute inset-0 block object-cover object-center w-[1920px] h-[456px]"
-                src={CartImg}
-              />
-              <div className="relative z-10 w-full text-center">
-                <h2 className="mb-2 text-2xl font-medium title-font w-1403 h-71">
-                  Discount up to 35% for first purchase only this month.
-                </h2>
-                <p className="leading-relaxed w-1391 h-66">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                  justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-                  sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
-                  ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                  nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                  justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-                  sea takimata sanctus est
-                </p>
-                <button className="h-[94px] w-[382px] items-start text-center justify-center mx-auto px-4 py-2 mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
-                  Shop Now
-                </button>
-              </div>
+      <section className="container mx-auto lg:w-4/5">
+        <button
+          type="button"
+          className="text-[20px] font-sans font-semibold w-[225px] h-[60px] px-4 py-2 m-2 mr-8 text-[white] bg-[#24D29F]"
+        >
+          Description
+        </button>
+        <button
+          type="button"
+          className="text-[20px] font-sans font-semibold w-[245px] h-[50px] px-4 py-2 bg-[#E0DFDF] m-2 mr-8 text-[#707070]"
+        >
+          Aditional Information
+        </button>
+        <button
+          type="button"
+          className="text-[20px] font-sans font-semibold w-[225px] h-[50px] px-4 py-2 m-2 bg-[#E0DFDF] text-[#707070]"
+        >
+          Reviews (23)
+        </button>
+      </section>
+      <section className="container mx-auto lg:w-4/5">
+        <h1 className="text-[#313131] text-[35px] py-4 font-sans font-semibold">
+          Description
+        </h1>
+        <p className="text-[20px] mb-[150px] text-[#707070] font-sans">
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+          takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+          amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+          invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+          At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+          kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+          amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+          diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+          erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+          et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+          dolore magna aliquyam erat
+        </p>
+      </section>
+
+      <section className="text-gray-600 body-font">
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-wrap -m-4">
+            <div className="w-full p-4 lg:w-1/5 md:w-1/3 sm:w-1/2 ">
+              <a href="!#" className="relative block overflow-hidden">
+                <img
+                  alt="ecommerce"
+                  className="block object-cover object-center  w-[300px] h-[436px]"
+                  src={Trending01}
+                />
+              </a>
+            </div>
+            <div className="w-full p-4 lg:w-1/5 md:w-1/3 sm:w-1/2">
+              <a href="!#" className="relative block overflow-hidden">
+                <img
+                  alt="ecommerce"
+                  className="block object-cover object-center  w-[300px] h-[436px]"
+                  src={Trending02}
+                />
+              </a>
+            </div>
+            <div className="w-full p-4 lg:w-1/5 md:w-1/3 sm:w-1/2">
+              <a href="!#" className="relative block overflow-hidden">
+                <img
+                  alt="ecommerce"
+                  className="block object-cover object-center  w-[300px] h-[436px]"
+                  src={Trending03}
+                />
+              </a>
+            </div>
+            <div className="w-full p-4 lg:w-1/5 md:w-1/3 sm:w-1/2">
+              <a href="!#" className="relative block overflow-hidden">
+                <img
+                  alt="ecommerce"
+                  className="block object-cover object-center  w-[300px] h-[436px]"
+                  src={Trending01}
+                />
+              </a>
+            </div>
+            <div className="w-full p-4 lg:w-1/5 md:w-1/3 sm:w-1/2">
+              <a href="!#" className="relative block overflow-hidden">
+                <img
+                  alt="ecommerce"
+                  className="block object-cover object-center  w-[300px] h-[436px]"
+                  src={Trending01}
+                />
+              </a>
             </div>
           </div>
         </div>
       </section>
+
+      <section className="text-white bg-gray-900">
+        <div className="max-w-screen-xl px-4 py-32 mx-auto lg:flex lg:h-screen lg:items-center">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="">
+              Discount up to 35% for first purchase only this month.
+            </h1>
+
+            <p className="max-w-xl mx-auto mt-4 sm:text-xl sm:leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
+              illo tenetur fuga ducimus numquam ea!
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+              <button
+                className="block w-full px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-blue-600 rounded hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+                href="/get-started"
+              >
+                Button
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Newsletter />
-      <FollowUs />
-      <Footer />
-    </>
+    </Layout>
   );
 }
 
