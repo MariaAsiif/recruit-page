@@ -6,6 +6,7 @@ import Trending01 from "../assets/images/Trending-01.png";
 import Trending02 from "../assets/images/Trending-02.png";
 import Trending03 from "../assets/images/Trending-03.png";
 import Layout from "../components/EcomComponents/Layout/Layout";
+import Rectangle85 from "../components/Rectangle85";
 
 function ProductInfo() {
   return (
@@ -105,31 +106,34 @@ function ProductInfo() {
               </p>
 
               <div className="flex items-center pb-5 mt-6 mb-5 border-b-2 border-gray-100">
-                <div className="flex items-center ml-6">
-                  <div className="relative">
-                    <select className="py-2 pl-3 pr-10 text-base border border-gray-300 rounded appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500">
-                      <option>SM</option>
-                      <option>M</option>
-                      <option>L</option>
-                      <option>XL</option>
-                    </select>
-                    <span className="absolute top-0 right-0 flex items-center justify-center w-10 h-full text-center text-gray-600 pointer-events-none">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="w-4 h-4"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M6 9l6 6 6-6"></path>
-                      </svg>
-                    </span>
+                <div className="flex items-center">
+                  <div className="relative flex">
+                    <div className="w-32 h-10 pt-1 pr-5 custom-number-input">
+                      <div className="relative flex flex-row w-full h-10 mt-1 bg-transparent rounded-lg">
+                        <button
+                          data-action="decrement"
+                          className="w-20 h-full text-gray-600 bg-gray-300 rounded-l outline-none cursor-pointer hover:text-gray-700 hover:bg-gray-400"
+                        >
+                          <span className="m-auto text-2xl font-thin">−</span>
+                        </button>
+                        <input
+                          type="number"
+                          className="flex items-center w-full font-semibold text-center text-gray-700 bg-gray-300 outline-none focus:outline-none text-md hover:text-black focus:text-black md:text-basecursor-default"
+                          name="custom-input-number"
+                          value="0"
+                        ></input>
+                        <button
+                          data-action="increment"
+                          className="w-20 h-full text-gray-600 bg-gray-300 rounded-r cursor-pointer hover:text-gray-700 hover:bg-gray-400"
+                        >
+                          <span className="m-auto text-2xl font-thin">+</span>
+                        </button>
+                      </div>
+                    </div>
+                    <button className="flex px-6 py-2 font-sans font-semibold text-[30px] text-[#313131] bg-[#24D29F] shadow-lg">
+                      Add To Cart
+                    </button>
                   </div>
-                  <button className="flex px-6 py-2 font-sans font-semibold text-[30px] text-[#313131] bg-[#24D29F] shadow-lg">
-                    Add To Cart
-                  </button>
                 </div>
               </div>
             </div>
@@ -156,7 +160,7 @@ function ProductInfo() {
           Reviews (23)
         </button>
       </section>
-      <section className="container mx-auto lg:w-4/5">
+      <section className="container mx-auto lg:w-4/5 md:w-4/5">
         <h1 className="text-[#313131] text-[35px] py-4 font-sans font-semibold">
           Description
         </h1>
@@ -235,31 +239,7 @@ function ProductInfo() {
           </div>
         </div>
       </section>
-
-      <section class="bg-gray-900 text-white">
-        <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
-          <div class="mx-auto max-w-3xl text-center">
-            <h1 class="">
-              Discount up to 35% for first purchase only this month.
-            </h1>
-
-            <p class="mx-auto mt-4 max-w-xl sm:text-xl sm:leading-relaxed">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-              illo tenetur fuga ducimus numquam ea!
-            </p>
-
-            <div class="mt-8 flex flex-wrap justify-center gap-4">
-              <button
-                class="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-                href="/get-started"
-              >
-                Button
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <Rectangle85 />
       <Newsletter />
     </Layout>
   );

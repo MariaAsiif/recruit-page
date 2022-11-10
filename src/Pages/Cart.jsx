@@ -2,13 +2,13 @@ import React from "react";
 import { BiSupport } from "react-icons/bi";
 import { MdGroups } from "react-icons/md";
 import { SiKnowledgebase } from "react-icons/si";
-import CartImg from "../../src/assets/images/cart-img.jpg";
 import TopHeader from "../components/EcomComponents/TopHeader/TopHeader";
 import HomePageNav from "../components/EcomComponents/Nav/HomePageNav";
 import FollowUs from "../components/FollowUs/FollowUs";
 import Footer from "../components/Footer/Footer";
 import AgenciesHeader from "../components/LandingPageComponents/AgenciesPage/AgenciesHeader/AgenciesHeader";
 import Newsletter from "../components/Newsletter";
+import Rectangle85 from "../components/Rectangle85";
 
 function Cart() {
   return (
@@ -90,7 +90,7 @@ function Cart() {
                   aliquyam erat, sed diam voluptua. At vero eos et accusam et
                   justo duo dolores
                 </p>
-                <button className="w-[382px] h-[67px] flex items-center justify-center px-10 py-2 mx-auto mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
+                <button className="lg:w-[382px] lg:h-[67px] flex items-center justify-center px-10 py-2 mx-auto mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
                   Learn More
                 </button>
               </div>
@@ -110,7 +110,7 @@ function Cart() {
                   aliquyam erat, sed diam voluptua. At vero eos et accusam et
                   justo duo dolores
                 </p>
-                <button className="w-[382px] h-[67px] flex items-center justify-center px-10 py-2 mx-auto mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
+                <button className="lg:w-[382px] lg:h-[67px] flex items-center justify-center px-10 py-2 mx-auto mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
                   Learn More
                 </button>
               </div>
@@ -129,7 +129,7 @@ function Cart() {
                   aliquyam erat, sed diam voluptua. At vero eos et accusam et
                   justo duo dolores
                 </p>
-                <button className="w-[382px] h-[67px] flex items-center justify-center px-10 py-2 mx-auto mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
+                <button className="lg:w-[382px] lg:h-[67px] flex items-center justify-center px-10 py-2 mx-auto mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
                   Learn More
                 </button>
               </div>
@@ -138,39 +138,7 @@ function Cart() {
         </div>
       </section>
 
-      <section className="text-white body-font">
-        <div className="container flex flex-wrap mx-auto">
-          <div className="mx-auto">
-            <div className="relative flex flex-wrap w-full px-10 py-32 mb-4">
-              <img
-                alt="gallery"
-                className="absolute inset-0 block object-cover object-center w-[1920px] h-[456px]"
-                src={CartImg}
-              />
-              <div className="relative z-10 w-full text-center">
-                <h2 className="mb-2 text-2xl font-medium title-font w-1403 h-71">
-                  Discount up to 35% for first purchase only this month.
-                </h2>
-                <p className="leading-relaxed w-1391 h-66">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                  justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-                  sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
-                  ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                  nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                  justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-                  sea takimata sanctus est
-                </p>
-                <button className="h-[94px] w-[382px] items-start text-center justify-center mx-auto px-4 py-2 mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
-                  Shop Now
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Rectangle85 />
       <Newsletter />
       <FollowUs />
       <Footer />
