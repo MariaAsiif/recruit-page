@@ -9,6 +9,7 @@ import Footer from "../components/Footer/Footer";
 import AgenciesHeader from "../components/LandingPageComponents/AgenciesPage/AgenciesHeader/AgenciesHeader";
 import Newsletter from "../components/Newsletter";
 import Rectangle85 from "../components/Rectangle85";
+import CartTable from "../components/CartTable";
 
 function Cart() {
   return (
@@ -16,18 +17,19 @@ function Cart() {
       <TopHeader />
       <AgenciesHeader />
       <HomePageNav />
-      <div className="mt-10 col-10 font-medium text-lg text-[#24D29F] flex bscontainer-fluid truncate">
-        <div className="col-2">
+      <CartTable />
+      {/* <div className="container mt-10 col-10 font-medium text-lg text-[#24D29F] overflow-hidden flex bscontainer-fluid truncate">
+        <div className="mx-auto col-2">
           <h1 className="h-[89px]">Product</h1>
-          <section className="flex">
+          <section className="flex-column">
             <img className="w-[46px] h-[50px] mt-2 mr-1 p-[5x]" src="" alt="" />
             <p className="font-sans w-[208px] h-[60px] text-[#313131] whitespace-normal py-1 pr-2">
               Hemp & argan nourishing facial oil
             </p>
+            <button className="flex items-center justify-center mx-auto lg:h-[65px] lg:w-[217px] md:w-[90%] sm:w-[90%] md:text-[70%] sm:text-[70%] px-7 py-2 mt-5  text-[#313131] bg-[#73E6C5]">
+              Update Cart
+            </button>
           </section>
-          <button className="h-[65px] w-[217px] px-7 py-2 mt-5 text-lg text-[#313131] bg-[#73E6C5] border-0 font-medium">
-            Update Cart
-          </button>
         </div>
         <div className="col-1">
           <h1 className="h-[89px]">Price</h1>
@@ -72,7 +74,7 @@ function Cart() {
       </div>
       <button className="h-[65px] w-[217px] flex items-center justify-center mx-auto px-7 py-2 mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
         Apply Coupon
-      </button>
+      </button> */}
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
