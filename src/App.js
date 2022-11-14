@@ -176,8 +176,7 @@ function App() {
         <Route path="/Home" element={<HomePage />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/product-info" element={<ProductInfo />} />
+       
         <Route path="/verify" element={<Verify />} />
         <Route path="/recruit" element={<RecruitPage />} />
         <Route path="/joinus" element={<JoinUs />} />
@@ -211,6 +210,9 @@ function App() {
           <Route index path="invoice" element={<Invoice />} />
           <Route index path="faqs" element={<NewFaqs />} />
           <Route index path="gig" element={<SingleGig />} />
+          <Route index path="orderdetails" element={<OrderDetails />} />
+          <Route index path="invoiceinfo" element={<InvoiceInformation />} />
+          <Route index path="newinvoice" element={<NewInvoice />} />
         </Route>
 
         {/* Medical and Customer Module */}
@@ -225,7 +227,8 @@ function App() {
         <Route path="/e-setting" element={<Setting />} />
         <Route path="/e-purchase" element={<Purchase />} />
         <Route path="/e-credit" element={<Credit />} />
-
+        <Route path="/e-cart" element={<Cart />} />
+        <Route path="/e-product-info" element={<ProductInfo />} />
 
         <Route index path="customer-dashboard" element={<Sidebar />} />
 
