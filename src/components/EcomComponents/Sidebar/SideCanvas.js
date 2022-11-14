@@ -1,25 +1,28 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 // import { Offcanvas } from "react-bootstrap";
 // import logo from "../../../assets/landingImages/logo.svg";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "./SideNavCanvas.css";
 // import agencyLogo from "../../../assets/landingImages/agencyLogo.png";
 import dp_img from "../../../assets/images/Botanist.jpg";
-import agenciyCart from "../../../assets/landingImages/agenciyCart.svg";
+// import agenciyCart from "../../../assets/landingImages/agenciyCart.svg";
 import { BiHomeAlt } from "react-icons/bi";
-import { IoSettingsOutline, IoStatsChartOutline, IoWalletSharp } from "react-icons/io5";
+import {
+  IoSettingsOutline,
+  IoStatsChartOutline,
+  IoWalletSharp,
+} from "react-icons/io5";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { AiOutlineCloudUpload, AiTwotoneShopping } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { FaPrescriptionBottle } from "react-icons/fa";
-import { BsHeartFill } from 'react-icons/bs';
+import { BsHeartFill } from "react-icons/bs";
 // import DropdownDynamic from '../../DropdownDynamic';
-import Transition from '../../../utils/Transition';
-import uk from '../../../assets/images/u_k.png'
-import { GiLoincloth } from 'react-icons/gi';
+import Transition from "../../../utils/Transition";
+import uk from "../../../assets/images/u_k.png";
+import { GiLoincloth } from "react-icons/gi";
 
 const SideCanvas = ({ bar, sidebarOpen, setSidebarOpen }) => {
-
   // const location = useLocation();
   // const { pathname } = location;
 
@@ -35,11 +38,16 @@ const SideCanvas = ({ bar, sidebarOpen, setSidebarOpen }) => {
   useEffect(() => {
     const clickHandler = ({ target }) => {
       if (!dropdown.current) return;
-      if (!dropdownOpen || dropdown.current.contains(target) || trigger.current.contains(target)) return;
+      if (
+        !dropdownOpen ||
+        dropdown.current.contains(target) ||
+        trigger.current.contains(target)
+      )
+        return;
       setDropdownOpen(false);
     };
-    document.addEventListener('click', clickHandler);
-    return () => document.removeEventListener('click', clickHandler);
+    document.addEventListener("click", clickHandler);
+    return () => document.removeEventListener("click", clickHandler);
   });
 
   // close if the esc key is pressed
@@ -48,31 +56,28 @@ const SideCanvas = ({ bar, sidebarOpen, setSidebarOpen }) => {
       if (!dropdownOpen || keyCode !== 27) return;
       setDropdownOpen(false);
     };
-    document.addEventListener('keydown', keyHandler);
-    return () => document.removeEventListener('keydown', keyHandler);
+    document.addEventListener("keydown", keyHandler);
+    return () => document.removeEventListener("keydown", keyHandler);
   });
-
 
   const options = [
     {
       id: 0,
-      period: 'English'
+      period: "English",
     },
     {
       id: 1,
-      period: 'Spanish'
+      period: "Spanish",
     },
     {
       id: 0,
-      period: 'English'
+      period: "English",
     },
     {
       id: 1,
-      period: 'Spanish'
+      period: "Spanish",
     },
-
   ];
-
 
   const Homebar = [
     {
@@ -115,150 +120,166 @@ const SideCanvas = ({ bar, sidebarOpen, setSidebarOpen }) => {
       title: "Withdrawals",
       link: "/e-dashboard",
     },
-  ]
-
+  ];
 
   const Leftbar = [
     {
       icon: <GiLoincloth />,
       title: "Clothing",
-      link: ""
+      link: "",
     },
     {
       icon: <GiLoincloth />,
       title: "Health & Beauty",
-      link: ""
+      link: "",
     },
     {
       icon: <GiLoincloth />,
       title: " Hygiene & Body",
-      link: ""
+      link: "",
     },
     {
       icon: <GiLoincloth />,
       title: "House & Decor",
-      link: ""
+      link: "",
     },
     {
       icon: <GiLoincloth />,
       title: "Organic Nutrition",
-      link: ""
+      link: "",
     },
     {
       icon: <GiLoincloth />,
       title: "Seeds & Flowers",
-      link: ""
+      link: "",
     },
     {
       icon: <GiLoincloth />,
       title: "Cultivate & Grow",
-      link: ""
+      link: "",
     },
     {
       icon: <GiLoincloth />,
       title: "Paraphernalia",
-      link: ""
+      link: "",
     },
     {
       icon: <GiLoincloth />,
       title: "Taste of Home",
-      link: ""
+      link: "",
     },
+  ];
 
-  ]
-
-
-  const storedSidebarExpanded = localStorage.getItem('landing-sidebar');
-  const [sidebarExpanded, setSidebarExpanded] = useState(storedSidebarExpanded === null ? false : storedSidebarExpanded === true);
+//   const storedSidebarExpanded = localStorage.getItem("landing-sidebar");
+//   const [sidebarExpanded, setSidebarExpanded] = useState(
+//     storedSidebarExpanded === null ? false : storedSidebarExpanded === true
+//   );
 
   useEffect(() => {
     const keyHandler = ({ keyCode }) => {
       if (!sidebarOpen || keyCode !== 27) return;
       setSidebarOpen(false);
     };
-    document.addEventListener('keydown', keyHandler);
-    return () => document.removeEventListener('keydown', keyHandler);
+    document.addEventListener("keydown", keyHandler);
+    return () => document.removeEventListener("keydown", keyHandler);
   });
 
   useEffect(() => {
     if (sidebarOpen === true) {
-      if (typeof window != 'undefined' && window.document) {
-        document.body.style.overflow = 'hidden';
+      if (typeof window != "undefined" && window.document) {
+        document.body.style.overflow = "hidden";
       }
-
+    } else {
+      document.body.style.overflow = "auto";
     }
-    else {
-      document.body.style.overflow = 'auto';
-
-    }
-
-
   }, [sidebarOpen]);
 
-
-  console.log("data", sidebarOpen)
-
-
-
+  console.log("data", sidebarOpen);
 
   return (
-    <div >
-      <div className={`fixed inset-0 bg-slate-900  bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200 ${sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} aria-hidden="true" >
-
+    <div>
+      <div
+        className={`fixed inset-0 bg-slate-900  bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200 ${
+          sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        aria-hidden="true"
+      >
         {/* Sidebar */}
-        <div id="sidebar" ref={sidebar} className={`flex flex-col relative z-1 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-auto lg:overflow-y-auto no-scrollbar w-[53%] lg:w-50 lg:landing-sidebar:!w-64 2xl:!w-64 shrink-0 bg- border-r  bg-[#1B1B1B]   py-4 transition-all duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-64'}`} >
+        <div
+          id="sidebar"
+          ref={sidebar}
+          className={`flex flex-col relative z-1 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-auto lg:overflow-y-auto no-scrollbar w-[53%] lg:w-50 lg:landing-sidebar:!w-64 2xl:!w-64 shrink-0 bg- border-r  bg-[#1B1B1B]   py-4 transition-all duration-200 ease-in-out ${
+            sidebarOpen ? "translate-x-0" : "-translate-x-64"
+          }`}
+        >
           {/* Sidebar header */}
 
-          <div className='absolute z-20 w-full '>
+          <div className="absolute z-20 w-full ">
             <div>
               {/* Close button */}
               {/* <button ref={trigger} className="lg:hidden text-slate-500 hover:text-slate-400" onClick={() => setSidebarOpen(!sidebarOpen)} aria-controls="sidebar" aria-expanded={sidebarOpen}  >
                 <span className="sr-only">Close sidebar</span>
-                <svg className="w-6 h-6 fill-current border rounded-full text-black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-6 h-6 text-black border rounded-full fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M10.7 18.7l1.4-1.4L7.8 13H20v-2H7.8l4.3-4.3-1.4-1.4L4 12z" />
                 </svg>
               </button> */}
               <div className="bg-[#141414] border-b pl-3 border-[#24D29F] text-white pt-5 pb-7 flex items-center ">
                 <div className="icons">
-                  <img src={dp_img} className="lg:mx-1 mx-5 rounded-full w-[95px] object-cover h-[95px] border border-[#24D29F]" alt="agenciyCart" />
+                  <img
+                    src={dp_img}
+                    className="lg:mx-1 mx-5 rounded-full w-[95px] object-cover h-[95px] border border-[#24D29F]"
+                    alt="agenciyCart"
+                  />
                 </div>
                 <div>
-                  <p className='text-[#E0E0E0] text-[20px]'>
+                  <p className="text-[#E0E0E0] text-[20px]">
                     Alex
-                    <h2 className='text-[#E0E0E0] text-[20px] font-semibold'>Williams</h2>
+                    <h2 className="text-[#E0E0E0] text-[20px] font-semibold">
+                      Williams
+                    </h2>
                   </p>
-                  <h2 className='text-[#24D29F] text-[20px]'>Designer</h2>
-
+                  <h2 className="text-[#24D29F] text-[20px]">Designer</h2>
                 </div>
               </div>
-              <div className='border-b border-[#24D29F] p-3 '>
+              <div className="border-b border-[#24D29F] p-3 ">
                 <div className="flex items-center justify-between profile-icons">
                   <div className="flex items-center justify-between">
                     <BsHeartFill className="text-[30px] text-[#24D29F] " />
-                    <h3 className="text-[14px] px-1 text-[#24D29F] ">Whichlist(21)</h3>
+                    <h3 className="text-[14px] px-1 text-[#24D29F] ">
+                      Whichlist(21)
+                    </h3>
                   </div>
-                  <div className=" flex items-center justify-between shopping ">
-                    <AiTwotoneShopping className='text-[40px] text-[#24D29F]' />
-                    <div >
+                  <div className="flex items-center justify-between shopping">
+                    <AiTwotoneShopping className="text-[40px] text-[#24D29F]" />
+                    <div>
                       <h2 className="text-[13px] text-[#E0DFDF]">Your cart</h2>
-                      <p className="text-[13px] px-2 text-[#24D29F] font-medium ">$132.142</p>
+                      <p className="text-[13px] px-2 text-[#24D29F] font-medium ">
+                        $132.142
+                      </p>
                     </div>
                   </div>
                   <div className="icons">
                     <div className="relative">
                       <button
                         ref={trigger}
-                        className="p-2  flex items-center  justify-between text-white"
+                        className="flex items-center justify-between p-2 text-white"
                         aria-label="Select date range"
                         aria-haspopup="true"
                         onClick={() => setDropdownOpen(!dropdownOpen)}
                         aria-expanded={dropdownOpen}
                       >
                         <span className="flex items-center">
-                          <img src={uk} alt="uk" className='w-8' />
-                          <span className='px-2 text-[14px]'>{options[selected].period}</span>
+                          <img src={uk} alt="uk" className="w-8" />
+                          <span className="px-2 text-[14px]">
+                            {options[selected].period}
+                          </span>
                         </span>
-                        <svg className="shrink-0 ml-1 fill-current text-white" width="11" height="7" viewBox="0 0 11 7">
+                        <svg
+                          className="ml-1 text-white fill-current shrink-0"
+                          width="11"
+                          height="7"
+                          viewBox="0 0 11 7"
+                        >
                           <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
                         </svg>
                       </button>
@@ -275,83 +296,86 @@ const SideCanvas = ({ bar, sidebarOpen, setSidebarOpen }) => {
                       >
                         <div
                           ref={dropdown}
-                          className="font-medium text-sm text-slate-600 "
+                          className="text-sm font-medium text-slate-600 "
                           onFocus={() => setDropdownOpen(true)}
                           onBlur={() => setDropdownOpen(false)}
                         >
-                          {
-                            options.map(option => {
-                              return (
-                                <button
-                                  key={option.id}
-                                  tabIndex="0"
-                                  className={`flex items-center w-full hover:bg-slate-50 py-1 px-3 cursor-pointer ${option.id === selected && 'text-red-500'}`}
-                                  onClick={() => { setSelected(option.id); setDropdownOpen(false); }}
+                          {options.map((option) => {
+                            return (
+                              <button
+                                key={option.id}
+                                tabIndex="0"
+                                className={`flex items-center w-full hover:bg-slate-50 py-1 px-3 cursor-pointer ${
+                                  option.id === selected && "text-red-500"
+                                }`}
+                                onClick={() => {
+                                  setSelected(option.id);
+                                  setDropdownOpen(false);
+                                }}
+                              >
+                                <svg
+                                  className={`shrink-0 mr-2 fill-current text-red-500 ${
+                                    option.id !== selected && "invisible"
+                                  }`}
+                                  width="12"
+                                  height="9"
+                                  viewBox="0 0 12 9"
                                 >
-                                  <svg className={`shrink-0 mr-2 fill-current text-red-500 ${option.id !== selected && 'invisible'}`} width="12" height="9" viewBox="0 0 12 9">
-                                    <path d="M10.28.28L3.989 6.575 1.695 4.28A1 1 0 00.28 5.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28.28z" />
-                                  </svg>
-                                  <span >{option.period}</span>
-                                </button>
-                              )
-                            })
-                          }
+                                  <path d="M10.28.28L3.989 6.575 1.695 4.28A1 1 0 00.28 5.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28.28z" />
+                                </svg>
+                                <span>{option.period}</span>
+                              </button>
+                            );
+                          })}
                         </div>
                       </Transition>
                     </div>
                   </div>
-
-
                 </div>
               </div>
             </div>
 
-            <div className="sidenavcanvas mt-4">
+            <div className="mt-4 sidenavcanvas">
               <ul>
-                {
-                  bar === "topbar" ?
-                    Leftbar.map((item, i) => (
-                      <li key={i} >
-                        <Link to={item?.link}>
-                          <div className='flex items-center text-[25px]'>
-                            <div className='mx-1'>
-                              <div >{item.icon}</div>
-                            </div>
-                            <span className='mx-3 title'>{item.title}</span>
-                          </div>
-                        </Link>
-                      </li>
-                    ))
-                    :
-                    Homebar.map((item, i) => (
+                {bar === "topbar"
+                  ? Leftbar.map((item, i) => (
                       <li key={i}>
                         <Link to={item?.link}>
-                          <div className='flex items-center'>
-                            <div className='mx-1'>
-                              <div className='text-[20px]'>{item.icon}</div>
+                          <div className="flex items-center text-[25px]">
+                            <div className="mx-1">
+                              <div>{item.icon}</div>
                             </div>
-                            <span className='mx-3 title'>{item.title}</span>
+                            <span className="mx-3 title">{item.title}</span>
                           </div>
                         </Link>
                       </li>
                     ))
-                }
+                  : Homebar.map((item, i) => (
+                      <li key={i}>
+                        <Link to={item?.link}>
+                          <div className="flex items-center">
+                            <div className="mx-1">
+                              <div className="text-[20px]">{item.icon}</div>
+                            </div>
+                            <span className="mx-3 title">{item.title}</span>
+                          </div>
+                        </Link>
+                      </li>
+                    ))}
               </ul>
             </div>
           </div>
         </div>
 
         <section
-          className=" w-screen relative h-full cursor-pointer border border-red-500"
+          className="relative w-screen h-full border border-red-500 cursor-pointer "
           onClick={() => {
             setSidebarOpen(false);
           }}
         >
           asdasdas
         </section>
-
       </div>
-
 
       {/* <Offcanvas
         className="sidenavcanvas-container"
@@ -410,7 +434,7 @@ const SideCanvas = ({ bar, sidebarOpen, setSidebarOpen }) => {
           </nav>
         </Offcanvas.Body>
       </Offcanvas> */}
-    </div >
+    </div>
   );
 };
 

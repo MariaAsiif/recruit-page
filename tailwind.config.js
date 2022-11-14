@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
+        'Cartimg' : "url('./assets/images/cart-img.jpg')",
         'top-background': "url('./images/bannerImage.png')",
         'joinus-background': "url(./images/joinus/banner.png)",
         'workus-background': "url(./images/joinus/workus.png)",

@@ -16,6 +16,9 @@ export const AgenciesHeaderContainer = styled.div`
 .search_bar{
 @media screen and (min-width: 768px) and (max-width:992px){
 		width: 630px !important;
+.search_bar{
+@media screen and (min-width: 768px) and (max-width:992px){
+		width: 400px;
 }
 }
 
@@ -65,7 +68,6 @@ export const AgenciesHeaderContainer = styled.div`
 
     img{
         width: 20px;
-		
     }
 	
 }
