@@ -16,7 +16,7 @@ function ProductInfo() {
           <div className="flex flex-wrap mx-auto lg:w-4/5">
             <img
               alt="ecommerce"
-              className="object-cover object-center w-[601] h-[641px] lg:w-1/2 lg:h-1/2"
+              className="object-contain object-center w-[601] h-[641px] lg:w-1/2 lg:h-1/2"
               src={Group238}
             />
             <div className="w-full mt-6 lg:w-1/2 lg:pl-10 lg:py-6 lg:mt-0">
@@ -161,10 +161,10 @@ function ProductInfo() {
         </button>
       </section>
       <section className="container mx-auto lg:w-4/5 md:w-4/5">
-        <h1 className="text-[#313131] text-[35px] py-4 font-sans font-semibold">
+        <h1 className="text-[#313131] lg:text-[35px] md:text-[150%] sm:text-[150%] py-4 px-8 font-sans font-semibold">
           Description
         </h1>
-        <p className="text-[20px] mb-[150px] text-[#707070] font-sans">
+        <p className="lg:text-[20px] mb-[120px] text-[#707070] font-sans px-8">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
           sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
@@ -189,13 +189,15 @@ function ProductInfo() {
       </section>
 
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-5 mx-auto">
+          <h1 className="font-sans font-bold lg:text-[22px] text-black md:text-[150%] sm:text-[150%]">Trending Products</h1>
+          <p className="text-sm">Lorem ipsum dolor sit amet, consetetur</p>
           <div className="flex flex-wrap -m-4">
             <div className="w-full p-4 lg:w-1/5 md:w-1/3 sm:w-1/2">
               <a href="!#" className="relative block overflow-hidden">
                 <img
                   alt="ecommerce"
-                  className="block object-cover object-center  w-[300px] h-[436px]"
+                  className="block object-contain object-center  w-[300px] h-[436px]"
                   src={Trending01}
                 />
               </a>
@@ -204,7 +206,7 @@ function ProductInfo() {
               <a href="!#" className="relative block overflow-hidden">
                 <img
                   alt="ecommerce"
-                  className="block object-cover object-center  w-[300px] h-[436px]"
+                  className="block object-contain object-center  w-[300px] h-[436px]"
                   src={Trending02}
                 />
               </a>
@@ -213,7 +215,7 @@ function ProductInfo() {
               <a href="!#" className="relative block overflow-hidden">
                 <img
                   alt="ecommerce"
-                  className="block object-cover object-center  w-[300px] h-[436px]"
+                  className="block object-contain object-center  w-[300px] h-[436px]"
                   src={Trending03}
                 />
               </a>
@@ -222,7 +224,7 @@ function ProductInfo() {
               <a href="!#" className="relative block overflow-hidden">
                 <img
                   alt="ecommerce"
-                  className="block object-cover object-center  w-[300px] h-[436px]"
+                  className="block object-contain object-center  w-[300px] h-[436px]"
                   src={Trending01}
                 />
               </a>
@@ -231,7 +233,7 @@ function ProductInfo() {
               <a href="!#" className="relative block overflow-hidden">
                 <img
                   alt="ecommerce"
-                  className="block object-cover object-center  w-[300px] h-[436px]"
+                  className="block object-contain object-center  w-[300px] h-[436px]"
                   src={Trending01}
                 />
               </a>
