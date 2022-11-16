@@ -5,9 +5,9 @@ function CartTable() {
   return (
     <>
       <section className="py-1 bg-blueGray-50">
-        <div className="w-full px-4 mx-auto mt-24 mb-12 xl:w-8/12 xl:mb-0">
-          <div className="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded shadow-lg ">
-            <div className="block w-full overflow-x-auto">
+        <div className="w-full px-4 mx-auto mt-24 mb-12 xl:w-[80%] xl:mb-0">
+          <div className="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded shadow-lg">
+            <div className="block">
               <table className="items-center w-full bg-transparent border-collapse">
                 <thead>
                   <tr>
@@ -29,7 +29,7 @@ function CartTable() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="align-middle">
+                  <tr>
                     <th className="pt-8 flex font-sans font-semibold lg:text-[22px] border-t-0 px-6 border-l-0 border-r-0 whitespace-nowrap p-4 text-left text-[#313131]">
                       <img
                         className="flex-column w-[46px] h-[50px] mt-2 mr-2"
@@ -52,7 +52,7 @@ function CartTable() {
                       <td className="font-sans font-semibold lg:text-[22px] border-t-0 px-6 border-l-0 border-r-0 whitespace-nowrap p-4 text-left">
                         Total
                       </td>
-                      <td className="font-sans font-semibold lg:text-[22px] border-t-0 px-6 border-l-0 border-r-0 whitespace-nowrap p-4 pl-[150px] text-right">
+                      <td className="font-sans font-semibold lg:text-[22px] border-t-0 px-6 border-l-0 border-r-0 whitespace-nowrap p-4 text-right">
                         $1,598.00
                       </td>
                     </td>

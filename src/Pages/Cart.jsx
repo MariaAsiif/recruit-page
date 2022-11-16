@@ -2,21 +2,14 @@ import React from "react";
 import { BiSupport } from "react-icons/bi";
 import { MdGroups } from "react-icons/md";
 import { SiKnowledgebase } from "react-icons/si";
-import TopHeader from "../components/EcomComponents/TopHeader/TopHeader";
-import HomePageNav from "../components/EcomComponents/Nav/HomePageNav";
-import FollowUs from "../components/FollowUs/FollowUs";
-import Footer from "../components/Footer/Footer";
-import AgenciesHeader from "../components/LandingPageComponents/AgenciesPage/AgenciesHeader/AgenciesHeader";
 import Newsletter from "../components/Newsletter";
 import Rectangle85 from "../components/Rectangle85";
 import CartTable from "../components/CartTable";
+import Layout from "../components/EcomComponents/Layout/Layout";
 
 function Cart() {
   return (
-    <>
-      <TopHeader />
-      <AgenciesHeader />
-      <HomePageNav />
+    <Layout>
       <CartTable />
       {/* <div className="container mt-10 col-10 font-medium text-lg text-[#24D29F] overflow-hidden flex bscontainer-fluid truncate">
         <div className="mx-auto col-2">
@@ -92,7 +85,7 @@ function Cart() {
                   aliquyam erat, sed diam voluptua. At vero eos et accusam et
                   justo duo dolores
                 </p>
-                <button className="lg:w-[382px] lg:h-[67px] flex items-center justify-center px-10 py-2 mx-auto mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
+                <button className="lg:w-[382px] lg:h-[67px] hover:bg-[#DD2E44] hover:text-white transition-all ease-in flex items-center justify-center px-10 py-2 mx-auto mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
                   Learn More
                 </button>
               </div>
@@ -112,7 +105,7 @@ function Cart() {
                   aliquyam erat, sed diam voluptua. At vero eos et accusam et
                   justo duo dolores
                 </p>
-                <button className="lg:w-[382px] lg:h-[67px] flex items-center justify-center px-10 py-2 mx-auto mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
+                <button className="lg:w-[382px] lg:h-[67px] hover:bg-[#DD2E44] hover:text-white transition-all ease-in flex items-center justify-center px-10 py-2 mx-auto mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
                   Learn More
                 </button>
               </div>
@@ -131,7 +124,7 @@ function Cart() {
                   aliquyam erat, sed diam voluptua. At vero eos et accusam et
                   justo duo dolores
                 </p>
-                <button className="lg:w-[382px] lg:h-[67px] flex items-center justify-center px-10 py-2 mx-auto mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
+                <button className="lg:w-[382px] hover:bg-[#DD2E44] hover:text-white transition-all ease-in lg:h-[67px] flex items-center justify-center px-10 py-2 mx-auto mt-5 text-lg text-[#313131] bg-[#24D29F] border-0 font-medium">
                   Learn More
                 </button>
               </div>
@@ -139,12 +132,9 @@ function Cart() {
           </div>
         </div>
       </section>
-
       <Rectangle85 />
       <Newsletter />
-      <FollowUs />
-      <Footer />
-    </>
+    </Layout>
   );
 }
 

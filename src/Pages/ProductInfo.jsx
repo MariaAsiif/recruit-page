@@ -114,7 +114,7 @@ function ProductInfo() {
                           data-action="decrement"
                           className="w-20 h-full text-gray-600 bg-gray-300 rounded-l outline-none cursor-pointer hover:text-gray-700 hover:bg-gray-400"
                         >
-                          <span className="m-auto text-2xl font-thin">−</span>
+                          <span className="m-auto text-2xl">−</span>
                         </button>
                         <input
                           type="number"
@@ -126,7 +126,7 @@ function ProductInfo() {
                           data-action="increment"
                           className="w-20 h-full text-gray-600 bg-gray-300 rounded-r cursor-pointer hover:text-gray-700 hover:bg-gray-400"
                         >
-                          <span className="m-auto text-2xl font-thin">+</span>
+                          <span className="m-auto text-2xl">+</span>
                         </button>
                       </div>
                     </div>
@@ -191,7 +191,7 @@ function ProductInfo() {
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
-            <div className="w-full p-4 lg:w-1/5 md:w-1/3 sm:w-1/2 ">
+            <div className="w-full p-4 lg:w-1/5 md:w-1/3 sm:w-1/2">
               <a href="!#" className="relative block overflow-hidden">
                 <img
                   alt="ecommerce"
