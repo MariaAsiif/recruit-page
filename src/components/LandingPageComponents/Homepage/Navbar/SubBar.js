@@ -72,18 +72,18 @@ const SubBar = ({ setShow }) => {
                     <div className="col-lg-4 border-r border-white p-2 pl-5 flex items-baseline flex-col">
                       <h3 className="text-[20px] font-medium">recruit</h3>
                       <div className="flex flex-col justify-start items-start cursor-pointer">
-                        <span>about</span>
-                        <span>quick cv</span>
-                        <span>whats next</span>
-                        <span>register yourself</span>
+                        <span>About</span>
+                        <span>Quick Cv</span>
+                        <span>Whats Next</span>
+                        <span>Register Yourself</span>
                       </div>
 
-                      <h3 className="text-[20px] font-medium">Items4</h3>
-                      <div className="flex flex-col ">
-                        <span>hellow</span>
-                        <span>hellow</span>
-                        <span>hellow</span>
-                        <span>hellow</span>
+                      <h3 className="text-[20px] font-medium">Marketplace</h3>
+                      <div className="flex flex-col items-start ">
+                        <span>Store</span>
+                        <span>Store 2</span>
+                        <span>Vendor Dashboard</span>
+                        {/* <span>hellow</span> */}
                       </div>
                     </div>
                     <div className="col-lg-4 border-r border-white p-2 pl-5 flex items-baseline flex-col">
