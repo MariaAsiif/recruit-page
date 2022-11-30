@@ -174,7 +174,7 @@ function App() {
         <Route path="/locator" element={<LocatehomePage />} />
         <Route path="/userDetail" element={<Detail />} />
         <Route path="/homepage" element={<MainPage />} />
-        <Route path="/agency" element={<Agency />} />
+        {/* <Route path="/agency" element={<Agency />} /> */}
         <Route path="/stock" element={<Stocks />} />
         <Route path="/newdashboard" element={<NewDashboardPage />} />
         {/* Recuit Pages  */}
