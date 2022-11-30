@@ -110,8 +110,8 @@ const PublicBetaLogin = () => {
                 navigate('/e-dashboard')
 
             }
-            else if (response.data.role === "service provider") {
-                navigate('/newdashboard')
+            else if (response.data.role === "companytasker" || "individualtasker") {
+                navigate('/landingPage')
 
             }
             else if (response.data.role === "admin") {

@@ -96,7 +96,7 @@ const PublicBetaSignUp = () => {
         password: ""
     })
 
-    const all_Roles = ["vendors", "manufacturer", "customer", "doctor", "finance admin", "superadmin", "HR", "admin"]
+    const all_Roles = ["vendors", "manufacturer", "individualtasker", "companytasker", "customer", "doctor", "finance admin", "superadmin", "HR", "admin"]
 
     const { register, reset, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
