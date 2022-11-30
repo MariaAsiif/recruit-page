@@ -24,9 +24,9 @@ const Layout = ({ children }) => {
                     </div>
                 </Link>
 
-                <div className='fixed bottom-[10px] left-50'>
+                {/* <div className='fixed bottom-[10px] left-50'>
                     <img src={beta} className="w-10 " alt="beta_image" />
-                </div>
+                </div> */}
             </div>
 
         </>

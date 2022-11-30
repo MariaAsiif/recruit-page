@@ -6,7 +6,6 @@ import useViewPort from "../../../hooks/useViewPort";
 const Header = () => {
     const headerRef = useRef(null)
     const { width } = useViewPort();
-    console.log(width);
     const isSticky = (e) => {
         const scrollTop = window.scrollY;
         scrollTop >= 50 ? headerRef.current.classList.add('bg-white', 'shadow-lg') : headerRef.current.classList.remove('bg-white', 'shadow-lg');
@@ -37,7 +36,7 @@ const Header = () => {
                         <li className="px-2 py-2 nav-item lg:py-0 ">
                             <NavLink end to="/Home" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')}>Home</NavLink>
                         </li>
-                        <li className="px-2 py-2 nav-item lg:py-0 ">
+                        {/* <li className="px-2 py-2 nav-item lg:py-0 ">
                             <NavLink end to="/das" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')}>DAS</NavLink>
                         </li>
                         <li className="px-2 py-2 nav-item lg:py-0 ">
@@ -45,14 +44,14 @@ const Header = () => {
                         </li>
                         <li className="px-2 py-2 nav-item lg:py-0 ">
                             <NavLink end to="/newdashboard" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')}>New Dashboard</NavLink>
-                        </li>
+                        </li> */}
                         <li className="px-2 py-2 nav-item lg:py-0 ">
                             {/* <NavLink to="/comingsoon" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')} >Coming Soon</NavLink> */}
                             <NavLink to="/about" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')} >About</NavLink>
                         </li>
-                        <li className="px-2 py-2 nav-item lg:py-0 ">
-                            <NavLink to="/adminsignin" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')} >Admin login</NavLink>
-                        </li>
+                        {/* <li className="px-2 py-2 nav-item lg:py-0 ">
+                            <NavLink to="/login" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')} >Admin login</NavLink>
+                        </li> */}
                         <li className="px-2 py-2 nav-item lg:py-0 ">
                             <NavLink to="/cv" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')} >Quick CV</NavLink>
                         </li>

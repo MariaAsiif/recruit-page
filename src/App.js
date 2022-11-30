@@ -133,6 +133,8 @@ import NewFaqs from "./components/NewDashboardComponents/NewFaqs";
 import SingleGig from "./components/NewDashboardComponents/SingleGig";
 import Cart from "./Pages/Cart";
 import ProductInfo from "./Pages/ProductInfo";
+import Store from "./Pages/EcomePages/Store";
+import PublicBetaSignUp from "./Pages/PublicBetaSignUp";
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -165,6 +167,7 @@ function App() {
       <Routes>
         {/* main beta page  */}
         <Route path="/" element={<PublicBetaLogin />} />
+        <Route path="/betaSignup" element={<PublicBetaSignUp />} />
         {/* Landing pages  */}
         <Route path="/landingPage" element={<LandingPage />} />
         <Route path="/locator" element={<LocatehomePage />} />
@@ -229,6 +232,7 @@ function App() {
         <Route path="/e-credit" element={<Credit />} />
         <Route path="/e-cart" element={<Cart />} />
         <Route path="/e-product-info" element={<ProductInfo />} />
+        <Route path="/e-store" element={<Store />} />
 
         <Route index path="customer-dashboard" element={<Sidebar />} />
 

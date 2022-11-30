@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import FooterSection from './FooterSection'
 import usa from '../../images/usa.png'
 import flag from '../../images/flag.svg'
+import londonflag from '../../assets/landingImages/london.png'
 import mail from '../../images/mail.png'
 import footerLogo from '../../images/footer-logo.png'
 import SSL from './SSL'
@@ -83,16 +84,16 @@ const Footer = ({type}) => {
         ' YouTube Channel',
         ' Second Life Medical Devices']
     const trandingAdress = [
-        'European Union Administration',
-        'Correos No 77',
-        'Plaça de la Font, 12',
-        '08880 Cubelles Barcelona'
+        'HPO Rx Limited',
+        'European Retail Administration',
+        "CORREOS MAIL • SHIPPING LOGISTICS • RECEIVING • RMA Correos N° 77 08880",
+        'Cubelles Barcelona, Spain',
+        // '08880 Cubelles Barcelona'
     ]
     const registeredAddress = [
-        ' Avenue Ceramique 00221 6221KX Maastricht, Limburg, Holland',
-
+        ' Law Offices',
+        'European Legal Administration Avenue Céramique 00221 6221KX Maastricht, Limburg, Holland',
         'Reg N° NL 2020V0022818',
-
         'Tax N° NL 862241133B01'
     ]
     const callCenter = ['World Trade Center Barcelona', 'Muelle de Barcelona', 'Moll de Barcelona s/n', '08039 Barcelona Spain']
@@ -156,8 +157,8 @@ const Footer = ({type}) => {
                     <div className={type === "landing" ? 'bscontainer-fluid' :'bscontainer'}>
                         <div className='row'>
                             <div className='col-lg-2 col-md-4 col-sm-4' >
-                                <FooterSection data={trandingAdress} heading={'TRANDING ADDRESS'} />
-                                <FooterSection data={registeredAddress} heading={'REGISTERED ADDRESS'} />
+                                <FooterSection data={trandingAdress} heading={'COMMERCIAL'} />
+                                <FooterSection data={registeredAddress} heading={'REGISTERED'} />
 
                             </div>
                             <div className='col-lg-2 col-md-4 col-sm-4' >
@@ -183,7 +184,7 @@ const Footer = ({type}) => {
                                     <li>
                                         <span className='flex'>
                                             <img src={flag} className="w-4 h-4 mr-2" alt="flag" />
-                                            <span className='text-[12px] font-bold'>+1 (213) 370  0873</span>
+                                            <span className='text-[12px] font-bold'>+(34) 938 022 780</span>
 
                                         </span>
                                     </li>
@@ -192,6 +193,13 @@ const Footer = ({type}) => {
                                         <span className='flex'>
                                             <img src={usa} className="w-4 h-4 mr-2" alt="flag" />
                                             <span className='text-[12px] font-bold'>+1 (213) 370  0873</span>
+
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span className='flex'>
+                                            <img src={londonflag} className="w-4 h-4 mr-2 object-cover" alt="flag" />
+                                            <span className='text-[12px] font-bold'>+(44) 1223 298541</span>
 
                                         </span>
                                     </li>
@@ -227,41 +235,11 @@ const Footer = ({type}) => {
                             </div>
                         </div>
                           <div className='row'>
-                            <div className='col-lg-2 col-md-4 col-sm-4' >
+                            {/* <div className='col-lg-2 col-md-4 col-sm-4' >
                                 <FooterSection data={callCenter} heading={'CALL CENTER'} />
-                                <ul className='mt-3'>
-                                    <li>
-                                        <span className='flex'>
-                                            <img src={flag} className="w-4 h-4 mr-2" alt="flag" />
-                                            <span className='text-[12px] font-bold'>+1 (213) 370  0873</span>
-
-                                        </span>
-                                    </li>
-
-                                    <li>
-                                        <span className='flex'>
-                                            <img src={usa} className="w-4 h-4 mr-2" alt="flag" />
-                                            <span className='text-[12px] font-bold'>+1 (213) 370  0873</span>
-
-                                        </span>
-                                    </li>
-
-                                    <li>
-                                        <span className='flex'>
-                                            <img src={mail} className="w-4 h-4 mr-2" alt="flag" />
-                                            <span className='text-[12px] font-bold'>+1 (213) 370  0873</span>
-
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <a href="https://unsdg.un.org/2030-agenda/universal-values/leave-no-one-behind" target="_blank" rel="noopener noreferrer">
-                                            <img src={footerLogo} className="w-20 " alt="footer-logo" />
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                                
+                            </div> */}
                             <div className='col-lg-2 col-md-4 col-sm-4' >
-                                <FooterSection data={Ixcon} heading={'Lexicon'} />
                             </div>
                             <div className='col-lg-2 col-md-4 col-sm-4'>
                             </div>
@@ -270,6 +248,8 @@ const Footer = ({type}) => {
                             <div className='col-lg-2 col-md-4 col-sm-4'>
                             </div>
                             <div className='col-lg-2 col-md-4 col-sm-4'>
+                            <FooterSection data={Ixcon} heading={'Lexicon'} />
+
                             </div>
                         </div>
                         <div className='ssl'>

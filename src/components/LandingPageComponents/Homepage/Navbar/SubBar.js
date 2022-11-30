@@ -66,16 +66,16 @@ const SubBar = ({ setShow }) => {
                 <a href="https://landing-page-ivory-eta.vercel.app/agency">DAS</a>
               </li>
               <li className="main-li">
-                <a href="#" className="flex items-center">Classic <RiArrowDropDownLine className="text-[30px]" /></a>
+                <a href="#" className="flex items-center"> Recruit <RiArrowDropDownLine className="text-[30px]" /></a>
                 <div className="show">
                   <div className="row">
                     <div className="col-lg-4 border-r border-white p-2 pl-5 flex items-baseline flex-col">
-                      <h3 className="text-[20px] font-medium">Items1</h3>
-                      <div className="flex flex-col ">
-                        <span>hellow</span>
-                        <span>hellow</span>
-                        <span>hellow</span>
-                        <span>hellow</span>
+                      <h3 className="text-[20px] font-medium">recruit</h3>
+                      <div className="flex flex-col justify-start items-start cursor-pointer">
+                        <span>about</span>
+                        <span>quick cv</span>
+                        <span>whats next</span>
+                        <span>register yourself</span>
                       </div>
 
                       <h3 className="text-[20px] font-medium">Items4</h3>
@@ -209,9 +209,9 @@ const SubBar = ({ setShow }) => {
               {/* <li className="main-li">
                 <Link activeClass="active" to="INHALATE" spy={true} smooth={true} duration={500} >  INHALATE  </Link>
               </li> */}
-              <li className="main-li">
+              {/* <li className="main-li">
                 <Link to="/Home" > Recruit Page  </Link>
-              </li>
+              </li> */}
               {/* <li className="main-li">
                
                 Recruit Page

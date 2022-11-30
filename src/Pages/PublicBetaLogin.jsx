@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import slider1 from '../assets/videos/slider1.mp4'
-import slider2 from '../assets/videos/slider2.mp4'
+import slider1 from '../assets/videos/comming-soon.mp4'
+// import slider2 from '../assets/videos/slider2.mp4'
 // import slider3 from '../assets/videos/slider3.mp4'
-import slider4 from '../assets/videos/slider4.mp4'
-import slider5 from '../assets/videos/slider5.mp4'
+// import slider4 from '../assets/videos/slider4.mp4'
+// import slider5 from '../assets/videos/slider5.mp4'
 import logoImage from '../images/hporx-1.png'
 // import beta from '../images/beta.png'
 import { IoMail } from 'react-icons/io5'
@@ -32,11 +32,12 @@ import { FiFacebook } from 'react-icons/fi'
 import { BsLinkedin, BsTwitter } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
 import { RiMessage2Line } from 'react-icons/ri'
-import beta from '../assets/images/beta.png'
+// import beta from '../assets/images/beta.png'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import axios from 'axios'
+// import axios from 'axios'
+import { callPublicApi } from '../utils/CallApi'
 
 const schema = yup.object({
     email: yup.string().email("Invalid email").required("Enter your valid email address"),
@@ -56,14 +57,14 @@ const PublicBetaLogin = () => {
 
     // const navigate = useNavigate();
 
-    const Images = [
-        slider1,
-        slider2,
+    // const Images = [
+    //     slider1,
+        // slider2,
         // slider3,
-        slider4,
-        slider5,
+        // slider4,
+        // slider5,
 
-    ]
+    // ]
 
 
     const { register, watch, handleSubmit, formState: { errors } } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
@@ -96,9 +97,13 @@ const PublicBetaLogin = () => {
 
 
     const onSubmit = async (values) => {
-        console.log(values);
         try {
-            await axios.post("https://hporxadminbackend.herokuapp.com/users/signin", values)
+            const response = await callPublicApi(
+                '/users/signin',
+                'post',
+                values
+              );
+            console.log("REs", response)
         } catch (error) {
             console.log(error);
         }
@@ -152,17 +157,17 @@ const PublicBetaLogin = () => {
                         className="mySwiper"
                     >
 
-                        {Images.map((img, index) => (
+                        {/* {Images.map((img, index) => ( */}
 
-                            <SwiperSlide key={index} >
+                            <SwiperSlide >
                                 <video preload="true" autoplay="autoplay" loop="loop">
-                                    <source src={img} type="video/mp4" />
+                                    <source src={slider1} type="video/mp4" />
                                 </video>
                             </SwiperSlide>
 
 
-                        ))
-                        }
+                        {/* )) */}
+                        {/* } */}
                     </Swiper>
 
                 </div>
@@ -294,10 +299,10 @@ const PublicBetaLogin = () => {
 
                             <div className='text-center mt-[1.2rem]' >
 
-                                {/* <button onClick={handleLogin} type="submit" disabled={!terms ? true : false} className={`${!terms && `disabled:opacity-50 disabled:cursor-not-allowed`} opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
-                                </button> */}
-                                <Link to="/landingPage" className={`opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
-                                </Link>
+                                <button  type="submit" disabled={!terms ? true : false} className={`${!terms && `disabled:opacity-50 disabled:cursor-not-allowed`} opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
+                                </button>
+                                {/* <Link to="/landingPage" className={`opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
+                                </Link> */}
 
                             </div>
 
@@ -325,9 +330,9 @@ const PublicBetaLogin = () => {
                         </div>
                     </Link>
 
-                    <div className='fixed bottom-[20px] lg:left-[40%] left-[10%]'>
+                    {/* <div className='fixed bottom-[20px] lg:left-[40%] left-[10%]'>
                         <img src={beta} className="w-10 " alt="beta_image" />
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
