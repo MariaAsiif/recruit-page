@@ -10,7 +10,7 @@ import { IoMail } from 'react-icons/io5'
 import { FaLock } from 'react-icons/fa'
 // import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 // import { HiCheckCircle } from 'react-icons/hi'
-import { Link } from 'react-router-dom'
+import { Link, redirect, useNavigate } from 'react-router-dom'
 // import ReactPlayer from 'react-player/lazy'
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -59,17 +59,17 @@ const PublicBetaLogin = () => {
 
     // const Images = [
     //     slider1,
-        // slider2,
-        // slider3,
-        // slider4,
-        // slider5,
+    // slider2,
+    // slider3,
+    // slider4,
+    // slider5,
 
     // ]
 
 
     const { register, watch, handleSubmit, formState: { errors } } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
-
+    let navigate = useNavigate()
 
     // const handleChange = (e) => {
     //     const { value, name } = e.target
@@ -102,8 +102,14 @@ const PublicBetaLogin = () => {
                 '/users/signin',
                 'post',
                 values
-              );
+            );
             console.log("REs", response)
+            if(response.data.role === ""){
+                navigate()
+            } 
+            else if(response.data.role === ""){}
+            else if(response.data.role === ""){}
+            else if(response.data.role === ""){}
         } catch (error) {
             console.log(error);
         }
@@ -120,7 +126,7 @@ const PublicBetaLogin = () => {
         })
     }, [])
 
-    
+
 
 
     return (
@@ -159,11 +165,11 @@ const PublicBetaLogin = () => {
 
                         {/* {Images.map((img, index) => ( */}
 
-                            <SwiperSlide >
-                                <video preload="true" autoplay="autoplay" loop="loop">
-                                    <source src={slider1} type="video/mp4" />
-                                </video>
-                            </SwiperSlide>
+                        <SwiperSlide >
+                            <video preload="true" autoplay="autoplay" loop="loop">
+                                <source src={slider1} type="video/mp4" />
+                            </video>
+                        </SwiperSlide>
 
 
                         {/* )) */}
@@ -299,11 +305,19 @@ const PublicBetaLogin = () => {
 
                             <div className='text-center mt-[1.2rem]' >
 
-                                <button  type="submit" disabled={!terms ? true : false} className={`${!terms && `disabled:opacity-50 disabled:cursor-not-allowed`} opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
+                                <button type="submit" disabled={!terms ? true : false} className={`${!terms && `disabled:opacity-50 disabled:cursor-not-allowed`} opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
                                 </button>
                                 {/* <Link to="/landingPage" className={`opacity-1 px-9 py-3 rounded-md text-white hover:bg-[#93C234] bg-[#E84025] `}>Login
                                 </Link> */}
 
+                            </div>
+                            <div className='mt-6 '>
+                                <span className='text-[12px] flex justify-center text-gray-400'>
+                                    You don't have an account ,
+                                    <Link to="/betaSignup">
+                                        <span className='hover:underline text-[#42946C] text-[12px] pl-1'>Click here to signup account!</span>
+                                    </Link>
+                                </span>
                             </div>
 
                             <div className='mt-[1.2rem]'>

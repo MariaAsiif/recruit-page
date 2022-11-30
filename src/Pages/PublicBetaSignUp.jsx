@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import slider1 from '../assets/videos/slider1.mp4'
-import slider2 from '../assets/videos/slider2.mp4'
-// import slider3 from '../assets/videos/slider3.mp4'
-import slider4 from '../assets/videos/slider4.mp4'
-import slider5 from '../assets/videos/slider5.mp4'
+import slider1 from '../assets/videos/comming-soon.mp4'
+// import slider2 from '../assets/videos/slider2.mp4'
+// // import slider3 from '../assets/videos/slider3.mp4'
+// import slider4 from '../assets/videos/slider4.mp4'
+// import slider5 from '../assets/videos/slider5.mp4'
 import logoImage from '../images/hporx-1.png'
 import 'react-phone-input-2/lib/style.css'
 import PhoneInput from 'react-phone-input-2'
-import { surnames } from '../utils/enum'
+// import { surnames } from '../utils/enum'
 import { Country, State, City } from 'country-state-city';
 // import beta from '../images/beta.png'
 // import { IoMail } from 'react-icons/io5'
@@ -42,6 +42,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import axios from 'axios'
 import { callPublicApi } from '../utils/CallApi'
+import EmailVerify from '../components/Popups/EmailVerify'
+import EmailOtp from '../components/Popups/EmailOtp'
 
 
 const schema = yup.object({
@@ -53,25 +55,25 @@ const schema = yup.object({
     password: yup.string().required(),
     phoneNumber: yup.string().required(),
     role: yup.string().required(),
-    country: yup.string().required(),
+    // country: yup.string().required(),
 });
 
 const PublicBetaSignUp = () => {
 
 
-    const Images = [
-        slider1,
-        slider2,
-        // slider3,
-        slider4,
-        slider5,
+    // const Images = [
+    //     slider1,
+    //     slider2,
+    //     // slider3,
+    //     slider4,
+    //     slider5,
 
-    ]
+    // ]
 
 
     const [countryCode, setcountryCode] = useState("se")
-    const [activeIndex, setActiveIndex] = useState(0)
-    const [show, setShow] = useState(false)
+    const [email, setEmail] = useState('')
+    const [showEmail, setShowEmail] = useState(false)
     const [all_Countries] = useState(() => Country.getAllCountries())
     const [all_States, setall_States] = useState(() => State.getStatesOfCountry("AF"))
     const [all_Cities, setall_Cities] = useState(() => City.getCitiesOfState("AF", "BDS"))
@@ -96,8 +98,7 @@ const PublicBetaSignUp = () => {
 
     const all_Roles = ["vendors", "manufacturer", "customer", "doctor", "finance admin", "superadmin", "HR", "admin"]
 
-    const { register, watch, reset, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
-
+    const { register, reset, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
 
 
@@ -110,52 +111,52 @@ const PublicBetaSignUp = () => {
         }))
     }
 
-    const handleSurname = (sname) => {
-        setformModel((prevmodel) => ({
-            ...prevmodel,
-            surname: sname
-        }))
-    }
+    // const handleSurname = (sname) => {
+    //     setformModel((prevmodel) => ({
+    //         ...prevmodel,
+    //         surname: sname
+    //     }))
+    // }
 
 
-    const handleChangeMobile = (number) => {
-        setformModel((prevmodel) => ({
-            ...prevmodel,
-            mobile: number
-        }))
-    }
+    // const handleChangeMobile = (number) => {
+    //     setformModel((prevmodel) => ({
+    //         ...prevmodel,
+    //         mobile: number
+    //     }))
+    // }
 
-    const handleChangeCountryStateCity = (value, fieldname) => {
-        let updatedCities = []
-        let cityName = ""
-        if (fieldname === "country") {
-            const updatedStates = State.getStatesOfCountry(value)
-            const stateCode = updatedStates.length > 0 ? updatedStates[0].isoCode : ""
-            updatedCities = City.getCitiesOfState(value, stateCode)
-            cityName = updatedCities.length > 0 ? updatedCities[0].name : ""
-            setall_States(updatedStates)
-            setall_Cities(updatedCities)
-            setformModel((prevmodel) => ({
-                ...prevmodel,
-                state: stateCode,
-                city: cityName
-            }))
-        }
-        else if (fieldname === "state") {
-            console.log("state", value);
-            updatedCities = City.getCitiesOfState(formModel.country, value)
-            cityName = updatedCities.length > 0 ? updatedCities[0].name : ""
-            setall_Cities(updatedCities)
-            setformModel((prevmodel) => ({
-                ...prevmodel,
-                city: cityName
-            }))
-        }
-        setformModel((prevmodel) => ({
-            ...prevmodel,
-            [fieldname]: value
-        }))
-    }
+    // const handleChangeCountryStateCity = (value, fieldname) => {
+    //     let updatedCities = []
+    //     let cityName = ""
+    //     if (fieldname === "country") {
+    //         const updatedStates = State.getStatesOfCountry(value)
+    //         const stateCode = updatedStates.length > 0 ? updatedStates[0].isoCode : ""
+    //         updatedCities = City.getCitiesOfState(value, stateCode)
+    //         cityName = updatedCities.length > 0 ? updatedCities[0].name : ""
+    //         setall_States(updatedStates)
+    //         setall_Cities(updatedCities)
+    //         setformModel((prevmodel) => ({
+    //             ...prevmodel,
+    //             state: stateCode,
+    //             city: cityName
+    //         }))
+    //     }
+    //     else if (fieldname === "state") {
+    //         console.log("state", value);
+    //         updatedCities = City.getCitiesOfState(formModel.country, value)
+    //         cityName = updatedCities.length > 0 ? updatedCities[0].name : ""
+    //         setall_Cities(updatedCities)
+    //         setformModel((prevmodel) => ({
+    //             ...prevmodel,
+    //             city: cityName
+    //         }))
+    //     }
+    //     setformModel((prevmodel) => ({
+    //         ...prevmodel,
+    //         [fieldname]: value
+    //     }))
+    // }
 
     const onSubmit = async (data) => {
         try {
@@ -169,7 +170,7 @@ const PublicBetaSignUp = () => {
                 phoneNumber: data.phoneNumber,
                 channel: "sms",
                 role: data.role,
-                approved: "pending",
+                // approved: "pending",
                 location: {
                     type: "Point",
                     "coordinates": [
@@ -182,6 +183,8 @@ const PublicBetaSignUp = () => {
             const res = await callPublicApi('/users/signup', 'post', option)
             if (res.status === 'Success') {
                 toast.success(res.message);
+                setEmail(data.email)
+                setShowEmail(true)
                 reset();
             } else {
                 toast.error(res.message);
@@ -218,6 +221,8 @@ const PublicBetaSignUp = () => {
 
     return (
         <div className='container h-screen'>
+            { showEmail && <EmailOtp permition={showEmail} Toggle={setShowEmail} email={email}/> }
+            
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
@@ -250,17 +255,17 @@ const PublicBetaSignUp = () => {
                         className="mySwiper"
                     >
 
-                        {Images.map((img, index) => (
+                        {/* {Images.map((img, index) => ( */}
 
-                            <SwiperSlide key={index} >
-                                <video preload="true" autoplay="autoplay" loop="loop" className='h-[800px]'>
-                                    <source src={img} type="video/mp4" />
+                            <SwiperSlide  >
+                                <video preload="true" autoplay="autoplay" loop="loop" className={`${Object.keys(errors).length > 0  ? 'h-[770px]' : 'h-[700px]'}`}>
+                                    <source src={slider1} type="video/mp4" />
                                 </video>
                             </SwiperSlide>
 
 
-                        ))
-                        }
+                        {/* ))
+                        } */}
                     </Swiper>
 
                 </div>
@@ -326,7 +331,7 @@ const PublicBetaSignUp = () => {
                                 <label className='text-[14px] font-semibold flex items-center'>First Name <span className='pt-1 text-green-600 ml-2'>*</span></label>
                                 <input name="first_name" {...register('first_name')} className='w-full  font-sans  focus:outline-none border border-gray-300 rounded-md  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First  Name' />
                                 {errors.first_name && (
-                                    <p className="text-red-500 text-sm">{errors.first_name.message}</p>
+                                    <p className="text-red-500 text-sm flex justify-startm">{errors.first_name.message}</p>
                                 )}
 
                             </div>
@@ -337,7 +342,7 @@ const PublicBetaSignUp = () => {
                                     name="first_family_name" {...register('first_family_name')}
                                     placeholder='Enter your Family Name ' />
                                 {errors.first_family_name && (
-                                    <p className="text-red-500 text-sm">{errors.first_family_name.message}</p>
+                                    <p className="text-red-500 text-sm flex justify-startm">{errors.first_family_name.message}</p>
                                 )}
                             </div>
 
@@ -347,7 +352,7 @@ const PublicBetaSignUp = () => {
                                 <input className='w-full   font-sans  focus:outline-none border border-gray-300 rounded-md  py-2 px-2 placeholder:text-sm placeholder:font-medium'
                                     name="second_family_name" {...register('second_family_name')} placeholder='Enter your Second Family Name ' />
                                 {errors.second_family_name && (
-                                    <p className="text-red-500 text-sm">{errors.second_family_name.message}</p>
+                                    <p className="text-red-500 text-sm flex justify-startm">{errors.second_family_name.message}</p>
                                 )}
                             </div>
 
@@ -359,7 +364,7 @@ const PublicBetaSignUp = () => {
                                     name="third_family_name" {...register('third_family_name')}
                                     placeholder='Enter your Third Family Name' />
                                 {errors.third_family_name && (
-                                    <p className="text-red-500 text-sm">{errors.third_family_name.message}</p>
+                                    <p className="text-red-500 text-sm flex justify-startm">{errors.third_family_name.message}</p>
                                 )}
                             </div>
                             <div className='col-lg-6 mb-2'>
@@ -369,7 +374,7 @@ const PublicBetaSignUp = () => {
                                     name="email" {...register('email')}
                                     placeholder='Enter valid email address' />
                                 {errors.email && (
-                                    <p className="text-red-500 text-sm">{errors.email.message}</p>
+                                    <p className="text-red-500 text-sm flex justify-startm">{errors.email.message}</p>
                                 )}
                             </div>
 
@@ -382,7 +387,7 @@ const PublicBetaSignUp = () => {
                                     name="password" {...register('password')}
                                     placeholder='Enter your chosen password ' />
                                 {errors.password && (
-                                    <p className="text-red-500 text-sm">{errors.password.message}</p>
+                                    <p className="text-red-500 text-sm flex justify-startm">{errors.password.message}</p>
                                 )}
                             </div>
 
@@ -410,7 +415,7 @@ const PublicBetaSignUp = () => {
                                         </svg>
                                     </div>
                                     {errors.role && (
-                                        <p className="text-red-500 text-sm -mt-[7px]">{errors.role.message}</p>
+                                        <p className="text-red-500 text-sm flex justify-start ">{errors.role.message}</p>
                                     )}
 
                                 </div>
@@ -440,10 +445,10 @@ const PublicBetaSignUp = () => {
                                     )}
                                 />
                                 {errors.phoneNumber && (
-                                    <p className="text-red-500 text-sm">{errors.phoneNumber.message}</p>
+                                    <p className="text-red-500 text-sm flex justify-startm">{errors.phoneNumber.message}</p>
                                 )}
                             </div>
-                            <div className='col-lg-6'>
+                            {/* <div className='col-lg-6'>
                                 <label className='text-[14px] font-semibold flex justify-start'>Country
                                     <span className='pt-1 text-green-600 ml-2'> * </span></label>
                                 <div className="dropdown relative mb-5">
@@ -466,11 +471,11 @@ const PublicBetaSignUp = () => {
                                         </svg>
                                     </div>
                                     {errors.country && (
-                                        <p className="text-red-500 text-sm -mt-[7px]">{errors.country.message}</p>
+                                        <p className="text-red-500 text-sm flex justify-start ">{errors.country.message}</p>
                                     )}
                                 </div>
 
-                            </div>
+                            </div> */}
 
                             <div className='text-center mt-[1.2rem]' >
 
@@ -481,15 +486,6 @@ const PublicBetaSignUp = () => {
 
                             </div>
 
-                            {/* <div className='mt-[1.2rem]'>
-                                <div >
-                                    <span className='text-[14px] text-gray-400'>Phytomedicine </span>
-                                    <span className='text-[14px] ml-1 text-gray-400'>. Botanicals </span>
-                                    <span className='text-[14px] ml-1 text-gray-400'>. Cultivated Wellness </span>
-                                </div>
-                            </div> */}
-
-
                             <div className='mt-6 '>
                                 <span className='text-[12px] flex justify-center text-gray-400'>
                                     You have an account to login,
@@ -498,6 +494,15 @@ const PublicBetaSignUp = () => {
                                     </Link>
                                 </span>
                             </div>
+                            <div className='mt-[1.2rem]'>
+                                <div >
+                                    <span className='text-[14px] text-gray-400'>Phytomedicine </span>
+                                    <span className='text-[14px] ml-1 text-gray-400'>. Botanicals </span>
+                                    <span className='text-[14px] ml-1 text-gray-400'>. Cultivated Wellness </span>
+                                </div>
+                            </div>
+
+
 
                         </div>
                     </form>

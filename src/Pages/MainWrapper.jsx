@@ -3,7 +3,7 @@ import { RiMessage2Line } from 'react-icons/ri';
 import { Link, Outlet } from "react-router-dom"
 import AdminHeader from '../partials/Header';
 import AdminSidebar from '../partials/Sidebar';
-import beta from '../assets/images/beta.png'
+// import beta from '../assets/images/beta.png'
 const MainWrapper = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     return (
@@ -29,9 +29,9 @@ const MainWrapper = () => {
                             </div>
                         </Link>
 
-                        <div className='fixed bottom-[10px] left-50'>
+                        {/* <div className='fixed bottom-[10px] left-50'>
                             <img src={beta} className="w-10 " alt="beta_image"/>
-                        </div>
+                        </div> */}
                     </div>
                 </main>
             </div>

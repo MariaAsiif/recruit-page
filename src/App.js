@@ -135,6 +135,7 @@ import Cart from "./Pages/Cart";
 import ProductInfo from "./Pages/ProductInfo";
 import Store from "./Pages/EcomePages/Store";
 import PublicBetaSignUp from "./Pages/PublicBetaSignUp";
+import Agency from "./Pages/LandingPages/Agency/Agency";
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -173,6 +174,7 @@ function App() {
         <Route path="/locator" element={<LocatehomePage />} />
         <Route path="/userDetail" element={<Detail />} />
         <Route path="/homepage" element={<MainPage />} />
+        <Route path="/agency" element={<Agency />} />
         <Route path="/stock" element={<Stocks />} />
         <Route path="/newdashboard" element={<NewDashboardPage />} />
         {/* Recuit Pages  */}
@@ -233,8 +235,8 @@ function App() {
         <Route path="/e-cart" element={<Cart />} />
         <Route path="/e-product-info" element={<ProductInfo />} />
         <Route path="/e-store" element={<Store />} />
-
-        <Route index path="customer-dashboard" element={<Sidebar />} />
+        
+        {/* <Route index path="customer-dashboard" element={<Sidebar />} /> */}
 
         {/* Admin Dashboard */}
         <Route path="/comingsoon" element={<CommingSoon />} />
