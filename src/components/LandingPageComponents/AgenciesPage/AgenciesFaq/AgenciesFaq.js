@@ -6,7 +6,7 @@ import {
   useAccordionButton,
   Container,
 } from "react-bootstrap";
-import faqPlusIcon from "../../../../assets/landingImages/landingImages/faqPlusIcon.svg";
+import faqPlusIcon from "../../../../assets/landingImages/faqPlusIcon.svg";
 import faqMinusIcon from "../../../../assets/landingImages/faqMinusIcon.svg";
 import { AgenciesFaqContainer, AgenciesFaqMain } from "./AgenciesStyle";
 

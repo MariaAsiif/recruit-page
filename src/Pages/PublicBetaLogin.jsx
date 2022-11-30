@@ -103,13 +103,21 @@ const PublicBetaLogin = () => {
                 'post',
                 values
             );
-            console.log("REs", response)
-            if(response.data.role === ""){
-                navigate()
-            } 
-            else if(response.data.role === ""){}
-            else if(response.data.role === ""){}
-            else if(response.data.role === ""){}
+            if (response.data.role === "customer") {
+                navigate('/landingPage')
+            }
+            else if (response.data.role === "vendor") {
+                navigate('/e-dashboard')
+
+            }
+            else if (response.data.role === "service provider") {
+                navigate('/newdashboard')
+
+            }
+            else if (response.data.role === "admin") {
+                navigate('/admindashboard')
+
+            }
         } catch (error) {
             console.log(error);
         }

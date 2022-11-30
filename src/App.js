@@ -135,7 +135,7 @@ import Cart from "./Pages/Cart";
 import ProductInfo from "./Pages/ProductInfo";
 import Store from "./Pages/EcomePages/Store";
 import PublicBetaSignUp from "./Pages/PublicBetaSignUp";
-import Agency from "./Pages/LandingPages/Agency/Agency";
+// import Agency from "./Pages/LandingPages/Agency/Agency";
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);

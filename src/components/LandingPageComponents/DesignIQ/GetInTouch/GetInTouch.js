@@ -11,8 +11,8 @@ import { SubscribeButton } from "../../Homepage/SubscribeNewsletter/StyledNewsLe
 import getIn from "../../../../assets/landingImages/getInTouch.png";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import GenerecService from "../../../services/GenericService";
-import { API_URL } from "../../../services/config";
+import GenerecService from "../../../../utils/GenericService";
+import { API_URL } from "../../../../utils/GenericService";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const validate = Yup.object({

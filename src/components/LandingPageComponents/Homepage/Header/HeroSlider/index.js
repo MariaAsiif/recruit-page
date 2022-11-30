@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-
 // import required modules
 import { Autoplay, Navigation } from "swiper";
 const Index = () => {
@@ -19,7 +18,7 @@ const Index = () => {
         delay: 5000,
         disableOnInteraction: false,
       }}
-      className="mySwiper z-40">
+      className="mySwiper z-40 video-slider">
       <SwiperSlide>
         <video
           autoPlay
