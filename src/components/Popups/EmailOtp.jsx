@@ -49,9 +49,10 @@ const EmailOtp = ({ permition, Toggle, email }) => {
             const response = await callPublicApi("/users/verify-code", "post", payload)
             if (response.status === "Success") {
                 toast.success(response.message)
-                // setTimeout(() => {
-                //     navigate("/adminsignin");
-                // }, 1000);
+                setTimeout(() => {
+                    navigate("/");
+                }, 1000);
+                
             }
             else {
                 toast.error(response.message)

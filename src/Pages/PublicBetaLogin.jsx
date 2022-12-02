@@ -118,6 +118,9 @@ const PublicBetaLogin = () => {
                 navigate('/admindashboard')
 
             }
+            if(response.status  === "Fail" ){
+                toast.error(response.message)
+            }
         } catch (error) {
             console.log(error);
         }

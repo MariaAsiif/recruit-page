@@ -13,7 +13,8 @@ import rightImg from '../../../../assets/landingImages/right-side.jpg';
 const AgenciesShowCase = () => {
 	const data= {
 		laptop:modalImg2,
-		img1:leftImg,img2:rightImg
+		img1:leftImg,
+		img2:rightImg
 	  }
   return (
     <div class="main-designers">

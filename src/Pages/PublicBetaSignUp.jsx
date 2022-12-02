@@ -170,7 +170,8 @@ const PublicBetaSignUp = () => {
                 phoneNumber: data.phoneNumber,
                 channel: "sms",
                 role: data.role,
-                // approved: "pending",
+                approved: "approved",
+                active : true ,
                 location: {
                     type: "Point",
                     "coordinates": [

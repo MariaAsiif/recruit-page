@@ -1,8 +1,8 @@
 import React from "react";
 import {Swiper,SwiperSlide} from 'swiper/react';
-import 'swiper/components/effect-coverflow/effect-coverflow.min.css';
-import "swiper/components/pagination/pagination.min.css";
-import "swiper/components/navigation/navigation.min.css";
+// import 'swiper/components/effect-coverflow/effect-coverflow.min.css';
+// import "swiper/components/pagination/pagination.min.css";
+// import "swiper/components/navigation/navigation.min.css";
 import StyleDesignShowcase, { StyleDesignInner } from './StyleDesignShowcase';
 import SwiperCore,{EffectCoverflow,Pagination,Navigation,Keyboard,Mousewheel} from 'swiper/core';
 
