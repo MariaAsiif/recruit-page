@@ -28,7 +28,7 @@ function Trending({ heading, section }) {
       refetchOnWindowFocus: "false",
       keepPreviousData: "false",
       select: (data) =>
-        data.data.data.filter((item) => item.productType === section),
+        data?.data?.data?.filter((item) => item?.productType === section),
       enabled: true,
     }
   );
@@ -109,9 +109,9 @@ function Trending({ heading, section }) {
           </div>
         )}
         <div className="mt-10">
-          <Slider {...settings} className="trendingNow-slick">
+          {/* <Slider {...settings} className="trendingNow-slick">
             {!stateIsLoading &&
-              productData.map((item, index) => (
+              productData?.map((item, index) => (
                 <div key={index} className="d-inline-block"  >
                   <CustomCardContainer>
                     <Card className="customCard " >
@@ -120,13 +120,13 @@ function Trending({ heading, section }) {
                           <img
                             // onClick={() => setModalShow(true)}
                             className="main-img"
-                            src={IMAGE_URL + item.productImage}
+                            src={IMAGE_URL + item?.productImage}
                             alt="Trending-Now"
                           />
                         </div>
                         <div className="content relative">
                           <div className="title">
-                            <h1>{add3Dots(item.title, 30)}</h1>
+                            <h1>{add3Dots(item?.title, 30)}</h1>
 
                           </div>
                           <div className="flex justify-between">
@@ -140,7 +140,7 @@ function Trending({ heading, section }) {
                               </div>
                               <div className="review">(43 Reviews)</div>
                             </div>
-                            <span>${item.price}</span>
+                            <span>${item?.price}</span>
                           </div>
                           <div className="absolute w-full left-0 shop_show">
                             <button className="add-to-cart !w-[90%] !bg-[#27D6A5]  ">
@@ -154,7 +154,7 @@ function Trending({ heading, section }) {
                   </CustomCardContainer>
                 </div>
               ))}
-          </Slider>
+          </Slider> */}
         </div>
       </div>
     </StyleTrending>

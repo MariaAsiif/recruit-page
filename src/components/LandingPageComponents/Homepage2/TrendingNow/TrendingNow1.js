@@ -95,7 +95,7 @@ function TrendingNow1({ heading, description , section }) {
         <div className="">
           <Slider {...settings} className="trendingNow-slick">
             {!stateIsLoading &&
-              productData.map((item, index) => (
+              productData?.map((item, index) => (
                 <div key={index}   >
                   <CustomCard desc={item.description} img={item.productImage} title={item.title} price={item.price} />
                 </div>

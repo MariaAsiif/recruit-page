@@ -159,7 +159,7 @@ const Category = () => {
                     <div className='col-lg-9'>
                         <Slider {...settings} className="trendingNow-slick">
                             {!stateIsLoading &&
-                                productData.map((item, index) => (
+                                productData?.map((item, index) => (
                                     <div className=''>
                                         <CustomCardContainer>
                                             <Card className="customCard " >
