@@ -236,7 +236,7 @@ function App() {
         <Route path="/e-credit" element={<Credit />} />
         <Route path="/e-cart" element={<Cart />} />
         <Route path="/e-product-info" element={<ProductInfo />} />
-        <Route path="/e-store" element={<Store />} />
+        <Route path="/fairman-online" element={<Store />} />
         <Route path="/e-whishlist" element={<Wishlist />} />
         
         {/* <Route index path="customer-dashboard" element={<Sidebar />} /> */}

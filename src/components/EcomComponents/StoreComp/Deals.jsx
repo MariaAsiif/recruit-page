@@ -1,9 +1,53 @@
-import React from 'react'
+import React, { useState , useEffect } from 'react'
 import deal from '../../../assets/Stocks/timer.png'
 import hoverColor from '../../../assets/Stocks/bluehover.png'
 // import { AiFillPauseCircle } from 'react-icons/ai'
 import { BsFillPlayFill } from 'react-icons/bs'
 const Deals = () => {
+
+    const [countdownDate, setCountdownDate] = useState(new Date('12/25/2022').getTime());
+    const [state, setState] = useState({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+    });
+
+    useEffect(() => {
+        setInterval(() => setNewTime(), 1000);
+    }, []);
+
+    const setNewTime = () => {
+        if (countdownDate) {
+            const currentTime = new Date().getTime();
+
+            const distanceToDate = countdownDate - currentTime;
+
+            let days = Math.floor(distanceToDate / (1000 * 60 * 60 * 24));
+            let hours = Math.floor(
+                (distanceToDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+            );
+            let minutes = Math.floor(
+                (distanceToDate % (1000 * 60 * 60)) / (1000 * 60),
+            );
+            let seconds = Math.floor((distanceToDate % (1000 * 60)) / 1000);
+
+            const numbersToAddZeroTo = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+            days = `${days}`;
+            if (numbersToAddZeroTo.includes(hours)) {
+                hours = `0${hours}`;
+            } else if (numbersToAddZeroTo.includes(minutes)) {
+                minutes = `0${minutes}`;
+            } else if (numbersToAddZeroTo.includes(seconds)) {
+                seconds = `0${seconds}`;
+            }
+
+            setState({ days: days, hours: hours, minutes, seconds });
+        }
+    };
+
+
     return (
         <>
             <div className='relative'>
@@ -26,25 +70,25 @@ const Deals = () => {
                     <div className='flex items-center justify-center my-3  '>
                         <div>
                             <div className='border bg-white rounded-full shadow-lg p-3 w-[75px] mx-3 text-center  ' >
-                                <h2 className='font-bold text-[20px]'>26</h2>
+                                <h2 className='font-bold text-[20px]'>{state.days || '0'}</h2>
                                 <p className='uppercase text-[10px] font-semibold text-center'>Days</p>
                             </div>
                         </div>
                         <div>
                             <div className='border bg-white rounded-full shadow-lg p-3 w-[75px] mx-3 text-center  '>
-                                <h2 className='font-bold text-[20px]'>26</h2>
+                                <h2 className='font-bold text-[20px]'>{state.hours || '0'}</h2>
                                 <p className='uppercase text-[10px] font-semibold text-center'>hours</p>
                             </div>
                         </div>
                         <div>
                             <div className='border bg-white rounded-full shadow-lg p-3 w-[75px] mx-3 text-center  '>
-                                <h2 className='font-bold text-[20px]'>26</h2>
+                                <h2 className='font-bold text-[20px]'>{state.minutes || '0'}</h2>
                                 <p className='uppercase text-[10px] font-semibold text-center'>Minuts</p>
                             </div>
                         </div>
                         <div>
                             <div className='border bg-white rounded-full shadow-lg p-3 w-[75px] mx-3 text-center  '>
-                                <h2 className='font-bold text-[20px]'>26</h2>
+                                <h2 className='font-bold text-[20px]'>{state.seconds || '0'}</h2>
                                 <p className='uppercase text-[10px] font-semibold text-center'>seconds</p>
                             </div>
                         </div>
