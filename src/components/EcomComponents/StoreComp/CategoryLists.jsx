@@ -43,7 +43,6 @@ const CategoryLists = () => {
         fetchLists()
     }, [])
 
-    console.log("category", category)
 
     return (
         <>

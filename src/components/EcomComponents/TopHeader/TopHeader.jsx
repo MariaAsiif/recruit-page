@@ -12,15 +12,7 @@ const TopHeader = () => {
     {
       id: 1,
       period: "Spanish",
-    },
-    {
-      id: 0,
-      period: "English",
-    },
-    {
-      id: 1,
-      period: "Spanish",
-    },
+    }
   ];
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -102,7 +94,7 @@ const TopHeader = () => {
                         <span className="flex items-center">
                           <img src={uk} alt="uk" className="w-8" />
                           <span className="px-2 text-[14px]">
-                            {options[selected].period}
+                            {options[0].period}
                           </span>
                         </span>
                         <svg
@@ -131,7 +123,7 @@ const TopHeader = () => {
                           onFocus={() => setDropdownOpen(true)}
                           onBlur={() => setDropdownOpen(false)}
                         >
-                          {options.map((option) => {
+                          {options?.map((option) => {
                             return (
                               <button
                                 key={option.id}
@@ -154,7 +146,7 @@ const TopHeader = () => {
                                 >
                                   <path d="M10.28.28L3.989 6.575 1.695 4.28A1 1 0 00.28 5.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28.28z" />
                                 </svg>
-                                <span>{option.period}</span>
+                                <span>{option?.period}</span>
                               </button>
                             );
                           })}

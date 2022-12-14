@@ -122,20 +122,18 @@ export default function ImageGalleryPopup({ images, title }) {
                                         <div className='overflow-hidden border shadow-lg' onClick={(e) => openPopup(e, list)}>
                                             <div className='relative ' onMouseEnter={MouseOver} onMouseLeave={MouseOut}>
                                                 <img src={list?.pictureLink1} className="h-[300px] w-full" alt="clth" />
-                                                <div className='absolute   bg-black w-full h-full top-0 opacity-[0.7] ' >
-                                                   
-                                                </div>
+                                               
                                                 <div className=" absolute right-5 top-4  ">
-                                                        <div className=' rounded-full p-2 bg-white shadow-lg '>
-                                                            <AiOutlineSearch />
+                                                        <div className=' rounded-full p-2 bg-black shadow-lg '>
+                                                            <AiOutlineSearch className="text-white" />
                                                         </div>
-                                                        <div className=' rounded-full p-2 bg-white shadow-lg my-2 '>
-                                                            <AiOutlineHeart />
+                                                        <div className=' rounded-full p-2 bg-black shadow-lg my-2 '>
+                                                            <AiOutlineHeart className="text-white" />
                                                         </div>
                                                     </div>
 
                                             </div>
-                                            <h2 className='py-2 font-semibold px-2'>Textured vegan leather</h2>
+                                            <h2 className='py-2 font-semibold px-2'>{list?.nameofProduct}</h2>
                                             <span className='text-[14px]'><del className='px-2 text-[16px]'>89.00$ </del> 80.00$</span>
                                         </div>
                                     </SwiperSlide>

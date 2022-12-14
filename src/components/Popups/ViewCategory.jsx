@@ -1,5 +1,7 @@
 import React, { useRef } from 'react'
 import Transition from '../../utils/Transition';
+import InnerImageZoom from 'react-inner-image-zoom';
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 const ViewCategory = ({ id, modalOpen, onClose, data }) => {
     const modalContent = useRef(null);
 
@@ -30,7 +32,7 @@ const ViewCategory = ({ id, modalOpen, onClose, data }) => {
                 leaveStart="opacity-100 translate-y-0"
                 leaveEnd="opacity-0 translate-y-4"
             >
-                <div ref={modalContent} className="bg-white rounded shadow-lg overflow-auto w-3/4 h-[500px]">
+                <div ref={modalContent} className="bg-white rounded shadow-lg overflow-auto w-3/4 h-[550px]">
                     {/* Modal header */}
                     <div className="px-5 py-3 border-b border-slate-200">
                         <div className="flex justify-between items-center">
@@ -46,7 +48,8 @@ const ViewCategory = ({ id, modalOpen, onClose, data }) => {
                     <div className='bscontainer'>
                         <div className="row">
                             <div className="col-lg-6">
-                                <img src={data?.pictureLink1} className="object-cover" alt="cloth" />
+                                {/* <img src={} className="object-cover w-[50%]" alt="cloth" /> */}
+                                <InnerImageZoom src={data?.pictureLink1} zoomSrc={data?.pictureLink1} />
                             </div>
                             <div className="col-lg-6">
                                 <div className='p-5'>
