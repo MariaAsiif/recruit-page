@@ -135,6 +135,8 @@ import Cart from "./Pages/Cart";
 import ProductInfo from "./Pages/ProductInfo";
 import Store from "./Pages/EcomePages/Store";
 import PublicBetaSignUp from "./Pages/PublicBetaSignUp";
+import Product from "./Pages/products/products";
+import Wishlist from "./Pages/EcomePages/Wishlist";
 // import Agency from "./Pages/LandingPages/Agency/Agency";
 
 const RequireAuth = ({ children }) => {
@@ -235,6 +237,7 @@ function App() {
         <Route path="/e-cart" element={<Cart />} />
         <Route path="/e-product-info" element={<ProductInfo />} />
         <Route path="/e-store" element={<Store />} />
+        <Route path="/e-whishlist" element={<Wishlist />} />
         
         {/* <Route index path="customer-dashboard" element={<Sidebar />} /> */}
 
@@ -399,6 +402,19 @@ function App() {
         >
           <Route index element={<PhoneBooks />} />
           <Route path="create-phonebook" element={<CreatePhoneBook />} />
+        </Route>
+
+
+        <Route
+          path="/product"
+          element={
+            <RequireAuth>
+              <MainWrapper />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<Product />} />
+          <Route path="create-product" element={<CreateFeedback />} />
         </Route>
 
         <Route
