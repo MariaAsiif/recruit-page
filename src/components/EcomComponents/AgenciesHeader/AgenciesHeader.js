@@ -24,16 +24,16 @@ const AgenciesHeader = () => {
         <div className="bscontainer">
           <div className="p-5">
             <div className="row">
-              <div className="col-lg-2">
+              <div className="col-lg-2 col-12">
                 <div className="logo flex justify-center">
                   <img style={{ cursor: 'pointer', marginTop: '-8px' }} src={agencyLogo} alt="agencyLogo" />
                 </div>
               </div>
               <div className="col-lg-10 mt-5 lg:mt-0 ">
-                <div className="flex items-center justify-between" id="main">
+                <div className="lg:flex items-center justify-between" id="main">
                   <form>
                     <div className="flex w-full ">
-                      <div className="search_bar lg:w-full  border flex items-center rounded-r-lg rounded-l-lg  ">
+                      <div className="search_bar lg:w-full   border flex items-center rounded-r-lg rounded-l-lg  ">
                         <input
                           type="search"
                           id="search-dropdown"
@@ -45,7 +45,7 @@ const AgenciesHeader = () => {
                         <button
                           id="dropdown-button"
                           data-dropdown-toggle="dropdown"
-                          className="flex-shrink-0 z-10  inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-white border-l   focus:outline-none 00 dark:text-white "
+                          className="flex-shrink-0 z-10 lg:w-auto  md:w-[220px] sm:w-[200px]  inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-white border-l   focus:outline-none 00 dark:text-white "
                           type="button"
                         >
                           All categories{" "}

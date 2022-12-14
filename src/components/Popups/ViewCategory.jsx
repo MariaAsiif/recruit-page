@@ -1,10 +1,11 @@
-import React, { useRef } from 'react'
+import React, { useRef , useState } from 'react'
 import Transition from '../../utils/Transition';
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 const ViewCategory = ({ id, modalOpen, onClose, data }) => {
     const modalContent = useRef(null);
-
+    const [activeImage , setActiveImage ] = useState(data.pictureLink1)
+    console.log("data", activeImage)
     return (
         <>
             <Transition
@@ -49,7 +50,13 @@ const ViewCategory = ({ id, modalOpen, onClose, data }) => {
                         <div className="row">
                             <div className="col-lg-6">
                                 {/* <img src={} className="object-cover w-[50%]" alt="cloth" /> */}
-                                <InnerImageZoom src={data?.pictureLink1} zoomSrc={data?.pictureLink1} />
+                                <InnerImageZoom src={activeImage } zoomType="hover" zoomSrc={activeImage} />
+                                <div className='flex '>
+                                    <img src={data?.pictureLink1} className="w-[20%]" onClick={() => setActiveImage(data?.pictureLink1)} alt="product-images" />
+                                    <img src={data?.pictureLink2} className="w-[20%]" onClick={() => setActiveImage(data?.pictureLink2)} alt="product-images" />
+                                    <img src={data?.pictureLink3} className="w-[20%]" onClick={() => setActiveImage(data?.pictureLink3)} alt="product-images" />
+                                    {/* <img src={ } alt="product-images" /> */}
+                                </div>
                             </div>
                             <div className="col-lg-6">
                                 <div className='p-5'>
@@ -61,7 +68,7 @@ const ViewCategory = ({ id, modalOpen, onClose, data }) => {
                                     <p className='my-2 font-semibold'>Description:
                                         <br />
                                         <span className='font-medium my-2'>{data?.description}</span></p>
-                                        <button className="border bg-[#24D29F] text-white px-6 py-3 rounded-md my-2">Add To Cart</button>
+                                    <button className="border bg-[#24D29F] text-white px-6 py-3 rounded-md my-2">Add To Cart</button>
                                 </div>
                             </div>
                         </div>
