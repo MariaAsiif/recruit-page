@@ -1,11 +1,22 @@
-import React, { useRef , useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Transition from '../../utils/Transition';
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+import { useEffect } from 'react';
 const ViewCategory = ({ id, modalOpen, onClose, data }) => {
     const modalContent = useRef(null);
-    const [activeImage , setActiveImage ] = useState(data.pictureLink1)
+    const [activeImage, setActiveImage] = useState("")
+    const [index, setIndex] = useState(0)
+    useEffect(() => {
+        setActiveImage(data.pictureLink1)
+    }, [])
     console.log("data", activeImage)
+
+    const ClosePopup = () => {
+        onClose()
+        setActiveImage("")
+        setIndex(0)
+    }
     return (
         <>
             <Transition
@@ -38,7 +49,7 @@ const ViewCategory = ({ id, modalOpen, onClose, data }) => {
                     <div className="px-5 py-3 border-b border-slate-200">
                         <div className="flex justify-between items-center">
                             <div className="font-semibold text-slate-800 text-[30px] ">View Product</div>
-                            <button className="text-slate-400 hover:text-slate-500" onClick={onClose}>
+                            <button className="text-slate-400 hover:text-slate-500" onClick={ClosePopup}>
                                 <div className="sr-only">Close</div>
                                 <svg className="w-4 h-4 fill-current">
                                     <path d="M7.95 6.536l4.242-4.243a1 1 0 111.415 1.414L9.364 7.95l4.243 4.242a1 1 0 11-1.415 1.415L7.95 9.364l-4.243 4.243a1 1 0 01-1.414-1.415L6.536 7.95 2.293 3.707a1 1 0 011.414-1.414L7.95 6.536z" />
@@ -50,11 +61,11 @@ const ViewCategory = ({ id, modalOpen, onClose, data }) => {
                         <div className="row">
                             <div className="col-lg-6">
                                 {/* <img src={} className="object-cover w-[50%]" alt="cloth" /> */}
-                                <InnerImageZoom src={activeImage } zoomType="hover" zoomSrc={activeImage} />
+                                <InnerImageZoom src={activeImage || data?.pictureLink1} zoomType="hover" zoomSrc={activeImage || data?.pictureLink1} />
                                 <div className='flex '>
-                                    <img src={data?.pictureLink1} className="w-[20%]" onClick={() => setActiveImage(data?.pictureLink1)} alt="product-images" />
-                                    <img src={data?.pictureLink2} className="w-[20%]" onClick={() => setActiveImage(data?.pictureLink2)} alt="product-images" />
-                                    <img src={data?.pictureLink3} className="w-[20%]" onClick={() => setActiveImage(data?.pictureLink3)} alt="product-images" />
+                                    <img src={data?.pictureLink1} className={`${index === 0 && 'border border-red-500'} w-[20%]`} onClick={() => { return setActiveImage(data?.pictureLink1), setIndex(0) }} alt="product-images" />
+                                    <img src={data?.pictureLink2} className={`${index === 1 && 'border border-red-500'} w-[20%]`} onClick={() => { return setActiveImage(data?.pictureLink2), setIndex(1) }} alt="product-images" />
+                                    <img src={data?.pictureLink3} className={`${index === 2 && 'border border-red-500'} w-[20%]`} onClick={() => { return setActiveImage(data?.pictureLink3), setIndex(2) }} alt="product-images" />
                                     {/* <img src={ } alt="product-images" /> */}
                                 </div>
                             </div>

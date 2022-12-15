@@ -17,7 +17,6 @@ const CreatePhoneBook = () => {
 
     const { register, watch, reset, handleSubmit, formState: { errors } } = useForm({ mode: 'onChange', });
 
-console.log("file" , file )
 
     const onSubmit = async (data) => {
       
