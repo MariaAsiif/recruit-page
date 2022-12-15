@@ -7,41 +7,26 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { callApi } from '../../../../utils/CallApi';
 import { Link } from 'react-router-dom';
-import TagsInput from 'react-tagsinput'
 import 'react-tagsinput/react-tagsinput.css'
 const schema = yup.object({
-  name: yup.string().required('Category Name is Required'),
-  brand: yup.string().required('Brand is Required'),
-  // ssn: yup.string().required('Ssn is Required'),
+  name: yup.string().required('Product Name is Required'),
+  title: yup.string().required('Title is Required'),
+  brand: yup.string().required('Sub Category is Required'),
   category: yup.string().required('Category is Required'),
-  rate: yup.string().required('Rate is Required'),
-  initialStock: yup.string().required('initialStock is Required'),
-  lowStockLimit: yup.string().required('lowStockLimit is Required'),
-  height: yup.string().required('height is Required'),
-  weight: yup.string().required('weight is Required'),
-  width: yup.string().required('width is Required'),
-  lengh: yup.string().required('length is Required'),
-  sku: yup.string().required('sku is Required'),
-  ean: yup.string().required('ean is Required'),
-  upc: yup.string().required('upc is Required'),
-  mpn: yup.string().required('mpn is Required'),
-  isbn: yup.string().required('isbn is Required'),
-  salePrice: yup.string().required('salePrice is Required'),
+  rate: yup.string().required('Price is Required'),
+  initialStock: yup.string().required('Product Link  is Required'),
   desc: yup.string().required('Description is Required'),
   store: yup.string().required('Store is Required'),
-  image: yup.mixed().test("required", 'Image is Required', value => {
-    return value && value.length
-  })
+  // image: yup.mixed().test("required", 'Image is Required', value => {
+  //   return value && value.length
+  // })
 });
 const CreateProduct = () => {
-  const [tags, setTags] = useState([])
-  const [showInStoreFront, setshowInStoreFront] = useState(true);
-  const [isReturnable, setisReturnable] = useState(true);
-  const [isFeatured, setisFeatured] = useState(true);
-  const [isOnSale, setisOnSale] = useState(true);
-  const [active, setactive] = useState(true);
-  const [image, setImage] = useState("");
-  const [tagError, setTagError] = useState("");
+  const [image1, setImage1] = useState("");
+  const [image2, setImage2] = useState("");
+  const [image3, setImage3] = useState("");
+  const [image4, setImage4] = useState("");
+  const [image5, setImage5] = useState("");
   const [allcatagories, setallcatagories] = useState([])
   const [allstores, setallIStores] = useState([])
   const {
@@ -53,65 +38,56 @@ const CreateProduct = () => {
   } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
 
-  const handleAreaofInterest = (tags) => {
-    if (tags?.length > 0) {
-      setTags(tags)
-    }
-    else {
-      setTagError("Tags is Required")
-    }
-  }
+  const handleFile = async (e) => {
 
-  console.log("tagerror", tagError)
+    let files = ["file1", "file2", "file3", "file4", "file5 "]
 
-  const onSubmit = async (data) => {
-
-
-    let formdata = new FormData()
-
-    formdata.append('pictures', data.image[0])
-    formdata.append('request', JSON.stringify({
-      productTitle: data.name,
-      productCategories: data.category,
-      productDescritpion: data.desc,
-      showInStoreFront: showInStoreFront,
-      tags: tags,
-      brand: data.brand,
-      isReturnable: isReturnable,
-      isFeatured: isFeatured,
-      rate: data.rate,
-      initialStock: data.initialStock,
-      lowStockLimit: data.lowStockLimit,
-      packageDetails: {
-        "height": `${data.height}cm`,
-        "weight": `${data.weight}kg`,
-        "width": `${data.width}cm`,
-        "length": `${data.lengh}cm`
-      },
-      sku: data.sku,
-      ean: data.ean,
-      upc: data.upc,
-      mpn: data.mpn,
-      isbn: data.isbn,
-      salePrice: data.salePrice,
-      isOnSale: isOnSale,
-      active: active,
-      store: data.store
-    })
-    )
-    if (tags?.length > 0) {
-      const res = await callApi('/products/createProduct', 'post', formdata);
-      if (res.status === 'Success') {
-        toast.success(res.message);
-        reset();
-        setTags([])
-      } else {
-        toast.error(res.message);
+    let file = e.target.files[0]
+    let name = e.target.name
+    const formData = new FormData()
+    formData.append('file', file)
+    let res = await callApi('/uploads/uploadProductImgs', "post", formData)
+    if (res.status === "Success") {
+      console.log("Res", res)
+      toast.success(res.message);
+      if (name === "file1") {
+        setImage1(res.data)
       }
     }
     else {
-      setTagError("Tags is Required")
+      toast.error(res.message);
+
     }
+  }
+
+
+
+
+  const onSubmit = async (data) => {
+    let payload = {
+      "storeid": data.store,
+      "nameofProduct": data.name,
+      "category": data.category,
+      "subCategory": data.brand,
+      "productLink": data.initialStock,
+      "titleofProduct": data.title,
+      "price": `'$'${data.rate}`,
+      "description": data.desc,
+      "pictureLink1": "",
+      "pictureLink2": "",
+      "pictureLink3": "",
+      "pictureLink4": "",
+      "pictureLink5": "",
+    }
+
+    const res = await callApi('/productsOfStore/createProductsOfStore', 'post', payload);
+    if (res.status === 'Success') {
+      toast.success(res.message);
+      reset();
+    } else {
+      toast.error(res.message);
+    }
+
   };
 
   useEffect(() => {
@@ -120,10 +96,10 @@ const CreateProduct = () => {
         const payload = {
           "sortproperty": "createdAt",
           "sortorder": -1,
-          "offset" : 0,
+          "offset": 0,
           "limit": 15
-          
-        }           
+
+        }
 
         const payloadStore = {
           sortproperty: "created_at",
@@ -205,9 +181,10 @@ const CreateProduct = () => {
           </div>
 
 
+
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Product Title
+              Product Name
             </label>
             <div className='absolute right-5 top-10'>
               {!errors.name && watch('name') ? (
@@ -226,7 +203,7 @@ const CreateProduct = () => {
               name='name'
               id='name'
               type='text'
-              placeholder='Product Title'
+              placeholder='Product Name'
             />
             <span
               hidden={watch('name')}
@@ -237,6 +214,42 @@ const CreateProduct = () => {
 
             {errors.name && (
               <p className='text-red-500 text-sm'>{errors.name.message}</p>
+            )}
+          </div>
+
+
+          <div className='col-lg-4 mb-4 relative'>
+            <label className='block text-sm font-medium mb-1' htmlFor='title'>
+              Product Title
+            </label>
+            <div className='absolute right-5 top-10'>
+              {!errors.title && watch('title') ? (
+                <FcCheckmark />
+              ) : errors.title ? (
+                <div className=' text-red-500'>
+                  <MdClose />
+                </div>
+              ) : null}
+            </div>
+            <input
+              {...register('title')}
+              autoComplete='off'
+              className={`border p-2  focus:outline-blue-500 rounded-sm w-full  ${errors.title && 'border-red-400'
+                }`}
+              name='title'
+              id='title'
+              type='text'
+              placeholder='Product Title'
+            />
+            <span
+              hidden={watch('title')}
+              className='absolute text-red-400 text-lg font-medium  top-9 left-[130px]'
+            >
+              *
+            </span>
+
+            {errors.title && (
+              <p className='text-red-500 text-sm'>{errors.title.message}</p>
             )}
           </div>
 
@@ -266,51 +279,11 @@ const CreateProduct = () => {
             )}
           </div>
 
-          <div className='col-lg-4 mb-4 relative'>
-            <div>
-              <div className='text-sm text-slate-800 font-semibold mb-3'>
-                Show In Store Front
-              </div>
-              <div className='flex items-center'>
-
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
-                  <input type="checkbox"
-                    checked={showInStoreFront}
-                    onChange={() => setshowInStoreFront(!showInStoreFront)}
-                    id="default-toggle"
-                    class="sr-only peer"
-                  />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
-                    {showInStoreFront ? 'True' : 'False'}
-                  </div>
-                </label>
 
 
-
-              </div>
-            </div>
-          </div>
 
           <div className='col-lg-4 mb-4 relative'>
-            <label className="block text-sm font-medium mb-1" htmlFor="city">Tages </label>
-            <div className={`border ${tags?.length > 0 ? 'p-1' : 'p-[10px]'}`}>
-
-              <TagsInput
-                maxTags={5}
-                className={"custom-react-tagsinput"}
-                inputProps={{
-                  className: 'custom-react-tagsinput-input',
-                  placeholder: 'add a tag'
-                }}
-                value={tags}
-                onChange={handleAreaofInterest}
-              />
-            </div>
-
-          </div>
-          <div className='col-lg-4 mb-4 relative'>
-            <label className="block text-sm font-medium mb-1" htmlFor="city">Brand </label>
+            <label className="block text-sm font-medium mb-1" htmlFor="city">Sub Category </label>
             <div className='absolute right-10 top-9'>
               {!errors.brand && watch('brand') ? <FcCheckmark /> : errors.brand ? <div className=' text-red-500'><MdClose /></div> : null}
             </div>
@@ -318,66 +291,22 @@ const CreateProduct = () => {
               {...register('brand')}
               type="text"
               name="brand"
-              placeholder='Brand'
+              placeholder='Sub Category'
               className={`border p-[10px] lg:-mt-[1px] focus:outline-blue-500 rounded-sm w-full   ${errors.brand && 'border-red-500'}`}
             />
 
+            <span
+              hidden={watch('brand')}
+              className='absolute text-red-400 text-lg font-medium  top-9 left-[140px]'
+            >
+              *
+            </span>
             {errors.brand && (
               <p className="text-red-500 text-sm">{errors.brand.message}</p>
             )}
           </div>
 
-          <div className='col-lg-2 mb-4 relative'>
-            <div>
-              <div className='text-sm text-slate-800 font-semibold mb-3'>
-                Is Return Able
-              </div>
-              <div className='flex items-center'>
 
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
-                  <input type="checkbox"
-                    checked={isReturnable}
-                    onChange={() => setisReturnable(!isReturnable)}
-                    id="default-toggle"
-                    class="sr-only peer"
-                  />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
-                    {isReturnable ? 'True' : 'False'}
-                  </div>
-                </label>
-
-
-
-              </div>
-            </div>
-          </div>
-
-          <div className='col-lg-2 mb-4 relative'>
-            <div>
-              <div className='text-sm text-slate-800 font-semibold mb-3'>
-                Is Featured
-              </div>
-              <div className='flex items-center'>
-
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
-                  <input type="checkbox"
-                    checked={isFeatured}
-                    onChange={() => setisFeatured(!isFeatured)}
-                    id="default-toggle"
-                    class="sr-only peer"
-                  />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
-                    {isFeatured ? 'True' : 'False'}
-                  </div>
-                </label>
-
-
-
-              </div>
-            </div>
-          </div>
 
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium mb-1' htmlFor='name'>
@@ -409,14 +338,14 @@ const CreateProduct = () => {
               *
             </span>
 
-            {errors.name && (
+            {errors.rate && (
               <p className='text-red-500 text-sm'>{errors.rate.message}</p>
             )}
           </div>
 
           <div className='col-lg-4 mb-4 relative'>
             <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Initial Stock
+              Product Link
             </label>
             <div className='absolute right-5 top-10'>
               {!errors.initialStock && watch('initialStock') ? (
@@ -434,454 +363,26 @@ const CreateProduct = () => {
                 }`}
               name='initialStock'
               id='initialStock'
-              type='number'
-              placeholder='Initial Stock'
+              type='text'
+              placeholder='Product Link'
             />
-            {/* <span
+            <span
               hidden={watch('initialStock')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[60px]'
+              className='absolute text-red-400 text-lg font-medium  top-9 left-[130px]'
             >
               *
-            </span> */}
+            </span>
 
-            {errors.lowStockLimit && (
-              <p className='text-red-500 text-sm'>{errors.lowStockLimit.message}</p>
+            {errors.initialStock && (
+              <p className='text-red-500 text-sm'>{errors.initialStock.message}</p>
             )}
           </div>
+
+
+
+
+
           <div className='col-lg-4 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Low Stock Limit
-            </label>
-            <div className='absolute right-5 top-10'>
-              {!errors.lowStockLimit && watch('lowStockLimit') ? (
-                <FcCheckmark />
-              ) : errors.lowStockLimit ? (
-                <div className=' text-red-500'>
-                  <MdClose />
-                </div>
-              ) : null}
-            </div>
-            <input
-              {...register('lowStockLimit')}
-              autoComplete='off'
-              className={`border p-2  focus:outline-blue-500 rounded-sm w-full  ${errors.lowStockLimit && 'border-red-400'
-                }`}
-              name='lowStockLimit'
-              id='lowStockLimit'
-              type='number'
-              placeholder='Low Stock Limit'
-            />
-            {/* <span
-              hidden={watch('lowStockLimit')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[60px]'
-            >
-              *
-            </span> */}
-
-            {errors.lowStockLimit && (
-              <p className='text-red-500 text-sm'>{errors.lowStockLimit.message}</p>
-            )}
-          </div>
-
-          <div className='col-lg-2 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Height
-            </label>
-            <div className='absolute right-5 top-10'>
-              {!errors.height && watch('height') ? (
-                <FcCheckmark />
-              ) : errors.height ? (
-                <div className=' text-red-500'>
-                  <MdClose />
-                </div>
-              ) : null}
-            </div>
-            <input
-              {...register('height')}
-              autoComplete='off'
-              className={`border p-2  focus:outline-blue-500 rounded-sm w-full  ${errors.height && 'border-red-400'
-                }`}
-              name='height'
-              id='height'
-              type='number'
-              placeholder='Height'
-            />
-            {/* <span
-              hidden={watch('height')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[60px]'
-            >
-              *
-            </span> */}
-
-            {errors.height && (
-              <p className='text-red-500 text-sm'>{errors.height.message}</p>
-            )}
-          </div>
-          <div className='col-lg-2 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Weight
-            </label>
-            <div className='absolute right-5 top-10'>
-              {!errors.weight && watch('weight') ? (
-                <FcCheckmark />
-              ) : errors.weight ? (
-                <div className=' text-red-500'>
-                  <MdClose />
-                </div>
-              ) : null}
-            </div>
-            <input
-              {...register('weight')}
-              autoComplete='off'
-              className={`border p-2  focus:outline-blue-500 rounded-sm w-full  ${errors.weight && 'border-red-400'
-                }`}
-              name='weight'
-              id='weight'
-              type='number'
-              placeholder='Weight'
-            />
-            {/* <span
-              hidden={watch('weight')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[60px]'
-            >
-              *
-            </span> */}
-
-            {errors.weight && (
-              <p className='text-red-500 text-sm'>{errors.weight.message}</p>
-            )}
-          </div>
-
-          <div className='col-lg-2 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Width
-            </label>
-            <div className='absolute right-5 top-10'>
-              {!errors.width && watch('width') ? (
-                <FcCheckmark />
-              ) : errors.width ? (
-                <div className=' text-red-500'>
-                  <MdClose />
-                </div>
-              ) : null}
-            </div>
-            <input
-              {...register('width')}
-              autoComplete='off'
-              className={`border p-2  focus:outline-blue-500 rounded-sm w-full  ${errors.width && 'border-red-400'
-                }`}
-              name='width'
-              id='width'
-              type='number'
-              placeholder='Width'
-            />
-            {/* <span
-              hidden={watch('width')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[60px]'
-            >
-              *
-            </span> */}
-
-            {errors.width && (
-              <p className='text-red-500 text-sm'>{errors.width.message}</p>
-            )}
-          </div>
-
-          <div className='col-lg-2 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Length
-            </label>
-            <div className='absolute right-5 top-10'>
-              {!errors.lengh && watch('lengh') ? (
-                <FcCheckmark />
-              ) : errors.lengh ? (
-                <div className=' text-red-500'>
-                  <MdClose />
-                </div>
-              ) : null}
-            </div>
-            <input
-              {...register('lengh')}
-              autoComplete='off'
-              className={`border p-2  focus:outline-blue-500 rounded-sm w-full  ${errors.lengh && 'border-red-400'
-                }`}
-              name='lengh'
-              id='lengh'
-              type='number'
-              placeholder='Length'
-            />
-            {/* <span
-              hidden={watch('lengh')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[60px]'
-            >
-              *
-            </span> */}
-
-            {errors.lengh && (
-              <p className='text-red-500 text-sm'>{errors.lengh.message}</p>
-            )}
-          </div>
-
-          <div className='col-lg-2 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              SKU
-            </label>
-            <div className='absolute right-5 top-10'>
-              {!errors.sku && watch('sku') ? (
-                <FcCheckmark />
-              ) : errors.sku ? (
-                <div className=' text-red-500'>
-                  <MdClose />
-                </div>
-              ) : null}
-            </div>
-            <input
-              {...register('sku')}
-              autoComplete='off'
-              className={`border p-2  focus:outline-blue-500 rounded-sm w-full  ${errors.sku && 'border-red-400'
-                }`}
-              name='sku'
-              id='sku'
-              type='number'
-              placeholder='Sku'
-            />
-            {/* <span
-              hidden={watch('sku')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[60px]'
-            >
-              *
-            </span> */}
-
-            {errors.sku && (
-              <p className='text-red-500 text-sm'>{errors.sku.message}</p>
-            )}
-          </div>
-          <div className='col-lg-2 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              EAN
-            </label>
-            <div className='absolute right-5 top-10'>
-              {!errors.ean && watch('ean') ? (
-                <FcCheckmark />
-              ) : errors.ean ? (
-                <div className=' text-red-500'>
-                  <MdClose />
-                </div>
-              ) : null}
-            </div>
-            <input
-              {...register('ean')}
-              autoComplete='off'
-              className={`border p-2  focus:outline-blue-500 rounded-sm w-full  ${errors.ean && 'border-red-400'
-                }`}
-              name='ean'
-              id='ean'
-              type='number'
-              placeholder='Ean'
-            />
-            {/* <span
-              hidden={watch('sku')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[60px]'
-            >
-              *
-            </span> */}
-
-            {errors.ean && (
-              <p className='text-red-500 text-sm'>{errors.ean.message}</p>
-            )}
-          </div>
-          <div className='col-lg-2 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              UPC
-            </label>
-            <div className='absolute right-5 top-10'>
-              {!errors.upc && watch('upc') ? (
-                <FcCheckmark />
-              ) : errors.upc ? (
-                <div className=' text-red-500'>
-                  <MdClose />
-                </div>
-              ) : null}
-            </div>
-            <input
-              {...register('upc')}
-              autoComplete='off'
-              className={`border p-2  focus:outline-blue-500 rounded-sm w-full  ${errors.upc && 'border-red-400'
-                }`}
-              name='upc'
-              id='upc'
-              type='number'
-              placeholder='upc'
-            />
-            {/* <span
-              hidden={watch('upc')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[60px]'
-            >
-              *
-            </span> */}
-
-            {errors.upc && (
-              <p className='text-red-500 text-sm'>{errors.upc.message}</p>
-            )}
-          </div>
-          <div className='col-lg-2 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              MPN
-            </label>
-            <div className='absolute right-5 top-10'>
-              {!errors.mpn && watch('mpn') ? (
-                <FcCheckmark />
-              ) : errors.mpn ? (
-                <div className=' text-red-500'>
-                  <MdClose />
-                </div>
-              ) : null}
-            </div>
-            <input
-              {...register('mpn')}
-              autoComplete='off'
-              className={`border p-2  focus:outline-blue-500 rounded-sm w-full  ${errors.mpn && 'border-red-400'
-                }`}
-              name='mpn'
-              id='mpn'
-              type='number'
-              placeholder='mpn'
-            />
-            {/* <span
-              hidden={watch('mpn')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[60px]'
-            >
-              *
-            </span> */}
-
-            {errors.mpn && (
-              <p className='text-red-500 text-sm'>{errors.mpn.message}</p>
-            )}
-          </div>
-          <div className='col-lg-2 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              ISBN
-            </label>
-            <div className='absolute right-5 top-10'>
-              {!errors.isbn && watch('isbn') ? (
-                <FcCheckmark />
-              ) : errors.isbn ? (
-                <div className=' text-red-500'>
-                  <MdClose />
-                </div>
-              ) : null}
-            </div>
-            <input
-              {...register('isbn')}
-              autoComplete='off'
-              className={`border p-2  focus:outline-blue-500 rounded-sm w-full  ${errors.isbn && 'border-red-400'
-                }`}
-              name='isbn'
-              id='isbn'
-              type='number'
-              placeholder='isbn'
-            />
-            {/* <span
-              hidden={watch('isbn')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[60px]'
-            >
-              *
-            </span> */}
-
-            {errors.isbn && (
-              <p className='text-red-500 text-sm'>{errors.isbn.message}</p>
-            )}
-          </div>
-
-          <div className='col-lg-2 mb-4 relative'>
-            <label className='block text-sm font-medium mb-1' htmlFor='name'>
-              Sale Price
-            </label>
-            <div className='absolute right-5 top-10'>
-              {!errors.salePrice && watch('salePrice') ? (
-                <FcCheckmark />
-              ) : errors.salePrice ? (
-                <div className=' text-red-500'>
-                  <MdClose />
-                </div>
-              ) : null}
-            </div>
-            <input
-              {...register('salePrice')}
-              autoComplete='off'
-              className={`border p-2  focus:outline-blue-500 rounded-sm w-full  ${errors.salePrice && 'border-red-400'
-                }`}
-              name='salePrice'
-              id='salePrice'
-              type='number'
-              placeholder='salePrice'
-            />
-            {/* <span
-              hidden={watch('salePrice')}
-              className='absolute text-red-400 text-lg font-medium  top-9 left-[60px]'
-            >
-              *
-            </span> */}
-
-            {errors.salePrice && (
-              <p className='text-red-500 text-sm'>{errors.salePrice.message}</p>
-            )}
-          </div>
-
-
-
-          <div className='col-lg-2 mb-4 relative'>
-            <div>
-              <div className='text-sm text-slate-800 font-semibold mb-3'>
-                Is On Sale
-              </div>
-              <div className='flex items-center'>
-
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
-                  <input type="checkbox"
-                    checked={isOnSale}
-                    onChange={() => setisOnSale(!isOnSale)}
-                    id="default-toggle"
-                    class="sr-only peer"
-                  />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
-                    {isOnSale ? 'True' : 'False'}
-                  </div>
-                </label>
-
-
-
-              </div>
-            </div>
-          </div>
-
-          <div className='col-lg-2 mb-4 relative'>
-            <div>
-              <div className='text-sm text-slate-800 font-semibold mb-3'>
-                Active/DeActive
-              </div>
-              <div className='flex items-center'>
-
-                <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
-                  <input type="checkbox"
-                    checked={active}
-                    onChange={() => setactive(!active)}
-                    id="default-toggle"
-                    class="sr-only peer"
-                  />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <div className='text-sm text-slate-400 italic ml-2'>
-                    {active ? 'Active' : 'DeActive'}
-                  </div>
-                </label>
-
-
-
-              </div>
-            </div>
-          </div>
-          <div className='col-lg-6 mb-4 relative'>
             <label className="block text-sm font-medium mb-1" htmlFor="city">Store</label>
             <div className='absolute right-10 top-9'>
               {!errors.store ? <FcCheckmark /> : errors.store ? <div className=' text-red-500'><MdClose /></div> : null}
@@ -905,11 +406,51 @@ const CreateProduct = () => {
           </div>
 
 
-          <div className='col-lg-6 mb-4 relative'>
-            <label className="block text-sm font-medium mb-1" htmlFor="city">Image</label>
+          <div className='col-lg-4 mb-4 relative'>
+            <label className="block text-sm font-medium mb-1" htmlFor="city">Image One</label>
             <div className={`border p-1  focus:outline-blue-500 rounded-sm w-full   ${errors.image && 'border-red-500'}`}
             >
-              <input type="file" {...register('image')} name="image" />
+              <input type="file" onChange={(e) => handleFile(e)} name="file1" />
+            </div >
+            {errors.image && (
+              <p className="text-red-500 text-sm">{errors.image.message}</p>
+            )}
+          </div>
+          <div className='col-lg-4 mb-4 relative'>
+            <label className="block text-sm font-medium mb-1" htmlFor="city">Image Two</label>
+            <div className={`border p-1  focus:outline-blue-500 rounded-sm w-full   ${errors.image && 'border-red-500'}`}
+            >
+              <input type="file" onChange={(e) => handleFile(e)} name="file2" />
+            </div >
+            {errors.image && (
+              <p className="text-red-500 text-sm">{errors.image.message}</p>
+            )}
+          </div>
+          <div className='col-lg-4 mb-4 relative'>
+            <label className="block text-sm font-medium mb-1" htmlFor="city">Image Three</label>
+            <div className={`border p-1  focus:outline-blue-500 rounded-sm w-full   ${errors.image && 'border-red-500'}`}
+            >
+              <input type="file" onChange={(e) => handleFile(e)} name="file3" />
+            </div >
+            {errors.image && (
+              <p className="text-red-500 text-sm">{errors.image.message}</p>
+            )}
+          </div>
+          <div className='col-lg-4 mb-4 relative'>
+            <label className="block text-sm font-medium mb-1" htmlFor="city">Image Forth</label>
+            <div className={`border p-1  focus:outline-blue-500 rounded-sm w-full   ${errors.image && 'border-red-500'}`}
+            >
+              <input type="file" onChange={(e) => handleFile(e)} name="file4" />
+            </div >
+            {errors.image && (
+              <p className="text-red-500 text-sm">{errors.image.message}</p>
+            )}
+          </div>
+          <div className='col-lg-4 mb-4 relative'>
+            <label className="block text-sm font-medium mb-1" htmlFor="city">Image Five</label>
+            <div className={`border p-1  focus:outline-blue-500 rounded-sm w-full   ${errors.image && 'border-red-500'}`}
+            >
+              <input type="file" onChange={(e) => handleFile(e)} name="file5" />
             </div >
             {errors.image && (
               <p className="text-red-500 text-sm">{errors.image.message}</p>

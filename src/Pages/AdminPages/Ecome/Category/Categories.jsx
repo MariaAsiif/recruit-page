@@ -30,7 +30,7 @@ const Categories = () => {
 
   const deleteInspire = async () => {
     let value = {
-      id: delId
+      catgid: delId
     }
     try {
       const res = await callApi("/productcategories/removecategory", "post", value)

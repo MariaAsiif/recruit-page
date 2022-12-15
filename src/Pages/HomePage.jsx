@@ -15,7 +15,7 @@ import SubscribeNewsLetter from '../components/SubscribeNewsLetter/SubscribeNews
 import Support from '../components/Support/Support'
 
 const HomePage = () => {
-    const [showAgeGatePopup, setshowAgeGatePopup] = useState(false)
+    const [showAgeGatePopup, setshowAgeGatePopup] = useState(true)
     // useEffect(() => {
     //     setshowAgeGatePopup(true)
     // }, [])
