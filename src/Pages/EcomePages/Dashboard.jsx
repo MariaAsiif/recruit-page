@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   return (
     <Layout >
-      <HomeNav title={"Dashboard"} />
+      <HomeNav title={"Vender Dashboard"} />
       <Info />
       <Sales />
       <LineChart />

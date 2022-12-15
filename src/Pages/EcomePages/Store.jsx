@@ -1,5 +1,4 @@
 import React from 'react'
-import AgenciesHeader from '../../components/EcomComponents/AgenciesHeader/AgenciesHeader'
 import Benefits from '../../components/EcomComponents/StoreComp/Benefits'
 // import Header from '../../components/EcomComponents/StoreComp/Header'
 import Shop from '../../components/EcomComponents/StoreComp/Shop'
@@ -10,11 +9,12 @@ import FollowUs from '../../components/FollowUs/FollowUs'
 import Footer from '../../components/Footer/Footer'
 import CategoryLists from '../../components/EcomComponents/StoreComp/CategoryLists'
 import Deals from '../../components/EcomComponents/StoreComp/Deals'
+import StoreHeader from '../../components/EcomComponents/StoreComp/StoreHeader'
 const Store = () => {
     return (
         <div className='overflow-hidden'>
             <TopHeader />
-            <AgenciesHeader />
+            <StoreHeader />
             <StoreSlider />
             <Benefits />
             <UniqueCloth />

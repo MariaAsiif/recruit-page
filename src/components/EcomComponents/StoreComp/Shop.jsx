@@ -17,9 +17,8 @@ const Shop = () => {
         </div>
         <div className='absolute lg:top-[10%] top-0 lg:left-[19%] left-[6%]'>
           <div className='text-center my-7'>
-            <p className='text-[#24D29F] font-semibold' >HPOR<span className='!text-[14px]'>x</span> CATEGORIES</p>
-            <h2 className=' text-white max-w-[230px] m-auto text-[2rem] font-bold'>HPOPx Shop
-              By <span className='text-[#24D29F]'>Category</span></h2>
+            {/* <p className='text-[#24D29F] font-semibold' >HPOR<span className='!text-[14px]'>x</span> CATEGORIES</p> */}
+            <h2 className=' text-white max-w-[230px] m-auto text-[2rem] font-bold'>Fairman Online<span className='text-[#24D29F]'>Shop</span></h2>
           </div>
           <div className='bscontainer'>
             <div className='grid lg:grid-cols-4 grid-cols-2 gap-3'>

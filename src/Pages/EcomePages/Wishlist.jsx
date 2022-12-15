@@ -4,9 +4,10 @@ import AgenciesHeader from '../../components/EcomComponents/AgenciesHeader/Agenc
 // import HomeNav from '../../components/EcomComponents/HomeNav/HomeNav';
 import TopHeader from '../../components/EcomComponents/TopHeader/TopHeader';
 import WhishLists from '../../components/EcomComponents/WishlistComp/List';
-import Footer from '../../components/LandingPageComponents/Homepage/Footer/Footer';
+import Footer from '../../components/Footer/Footer';
 import { callPublicApi } from '../../utils/CallApi';
 import banner from '../../assets/ecome/banner.png'
+import StoreHeader from '../../components/EcomComponents/StoreComp/StoreHeader';
 
 
 const Wishlist = () => {
@@ -41,7 +42,7 @@ const Wishlist = () => {
         <>
 
             <TopHeader />
-            <AgenciesHeader />
+            <StoreHeader />
             <div className="relative">
                 <img src={banner} alt="banner" className="lg:h-full h-[120px] object-cover" />
                 <div className="bscontainer">
