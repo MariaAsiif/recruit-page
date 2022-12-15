@@ -8,10 +8,12 @@ import TopBar from "../Navbar/TopBar";
 import Marquee from "./Marquee";
 // import downIcon from '../../../../assets/landingImages/ionic-ios-arrow-down.svg'
 import { RiArrowDropDownLine, RiArrowDropRightLine } from 'react-icons/ri'
+import AgeGatePopup from "../../../Popups/AgeGatePopup";
 const SubBar = ({ setShow }) => {
   // const history = useHistory();
 
   const [navbar, setNavbar] = useState(false);
+  const [popup, setPopup] = useState(false);
   const [toggle, setToggle] = useState(false);
 
   const [navbarbackground, setnavbarbackground] = useState(false);
@@ -53,8 +55,8 @@ const SubBar = ({ setShow }) => {
     <div className="home-page-main-nav-container">
       <Marquee />
       <TopBar setShow={setShow} />
-
-      <div className={navbar ? "hporx-header" : "hporx-header-skew "}>
+      {popup ? (<AgeGatePopup isOpen={popup} onClose={() => { setPopup(false) }} />) : null}
+      <div className={navbar ? "hporx-header" : "hporx-header-skew "} onClick={() => prompt("hellow")} >
         <div className={navbar ? "hporx-header-topbar-skew" : navbarbackground ? "changetopBArbackgournd" : "hporx-header-topbar-normal"} ></div>
         <nav className={navbarbackground ? "nav" : "changebackground"} id="navbar"  >
           <div className="nav-content bscontainer-fluid">
