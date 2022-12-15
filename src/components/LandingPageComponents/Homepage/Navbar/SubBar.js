@@ -56,7 +56,7 @@ const SubBar = ({ setShow }) => {
       <Marquee />
       <TopBar setShow={setShow} />
       {popup ? (<AgeGatePopup isOpen={popup} onClose={() => { setPopup(false) }} />) : null}
-      <div className={navbar ? "hporx-header" : "hporx-header-skew "} onClick={() => prompt("hellow")} >
+      <div className={navbar ? "hporx-header" : "hporx-header-skew "} onClick={() => setPopup(true)} >
         <div className={navbar ? "hporx-header-topbar-skew" : navbarbackground ? "changetopBArbackgournd" : "hporx-header-topbar-normal"} ></div>
         <nav className={navbarbackground ? "nav" : "changebackground"} id="navbar"  >
           <div className="nav-content bscontainer-fluid">
