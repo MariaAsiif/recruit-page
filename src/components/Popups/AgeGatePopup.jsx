@@ -44,10 +44,10 @@ const AgeGatePopup = (props) => {
                                     <div className={`${activeIndex === 2 && 'w-[22px] h-[22px] text-center relative rounded-full border border-white'} 'w-[22px] h-[22px]  mt-[4px] '`}>
                                     <div className={`${activeIndex === 2 ?  ' ml-1 rounded-full border bg-[white] mt-[3px] text-sm  w-[12px] h-[12px] ' :  'rounded-full border bg-[white] mt-[2px] text-sm  w-[12px] h-[12px]'}`}></div>
                                     </div>
-                                    <div className=' border border-white md:w-[25%] md:-ml-2 h-[2px] lg:w-[28%] w-[22.6%]' ></div>
+                                    {/* <div className=' border border-white md:w-[25%] md:-ml-2 h-[2px] lg:w-[28%] w-[22.6%]' ></div>
                                     <div className={`${activeIndex === 3 && 'w-[22px] h-[22px] text-center relative rounded-full border border-white'} 'w-[22px] h-[22px]'`}>
                                     <div className={`${activeIndex === 3 ?  ' ml-1 rounded-full border bg-[white] mt-[4px] text-sm  w-[12px] h-[12px] ' :  'rounded-full border bg-[white] mt-[2px] text-sm  w-[12px] h-[12px]'}`}></div>
-                                    </div>
+                                    </div> */}
 
                                 </div>
 
@@ -87,7 +87,7 @@ const AgeGatePopup = (props) => {
                                 {activeIndex === 0 && <CountryState handleNext={handleIndex} />}
                                 {activeIndex === 1 && <Email handleNext={handleIndex} />}
                                 {activeIndex === 2 && <EmailVerify handleNext={handleIndex} />}
-                                {activeIndex === 3 && <PhoneVerification handleClose={props.onClose} handleNext={handleIndex} />}
+                                {/* {activeIndex === 3 && <PhoneVerification handleClose={props.onClose} handleNext={handleIndex} />} */}
 
                             </div>
                         </div>

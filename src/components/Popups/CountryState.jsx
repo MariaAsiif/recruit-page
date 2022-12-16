@@ -4,12 +4,13 @@ import axios from 'axios'
 import { FaChevronDown } from "react-icons/fa";
 const CountryState = ({ handleNext }) => {
 
-    const [all_Countries] = useState(() => Country.getAllCountries())
+    const [all_Countries, setall_Countries] = useState([])
     const [all_States, setall_States] = useState([])
     const [all_Cities, setall_Cities] = useState([])
+    const [countryCode, setCountryCode] = useState("")
     const [formModel, setformModel] = useState({
-        country: "AF",
-        state: "BDS",
+        country: "",
+        state: "",
 
     })
 
@@ -41,22 +42,34 @@ const CountryState = ({ handleNext }) => {
 
     }
 
-    
+    console.log("formdaa" , formModel)
 
 
     useEffect(() => {
-        (async () => {
-            const response = await axios('https://api.ipregistry.co/?key=m7irmmf8ey12rx7o')
-            const currentCountryCode = response.data.location.country.code
-            const updatedStates = State.getStatesOfCountry(currentCountryCode)
-            setall_States(updatedStates)
-            setformModel((prevmodel) => ({
-                ...prevmodel,
-                country: currentCountryCode,
+        try {
+            (async () => {
+                const response = await axios('https://api.ipregistry.co/?key=m7irmmf8ey12rx7o')
+                const currentCountryCode = response.data.location.country.code
+                let id = response.data.location.country.tld
+                let removeDot = id.replace('.', "")
+                setCountryCode(removeDot)
+                const get_countris = Country.getAllCountries()
+                const CurrentStates = State.getStatesOfCountry(currentCountryCode)
+                const CurrentCities = City.getCitiesOfState(currentCountryCode, CurrentStates[0].isoCode)
+                setformModel((prevmodel) => ({
+                    ...prevmodel,
+                    country: currentCountryCode,
+                   
+                }))
+                setall_Countries(get_countris)
+                setall_States(CurrentStates)
+                setall_Cities(CurrentCities)
 
-            }))
+            })();
+        } catch (error) {
+            console.log(error);
+        }
 
-        })();
     }, [])
     return (
         <div>
@@ -64,7 +77,8 @@ const CountryState = ({ handleNext }) => {
                 <h1 className='text-white font-light text-center text-xl mb-5'>Please select your country and state and city</h1>
                 <div>
                     <div className="dropdown relative mb-5">
-                        <select value={formModel.country} onChange={handleChangeCountry} name="country" id="country" className={`w-full bg-transparent h-[40px] border border-white rounded-lg pl-1 `} >
+                   
+                        <select value={formModel.country} onChange={handleChangeCountry} name="country" id="country" className={`w-full  border  border-white text-white rounded-lg p-4 bg-transparent `} >
                             <option value="">Select Country </option>
                             {all_Countries.map((contry) => <option value={contry.isoCode}>{contry.name}</option>)}
                         </select>
@@ -72,14 +86,14 @@ const CountryState = ({ handleNext }) => {
                     </div>
                     <div className="dropdown relative mb-5">
 
-                        <select value={formModel.state} onChange={handleState} name="state" id="state" className={`w-full bg-transparent h-[40px] border border-white rounded-lg pl-1 `}   >
+                        <select value={formModel.state} onChange={handleState} name="state" id="state" className={`w-full  border  border-white text-white rounded-lg p-4 bg-transparent `}   >
                             <option value="">Select State </option>
                             {all_States.map((contry) => <option value={contry.isoCode}>{contry.name}</option>)}
                         </select>
 
                     </div>
                     <div className="dropdown relative mb-5">
-                        <select value={formModel.city}  name="city" id="city" className={`w-full bg-transparent h-[40px] border border-white rounded-lg pl-1 `}     >
+                        <select value={formModel.city}  name="city" id="city" className={`w-full  border  border-white text-white rounded-lg p-4 bg-transparent `}     >
                             <option value="">Select city </option>
                             {all_Cities.map((contry) => <option >{contry.name}</option>)}
                         </select>

@@ -13,7 +13,7 @@ const SubBar = ({ setShow }) => {
   // const history = useHistory();
 
   const [navbar, setNavbar] = useState(false);
-  const [popup, setPopup] = useState(false);
+  const [popup, setPopup] = useState(true);
   const [toggle, setToggle] = useState(false);
 
   const [navbarbackground, setnavbarbackground] = useState(false);

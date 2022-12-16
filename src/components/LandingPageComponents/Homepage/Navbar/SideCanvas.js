@@ -45,7 +45,6 @@ const SideCanvas = ({ sidebarOpen, setSidebarOpen }) => {
   }, [sidebarOpen]);
 
 
-  console.log("data", sidebarOpen)
 
 
 

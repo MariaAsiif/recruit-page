@@ -1,7 +1,9 @@
-import React, { useRef } from 'react'
-import { BiSupport } from 'react-icons/bi';
-import { FaQuestion } from 'react-icons/fa';
+import React, { useRef , useState, useEffect} from 'react'
+import { BiDetail, BiSupport } from 'react-icons/bi';
+import { BsInfoSquare } from 'react-icons/bs';
+import { FaFileInvoice, FaQuestion } from 'react-icons/fa';
 import { FiBell } from 'react-icons/fi';
+import { GiGoldShell } from 'react-icons/gi';
 import { HiOutlineMail } from 'react-icons/hi';
 import { MdMiscellaneousServices } from 'react-icons/md';
 import { TbBorderAll, TbFileInvoice, TbLayoutDashboard } from 'react-icons/tb';
@@ -13,16 +15,41 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
     const trigger = useRef(null);
     const sidebar = useRef(null);
 
-    console.log(location);
-
+  
+  
+    useEffect(() => {
+      const keyHandler = ({ keyCode }) => {
+        if (!sidebarOpen || keyCode !== 27) return;
+        setSidebarOpen(false);
+      };
+      document.addEventListener('keydown', keyHandler);
+      return () => document.removeEventListener('keydown', keyHandler);
+    });
+  
+    useEffect(() => {
+      if (sidebarOpen === true) {
+        if (typeof window != 'undefined' && window.document) {
+          document.body.style.overflow = 'hidden';
+        }
+  
+      }
+      else {
+        document.body.style.overflow = 'auto';
+  
+      }
+  
+  
+    }, [sidebarOpen]);
+  
 
     return (
         <div>
             {/* Sidebar backdrop (mobile only) */}
-            <div className={`fixed inset-0 bg-slate-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200 ${sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} aria-hidden="true"  ></div>
+            <div className={`fixed inset-0 bg-slate-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity lg:duration-200 opacity-100 ${sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} aria-hidden="true"  ></div>
 
             {/* Sidebar */}
-            <div id="sidebar" ref={sidebar} className={`flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-52 lg:w-20 lg:sidebar-expanded:!w-40 2xl:!w-64 shrink-0 bg-[#4DA676] transition-all duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-64'}`}  >
+            {/* <div id="sidebar" ref={sidebar} className={`flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar lg:w-64  -translate-x-64 lg:sidebar-expanded:!w-40 2xl:!w-64 shrink-0 bg-[#4DA676] transition-all duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-64'}`}  > */}
+            <div id="sidebar" ref={sidebar} className={`flex flex-col relative z-1 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-auto lg:overflow-y-auto  no-scrollbar w-64  2xl:!w-64 shrink-0 bg-[#4DA676]   transition-all duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-64'}`} >
                 {/* Sidebar header */}
                 <div className="flex mt-4 mb-3 lg:justify-center justify-evenly ">
                     {/* Close button */}
@@ -39,14 +66,14 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
 
                 <div className="space-y-8">
                     <div>
-                        <ul className="mt-3">
+                        <ul className="mt-3 h-[550px] overflow-y-auto ">
                             <li className={`mb-3 last:mb-0  ${pathname === "/newdashboard" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
                                 <div className='flex '>
                                     <NavLink end to="/newdashboard" className={`block w-full px-3 py-2  ${pathname === "/newdashboard" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <TbLayoutDashboard size={18} />
-                                                <span className={`font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Dashboard</span>
+                                                <span className={`font-semibold text-sm ml-2 opacity-100  2xl:opacity-100 duration-200`}>Dashboard</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -58,7 +85,7 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <MdMiscellaneousServices size={18} />
-                                                <span className={`font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Services</span>
+                                                <span className={`font-semibold text-sm ml-2 opacity-100  2xl:opacity-100 duration-200`}>Services</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -70,7 +97,7 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <HiOutlineMail size={18} />
-                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Inbox</span>
+                                                <span className={`  font-semibold text-sm ml-2 opacity-100  2xl:opacity-100 duration-200`}>Inbox</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -83,7 +110,7 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <TbBorderAll size={18} />
-                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Orders</span>
+                                                <span className={`  font-semibold text-sm ml-2 opacity-100  2xl:opacity-100 duration-200`}>Orders</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -95,7 +122,7 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <FiBell size={18} />
-                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Notifications</span>
+                                                <span className={`  font-semibold text-sm ml-2 opacity-100  2xl:opacity-100 duration-200`}>Notifications</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -107,7 +134,7 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <BiSupport size={18} />
-                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Support</span>
+                                                <span className={`  font-semibold text-sm ml-2 opacity-100  2xl:opacity-100 duration-200`}>Support</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -119,7 +146,7 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <TbFileInvoice size={18} />
-                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Invoice</span>
+                                                <span className={`  font-semibold text-sm ml-2 opacity-100  2xl:opacity-100 duration-200`}>Invoice</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -131,7 +158,7 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <FaQuestion size={18} />
-                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>FAQ's</span>
+                                                <span className={`  font-semibold text-sm ml-2 opacity-100  2xl:opacity-100 duration-200`}>FAQ's</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -142,8 +169,8 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     <NavLink end to="/newdashboard/gig" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/gig" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
-                                                <FaQuestion size={18} />
-                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Gig</span>
+                                                <GiGoldShell size={18} />
+                                                <span className={`  font-semibold text-sm ml-2 opacity-100  2xl:opacity-100 duration-200`}>Gig</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -154,8 +181,8 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     <NavLink end to="/newdashboard/orderdetails" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/orderdetails" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
-                                                <FaQuestion size={18} />
-                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Order Details</span>
+                                                <BiDetail size={18} />
+                                                <span className={`  font-semibold text-sm ml-2 opacity-100  2xl:opacity-100 duration-200`}>Order Details</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -166,8 +193,8 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     <NavLink end to="/newdashboard/invoiceinfo" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/invoiceinfo" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
-                                                <FaQuestion size={18} />
-                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Invoice Info</span>
+                                                <BsInfoSquare size={18} />
+                                                <span className={`  font-semibold text-sm ml-2 opacity-100  2xl:opacity-100 duration-200`}>Invoice Info</span>
                                             </div>
                                         </div>
                                     </NavLink>
@@ -178,8 +205,8 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     <NavLink end to="/newdashboard/newinvoice" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/newinvoice" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
-                                                <FaQuestion size={18} />
-                                                <span className={`  font-semibold text-sm ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>New Invoice</span>
+                                                <FaFileInvoice size={18} />
+                                                <span className={`  font-semibold text-sm ml-2 opacity-100  2xl:opacity-100 duration-200`}>New Invoice</span>
                                             </div>
                                         </div>
                                     </NavLink>

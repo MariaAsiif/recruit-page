@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import NewDashboardHeader from '../components/NewDashboardComponents/NewDashboardLayouts/NewDashboardHeader';
@@ -10,6 +11,7 @@ const NewDashboardPage = () => {
     const onChangeProfileBar = () => {
         setprofileBar(!profileBar)
     }
+
     return (
         <div className="flex h-screen overflow-hidden">
             {/* Sidebar */}
