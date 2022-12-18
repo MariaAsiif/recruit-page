@@ -7,10 +7,7 @@ import logo from '../../images/Logo1.svg'
 
 const AgeGatePopup = (props) => {
     const [activeIndex, setActiveIndex] = useState(0)
-
-
     const handleIndex = () => {
-
         let index = activeIndex + 1
         setActiveIndex(index)
 
@@ -40,10 +37,10 @@ const AgeGatePopup = (props) => {
                                     <div className={`${activeIndex === 1 && 'w-[22px] h-[22px]  text-center relative rounded-full border border-white'} 'w-[22px] h-[22px]  mt-[4px] '`}>
                                     <div className={`${activeIndex === 1 ?  ' ml-1 rounded-full border bg-[white] mt-[3px]  text-sm  w-[12px] h-[12px] ' :  'rounded-full border bg-[white] mt-[2px] text-sm  w-[12px] h-[12px]'}`}></div>
                                     </div>
-                                    <div className=' border border-white md:w-[25%] md:-ml-2 h-[2px] lg:w-[28%] w-[22.6%]' ></div>
+                                    {/* <div className=' border border-white md:w-[25%] md:-ml-2 h-[2px] lg:w-[28%] w-[22.6%]' ></div>
                                     <div className={`${activeIndex === 2 && 'w-[22px] h-[22px] text-center relative rounded-full border border-white'} 'w-[22px] h-[22px]  mt-[4px] '`}>
                                     <div className={`${activeIndex === 2 ?  ' ml-1 rounded-full border bg-[white] mt-[3px] text-sm  w-[12px] h-[12px] ' :  'rounded-full border bg-[white] mt-[2px] text-sm  w-[12px] h-[12px]'}`}></div>
-                                    </div>
+                                    </div> */}
                                     {/* <div className=' border border-white md:w-[25%] md:-ml-2 h-[2px] lg:w-[28%] w-[22.6%]' ></div>
                                     <div className={`${activeIndex === 3 && 'w-[22px] h-[22px] text-center relative rounded-full border border-white'} 'w-[22px] h-[22px]'`}>
                                     <div className={`${activeIndex === 3 ?  ' ml-1 rounded-full border bg-[white] mt-[4px] text-sm  w-[12px] h-[12px] ' :  'rounded-full border bg-[white] mt-[2px] text-sm  w-[12px] h-[12px]'}`}></div>
@@ -84,9 +81,9 @@ const AgeGatePopup = (props) => {
                                 </div>
                             </div>
                             <div className='col-lg-6 flex items-center'>
-                                {activeIndex === 0 && <CountryState handleNext={handleIndex} />}
-                                {activeIndex === 1 && <Email handleNext={handleIndex} />}
-                                {activeIndex === 2 && <EmailVerify handleNext={handleIndex} />}
+                                {/* {activeIndex === 0 && <CountryState handleNext={handleIndex} />} */}
+                                {activeIndex === 0 && <Email handleNext={handleIndex} />}
+                                {activeIndex === 1 && <EmailVerify handleNext={handleIndex}  handleClose={props.onClose} />}
                                 {/* {activeIndex === 3 && <PhoneVerification handleClose={props.onClose} handleNext={handleIndex} />} */}
 
                             </div>

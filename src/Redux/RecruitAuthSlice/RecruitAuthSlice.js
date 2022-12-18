@@ -9,6 +9,7 @@ const initialState = {
         email: null,
         role: null,
         userid: null,
+
     }
 }
 export const RecruitAuthSlice = createSlice({
@@ -18,11 +19,11 @@ export const RecruitAuthSlice = createSlice({
         signin: (state, action) => {
             debugger
             state.loginInfo.token = action.payload.token
-            state.userInfo.name = action.payload.userdata.first_name
-            state.userInfo.email = action.payload.userdata.email
-            state.userInfo.role = action.payload?.userdata?.rolePrivileges?.roleName || "superadmin"
-            state.userInfo.userid = action.payload.userdata._id
-            state.userInfo.permission = action.payload.userdata.rolePrivileges
+            state.userInfo.name = action.payload.userdata?.first_name
+            state.userInfo.email = action.payload.userdata?.email
+            state.userInfo.role = action.payload?.userdata?.role
+            state.userInfo.userid = action.payload.userdata?._id
+            state.userInfo.gatePopup = action.payload.userdata?.ageGateVerified
         },
         signout: (state) => {
             return {
@@ -37,10 +38,12 @@ export const RecruitAuthSlice = createSlice({
                 }
             }
         },
-    },
+        updateUser : (state , action) => {
+            state.userInfo.gatePopup = action.payload
+        }  },
 })
 
 // Action creators are generated for each case reducer function
-export const { signin, signout } = RecruitAuthSlice.actions
+export const { signin, signout , updateUser } = RecruitAuthSlice.actions
 
 export default RecruitAuthSlice.reducer

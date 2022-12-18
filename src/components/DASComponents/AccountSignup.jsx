@@ -1,9 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaCheckCircle, FaCheckDouble, FaEnvelope, FaLock, FaRegUser, FaUnlockAlt } from 'react-icons/fa'
 import { IoChevronForward } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 import social_group_2x from '../../images/social_group_2x.png'
 const DASAccountSignup = (props) => {
+
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+
+    })
+
+
+    const handleChange = (e) => {
+        let { name, value } = e.target
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value
+        }))
+    }
+
+
+    const handleNext = () => {
+        props.SignUpData(formData)
+        props.onNext("TermsAndConditions")
+    }
+
+
+    const { email , password } = formData
 
     return (
         <div className='w-full px-4 lg:px-16'>
@@ -51,29 +76,29 @@ const DASAccountSignup = (props) => {
                 </div>
                 <div className='justify-center row g-0'>
                     <div className='mb-3 col-lg-7'>
+                    {/* <div className='mb-3 col-lg-7'>
+                        <h1 className='text-[#707070] text-sm ml-5'>First Name</h1>
+                        <input onChange={(e) => handleChange(e)} value={first_name} name="first_name" className='border py-2 block rounded-md px-3 w-full border-[#707070] text-[#707070] text-sm font-sans focus:outline-none placeholder:text-[#707070]' placeholder='Enter Your First Name' />
+                    </div> */}
                         <h1 className='text-[#707070] text-sm ml-5'>Email Address</h1>
                         <label className='border py-2 block rounded-md px-3 w-full border-[#707070] text-[#707070] text-sm font-sans cursor-pointer'>
-                            <FaEnvelope className='inline mr-3' />Enter your email here
-                            <input type="email" />
+                            <FaEnvelope className='inline mr-3' />
+                            <input className="w-[90%] border-transparent focus:border-transparent focus:ring-0 focus:!outline-none
+" placeholder='Enter your email here' type="email" name="email" value={email} onChange={handleChange} />
                         </label>
                     </div>
                     <div className='mb-3 col-lg-7'>
                         <h1 className='text-[#707070] text-sm ml-5'>New Password</h1>
                         <label className='border py-2 block rounded-md px-3 w-full border-[#707070] text-[#707070] text-sm font-sans cursor-pointer'>
-                            <FaLock className='inline mr-3' />Enter new password
-                            <input type="password" />
+                            <FaLock className='inline mr-3' />
+                            <input placeholder='Enter new password' className="w-[90%] border-transparent focus:border-transparent focus:ring-0 focus:!outline-none
+" type="password"  name="password" value={password} onChange={handleChange}/>
                         </label>
                     </div>
-                    <div className='mb-3 col-lg-7'>
-                        <h1 className='text-[#707070] text-sm ml-5'>Confirm Password</h1>
-                        <label className='border py-2 block rounded-md px-3 w-full border-[#707070] text-[#707070] text-sm font-sans cursor-pointer'>
-                            <FaEnvelope className='inline mr-3' />Confirm password
-                            <input type="password" />
-                        </label>
-                    </div>
+                   
 
                     <div className='mb-3 text-center col-lg-7'>
-                        <button onClick={() => props.onNext("TermsAndConditions")} className='font-sans font-medium text-lg border-2 border-[#4DA676] rounded px-16 py-1 text-[#4DA676] hover:text-white hover:bg-[#4DA676] transition-all'>Sing Up <IoChevronForward className='inline' /></button>
+                        <button onClick={() => handleNext()} className='font-sans font-medium text-lg border-2 border-[#4DA676] rounded px-16 py-1 text-[#4DA676] hover:text-white hover:bg-[#4DA676] transition-all'>Sing Up <IoChevronForward className='inline' /></button>
                         <h1 className='text-[#707070] font-medium mb-8 text-xs'>Already have an account. <Link className='text-[#4DA676] underline' onClick={() => props.onNext("LoginPage")}>Login</Link></h1>
                     </div>
                     <img src={social_group_2x} alt="social" className='w-full h-auto max-w-[380px] m-auto mb-10' />

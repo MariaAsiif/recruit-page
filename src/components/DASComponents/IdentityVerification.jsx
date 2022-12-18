@@ -21,10 +21,10 @@ const IdentityVerification = (props) => {
                         </div>
                     </div>
                     <div class=" w-[20%] flex items-center">
-                        <div className='w-full h-[1px] bg-[#42946C]'></div>
+                        <div className='w-full h-[1px] bg-[#E84125]'></div>
                     </div>
                     <div class=" w-auto ">
-                        <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#42946C]'>
+                        <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#E84125]'>
                             <FaUnlockAlt size={15} className='inline text-white' />
                         </div>
                     </div>
@@ -45,10 +45,10 @@ const IdentityVerification = (props) => {
                         </div>
                     </div>
                     <div class=" w-[20%] flex items-center">
-                        <div className='w-full h-[1px] bg-[#E84125]'></div>
+                        <div className='w-full h-[1px] bg-[#42946C]'></div>
                     </div>
                     <div class=" w-auto ">
-                        <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#E84125]'>
+                        <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#42946C]'>
                             <FaCheckDouble size={15} className='inline text-white' />
                         </div>
                     </div>
@@ -72,7 +72,7 @@ const IdentityVerification = (props) => {
                     </label>
                 </div>
                 <div className='text-center'>
-                    <button onClick={() => props.onBack(props.flow ? "LoginPage" : "newAccount")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1 m-10'><FaChevronLeft className='inline' /> Back </button>
+                    {/* <button onClick={() => props.onBack(props.flow ? "LoginPage" : "newAccount")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1 m-10'><FaChevronLeft className='inline' /> Back </button> */}
                     <button onClick={() => props.onNext(verifyType === "sms" ? "OtpSelection" : "QrVerification")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1'>Next <FaChevronRight className='inline' /></button>
                 </div>
             </div>

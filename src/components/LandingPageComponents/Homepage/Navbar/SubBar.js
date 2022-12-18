@@ -9,11 +9,14 @@ import Marquee from "./Marquee";
 // import downIcon from '../../../../assets/landingImages/ionic-ios-arrow-down.svg'
 import { RiArrowDropDownLine, RiArrowDropRightLine } from 'react-icons/ri'
 import AgeGatePopup from "../../../Popups/AgeGatePopup";
+import { useSelector } from "react-redux";
 const SubBar = ({ setShow }) => {
   // const history = useHistory();
 
+  const {gatePopup } = useSelector((state) =>  state.recruitAuth.userInfo)
+
   const [navbar, setNavbar] = useState(false);
-  const [popup, setPopup] = useState(true);
+  const [popup, setPopup] = useState(false);
   const [toggle, setToggle] = useState(false);
 
   const [navbarbackground, setnavbarbackground] = useState(false);
@@ -55,7 +58,7 @@ const SubBar = ({ setShow }) => {
     <div className="home-page-main-nav-container">
       <Marquee />
       <TopBar setShow={setShow} />
-      {popup ? (<AgeGatePopup isOpen={popup} onClose={() => { setPopup(false) }} />) : null}
+      {gatePopup === false && popup ? (<AgeGatePopup isOpen={popup} onClose={() => { setPopup(false) }} />) : null}
       <div className={navbar ? "hporx-header" : "hporx-header-skew "} onClick={() => setPopup(true)} >
         <div className={navbar ? "hporx-header-topbar-skew" : navbarbackground ? "changetopBArbackgournd" : "hporx-header-topbar-normal"} ></div>
         <nav className={navbarbackground ? "nav" : "changebackground"} id="navbar"  >

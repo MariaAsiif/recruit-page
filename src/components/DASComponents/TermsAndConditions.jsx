@@ -13,18 +13,18 @@ const TermsAndConditions = (props) => {
             </div>
           </div>
           <div class=" w-[20%] flex items-center">
-            <div className='w-full h-[1px] bg-[#42946C]'></div>
-          </div>
-          <div class=" w-auto ">
-            <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#42946C]'>
-              <FaUnlockAlt size={15} className='inline text-white' />
-            </div>
-          </div>
-          <div class=" w-[20%] flex items-center">
             <div className='w-full h-[1px] bg-[#E84125]'></div>
           </div>
           <div class=" w-auto ">
             <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#E84125]'>
+              <FaUnlockAlt size={15} className='inline text-white' />
+            </div>
+          </div>
+          <div class=" w-[20%] flex items-center">
+            <div className='w-full h-[1px] bg-[#42946C]'></div>
+          </div>
+          <div class=" w-auto ">
+            <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7  bg-[#42946C]'>
               <FaCheckCircle size={15} className='inline text-white' />
             </div>
           </div>

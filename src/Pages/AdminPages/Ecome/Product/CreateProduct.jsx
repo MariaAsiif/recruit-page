@@ -12,7 +12,7 @@ const schema = yup.object({
   name: yup.string().required('Product Name is Required'),
   title: yup.string().required('Title is Required'),
   brand: yup.string().required('Sub Category is Required'),
-  category: yup.string().required('Category is Required'),
+  // category: yup.string().required('Category is Required'),
   rate: yup.string().required('Price is Required'),
   initialStock: yup.string().required('Product Link  is Required'),
   desc: yup.string().required('Description is Required'),
@@ -40,19 +40,31 @@ const CreateProduct = () => {
 
   const handleFile = async (e) => {
 
-    let files = ["file1", "file2", "file3", "file4", "file5 "]
 
     let file = e.target.files[0]
     let name = e.target.name
     const formData = new FormData()
     formData.append('file', file)
     let res = await callApi('/uploads/uploadProductImgs', "post", formData)
-    if (res.status === "Success") {
+    if (res) {
       console.log("Res", res)
       toast.success(res.message);
       if (name === "file1") {
-        setImage1(res.data)
+        setImage1(res[0].url)
       }
+      else if (name === "file2") {
+        setImage2(res[0].url)
+      }
+      else if (name === "file3") {
+        setImage3(res[0].url)
+      }
+      else if (name === "file4") {
+        setImage4(res[0].url)
+      }
+      else {
+        setImage5(res[0].url)
+      }
+
     }
     else {
       toast.error(res.message);
@@ -62,22 +74,21 @@ const CreateProduct = () => {
 
 
 
-
   const onSubmit = async (data) => {
     let payload = {
       "storeid": data.store,
       "nameofProduct": data.name,
-      "category": data.category,
+      "category": data.category || "shoe",
       "subCategory": data.brand,
       "productLink": data.initialStock,
       "titleofProduct": data.title,
-      "price": `'$'${data.rate}`,
+      "price": data.rate,
       "description": data.desc,
-      "pictureLink1": "",
-      "pictureLink2": "",
-      "pictureLink3": "",
-      "pictureLink4": "",
-      "pictureLink5": "",
+      "pictureLink1": image1,
+      "pictureLink2": image2,
+      "pictureLink3": image3,
+      "pictureLink4": image4,
+      "pictureLink5": image5,
     }
 
     const res = await callApi('/productsOfStore/createProductsOfStore', 'post', payload);
@@ -113,9 +124,9 @@ const CreateProduct = () => {
           }
         }
         const responseCata = await callApi("/productcategories/getcategories", "post", payload)
-        setallcatagories(responseCata.data.categories)
+        setallcatagories(responseCata?.data?.categories)
         const responseStore = await callApi("/stores/getStoresWithFullDetails", "post", payloadStore)
-        setallIStores(responseStore.data.stores)
+        setallIStores(responseStore?.data?.stores)
       } catch (error) {
         console.log(error);
       }
@@ -269,7 +280,7 @@ const CreateProduct = () => {
             >
               <option value="">Select Category </option>
               {
-                allcatagories.map((cat, index) => (
+                allcatagories?.map((cat, index) => (
                   <option key={index} value={cat._id}>{cat.productCategoryTitle}</option>
                 ))
               }
@@ -396,7 +407,7 @@ const CreateProduct = () => {
               className={`border p-[10px] lg:-mt-[1px] focus:outline-blue-500 rounded-sm w-full   ${errors.store && 'border-red-500'}`}
             >
               <option value="">Select Store </option>
-              {allstores.map((store) => (
+              {allstores?.map((store) => (
                 <option key={store._id} value={store._id}>{store.storeName}</option>
               ))}
             </select>

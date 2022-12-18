@@ -10,7 +10,7 @@ import { IoMail } from 'react-icons/io5'
 import { FaLock } from 'react-icons/fa'
 // import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 // import { HiCheckCircle } from 'react-icons/hi'
-import { Link, redirect, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 // import ReactPlayer from 'react-player/lazy'
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -38,7 +38,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 // import axios from 'axios'
 import { callPublicApi } from '../utils/CallApi'
-
+import { useDispatch } from 'react-redux'
+import { signin } from '../Redux/RecruitAuthSlice/RecruitAuthSlice';
 const schema = yup.object({
     email: yup.string().email("Invalid email").required("Enter your valid email address"),
     password: yup.string().required("Enter your chosen password"),
@@ -70,6 +71,7 @@ const PublicBetaLogin = () => {
     const { register, watch, handleSubmit, formState: { errors } } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
     let navigate = useNavigate()
+    const dispatch = useDispatch();
 
     // const handleChange = (e) => {
     //     const { value, name } = e.target
@@ -103,26 +105,39 @@ const PublicBetaLogin = () => {
                 'post',
                 values
             );
-            if (response.data.role === "customer") {
-                navigate('/landingPage')
-            }
-            else if (response.data.role === "vendor") {
-                navigate('/e-dashboard')
+            if (response.status === "Success") {
+                if (response.data?.role === "customer") {
+                    dispatch(signin({ token: response.token, userdata: response.data }));
+                    navigate('/landingPage')
+                }
+                else if (response.data?.role === "vendor") {
+                    dispatch(signin({ token: response.token, userdata: response.data }));
+
+                    navigate('/e-dashboard')
+
+                }
+                else if (response.data?.role === "companytasker" || "individualtasker") {
+                    dispatch(signin({ token: response.token, userdata: response.data }));
+
+                    navigate('/landingPage')
+
+                }
+                else if (response.data?.role === "admin") {
+                    dispatch(signin({ token: response.token, userdata: response.data }));
+                    navigate('/admindashboard')
+
+                }
+                else {
+
+                }
 
             }
-            else if (response.data.role === "companytasker" || "individualtasker") {
-                navigate('/landingPage')
-
-            }
-            else if (response.data.role === "admin") {
-                navigate('/admindashboard')
-
-            }
-            if(response.status  === "Fail" ){
-                toast.error(response.message)
+            else {
+                toast.error(response?.message)
             }
         } catch (error) {
-            console.log(error);
+            toast.error(error)
+
         }
 
     }

@@ -13,10 +13,10 @@ const QrVideoProcess = (props) => {
                         </div>
                     </div>
                     <div class=" w-[20%] flex items-center">
-                        <div className='w-full h-[1px] bg-[#42946C]'></div>
+                        <div className='w-full h-[1px] bg-[#E84125]'></div>
                     </div>
                     <div class=" w-auto ">
-                        <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#42946C]'>
+                        <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#E84125] '>
                             <FaUnlockAlt size={15} className='inline text-white' />
                         </div>
                     </div>
@@ -37,10 +37,10 @@ const QrVideoProcess = (props) => {
                         </div>
                     </div>
                     <div class=" w-[20%] flex items-center">
-                        <div className='w-full h-[1px] bg-[#E84125]'></div>
+                        <div className='w-full h-[1px] bg-[#42946C]'></div>
                     </div>
                     <div class=" w-auto ">
-                        <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#E84125]'>
+                        <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#42946C]'>
                             <FaCheckDouble size={15} className='inline text-white' />
                         </div>
                     </div>
@@ -50,9 +50,9 @@ const QrVideoProcess = (props) => {
                         <img src={video_large} className="m-auto" alt="cideo" />
                     </div>
                 </div>
-                <div style={{ display: "flex", alignItems: "space-between", justifyContent: "space-between" }}>
-                    <button onClick={() => props.onBack("QrVerification")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1 '><FaChevronLeft className='inline' /> Back </button>
-                    <button onClick={() => props.onNext(props.flow ? "Dashboard" : "ReferralLink")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1'>Next <FaChevronRight className='inline' /></button>
+                <div style={{ display: "flex", alignItems: "space-between", justifyContent: "end" }}>
+                    {/* <button onClick={() => props.onBack("QrVerification")} className='border-2 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1 '><FaChevronLeft className='inline' /> Back </button> */}
+                    <button onClick={() => props.onNext("Dashboard")} className='border-2 mt-4 border-[#4DA676] text-[#4DA676] rounded font-sans font-semibold text-lg px-10 py-1'>Next <FaChevronRight className='inline' /></button>
                 </div>
             </div>
         </div>
