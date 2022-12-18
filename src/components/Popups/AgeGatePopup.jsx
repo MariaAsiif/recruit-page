@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import CountryState from './CountryState'
+// import CountryState from './CountryState'
 import Email from './Email'
 import EmailVerify from './EmailVerify'
-import PhoneVerification from './PhoneVerify'
+// import PhoneVerification from './PhoneVerify'
 import logo from '../../images/Logo1.svg'
 
 const AgeGatePopup = (props) => {

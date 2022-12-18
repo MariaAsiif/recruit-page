@@ -16,7 +16,7 @@ const schema = yup.object({
 });
 
 
-const Email = ({ handleNext }) => {
+const Email = ({ handleNext, handleClose }) => {
 
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
@@ -60,8 +60,6 @@ const Email = ({ handleNext }) => {
 
   const onSubmit = async (data) => {
     // let date = `${expiryDate.year}/${expiryDate.month}/${expiryDate.day}`
-
-
     let value = {
       "dateOfBirth": date,
       "email": data.email

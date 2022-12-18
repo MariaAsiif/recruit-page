@@ -24,6 +24,7 @@ export const RecruitAuthSlice = createSlice({
             state.userInfo.role = action.payload?.userdata?.role
             state.userInfo.userid = action.payload.userdata?._id
             state.userInfo.gatePopup = action.payload.userdata?.ageGateVerified
+            state.userInfo.verify = action.payload.userdata?.verification_code
         },
         signout: (state) => {
             return {

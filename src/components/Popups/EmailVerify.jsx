@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import OtpInput from 'react-otp-input';
-import { callApiRecuit } from '../../utils/CallApi';
+// import { callApiRecuit } from '../../utils/CallApi';
 import { toast, ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
-import { updateUser } from '../../Redux/RecruitAuthSlice/RecruitAuthSlice'
+// import { updateUser } from '../../Redux/RecruitAuthSlice/RecruitAuthSlice'
 const EmailVerify = ({ handleClose }) => {
 
     const [emailotp, setemailotp] = useState("")
@@ -18,25 +18,33 @@ const EmailVerify = ({ handleClose }) => {
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        let value = {
-            "email": user?.email,
-            "verification_code": emailotp
-        }
-        try {
-            let res = await callApiRecuit('/users/verify-code', 'post', value)
-            if (res.status === "Success") {
-                toast.success(res.success)
-                handleClose()
-                updateUser(true)
-            }
-            else {
-                toast.error(res.error)
+        // let value = {
+        //     "email": user?.email,
+        //     "verification_code": emailotp
+        // }
+        // try {
+        // let res = await callApiRecuit('/users/verify-code', 'post', value)
+        // if (res.status === "Success") {
+        //     toast.success(res.success)
+        // if (user?.verify === emailotp) {
+            handleClose()
+            toast.success("Email is verification done ")
 
-            }
-        }
-        catch (err) {
-            toast.error(err)
-        }
+            // updateUser(true)
+        // }
+        // else {
+        //     toast.error("Otp is not Valid")
+
+        // }
+        //     }
+        //     else {
+        //         toast.error(res.error)
+
+        //     }
+        // }
+        // catch (err) {
+        //     toast.error(err)
+        // }
 
     }
 
