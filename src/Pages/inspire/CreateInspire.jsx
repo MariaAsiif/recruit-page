@@ -99,18 +99,10 @@ const CreateInspire = () => {
           <div className='col-12 mb-6'>
             <div className='mb-3'>
               <ul className='inline-flex flex-wrap text-sm font-medium'>
-                <li className='flex items-center'>
-                  <Link
-                    to='/dashboard'
-                    className='text-slate-500 hover:text-indigo-500'
-                  >
-                    Dashboard{' '}
-                  </Link>
-                  <svg
-                    className='h-4 w-4 fill-current text-slate-400 mx-3'
-                    viewBox='0 0 16 16'
-                  >
-                    <path d='M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z' />
+                <li className="flex items-center">
+                  <Link to="/admindashboard" className="text-slate-500 hover:text-indigo-500" >dashboard </Link>
+                  <svg className="h-4 w-4 fill-current text-slate-400 mx-3" viewBox="0 0 16 16">
+                    <path d="M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z" />
                   </svg>
                 </li>
                 <li className='flex items-center'>
@@ -194,12 +186,12 @@ const CreateInspire = () => {
                   />
                   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                   <div className='text-sm text-slate-400 italic ml-2'>
-                  {companySetting ? 'Active' : 'DeActive'}
-                </div>
+                    {companySetting ? 'Active' : 'DeActive'}
+                  </div>
                 </label>
 
-                
-                
+
+
               </div>
             </div>
           </div>

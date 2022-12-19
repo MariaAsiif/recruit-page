@@ -16,7 +16,6 @@ const Lexicon = () => {
         items.push(obj)
     })
 
-    console.log("ite", items)
 
     const handleOnSearch = (string, results) => {
         // onSearch will have as the first callback parameter
