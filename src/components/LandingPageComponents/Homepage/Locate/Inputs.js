@@ -21,9 +21,9 @@ const Inputs = () => {
   const [allCities, setallCities] = useState([])
   const [cityName, setCityName] = useState('')
   const [locationModel, setlocationModel] = useState({
-    country: "AF",
-    state: "BDS",
-    city: "Ashkāsham",
+    country: "",
+    state: "",
+    city: "",
     services: "Doctors",
     latitude: "",
     longitude: "",
@@ -118,6 +118,8 @@ const Inputs = () => {
     }
 
   }
+
+
 
   const handleMoveMarker = async (data) => {
     try {
@@ -234,39 +236,20 @@ const Inputs = () => {
     }
 
   }
+  console.log("locationModel", locationModel)
+
 
   useEffect(() => {
-    (async () => {
+    let fetchData = async () => {
       try {
-        const response = await axios('https://api.ipregistry.co/?key=m7irmmf8ey12rx7o')
-        const mainresponse = await genericService.get(`${API_URL}getAddresses`)
+        const response = await axios.get('https://api.ipregistry.co/?key=m7irmmf8ey12rx7o')
+        console.log("response", response)
+        const CurrentCountries =  Country.getAllCountries()
         const currentCountryCode = response.data.location.country.code
         const latitude = response.data.location.latitude
         const longitude = response.data.location.longitude
-        const CurrentCountries = await Country.getAllCountries()
-        const CurrentStates = await State.getStatesOfCountry(currentCountryCode)
-        const CurrentCities = await City.getCitiesOfState(currentCountryCode, CurrentStates[0].isoCode)
-        const payload = {
-          "query": {
-            "critarion": {},
-            "categories": mainresponse.finalData.service,
-            "serviceCountry": [response.data.location.country.name],
-            "serviceCity": [response.data.location.city],
-            "individualServiceProvider": "_id email title",
-            "businessServiceProvider": "_id email businessName"
-          },
-          "sortproperty": "serviceName",
-          "sortorder": 1,
-          "minDistance": 0,
-          "maxDistance": 100,
-          "offset": 0,
-          "limit": 100,
-          "location": {
-            "lng": latitude,
-            "lat": longitude
-          }
-        }
-        const serviceResponse = await genericService.post(`${HOSTNAME}/locateservices/locateAllServices`, payload)
+        const CurrentStates = State.getStatesOfCountry(currentCountryCode)
+        const CurrentCities = City.getCitiesOfState(currentCountryCode, CurrentStates[0].isoCode)
         setallCountries(CurrentCountries)
         setallStates(CurrentStates)
         setallCities(CurrentCities)
@@ -278,13 +261,38 @@ const Inputs = () => {
           latitude: latitude,
           longitude: longitude,
         }))
+        
+        // const mainresponse = await genericService.get(`${API_URL}getAddresses`)
+        // const payload = {
+        //   "query": {
+        //     "critarion": {},
+        //     "categories": mainresponse.finalData.service,
+        //     "serviceCountry": [response.data.location.country.name],
+        //     "serviceCity": [response.data.location.city],
+        //     "individualServiceProvider": "_id email title",
+        //     "businessServiceProvider": "_id email businessName"
+        //   },
+        //   "sortproperty": "serviceName",
+        //   "sortorder": 1,
+        //   "minDistance": 0,
+        //   "maxDistance": 100,
+        //   "offset": 0,
+        //   "limit": 100,
+        //   "location": {
+        //     "lng": latitude,
+        //     "lat": longitude
+        //   }
+        // }
+       
+        // const serviceResponse = await genericService.post(`${HOSTNAME}/locateservices/locateAllServices`, payload)
         setmarkerLocation({ latitude, longitude })
         setmapLocation({ latitude, longitude })
-        setserviceData(serviceResponse.data.services)
+        // setserviceData(serviceResponse.data.services)
       } catch (error) {
         console.log(error);
       }
-    })();
+    }
+    fetchData()
   }, [])
   return (
     <>
@@ -292,46 +300,46 @@ const Inputs = () => {
       <div className='bscontainer-fluid mb-4 ' id="input_Select">
         <div className='row'>
           <div className='col-lg-2 inp'>
-            <select  className='w-[21.5rem] lg:w-full md:w-full  select_op text-sm flex items-center p-5 ' name="country" value={locationModel.country} onChange={handleChangeCountryStateCity}  >
+            <select className='w-[21.5rem] lg:w-full md:w-full  select_op text-sm flex items-center p-5 ' name="country" value={locationModel.country} onChange={handleChangeCountryStateCity}  >
               <option className='text-sm w-0'>Choose Country</option>
               {allCountries.map((country, i) => <option key={i} value={country.isoCode} className='text-sm w-0'>{country.name}</option>)}
             </select>
           </div>
           <div className='col-lg-2 inp'>
-            <select  className='w-[21.5rem] lg:w-full md:w-full select_op text-sm flex items-center  p-5' name="state" value={locationModel.state} onChange={handleChangeCountryStateCity}  >
-              <option  className='text-sm w-0'>Choose State</option>
-              {allStates.map((state, i) => <option key={i}  className='text-sm w-0' value={state.isoCode}>{state.name}</option>)}
+            <select className='w-[21.5rem] lg:w-full md:w-full select_op text-sm flex items-center  p-5' name="state" value={locationModel.state} onChange={handleChangeCountryStateCity}  >
+              <option className='text-sm w-0'>Choose State</option>
+              {allStates.map((state, i) => <option key={i} className='text-sm w-0' value={state.isoCode}>{state.name}</option>)}
             </select>
           </div>
           <div className='col-lg-2 inp'>
-            <select  className='w-[21.5rem] lg:w-full md:w-full select_op text-sm flex items-center  p-5' name="city" value={locationModel.city} onChange={handleChangeCountryStateCity}  >
-              <option  className='text-sm w-0'>Choose City</option>
-              {allCities.map((city, i) => <option key={i}  className='text-sm w-0' value={city.name}>{city.name}</option>)}
+            <select className='w-[21.5rem] lg:w-full md:w-full select_op text-sm flex items-center  p-5' name="city" value={locationModel.city} onChange={handleChangeCountryStateCity}  >
+              <option className='text-sm w-0'>Choose City</option>
+              {allCities.map((city, i) => <option key={i} className='text-sm w-0' value={city.name}>{city.name}</option>)}
             </select>
           </div>
           <div className='col-lg-2 inp'>
-            <select  className='w-[21.5rem] lg:w-full md:w-full select_op text-sm flex items-center  p-5' name="services" value={locationModel.services} onChange={handleChangeCountryStateCity}>
-              <option  className='text-sm w-0'>Choose Service</option>
-              {services.map((service, i) => <option  className='text-sm w-0' value={service.value} key={i}>{service.label}</option>)}
+            <select className='w-[21.5rem] lg:w-full md:w-full select_op text-sm flex items-center  p-5' name="services" value={locationModel.services} onChange={handleChangeCountryStateCity}>
+              <option className='text-sm w-0'>Choose Service</option>
+              {services.map((service, i) => <option className='text-sm w-0' value={service.value} key={i}>{service.label}</option>)}
             </select>
           </div>
           <div className='col-lg-1 inp'>
-            <select  className='w-[21.5rem] lg:w-full md:w-full select_op text-sm flex items-center  p-5' name="minDistances" value={locationModel.minDistances} onChange={handleChangeCountryStateCity}>
-              <option  className='text-sm w-0'>Min. Distance</option>
-              {minDistances.map((mindist, i) => <option  className='text-sm w-0' value={mindist.value} key={i}>{mindist.label}Km</option>)}
+            <select className='w-[21.5rem] lg:w-full md:w-full select_op text-sm flex items-center  p-5' name="minDistances" value={locationModel.minDistances} onChange={handleChangeCountryStateCity}>
+              <option className='text-sm w-0'>Min. Distance</option>
+              {minDistances.map((mindist, i) => <option className='text-sm w-0' value={mindist.value} key={i}>{mindist.label}Km</option>)}
             </select>
           </div>
           <div className='col-lg-1 inp'>
-            <select  className='w-[21.5rem] lg:w-full md:w-full select_op text-sm flex items-center  p-5' name="maxDistances" value={locationModel.maxDistances} onChange={handleChangeCountryStateCity}>
-              <option  className='text-sm w-0'>Max. Distance</option>
-              {maxDistances.map((maxdist, i) => <option  className='text-sm w-0' value={maxdist.value} key={i}>{maxdist.label}Km</option>)}
+            <select className='w-[21.5rem] lg:w-full md:w-full select_op text-sm flex items-center  p-5' name="maxDistances" value={locationModel.maxDistances} onChange={handleChangeCountryStateCity}>
+              <option className='text-sm w-0'>Max. Distance</option>
+              {maxDistances.map((maxdist, i) => <option className='text-sm w-0' value={maxdist.value} key={i}>{maxdist.label}Km</option>)}
             </select>
           </div>
           <div className='col-lg-2 d-flex pt-2 align-items-center justify-content-around'>
             <button
               disabled={(locationModel.country && locationModel.state && locationModel.city && locationModel.services && locationModel.minDistances && locationModel.maxDistances) ? false : true}
               onClick={getdata} style={{ width: "45%", fontSize: '13px', fontWeight: "600", height: '90%' }} className='bg-red-600 rounded-md text-white'>Search</button>
-            <button onClick={() => setservicePopup(true)}  className='bg-red-600 lg:p-1 p-2 lg:w-auto  w-[35%] rounded-md text-white text-[13px] ml-[15px] font-medium lg:h-[90%] h-[95%] '>Add Service</button>
+            <button onClick={() => setservicePopup(true)} className='bg-red-600 lg:p-1 p-2 lg:w-auto  w-[35%] rounded-md text-white text-[13px] ml-[15px] font-medium lg:h-[90%] h-[95%] '>Add Service</button>
           </div>
 
         </div>

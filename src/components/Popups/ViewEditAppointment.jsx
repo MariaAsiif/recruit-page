@@ -358,7 +358,7 @@ const ViewEditAppointment = ({ id, modalOpen, onClose, mode, data }) => {
                     {/* Modal header */}
                     <div className="px-5 py-3 border-b border-slate-200">
                         <div className="flex justify-between items-center">
-                            <div className="font-semibold text-slate-800">View Inspire</div>
+                            <div className="font-semibold text-slate-800">Appointments</div>
                             <button className="text-slate-400 hover:text-slate-500" onClick={onClose}>
                                 <div className="sr-only">Close</div>
                                 <svg className="w-4 h-4 fill-current">

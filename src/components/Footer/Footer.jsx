@@ -142,7 +142,9 @@ const Footer = ({type}) => {
         ' Special Order',
         'Feedback',
         ' Contact Us',
-        'Chat']
+        'Chat',
+        'Lexicon'
+    ]
 
         const Ixcon = ['lexicon list']
 
@@ -239,7 +241,7 @@ const Footer = ({type}) => {
                                 <FooterSection data={callCenter} heading={'CALL CENTER'} />
                                 
                             </div> */}
-                            <div className='col-lg-2 col-md-4 col-sm-4' >
+                            {/* <div className='col-lg-2 col-md-4 col-sm-4' >
                             </div>
                             <div className='col-lg-2 col-md-4 col-sm-4'>
                             </div>
@@ -250,7 +252,7 @@ const Footer = ({type}) => {
                             <div className='col-lg-2 col-md-4 col-sm-4'>
                             <FooterSection data={Ixcon} heading={'Lexicon'} />
 
-                            </div>
+                            </div> */}
                         </div>
                         <div className='ssl'>
                             <SSL />
