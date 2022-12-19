@@ -104,13 +104,17 @@ const CreateProduct = () => {
   useEffect(() => {
     (async () => {
       try {
-        const payload = {
+        let payload = {
           "sortproperty": "createdAt",
           "sortorder": -1,
-          "offset": 0,
-          "limit": 15
-
-        }
+          "offset" : 0,
+          "limit": 15,
+          "query": {
+              "critarion": {"active" : true},
+              "addedby": "_id email first_name",
+              "lastModifiedBy": "_id email first_name"
+          }
+      }
 
         const payloadStore = {
           sortproperty: "created_at",

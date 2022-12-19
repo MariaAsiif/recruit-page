@@ -78,7 +78,7 @@ const CompanyInformation = (props) => {
             let name = e.target.name
             const formData = new FormData()
             formData.append('file', file)
-            let res = await callPublicApi('/uploads/uploadProductImgs', "post", formData)
+            let res = await callPublicApi('/uploads/uploadCompanyLogoFile', "post", formData)
             if (res) {
                 console.log("Res", res)
                 if (name === "logo") {
@@ -100,7 +100,13 @@ const CompanyInformation = (props) => {
 
     const onSubmit = async (data) => {
 
-        props?.SignUpDataComp(data)
+        let obj  = {
+            ...data ,
+            logo,
+            portfolio
+        }
+
+        props?.SignUpDataComp(obj)
         props.onNext('ReferralLink')
 
     }
@@ -233,7 +239,7 @@ const CompanyInformation = (props) => {
                             <h1 className='text-[#707070] text-sm ml-5'>Business Portfolio</h1>
                             <label className='border py-2 block rounded-md px-3 w-full border-[#707070] text-[#707070] text-sm font-sans cursor-pointer'>
                                 <FaCloudUploadAlt className='inline mr-3' />  Upload business Portfolio
-                                <input type="file"  onChange={handleFile} hidden />
+                                <input type="file" onChange={handleFile} hidden />
                             </label>
                         </div>
                         <div className='mb-3 text-center col-lg-7'>

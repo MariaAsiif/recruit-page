@@ -27,6 +27,44 @@ const DASAccountSignup = (props) => {
     const handleNext = async () => {
         // props.SignUpData(formData)
 
+        let payloadComp = {
+            "first_name": props.CompData.name,
+            "first_family_name": "Faisal Akaram",
+            "second_family_name": "Faisal Akaram",
+            "third_family_name": "Faisal Akaram",
+            "email": formData.email,
+            "password": formData.password,
+            "phoneNumber": "+923074901291",
+            "channel": "sms",
+            "role": "companytasker",
+            "approved": "approved",
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    74.28911289869138,
+                    31.624848273644956
+                ]
+            },
+            "hourlyrate": 15,
+            "hourlyRateCurrency": "US$",
+            "experience": "5 Years",
+            "taskfeedbacks": [],
+            "taskerSkills": ["6374d33f6d35fc2fbcd4c457"],
+            "tasksassigned": 0,
+            "taskscompleted": 0,
+            "completionrate": 100,
+            "isIndividual": false,
+            "aboutMe": "We are IT Company",
+            "businessName": "DevOps Marks",
+            "industries": [props.CompData.industries],
+            "tasksCategory": [props.CompData.category],
+            "businessProtfolioUrl": props.CompData.logo,
+            "businessLogoUrl": props.CompData.portfolio
+            
+    }
+   
+        
+
             let payload = {
                 "first_name": props.SignData.first_name,
                 "first_family_name": props.SignData.first_family_name,
@@ -60,7 +98,7 @@ const DASAccountSignup = (props) => {
             }
             try {
     
-                let res = await callPublicApi('/users/signup', "post", payload)
+                let res = await callPublicApi('/users/signup', "post", props.role === "individual" ?  payload : payloadComp)
                 if (res.status === "Success") {
                     toast.success(res.message)
                     // setEmailverify(true)

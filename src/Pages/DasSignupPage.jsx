@@ -23,6 +23,7 @@ const DasSignupPage = () => {
     const [formComp, setFormComp] = useState({})
     const navigate = useNavigate()
     const [loginFlow, setLoginFlow] = useState(false);
+    const [role, setRole] = useState("");
     const [emailVerify, setEmailverify] = useState(false);
     const [signupForm, setsignupform] = useState({
         provider: "individualProvider"
@@ -63,11 +64,13 @@ const DasSignupPage = () => {
 
     const SignUpData = (data) => {
         setFormData((prev) => ({ ...prev, ...data }))
+        setRole("individual")
     }
 
 
     const SignUpDataComp = (data) => {
         setFormComp((prev) => ({ ...prev, ...data }))
+
     }
 
 
@@ -122,54 +125,54 @@ const DasSignupPage = () => {
 
     // }
 
-    const CompanySignup = async () => {
-        let payload = {
-            "first_name": formComp.first_name,
-            "first_family_name": formComp.first_family_name,
-            "second_family_name": formComp.second_family_name,
-            "third_family_name": formComp.third_family_name,
-            "email": formData.email,
-            "password": formData.password,
-            "channel": "sms",
-            "role": "individualtasker",
-            "approved": "approved",
-            "location": {
-                "type": "Point",
-                "coordinates": [
-                    74.28911289869138,
-                    31.624848273644956
-                ]
-            },
-            "hourlyrate": 15,
-            "hourlyRateCurrency": "US$",
-            "experience": "5 Years",
-            "taskfeedbacks": [],
-            "taskerSkills": [],
-            "tasksassigned": 0,
-            "taskscompleted": 0,
-            "completionrate": 100,
-            "individualTasker": "",
-            "isIndividual": true,
-            "aboutMe": "I am a backend developer"
+    // const CompanySignup = async () => {
+        // let payload = {
+        //     "first_name": formComp.first_name,
+        //     "first_family_name": formComp.first_family_name,
+        //     "second_family_name": formComp.second_family_name,
+        //     "third_family_name": formComp.third_family_name,
+        //     "email": formData.email,
+        //     "password": formData.password,
+        //     "channel": "sms",
+        //     "role": "individualtasker",
+        //     "approved": "approved",
+        //     "location": {
+        //         "type": "Point",
+        //         "coordinates": [
+        //             74.28911289869138,
+        //             31.624848273644956
+        //         ]
+        //     },
+        //     "hourlyrate": 15,
+        //     "hourlyRateCurrency": "US$",
+        //     "experience": "5 Years",
+        //     "taskfeedbacks": [],
+        //     "taskerSkills": [],
+        //     "tasksassigned": 0,
+        //     "taskscompleted": 0,
+        //     "completionrate": 100,
+        //     "individualTasker": "",
+        //     "isIndividual": true,
+        //     "aboutMe": "I am a backend developer"
 
-        }
-        try {
+        // }
+        // try {
 
-            let res = await callPublicApi('/users/signup', "post", payload)
-            if (res.status === "Success") {
-                toast.success(res.message)
-            }
-            else {
-                toast.error(res.message)
+        //     let res = await callPublicApi('/users/signup', "post", payload)
+        //     if (res.status === "Success") {
+        //         toast.success(res.message)
+        //     }
+        //     else {
+        //         toast.error(res.message)
 
-            }
-        }
-        catch (err) {
-            toast.error(err)
+        //     }
+        // }
+        // catch (err) {
+        //     toast.error(err)
 
-        }
+        // }
 
-    }
+    // }
 
 
 
@@ -198,7 +201,7 @@ const DasSignupPage = () => {
                         <div className='col-lg-12 mt-15'>
                             {
                                 activeStep === "LoginPage" ? <DasSignInPage onNext={(data) => onNext(data)} onLogin={(flowStatus) => onFlowChange(flowStatus)} /> :
-                                    activeStep === "newAccount" ? <DASAccountSignup onNext={onNext} SignUpData={(data) => SignUpData(data)} SignData={formData} /> :
+                                    activeStep === "newAccount" ? <DASAccountSignup onNext={onNext} SignUpData={(data) => SignUpData(data)} SignData={formData} CompData={formComp} role={role} /> :
                                         activeStep === "IdentityVerification" ? <IdentityVerification onNext={onNext} onBack={onBack} flow={loginFlow} /> :
                                             activeStep === "OtpSelection" ? <OtpSelection onNext={onNext} onBack={onBack} /> :
                                                 activeStep === "SmsVerification" ? <SmsVerification onNext={onNext} onBack={onBack} flow={loginFlow} /> :
@@ -207,7 +210,7 @@ const DasSignupPage = () => {
                                                             activeStep === "ReferralLink" ? <ReferralLink onNext={onNext} /> :
                                                                 activeStep === "ProviderSelection" ? <ProviderSelection onNext={onNext} provider={signupForm.provider} onProviderChange={onProviderChange} /> :
                                                                     activeStep === "ProviderInformation" ? <ProviderInformation onNext={onNext} SignUpData={(data) => SignUpData(data)} /> :
-                                                                        activeStep === "TermsAndConditions" ? <TermsAndConditions onNext={onNext}  CompanySignup={CompanySignup}  /> :
+                                                                        activeStep === "TermsAndConditions" ? <TermsAndConditions onNext={onNext}   /> :
                                                                             activeStep === "Result" ? <Result onNext={onNext}  formData={formData} /> :
                                                                                 activeStep === "Assesment" ? <Assesment onNext={onNext} onBack={onBack} /> :
                                                                                     activeStep === "CompanyInformation" ? <CompanyInformation onNext={onNext} SignUpDataComp={(data) => SignUpDataComp(data)} /> :

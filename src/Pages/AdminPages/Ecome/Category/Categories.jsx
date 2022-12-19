@@ -54,17 +54,17 @@ const Categories = () => {
     if (!inspirePopup) {
       (async () => {
         try {
-          const payload = {
-            sortproperty: "created_at",
-            sortorder: -1,
-            offset: 0,
-            limit: 50,
-            query: {
-              critarion: { active: true, "quoteColor": "Red" },
-              addedby: "_id email first_name",
-              lastModifiedBy: "_id email first_name"
+         const payload = {
+            "sortproperty": "createdAt",
+            "sortorder": -1,
+            "offset" : 0,
+            "limit": 15,
+            "query": {
+                "critarion": {"active" : true},
+                "addedby": "_id email first_name",
+                "lastModifiedBy": "_id email first_name"
             }
-          }
+        }
           const response = await callApi("/productcategories/getcategories", "post", payload)
           setallInspires(response.data.categories)
         } catch (error) {
