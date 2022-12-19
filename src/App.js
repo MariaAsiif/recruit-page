@@ -141,6 +141,11 @@ import Statement from "./Pages/EcomePages/Statement";
 import UpItmes from "./Pages/EcomePages/UpItmes";
 import Withdrawals from "./Pages/EcomePages/Withdrawals";
 import MangItems from "./Pages/EcomePages/MangItems";
+import Portable from "./components/LandingPageComponents/Homepage/Portable/Portable";
+import Cultivate from "./Pages/LandingPages/ConstuctionPages/Cultivate";
+import Chillum from "./components/LandingPageComponents/Homepage/Chillums/Chillums";
+import Diaganose from "./components/LandingPageComponents/Homepage/Diagnose/Diaganose";
+import Prescribe from "./Pages/LandingPages/ConstuctionPages/Prescribe";
 // import Agency from "./Pages/LandingPages/Agency/Agency";
 
 const RequireAuth = ({ children }) => {
@@ -180,6 +185,11 @@ function App() {
         <Route path="/locator" element={<LocatehomePage />} />
         <Route path="/userDetail" element={<Detail />} />
         <Route path="/homepage" element={<MainPage />} />
+        <Route path="/portable" element={<Portable />} />
+        <Route path="/cultivate" element={<Cultivate />} />
+        <Route path="/chillum" element={<Chillum />} />
+        <Route path="/diagnose" element={<Diaganose />} />
+        <Route path="/prescribe" element={<Prescribe />} />
         {/* <Route path="/agency" element={<Agency />} /> */}
         <Route path="/stock" element={<Stocks />} />
         <Route path="/newdashboard" element={<NewDashboardPage />} />

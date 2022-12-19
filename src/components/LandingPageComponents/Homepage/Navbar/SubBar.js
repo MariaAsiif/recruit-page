@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 // import { SubBarContainer } from "./StyledNavbar";
-// import { Link, animateScroll as scroll } from "react-scroll";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { Link } from "react-router-dom";
 import "./SubBar.css";
 import TopBar from "../Navbar/TopBar";
@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 const SubBar = ({ setShow }) => {
   // const history = useHistory();
 
-  const {gatePopup } = useSelector((state) =>  state.recruitAuth.userInfo)
+  const { gatePopup } = useSelector((state) => state.recruitAuth.userInfo)
 
   const [navbar, setNavbar] = useState(false);
   const [popup, setPopup] = useState(false);
@@ -58,12 +58,12 @@ const SubBar = ({ setShow }) => {
     <div className="home-page-main-nav-container">
       <Marquee />
       <TopBar setShow={setShow} />
-      { gatePopup === false &&  popup ? (<AgeGatePopup isOpen={popup} onClose={() => { setPopup(false) }} />) : null}
+      {gatePopup === false && popup ? (<AgeGatePopup isOpen={popup} onClose={() => { setPopup(false) }} />) : null}
       <div className={navbar ? "hporx-header" : "hporx-header-skew "} onClick={() => setPopup(true)} >
         <div className={navbar ? "hporx-header-topbar-skew" : navbarbackground ? "changetopBArbackgournd" : "hporx-header-topbar-normal"} ></div>
         <nav className={navbarbackground ? "nav" : "changebackground"} id="navbar"  >
           <div className="nav-content bscontainer-fluid">
-            <ul className="ruby-menu">
+            <ul className="ruby-menu cursor-pointer">
               <li className="main-li uppercase" >
                 <Link className="active" to="HOME" spy={true} smooth={true} duration={500}    > HOME{" "} </Link>
               </li>
@@ -246,29 +246,65 @@ const SubBar = ({ setShow }) => {
                 </a>
               </li> */}
               <li className="main-li uppercase">
-                <Link activeClass="active" to="" spy={true} smooth={true} offset={-70} duration={500}   >
+                <ScrollLink
+                  activeClass="active"
+                  to="VAPORIZE"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}   >
                   PORTABLES
-                </Link>
+                </ScrollLink>
               </li>
+
+
+
               <li className="main-li uppercase">
-                <Link activeClass="active" to="CHILLUMS" spy={true} smooth={true} offset={-70} duration={500}  >
+                <ScrollLink
+                  activeClass="active"
+                  to="CHILLUMS"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}   >
                   CHILLUMS
-                </Link>
+                </ScrollLink>
               </li>
               <li className="main-li uppercase">
-                <Link activeClass="active" to="CULTIVATE" spy={true} smooth={true} offset={-70} duration={500}  >
+                <ScrollLink
+                  activeClass="active"
+                  to="CULTIVATE"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}   >
                   CULTIVATE
-                </Link>
+                </ScrollLink>
+
               </li>
               <li className="main-li uppercase">
-                <Link activeClass="active" to="DIAGNOSE" spy={true} smooth={true} offset={-70} duration={500} >
-                  DIAGNOSE{" "}
-                </Link>
+                <ScrollLink
+                  activeClass="active"
+                  to="DIAGNOSE"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}   >
+                  DIAGNOSE
+                </ScrollLink>
+
               </li>
               <li className="main-li uppercase" >
-                <Link activeClass="active" to="PRESCRIBE" spy={true} smooth={true} offset={-70} duration={500} >
-                  PRESCRIBE{" "}
-                </Link>
+                <ScrollLink
+                  activeClass="active"
+                  to="PRESCRIBE"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}   >
+                  PRESCRIBE
+                </ScrollLink>
+               
               </li>
               <li className="main-li uppercase">
                 <a href="#" className="flex items-center">PRODUCTS <RiArrowDropDownLine className="text-[30px]" /></a>
