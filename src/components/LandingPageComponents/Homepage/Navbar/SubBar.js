@@ -108,17 +108,12 @@ const SubBar = ({ setShow }) => {
                           <Link to="/Home">Home</Link>
                         </span>
                         <span>
-                          <Link to="/">About Us</Link>
+                          <Link to="/recruit">Recruit</Link>
                         </span>
                         <span>
-                          <Link to="/">Quick Cv</Link>
+                          <Link to="/signin">Hire Talent</Link>
                         </span>
-                        <span>
-                          <Link to="/">Whats Next</Link>
-                        </span>
-                        <span>
-                          <Link to="/signup">Register Yourself</Link>
-                        </span>
+                       
                       </div>
 
                     </div>

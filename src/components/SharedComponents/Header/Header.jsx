@@ -53,7 +53,7 @@ const Header = () => {
                             <NavLink to="/login" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')} >Admin login</NavLink>
                         </li> */}
                         <li className="px-2 py-2 nav-item lg:py-0 ">
-                            <NavLink to="/cv" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')} >Quick CV</NavLink>
+                            <NavLink to="/recruit" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')} >Quick CV</NavLink>
                         </li>
                         <li className="px-2 py-2 nav-item lg:py-0 ">
                             <NavLink to="/next" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')} >What's Next</NavLink>

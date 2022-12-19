@@ -2,6 +2,7 @@ import React from 'react'
 import { FcCheckmark } from 'react-icons/fc'
 import { IoMdMail } from 'react-icons/io'
 import { BiShareAlt } from 'react-icons/bi'
+import { Link } from 'react-router-dom'
 const Detail = () => {
     return (
         <div className='bscontainer'>
@@ -82,10 +83,10 @@ const Detail = () => {
                 <div className='col-lg-3 col-md-6 md:order-2 order-1'>
 
                     <div className='flex justify-center flex-col lg:ml-5  text-center'>
-                        <buton className="flex border justify-center  h-[40px] w-full items-center text-[14px] bg-[#DB4446] rounded-md text-white">
+                        <Link to="/recruit" className="flex border justify-center  h-[40px] w-full items-center text-[14px] bg-[#DB4446] rounded-md text-white">
                             <IoMdMail className='mr-3 text-[20px]' />
                             Apply Now
-                        </buton>
+                        </Link>
                         <buton className="flex justify-between border-[#DB4446] border-2 mt-3 pl-4 h-[40px] w-full items-center text-[14px] text-[#DB4446] rounded-md">
                             Share Now
                             <BiShareAlt className='mr-3 text-[20px]' />

@@ -38,7 +38,7 @@ const Banner = () => {
                         </Translator>
                         <p className='text-[#646464] font-sans text-base font-normal leading-7 lg:mb-16 mb-5 lg:text-left text-center'>A paragraph is a series of sentences that are organized and coherent, and are all related to a single topic.Almost every piece of writing you do that is longer than a few sentences should be organized into paragraphs </p>
 
-                        <Link to="/recruit" className='bg-[#e84025] hover:bg-[#93C234] hover:text-white hover:border-white mr-7 rounded-xl border border-[#E84025] px-6 py-4 text-white font-oxygen font-bold'>Hire Talent</Link>
+                        <Link to="/signin" className='bg-[#e84025] hover:bg-[#93C234] hover:text-white hover:border-white mr-7 rounded-xl border border-[#E84025] px-6 py-4 text-white font-oxygen font-bold'>Hire Talent</Link>
                         <Link to="/joinus">
                             <button className='bg-white rounded-xl hover:bg-[#93C234] hover:text-white hover:border-white border border-[#E84025] px-6 py-4 text-[#E84025] font-oxygen font-bold lg:float-none float-right'>Browse Job</button>
                         </Link>
