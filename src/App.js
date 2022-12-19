@@ -137,6 +137,10 @@ import Store from "./Pages/EcomePages/Store";
 import PublicBetaSignUp from "./Pages/PublicBetaSignUp";
 import Product from "./Pages/products/products";
 import Wishlist from "./Pages/EcomePages/Wishlist";
+import Statement from "./Pages/EcomePages/Statement";
+import UpItmes from "./Pages/EcomePages/UpItmes";
+import Withdrawals from "./Pages/EcomePages/Withdrawals";
+import MangItems from "./Pages/EcomePages/MangItems";
 // import Agency from "./Pages/LandingPages/Agency/Agency";
 
 const RequireAuth = ({ children }) => {
@@ -238,6 +242,10 @@ function App() {
         <Route path="/e-product-info" element={<ProductInfo />} />
         <Route path="/fairman-online" element={<Store />} />
         <Route path="/e-whishlist" element={<Wishlist />} />
+        <Route path="/e-statement" element={<Statement />} />
+        <Route path="/e-uploaditem" element={<UpItmes />} />
+        <Route path="/e-manageitem" element={<MangItems />} />
+        <Route path="/e-withdrawal" element={<Withdrawals />} />
         
         {/* <Route index path="customer-dashboard" element={<Sidebar />} /> */}
 

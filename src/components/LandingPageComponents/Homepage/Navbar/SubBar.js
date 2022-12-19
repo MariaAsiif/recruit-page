@@ -75,10 +75,13 @@ const SubBar = ({ setShow }) => {
                       {/* <h3 className="text-[20px] font-medium">recruit</h3> */}
                       <div className="flex flex-col justify-start items-start cursor-pointer">
                         <span>
-                          <Link to="/stock">Store</Link>
+                          <Link to="/e-landing">Home</Link>
                         </span>
                         <span>
-                          <Link to="/e-store">Store 2</Link>
+                          <Link to="/stock">Goods Store</Link>
+                        </span>
+                        <span>
+                          <Link to="/fairman-online">Fairman Online</Link>
                         </span>
                         <span>
                           <Link to="/e-dashboard">Vendor Dashboard</Link>

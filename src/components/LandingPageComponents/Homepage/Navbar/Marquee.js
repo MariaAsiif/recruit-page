@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import Marquee from "react-fast-marquee";
 import "./offCanvas.css";
-// import marqee from "../../../assets/tickerlogo.png";
+// import marqee from "../../../../assets/landingImages/3d.jpg";
 import { useState } from "react";
 import { callPublicApi, HOSTNAME } from "../../../../utils/CallApi";
 
@@ -102,8 +102,9 @@ const MarqueeView = () => {
             <span style={{ display: "inline-block", margin: "0 2px" }} key={i}>
               <img
                 className="marq-logo"
-                style={{ verticalAlign: "bottom" }}
+                style={{ verticalAlign: "bottom" ,width:'30px' , objectFit:'cover' }}
                 src={`${HOSTNAME}${ticker.logoFile}`}
+                // src={marqee}
                 alt={"aly"}
               />
             </span>

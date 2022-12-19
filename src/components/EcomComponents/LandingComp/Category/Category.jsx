@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FiDivideCircle } from 'react-icons/fi'
 import { GiMilkCarton, GiSpookyHouse, GiHealthCapsule } from 'react-icons/gi'
 import { IoShirt } from 'react-icons/io5'
@@ -9,35 +9,45 @@ import { Card } from 'react-bootstrap'
 import { CustomCardContainer } from './StyleCategory'
 import star from "../../../../assets/landingImages/icons/star.png";
 import dp_img from "../../../../assets/landingImages/ViewToday.png";
-import axios from 'axios'
-import { BASE_URL, GET_PRODUCTS, IMAGE_URL } from '../../../../utils/config'
-import { useQuery } from "react-query";
-// import { Swiper, SwiperSlide } from "swiper/react";
 import { RiShoppingCartLine } from 'react-icons/ri'
+import { callPublicApi } from '../../../../utils/CallApi'
 
 const Category = () => {
+    const [category, setCategory] = useState([])
+    let categoryList = ["Clothing", "Animals", "Personal Electronics & Electric Mobility", "Beverages"]
+    useEffect(() => {
+        let fetchLists = async () => {
+            let option = {
 
-    const {
-        data: productData,
-        isSuccess: stateIsSuccess,
-        isLoading: stateIsLoading,
-        isFetching: stateIsFetching,
-        error: stateError,
-        isError: stateIsError,
-    } = useQuery(
-        "products",
-        () => {
-            return axios.get(BASE_URL + GET_PRODUCTS);
-        },
-        {
-            refetchInterval: false,
-            refetchOnWindowFocus: "false",
-            keepPreviousData: "false",
-            select: (data) =>
-                data.data.data.filter((item) => item.productType === "trending"),
-            enabled: true,
+                "sortproperty": "createdAt",
+                "sortorder": -1,
+                "offset": 0,
+                "limit": 100,
+                "query": {
+                    "critarion": { "active": true },
+
+                    "addedby": "_id email first_name",
+
+                    "lastModifiedBy": "_id email first_name"
+                }
+            }
+            try {
+
+                let res = await callPublicApi('/productsOfStore/getProductsWithFullDetailsPublic', 'post', option)
+                if (res.status === "Success") {
+                    setCategory(res?.data?.productsOfProductsOfStores)
+                    // let arr  
+                    // let pr = category.filter((f , i) => {
+                    //     if()
+                    // } )
+                }
+            }
+            catch (err) {
+                console.log("err", err)
+            }
         }
-    );
+        fetchLists()
+    }, [])
 
     var settings = {
         arrows: false,
@@ -158,9 +168,9 @@ const Category = () => {
                     </div>
                     <div className='col-lg-9'>
                         <Slider {...settings} className="trendingNow-slick">
-                            {!stateIsLoading &&
-                                productData?.map((item, index) => (
-                                    <div className=''>
+                            {
+                                category?.map((item, index) => (
+                                    <div className='' key={index}>
                                         <CustomCardContainer>
                                             <Card className="customCard " >
                                                 <div className="customCard-body ">
@@ -168,19 +178,19 @@ const Category = () => {
                                                         <img
                                                             // onClick={() => setModalShow(true)}
                                                             className="main-img"
-                                                            src={IMAGE_URL + item.productImage}
+                                                            src={item?.pictureLink1}
                                                             alt="Trending-Now"
                                                         />
                                                         <img
                                                             // onClick={() => setModalShow(true)}
                                                             className="main-img img_hover"
-                                                            src={dp_img}
+                                                            src={item?.pictureLink1}
                                                             alt="Trending-Now"
                                                         />
                                                     </div>
                                                     <div className="content relative">
                                                         <div className="text-[14px] font-medium">
-                                                            <h1>{add3Dots(item.title, 30)}</h1>
+                                                            <h1>{add3Dots(item.nameofProduct, 30)}</h1>
 
                                                         </div>
                                                         <div className="flex justify-between">

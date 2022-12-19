@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import OtpInput from 'react-otp-input';
 // import { callApiRecuit } from '../../utils/CallApi';
 import { toast, ToastContainer } from 'react-toastify';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../Redux/RecruitAuthSlice/RecruitAuthSlice'
 const EmailVerify = ({ handleClose }) => {
 
@@ -13,6 +13,8 @@ const EmailVerify = ({ handleClose }) => {
     }
 
 
+
+    let dispatch = useDispatch()
     let user = useSelector((state) => state.recruitAuth.userInfo)
 
 
@@ -28,8 +30,8 @@ const EmailVerify = ({ handleClose }) => {
         //     toast.success(res.success)
         // if (user?.verify === emailotp) {
             handleClose()
-            toast.success("Email is verification done ")
-            updateUser(true)
+            toast.success("Email is verified ")
+            dispatch(updateUser(false))
         // }
         // else {
         //     toast.error("Otp is not Valid")

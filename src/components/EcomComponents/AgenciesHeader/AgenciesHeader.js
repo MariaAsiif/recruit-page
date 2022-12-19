@@ -37,12 +37,12 @@ const AgenciesHeader = () => {
                         <input
                           type="search"
                           id="search-dropdown"
-                          className=" p-2.5 w-[360px] z-20 text-sm text-gray-900 bg-white rounded-md    pr-2  dark:placeholder-gray-400 dark:text-white focus:outline-none"
+                          className=" p-2.5 w-[500px] z-20 text-sm text-gray-900 bg-white rounded-md    pr-2  dark:placeholder-gray-400 dark:text-white focus:outline-none"
                           placeholder="Search for Item"
                           required=""
                         />
 
-                        <button
+                        {/* <button
                           id="dropdown-button"
                           data-dropdown-toggle="dropdown"
                           className="flex-shrink-0 z-10 lg:w-[50%] 2xl:w-auto  md:w-[220px] sm:w-[200px]  inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-white border-l   focus:outline-none 00 dark:text-white "
@@ -113,7 +113,7 @@ const AgenciesHeader = () => {
                               </button>
                             </li>
                           </ul>
-                        </div>
+                        </div> */}
                         <button
                           type="submit"
                           className="p-2.5 h-full px-4 rounded-r-lg text-sm font-medium text-white bg-[#24D29F]   focus:outline-none focus:ring-blue-300 "

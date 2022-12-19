@@ -21,7 +21,7 @@ const HomePage = () => {
     // }, [])
     return (
         <Layout>
-            {showAgeGatePopup ? (<AgeGatePopup isOpen={showAgeGatePopup} onClose={() => { setshowAgeGatePopup(false) }} />) : null}
+            {/* {showAgeGatePopup ? (<AgeGatePopup isOpen={showAgeGatePopup} onClose={() => { setshowAgeGatePopup(false) }} />) : null} */}
 
             <Banner />
             <div >

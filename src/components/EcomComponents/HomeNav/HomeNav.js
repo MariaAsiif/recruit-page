@@ -35,7 +35,7 @@ const HomeNav = ({ title }) => {
                 >
                   <div className={`flex items-center ${location.pathname === "/e-dashboard" ? "active" : ""}`}>
                     <BiHomeAlt className="mx-1" />
-                    Dashboard
+                     Dashboard
                   </div>
                 </Link>
               </li>
@@ -74,7 +74,7 @@ const HomeNav = ({ title }) => {
               <li className="nav-itemlist">
                 <Link
 
-                  to="CHILLUMS"
+                  to="/e-statement"
                   spy={true}
                   smooth={true}
                   offset={-70}
@@ -89,13 +89,16 @@ const HomeNav = ({ title }) => {
               <li className="nav-itemlist">
                 <Link
 
-                  to="CULTIVATE"
+                  to="/e-uploaditem"
                   spy={true}
                   smooth={true}
                   offset={-70}
                   duration={500}
                 >
-                  <div className={`flex items-center ${location.pathname === "/e-upload" ? "active" : ""}`}>
+                
+                
+                
+                  <div className={`flex items-center ${location.pathname === "/e-uploaditem" ? "active" : ""}`}>
                   <AiOutlineCloudUpload className="mx-1" />
                     Upload Items
                   </div>
@@ -104,13 +107,13 @@ const HomeNav = ({ title }) => {
               <li className="nav-itemlist">
                 <Link
 
-                  to="DIAGNOSE"
+                  to="/e-manageitem"
                   spy={true}
                   smooth={true}
                   offset={-70}
                   duration={500}
                 >
-                  <div className={`flex items-center ${location.pathname === "/e-items" ? "active" : ""}`}>
+                  <div className={`flex items-center ${location.pathname === "/e-manageitem" ? "active" : ""}`}>
                     <FiEdit className="mx-1" />
                     Manage Items
                   </div>
@@ -119,13 +122,13 @@ const HomeNav = ({ title }) => {
               <li className="nav-itemlist">
                 <Link
 
-                  to="PRESCRIBE"
+                  to="/e-withdrawal"
                   spy={true}
                   smooth={true}
                   offset={-70}
                   duration={500}
                 >
-                  <div className={`flex items-center ${location.pathname === "/e-withdral" ? "active" : ""}`}>
+                  <div className={`flex items-center ${location.pathname === "/e-withdrawal" ? "active" : ""}`}>
                     <FaPrescriptionBottle className="mx-1" />
                     Withdrawals
                   </div>

@@ -612,28 +612,28 @@ const SidebarObj = () => {
           ],
         },
 
-        {
-          label: 'Manage I Products',
-          leftIcon: <MdOutlinePolicy size={22} />,
-          activeLeftIcon: (
-            <MdOutlinePolicy size={22} className='text-green-500 ' />
-          ),
-          rightIcon: 'sadf',
-          path: '/product',
-          pathname: 'product',
-          subMenuItems: [
-            {
-              label: 'All Products',
-              path: '/product',
-              subMenuItems: [],
-            },
-            {
-              label: 'Create Policy',
-              path: '/policy/create-policy',
-              subMenuItems: [],
-            },
-          ],
-        },
+        // {
+        //   label: 'Manage I Products',
+        //   leftIcon: <MdOutlinePolicy size={22} />,
+        //   activeLeftIcon: (
+        //     <MdOutlinePolicy size={22} className='text-green-500 ' />
+        //   ),
+        //   rightIcon: 'sadf',
+        //   path: '/product',
+        //   pathname: 'product',
+        //   subMenuItems: [
+        //     {
+        //       label: 'All Products',
+        //       path: '/product',
+        //       subMenuItems: [],
+        //     },
+        //     {
+        //       label: 'Create Policy',
+        //       path: '/policy/create-policy',
+        //       subMenuItems: [],
+        //     },
+        //   ],
+        // },
         {
           label: 'Manage I Policy',
           leftIcon: <MdOutlinePolicy size={22} />,
