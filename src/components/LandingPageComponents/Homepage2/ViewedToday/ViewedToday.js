@@ -2,35 +2,19 @@ import React from "react";
 import { ViewTodayStyle } from "./StyleViewToday";
 import { Placeholder } from "react-bootstrap";
 import Slider from "react-slick";
-import { BASE_URL, GET_PRODUCTS, IMAGE_URL } from "../../../../utils/config";
-import axios from "axios";
-import { useQuery } from "react-query";
 import AdCard from "../../Globals/AdCard";
-
+import ad1 from '../../../../assets/Stocks/ads-1.png'
+import ad2 from '../../../../assets/Stocks/ads-2.png'
+import ad3 from '../../../../assets/Stocks/ads-3.png'
+import usa from "../../../../assets/landingImages/usa.png";
+import flag from '../../../../assets/landingImages/flag.svg'
 function ViewedToday({ heading, section }) {
   // const viewTodayImgs = [ViewToday, ViewToday, ViewToday, ViewToday, ViewToday, ViewToday]
 
-  const {
-    data: viewTodayImgs,
-    isSuccess: stateIsSuccess,
-    isLoading: stateIsLoading,
-    isFetching: stateIsFetching,
-    error: stateError,
-    isError: stateIsError,
-  } = useQuery(
-    "products",
-    () => {
-      return axios.get(BASE_URL + GET_PRODUCTS);
-    },
-    {
-      refetchInterval: false,
-      refetchOnWindowFocus: "false",
-      keepPreviousData: "false",
-      select: (data) =>
-        data.data.data.filter((item) => item.productType === section),
-      enabled: true,
-    }
-  );
+
+  const images = [{img : ad1 , flg :usa }  ,{ img: ad2 , flg:flag }, {img: ad3, flg:usa} ]
+
+
 
   var settings = {
     arrows: true,
@@ -70,9 +54,9 @@ function ViewedToday({ heading, section }) {
   };
   return (
     <ViewTodayStyle>
-      <div className="bscontainer-fluid">
+      <div className="bscontainer-fluid mt-[2rem]">
         {/* <div className="main-heading">{heading}</div> */}
-        {stateIsLoading && (
+        {/* {stateIsLoading && (
           <div>
             <Placeholder as="p" animation="glow" size="lg">
               <Placeholder xs={12} />
@@ -85,13 +69,13 @@ function ViewedToday({ heading, section }) {
             </Placeholder>
 
           </div>
-        )}
+        )} */}
         {/* <ViewTodaySlick></ViewTodaySlick> */}
         <Slider {...settings} className="viewToday-slick">
-          {!stateIsLoading &&
-            viewTodayImgs && viewTodayImgs.length > 0 ? viewTodayImgs.map((item, index) => (
-              <div key={index} className="view-today">
-                <AdCard img={item.productImage} />
+          {
+            images && images.length > 0 ? images.map((item, index) => (
+              <div key={index} className="view-today ">
+                <AdCard item={item}  />
               </div>
 
             ))

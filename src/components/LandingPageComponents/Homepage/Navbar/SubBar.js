@@ -68,7 +68,7 @@ const SubBar = ({ setShow }) => {
                 <Link className="active" to="HOME" spy={true} smooth={true} duration={500}    > HOME{" "} </Link>
               </li>
               <li className="main-li uppercase">
-                <a href="#" className="flex items-center">MARKETPLACE <RiArrowDropDownLine className="text-[30px]" /></a>
+                <Link to="/e-landing" className="flex items-center">MARKETPLACE <RiArrowDropDownLine className="text-[30px]" /></Link>
                 <div className="show !w-auto p-3">
                   <div className="row">
                     <div className="col-lg-4  p-2 pl-5 flex items-baseline flex-col">
@@ -78,13 +78,13 @@ const SubBar = ({ setShow }) => {
                           <Link to="/e-landing">Home</Link>
                         </span>
                         <span>
-                          <Link to="/stock">Goods Store</Link>
-                        </span>
-                        <span>
                           <Link to="/fairman-online">Fairman Online</Link>
                         </span>
                         <span>
                           <Link to="/e-dashboard">Vendor Dashboard</Link>
+                        </span>
+                        <span>
+                          <Link to="/stock">Stock</Link>
                         </span>
 
                       </div>

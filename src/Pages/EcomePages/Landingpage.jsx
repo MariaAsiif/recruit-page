@@ -16,6 +16,7 @@ import interOrg3 from "../../assets/landingImages/interOrg3.svg";
 import interOrg4 from "../../assets/landingImages/interOrg4.svg";
 import interOrg5 from "../../assets/landingImages/interOrg5.svg";
 import Layout from '../../components/EcomComponents/Layout/Layout';
+import ViewedToday from '../../components/LandingPageComponents/Homepage2/ViewedToday/ViewedToday';
 const Landingpage = () => {
     const trustedOrganizations = [
         interOrg1,
@@ -33,12 +34,15 @@ const Landingpage = () => {
             <Trending section='trending' />
             <Shopping />
             <Category />
+            <ViewedToday/> 
             <div className='mt-6 bg-[#149F76] p-3 text-center text-white'>
                 <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit facilis </h2>
             </div>
             <Deals />
             <Banner />
             <Products />
+            <ViewedToday/> 
+
             <News />
             <Sales />
             <TrustedSuppliers imgs={trustedOrganizations}/>
