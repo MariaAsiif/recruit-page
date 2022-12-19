@@ -16,7 +16,7 @@ import DASAccountSignup from '../components/DASComponents/AccountSignup'
 import QrVideoProcess from '../components/DASComponents/QrVideoProcess'
 import { useNavigate } from 'react-router-dom'
 import { callPublicApi } from '../utils/CallApi'
-import { toast } from 'react-toastify'
+import { toast , ToastContainer} from 'react-toastify'
 const DasSignupPage = () => {
     const [activeStep, setactiveStep] = useState("LoginPage")
     const [formData, setFormData] = useState({})
@@ -175,6 +175,17 @@ const DasSignupPage = () => {
 
     return (
         <div className='h-screen p-0 bscontainer-fluid'>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <div className='lg:h-full row g-0'>
                 <div className='h-20 bg-bottom bg-no-repeat bg-cover lg:h-auto col-lg-4 bg-login-img '>  </div>
                 <div className='col-lg-8'>
@@ -185,7 +196,7 @@ const DasSignupPage = () => {
                         <div className='col-lg-12 mt-15'>
                             {
                                 activeStep === "LoginPage" ? <DasSignInPage onNext={(data) => onNext(data)} onLogin={(flowStatus) => onFlowChange(flowStatus)} /> :
-                                    activeStep === "newAccount" ? <DASAccountSignup onNext={onNext} SignUpData={(data) => SignUpData(data)}  /> :
+                                    activeStep === "newAccount" ? <DASAccountSignup onNext={onNext} SignUpData={(data) => SignUpData(data)} /> :
                                         activeStep === "IdentityVerification" ? <IdentityVerification onNext={onNext} onBack={onBack} flow={loginFlow} /> :
                                             activeStep === "OtpSelection" ? <OtpSelection onNext={onNext} onBack={onBack} /> :
                                                 activeStep === "SmsVerification" ? <SmsVerification onNext={onNext} onBack={onBack} flow={loginFlow} /> :

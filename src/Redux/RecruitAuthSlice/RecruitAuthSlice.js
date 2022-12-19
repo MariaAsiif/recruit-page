@@ -43,13 +43,7 @@ export const RecruitAuthSlice = createSlice({
         },
         updateUser: (state, action) => {
             debugger
-            console.log("action", action)
-            return {
-                ...state , 
-                userInfo: { 
-                    ...state , 
-                    gatePopup: action.payload }
-            }
+            state.userInfo = { ...state.userInfo,  gatePopup :  action.payload };
         }
     },
 })

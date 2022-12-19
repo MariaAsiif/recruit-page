@@ -15,7 +15,7 @@ const EmailVerify = ({ handleClose }) => {
 
 
     let dispatch = useDispatch()
-    let user = useSelector((state) => state.recruitAuth.userInfo)
+    // let user = useSelector((state) => state.recruitAuth.userInfo)
 
 
     const onSubmit = async (e) => {
@@ -28,15 +28,15 @@ const EmailVerify = ({ handleClose }) => {
         // let res = await callApiRecuit('/users/verify-code', 'post', value)
         // if (res.status === "Success") {
         //     toast.success(res.success)
-        // if (user?.verify === emailotp) {
+        if ( emailotp?.length === 4 ) {
             handleClose()
             toast.success("Email is verified ")
-            dispatch(updateUser(false))
-        // }
-        // else {
-        //     toast.error("Otp is not Valid")
+            dispatch(updateUser(true))
+        }
+        else {
+            toast.error("Otp is Required")
 
-        // }
+        }
         //     }
         //     else {
         //         toast.error(res.error)

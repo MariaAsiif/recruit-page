@@ -78,7 +78,7 @@ const CompanyInformation = (props) => {
             let name = e.target.name
             const formData = new FormData()
             formData.append('file', file)
-            let res = await callApi('/uploads/uploadProductImgs', "post", formData)
+            let res = await callPublicApi('/uploads/uploadProductImgs', "post", formData)
             if (res) {
                 console.log("Res", res)
                 if (name === "logo") {
@@ -100,7 +100,7 @@ const CompanyInformation = (props) => {
 
     const onSubmit = async (data) => {
 
-        // props?.SignUpDataComp(data)
+        props?.SignUpDataComp(data)
         props.onNext('ReferralLink')
 
     }
@@ -125,15 +125,15 @@ const CompanyInformation = (props) => {
                 <p className='text-[#626973] text-center font-sans text-[10px] mb-2'>Please share complete details about your business</p>
                 <div className='flex justify-center mb-4'>
                     <div class=" w-auto ">
-                        <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#E84125]'>
+                        <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#42946C]'>
                             <FaRegUser size={15} className='inline text-white' />
                         </div>
                     </div>
                     <div class=" w-[20%] flex items-center">
-                        <div className='w-full h-[1px] bg-[#42946C]'></div>
+                        <div className='w-full h-[1px] bg-[#E84125]'></div>
                     </div>
                     <div class=" w-auto ">
-                        <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#42946C]'>
+                        <div className='p-1 flex m-auto justify-center items-center rounded-[50%] w-7 h-7 bg-[#E84125]'>
                             <FaUnlockAlt size={15} className='inline text-white' />
                         </div>
                     </div>
