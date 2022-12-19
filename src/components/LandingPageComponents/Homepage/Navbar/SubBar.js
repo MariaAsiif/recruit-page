@@ -58,7 +58,7 @@ const SubBar = ({ setShow }) => {
     <div className="home-page-main-nav-container">
       <Marquee />
       <TopBar setShow={setShow} />
-      { gatePopup === true &&  popup ? (<AgeGatePopup isOpen={popup} onClose={() => { setPopup(false) }} />) : null}
+      { gatePopup === false &&  popup ? (<AgeGatePopup isOpen={popup} onClose={() => { setPopup(false) }} />) : null}
       <div className={navbar ? "hporx-header" : "hporx-header-skew "} onClick={() => setPopup(true)} >
         <div className={navbar ? "hporx-header-topbar-skew" : navbarbackground ? "changetopBArbackgournd" : "hporx-header-topbar-normal"} ></div>
         <nav className={navbarbackground ? "nav" : "changebackground"} id="navbar"  >

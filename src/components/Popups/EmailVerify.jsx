@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import OtpInput from 'react-otp-input';
 // import { callApiRecuit } from '../../utils/CallApi';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../Redux/RecruitAuthSlice/RecruitAuthSlice'
 const EmailVerify = ({ handleClose }) => {
@@ -52,17 +52,7 @@ const EmailVerify = ({ handleClose }) => {
 
     return (
         <div>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+           
             <div className='w-full lg:px-20 text-center  px-2 py-5'>
                 <h1 className='text-white font-light text-center text-2xl mb-5'>Verify Email & Email Address
                     <br />

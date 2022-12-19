@@ -4,6 +4,7 @@ import Email from './Email'
 import EmailVerify from './EmailVerify'
 // import PhoneVerification from './PhoneVerify'
 import logo from '../../images/Logo1.svg'
+import { ToastContainer } from 'react-toastify';
 
 const AgeGatePopup = (props) => {
     const [activeIndex, setActiveIndex] = useState(0)
@@ -16,26 +17,38 @@ const AgeGatePopup = (props) => {
 
 
     return (
+
         <div style={{ display: props.isOpen ? "block" : "", background: "#00000091" }} className="modal fade show fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <div className="modal-dialog  modal-xl relative w-auto pointer-events-none">
                 <div className="modal-content   border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
 
                     <div className='bscontainer-fluid bg-[#00492C] rounded-md'>
                         <div className='row h-16 '>
                             <div className='col-lg-6'>
-                               <img src={logo} className="w-[20%] mt-3" alt="logo_img"/>
+                                <img src={logo} className="w-[20%] mt-3" alt="logo_img" />
                             </div>
                             <div className='col-lg-6 '>
 
                                 <div className='flex flex-wrap justify-center lg:mt-4 lg:pt-3 items-center lg:px-14 px-1 lg:mb-12 mb-5'>
 
                                     <div className={`${activeIndex === 0 && 'w-[22px] h-[22px] text-center relative rounded-full border border-white'}`}>
-                                    <div className={`${activeIndex === 0 ?  ' ml-1 rounded-full border bg-[white] mt-[4px] text-sm  w-[12px] h-[12px] ' :  'rounded-full border bg-[white] mt-[2px] text-sm  w-[12px] h-[12px]'}`}></div>
+                                        <div className={`${activeIndex === 0 ? ' ml-1 rounded-full border bg-[white] mt-[4px] text-sm  w-[12px] h-[12px] ' : 'rounded-full border bg-[white] mt-[2px] text-sm  w-[12px] h-[12px]'}`}></div>
                                     </div>
 
                                     <div className=' border border-white md:w-[25%] md:-ml-2 h-[2px] lg:w-[28%] w-[22.6%]' ></div>
                                     <div className={`${activeIndex === 1 && 'w-[22px] h-[22px]  text-center relative rounded-full border border-white'} 'w-[22px] h-[22px]  mt-[4px] '`}>
-                                    <div className={`${activeIndex === 1 ?  ' ml-1 rounded-full border bg-[white] mt-[3px]  text-sm  w-[12px] h-[12px] ' :  'rounded-full border bg-[white] mt-[2px] text-sm  w-[12px] h-[12px]'}`}></div>
+                                        <div className={`${activeIndex === 1 ? ' ml-1 rounded-full border bg-[white] mt-[3px]  text-sm  w-[12px] h-[12px] ' : 'rounded-full border bg-[white] mt-[2px] text-sm  w-[12px] h-[12px]'}`}></div>
                                     </div>
                                     {/* <div className=' border border-white md:w-[25%] md:-ml-2 h-[2px] lg:w-[28%] w-[22.6%]' ></div>
                                     <div className={`${activeIndex === 2 && 'w-[22px] h-[22px] text-center relative rounded-full border border-white'} 'w-[22px] h-[22px]  mt-[4px] '`}>
@@ -83,7 +96,7 @@ const AgeGatePopup = (props) => {
                             <div className='col-lg-6 flex items-center'>
                                 {/* {activeIndex === 0 && <CountryState handleNext={handleIndex} />} */}
                                 {activeIndex === 0 && <Email handleNext={handleIndex} />}
-                                {activeIndex === 1 && <EmailVerify handleNext={handleIndex}  handleClose={props.onClose} />}
+                                {activeIndex === 1 && <EmailVerify handleNext={handleIndex} handleClose={props.onClose} />}
                                 {/* {activeIndex === 3 && <PhoneVerification handleClose={props.onClose} handleNext={handleIndex} />} */}
 
                             </div>
