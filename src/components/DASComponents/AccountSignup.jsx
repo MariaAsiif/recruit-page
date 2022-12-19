@@ -3,6 +3,8 @@ import { FaCheckCircle, FaCheckDouble, FaEnvelope, FaLock, FaRegUser, FaUnlockAl
 import { IoChevronForward } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 import social_group_2x from '../../images/social_group_2x.png'
+import { toast } from 'react-toastify'
+import { callPublicApi } from '../../utils/CallApi'
 const DASAccountSignup = (props) => {
 
     const [formData, setFormData] = useState({
@@ -22,11 +24,62 @@ const DASAccountSignup = (props) => {
     }
 
 
-    const handleNext = () => {
-        props.SignUpData(formData)
-        if (props.emailVerify === true) {
-            props.onNext("TermsAndConditions")
-        }
+    const handleNext = async () => {
+        // props.SignUpData(formData)
+
+            let payload = {
+                "first_name": props.SignData.first_name,
+                "first_family_name": props.SignData.first_family_name,
+                "second_family_name": props.SignData.second_family_name,
+                "third_family_name": props.SignData.third_family_name,
+                "email": formData.email,
+                "password": formData.password,
+                "phoneNumber": +9230373323233,
+                "channel": "sms",
+                "role": "individualtasker",
+                "approved": "approved",
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        74.28911289869138,
+                        31.624848273644956
+                    ]
+                },
+                "hourlyrate": 15,
+                "hourlyRateCurrency": "US$",
+                "experience": "5 Years",
+                "taskfeedbacks": [],
+                "taskerSkills": [],
+                "tasksassigned": 0,
+                "taskscompleted": 0,
+                "completionrate": 100,
+                "individualTasker": "",
+                "isIndividual": true,
+                "aboutMe": "I am a backend developer"
+    
+            }
+            try {
+    
+                let res = await callPublicApi('/users/signup', "post", payload)
+                if (res.status === "Success") {
+                    toast.success(res.message)
+                    // setEmailverify(true)
+                    props.onNext("TermsAndConditions")
+                }
+                else {
+                    toast.error(res.message)
+                    
+                }
+            }
+            catch (err) {
+                toast.error(err)
+    
+            }
+    
+
+        // if (props.emailVerify === true) {
+            
+        // }
     }
 
 

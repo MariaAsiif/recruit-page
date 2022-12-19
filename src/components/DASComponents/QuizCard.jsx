@@ -7,16 +7,14 @@ const QuizCard = ({ question, options, callback, curruntQuestion , total }) => {
 
     const HendleChange = (e) => {
         setSelectedAns(e.target.value);
-
-
     }
 
     return (
         <>
-            <h1 className='text-[#626973] font-sans text-lg font-bold mb-2'>Question <span className='text-sm font-normal'>Total : {total}  / {curruntQuestion} </span>
+            <h1 className='text-[#626973] font-sans text-lg font-bold mb-2'>Question <span className='text-sm font-normal'>Total :  {curruntQuestion}  / {total} </span>
             </h1>
             <p className='text-sm pl-4 font-normal text-[#626973] mb-2'>{question}</p>
-            <form onSubmit={(e) => callback(e, selectedAns)
+            <form onSubmit={(e) => callback(e, selectedAns , setSelectedAns)
             }>
                 <ul className='ml-10'>
                     {options?.map((opt, index) => (

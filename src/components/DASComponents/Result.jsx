@@ -2,11 +2,11 @@ import React, { useEffect } from 'react'
 import { FaRegUser, FaUnlockAlt, FaCheckCircle, FaCheckDouble } from "react-icons/fa";
 import { IoChevronForward } from "react-icons/io5";
 const Result = (props) => {
-    useEffect(() => {
-        if (Object.keys(props.formData).length > 0) {
-            props?.OnSubmit()
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (Object.keys(props.formData).length > 0) {
+    //         props?.OnSubmit()
+    //     }
+    // }, [])
     return (
         <div className='w-full px-4 lg:px-16'>
             <div style={{ boxShadow: "0px 3px 6px #00000029" }} className="border border-[#70707045]  pt-4 pb-1 lg:px-6 px-6 rounded-md font-sans">

@@ -3,23 +3,23 @@ import { FaRegUser, FaUnlockAlt, FaCheckCircle, FaCheckDouble } from "react-icon
 import { IoChevronForward } from "react-icons/io5";
 import QuizCard from './QuizCard';
 import { useEffect } from 'react';
-import axios from 'axios';
+import { toast } from 'react-toastify';
 const Assesment = (props) => {
 
     const [assessmentQuestions, setAssessmentQuestions] = useState([])
     const [currentQuestion, setCurrentQuestion] = useState(assessmentQuestions[0]);
     let [currentStep, setCurrentStep] = useState(1)
     const [count, setCount] = useState(1);
-    const shuffleArray = (array)=>[...array].sort(()=>Math.random() - 0.5);
+    const shuffleArray = (array) => [...array].sort(() => Math.random() - 0.5);
 
     useEffect(() => {
         let fetchData = async () => {
             const res = await fetch(`https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple`)
             let { results } = await res.json();
             // setAssessmentQuestions(results)
-            console.log("rs" , results)
-            const quiz = results.map((questionObj)=>{
-                return{
+            console.log("rs", results)
+            const quiz = results.map((questionObj) => {
+                return {
                     question: questionObj.question,
                     answer: questionObj.correct_answer,
                     correct_answer: questionObj.correct_answer,
@@ -27,21 +27,27 @@ const Assesment = (props) => {
                 }
             })
             setAssessmentQuestions(quiz)
-           
+
         }
         fetchData()
     }, [])
 
 
-    const handleSubmit = (e, ans) => {
+    const handleSubmit = (e, ans  , setSelectedAns) => {
         e.preventDefault();
         console.log("ans", ans)
         let len = assessmentQuestions.length - 1
-        if (currentStep !== len) {
-          setCurrentStep(++currentStep);
+        if (ans !== "") {
+            if (currentStep !== len) {
+                setCurrentStep(++currentStep);
+                setSelectedAns("")
+            }
+            else {
+                props.onNext("IdentityVerification")
+            }
         }
-        else{
-            props.onNext("IdentityVerification")
+        else {
+            toast.error('Select one')
         }
 
 
