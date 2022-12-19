@@ -331,15 +331,11 @@ const SubBar = ({ setShow }) => {
                           <a target="_blank" href="https://landing-page-ivory-eta.vercel.app/agency">Home</a>
                         </span>
                         <span>
-                          <Link to="/newdashboard">Service provider</Link>
-                        </span>
-                        <span>
-                          <Link to="/orders">Orders</Link>
-                        </span>
-                        <span>
                           <Link to="/das">Register</Link>
                         </span>
-
+                        <span>
+                          <Link to="/newdashboard">Dashboard</Link>
+                        </span>
                       </div>
 
                     </div>

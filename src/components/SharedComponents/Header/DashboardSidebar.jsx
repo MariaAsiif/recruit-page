@@ -79,11 +79,11 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                                 <div className='flex '>
                                    
                                     <NavLink
-                                        end to="/dashboard/new-job" className={`block text-slate-200 ml-2 hover:text-white truncate transition duration-150 `} >
+                                        end to="/dashboard/new-job" className={`block text-slate-200 ml-2  truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="grow flex items-center">
-                                                <AiOutlineAppstore size={24} className={` "text-[#999FA9]"} `} />
-                                                <span className={` "text-[#999FA9] font-light"} text-sm ml-3  lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Dashboard</span>
+                                                <AiOutlineAppstore size={24} className={` text-[#999FA9] `} />
+                                                <span className={` text-[#999FA9] font-light text-sm ml-3 `}>Dashboard</span>
                                             </div>
                                         </div>
                                     </NavLink>

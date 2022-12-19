@@ -16,13 +16,14 @@ import DASAccountSignup from '../components/DASComponents/AccountSignup'
 import QrVideoProcess from '../components/DASComponents/QrVideoProcess'
 import { useNavigate } from 'react-router-dom'
 import { callPublicApi } from '../utils/CallApi'
-import { toast , ToastContainer} from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 const DasSignupPage = () => {
     const [activeStep, setactiveStep] = useState("LoginPage")
     const [formData, setFormData] = useState({})
     const [formComp, setFormComp] = useState({})
     const navigate = useNavigate()
     const [loginFlow, setLoginFlow] = useState(false);
+    const [emailVerify, setEmailverify] = useState(false);
     const [signupForm, setsignupform] = useState({
         provider: "individualProvider"
     })
@@ -107,10 +108,11 @@ const DasSignupPage = () => {
             let res = await callPublicApi('/users/signup', "post", payload)
             if (res.status === "Success") {
                 toast.success(res.message)
+                setEmailverify(true)
             }
             else {
                 toast.error(res.message)
-
+                
             }
         }
         catch (err) {
@@ -196,7 +198,7 @@ const DasSignupPage = () => {
                         <div className='col-lg-12 mt-15'>
                             {
                                 activeStep === "LoginPage" ? <DasSignInPage onNext={(data) => onNext(data)} onLogin={(flowStatus) => onFlowChange(flowStatus)} /> :
-                                    activeStep === "newAccount" ? <DASAccountSignup onNext={onNext} SignUpData={(data) => SignUpData(data)} /> :
+                                    activeStep === "newAccount" ? <DASAccountSignup onNext={onNext} SignUpData={(data) => SignUpData(data)} emailVerify={emailVerify} /> :
                                         activeStep === "IdentityVerification" ? <IdentityVerification onNext={onNext} onBack={onBack} flow={loginFlow} /> :
                                             activeStep === "OtpSelection" ? <OtpSelection onNext={onNext} onBack={onBack} /> :
                                                 activeStep === "SmsVerification" ? <SmsVerification onNext={onNext} onBack={onBack} flow={loginFlow} /> :
@@ -205,7 +207,7 @@ const DasSignupPage = () => {
                                                             activeStep === "ReferralLink" ? <ReferralLink onNext={onNext} /> :
                                                                 activeStep === "ProviderSelection" ? <ProviderSelection onNext={onNext} provider={signupForm.provider} onProviderChange={onProviderChange} /> :
                                                                     activeStep === "ProviderInformation" ? <ProviderInformation onNext={onNext} SignUpData={(data) => SignUpData(data)} /> :
-                                                                        activeStep === "TermsAndConditions" ? <TermsAndConditions onNext={onNext} CompanySignup={CompanySignup} /> :
+                                                                        activeStep === "TermsAndConditions" ? <TermsAndConditions onNext={onNext} CompanySignup={CompanySignup}  /> :
                                                                             activeStep === "Result" ? <Result onNext={onNext} OnSubmit={OnSubmit} formData={formData} /> :
                                                                                 activeStep === "Assesment" ? <Assesment onNext={onNext} onBack={onBack} /> :
                                                                                     activeStep === "CompanyInformation" ? <CompanyInformation onNext={onNext} SignUpDataComp={(data) => SignUpDataComp(data)} /> :

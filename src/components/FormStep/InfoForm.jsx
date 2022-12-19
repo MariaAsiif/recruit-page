@@ -150,7 +150,7 @@ const InfoForm = (props) => {
 
     return (
         <div>
-            <div className='row border border-red-400 h-[750px]'>
+            <div className='row   h-[750px]'>
                 <div className='col-lg-3  '>
                     <div className="dropdown relative mb-5">
                         <button className="  w-full bg-white border border-[#6D6E71]  rounded-lg h-full   text-gray-400 dropdown-toggle p-2   focus:outline-blue-400 focus:ring-0 active:border-blue-400   transition duration-150 ease-in-out flex justify-between items-center whitespace-nowrap " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
