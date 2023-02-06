@@ -12,6 +12,7 @@ import OffCanvas from "../Navbar/OffCanvas";
 import Popup from "../Popup/Popup";
 import VideoModal from "../VideoModal/VideoModal";
 import HeroSlider from './HeroSlider'
+import ViewEditProfile from "../../../Popups/ViewEditProfile";
 const apiKey = "AIzaSyDZdA4DKTKNAm6ENnAQMnECsThGWUsUpWw";
 
 const Header = ({ id, value }) => {
@@ -19,7 +20,7 @@ const Header = ({ id, value }) => {
   const locationFound = localStorage.getItem("saveCurentLocation");
 
   const getLocation = JSON.parse(locationFound);
-
+  const [inspirePopup, setinspirePopup] = useState(false)
   const [show, setShow] = useState(false);
   const [modalShow, setModalShow] = React.useState(false);
   const [offNavValue, setOffNavValue] = React.useState(false);
@@ -77,11 +78,14 @@ const Header = ({ id, value }) => {
           )
         }
       />
+      <ViewEditProfile id="job-modal" modalOpen={inspirePopup} onClose={() => setinspirePopup(false)} />
+
       <StyledHero id={id}>
         <OffCanvas
           country={finalCountry}
           handleClose={handleClose}
           show={show}
+          profile={setinspirePopup}
           setShow={setShow}
           sendValue={getValue}
           value={value}

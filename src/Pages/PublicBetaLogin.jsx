@@ -205,7 +205,7 @@ const PublicBetaLogin = () => {
                 </div>
                 <div className='col-lg-7 col-12'>
 
-                    <div className=' lg:text-right mt-4 lg:mt-2 text-center'>
+                    <div className=' lg:text-right mt-4 lg:mt-[3rem] text-center'>
                         <div>
                             <span className='text-[16px] text-bold'>Please Share:</span>
                             <span className='lg:mx-2 mx-1  md:mx-2 mt-1 '  >
@@ -239,9 +239,9 @@ const PublicBetaLogin = () => {
                             {about && <Whatabout lang={lang} permition={true} Toggle={setAbout} />}
                             <div className='mt-[1rem]'>
 
-                                <div className='text-center flex justify-center items-center mb-4'>
+                                {/* <div className='text-center flex justify-center items-center mb-4'>
                                     <h2 className='flex items-center  text-[30px] text-[#93C234]'>Public <span className=' text-[#E84025] ml-1'>Beta</span> <span className='text-[17px] text-black pt-3 pl-2 font-bold'> v.1.1</span></h2>
-                                </div>
+                                </div> */}
 
                                 <div className='border   cursor-pointer  rounded-md flex items-center'>
                                     <IoMail className={`${watch('email') ? 'text-[20px]  ml-2 mr-2 text-[#93C234]' : 'text-[20px] ml-2 mr-2  '}`} />

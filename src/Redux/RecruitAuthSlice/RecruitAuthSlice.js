@@ -10,7 +10,9 @@ const initialState = {
         role: null,
         userid: null,
         gatePopup: null,
-        verify: null
+        verify: null,
+        profilePic: null,
+        country: null,
 
     }
 }
@@ -19,7 +21,6 @@ export const RecruitAuthSlice = createSlice({
     initialState,
     reducers: {
         signin: (state, action) => {
-            debugger
             state.loginInfo.token = action.payload.token
             state.userInfo.name = action.payload.userdata?.first_name
             state.userInfo.email = action.payload.userdata?.email
@@ -27,6 +28,8 @@ export const RecruitAuthSlice = createSlice({
             state.userInfo.userid = action.payload.userdata?._id
             state.userInfo.gatePopup = action.payload.userdata?.ageGateVerified
             state.userInfo.verify = action.payload.userdata?.verification_code
+            state.userInfo.profilePic = action.payload.userdata.profile_picture_url
+            state.userInfo.country = action.payload.userdata.country
         },
         signout: (state) => {
             return {
@@ -38,12 +41,16 @@ export const RecruitAuthSlice = createSlice({
                     email: null,
                     role: null,
                     userid: null,
+                    profilePic: null,
+                    country: null,
+
+
                 }
             }
         },
         updateUser: (state, action) => {
             debugger
-            state.userInfo = { ...state.userInfo,  gatePopup :  action.payload };
+            state.userInfo = { ...state.userInfo, gatePopup: action.payload };
         }
     },
 })

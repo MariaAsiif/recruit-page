@@ -178,10 +178,10 @@ function App() {
     <>
       <Routes>
         {/* main beta page  */}
-        <Route path="/" element={<PublicBetaLogin />} />
+        {/* <Route path="/" element={<PublicBetaLogin />} /> */}
         <Route path="/betaSignup" element={<PublicBetaSignUp />} />
         {/* Landing pages  */}
-        <Route path="/landingPage" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/locator" element={<LocatehomePage />} />
         <Route path="/userDetail" element={<Detail />} />
         <Route path="/homepage" element={<MainPage />} />

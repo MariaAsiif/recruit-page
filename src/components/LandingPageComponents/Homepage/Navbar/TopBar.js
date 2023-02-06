@@ -9,10 +9,13 @@ import warningIcon from "../../../../assets/landingImages/warning-icon.svg";
 import { HeaderTopBar } from "./StyledNavbar";
 // import { useHistory } from "react-router-dom";
 import SideNavBar from './SideCanvas'
-
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+// import {  } from '../../'
 const TopBar = ({ setShow }) => {
   // const history = useHistory();
 
+  const { token } = useSelector((state) => state.recruitAuth.loginInfo)
 
   const [navbar, setNavbar] = useState(false);
 
@@ -52,26 +55,25 @@ const TopBar = ({ setShow }) => {
           </div>
           <div className="bscontainer-fluid">
             <div className="flex justify-between items-center">
-              <Navbar.Brand href="#">
+              <Navbar.Brand to="#">
                 <img className="img-fluid header-topBar-logo" src={logo} alt="logo" />
               </Navbar.Brand>
               <nav className="flex justify-center p-3 ">
-                <Nav.Link href="#" className="topbar-nav-icon">
+                <Link to="#" className="topbar-nav-icon">
                   <img className="img-fluid mr-[35px]"  src={searchIcon} alt="featherMenu" />
-                </Nav.Link>
-                <Nav.Link href="#" className="topbar-nav-icon">
+                </Link>
+                <Link to={token ? "" : "/signin"} className="topbar-nav-icon">
                   <img className="img-fluid mr-[35px]"  src={profile} alt="featherMenu" />
-                </Nav.Link>
-                <Nav.Link href="#" className="topbar-nav-icon">
+                </Link>
+                <Link to="#" className="topbar-nav-icon">
                   <img className="img-fluid mr-[35px]"  src={warningIcon} alt="accessibility " />
-                </Nav.Link>
-                <Nav.Link href="/checkout" className="topbar-nav-icon"  >
+                </Link>
+                <Link to="/checkout" className="topbar-nav-icon"  >
                   <img className="img-fluid mr-[35px]"  src={cart} alt="featherMenu" />
-                </Nav.Link>
-                <Nav.Link href="#" className="topbar-nav-icon">
+                </Link>
+                <Link to="#" className="topbar-nav-icon">
                   <img onClick={() => setShow(true)} className="img-fluid w-[25px]" src={featherMenu} alt="featherMenu" />
-                  
-                </Nav.Link>
+                </Link>
               </nav>
 
             </div>

@@ -4,14 +4,16 @@ import logoImage from '../images/logo.png'
 import { IoMail } from 'react-icons/io5'
 import { FaLock } from 'react-icons/fa'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { FcCheckmark } from 'react-icons/fc'
-import { MdClose } from 'react-icons/md';
+// import { FcCheckmark } from 'react-icons/fc'
+// import { MdClose } from 'react-icons/md';
 import { toast, ToastContainer } from 'react-toastify';
 import { callPublicApi } from '../utils/CallApi'
+import { useDispatch } from 'react-redux'
+import { signin } from '../Redux/RecruitAuthSlice/RecruitAuthSlice'
 
 const schema = yup.object({
 
@@ -26,17 +28,59 @@ const Login = () => {
 
     const { register, watch, reset, handleSubmit, formState: { errors } } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
-    const handleChange = (e) => {
-        const { value, name } = e.target
+    let navigate = useNavigate()
+    const dispatch = useDispatch();
+    
+    // const handleChange = (e) => {
+    //     const { value, name } = e.target
 
-        setLogin((prev) => ({
-            ...prev,
-            [name]: value
-        }))
-    }
+    //     setLogin((prev) => ({
+    //         ...prev,
+    //         [name]: value
+    //     }))
+    // }
 
-    const onSubmit = (data) => {
+    const onSubmit = async (values) => {
+        try {
+            const response = await callPublicApi(
+                '/users/signin',
+                'post',
+                values
+            );
+            if (response.status === "Success") {
+                if (response.data?.role === "customer") {
+                    dispatch(signin({ token: response.token, userdata: response.data }));
+                    navigate('/')
+                }
+                else if (response.data?.role === "vendor") {
+                    dispatch(signin({ token: response.token, userdata: response.data }));
 
+                    navigate('/e-dashboard')
+
+                }
+                else if (response.data?.role === "companytasker" || "individualtasker") {
+                    dispatch(signin({ token: response.token, userdata: response.data }));
+
+                    navigate('/')
+
+                }
+                else if (response.data?.role === "admin") {
+                    dispatch(signin({ token: response.token, userdata: response.data }));
+                    navigate('/admindashboard')
+
+                }
+                else {
+
+                }
+
+            }
+            else {
+                toast.error(response?.message)
+            }
+        } catch (error) {
+            toast.error(error)
+
+        }
     }
     return (
         <div className='container h-screen'>
@@ -87,7 +131,7 @@ const Login = () => {
                                     }
                                 </div>
                                 {errors.password && (
-                                    <p className="text-red-500 text-sm -mt-3">{errors.password.message}</p>
+                                    <p className="text-red-500  text-sm text-left -mt-3">{errors.password.message}</p>
                                 )}
                             </div>
                             <div className='mt-6 flex items-center'>
@@ -95,8 +139,8 @@ const Login = () => {
                                 <span className='text-[12px] ml-2 text-gray-400'>Keep me logged in</span>
                             </div>
                             <div className='text-center mt-6' >
-                                <Link to="/dashboard" className='border border-[#42946C]  rounded-md text-black w-[200px] p-2 text-[18px] font-medium  '>Login</Link>
-                                {/* <button className='border border-[#42946C]  rounded-md text-black w-[50%] p-2 text-[18px] font-medium  '>Login</button> */}
+                                {/* <Link to="/dashboard" className='border border-[#42946C]  rounded-md text-black w-[200px] p-2 text-[18px] font-medium  '>Login</Link> */}
+                                <button className='border border-[#42946C]  rounded-md text-black w-[50%] p-2 text-[18px] font-medium  '>Login</button>
                             </div>
                             <div className='mt-6'>
                                 <span className='text-[12px] text-gray-400'>
