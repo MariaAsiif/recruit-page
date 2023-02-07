@@ -50,22 +50,27 @@ const Login = () => {
             if (response.status === "Success") {
                 if (response.data?.role === "customer") {
                     dispatch(signin({ token: response.token, userdata: response.data }));
+                    toast.success(response?.data?.message )
                     navigate('/')
                 }
                 else if (response.data?.role === "vendor") {
                     dispatch(signin({ token: response.token, userdata: response.data }));
+                    toast.success(response?.data?.message )
 
                     navigate('/e-dashboard')
 
                 }
                 else if (response.data?.role === "companytasker" || "individualtasker") {
                     dispatch(signin({ token: response.token, userdata: response.data }));
+                    toast.success(response?.data?.message )
 
                     navigate('/')
 
                 }
                 else if (response.data?.role === "admin") {
                     dispatch(signin({ token: response.token, userdata: response.data }));
+                    toast.success(response?.data?.message )
+
                     navigate('/admindashboard')
 
                 }

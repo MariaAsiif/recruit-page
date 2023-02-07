@@ -58,7 +58,7 @@ const SubscribeNewsletter = () => {
                 <p className="mt-8 text-[26px] text-white">You Are in  Good Company</p>
                 <span className="text-[12px] text-white">This is a subscribe channel form data </span>
                 <br />
-                <button className="mt-5 border p-4 pl-7 pr-7 text-[16px] text-white">
+                <button className="mt-5 rounded-full hover:bg-[#DC3545] hover:text-white hover:border-0  border p-4 pl-7 pr-7 text-[16px] text-white">
                   Subscribe Now
                 </button>
               </div>

@@ -13,6 +13,7 @@ import Popup from "../Popup/Popup";
 import VideoModal from "../VideoModal/VideoModal";
 import HeroSlider from './HeroSlider'
 import ViewEditProfile from "../../../Popups/ViewEditProfile";
+import { useSelector } from "react-redux";
 const apiKey = "AIzaSyDZdA4DKTKNAm6ENnAQMnECsThGWUsUpWw";
 
 const Header = ({ id, value }) => {
@@ -28,6 +29,8 @@ const Header = ({ id, value }) => {
   const [finalState, setfinalState] = useState("");
 
   const handleClose = () => setShow(false);
+  const  user  = useSelector((state) => state.recruitAuth.userInfo)
+
 
   const UserInfo = {
     "profile_picture_url": "/uploads/dp/default.png",
@@ -111,7 +114,7 @@ const Header = ({ id, value }) => {
           )
         }
       />
-      <ViewEditProfile id="job-modal" data={UserInfo} modalOpen={inspirePopup} onClose={() => setinspirePopup(false)} />
+      <ViewEditProfile id="job-modal" data={user} modalOpen={inspirePopup} onClose={() => setinspirePopup(false)} />
 
       <StyledHero id={id}>
         <OffCanvas

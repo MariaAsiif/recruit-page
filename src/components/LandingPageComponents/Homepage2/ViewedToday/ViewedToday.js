@@ -12,7 +12,7 @@ function ViewedToday({ heading, section }) {
   // const viewTodayImgs = [ViewToday, ViewToday, ViewToday, ViewToday, ViewToday, ViewToday]
 
 
-  const images = [{img : ad1 , flg :usa }  ,{ img: ad2 , flg:flag }, {img: ad3, flg:usa} ]
+  const images = [{img : ad1 , flg :usa }  ,{ img: ad2 , flg:flag }, {img: ad3, flg:usa}, {img : ad1 , flg :usa }  ,{ img: ad2 , flg:flag }, {img: ad3, flg:usa} ]
 
 
 

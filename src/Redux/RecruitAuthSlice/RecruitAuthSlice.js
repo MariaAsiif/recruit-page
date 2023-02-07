@@ -22,14 +22,8 @@ export const RecruitAuthSlice = createSlice({
     reducers: {
         signin: (state, action) => {
             state.loginInfo.token = action.payload.token
-            state.userInfo.name = action.payload.userdata?.first_name
-            state.userInfo.email = action.payload.userdata?.email
-            state.userInfo.role = action.payload?.userdata?.role
-            state.userInfo.userid = action.payload.userdata?._id
-            state.userInfo.gatePopup = action.payload.userdata?.ageGateVerified
-            state.userInfo.verify = action.payload.userdata?.verification_code
-            state.userInfo.profilePic = action.payload.userdata.profile_picture_url
-            state.userInfo.country = action.payload.userdata.country
+            state.userInfo = action.payload.userdata
+            
         },
         signout: (state) => {
             return {

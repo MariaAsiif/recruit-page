@@ -11,14 +11,14 @@ import { VolumeContext } from "../Homepage";
 import Quote from "../sidebarQuotes/Quote";
 import { useSelector, useDispatch } from "react-redux";
 import { signout } from "../../../../Redux/RecruitAuthSlice/RecruitAuthSlice";
-import { BsQuestionLg } from "react-icons/bs";
+// import { BsQuestionLg } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { HOSTNAME } from "../../../../utils/CallApi";
+// import { HOSTNAME } from "../../../../utils/CallApi";
 import { MdEdit } from "react-icons/md";
-import Popup from "../Popup/Popup";
+// import Popup from "../Popup/Popup";
 // import DevelopmentNotesPopup from "./DevelopmentNotesPopup";
 
-const OffCanvas = ({ show, handleClose, profile, setShow, value, state, children }) => {
+const OffCanvas = ({ show, profile, setShow, value, state, children }) => {
     const data = new Date();
     // const [data, changeData] = useState();
     // const handleVolume = useContext(VolumeContext);
@@ -26,7 +26,9 @@ const OffCanvas = ({ show, handleClose, profile, setShow, value, state, children
     const [devNotePopup, setdevNotePopup] = useState(false)
 
     const { token } = useSelector((state) => state.recruitAuth.loginInfo)
-    const { name, country, city, profilePic } = useSelector((state) => state.recruitAuth.userInfo)
+    const  user  = useSelector((state) => state.recruitAuth.userInfo)
+
+    // console.log("USER", user )
 
     const dispatch = useDispatch()
 
@@ -107,10 +109,10 @@ const OffCanvas = ({ show, handleClose, profile, setShow, value, state, children
                                         <div className="offcanvas-header-profile " >
                                             <div className="offcanvas-header-profile-name" >
                                                 <p>Salam</p>
-                                                <h1>{name}</h1>
+                                                <h1>{user?.first_name}</h1>
                                             </div>
                                             <div className="offcanvas-header-profile-image " >
-                                                <img src={`https://hporxadminbackend.herokuapp.com${profilePic}`} alt="img" />
+                                                <img src={ `https://hporxadminbackend.herokuapp.com${user?.profile_picture_url}` } alt="img" />
 
                                             </div>
                                             <div className=" absolute top-4 bg-green-500 cursor-pointer p-1 rounded-full z-50 right-0" onClick={() => { return profile(true), setShow(false) }}>
@@ -257,17 +259,17 @@ const OffCanvas = ({ show, handleClose, profile, setShow, value, state, children
                                                     <h3 className="off_text">Country</h3>
                                                 </div>
                                                 <div className="ms-2">
-                                                    <span>{country}</span>
+                                                    <span>{user?.country}</span>
                                                 </div>
                                             </div>
                                         </li>
                                         <li>
                                             <div className="d-fl justify-conween items-center">
                                                 <div>
-                                                    <h3 className="off_text">{city}</h3>
+                                                    <h3 className="off_text">{user?.city}</h3>
                                                 </div>
                                                 <div className="ms-2">
-                                                    <span>{country}</span>
+                                                    <span>{user?.country}</span>
                                                 </div>
                                             </div>
                                         </li>

@@ -3,7 +3,8 @@ import { store } from "../store";
 
 const HOSTNAME = "https://hporxadminbackend.herokuapp.com" ;
 const callApi = (endpoint, method, payload) => {
-    let token = store.getState().userAuth.loginInfo.token;
+    let token = store.getState().recruitAuth.loginInfo.token;
+    console.log("data", token)
     const authHeaders = token
         ? {
             Authorization: `Bearer ${token}`,
