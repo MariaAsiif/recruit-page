@@ -61,10 +61,10 @@ const TopBar = ({ setShow }) => {
               </Navbar.Brand>
               <nav className="flex justify-center p-3 ">
                 <Link to="#" className="topbar-nav-icon">
-                  <div className="searchBox">
+                  <div className="searchBox flex items-center">
                     <input className="searchInput" type="text" name="" placeholder="Search"/>
                       <button className="searchButton" href="#">
-                      <img className="img-fluid -mt-[10px] mr-[35px] "  src={searchIcon} alt="featherMenu" />
+                      <img className="img-fluid w-[60%]  "  src={searchIcon} alt="featherMenu" />
                       </button>
                   </div>
                   {/* <div className="searchBox">

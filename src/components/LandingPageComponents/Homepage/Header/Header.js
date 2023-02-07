@@ -101,7 +101,7 @@ const Header = ({ id, value }) => {
           ) : (
             <iframe
               width="100%"
-              height="550px"
+              height="551px"
               src="/Videos/hporx.mp4"
               title="YouTube video player"
               frameborder="0"
@@ -127,7 +127,7 @@ const Header = ({ id, value }) => {
 
 
         <HeroSlider />
-        <div className="absolute bg-black opacity-[0.5] h-full m-auto border z-40 left-0 top-[1px] right-0 ">
+        <div className="absolute bg-black opacity-[0.5] h-full m-auto  z-40 left-0 top-[1px] right-0 ">
         </div>
         <div className="hero-text-container max-w-[700px]  m-auto absolute z-40 left-0 -top-[40px] right-0 text-center">
           <h2 className="home-main-header-main-heading lg:text-[5rem] md:text-[5rem] text-[2rem] text-white font-bold lg:pt-[20rem] ">THERAPEUTICS</h2>
