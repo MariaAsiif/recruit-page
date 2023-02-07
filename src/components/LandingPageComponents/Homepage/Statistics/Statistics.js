@@ -55,10 +55,9 @@ const Statistics = () => {
                             return (
                                 <div className=' col-lg col-md-4 col-sm-6 col-xs-12' key={index}>
 
-                                    <Card className='card-container'>
+                                    <Card className='card-container border'>
 
                                         <StatisticsImgContainer>
-
                                             <StatisticsImg src={image} alt={image} />
                                         </StatisticsImgContainer>
                                         <StatisticsTextContainer>

@@ -48,7 +48,11 @@ export const StatisticsMainContainer = styled.div`
 `;
 export const StatisticsTextContainer = styled.div`
   margin-top: 4rem;
-  padding-left: 2rem;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  padding-top:30px;
+  align-items:center;
 `;
 
 export const StatisticsImg = styled.img`
@@ -57,6 +61,6 @@ export const StatisticsImg = styled.img`
 export const StatisticsImgContainer = styled.div`
   padding: 0 2rem;
   position: absolute;
-  right: 1rem;
+  right:30%;
   top: 1rem;
 `;

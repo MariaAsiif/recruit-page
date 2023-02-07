@@ -127,8 +127,6 @@ const Header = ({ id, value }) => {
           value={value}
         />
         <SubBar setShow={setShow} />
-
-
         <HeroSlider />
         <div className="absolute bg-black opacity-[0.5] lg:h-[100vh] 2xl:h-[100vh] h-full m-auto  z-40 left-0 top-[1px] right-0 ">
         </div>

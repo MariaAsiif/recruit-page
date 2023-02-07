@@ -69,26 +69,29 @@ const SubBar = ({ setShow }) => {
               </li>
               <li className="main-li uppercase">
                 <Link to="/e-landing" className="flex items-center">MARKETPLACE <RiArrowDropDownLine className="text-[30px]" /></Link>
-                <div className="show !w-auto p-3">
-                  <div className="row">
-                    <div className="col-lg-4  p-2 pl-5 flex items-baseline flex-col">
-                      {/* <h3 className="text-[20px] font-medium">recruit</h3> */}
-                      <div className="flex flex-col justify-start items-start cursor-pointer">
-                        <span>
-                          <Link to="/e-landing">Home</Link>
-                        </span>
-                        <span>
-                          <Link to="/fairman-online">Fairman Online</Link>
-                        </span>
-                        <span>
-                          <Link to="/e-dashboard">Vendor Dashboard</Link>
-                        </span>
-                        <span>
-                          <Link to="/stock">Stock</Link>
-                        </span>
+                <div className={`show !w-auto ${navbar === true && '-mt-[10px]'}`}>
+                  {navbar === true && <div className="bg-white h-[10px]"></div>}
+                  <div className="p-3">
+                    <div className="row">
+                      <div className="col-lg-4  p-2 pl-5 flex items-baseline flex-col ">
+                        {/* <h3 className="text-[20px] font-medium">recruit</h3> */}
+                        <div className="flex flex-col justify-start items-start cursor-pointer">
+                          <span>
+                            <Link to="/e-landing">Home</Link>
+                          </span>
+                          <span>
+                            <Link to="/fairman-online">Fairman Online</Link>
+                          </span>
+                          <span>
+                            <Link to="/e-dashboard">Vendor Dashboard</Link>
+                          </span>
+                          <span>
+                            <Link to="/stock">Stock</Link>
+                          </span>
+
+                        </div>
 
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -99,21 +102,23 @@ const SubBar = ({ setShow }) => {
 
               <li className="main-li uppercase ">
                 <a href="#" className="flex items-center">RECRUIT <RiArrowDropDownLine className="text-[30px]" /></a>
-                <div className="show !w-auto p-3">
-                  <div className="row">
-                    <div className="col-lg-4  p-2 pl-5 flex items-baseline flex-col">
-                      {/* <h3 className="text-[20px] font-medium">recruit</h3> */}
-                      <div className="flex flex-col justify-start items-start cursor-pointer">
-                        <span>
-                          <Link to="/Home">Home</Link>
-                        </span>
-                        <span>
-                          <Link to="/recruit">Recruit</Link>
-                        </span>
-                        <span>
-                          <Link to="/signin">Hire Talent</Link>
-                        </span>
-                       
+                <div className={`show !w-auto ${navbar === true && '-mt-[10px]'}`}>
+                  {navbar === true && <div className="bg-white h-[10px]"></div>}
+                  <div className="p-3">
+                    <div className="row">
+                      <div className="col-lg-4  p-2 pl-5 flex items-baseline flex-col">
+                        {/* <h3 className="text-[20px] font-medium">recruit</h3> */}
+                        <div className="flex flex-col justify-start items-start cursor-pointer">
+                          <span>
+                            <Link to="/Home">Home</Link>
+                          </span>
+                          <span>
+                            <Link to="/recruit">Recruit</Link>
+                          </span>
+                          <span>
+                            <Link to="/signin">Hire Talent</Link>
+                          </span>
+                        </div>
                       </div>
 
                     </div>
@@ -299,7 +304,7 @@ const SubBar = ({ setShow }) => {
                   duration={500}   >
                   PRESCRIBE
                 </ScrollLink>
-               
+
               </li>
               <li className="main-li uppercase">
                 <a href="#" className="flex items-center">PRODUCTS <RiArrowDropDownLine className="text-[30px]" /></a>
@@ -322,22 +327,25 @@ const SubBar = ({ setShow }) => {
               </li> */}
               <li className="main-li uppercase">
                 <a href="#" className="flex items-center">DAS <RiArrowDropDownLine className="text-[30px]" /></a>
-                <div className="show !w-auto p-3">
-                  <div className="row">
-                    <div className="col-lg-4  p-2 pl-5 flex items-baseline flex-col">
-                      {/* <h3 className="text-[20px] font-medium">recruit</h3> */}
-                      <div className="flex flex-col justify-start items-start cursor-pointer">
-                        <span>
-                          <a target="_blank" href="https://landing-page-ivory-eta.vercel.app/agency">Home</a>
-                        </span>
-                        <span>
-                          <Link to="/das">Register</Link>
-                        </span>
-                        <span>
-                          <Link to="/newdashboard">Dashboard</Link>
-                        </span>
-                      </div>
+                <div className={`show !w-auto ${navbar === true && '-mt-[10px]'}`}>
+                  {navbar === true && <div className="bg-white h-[10px]"></div>}
+                  <div className="p-3">
+                    <div className="row">
+                      <div className="col-lg-4  p-2 pl-5 flex items-baseline flex-col">
+                        {/* <h3 className="text-[20px] font-medium">recruit</h3> */}
+                        <div className="flex flex-col justify-start items-start cursor-pointer">
+                          <span>
+                            <a target="_blank" href="https://landing-page-ivory-eta.vercel.app/agency">Home</a>
+                          </span>
+                          <span>
+                            <Link to="/das">Register</Link>
+                          </span>
+                          <span>
+                            <Link to="/newdashboard">Dashboard</Link>
+                          </span>
+                        </div>
 
+                      </div>
                     </div>
                   </div>
                 </div>
