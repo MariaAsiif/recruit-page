@@ -93,6 +93,11 @@ function CountryDropdown(type) {
           onFocus={() => setDropdownOpen(true)}
           onBlur={() => setDropdownOpen(false)}
         >
+
+          <div className=' '>
+            <input type="text" className='border w-[90px] focus:outline-none' />
+          </div>
+
           {
             options.map(option => {
               return (

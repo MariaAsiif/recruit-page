@@ -93,6 +93,11 @@ function LanguageDropdown() {
           onFocus={() => setDropdownOpen(true)}
           onBlur={() => setDropdownOpen(false)}
         >
+          <div className=''>
+
+            <input type="text" className='border w-[100px] focus:outline-none' />
+          </div>
+
           {
             options.map(option => {
               return (
