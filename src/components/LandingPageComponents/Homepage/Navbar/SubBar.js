@@ -73,7 +73,7 @@ const SubBar = ({ setShow }) => {
                   {navbar === true && <div className="bg-white h-[10px]"></div>}
                   <div className="p-3">
                     <div className="row">
-                      <div className="col-lg-4  p-2 pl-5 flex items-baseline flex-col ">
+                      <div className="col-lg-4 w-full p-2 pl-5 flex items-baseline flex-col ">
                         {/* <h3 className="text-[20px] font-medium">recruit</h3> */}
                         <div className="flex flex-col justify-start items-start cursor-pointer">
                           <span>
@@ -106,9 +106,9 @@ const SubBar = ({ setShow }) => {
                   {navbar === true && <div className="bg-white h-[10px]"></div>}
                   <div className="p-3">
                     <div className="row">
-                      <div className="col-lg-4  p-2 pl-5 flex items-baseline flex-col">
+                      <div className="col-lg-4 w-full p-2 pl-5 flex items-baseline flex-col">
                         {/* <h3 className="text-[20px] font-medium">recruit</h3> */}
-                        <div className="flex flex-col justify-start items-start cursor-pointer">
+                        <div className="flex flex-col justify-start w-full  items-start cursor-pointer">
                           <span>
                             <Link to="/Home">Home</Link>
                           </span>
