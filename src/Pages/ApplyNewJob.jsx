@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { IoSaveOutline, IoPrintOutline, IoMailOutline } from "react-icons/io5";
-import { BsFacebook, BsTwitter, BsLinkedin, BsWhatsapp, BsFillShareFill, BsHeart } from "react-icons/bs";
+import { BsFacebook, BsTwitter, BsLinkedin, BsWhatsapp, BsFillShareFill, BsHeart, BsListUl } from "react-icons/bs";
 import flag from '../assets/images/usflag_logo.png'
+import { MdArrowDropDown } from 'react-icons/md';
+import { RiLayoutGridFill } from 'react-icons/ri';
 const ApplyNewJob = () => {
     const [layout, setlayout] = useState("grid")
     const [sidebar, setSetSidebar] = useState(false)
@@ -12,23 +14,32 @@ const ApplyNewJob = () => {
             <div className='row g-0'>
                 <div className={sidebar ? 'col-lg-9' : 'col-lg-12'}>
                     <div className='row g-0 px-4 py-2'>
-                        {/* <div className='col-lg-12'>
+                        <div className='col-lg-12'>
                             <div className='lg:flex lg:justify-between apply_job'>
-                                <div className='m-3'>
+                                <div className='m-3 w-full'>
                                     <h2 className='text-[20px] font-semibold'>Here, we found job!</h2>
                                     <span className='text-[12px] text-gray-400' >Brand on your preferance</span>
                                 </div>
-                                <div className='flex items-center sorting'>
-                                    <button onClick={() => { setlayout("grid") }} className={`mr-8 ${layout === "grid" ? "text-orange-600" : ""}`}>Grid</button>
-                                    <button onClick={() => { setlayout("list") }} className={`mr-8 ${layout === "list" ? "text-orange-600" : ""}`}>List</button>
-                                    <h2>Sort by : </h2>
-                                    <select className='bg-transparent'>
-                                        <option>Newest</option>
-                                    </select>
+                                <div className='flex items-center justify-end px-4 sorting w-full'>
+                                    <button onClick={() => { setlayout("grid") }} className={`mr-8 text-[20px] ${layout === "grid" ? "text-[#65A33A]" : ""}`}>
+                                        <RiLayoutGridFill />
+                                    </button>
+                                    <button onClick={() => { setlayout("list") }} className={`mr-8 text-[20px] ${layout === "list" ? "text-[#65A33A]" : ""}`}>
+                                        <BsListUl />
+                                    </button>
+                                    <h2 className='text-[14px] text-gray-300'>Sort by : </h2>
+                                    <div className='flex items-center'>
+                                        <select className='bg-transparent w-full focus:outline-none p-0 px-2 border-0'>
+                                            <option>Newest</option>
+                                            <option>Newest</option>
+                                        </select>
+                                        <MdArrowDropDown className='text-[20px]' />
+
+                                    </div>
                                 </div>
 
                             </div>
-                        </div> */}
+                        </div>
                         {jobs.map(() => {
                             return (
                                 <div className={`${layout === "grid" ? sidebar ? "col-lg-4 " : "col-lg-3" : "col-lg-12"} mb-5 px-2`} onClick={() => setSetSidebar(true)}>

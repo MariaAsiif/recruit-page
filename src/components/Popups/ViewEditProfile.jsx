@@ -57,9 +57,9 @@ const ViewEditProfile = (props) => {
         third_family_name: '',
         email: '',
         reEmail: '',
-        country: props.data.Country,
-        state: props.data.state,
-        city: props.data.city,
+        country: props?.data?.Country,
+        state: props?.data?.state,
+        city: props?.data?.city,
         industry: '',
         position: '',
         mobile: '',
@@ -154,8 +154,8 @@ const ViewEditProfile = (props) => {
     };
 
     useEffect(() => {
-        reset(props.data);
-    }, [props.data, reset]);
+        reset(props?.data);
+    }, [props?.data, reset]);
 
     // Geo
 
@@ -274,7 +274,7 @@ const ViewEditProfile = (props) => {
                                         First Name
                                     </label>
                                     {props.mode === 'view' ? (
-                                        <p>{props.data.first_name}</p>
+                                        <p>{props?.data?.first_name}</p>
                                     ) : (
                                         <input
                                             {...register('first_name', { required: true })}
@@ -296,7 +296,7 @@ const ViewEditProfile = (props) => {
                                         First Family Name
                                     </label>
                                     {props.mode === 'view' ? (
-                                        <p>{props.data.first_family_name}</p>
+                                        <p>{props?.data?.first_family_name}</p>
                                     ) : (
                                         <input
                                             {...register('first_family_name', { required: true })}
@@ -318,7 +318,7 @@ const ViewEditProfile = (props) => {
                                         Second Family Name
                                     </label>
                                     {props.mode === 'view' ? (
-                                        <p>{props.data.second_family_name}</p>
+                                        <p>{props?.data?.second_family_name}</p>
                                     ) : (
                                         <input
                                             {...register('second_family_name', { required: true })}
@@ -340,7 +340,7 @@ const ViewEditProfile = (props) => {
                                         Third Family Name
                                     </label>
                                     {props.mode === 'view' ? (
-                                        <p>{props.data.third_family_name}</p>
+                                        <p>{props?.data?.third_family_name}</p>
                                     ) : (
                                         <input
                                             {...register('third_family_name', { required: true })}
@@ -362,7 +362,7 @@ const ViewEditProfile = (props) => {
                                         Email
                                     </label>
                                     {props.mode === 'view' ? (
-                                        <p>{props.data.email}</p>
+                                        <p>{props?.data?.email}</p>
                                     ) : (
                                         <input
                                             {...register('email', { required: true })}
@@ -383,13 +383,13 @@ const ViewEditProfile = (props) => {
                                         Country
                                     </label>
                                     {props.mode === 'view' ? (
-                                        <p>{props.data.country}</p>
+                                        <p>{props?.data?.country}</p>
                                     ) : (
                                         <select
                                             value={
                                                 recruitModel.country
                                                     ? recruitModel.country
-                                                    : props.data.country
+                                                    : props?.data?.country
                                             }
                                             onChange={handleChangeCountry}
                                             name='country'
@@ -397,7 +397,7 @@ const ViewEditProfile = (props) => {
                                             className={` border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.country && 'border-red-500'
                                                 }`}
                                         >
-                                            <option value=''>{props.data.country} </option>
+                                            <option value=''>{props?.data?.country} </option>
                                             {all_Countries.map((country) => (
                                                 <option>{country.name}</option>
                                             ))}
@@ -415,13 +415,13 @@ const ViewEditProfile = (props) => {
                                         State
                                     </label>
                                     {props.mode === 'view' ? (
-                                        <p>{props.data.state}</p>
+                                        <p>{props?.data?.state}</p>
                                     ) : (
                                         <select
                                             value={
                                                 recruitModel.state
                                                     ? recruitModel.state
-                                                    : props.data.state
+                                                    : props?.data?.state
                                             }
                                             onChange={handleChangeState}
                                             name='state'
@@ -429,7 +429,7 @@ const ViewEditProfile = (props) => {
                                             className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full ${errors.state && 'border-red-500'
                                                 }`}
                                         >
-                                            <option value=''>{props.data.state}</option>
+                                            <option value=''>{props?.data?.state}</option>
                                             {all_States.map((state) => (
                                                 <option>{state.name}</option>
                                             ))}
@@ -447,12 +447,12 @@ const ViewEditProfile = (props) => {
                                         City
                                     </label>
                                     {props.mode === 'view' ? (
-                                        <p>{props.data.city}</p>
+                                        <p>{props?.data?.city}</p>
                                     ) : (
                                         <select
                                             // {...register('city')}
                                             value={
-                                                recruitModel.city ? recruitModel.city : props.data.city
+                                                recruitModel.city ? recruitModel.city : props?.data?.city
                                             }
                                             onChange={handleChangeCity}
                                             name='city'
@@ -460,7 +460,7 @@ const ViewEditProfile = (props) => {
                                             className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full   ${errors.city && 'border-red-500'
                                                 }`}
                                         >
-                                            <option>{props.data.city}</option>
+                                            <option>{props?.data?.city}</option>
                                             {all_Cities.map((city) => {
                                                 return <option>{city.name}</option>;
                                             })}
@@ -479,7 +479,7 @@ const ViewEditProfile = (props) => {
                                         Phone Number
                                     </label>
                                     {props.mode === 'view' ? (
-                                        <p>{props.data.phoneNumber}</p>
+                                        <p>{props?.data?.phoneNumber}</p>
                                     ) : (
                                         <Controller
                                             name='phoneNumber'
@@ -511,7 +511,7 @@ const ViewEditProfile = (props) => {
                                     </label>
                                     {props.mode === "view" ?
                                         (
-                                            <img src={`${HOSTNAME}${props.data.profile_picture_url}`} />
+                                            <img src={`${HOSTNAME}${props?.data?.profile_picture_url}`} />
                                         ) : (
                                             <div
                                                 className={`border mt-3 p-[5px] focus:outline-blue-500 rounded-sm w-full  ${errors.image && 'border-red-400'
@@ -536,14 +536,14 @@ const ViewEditProfile = (props) => {
                     Role
                   </label>
                   {props.mode === 'view' ? (
-                    <p>{props.data.role}</p>
+                    <p>{props?.data?.role}</p>
                   ) : (
                     <select
                       onChange={handleChangeRole}
                       className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${error.roleError ? 'border-red-400' : 'border-gray-400'
                         }`}
                     >
-                      <option>{props.data.role}</option>
+                      <option>{props?.data?.role}</option>
 
                       {roles.map((business) => (
                         <option key={business._id} value={business.value}>

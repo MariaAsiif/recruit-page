@@ -4,17 +4,7 @@ const initialState = {
     loginInfo: {
         token: null
     },
-    userInfo: {
-        name: null,
-        email: null,
-        role: null,
-        userid: null,
-        gatePopup: null,
-        verify: null,
-        profilePic: null,
-        country: null,
-
-    }
+    userInfo: null
 }
 export const RecruitAuthSlice = createSlice({
     name: 'RecruitAuthSlice',
@@ -30,16 +20,7 @@ export const RecruitAuthSlice = createSlice({
                 loginInfo: {
                     token: null
                 },
-                userInfo: {
-                    name: null,
-                    email: null,
-                    role: null,
-                    userid: null,
-                    profilePic: null,
-                    country: null,
-
-
-                }
+                userInfo: null
             }
         },
         updateUser: (state, action) => {

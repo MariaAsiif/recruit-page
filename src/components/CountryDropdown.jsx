@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Transition from '../utils/Transition';
-import profileImage from '../images/people.png'
-function ProfileDropdown(type) {
-  
+// import profileImage from '../images/people.png'
+import flag from '../assets/images/usflag_logo.png'
+
+function CountryDropdown(type) {
+
 
   const options = [
     {
@@ -21,10 +23,10 @@ function ProfileDropdown(type) {
       id: 3,
       period: 'Logout'
     },
-   
+
   ];
 
-  
+
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selected, setSelected] = useState(2);
@@ -57,7 +59,7 @@ function ProfileDropdown(type) {
     <div className="relative">
       <button
         ref={trigger}
-        className={`px-1 py-1 w-[145px] text-[14px] flex items-center ${ dropdownOpen  ?  "bg-white shadow border rounded-sm" : ""}  justify-between  bg-white border-slate-200 hover:border-slate-300 text-slate-500 hover:text-slate-600`}
+        className={`px-1 py-1 w-[90px] text-[14px] flex items-center border rounded-full  justify-between  bg-white border-slate-200 hover:border-slate-300 text-slate-500 hover:text-slate-600`}
         aria-label="Select date range"
         aria-haspopup="true"
         onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -65,8 +67,8 @@ function ProfileDropdown(type) {
       >
 
         <span className="flex items-center">
-          <img src={profileImage} className=" w-8" alt="profile" />
-          <span className='ml-1'>Islamabad</span>
+          <img src={flag} className="w-5" alt="profile" />
+          <span className='ml-1 text-[12px] font-medium'>Uk</span>
         </span>
         <svg className="shrink-0 ml-1 fill-current text-slate-400" width="11" height="7" viewBox="0 0 11 7">
           <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
@@ -94,14 +96,19 @@ function ProfileDropdown(type) {
           {
             options.map(option => {
               return (
-                <button
-                  key={option.id}
-                  tabIndex="0"
-                  className={`flex items-center justify-center border-b last:border-b-0 w-full hover:bg-slate-50 py-2 text-[14px] font-normal px-3 cursor-pointer }`}
-                >
-                  
-                  <span className='text-center' >{option.period}</span>
-                </button>
+                <div>
+                  <span className={`flex items-start justify-start border-b last:border-b-0 w-full hover:bg-slate-50 py-1 text-[14px] font-normal px-2 cursor-pointer }`}>
+                    <img src={flag} className="w-5" alt="profile" />
+                    <span className='ml-1 text-[12px]'>Uk</span>
+                  </span>
+                </div>
+                // <button
+                //   key={option.id}
+                //   tabIndex="0"
+                //   className={`flex items-center justify-center border-b last:border-b-0 w-full hover:bg-slate-50 py-2 text-[14px] font-normal px-3 cursor-pointer }`}
+                // >
+                //   <span className='text-center' >{option.period}</span>
+                // </button>
               )
             })
           }
@@ -111,4 +118,4 @@ function ProfileDropdown(type) {
   );
 }
 
-export default ProfileDropdown;
+export default CountryDropdown;

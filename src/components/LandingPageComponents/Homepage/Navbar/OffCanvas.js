@@ -300,11 +300,11 @@ const OffCanvas = ({ show, profile, setShow, value, state, children }) => {
                                         </li>
                                         <li>
                                             <div className="flex justify-between items-center">
-                                                <div onClick={() => logout()}>
+                                                <div >
                                                     <h3 className="off_text">Sign out</h3>
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-warning logout_btn text-sm p-1">Logout</button>
+                                                    <button onClick={() => logout()} className="btn btn-warning logout_btn text-sm p-1">Logout</button>
                                                 </div>
                                             </div>
                                         </li>
