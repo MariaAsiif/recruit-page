@@ -95,7 +95,7 @@ function LanguageDropdown() {
         >
           <div className=''>
 
-            <input type="text" className='border w-[100px] focus:outline-none' />
+            <input type="text" className='border w-[105px] focus:outline-none' />
           </div>
 
           {
