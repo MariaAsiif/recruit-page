@@ -7,6 +7,10 @@ import logo from '../../../images/logo.png'
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import profileImage from '../../../images/people.png'
 import { AiTwotoneCloud } from 'react-icons/ai';
+import LanguageDropdown from '../../LanguageDropdown';
+import CountryDropdown from '../../CountryDropdown';
+import ProfileDropdown from '../../ProfileDropdown';
+import { BsArrowRight } from 'react-icons/bs';
 
 const DashboardRightbar = ({ rightbarOpen, setRightbarOpen, }) => {
     const location = useLocation();
@@ -45,12 +49,14 @@ const DashboardRightbar = ({ rightbarOpen, setRightbarOpen, }) => {
             {/* Sidebar */}
             <div id="rightbar" ref={rightbar} className={`flex flex-col absolute z-40 right-0 top-0 lg:static lg:right-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:rightbar-expanded:!w-64 2xl:!w-64 shrink-0 bg-white p-4 transition-all duration-200 ease-in-out ${rightbarOpen ? '-translate-x-0' : 'translate-x-64'}`}  >
                 {/* Sidebar header */}
-                <div className="flex justify-between mb-10 pr-3 sm:px-2">
+                <div className='flex justify-end'>
                     {/* Close button */}
-                    <button ref={trigger} className="lg:hidden text-slate-500 hover:text-slate-400" onClick={() => setRightbarOpen(!rightbarOpen)} aria-controls="rightbar" aria-expanded={rightbarOpen} >
-                        <span className="sr-only">Close sidebar</span>
-                        <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">  <path d="M10.7 18.7l1.4-1.4L7.8 13H20v-2H7.8l4.3-4.3-1.4-1.4L4 12z" /> </svg>
+                    <button ref={trigger} className="lg:hidden border rounded-full p-2  text-slate-500 hover:text-slate-400" onClick={() => setRightbarOpen(!rightbarOpen)} aria-controls="rightbar" aria-expanded={rightbarOpen} >
+                        <BsArrowRight/>
                     </button>
+                </div>
+                <div className="flex justify-center mb-10 pr-3 sm:px-2">
+
                     {/* Logo */}
                     <NavLink end to="/" className="block">
                         <img className='m-auto w-full h-auto max-w-[90px]' src={logo} alt="logo" loading="lazy" />
@@ -65,36 +71,18 @@ const DashboardRightbar = ({ rightbarOpen, setRightbarOpen, }) => {
                         <ul className="mt-3 ">
 
                             {/* Messages */}
-                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 `}>
-                                <div className='flex items-center  p-2 '>
-                                    <IoMdNotificationsOutline className='text-[20px]' />
-                                    <img src={profileImage} className=" ml-3 w-6" alt="profile" />
-                                    <select className='focus:outline-none'>
-                                        <option>Islamabad</option>
-                                    </select>
-                                </div>
+
+                            <li className={`flex justify-center items-center`}>
+                                <CountryDropdown type="rightbar"/>
                             </li>
-                            <li className={`pl-[36px] py-2 rounded-sm mb-0.5 last:mb-0'}`}>
-                                <div className='flex items-center  p-2 '>
-                                    <img src={profileImage} className=" ml-3 w-6" alt="profile" />
-                                    <select className='focus:outline-none'>
-                                        <option>Islamabad</option>
-                                    </select>
-                                </div>
+                            <li className={`flex justify-center items-center my-5 `}>
+                                <LanguageDropdown type="rightbar" />
                             </li>
-                            <li className={`pl-[4rem] py-2 rounded-sm mb-0.5 last:mb-0' }`}>
-                                <div className='flex items-center p-2  '>
-                                    <select className='focus:outline-none'>
-                                        <option>Islamabad</option>
-                                    </select>
-                                </div>
+                            <li className={`flex justify-center items-center`}>
+                                <ProfileDropdown  type="rightbar"/>
+
                             </li>
-                            <li className={`pl-[4rem] py-2 rounded-sm mb-0.5 last:mb-0'}`}>
-                                <div className='flex items-center  '>
-                                    <AiTwotoneCloud className='text-[20px]' />
-                                    <span className='ml-2 text-sm'>Rain-1'C</span>
-                                </div>
-                            </li>
+
 
 
                         </ul>

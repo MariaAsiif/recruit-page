@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import DashboardHeader from '../components/SharedComponents/DashboardHeader';
 import { Outlet } from 'react-router-dom';
 import DashboardSidebar from '../components/SharedComponents/Header/DashboardSidebar';
-// import DashboardRightbar from '../components/SharedComponents/Header/DashboardRightbar';
+import DashboardRightbar from '../components/SharedComponents/Header/DashboardRightbar';
 import { BiSearch } from 'react-icons/bi'
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -60,9 +60,9 @@ const Dashboard = () => {
           <Outlet />
         </main>
       </div>
-      {/* <div className="lg:hidden ">
+      <div className="lg:hidden ">
         <DashboardRightbar rightbarOpen={rightbarOpen} setRightbarOpen={setRightbarOpen} />
-      </div> */}
+      </div>
     </div>
   )
 }

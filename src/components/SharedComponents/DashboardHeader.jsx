@@ -3,10 +3,10 @@ import { BiSearch } from "react-icons/bi";
 import { AiTwotoneCloud } from 'react-icons/ai'
 import { IoMdNotificationsOutline, IoIosBody } from 'react-icons/io'
 import ProfileDropdown from '../ProfileDropdown';
-import flag from '../../assets/images/usflag_logo.png'
 import { MdOutlineDarkMode } from 'react-icons/md';
 import CountryDropdown from '../CountryDropdown';
 import LanguageDropdown from '../LanguageDropdown';
+import logo from '../../images/logo.png'
 
 const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbarOpen, rightbarOpen, Toggle }) => {
     return (
@@ -16,24 +16,26 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
 
                     {/* Header: Left side */}
                     <div className="flex   w-[10%] lg:hidden">
-
                         {/* Hamburger button */}
                         <button className="text-slate-500 hover:text-slate-600 lg:hidden" aria-controls="sidebar" aria-expanded={sidebarOpen} onClick={() => setSidebarOpen(!sidebarOpen)}    >
                             <span className="sr-only">Open sidebar</span>
                             <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">   <rect x="4" y="5" width="16" height="2" />   <rect x="4" y="11" width="16" height="2" /> <rect x="4" y="17" width="16" height="2" />   </svg>
                         </button>
                     </div>
+                    <div className="flex lg:hidden items-center justify-center  ">
+                        <img className='m-auto w-[40%] h-auto ' src={logo} alt="logo" loading="lazy" />
+                    </div>
 
                     {/* Header: Right side */}
                     <div className="lg:w-[100%] ">
                         <div className='flex justify-between items-center top_search_bar '>
-                            <div className={`flex search_bar  pt-1 ${checkExpand ? "w-[40%]" : "w-[60%]"} `}>
+                            <div className={`lg:flex hidden search_bar  pt-1 ${checkExpand ? "w-[40%]" : "w-[60%]"} `}>
                                 <input onClick={() => Toggle(true)} className={`bg-[#F3F6FB]  ${checkExpand ? "max-w-[400px]" : "w-[500px]"} focus:outline-none  md:w-[100%] py-1 px-2 text-xs text-[#999FA9]`} placeholder='search' />
                                 <button className='bg-green-700 h-[35px] rounded-sm lg:w-[8%] ml-2'><BiSearch className='inline text-white' /></button>
                             </div>
                             <div className='search_bar_items w-full'>
-                                <div className={checkExpand ? "flex items-center text-[10px]" : 'flex items-center '}>
-                                    <div className='flex justify-end w-[50%]'>
+                                <div className={checkExpand ? "lg:flex hidden items-center text-[10px]" : 'lg:flex hidden items-center '}>
+                                    <div className='lg:flex hidden justify-end w-[50%]'>
                                         <AiTwotoneCloud className='text-[20px]' />
                                     </div>
                                     <div className='lg:flex   hidden w-[50%] justify-end'>
@@ -94,6 +96,10 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div className={''}>
+                        <IoMdNotificationsOutline className='text-[20px]' />
                     </div>
 
                     <div className="flex   w-[10%] lg:hidden md:justify-end">

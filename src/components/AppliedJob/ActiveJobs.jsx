@@ -4,15 +4,15 @@ const ActiveJobs = ({ status }) => {
     return (
         <>
             <div className='row'>
-                <div className='col-lg-12 flex items-end px-10 mb-5'>
-                    <div className='w-[90%]'>
+                <div className='flex justify-between items-center mb-5'>
+                    <div className='lg:w-[90%] w-full'>
                         <h1 className='text-[#0D1829] font-semibold mb-2'>Active Jobs</h1>
                         <h1 className='text-[#626973] text-xs font-normal'>Based on your preferences</h1>
                     </div>
 
-                    <div className="text-center w-[10%]">
+                    <div className="text-center w-full flex justify-end">
                         <div className="dropdown relative">
-                            <button className=" dropdown-toggle px-5 shadow-2xl w-full justify-between py-2 bg-white  text-[#626973] font-medium text-[11px] leading-tight uppercase rounded    focus:outline-none focus:ring-0   transition duration-150 ease-in-out  flex items-center  " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button className=" dropdown-toggle px-5 shadow-2xl justify-between py-2 bg-white  text-[#626973] font-medium text-[11px] leading-tight uppercase rounded    focus:outline-none focus:ring-0   transition duration-150 ease-in-out  flex items-center  " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 FILTER
                                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="w-3 ml-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" >  <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"  ></path> </svg>
                             </button>
@@ -118,11 +118,11 @@ const ActiveJobs = ({ status }) => {
                             </tbody>
                         </table>
                         <div className='px-8 my-6 flex justify-between items-center'>
-                            <div className='w-[70%]'>
+                            <div className='lg:w-[70%] w-full'>
                                 <h1 className='text-[#999FA9] text-xs'>Showing 04-12 of 29</h1>
                             </div>
-                            <div className='w-[20%]'>
-                                <div className=' flex justify-end'>
+                            <div className='lg:w-[20%] w-full'>
+                                <div className=' flex justify-end items-center'>
                                     <div className='w-[40%] '>Prev</div>
                                     <div className='w-[20%] text-[#E84025]'>01</div>
                                     <div className='w-[20%]'>02</div>
