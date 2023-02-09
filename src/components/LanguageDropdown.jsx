@@ -70,9 +70,7 @@ function LanguageDropdown({type}) {
           <img src={flag} className="w-5" alt="profile" />
           <span className='ml-1 text-[12px] font-medium'>English</span>
         </span>
-        <svg className="shrink-0 ml-1 fill-current text-slate-400" width="11" height="7" viewBox="0 0 11 7">
-          <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
-        </svg>
+        
         {/* <img src={profileImage} className=" w-8" alt="profile" />
         <span>{options[selected].period}</span> */}
       </button>
