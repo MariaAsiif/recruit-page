@@ -59,7 +59,7 @@ function CountryDropdown({type}) {
     <div className="relative">
       <button
         ref={trigger}
-        className={`px-1 py-1 ${type ? 'w-[160px]' : 'w-[90px]'} text-[14px] flex items-center border rounded-full  justify-between  bg-white border-slate-200 hover:border-slate-300 text-slate-500 hover:text-slate-600`}
+        className={`px-1 py-1 ${type ? 'w-[220px]' : 'w-[90px]'} text-[14px] flex items-center border rounded-full  justify-between  bg-white border-slate-200 hover:border-slate-300 text-slate-500 hover:text-slate-600`}
         aria-label="Select date range"
         aria-haspopup="true"
         onClick={() => setDropdownOpen(!dropdownOpen)}

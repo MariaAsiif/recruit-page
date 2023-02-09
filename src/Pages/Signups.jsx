@@ -27,7 +27,7 @@ const schema = yup.object({
   phoneNumber: yup.string().required(),
 });
 
-function Signup() {
+function  Signup() {
   let navigate = useNavigate();
   const [formdata, setformdata] = useState({
     first_name: "",

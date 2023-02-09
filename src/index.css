@@ -197,7 +197,7 @@ video {
   margin-left: 0;
   background: #FFFFFF;
   border: none !important;
-  border-radius: 0px !important;
+  border-radius: 10px !important;
   line-height: 25px;
   height: 40px !important;
   width: 100% !important;
@@ -206,8 +206,9 @@ video {
 
 .react-tel-input {
   border: 1pt solid lightgray !important;
-
+  border-radius: 10px !important;
 }
+
 
 .error_form {
   border-color: red !important;

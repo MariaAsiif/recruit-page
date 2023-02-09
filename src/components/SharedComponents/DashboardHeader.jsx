@@ -98,7 +98,7 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
                         </div>
                     </div>
 
-                    <div className={''}>
+                    <div className={'lg:hidden'}>
                         <IoMdNotificationsOutline className='text-[20px]' />
                     </div>
 

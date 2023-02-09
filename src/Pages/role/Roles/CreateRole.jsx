@@ -15,7 +15,7 @@ const schema = yup.object({
 
 });
 
-let rolesList = ['superadmin', 'subscriber', 'jobapplicant', 'hr', 'interviewer', 'itsales', 'botonist', 'marketing', 'businessdevelopment', 'doctor', 'lawyer', 'chemist', 'pharmacist', 'vendor', 'agriculturescientist', 'customer']
+let rolesList = ['superadmin', 'subscriber', 'jobapplicant', 'hr', 'interviewer', 'itsales', 'botonist', 'marketing', 'businessdevelopment', 'doctor', 'lawyer', 'chemist', 'pharmacist', 'vendor', 'agriculturescientist', 'customer' , 'candidate']
 
 const CreateRole = () => {
 

@@ -1,16 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import 'react-responsive-modal/styles.css';
-import { Modal } from 'react-responsive-modal';
-import { toast } from 'react-toastify';
-import { callPublicApi } from '../../utils/CallApi';
-// import OTPInput from "otp-input-react";
 
-const Loader = ({ permition, Toggle, Firstname, type, isVerify, email }) => {
-  const [otp, setOtp] = useState("");
-  const handleClose = () => {
-    Toggle(false)
-
-  }
+const Loader = () => {
+ 
 
 
   return (

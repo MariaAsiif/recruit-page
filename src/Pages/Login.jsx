@@ -14,7 +14,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { callPublicApi } from '../utils/CallApi'
 import { useDispatch } from 'react-redux'
 import { signin } from '../Redux/RecruitAuthSlice/RecruitAuthSlice'
-
+import Loader from '../components/Loader/loader'
 const schema = yup.object({
 
     email: yup.string().email("Invalid email format").required(),
@@ -22,7 +22,7 @@ const schema = yup.object({
 
 });
 const Login = () => {
-    const [login, setLogin] = useState({ email: '', password: '' })
+    const [loader, setLoader] = useState(false)
     const [show, setShow] = useState(false)
     const [showPass, setShowPass] = useState(false)
 
@@ -30,7 +30,7 @@ const Login = () => {
 
     let navigate = useNavigate()
     const dispatch = useDispatch();
-    
+
     // const handleChange = (e) => {
     //     const { value, name } = e.target
 
@@ -42,6 +42,7 @@ const Login = () => {
 
     const onSubmit = async (values) => {
         try {
+            setLoader(true)
             const response = await callPublicApi(
                 '/users/signin',
                 'post',
@@ -49,27 +50,32 @@ const Login = () => {
             );
             if (response.status === "Success") {
                 if (response.data?.role === "customer") {
+                    setLoader(false)
                     dispatch(signin({ token: response.token, userdata: response.data }));
-                    toast.success(response?.data?.message )
-                    navigate('/')
+                    toast.success(response?.data?.message)
+                    navigate('/dashboard')
                 }
                 else if (response.data?.role === "vendor") {
+                    setLoader(false)
+
                     dispatch(signin({ token: response.token, userdata: response.data }));
-                    toast.success(response?.data?.message )
+                    toast.success(response?.data?.message)
 
                     navigate('/e-dashboard')
 
                 }
                 else if (response.data?.role === "companytasker" || "individualtasker") {
+                    setLoader(false)
                     dispatch(signin({ token: response.token, userdata: response.data }));
-                    toast.success(response?.data?.message )
+                    toast.success(response?.data?.message)
 
                     navigate('/')
 
                 }
                 else if (response.data?.role === "admin") {
+                    setLoader(false)
                     dispatch(signin({ token: response.token, userdata: response.data }));
-                    toast.success(response?.data?.message )
+                    toast.success(response?.data?.message)
 
                     navigate('/admindashboard')
 
@@ -100,6 +106,8 @@ const Login = () => {
                 draggable
                 pauseOnHover
             />
+
+            {loader && <Loader />}
             <div className='row h-full'>
                 <div className='col-lg-4 col-12 left_img '>
                     <img src={loginImage} className="lg:h-full" alt="login_image" />

@@ -4,7 +4,7 @@ import CompanyForm from '../components/FormStep/CompanyForm'
 import InfoForm from '../components/FormStep/InfoForm'
 import ResumeForm from '../components/FormStep/ResumeForm'
 import SubmitForm from '../components/FormStep/SubmitForm'
-
+import rightImge  from '../images/recruitBIgPic.png'
 export const RecruitPage = ({ type }) => {
 
     const listName = ["Company/Job Info", "Resume", "Submit"]
@@ -69,6 +69,9 @@ export const RecruitPage = ({ type }) => {
     }
 
 
+    
+
+
 
     return (
         <div className='bscontainer-fluid'>
@@ -76,8 +79,7 @@ export const RecruitPage = ({ type }) => {
                 <div className={` ${type === "applied" ? ' col-lg-12' : 'col-lg-7'} order-2 lg:order-1 flex items-center full_form`}>
                     <div className={`w-full ${active === 0 && 'lg:pt-[50px]' || active === 2 && 'lg:mt-[60px]'}`}>
                         <h1 className='text-center font-semibold text-[35px]'>
-
-                            {!type === "applied" ? "Recruit" : "Apply"}
+                            {type !== "applied" ? "Recruit" : "Apply"}
                         </h1>
                         <div>
                             <div className='flex flex-wrap justify-center items-center lg:px-14 px-1 lg:mb-12 mb-5'>
@@ -132,10 +134,10 @@ export const RecruitPage = ({ type }) => {
                     </div>
                 </div>
                 {
-                    !type === "applied" &&
-                    <div className={`recrit_form_img col-lg-5 order-1 lg:order-2 flex  bg-reruitBanner ${active === 0 ? 'lg:h-[740px]' : 'lg:h-[624px]'} h-96 bg-bottom bg-no-repeat bg-cover`}>
-                        <div className=''>
-                        </div>
+                    type !== "applied" &&
+                   
+                    <div className={`recrit_form_img col-lg-5 order-1 lg:order-2 h-full  `}>
+                        <img src={rightImge} className='h-[999px] object-cover' alt="right_imag"/>
                     </div>
                 }
 

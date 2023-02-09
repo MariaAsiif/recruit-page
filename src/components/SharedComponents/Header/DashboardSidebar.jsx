@@ -6,15 +6,22 @@ import { BsBarChartFill } from "react-icons/bs";
 import { IoMail } from "react-icons/io5";
 import { FaRegBell } from 'react-icons/fa'
 import { AiOutlineAppstore, AiOutlinePoweroff } from 'react-icons/ai'
+import { signout } from '../../../Redux/RecruitAuthSlice/RecruitAuthSlice';
+import { useDispatch } from 'react-redux';
+import Loader from '../../Loader/loader';
 const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
     const location = useLocation();
     const { pathname } = location;
     const [back, setBack] = useState(false)
+    const [loader, setLoader] = useState(false)
     const trigger = useRef(null);
     const sidebar = useRef(null);
 
     const storedSidebarExpanded = localStorage.getItem('sidebar-expanded');
     const [sidebarExpanded, setSidebarExpanded] = useState(storedSidebarExpanded === null ? false : storedSidebarExpanded === 'true');
+
+    const dispatch = useDispatch()
+
     useEffect(() => {
         const keyHandler = ({ keyCode }) => {
             if (!sidebarOpen || keyCode !== 27) return;
@@ -33,12 +40,26 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
             document.querySelector('body').classList.remove('sidebar-expanded');
         }
     }, [sidebarExpanded]);
+
+
+
+    const logout = () => {
+        setLoader(true)
+        setTimeout(() => {
+            setBack(true)
+            dispatch(signout())
+        }, 1500)
+    }
+
+
     return (
         <div>
             {
                 back &&
                 <Navigate to="/signin" replace={true} />
             }
+
+            { loader && <Loader/>}
 
             {/* Sidebar backdrop (mobile only) */}
             <div
@@ -183,7 +204,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
 
 
                 <div className="pt-3 hidden lg:inline-flex 2xl:hidden justify-center mt-auto">
-                    <div className='flex items-center -mt-[3rem] cursor-pointer' onClick={() => setBack(true)}>
+                    <div className='flex items-center -mt-[3rem] cursor-pointer' onClick={() => logout()}>
                         <AiOutlinePoweroff className='text-gray-400' />
                         <h2 className='mx-3 text-gray-400'>Sign Out </h2>
                     </div>

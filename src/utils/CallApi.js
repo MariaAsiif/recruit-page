@@ -1,10 +1,10 @@
 import axios from "axios";
 import { store } from "../store";
 
-const HOSTNAME = "https://hporxadminbackend.herokuapp.com" ;
+const HOSTNAME = "https://hporxadminbackend.herokuapp.com";
 const callApi = (endpoint, method, payload) => {
-    let token = store.getState().recruitAuth.loginInfo.token;
-    console.log("data", token)
+    let candidate = store.getState().recruitAuth.loginInfo.token
+    let token = candidate ? candidate : store.getState().userAuth.loginInfo.token
     const authHeaders = token
         ? {
             Authorization: `Bearer ${token}`,
@@ -93,4 +93,4 @@ const callPublicApi = (endpoint, method, payload) => {
     });
 };
 
-export { callPublicApi, callApi , callApiRecuit , HOSTNAME };
+export { callPublicApi, callApi, callApiRecuit, HOSTNAME };

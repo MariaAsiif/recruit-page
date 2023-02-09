@@ -157,14 +157,16 @@ const RequireAuth = ({ children }) => {
   return children;
 };
 
-// const RecruitAuth = ({ children }) => {
-//   const token = useSelector((state) => state.recruitAuth.loginInfo.token);
-//   let location = useLocation();
-//   if (!token) {
-//     return <Navigate to='/' state={{ from: location }} replace />;
-//   }
-//   return children;
-// };
+const RecruitAuthUser = ({ children }) => {
+  const token = useSelector((state) => state.recruitAuth.loginInfo.token);
+  let location = useLocation();
+  if (!token) {
+    return <Navigate to='/signin' state={{ from: location }} replace />;
+  }
+  return children;
+};
+
+
 
 function App() {
   const location = useLocation();
@@ -199,11 +201,20 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
        
         <Route path="/verify" element={<Verify />} />
-        <Route path="/recruit" element={<RecruitPage />} />
+        <Route path="/recruit" element={<RecruitPage type="recuit" />} />
         <Route path="/joinus" element={<JoinUs />} />
         <Route path="/detail" element={<Resume />} />
         <Route path="/lexicon" element={<Lexicon />} />
-        <Route path="/dashboard" element={<Dashboard />}>
+        <Route
+          path="/dashboard"
+          element={
+            <RecruitAuthUser>
+              <Dashboard />
+            </RecruitAuthUser>
+          }
+        >
+        {/* <Route index element={<Dashboard />}/> */}
+
           <Route index path="new-job" element={<ApplyNewJob />} />
           <Route path="applied-jobs" element={<AppliedJobs />} />
           <Route path="recent-jobs" element={<ResentJob />} />
