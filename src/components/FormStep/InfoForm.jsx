@@ -241,7 +241,7 @@ const InfoForm = (props) => {
                         onChange={handleChangeMobile} />
                     {validationModel.mobileError}
                 </div>
-                    <div className="dropdown relative mb-5 col-4">
+                    <div className="dropdown relative mb-5 col-lg-4 col-md-4">
                    
                         <select value={formModel.country} onChange={handleChangeCountry} name="country" id="country" className={`w-full  border  rounded-lg p-[10px] border-[lightgray]   `} >
                             <option value="">Select Country </option>
@@ -249,7 +249,7 @@ const InfoForm = (props) => {
                         </select>
 
                     </div>
-                    <div className="dropdown relative mb-5 col-4">
+                    <div className="dropdown relative mb-5 col-lg-4 col-md-4">
 
                         <select value={formModel.state} onChange={handleState} name="state" id="state" className={`w-full  border  rounded-lg p-[10px] border-[lightgray]   `}   >
                             <option value="">Select State </option>
@@ -257,7 +257,7 @@ const InfoForm = (props) => {
                         </select>
 
                     </div>
-                    <div className="dropdown relative mb-5 col-4">
+                    <div className="dropdown relative mb-5 col-lg-4 col-md-4">
                         <select value={formModel.city} onChange={onHandleChange}   name="city" id="city" className={`w-full  border  rounded-lg p-[10px] border-[lightgray]   `}     >
                             <option value="">Select city </option>
                             {all_Cities.map((contry) => <option >{contry.name}</option>)}
@@ -265,7 +265,7 @@ const InfoForm = (props) => {
                     </div>
 
             </div>
-            <div className='flex justify-between '>
+            <div className='flex justify-between lg:mt-0 md:mt-0 mt-7 '>
                 <div className=''>
                     <button onClick={onNext} className=' bg-[#DB4446] hover:bg-[#93C234] px-2 py-2 mb-5 text-sm font-sans text-white w-full'>{"Next Step"}</button>
                 </div>

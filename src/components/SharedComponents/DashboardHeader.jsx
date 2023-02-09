@@ -11,7 +11,7 @@ import logo from '../../images/logo.png'
 const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbarOpen, rightbarOpen, Toggle }) => {
     return (
         <header style={{ boxShadow: "0px 0px 6px #00000029" }} className="sticky top-0  bg-white border-b border-slate-200 z-30">
-            <div className="px-4 sm:px-6 lg:px-6">
+            <div className="px-6 sm:px-6 lg:px-6 md:px-6">
                 <div className="flex items-center justify-between h-16 -mb-px">
 
                     {/* Header: Left side */}
@@ -22,8 +22,8 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
                             <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">   <rect x="4" y="5" width="16" height="2" />   <rect x="4" y="11" width="16" height="2" /> <rect x="4" y="17" width="16" height="2" />   </svg>
                         </button>
                     </div>
-                    <div className="flex lg:hidden items-center justify-center  ">
-                        <img className='m-auto w-[40%] h-auto ' src={logo} alt="logo" loading="lazy" />
+                    <div className="flex lg:hidden items-center justify-center  w-full ">
+                        <img className='m-auto w-[20%] h-auto ' src={logo} alt="logo" loading="lazy" />
                     </div>
 
                     {/* Header: Right side */}
@@ -98,14 +98,15 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
                         </div>
                     </div>
 
-                    <div className={'lg:hidden'}>
-                        <IoMdNotificationsOutline className='text-[20px]' />
-                    </div>
 
-                    <div className="flex   w-[10%] lg:hidden md:justify-end">
+                    <div className="flex  lg:hidden justify-between md:justify-end">
+                        <div className={'lg:hidden flex items-center justify-center md:mx-3 '}>
+                            <IoMdNotificationsOutline className='text-[20px]' />
+                        </div>
+
 
                         {/* Hamburger button */}
-                        <button className="text-slate-500 hover:text-slate-600 lg:hidden" aria-controls="sidebar" aria-expanded={rightbarOpen} onClick={() => setRightbarOpen(!rightbarOpen)}    >
+                        <button className="text-slate-500 hover:text-slate-600  lg:hidden" aria-controls="sidebar" aria-expanded={rightbarOpen} onClick={() => setRightbarOpen(!rightbarOpen)}    >
                             <span className="sr-only">Open sidebar</span>
                             <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">   <rect x="4" y="5" width="16" height="2" />   <rect x="4" y="11" width="16" height="2" /> <rect x="4" y="17" width="16" height="2" />   </svg>
                         </button>

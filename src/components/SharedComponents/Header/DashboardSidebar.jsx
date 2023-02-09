@@ -91,7 +91,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                         <ul className="mt-3">
 
                             {/* Messages */}
-                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0  `}>
+                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0  `} onClick={() => setSidebarOpen(false)}>
                                 <div className='flex '>
 
                                     <NavLink
@@ -106,7 +106,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                                 </div>
                             </li>
 
-                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0  `}>
+                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0  `} onClick={() => setSidebarOpen(false)}>
                                 <div className='flex '>
                                     {
                                         pathname.includes('new-job') &&
@@ -123,7 +123,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                                     </NavLink>
                                 </div>
                             </li>
-                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`}>
+                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`} onClick={() => setSidebarOpen(false)}>  
                                 <div className='flex '>
                                     {
                                         pathname.includes('applied-jobs') &&
@@ -140,7 +140,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                                     </NavLink>
                                 </div>
                             </li>
-                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`}>
+                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`} onClick={() => setSidebarOpen(false)}>
                                 <div className='flex '>
                                     {
                                         pathname.includes('recent-jobs') &&
@@ -157,7 +157,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                                     </NavLink>
                                 </div>
                             </li>
-                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`}>
+                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`} onClick={() => setSidebarOpen(false)}>
                                 <div className='flex '>
                                     {
                                         pathname.includes('profile-setting') &&
@@ -174,7 +174,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                                     </NavLink>
                                 </div>
                             </li>
-                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`}>
+                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`} onClick={() => setSidebarOpen(false)}>
                                 <div className='flex '>
                                     {
                                         pathname.includes('notification') &&
@@ -203,8 +203,8 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
 
 
 
-                <div className="pt-3 hidden lg:inline-flex 2xl:hidden justify-center mt-auto">
-                    <div className='flex items-center -mt-[3rem] cursor-pointer' onClick={() => logout()}>
+                <div className="pt-3  lg:inline-flex 2xl:hidden justify-center mt-auto">
+                    <div className='flex items-center justify-center mt-[5rem] lg:-mt-[3rem]  cursor-pointer' onClick={() => logout()}>
                         <AiOutlinePoweroff className='text-gray-400' />
                         <h2 className='mx-3 text-gray-400'>Sign Out </h2>
                     </div>

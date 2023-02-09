@@ -4,13 +4,16 @@ import logo from '../../../images/logo.png'
 // import { BiSearch, BiUserCircle } from "react-icons/bi";
 // import { BsBarChartFill } from "react-icons/bs";
 // import { IoMail } from "react-icons/io5"
-import LanguageDropdown from '../../LanguageDropdown';
-import CountryDropdown from '../../CountryDropdown';
-import ProfileDropdown from '../../ProfileDropdown';
+// import LanguageDropdown from '../../LanguageDropdown';
+// import CountryDropdown from '../../CountryDropdown';
+// import ProfileDropdown from '../../ProfileDropdown';
 import { BsArrowRight } from 'react-icons/bs';
+import flag from '../../../assets/images/usflag_logo.png'
+import { BiSearch } from 'react-icons/bi';
 
 const DashboardRightbar = ({ rightbarOpen, setRightbarOpen, }) => {
 
+    const [active, setActive] = useState(null)
 
     const trigger = useRef(null);
     const rightbar = useRef(null);
@@ -35,6 +38,18 @@ const DashboardRightbar = ({ rightbarOpen, setRightbarOpen, }) => {
     //         document.querySelector('body').classList.remove('rightbar-expanded');
     //     }
     // }, [sidebarExpanded]);
+
+    const handleActive = (id) => {
+        if (id === active) {
+            setActive(null)
+        }
+        else {
+            setActive(id)
+        }
+    }
+
+
+
     return (
         <div>
             {/* Sidebar backdrop (mobile only) */}
@@ -42,7 +57,7 @@ const DashboardRightbar = ({ rightbarOpen, setRightbarOpen, }) => {
                 className={`fixed inset-0 bg-slate-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200 ${rightbarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} aria-hidden="true"  ></div>
 
             {/* Sidebar */}
-            <div id="rightbar" ref={rightbar} className={`flex flex-col absolute z-40 right-0 top-0  h-screen overflow-y-scroll  no-scrollbar  shrink-0 bg-white p-4 transition-all duration-200 ease-in-out ${rightbarOpen ? '-translate-x-0' : 'translate-x-64'}`}  >
+            <div id="rightbar" ref={rightbar} className={`flex flex-col absolute z-40 right-0 top-0  h-screen overflow-y-scroll w-64 no-scrollbar  shrink-0 bg-white p-4 transition-all duration-200 ease-in-out ${rightbarOpen ? '-translate-x-0' : 'translate-x-64'}`}  >
                 {/* Sidebar header */}
                 <div className='flex justify-end'>
                     {/* Close button */}
@@ -67,14 +82,129 @@ const DashboardRightbar = ({ rightbarOpen, setRightbarOpen, }) => {
 
                             {/* Messages */}
 
-                            <li className={`flex justify-center items-center`}>
-                                <CountryDropdown type="rightbar" />
+                            <li className='mb-6'>
+                                <div className={`flex  search_bar`}>
+                                    <input  className={`bg-[#F3F6FB]   focus:outline-none py-1 px-2 text-xs text-[#999FA9]`} placeholder='search' />
+                                    <button className='bg-green-700 h-[35px] rounded-sm w-[20%] ml-2'><BiSearch className='inline text-white' /></button>
+                                </div>
                             </li>
-                            <li className={`flex justify-center items-center my-5 `}>
-                                <LanguageDropdown type="rightbar" />
+
+                            <li>
+                                <ul>
+                                    <li onClick={() => handleActive(0)} className='flex justify-between items-center w-full border px-2 py-2'>
+                                        <div className='flex items-center'>
+                                            <img src={flag} className="w-5" alt="profile" />
+                                            <h1 className='mx-1'>Uk</h1>
+                                        </div>
+                                        <svg className="shrink-0 ml-1 fill-current text-slate-400" width="11" height="7" viewBox="0 0 11 7">
+                                            <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
+                                        </svg>
+                                    </li>
+                                    {
+                                        active === 0 &&
+                                        <>
+                                            <li className='flex justify-between items-center w-full border px-2 py-2'>
+                                                <div className='flex items-center'>
+                                                    <img src={flag} className="w-5" alt="profile" />
+                                                    <h1 className='mx-1'>Uk</h1>
+                                                </div>
+
+                                            </li>
+                                            <li className='flex justify-between items-center w-full border px-2 py-2'>
+                                                <div className='flex items-center'>
+                                                    <img src={flag} className="w-5" alt="profile" />
+                                                    <h1 className='mx-1'>Uk</h1>
+                                                </div>
+
+                                            </li>
+                                            <li className='flex justify-between items-center w-full border px-2 py-2'>
+                                                <div className='flex items-center'>
+                                                    <img src={flag} className="w-5" alt="profile" />
+                                                    <h1 className='mx-1'>Uk</h1>
+                                                </div>
+
+                                            </li>
+                                        </>
+                                    }
+                                </ul>
                             </li>
-                            <li className={`flex justify-center items-center`}>
-                                <ProfileDropdown type="rightbar" />
+                            <li className='my-6' >
+                                <ul>
+                                    <li onClick={() => handleActive(1)} className='flex justify-between items-center w-full border px-2 py-2'>
+                                        <div className='flex items-center'>
+                                            <img src={flag} className="w-5" alt="profile" />
+                                            <h1 className='mx-1'>English</h1>
+                                        </div>
+                                        <svg className="shrink-0 ml-1 fill-current text-slate-400" width="11" height="7" viewBox="0 0 11 7">
+                                            <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
+                                        </svg>
+                                    </li>
+                                    {
+                                        active === 1 &&
+                                        <>
+                                            <li className='flex justify-between items-center w-full border px-2 py-2'>
+                                                <div className='flex items-center'>
+                                                    <img src={flag} className="w-5" alt="profile" />
+                                                    <h1 className='mx-1'>Uk</h1>
+                                                </div>
+
+                                            </li>
+                                            <li className='flex justify-between items-center w-full border px-2 py-2'>
+                                                <div className='flex items-center'>
+                                                    <img src={flag} className="w-5" alt="profile" />
+                                                    <h1 className='mx-1'>Uk</h1>
+                                                </div>
+
+                                            </li>
+                                            <li className='flex justify-between items-center w-full border px-2 py-2'>
+                                                <div className='flex items-center'>
+                                                    <img src={flag} className="w-5" alt="profile" />
+                                                    <h1 className='mx-1'>Uk</h1>
+                                                </div>
+
+                                            </li>
+                                        </>
+                                    }
+                                </ul>
+                            </li>
+                            <li >
+                                <ul>
+                                    <li onClick={() => handleActive(2)} className='flex justify-between items-center w-full border px-2 py-2'>
+                                        <div className='flex items-center'>
+                                            <img src={flag} className="w-5" alt="profile" />
+                                            <h1 className='mx-1'>Islamabad</h1>
+                                        </div>
+                                        <svg className="shrink-0 ml-1 fill-current text-slate-400" width="11" height="7" viewBox="0 0 11 7">
+                                            <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
+                                        </svg>
+                                    </li>
+                                    {
+                                        active === 2 &&
+                                        <>
+                                            <li className='flex justify-between items-center w-full border px-2 py-2'>
+                                                <div className='flex items-center'>
+                                                    <img src={flag} className="w-5" alt="profile" />
+                                                    <h1 className='mx-1'>Uk</h1>
+                                                </div>
+
+                                            </li>
+                                            <li className='flex justify-between items-center w-full border px-2 py-2'>
+                                                <div className='flex items-center'>
+                                                    <img src={flag} className="w-5" alt="profile" />
+                                                    <h1 className='mx-1'>Uk</h1>
+                                                </div>
+
+                                            </li>
+                                            <li className='flex justify-between items-center w-full border px-2 py-2'>
+                                                <div className='flex items-center'>
+                                                    <img src={flag} className="w-5" alt="profile" />
+                                                    <h1 className='mx-1'>Uk</h1>
+                                                </div>
+
+                                            </li>
+                                        </>
+                                    }
+                                </ul>
 
                             </li>
 

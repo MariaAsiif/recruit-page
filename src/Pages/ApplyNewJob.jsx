@@ -2,18 +2,20 @@ import React, { useState } from 'react'
 import { IoSaveOutline, IoPrintOutline, IoMailOutline } from "react-icons/io5";
 import { BsFacebook, BsTwitter, BsLinkedin, BsWhatsapp, BsFillShareFill, BsHeart, BsListUl } from "react-icons/bs";
 import flag from '../assets/images/usflag_logo.png'
-import { MdArrowDropDown } from 'react-icons/md';
+// import { MdArrowDropDown } from 'react-icons/md';
 import { RiLayoutGridFill } from 'react-icons/ri';
 import SortDropdown from '../components/SortDropdown ';
 import { RecruitPage } from './RecruitPage';
+import JObDetail from '../components/Popups/JobDetail';
 const ApplyNewJob = () => {
     const [layout, setlayout] = useState("grid")
     const [sidebar, setSetSidebar] = useState(false)
     const [apply, setApply] = useState(false)
+    // const [openPopup , setPopup] = useState(false)
     const jobs = ["asdf", "asdfasd", "asdfds", "next", "", "", "", ""]
     return (
         <div className='bscontainer-fluid p-0 '>
-
+            <JObDetail id="job-modal"  modalOpen={sidebar} onClose={() => setSetSidebar(false)} setApply={(value) => setApply(value)} />
             {
                 apply ?
                     <RecruitPage type="applied" />
@@ -22,7 +24,7 @@ const ApplyNewJob = () => {
                         <div className={sidebar ? 'col-lg-9' : 'col-lg-12'}>
                             <div className='row g-0 px-4 py-2'>
                                 <div className='col-lg-12'>
-                                    <div className='lg:flex lg:justify-between apply_job'>
+                                    <div className='lg:flex md:flex lg:justify-between apply_job'>
                                         <div className='m-3 w-full'>
                                             <h2 className='text-[20px] font-semibold'>Here, we found job!</h2>
                                             <span className='text-[12px] text-gray-400' >Brand on your preferance</span>
@@ -45,7 +47,7 @@ const ApplyNewJob = () => {
                                 </div>
                                 {jobs.map(() => {
                                     return (
-                                        <div className={`${layout === "grid" ? sidebar ? "col-lg-4 " : "col-lg-3" : "col-lg-12"} mb-5 px-2`} onClick={() => setSetSidebar(true)}>
+                                        <div className={`${layout === "grid" ? sidebar ? "col-lg-4 " : "col-lg-3 col-md-6" : "col-lg-12"} mb-5 px-2`} onClick={() => setSetSidebar(true)}>
                                             <div className=' border-2 border-transparent hover:border-[#65A33A] rounded-md '>
                                                 <div className='bg-white rounded-md cursor-pointer'>
                                                     <div className='row g-0  '>

@@ -75,14 +75,14 @@ export const RecruitPage = ({ type }) => {
 
     return (
         <div className='bscontainer-fluid'>
-            <div className='row h-full '>
+            <div className={`${type === "applied" &&  'md:px-5 px-5 lg:px-0'} row h-full`}>
                 <div className={` ${type === "applied" ? ' col-lg-12' : 'col-lg-7'} order-2 lg:order-1 flex items-center full_form`}>
                     <div className={`w-full ${active === 0 && 'lg:pt-[50px]' || active === 2 && 'lg:mt-[60px]'}`}>
-                        <h1 className='text-center font-semibold text-[35px]'>
+                        <h1 className='text-center font-semibold lg:text-[35px] text-[20px] lg:my-0 md:my-0 my-6'>
                             {type !== "applied" ? "Recruit" : "Apply"}
                         </h1>
                         <div>
-                            <div className='flex flex-wrap justify-center items-center lg:px-14 px-1 lg:mb-12 mb-5'>
+                            <div className='flex flex-wrap justify-center items-center lg:px-14 pr-3 lg:mb-12 mb-5'>
                                 <div className='lg:w-[4%] w-[8%] text-center relative'>
                                     <div className={` rounded-full border bg-[#DB4446] text-white pt-2 text-sm  w-[40px] h-[40px] `}>01</div>
                                     <span className={`absolute ${!type === "applied" && 'bg-white' } hidden lg:inline  z-10 -left-10 mt-2 w-[115px] text-[10px] font-semibold text-[#464A53] font-sans`}>Personal Information</span>
