@@ -12,23 +12,12 @@ const FavouriteJobs = ({ status }) => {
     let layout = "grid"
     let data = ["", "", "", "", "", ""]
 
-    const swiper = document.querySelector('.swiper')?.swiper;
-
-    // Now you can use all slider methods like
-    // const SliderNext = () => {
-    //     swiper.slideNext();
-    // }
-
-    // const SliderPrev = () => {
-    //     swiper.sliderPrev();
-
-    // }
 
     return (
         <>
             <div className='row mt-[50px]'>
-                <div className='col-lg-12 flex items-end justify-between px-10 mb-5'>
-                    <div className='w-[90%]'>
+                <div className='col-lg-12 flex items-end justify-between lg:px-10 mb-5'>
+                    <div className='lg:w-[90%]'>
                         <h1 className='text-[#0D1829] font-semibold mb-2'>Recommended Jobs</h1>
                         <h1 className='text-[#626973] text-xs font-normal'>Based on your preferences</h1>
                     </div>
@@ -48,17 +37,18 @@ const FavouriteJobs = ({ status }) => {
                             }}
                             navigation={true}
                             breakpoints={{
+                                375: {
+                                    slidesPerView: 1,
+                                  },
                                 640: {
                                   slidesPerView: 1,
-                                  spaceBetween: 20,
                                 },
                                 768: {
                                   slidesPerView: 2,
-                                  spaceBetween: 40,
                                 },
                                 1024: {
                                   slidesPerView: 3,
-                                  spaceBetween: 50,
+                                  spaceBetween: 30,
                                 },
                               }}
                             modules={[Navigation]}

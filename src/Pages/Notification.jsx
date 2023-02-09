@@ -8,15 +8,15 @@ const Notification = () => {
         <>
             <div className='bscontainer-fluid h-full py-5 px-5'>
                 <div className='row'>
-                    <div className='col-lg-12 flex items-end px-10 mb-5'>
-                        <div className='w-[90%]'>
+                    <div className='col-lg-12 flex justify-between items-end lg:px-10 mb-5'>
+                        <div className='lg:w-[90%]'>
                             <h1 className='text-[#0D1829] font-semibold mb-2'>All Notification</h1>
                             <h1 className='text-[#626973] text-xs font-normal'>Based on your preferences</h1>
                         </div>
 
-                        <div className="text-center flex w-[20%]">
-                            <div className=' p-2 w-[30%]  cursor-pointer rounded-md text-white hover:bg-[#65A33A] bg-[#E84025]'>All</div>
-                            <div className=' p-2 mx-2 w-[50%] cursor-pointer rounded-md text-white hover:bg-[#65A33A] bg-[#E84025]'>UnRead</div>
+                        <div className="text-center flex lg:w-[20%]">
+                            <div className=' p-2 lg:w-[30%]  cursor-pointer rounded-md text-white hover:bg-[#65A33A] bg-[#E84025]'>All</div>
+                            <div className=' p-2 mx-2 lg:w-[50%] cursor-pointer rounded-md text-white hover:bg-[#65A33A] bg-[#E84025]'>UnRead</div>
                         </div>
 
                     </div>
@@ -24,7 +24,7 @@ const Notification = () => {
                         <div className="overflow-x-auto bg-white rounded-md ">
                             <div className="bscontainer mt-5 ">
                                 <div className='row '>
-                                    <div className='col-lg-3 '>
+                                    <div className='col-lg-3 lg:mb-0 md:mb-0 mb-2 '>
                                         <div className=' p-2 bg-[#81A5F7] rounded-md' >
                                             <div className='flex justify-between items-center'>
                                                 <div className='flex items-center'>
@@ -43,7 +43,7 @@ const Notification = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col-lg-3 '>
+                                    <div className='col-lg-3 lg:mb-0 md:mb-0 mb-2 '>
                                         <div className=' p-2 bg-[#F5C270] rounded-md' >
                                             <div className='flex justify-between items-center'>
                                                 <div className='flex items-center'>
@@ -62,7 +62,7 @@ const Notification = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col-lg-3  '>
+                                    <div className='col-lg-3 lg:mb-0 md:mb-0 mb-2  '>
                                         <div className=' p-2 bg-[#79D9B1] rounded-md' >
                                             <div className='flex justify-between items-center'>
                                                 <div className='flex items-center'>
@@ -81,7 +81,7 @@ const Notification = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col-lg-3 '>
+                                    <div className='col-lg-3 lg:mb-0 md:mb-0 mb-2 '>
                                         <div className=' p-2 border bg-[#D198F6] rounded-md' >
                                             <div className='flex justify-between items-center'>
                                                 <div className='flex items-center'>
@@ -181,10 +181,10 @@ const Notification = () => {
                                 </ul>
                             </div>
                             <div className='px-8 my-6 flex justify-between items-center'>
-                                <div className='w-[70%]'>
+                                <div className='lg:w-[70%] w-full'>
                                     <h1 className='text-[#999FA9] text-xs'>Showing 04-12 of 29</h1>
                                 </div>
-                                <div className='w-[20%]'>
+                                <div className='lg:w-[20%] w-full'>
                                     <div className=' flex justify-end'>
                                         <div className='w-[40%] '>Prev</div>
                                         <div className='w-[20%] text-[#E84025]'>01</div>

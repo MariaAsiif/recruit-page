@@ -4,18 +4,18 @@ const FavritJobs = ({ status }) => {
     return (
         <>
             <div className='row mt-[50px]'>
-                <div className='col-lg-12 flex items-end px-10 mb-5'>
+                <div className='col-lg-12 flex flex-wrap  items-end lg:px-10 mb-5'>
                     <div className='w-[90%]'>
                         <h1 className='text-[#0D1829] font-semibold mb-2'>Favorite Jobs</h1>
                         <h1 className='text-[#626973] text-xs font-normal'>Based on your preferences</h1>
                     </div>
-                    <div className='flex items-center '>
-                        <div className='border flex items-center bg-white rounded-full w-[100%] p-[5px] pl-[10px] pr-[10px]' >
-                            <input type="text" placeholder='Search here...' className='focus:outline-none placeholder:text-sm  ' />
+                    <div className='flex flex-wrap items-center lg:mt-0 md:mt-0 mt-2 '>
+                        <div className='border flex items-center bg-white rounded-full w-full p-[5px] pl-[10px] pr-[10px]' >
+                            <input type="text" placeholder='Search here...' className='w-full focus:outline-none placeholder:text-sm  ' />
                             <AiOutlineSearch className='text-gray-400'/>
                             
                         </div>
-                        <div className="text-center w-[50%] ml-3">
+                        <div className="text-center w-[50%] lg:ml-3 lg:my-0 md:my-0 my-2">
 
                             <div className="dropdown relative">
                                 <button className=" dropdown-toggle px-5 shadow-2xl w-full justify-between py-2 bg-white  text-[#626973] font-medium text-[11px] leading-tight uppercase rounded    focus:outline-none focus:ring-0   transition duration-150 ease-in-out  flex items-center  " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -68,7 +68,7 @@ const FavritJobs = ({ status }) => {
                                                 <div className="text-left">02 September 22</div>
                                             </td>
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                               <button className='bg-[#E84025] text-white w-[60%] p-2 rounded-md'>Easy Apply</button>
+                                               <button className='bg-[#E84025] text-white lg:w-[60%] p-2 rounded-md'>Easy Apply</button>
                                             </td>
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="text-center ">

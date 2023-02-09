@@ -61,7 +61,7 @@ const Dashboard = () => {
         </main>
       </div>
       <div className="lg:hidden ">
-        <DashboardRightbar rightbarOpen={rightbarOpen} setRightbarOpen={setRightbarOpen} />
+        { rightbarOpen && <DashboardRightbar rightbarOpen={rightbarOpen} setRightbarOpen={setRightbarOpen} /> }
       </div>
     </div>
   )
