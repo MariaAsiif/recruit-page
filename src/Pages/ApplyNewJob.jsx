@@ -15,7 +15,10 @@ const ApplyNewJob = () => {
     const jobs = ["asdf", "asdfasd", "asdfds", "next", "", "", "", ""]
     return (
         <div className='bscontainer-fluid p-0 '>
+           <div className="lg:hidden ">
             <JObDetail id="job-modal"  modalOpen={sidebar} onClose={() => setSetSidebar(false)} setApply={(value) => setApply(value)} />
+
+           </div>
             {
                 apply ?
                     <RecruitPage type="applied" />
