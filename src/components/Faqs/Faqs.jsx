@@ -54,7 +54,7 @@ const Faqs = () => {
                 </div>
                 <div className='col-lg-4 '>
                     <div>
-                        <h1 className='text-center font-bold text-xl font-sans mb-6'>What People Say</h1>
+                        <h1 className='text-center font-bold text-xl font-sans mb-6 mt-6'>What People Say</h1>
                         <div>
                             <div className=' relative mb-2'>
                                 <img className='m-auto w-full h-auto max-w-[130px]' src={people} alt='people' />

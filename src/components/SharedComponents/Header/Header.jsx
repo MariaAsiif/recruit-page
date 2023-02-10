@@ -20,7 +20,7 @@ const Header = () => {
         };
     }, [width]);
     return (
-        <nav ref={headerRef} className={`header-section transition-all w-full flex flex-wrap items-center justify-between py-4 text-gray-500 hover:text-gray-700 focus:text-gray-700 navbar navbar-expand-lg navbar-light fixed-top ${width <= 600 ? "bg-white shadow-lg" : ""}`}>
+        <nav ref={headerRef} className={` transition-all w-full flex flex-wrap items-center justify-between py-4 text-gray-500 hover:text-gray-700 focus:text-gray-700 navbar navbar-expand-lg navbar-light fixed-top ${width <= 600 ? "bg-white shadow-lg" : ""}`}>
             <div className="flex flex-wrap items-center justify-between w-full px-6 container-fluid">
                 <button className="navbar-toggler text-gray-500 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" className="w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -36,22 +36,11 @@ const Header = () => {
                         <li className="px-2 py-2 nav-item lg:py-0 ">
                             <NavLink end to="/Home" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')}>Home</NavLink>
                         </li>
-                        {/* <li className="px-2 py-2 nav-item lg:py-0 ">
-                            <NavLink end to="/das" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')}>DAS</NavLink>
-                        </li>
+                       
                         <li className="px-2 py-2 nav-item lg:py-0 ">
-                            <NavLink end to="/medical" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')}>Medical</NavLink>
-                        </li>
-                        <li className="px-2 py-2 nav-item lg:py-0 ">
-                            <NavLink end to="/newdashboard" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')}>New Dashboard</NavLink>
-                        </li> */}
-                        <li className="px-2 py-2 nav-item lg:py-0 ">
-                            {/* <NavLink to="/comingsoon" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')} >Coming Soon</NavLink> */}
                             <NavLink to="/about" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')} >About</NavLink>
                         </li>
-                        {/* <li className="px-2 py-2 nav-item lg:py-0 ">
-                            <NavLink to="/login" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')} >Admin login</NavLink>
-                        </li> */}
+                        
                         <li className="px-2 py-2 nav-item lg:py-0 ">
                             <NavLink to="/recruit" className={({ isActive }) => ' nav-link font-sans font-semibold text-[#646464] hover:text-gray-700 focus:text-gray-700 p-0 ' + (isActive ? 'border-b-4 border-red-600 pb-2 rounded-[4px]' : '')} >Quick CV</NavLink>
                         </li>

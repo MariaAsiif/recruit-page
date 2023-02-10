@@ -9,7 +9,7 @@ const Support = () => {
         <div className='bscontainer'>
             <div className='w-full lg:flex lg:justify-between'>
                 <div className="bg-[#F4F5FA] w-full ">
-                    <div className='flex justify-between '>
+                    <div className='flex lg:flex-row md:flex-row flex-col justify-between '>
                         <div className={`text-[15px] border p-2 me-1  rounded-md cursor-pointer
                            ${active === 0 ? `bg-[#F4F5FA] text-[#93C234] ` : `bg-[#E9E9EC] text-[#898989]`}  `} onClick={() => setActive(0)}>
                             HOW WE SUPPORT <span className={`${active === 0 ? 'text-red-500' : 'text-[#898989]'}`}>WORKING MOTHERS</span>

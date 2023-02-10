@@ -18,6 +18,7 @@ import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 
 import { Link } from "react-router-dom"
+import { callApi } from '../../utils/CallApi';
 
 const schema = yup.object({
     job_title: yup.string().required(),
@@ -31,14 +32,17 @@ const schema = yup.object({
 }).required();
 
 const CreateJob = () => {
+    const [file, setFile] = useState('')
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
 
+
+
     const [expiryDate, setexpiryDate] = useState({ day: dd, month: mm, year: yyyy })
     const token = useSelector((state) => state.userAuth.loginInfo.token);
-    let navigate = useNavigate();
+    // let navigate = useNavigate();
     // const [jobModel, setjobModel] = useState({
     //     expiryDate: new Date(),
     //     job_title: "",
@@ -73,16 +77,32 @@ const CreateJob = () => {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
     const onSubmit = async (data) => {
+        let updated = `${expiryDate.year}-${expiryDate.month}-${expiryDate.day}`;
         try {
-            const config = {
-                headers: {
-                    'Authorization': 'Bearer ' + token
-                }
-            };
-            let response = await axios.post('http://localhost:5873/jobs/createjob', data, config);
+
+            let payload = {
+                "job_title": data.job_title,
+                "salary": data.salary,
+                "description": data.description,
+                "job_image_url":"/uploads/dp/default.png",
+                "jobtype": data?.jobtype,
+                "jobstatus":data?.jobstatus,
+                "jobclass": data?.jobclass,
+                "expiryDate": updated ,
+                "employer": data?.employer,
+            }
+
+            // let formdata = new FormData()
+
+            // formdata.append('job_title' , data.job_title)
+            // formdata.append('job_image_url' , file)
+
+
+
+            let response = await callApi('/jobs/createjob', 'post', payload);
             console.log(response);
             if (response.data.status === "Success") {
-                navigate("/jobs", { replace: true });
+                // navigate("/jobs", { replace: true });
                 toast.success(response.data.message);
 
             }
@@ -209,7 +229,7 @@ const CreateJob = () => {
                     </div>
 
                     <div className='col-lg-4 mb-4 relative'>
-                        <label className="block text-sm font-medium mb-1" htmlFor="employer">Employer</label>
+                        <label className="block text-sm font-medium mb-3" htmlFor="employer">Employer</label>
                         <div className='absolute right-5 top-10'>
                             {!errors.employer && watch('employer') ? <FcCheckmark /> : errors.employer ? <div className=' text-red-500'><MdClose /></div> : null}
                         </div>
@@ -275,7 +295,7 @@ const CreateJob = () => {
                             {...register('jobclass')}
                             name="jobclass"
                             id="jobclass"
-                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.jobclass && 'border-red-500'}`}
+                            className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full   ${errors.jobclass && 'border-red-500'}`}
                         >
                             <option defaultChecked disabled>Select Job Class </option>
                             <option>onsite</option>
@@ -316,13 +336,18 @@ const CreateJob = () => {
                         )}
                     </div> */}
                     <div className='col-lg-4'>
-                        <label className="block text-sm font-medium mb-1"  >Expiry Date</label>
+                        <label className="block text-sm font-medium mb-3"  >Expiry Date</label>
                         <DatePicker
                             value={expiryDate}
                             onChange={setexpiryDate}
                             renderInput={renderCustomInput} // render a custom input
                             shouldHighlightWeekends
                         />
+                    </div>
+                    <div className='col-lg-4'>
+                        <label className="block text-sm font-medium mb-3"  >Image</label>
+                        <input  type="file" className={`border p-[6px] focus:outline-blue-500 rounded-sm w-full h-[30px`} onChange={(e) => setFile(e.target.files[0])} />
+                        <small className='text-red-500'>only png, svg images can be added</small>
                     </div>
 
                     {/*  */}
