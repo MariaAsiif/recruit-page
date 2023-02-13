@@ -83,7 +83,7 @@ const Orders = () => {
                                             <table className="min-w-full">
                                                 <thead style={{ boxShadow: "2px 3px 10px #7777771A" }}>
                                                     <tr  >
-                                                        {Array(19).fill("").map(() => {
+                                                        {Array(5).fill("").map(() => {
                                                             return (
                                                                 <th scope="col" className="px-6 py-2 text-sm font-semibold text-left font-sans text-[#464A53]"> Handle </th>
                                                             )
@@ -92,7 +92,7 @@ const Orders = () => {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {Array(19).fill("").map(() => {
+                                                    {Array(4).fill("").map(() => {
                                                         return (
                                                             <tr style={{ boxShadow: "2px 3px 10px #7777771A" }}  >
                                                                 <td className="flex items-center px-6 py-4 space-x-2 whitespace-nowrap ">
@@ -102,7 +102,7 @@ const Orders = () => {
                                                                     </div>
                                                                 </td>
 
-                                                                {Array(19).fill("").map(() => {
+                                                                {Array(4).fill("").map(() => {
                                                                     return (
                                                                         <td className="px-6 py-4 text-sm font-medium text-[#ABAFB3] whitespace-nowrap"> Mark </td>
                                                                     )
