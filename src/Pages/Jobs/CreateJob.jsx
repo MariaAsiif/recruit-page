@@ -42,6 +42,7 @@ const CreateJob = () => {
 
     const [expiryDate, setexpiryDate] = useState({ day: dd, month: mm, year: yyyy })
     const token = useSelector((state) => state.userAuth.loginInfo.token);
+    const UserData = useSelector((state) => state.userAuth.userInfo);
     // let navigate = useNavigate();
     // const [jobModel, setjobModel] = useState({
     //     expiryDate: new Date(),
@@ -76,6 +77,35 @@ const CreateJob = () => {
 
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
+    
+const handleImage = async (e) => {
+    let file = e.target.files[0]
+
+    let formData = new FormData();    
+
+    formData.append('file', file);   //append the values with key, value pair
+
+    formData.append('request', JSON.stringify({
+        "userid": UserData._id,
+    }));
+
+    try {
+        const res = await callApi("/uploads/uploadApplicantCV", "post", formData)
+        if (res.status === "Success") {
+            toast.success(res.message);
+        }
+        else {
+            toast.error(res.message);
+
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+    
+    
+    
     const onSubmit = async (data) => {
         let updated = `${expiryDate.year}-${expiryDate.month}-${expiryDate.day}`;
         try {
@@ -84,19 +114,12 @@ const CreateJob = () => {
                 "job_title": data.job_title,
                 "salary": data.salary,
                 "description": data.description,
-                "job_image_url": "/uploads/dp/default.png",
+                "job_image_url": file,
                 "jobtype": data?.jobtype,
                 "jobstatus": data?.jobstatus,
                 "jobclass": data?.jobclass,
                 "expiryDate": updated,
                 "employer": data?.employer,
-                jobCategory: ["62fa17bbdd8f3425747ee221", "62fa188bdd8f3425747ee222"],
-                physicalLocation: {
-                    country: "Lahore",
-                    state: "Lahore",
-                    province: "Lahore",
-                    city: "Lahore"
-                },
                 location: {
                     type: "Point",
                     coordinates: [
@@ -343,7 +366,7 @@ const CreateJob = () => {
                     </div>
                     <div className='col-lg-6'>
                         <label className="block text-sm font-medium mb-3"  >Image</label>
-                        <input type="file" className={`border p-[6px] focus:outline-blue-500 rounded-sm w-full h-[30px`} onChange={(e) => setFile(e.target.files[0])} />
+                        <input type="file" className={`border p-[6px] focus:outline-blue-500 rounded-sm w-full h-[30px`} onChange={handleImage} />
                         <small className='text-red-500'>only png, svg images can be added</small>
                     </div>
                     <div className='col-lg-12 mb-4 relative'>

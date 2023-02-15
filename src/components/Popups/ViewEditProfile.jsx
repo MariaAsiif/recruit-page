@@ -39,6 +39,7 @@ const ViewEditProfile = (props) => {
     const [approved, setApproved] = useState(true);
     const [verified, setVerified] = useState(true);
     const [roles, setallroles] = useState([]);
+    const [file , setFile] = useState('')
     const [role, setRole] = useState('');
     const [error, setError] = useState({
         userError: '',
@@ -131,6 +132,28 @@ const ViewEditProfile = (props) => {
 
     };
 
+
+    const handleImage = async (e) => {
+        let file = e.target.files[0]
+        let formData = new FormData();    
+        formData.append('file', file);   //append the values with key, value pair
+    
+        try {
+            const res = await callApi("/users/updateprofilepic", "post", formData)
+            if (res.status === "Success") {
+                setFile(res.data?.profile_picture_url)
+                toast.success(res.message);
+            }
+            else {
+                toast.error(res.message);
+    
+            }
+    
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     const onSubmit = async (values) => {
         const { created_at } = values;
         const formattedDate = moment(created_at).format('YYYY-MM-DD');
@@ -147,6 +170,7 @@ const ViewEditProfile = (props) => {
             state: recruitModel.state,
             city: recruitModel.city,
             created_at: formattedDate,
+            profile_picture_url: file,
             location: location ? location : dummylocation 
         };
         try {
@@ -520,13 +544,11 @@ const ViewEditProfile = (props) => {
                                                     }`}
                                             >
                                                 <input type="file"
-                                                    {...register('image')}
+                                                    onChange={handleImage}
                                                 />
                                             </div>
                                         )}
-                                    {errors.image && (
-                                        <p className='text-red-500 text-sm'>{errors.image.message}</p>
-                                    )}
+                                 
 
 
                                 </div>

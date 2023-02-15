@@ -10,9 +10,9 @@ import axios from 'axios'
 import * as yup from "yup";
 
 const schema = yup.object({
-    username: yup.string().required(),
+    first_name: yup.string().required(),
     email: yup.string().email("Invalid email format").required(),
-    reemail: yup.string().email("Invalid email format").required(),
+    email: yup.string().email("Invalid email format").required(),
     phoneNumber: yup.string().required(),
 });
 
@@ -28,6 +28,7 @@ const InfoForm = (props) => {
         watch,
         handleSubmit,
         control,
+        reset,
         formState: { errors },
     } = useForm({ mode: "onChange", resolver: yupResolver(schema) });
 
@@ -40,10 +41,10 @@ const InfoForm = (props) => {
     })
 
     // const [validationModel, setvalidationModel] = useState({
-    //     usernameError: null,
+    //     first_nameError: null,
     //     firstFnameError: null,
     //     emailError: null,
-    //     reemailError: null,
+    //     emailError: null,
     //     sameEmailError: null,
     //     mobileError: null,
     //     cityError: null,
@@ -54,9 +55,9 @@ const InfoForm = (props) => {
     // const setValidation = () => {
     //     let myvalidation_Obj = {
     //         ...validationModel,
-    //         usernameError: Validator(formModel.username, [V_Type.required], ['Please fill out this required field']),
+    //         first_nameError: Validator(formModel.first_name, [V_Type.required], ['Please fill out this required field']),
     //         emailError: Validator(formModel.email, [V_Type.required], ['Please fill out this required field',]),
-    //         reemailError: Validator(formModel.reemail, [V_Type.required], ['Please fill out this required field',]),
+    //         emailError: Validator(formModel.email, [V_Type.required], ['Please fill out this required field',]),
     //         mobileError: Validator(formModel.mobile, [V_Type.required], ['Please fill out this required field',]),
 
 
@@ -123,11 +124,8 @@ const InfoForm = (props) => {
 
 
 
-    const onNext = () => {
-
-        // props.handleNext(formModel)
-
-
+    const onNext = (data) => {
+        props.handleNext(data)
     }
 
 
@@ -185,6 +183,10 @@ const InfoForm = (props) => {
         }
     }, []);
 
+    useEffect(() => {
+        reset(props?.formdata);
+    },[reset])
+
 
 
     return (
@@ -216,12 +218,12 @@ const InfoForm = (props) => {
                     </div> */}
                     </div>
                     <div className=' col-12 mb-5 '>
-                        <input type="text"  {...register('username')} name="username" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.username? "border-red-500 border" : "border border-[lightgray]"
+                        <input type="text"  {...register('first_name')} name="first_name" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.first_name? "border-red-500 border" : "border border-[lightgray]"
                           }`} placeholder='Enter Your First Name *' />
-                        {/* {validationModel.usernameError} */}
-                        {errors.username && (
+                        {/* {validationModel.first_nameError} */}
+                        {errors.first_name && (
                             <p className="text-red-500 text-sm">
-                                {errors.username.message}
+                                {errors.first_name.message}
                             </p>
                         )}
                     </div>
@@ -243,12 +245,12 @@ const InfoForm = (props) => {
                         )}
                     </div>
                     <div className=' col-12 mb-5 '>
-                        <input type="email"  {...register('reemail')} name="reemail" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.reemail? "border-red-500 border" : "border border-[lightgray]"
+                        <input type="email"  {...register('email')} name="email" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.email? "border-red-500 border" : "border border-[lightgray]"
                           }`} placeholder='Enter Email Address *' />
                         {/* {validationModel.emailError} */}
-                        {errors.reemail && (
+                        {errors.email && (
                             <p className="text-red-500 text-sm">
-                                {errors.reemail.message}
+                                {errors.email.message}
                             </p>
                         )}
                     </div>
@@ -265,7 +267,7 @@ const InfoForm = (props) => {
                             rules={{ required: true }}
                             render={({ field: { onChange, value } }) => (
                                 <PhoneInput
-                                    value={value}
+                                    value={value }
                                     enableSearch
                                     disableSearchIcon
                                     country={countryCode}
