@@ -24,13 +24,13 @@ const ApplyNewJob = () => {
                     <RecruitPage type="applied" />
                     :
                     <div className='row g-0'>
-                        <div className={sidebar ? 'col-lg-9' : 'col-lg-12'}>
+                        <div className={sidebar ? 'col-lg-8' : 'col-lg-12'}>
                             <div className='row g-0 px-4 py-2'>
                                 <div className='col-lg-12'>
                                     <div className='lg:flex md:flex lg:justify-between apply_job'>
                                         <div className='m-3 w-full'>
-                                            <h2 className='text-[20px] font-semibold'>Here, we found job!</h2>
-                                            <span className='text-[12px] text-gray-400' >Brand on your preferance</span>
+                                            <h2 className='text-[16px] font-poppine font-semibold'>Here, we found job!</h2>
+                                            <span className='text-[14px] font-poppine text-gray-400' >Brand on your preferance</span>
                                         </div>
                                         <div className='flex items-center justify-end px-4 sorting w-full'>
                                             <button onClick={() => { setlayout("grid") }} className={`mr-8 text-[20px] ${layout === "grid" ? "text-[#65A33A]" : ""}`}>
@@ -39,7 +39,7 @@ const ApplyNewJob = () => {
                                             <button onClick={() => { setlayout("list") }} className={`mr-8 text-[20px] ${layout === "list" ? "text-[#65A33A]" : ""}`}>
                                                 <BsListUl />
                                             </button>
-                                            <h2 className='text-[14px] text-gray-300'>Sort by : </h2>
+                                            <h2 className='text-[16px] text-gray-300'>Sort by : </h2>
                                             <div >
                                                 <SortDropdown />
 
@@ -50,14 +50,14 @@ const ApplyNewJob = () => {
                                 </div>
                                 {jobs.map(() => {
                                     return (
-                                        <div className={`${layout === "grid" ? sidebar ? "col-lg-4 " : "col-lg-3 col-md-6" : "col-lg-12"} mb-5 px-2`} onClick={() => setSetSidebar(true)}>
+                                        <div className={`${layout === "grid" ? sidebar ? "col-lg-6 " : "col-lg-4 col-md-6" : "col-lg-12"} mb-5 px-2`} onClick={() => setSetSidebar(true)}>
                                             <div className=' border-2 border-transparent hover:border-[#65A33A] rounded-md '>
                                                 <div className='bg-white rounded-md cursor-pointer'>
                                                     <div className='row g-0  '>
-                                                        <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-4"} ${layout === "grid" ? "h-44 " : "h-44"} bg-top-background bg-bottom bg-no-repeat bg-cover rounded-md`}>  </div>
+                                                        <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-3"} ${layout === "grid" ? "h-44 " : "h-44"} bg-top-background bg-bottom bg-no-repeat bg-cover rounded-md`}>  </div>
                                                         <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-8"} p-2`}>
                                                             <div className={` flex justify-between items-center`}>
-                                                                <h1 className={`${layout !== "grid" && "text-[20px]"} 'text-[#0D1829] hover:text-[#65A33A] text-[14px] font-medium`}>Front end Developer</h1>
+                                                                <h1 className={`${layout !== "grid" && "text-[20px]"} 'text-[#0D1829] hover:text-[#65A33A] text-[20px] font-medium poppine`}>Front end Developer</h1>
                                                                 <div>
                                                                     <span className='w-4 h-4  rounded-full inline-block mr-1 align-middle'>
                                                                         <img src={flag} alt="flag" />
@@ -70,15 +70,15 @@ const ApplyNewJob = () => {
                                                                     </span>
                                                                 </div>
                                                             </div>
-                                                            <h1 className={`${layout !== "grid" && "text-[15px] pt-2"} text-[#626973] mb-4 text-[10px] mt-2 font-light leading-4`}>Lor liqua equat. Duis aute irure dolor in repre hend erit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,</h1>
+                                                            <h1 className={`${layout !== "grid" && "text-[15px] pt-2"} font-poppine text-[#626973] mb-4 text-[16px] mt-2 font-light leading-4`}>Lor liqua equat. Duis aute irure dolor in repre hend erit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,</h1>
                                                             <div className={`${layout !== "grid" && 'pt-[2rem] flex justify-between items-center '} flex justify-between items-center`}>
                                                                 <div>
-                                                                    <button className='text-[10px] transition-all text-white hover:bg-[#E84025] hover:text-white  rounded-sm pl-2 pr-2 p-[6px] bg-[#42946C] mr-1'>Fulltime</button>
-                                                                    <button className='text-[10px] transition-all text-[#42946C]  p-[5px] border-[#42946C] border rounded-sm mr-1'>Senior level</button>
+                                                                    <button className='text-[16px] transition-all text-white hover:bg-[#E84025] hover:text-white  rounded-sm pl-2 pr-2 p-[6px] bg-[#42946C] mr-1'>Fulltime</button>
+                                                                    <button className='text-[16px] transition-all text-[#42946C]  p-[5px] border-[#42946C] border rounded-sm mr-1'>Senior level</button>
                                                                     <BsHeart className='inline mx-1 ' />
                                                                     <BsFillShareFill className='inline' />
                                                                 </div>
-                                                                <div className='text-[10px]'>
+                                                                <div className='text-[16px]'>
                                                                     <span className='font-bold'>$80K</span>/Year
                                                                 </div>
                                                             </div>
@@ -97,13 +97,13 @@ const ApplyNewJob = () => {
                             </div>
                         </div>
                         {sidebar &&
-                            <div style={{ boxShadow: "-2px 3px 5px #00000043" }} className='col-lg-3 border bg-white  shadow-lg'>
+                            <div style={{ boxShadow: "-2px 3px 5px #00000043" }} className='col-lg-4 border bg-white  shadow-lg'>
                                 <div className='p-5'>
                                     <h1 className='text-[#65A33A] text-center text-lg font-medium mb-4'>Detail Job</h1>
                                     <div className='border-2 border-[#65A33A]  rounded-md p-[2px] mb-2'>
                                         <div className='bg-top-background bg-bottom bg-no-repeat bg-cover h-44 rounded-md'></div>
                                     </div>
-                                    <h1 className='text-[#0D1829] text-center text-[10px] font-medium mb-2'>Senior UI/UX Designer</h1>
+                                    <h1 className='text-[#0D1829] text-center text-[16px] font-medium mb-2'>Senior UI/UX Designer</h1>
                                     <div className='flex justify-between items-center mb-4'>
                                         <h1 className='text-[#626973] text-[8px]'>Full Time Job at Google, Inc</h1>
                                         <div>
@@ -119,8 +119,8 @@ const ApplyNewJob = () => {
                                         </div>
                                     </div>
                                     <div className='mb-4'>
-                                        <h1 className='text-[#65A33A]  text-sm mb-4'>Qualification :</h1>
-                                        <ul className='list-disc pl-4 text-[#0D1829] text-[9px]'>
+                                        <h1 className='text-[#000]  text-[16px] mb-4'>Qualification :</h1>
+                                        <ul className='list-disc pl-4 text-[#0D1829] text-[14px]'>
                                             <li className='mb-3'>Lorem ipsum dolor sit amet, consectetur</li>
                                             <li className='mb-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
                                             <li className='mb-3'>Lorem ipsum dolor sit amet, consectetur</li>
@@ -130,8 +130,8 @@ const ApplyNewJob = () => {
                                         </ul>
                                     </div>
                                     <div className='mb-4'>
-                                        <h1 className='text-[#65A33A]  text-sm mb-4'>Responsibilities & Duties :</h1>
-                                        <ul className='list-disc pl-4 text-[#0D1829] text-[9px]'>
+                                        <h1 className='text-[#000]  text-[16px] mb-4'>Responsibilities & Duties :</h1>
+                                        <ul className='list-disc pl-4 text-[#0D1829] text-[14px]'>
                                             <li className='mb-3'>Lorem ipsum dolor sit amet, consectetur</li>
                                             <li className='mb-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
                                             <li className='mb-3'>Lorem ipsum dolor sit amet, consectetur</li>
@@ -141,14 +141,14 @@ const ApplyNewJob = () => {
                                         </ul>
                                     </div>
                                     <div className='mb-4 h-8'>
-                                        <button className='border-2 transition-all border-[#65A33A] px-2 py-2 text-[9px] bg-[#65A33A] hover:bg-white text-white hover:text-[#65A33A] rounded-md float-left'>Messages</button>
-                                        <button onClick={() => setApply(true)} className='border-2  transition-all border-[#65A33A] px-2 py-2 text-[9px] bg-[#65A33A] hover:bg-white text-white hover:text-[#65A33A] rounded-md float-right'>Apply Now</button>
+                                        <button className='border-2 transition-all border-[#65A33A] px-2 py-2 text-[14px] bg-[#65A33A] hover:bg-white text-white hover:text-[#65A33A] rounded-md float-left'>Messages</button>
+                                        <button onClick={() => setApply(true)} className='border-2  transition-all border-[#65A33A] px-2 py-2 text-[14px] bg-[#65A33A] hover:bg-white text-white hover:text-[#65A33A] rounded-md float-right'>Apply Now</button>
                                     </div>
                                     <h1 className='text-[#65A33A]  text-sm mb-1'>Interested in this job?</h1>
                                     <div className='text-[#626973] text-[11px] mb-4'>
-                                        <IoSaveOutline className='inline mr-1' /><span className='mr-2'>Save Job</span>
-                                        <IoPrintOutline className='inline mr-1' /><span className='mr-2'>Print this Job</span>
-                                        <IoMailOutline className='inline mr-1' /><span>Email this Job</span>
+                                        <IoSaveOutline className='inline mr-1 text-[14px]' /><span className='mr-2 text-[14px]'>Save Job</span>
+                                        <IoPrintOutline className='inline mr-1 text-[14px]' /><span className='mr-2 text-[14px]'>Print this Job</span>
+                                        <IoMailOutline className='inline mr-1 text-[14px]' /><span className='text-[14px]'>Email this Job</span>
                                     </div>
 
                                     <div className='flex items-center flex-wrap mt-1'>

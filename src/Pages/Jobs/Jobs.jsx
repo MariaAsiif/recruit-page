@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react'
 import moment from "moment"
 import { Link } from 'react-router-dom';
 
-import ShowUser from '../../components/UerShow/ShowUser';
+// import ShowUser from '../../components/UerShow/ShowUser';
 import { callApi } from '../../utils/CallApi';
+import { Truncate  } from '../../utils/TrucateString';
 
 import ViewEditJobPopup from '../../components/Popups/ViewEditJobPopup';
 
 import { IoEyeOutline } from "react-icons/io5";
+import { ToastContainer } from 'react-toastify';
 
 const Jobs = () => {
     const [alljobs, setalljobs] = useState([])
@@ -71,6 +73,9 @@ const Jobs = () => {
     //     }
     // };
 
+
+    
+
     useEffect(() => {
         if (!jobPopup) {
             (async () => {
@@ -93,6 +98,17 @@ const Jobs = () => {
     }, [jobPopup])
     return (
         <div className='bscontainer-fluid'>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <ViewEditJobPopup id="job-modal" data={jobRow} mode={jobMode} modalOpen={jobPopup} onClose={() => setjobPopup(false)} />
             <div className='row py-5'>
                 <div className='col-12  mb-5'>
@@ -188,7 +204,7 @@ const Jobs = () => {
                                                         <div className="text-left">{job.salary}</div>
                                                     </td>
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                        <div className="text-left">{job.description}</div>
+                                                        <div className="text-left">{Truncate(job.description , 40)}</div>
                                                     </td>
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                         <div className="text-left">{job.jobtype}</div>

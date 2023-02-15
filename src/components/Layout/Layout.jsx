@@ -1,11 +1,16 @@
 import React from 'react'
 import { RiMessage2Line } from 'react-icons/ri'
 import Header from '../SharedComponents/Header/Header'
-import beta from '../../assets/images/beta.png'
 import { Link } from 'react-router-dom'
+
 const Layout = ({ children }) => {
+
+
+
     return (
         <>
+
+
             <Header />
             {
                 children

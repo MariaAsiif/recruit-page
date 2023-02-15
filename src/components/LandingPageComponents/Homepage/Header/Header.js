@@ -32,38 +32,6 @@ const Header = ({ id, value }) => {
   const  user  = useSelector((state) => state.recruitAuth.userInfo)
 
 
-  const UserInfo = {
-    "profile_picture_url": "/uploads/dp/default.png",
-    "role": "superadmin",
-    "country": "AU",
-    "state": "",
-    "city": "",
-    "interest": [],
-    "verification_code": "4539",
-    "is_verified": true,
-    "ageGateVerified": false,
-    "location": {
-        "coordinates": [
-            74.28911289869139,
-            31.624848273644957
-        ],
-        "type": "Point"
-    },
-    "__v": 0,
-    "ipAddress": "121.91.38.67",
-    "approved": "approved",
-    "active": true,
-    "phoneNumber": "+923074901291",
-    "email": "jamshaidsabir411980@gmail.com",
-    "third_family_name": "FAISAL AKARAM",
-    "second_family_name": "FAISAL AKARAM",
-    "first_family_name": "FAISAL AKARAM",
-    "first_name": "FAISAL AKARAM",
-    "created_at": "2022-12-02T12:36:33.605Z",
-    "updated_at": "2023-02-07T06:15:46.089Z",
-    "_id": "6389f1518548b200161460ae",
-    "new_user": false
-}
 
   const getValue = (value) => {
     setOffNavValue(value);

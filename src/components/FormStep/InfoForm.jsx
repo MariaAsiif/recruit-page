@@ -3,87 +3,97 @@ import { surnames } from '../../utils/enum'
 import 'react-phone-input-2/lib/style.css'
 import PhoneInput from 'react-phone-input-2'
 import { Country, State, City } from 'country-state-city';
-import Validator, { ValidationTypes as V_Type, } from 'react-form-supervalidator';
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+// import Validator, { ValidationTypes as V_Type, } from 'react-form-supervalidator';
 import axios from 'axios'
+import * as yup from "yup";
+
+const schema = yup.object({
+    username: yup.string().required(),
+    email: yup.string().email("Invalid email format").required(),
+    reemail: yup.string().email("Invalid email format").required(),
+    phoneNumber: yup.string().required(),
+});
+
+
 const InfoForm = (props) => {
     const [all_Countries, setall_Countries] = useState([]);
     const [all_States, setall_States] = useState([]);
     const [all_Cities, setall_Cities] = useState([]);
     const [countryCode, setCountryCode] = useState("")
 
+    const {
+        register,
+        watch,
+        handleSubmit,
+        control,
+        formState: { errors },
+    } = useForm({ mode: "onChange", resolver: yupResolver(schema) });
+
     const [formModel, setformModel] = useState({
-        surname: "Mr.",
-        username: "",
-        firstFname: "",
-        secondFname: "",
-        thirdFname: "",
-        email: "",
-        reemail: "",
-        mobile: "",
+
         country: "",
         state: "",
         city: "",
-        industry: "",
-        interest: "",
-        age: "",
-        dob: ""
+
     })
 
-    const [validationModel, setvalidationModel] = useState({
-        usernameError: null,
-        firstFnameError: null,
-        emailError: null,
-        reemailError: null,
-        sameEmailError: null,
-        mobileError: null,
-        cityError: null,
-        countryError: null,
-        ageError: null,
-    });
+    // const [validationModel, setvalidationModel] = useState({
+    //     usernameError: null,
+    //     firstFnameError: null,
+    //     emailError: null,
+    //     reemailError: null,
+    //     sameEmailError: null,
+    //     mobileError: null,
+    //     cityError: null,
+    //     countryError: null,
+    //     ageError: null,
+    // });
 
-    const setValidation = () => {
-        let myvalidation_Obj = {
-            ...validationModel,
-            usernameError: Validator(formModel.username, [V_Type.required], ['Please fill out this required field']),
-            emailError: Validator(formModel.email, [V_Type.required], ['Please fill out this required field',]),
-            reemailError: Validator(formModel.reemail, [V_Type.required], ['Please fill out this required field',]),
-            mobileError: Validator(formModel.mobile, [V_Type.required], ['Please fill out this required field',]),
-
-
-        };
+    // const setValidation = () => {
+    //     let myvalidation_Obj = {
+    //         ...validationModel,
+    //         usernameError: Validator(formModel.username, [V_Type.required], ['Please fill out this required field']),
+    //         emailError: Validator(formModel.email, [V_Type.required], ['Please fill out this required field',]),
+    //         reemailError: Validator(formModel.reemail, [V_Type.required], ['Please fill out this required field',]),
+    //         mobileError: Validator(formModel.mobile, [V_Type.required], ['Please fill out this required field',]),
 
 
-
-        setvalidationModel(myvalidation_Obj);
-
-        return Validator(myvalidation_Obj, V_Type.NullCheck);
-    };
-
-    const onHandleChange = (e) => {
-        let { name, value } = e.target
-
-        setformModel((prevmodel) => ({
-            ...prevmodel,
-            [name]: value
-        }))
-    }
+    //     };
 
 
 
-    const handleSurname = (sname) => {
-        setformModel((prevmodel) => ({
-            ...prevmodel,
-            surname: sname
-        }))
-    }
-    const handleChangeMobile = (number) => {
-        setformModel((prevmodel) => ({
-            ...prevmodel,
-            mobile: number
-        }))
-    }
+    //     setvalidationModel(myvalidation_Obj);
 
-  
+    //     return Validator(myvalidation_Obj, V_Type.NullCheck);
+    // };
+
+    // const onHandleChange = (e) => {
+    //     let { name, value } = e.target
+
+    //     setformModel((prevmodel) => ({
+    //         ...prevmodel,
+    //         [name]: value
+    //     }))
+    // }
+
+
+
+    // const handleSurname = (sname) => {
+    //     setformModel((prevmodel) => ({
+    //         ...prevmodel,
+    //         surname: sname
+    //     }))
+    // }
+    // const handleChangeMobile = (number) => {
+    //     setformModel((prevmodel) => ({
+    //         ...prevmodel,
+    //         mobile: number
+    //     }))
+    // }
+
+
     const handleChangeCountry = (e) => {
         let { value } = e.target
         const updatedStates = State.getStatesOfCountry(value)
@@ -111,17 +121,13 @@ const InfoForm = (props) => {
 
     }
 
-  
+
 
     const onNext = () => {
-        let my_validation = setValidation();
-        if (my_validation) {
-        }
-        else {
 
-            props.handleNext(formModel)
+        // props.handleNext(formModel)
 
-        }
+
     }
 
 
@@ -166,7 +172,7 @@ const InfoForm = (props) => {
                 setformModel((prevmodel) => ({
                     ...prevmodel,
                     country: currentCountryCode,
-                    
+
                 }))
                 setall_Countries(get_countris);
                 setall_States(CurrentStates);
@@ -183,9 +189,15 @@ const InfoForm = (props) => {
 
     return (
         <div>
-            <div className='row   h-[750px]'>
-                <div className='col-lg-3  '>
-                    <div className="dropdown relative mb-5">
+            <form onSubmit={handleSubmit(onNext)}>
+                <div className='row   h-[750px]'>
+                    <div className='col-lg-3  '>
+                        <select className='p-0 px-2 py-2'>
+                            {surnames.map((sur, i) => (
+                                <option>{sur}</option>
+                            ))}
+                        </select>
+                        {/* <div className="dropdown relative mb-5">
                         <button className="  w-full bg-white border border-[lightgray]  rounded-lg h-full   text-gray-400 dropdown-toggle p-2   focus:outline-blue-400 focus:ring-0 active:border-blue-400   transition duration-150 ease-in-out flex justify-between items-center whitespace-nowrap " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             {surnames.find((s_name) => s_name === formModel.surname)}
                             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" className="w-2 ml-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -201,35 +213,77 @@ const InfoForm = (props) => {
                                 )
                             })}
                         </ul>
+                    </div> */}
                     </div>
-                </div>
-                <div className=' col-12 mb-5 '>
-                    <input value={formModel.username} name="username" onChange={onHandleChange} className='w-full text-[#CCCCCC] font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First  Name*' />
-                    {validationModel.usernameError}
-                </div>
-                <div className=' col-12 mb-5 '>
-                    <input className='w-full  text-[#CCCCCC] font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your FAMILY NAME (Optional)' />
+                    <div className=' col-12 mb-5 '>
+                        <input type="text"  {...register('username')} name="username" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.username? "border-red-500 border" : "border border-[lightgray]"
+                          }`} placeholder='Enter Your First Name *' />
+                        {/* {validationModel.usernameError} */}
+                        {errors.username && (
+                            <p className="text-red-500 text-sm">
+                                {errors.username.message}
+                            </p>
+                        )}
+                    </div>
+                    <div className=' col-12 mb-5 '>
+                        <input {...register('firstFname')} name="firstFname" className='w-full   font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your FAMILY NAME (Optional)' />
 
-                </div>
-                <div className=' col-12 mb-5 '>
-                    <input className='w-full  text-[#CCCCCC] font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your Second FAMILY NAME (Optional)' />
-                </div>
-                <div className=' col-12 mb-5 '>
-                    <input type="email" value={formModel.email} name="email" onChange={onHandleChange} className='w-full  text-[#CCCCCC] font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter Email Address *' />
-                    {validationModel.emailError}
-                </div>
-                <div className=' col-12 mb-5 '>
-                    <input type="email" value={formModel.reemail} name="reemail" onChange={onHandleChange} className='w-full  text-[#CCCCCC] font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Re-Enter Email Address *' />
-                    {validationModel.reemailError}
-                </div>
-                <div className=' col-12 mb-5 '>
-                    <input className='w-full  text-[#CCCCCC] font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Point of interest' />
-                </div>
-                <div className=' col-12 mb-5 '>
-                    <input className='w-full  text-[#CCCCCC] font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Current Industry' />
-                </div>
-                <div className='col-12  mb-5'>
-                    <PhoneInput
+                    </div>
+                    <div className=' col-12 mb-5 '>
+                        <input {...register('secondFname')} name="secondFname" className='w-full   font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your Second FAMILY NAME (Optional)' />
+                    </div>
+                    <div className=' col-12 mb-5 '>
+                        <input type="email"  {...register('email')} name="email" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.email? "border-red-500 border" : "border border-[lightgray]"
+                          }`} placeholder='Enter Email Address *' />
+                        {/* {validationModel.emailError} */}
+                        {errors.email && (
+                            <p className="text-red-500 text-sm">
+                                {errors.email.message}
+                            </p>
+                        )}
+                    </div>
+                    <div className=' col-12 mb-5 '>
+                        <input type="email"  {...register('reemail')} name="reemail" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.reemail? "border-red-500 border" : "border border-[lightgray]"
+                          }`} placeholder='Enter Email Address *' />
+                        {/* {validationModel.emailError} */}
+                        {errors.reemail && (
+                            <p className="text-red-500 text-sm">
+                                {errors.reemail.message}
+                            </p>
+                        )}
+                    </div>
+                    <div className=' col-12 mb-5 '>
+                        <input   {...register('interest')} name="interest" className='w-full   font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Point of interest' />
+                    </div>
+                    <div className=' col-12 mb-5 '>
+                        <input {...register('industry')} name="industry" className='w-full   font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Current Industry' />
+                    </div>
+                    <div className='col-12  mb-5'>
+                        <Controller
+                            name="phoneNumber"
+                            control={control}
+                            rules={{ required: true }}
+                            render={({ field: { onChange, value } }) => (
+                                <PhoneInput
+                                    value={value}
+                                    enableSearch
+                                    disableSearchIcon
+                                    country={countryCode}
+                                    onChange={onChange}
+                                    placeholder="000 000 000"
+                                    // countryCodeEditable={false}
+                                    className={` ${errors.phoneNumber && "error_form px-1"
+                                        }`}
+                                    dropdownClass={"custom-dropdown"}
+                                />
+                            )}
+                        />
+                         {errors.phoneNumber && (
+                        <p className="text-red-500 text-sm">
+                          {errors.phoneNumber.message}
+                        </p>
+                      )}
+                        {/* <PhoneInput
                         country={countryCode}
                         // enableSearch
                         // disableSearchIcon
@@ -239,10 +293,10 @@ const InfoForm = (props) => {
                         countryCodeEditable={false}
                         value={formModel.mobile}
                         onChange={handleChangeMobile} />
-                    {validationModel.mobileError}
-                </div>
+                    {validationModel.mobileError} */}
+                    </div>
                     <div className="dropdown relative mb-5 col-lg-4 col-md-4">
-                   
+
                         <select value={formModel.country} onChange={handleChangeCountry} name="country" id="country" className={`w-full  border  rounded-lg p-[10px] border-[lightgray]   `} >
                             <option value="">Select Country </option>
                             {all_Countries.map((contry) => <option value={contry.isoCode}>{contry.name}</option>)}
@@ -258,18 +312,19 @@ const InfoForm = (props) => {
 
                     </div>
                     <div className="dropdown relative mb-5 col-lg-4 col-md-4">
-                        <select value={formModel.city} onChange={onHandleChange}   name="city" id="city" className={`w-full  border  rounded-lg p-[10px] border-[lightgray]   `}     >
+                        <select value={formModel.city} name="city" id="city" className={`w-full  border  rounded-lg p-[10px] border-[lightgray]   `}     >
                             <option value="">Select city </option>
                             {all_Cities.map((contry) => <option >{contry.name}</option>)}
                         </select>
                     </div>
 
-            </div>
-            <div className='flex justify-between lg:mt-0 md:mt-0 mt-7 '>
-                <div className=''>
-                    <button onClick={onNext} className=' bg-[#DB4446] hover:bg-[#93C234] px-2 py-2 mb-5 text-sm font-sans text-white w-full'>{"Next Step"}</button>
                 </div>
-            </div>
+                <div className='flex justify-between lg:mt-0 md:mt-0 mt-7 '>
+                    <div className=''>
+                        <button className=' bg-[#DB4446] hover:bg-[#93C234] px-2 py-2 mb-5 text-sm font-sans text-white w-full'>{"Next Step"}</button>
+                    </div>
+                </div>
+            </form>
         </div>
     )
 }

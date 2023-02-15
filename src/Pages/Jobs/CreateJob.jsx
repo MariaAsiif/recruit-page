@@ -84,12 +84,26 @@ const CreateJob = () => {
                 "job_title": data.job_title,
                 "salary": data.salary,
                 "description": data.description,
-                "job_image_url":"/uploads/dp/default.png",
+                "job_image_url": "/uploads/dp/default.png",
                 "jobtype": data?.jobtype,
-                "jobstatus":data?.jobstatus,
+                "jobstatus": data?.jobstatus,
                 "jobclass": data?.jobclass,
-                "expiryDate": updated ,
+                "expiryDate": updated,
                 "employer": data?.employer,
+                jobCategory: ["62fa17bbdd8f3425747ee221", "62fa188bdd8f3425747ee222"],
+                physicalLocation: {
+                    country: "Lahore",
+                    state: "Lahore",
+                    province: "Lahore",
+                    city: "Lahore"
+                },
+                location: {
+                    type: "Point",
+                    coordinates: [
+                        74.28911285869138,
+                        31.624888273644956
+                    ]
+                }
             }
 
             // let formdata = new FormData()
@@ -209,24 +223,7 @@ const CreateJob = () => {
                             <p className="text-red-500 text-sm">{errors.salary.message}</p>
                         )}
                     </div>
-                    <div className='col-lg-4 mb-4 relative'>
-                        <label className="block text-sm font-medium mb-1" htmlFor="description">Description</label>
-                        <div className='absolute right-5 top-10'>
-                            {!errors.description && watch('description') ? <FcCheckmark /> : errors.description ? <div className=' text-red-500'><MdClose /></div> : null}
-                        </div>
-                        <input
-                            autoComplete="off"
-                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.description && 'border-red-500'}`}
-                            name='description' id="description"
-                            {...register('description')}
-                            placeholder="Desription"
-
-                            type="text" />
-
-                        {errors.description && (
-                            <p className="text-red-500 text-sm">{errors.description.message}</p>
-                        )}
-                    </div>
+                   
 
                     <div className='col-lg-4 mb-4 relative'>
                         <label className="block text-sm font-medium mb-3" htmlFor="employer">Employer</label>
@@ -335,7 +332,7 @@ const CreateJob = () => {
                             <p className="text-red-500 text-sm">{errors.expiryDate.message}</p>
                         )}
                     </div> */}
-                    <div className='col-lg-4'>
+                    <div className='col-lg-6'>
                         <label className="block text-sm font-medium mb-3"  >Expiry Date</label>
                         <DatePicker
                             value={expiryDate}
@@ -344,10 +341,28 @@ const CreateJob = () => {
                             shouldHighlightWeekends
                         />
                     </div>
-                    <div className='col-lg-4'>
+                    <div className='col-lg-6'>
                         <label className="block text-sm font-medium mb-3"  >Image</label>
-                        <input  type="file" className={`border p-[6px] focus:outline-blue-500 rounded-sm w-full h-[30px`} onChange={(e) => setFile(e.target.files[0])} />
+                        <input type="file" className={`border p-[6px] focus:outline-blue-500 rounded-sm w-full h-[30px`} onChange={(e) => setFile(e.target.files[0])} />
                         <small className='text-red-500'>only png, svg images can be added</small>
+                    </div>
+                    <div className='col-lg-12 mb-4 relative'>
+                        <label className="block text-sm font-medium mb-1" htmlFor="description">Description</label>
+                        <div className='absolute right-5 top-10'>
+                            {!errors.description && watch('description') ? <FcCheckmark /> : errors.description ? <div className=' text-red-500'><MdClose /></div> : null}
+                        </div>
+                        <textarea
+                            autoComplete="off"
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.description && 'border-red-500'}`}
+                            name='description' id="description"
+                            {...register('description')}
+                            placeholder="Desription"
+                            cols={5}
+                            ></textarea>
+
+                        {errors.description && (
+                            <p className="text-red-500 text-sm">{errors.description.message}</p>
+                        )}
                     </div>
 
                     {/*  */}

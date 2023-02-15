@@ -59,7 +59,7 @@ function LanguageDropdown({type}) {
     <div className="relative">
       <button
         ref={trigger}
-        className={`px-1 py-1 ${type ? 'w-[220px]' : 'w-[105px]'}  text-[14px] flex items-center border rounded-full  justify-between  bg-white border-slate-200 hover:border-slate-300 text-slate-500 hover:text-slate-600`}
+        className={`px-1  ${type ? 'w-[220px]' : 'w-[105px]'}  text-[14px] flex items-center border rounded-full  justify-between  bg-white border-slate-200 hover:border-slate-300 text-slate-500 hover:text-slate-600`}
         aria-label="Select date range"
         aria-haspopup="true"
         onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -68,7 +68,7 @@ function LanguageDropdown({type}) {
 
         <span className="flex items-center">
           <img src={flag} className="w-5" alt="profile" />
-          <span className='ml-1 text-[12px] font-medium'>English</span>
+          <span className='ml-1 text-[16px] font-medium'>English</span>
         </span>
         
         {/* <img src={profileImage} className=" w-8" alt="profile" />
@@ -102,7 +102,7 @@ function LanguageDropdown({type}) {
                 <div>
                   <span className={`flex items-start justify-start border-b last:border-b-0 w-full hover:bg-slate-50 py-1 text-[14px] font-normal px-2 cursor-pointer }`}>
                     <img src={flag} className="w-5" alt="profile" />
-                    <span className='ml-1 text-[12px]'>English</span>
+                    <span className='ml-1 text-[16px]'>English</span>
                   </span>
                 </div>
                 // <button

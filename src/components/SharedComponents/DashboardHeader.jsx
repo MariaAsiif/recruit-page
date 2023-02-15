@@ -29,18 +29,18 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
                     {/* Header: Right side */}
                     <div className="lg:w-[100%] ">
                         <div className='flex justify-between items-center top_search_bar '>
-                            <div className={`lg:flex hidden search_bar  pt-1 ${checkExpand ? "w-[40%]" : "w-[60%]"} `}>
+                            <div className={`lg:flex hidden search_bar  pt-1 ${checkExpand ? "w-[40%]" : "w-[40%]"} `}>
                                 <input onClick={() => Toggle(true)} className={`bg-[#F3F6FB]  ${checkExpand ? "max-w-[400px]" : "w-[500px]"} focus:outline-none  md:w-[100%] py-1 px-2 text-xs text-[#999FA9]`} placeholder='search' />
                                 <button className='bg-green-700 h-[35px] rounded-sm lg:w-[8%] ml-2'><BiSearch className='inline text-white' /></button>
                             </div>
                             <div className='search_bar_items w-full'>
-                                <div className={checkExpand ? "lg:flex hidden items-center text-[10px]" : 'lg:flex hidden items-center '}>
+                                <div className={checkExpand ? "lg:flex hidden items-center text-[16px]" : 'lg:flex hidden items-center '}>
                                     <div className='lg:flex hidden justify-end w-[50%]'>
                                         <AiTwotoneCloud className='text-[20px]' />
                                     </div>
                                     <div className='lg:flex   hidden w-[50%] justify-end'>
 
-                                        <span className='ml-2 text-[12px]'>Rain-1'C</span>
+                                        <span className='ml-2 text-[16px]'>Rain-1'C</span>
                                     </div>
                                     <div className={'mx-2'}>
                                         <IoIosBody className='text-[20px]' />
@@ -61,8 +61,8 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
                                         <CountryDropdown />
                                     </div>
 
-                                    <div className='lg:flex lg:items-center w-full justify-between  lg:mx-1 ml-2  hidden border rounded-full '>
-                                        <span className='text-[11px] px-2'>Dark Mode</span>
+                                    <div className='lg:flex lg:items-center w-[70%] justify-between  lg:mx-1 ml-2  hidden border rounded-full '>
+                                        <span className='text-[16px] px-2'>Dark Mode</span>
                                         <div className='border rounded-full mx-[1px] bg-black'>
                                             <MdOutlineDarkMode className='text-[24px] text-white ' />
                                         </div>

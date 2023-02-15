@@ -266,10 +266,10 @@ const OffCanvas = ({ show, profile, setShow, value, state, children }) => {
                                         <li>
                                             <div className="d-fl justify-conween items-center">
                                                 <div>
-                                                    <h3 className="off_text">{user?.city}</h3>
+                                                    <h3 className="off_text">City</h3>
                                                 </div>
                                                 <div className="ms-2">
-                                                    <span>{user?.country}</span>
+                                                    <span>{user?.city}</span>
                                                 </div>
                                             </div>
                                         </li>

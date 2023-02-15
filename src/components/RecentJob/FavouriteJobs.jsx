@@ -4,12 +4,12 @@ const FavritJobs = ({ status }) => {
     return (
         <>
             <div className='row mt-[50px]'>
-                <div className='col-lg-12 flex flex-wrap  items-end lg:px-10 mb-5'>
+                <div className='col-lg-12 flex lg:flex-row flex-col  items-end mb-5'>
                     <div className='w-[90%]'>
-                        <h1 className='text-[#0D1829] font-semibold mb-2'>Favorite Jobs</h1>
-                        <h1 className='text-[#626973] text-xs font-normal'>Based on your preferences</h1>
+                        <h1 className='text-[#0D1829] text-[16px] font-semibold mb-2'>Favorite Jobs</h1>
+                        <h1 className='text-[#626973] text-[14px] text-xs font-normal'>Based on your preferences</h1>
                     </div>
-                    <div className='flex flex-wrap items-center lg:mt-0 md:mt-0 mt-2 '>
+                    <div className='flex  items-center lg:mt-0 md:mt-0 mt-2 '>
                         <div className='border flex items-center bg-white rounded-full w-full p-[5px] pl-[10px] pr-[10px]' >
                             <input type="text" placeholder='Search here...' className='w-full focus:outline-none placeholder:text-sm  ' />
                             <AiOutlineSearch className='text-gray-400'/>

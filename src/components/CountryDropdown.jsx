@@ -59,7 +59,7 @@ function CountryDropdown({type}) {
     <div className="relative">
       <button
         ref={trigger}
-        className={`px-1 py-1 ${type ? 'w-[220px]' : 'w-[90px]'} text-[14px] flex items-center border rounded-full  justify-between  bg-white border-slate-200 hover:border-slate-300 text-slate-500 hover:text-slate-600`}
+        className={`px-1 ${type ? 'w-[220px]' : 'w-[90px]'} text-[14px] flex items-center border rounded-full  justify-between  bg-white border-slate-200 hover:border-slate-300 text-slate-500 hover:text-slate-600`}
         aria-label="Select date range"
         aria-haspopup="true"
         onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -68,7 +68,7 @@ function CountryDropdown({type}) {
 
         <span className="flex items-center">
           <img src={flag} className="w-5" alt="profile" />
-          <span className='ml-1 text-[12px] font-medium'>Uk</span>
+          <span className='ml-1 text-[16px] font-medium'>Uk</span>
         </span>
         <svg className="shrink-0 ml-1 fill-current text-slate-400" width="11" height="7" viewBox="0 0 11 7">
           <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
@@ -104,7 +104,7 @@ function CountryDropdown({type}) {
                 <div>
                   <span className={`flex items-start justify-start border-b last:border-b-0 w-full hover:bg-slate-50 py-1 text-[14px] font-normal px-2 cursor-pointer }`}>
                     <img src={flag} className="w-5" alt="profile" />
-                    <span className='ml-1 text-[12px]'>Uk</span>
+                    <span className='ml-1 text-[16px]'>Uk</span>
                   </span>
                 </div>
                 // <button

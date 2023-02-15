@@ -13,7 +13,7 @@ export const RecruitAuthSlice = createSlice({
         signin: (state, action) => {
             state.loginInfo.token = action.payload.token
             state.userInfo = action.payload.userdata
-            
+
         },
         signout: (state) => {
             return {
@@ -23,6 +23,10 @@ export const RecruitAuthSlice = createSlice({
                 userInfo: null
             }
         },
+        updateProfile: (state, action) => {
+            debugger
+            state.userInfo = action.payload
+        },
         updateUser: (state, action) => {
             debugger
             state.userInfo = { ...state.userInfo, gatePopup: action.payload };
@@ -31,6 +35,6 @@ export const RecruitAuthSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { signin, signout, updateUser } = RecruitAuthSlice.actions
+export const { signin, signout, updateUser , updateProfile } = RecruitAuthSlice.actions
 
 export default RecruitAuthSlice.reducer

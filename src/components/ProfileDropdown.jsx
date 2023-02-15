@@ -57,7 +57,7 @@ function ProfileDropdown({type}) {
     <div className="relative">
       <button
         ref={trigger}
-        className={`px-1 py-1 ${type ? 'w-[220px]' : 'w-[145px]'} text-[14px] flex items-center ${ dropdownOpen  ?  "bg-white shadow border rounded-sm" : ""}  justify-between  bg-white border-slate-200 hover:border-slate-300 text-slate-500 hover:text-slate-600`}
+        className={`px-1 ${type ? 'w-[220px]' : 'w-[150px]'} text-[14px] flex items-center ${ dropdownOpen  ?  "bg-white shadow border rounded-sm" : ""}  justify-between  bg-white border-slate-200 hover:border-slate-300 text-slate-500 hover:text-slate-600`}
         aria-label="Select date range"
         aria-haspopup="true"
         onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -66,7 +66,7 @@ function ProfileDropdown({type}) {
 
         <span className="flex items-center">
           <img src={profileImage} className=" w-8 " alt="profile" />
-          <span className='ml-1 text-[12px] font-medium'>Islamabad</span>
+          <span className='ml-1 text-[16px] font-medium'>Islamabad</span>
         </span>
         <svg className="shrink-0 ml-1 fill-current text-slate-400" width="11" height="7" viewBox="0 0 11 7">
           <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
@@ -100,7 +100,7 @@ function ProfileDropdown({type}) {
                   className={`flex items-center justify-center border-b last:border-b-0 w-full hover:bg-slate-50 py-2 text-[14px] font-normal px-3 cursor-pointer }`}
                 >
                   
-                  <span className='text-center text-[12px]' >{option.period}</span>
+                  <span className='text-center text-[16px]' >{option.period}</span>
                 </button>
               )
             })

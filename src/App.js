@@ -196,7 +196,7 @@ function App() {
         <Route path="/stock" element={<Stocks />} />
         <Route path="/newdashboard" element={<NewDashboardPage />} />
         {/* Recuit Pages  */}
-        <Route path="/Home" element={<HomePage />} />
+        <Route path="/recruitLanding" element={<HomePage />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
        
@@ -206,14 +206,14 @@ function App() {
         <Route path="/detail" element={<Resume />} />
         <Route path="/lexicon" element={<Lexicon />} />
         <Route
-          path="/dashboard"
+          path="/candidateDashboard"
           element={
             <RecruitAuthUser>
               <Dashboard />
             </RecruitAuthUser>
           }
         >
-        {/* <Route index element={<Dashboard />}/> */}
+        <Route index element={<ApplyNewJob />}/>
 
           <Route index path="new-job" element={<ApplyNewJob />} />
           <Route path="applied-jobs" element={<AppliedJobs />} />

@@ -24,7 +24,7 @@ const NewDashboardHeader = ({ setSidebarOpen, setprofileBar }) => {
                     <div className=" w-[100%] ">
                         <div class="grid grid-cols-24 items-center gap-1">
                             <div class="lg:col-span-3 items-center hidden lg:block text-[#707070]">Notifications</div>
-                            <div class="lg:col-span-15 col-span-15 items-center lg:px-20 hidden ">
+                            <div class="lg:col-span-15 col-span-15 items-center lg:px-20 hidden lg:block ">
                                 <div className='flex items-center m-auto  px-3 rounded-full bg-[#E3E3E372]'>
                                     <input placeholder='Search anything here' className='w-full py-1 bg-transparent focus:outline-none text-[#A7A7A7] placeholder:text-[#A7A7A7]' />
                                     <FiSearch className='inline' />

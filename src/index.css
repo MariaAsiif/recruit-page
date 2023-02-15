@@ -221,7 +221,7 @@ video {
 }
 
 .react-tel-input:hover {
-  border-color: #cccc !important;
+  border-color: lightgray !important;
 
 }
 

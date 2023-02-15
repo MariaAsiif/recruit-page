@@ -67,7 +67,7 @@ function SortDropdown() {
       >
 
         <span className="flex items-center">
-          <span className='ml-1 text-[12px] font-medium'>Newest</span>
+          <span className='ml-1 text-[16px] font-medium'>Newest</span>
         </span>
         <svg className="shrink-0 ml-1 fill-current text-slate-400" width="11" height="7" viewBox="0 0 11 7">
           <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
@@ -99,7 +99,7 @@ function SortDropdown() {
               return (
                 <div>
                   <span className={`flex items-start justify-start border-b last:border-b-0 w-full hover:bg-slate-50 py-1 text-[14px] font-normal px-2 cursor-pointer }`}>
-                    <span className='ml-1 text-[12px] font-medium'>Newest</span>
+                    <span className='ml-1 text-[16px] font-medium'>Newest</span>
                   </span>
                 </div>
                 // <button

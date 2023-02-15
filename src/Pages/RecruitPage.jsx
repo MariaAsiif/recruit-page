@@ -68,6 +68,8 @@ export const RecruitPage = ({ type }) => {
 
     }
 
+    console.log("data" , formdata)
+
 
     
 

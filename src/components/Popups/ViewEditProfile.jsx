@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import 'react-responsive-modal/styles.css';
 import { Controller, useForm } from 'react-hook-form';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Transition from '../../utils/Transition';
 import { Country, State, City } from 'country-state-city';
 import moment from 'moment';
@@ -10,6 +10,8 @@ import { HOSTNAME, callApi } from '../../utils/CallApi';
 import PhoneInput from 'react-phone-input-2';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { updateProfile } from '../../Redux/RecruitAuthSlice/RecruitAuthSlice';
 
 const schema = yup.object({
     first_name: yup.string().required(),
@@ -42,6 +44,8 @@ const ViewEditProfile = (props) => {
         userError: '',
         roleError: '',
     });
+
+    const dispatch = useDispatch()
 
     // ROle Handler
     const [all_Countries, setall_Countries] = useState([]);
@@ -130,18 +134,26 @@ const ViewEditProfile = (props) => {
     const onSubmit = async (values) => {
         const { created_at } = values;
         const formattedDate = moment(created_at).format('YYYY-MM-DD');
+        const dummylocation  = {
+            "coordinates": [
+                74.28911289869139,
+                31.624848273644957
+            ],
+            "type": "Point"
+        }
         const payload = {
             ...values,
             country: recruitModel.country,
             state: recruitModel.state,
             city: recruitModel.city,
             created_at: formattedDate,
-            location: location
+            location: location ? location : dummylocation 
         };
         try {
             let response = await callApi('/users/updateuser', 'post', payload);
             if (response.status === 'Success') {
-                console.log(`response message ========`, response.message);
+                dispatch(updateProfile(response.data))
+                
                 toast.success(`User updated successfully`);
                 props.onClose();
             } else {
@@ -211,17 +223,7 @@ const ViewEditProfile = (props) => {
 
     return (
         <>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+          
             {/* Modal backdrop */}
             <Transition
                 className="fixed inset-0 bg-slate-900 bg-opacity-30 z-50 transition-opacity"

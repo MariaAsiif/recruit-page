@@ -8,6 +8,7 @@ import React,{useState , useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import Layout from './Layout/Layout'
 import { callPublicApi, HOSTNAME} from '../utils/CallApi'
+import { Truncate } from '../utils/TrucateString'
 
 const Carrier = () => {
 
@@ -26,7 +27,6 @@ const Carrier = () => {
         try{
             let res = await callPublicApi('/jobspublic/listjobsforpublic', 'post', payload)
             setJobs(res?.data?.jobs)
-            console.log("Res", res )
         }
         catch(err){
             
@@ -60,8 +60,8 @@ const Carrier = () => {
 }`} alt="service" />
                                     </div>
                                     <div className='bg-[#f6f6f6] px-3 py-4  '>
-                                        <h1 className='text-2xl font-semibold uppercase mb-3'>{item?.job_title}</h1>
-                                        <h6 className='text-gray-400'>{item?.description}</h6>
+                                        <h1 className='text-2xl font-semibold uppercase mb-3'>{Truncate(item?.job_title, 20)}</h1>
+                                        <h6 className='text-gray-400'>{Truncate(item?.description,30)}</h6>
                                         <div className='flex justify-between items-center'>
                                             <div className='text-gray-400 text-xs'><span>{item?.jobtype}</span></div>
                                             <div>{item?.jobclass}</div>

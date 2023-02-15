@@ -53,7 +53,7 @@ const Login = () => {
                     setLoader(false)
                     dispatch(signin({ token: response.token, userdata: response.data }));
                     toast.success(response?.data?.message)
-                    navigate('/dashboard')
+                    navigate('/candidateDashboard')
                 }
                 else if (response.data?.role === "vendor") {
                     setLoader(false)

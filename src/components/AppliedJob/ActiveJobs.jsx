@@ -6,8 +6,8 @@ const ActiveJobs = ({ status }) => {
             <div className='row'>
                 <div className='flex justify-between items-center mb-5'>
                     <div className='lg:w-[90%] w-full'>
-                        <h1 className='text-[#0D1829] font-semibold mb-2'>Active Jobs</h1>
-                        <h1 className='text-[#626973] text-xs font-normal'>Based on your preferences</h1>
+                        <h1 className='text-[#0D1829] text-[16px] font-semibold mb-2'>Active Jobs</h1>
+                        <h1 className='text-[#626973] text-[14px] font-normal'>Based on your preferences</h1>
                     </div>
 
                     <div className="text-center w-full flex justify-end">
@@ -122,12 +122,12 @@ const ActiveJobs = ({ status }) => {
                                 <h1 className='text-[#999FA9] text-xs'>Showing 04-12 of 29</h1>
                             </div>
                             <div className='lg:w-[20%] w-full'>
-                                <div className=' flex justify-end items-center'>
-                                    <div className='w-[40%] '>Prev</div>
-                                    <div className='w-[20%] text-[#E84025]'>01</div>
-                                    <div className='w-[20%]'>02</div>
-                                    <div className='w-[20%]'>05</div>
-                                    <div className='w-[40%] text-right text-[#E84025]'>Next</div>
+                                <div className=' flex justify-end'>
+                                    <div className='mx-2'>Prev</div>
+                                    <div className=' text-[#E84025]'>01</div>
+                                    <div className=' mx-2 text-gray-300 '> - 02</div>
+                                    <div className='text-gray-300 '> - 05</div>
+                                    <div className=' mx-2 text-right text-[#E84025]'>Next</div>
                                 </div>
 
                             </div>

@@ -95,7 +95,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                                 <div className='flex '>
 
                                     <NavLink
-                                        end to="/dashboard/new-job" className={`block text-slate-200 ml-2  truncate transition duration-150 `} >
+                                        end to="/candidateDashboard/new-job" className={`block text-slate-200 ml-2  truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="grow flex items-center">
                                                 <AiOutlineAppstore size={24} className={` text-[#999FA9] `} />
@@ -113,10 +113,10 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                                         <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
                                     }
                                     <NavLink
-                                        end to="/dashboard/new-job" className={`block text-slate-200 ml-2 hover:text-white truncate transition duration-150 `} >
+                                        end to="/candidateDashboard/new-job" className={`block text-slate-200 ml-2 hover:text-white truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="grow flex items-center">
-                                                <BiSearch size={24} className={`${pathname.includes('new-job') ? 'text-[#42946C]  ' : "text-[#999FA9]"} `} />
+                                                <BiSearch size={24} className={`${pathname.includes('new-job')   ? 'text-[#42946C]  ' : "text-[#999FA9]"} `} />
                                                 <span className={`${pathname.includes('new-job') ? 'text-[#42946C] font-medium' : "text-[#999FA9] font-light"} text-sm ml-3  lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Apply New Job</span>
                                             </div>
                                         </div>
@@ -130,7 +130,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                                         <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
                                     }
                                     <NavLink
-                                        end to="/dashboard/applied-jobs" className={`block ml-2 text-slate-200 truncate transition duration-150`} >
+                                        end to="/candidateDashboard/applied-jobs" className={`block ml-2 text-slate-200 truncate transition duration-150`} >
                                         <div className="flex items-center justify-between">
                                             <div className="grow flex items-center">
                                                 <IoMail size={24} className={`${pathname.includes('applied-jobs') ? 'text-[#42946C]  ' : "text-[#999FA9]"} `} />
@@ -147,7 +147,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                                         <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
                                     }
                                     <NavLink
-                                        end to="/dashboard/recent-jobs" className={`block ml-2 text-slate-200 truncate transition duration-150`} >
+                                        end to="/candidateDashboard/recent-jobs" className={`block ml-2 text-slate-200 truncate transition duration-150`} >
                                         <div className="flex items-center justify-between">
                                             <div className="grow flex items-center">
                                                 <BsBarChartFill size={24} className={`${pathname.includes('recent-jobs') ? 'text-[#42946C]  ' : "text-[#999FA9]"} `} />
@@ -164,7 +164,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                                         <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
                                     }
                                     <NavLink
-                                        end to="/dashboard/profile-setting" className={`block ml-2 text-slate-200 truncate transition duration-150`} >
+                                        end to="/candidateDashboard/profile-setting" className={`block ml-2 text-slate-200 truncate transition duration-150`} >
                                         <div className="flex items-center justify-between">
                                             <div className="grow flex items-center">
                                                 <BiUserCircle size={24} className={`${pathname.includes('profile-setting') ? 'text-[#42946C]  ' : "text-[#999FA9]"} `} />
@@ -181,7 +181,7 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                                         <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
                                     }
                                     <NavLink
-                                        end to="/dashboard/notification" className={`block ml-2 text-slate-200 truncate transition duration-150`} >
+                                        end to="/candidateDashboard/notification" className={`block ml-2 text-slate-200 truncate transition duration-150`} >
                                         <div className="flex items-center justify-between">
                                             <div className="grow flex items-center">
                                                 <FaRegBell size={24} className={`${pathname.includes('notification') ? 'text-[#42946C]  ' : "text-[#999FA9]"} `} />

@@ -4,7 +4,7 @@ import { FiPlayCircle } from 'react-icons/fi';
 import { GoArrowSmallDown, GoArrowSmallUp } from "react-icons/go";
 const NewFaqs = () => {
     const [activetab, setactivetab] = useState("tab_faqs")
-    const [open, setOpen] = useState(1);
+    const [open, setOpen] = useState(0);
 
 
     return (
@@ -22,16 +22,16 @@ const NewFaqs = () => {
             </ul>
             <div className="tab-content" id="tabs-tabContent">
                 <div className={`tab-pane fade ${activetab === "tab_faqs" ? "show active" : ""} `} >
-                    {Array(3).fill("").map(() => {
+                    {Array(3).fill("").map((_, i) => {
                         return (
                             <div className='mb-3 last:mb-0'>
                                 <div className="px-3 bg-[#4DA676]  py-1 rounded-xl text-white">
-                                    <button className="flex items-center w-full group" aria-expanded={open} onClick={() => setOpen(!open)}  >
-                                        {open ? <GoArrowSmallUp size={28} className='inline ' /> : <GoArrowSmallDown size={28} className='inline ' />}
+                                    <button className="flex items-center w-full group" aria-expanded={open} onClick={() => setOpen(i)}  >
+                                        {open === i ? <GoArrowSmallUp size={28} className='inline ' /> : <GoArrowSmallDown size={28} className='inline ' />}
                                         <div className="text-sm font-medium"> In iaculis leo quis massa sodales pellentesque aliquam nisi. Eu sed volutpat mi vitae netus a sollicitudin?</div>
                                     </button>
                                 </div>
-                                <div className={`text-xs leading-6 bg-[#4DA676] rounded-b-xl -mt-3 pt-5 opacity-80 text-white px-9 pb-5 ${!open && 'hidden'}`}>
+                                <div className={`text-xs leading-6 bg-[#4DA676] rounded-b-xl -mt-3 pt-5 opacity-80 text-white px-9 pb-5 ${open !== i && 'hidden'}`}>
                                     <div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.</div>
                                 </div>
                             </div>

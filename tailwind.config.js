@@ -25,6 +25,7 @@ module.exports = {
       fontFamily: {
         'sans': ['Open Sans', 'system-ui',],
         'oxygen': ['Oxygen', 'system-ui',],
+        'poppine': ['Poppins', 'sans-serif'],
       },
       gridTemplateColumns: {
         // Simple 16 column grid

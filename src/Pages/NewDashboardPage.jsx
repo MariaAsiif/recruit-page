@@ -19,7 +19,7 @@ const NewDashboardPage = () => {
             {/* Content area */}
             <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden bg-[#F2F2F2]">
                 {/*  Site header */}
-                < NewDashboardHeader sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setprofileBar={onChangeProfileBar} />
+                < NewDashboardHeader  setSidebarOpen={setSidebarOpen} setprofileBar={onChangeProfileBar} />
                 <main className='h-full row g-0'>
                     <div className='col-lg-5 grow transition-all bg-[#F2F2F2] p-[2%]'>
                         <Outlet />
