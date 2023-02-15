@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import DashboardSidebar from '../components/SharedComponents/Header/DashboardSidebar';
 import DashboardRightbar from '../components/SharedComponents/Header/DashboardRightbar';
 import { BiSearch } from 'react-icons/bi'
+
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [rightbarOpen, setRightbarOpen] = useState(false);

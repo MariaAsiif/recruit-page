@@ -1,7 +1,6 @@
 import React from 'react'
 import JobHistoryTable from '../components/RecentJob/JobHistoryTable'
 import FavouriteJobs from '../components/RecentJob/FavouriteJobs'
-
 const ResentJob = () => {
     const status = [
         { name: "Pending", color: "yellow" },

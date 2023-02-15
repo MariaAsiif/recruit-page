@@ -1,16 +1,25 @@
-import React from 'react'
+import React, { useRef , useCallback } from 'react'
 import { AiFillLeftCircle, AiFillRightCircle } from 'react-icons/ai'
 import { BsFillShareFill, BsHeart } from 'react-icons/bs'
-import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
+import { Navigation } from 'swiper';
 const FavouriteJobs = ({ status }) => {
     let layout = "grid"
     let data = ["", "", "", "", "", ""]
+
+
+
+    const sliderRef = useRef(null);
+    
+//   const previous = () => {
+//     customeSlider.current.swiper.slidePrev();
+//   };
+
+//   const next = () => {
+//     customeSlider.current.swiper.slideNext();
+//   };
 
 
     return (
@@ -21,37 +30,41 @@ const FavouriteJobs = ({ status }) => {
                         <h1 className='text-[#0D1829] text-[16px] font-semibold mb-2'>Recommended Jobs</h1>
                         <h1 className='text-[#626973] text-[14px] text-xs font-normal'>Based on your preferences</h1>
                     </div>
-                    {/* <div className='flex items-center justify-end '>
-                        <div className='swiper-button-prev' onClick={() => SliderPrev()}><AiFillLeftCircle className='text-[2rem] cursor-pointer text-gray-400 hover:text-red-500 ' /></div>
-                        <div className='swiper-button-next' onClick={() => SliderNext()}> <AiFillRightCircle className='text-[2rem] cursor-pointer text-gray-400 hover:text-red-500 ' /></div>
-                    </div> */}
+                    <div className='flex items-center justify-end '>
+                        <div onClick={() => sliderRef.current?.slidePrev()}><AiFillLeftCircle className='text-[2rem] cursor-pointer text-gray-400 hover:text-red-500 ' /></div>
+                        <div  onClick={() => sliderRef.current?.slideNext()}> <AiFillRightCircle className='text-[2rem] cursor-pointer text-gray-400 hover:text-red-500 ' /></div>
+                    </div>
                 </div>
                 <div className='col-lg-12 '>
+
+                   
                     <div className='relative'>
                         <Swiper
                             slidesPerView={3}
                             spaceBetween={30}
+                            modules={[Navigation]}
+                            onBeforeInit={(swiper) => {
+                                sliderRef.current = swiper;
+                            }}
                             autoplay={{
                                 delay: 2500,
                                 disableOnInteraction: false,
                             }}
-                            navigation={true}
                             breakpoints={{
                                 375: {
                                     slidesPerView: 1,
-                                  },
+                                },
                                 640: {
-                                  slidesPerView: 1,
+                                    slidesPerView: 1,
                                 },
                                 768: {
-                                  slidesPerView: 2,
+                                    slidesPerView: 2,
                                 },
                                 1024: {
-                                  slidesPerView: 3,
-                                  spaceBetween: 30,
+                                    slidesPerView: 3,
+                                    spaceBetween: 30,
                                 },
-                              }}
-                            modules={[Navigation]}
+                            }}
                             className="mySwiper"
                         >
                             {data.map((d) => (
@@ -59,7 +72,7 @@ const FavouriteJobs = ({ status }) => {
                                     <div className=' border-2 border-transparent hover:border-[#65A33A] rounded-md '>
                                         <div className='bg-white rounded-md cursor-pointer'>
                                             <div className='row g-0  '>
-                                                <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-3"} ${layout === "grid" ? "h-44 " : "h-44"} bg-top-background bg-bottom bg-no-repeat bg-cover rounded-md`}>  </div>
+                                                <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-3"} ${layout === "grid" ? "h-44 " : "h-44"} bg-top-background bg-center bg-no-repeat bg-cover rounded-md`}>  </div>
                                                 <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-8"} p-2`}>
                                                     <div className={` flex justify-between items-center`}>
                                                         <h1 className={`${layout !== "grid" && "text-[20px]"} 'text-[#0D1829] hover:text-[#65A33A] text-[20px] font-medium`}>Front end Developer</h1>
