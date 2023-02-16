@@ -218,7 +218,7 @@ const InfoForm = (props) => {
                     </div> */}
                     </div>
                     <div className=' col-12 mb-5 '>
-                        <input type="text"  {...register('first_name')} name="first_name" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.first_name? "border-red-500 border" : "border border-[lightgray]"
+                        <input type="text"  {...register('first_name')} readOnly={watch('first_name') ? true : false} name="first_name" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.first_name? "border-red-500 border" : "border border-[lightgray]"
                           }`} placeholder='Enter Your First Name *' />
                         {/* {validationModel.first_nameError} */}
                         {errors.first_name && (
@@ -235,7 +235,7 @@ const InfoForm = (props) => {
                         <input {...register('secondFname')} name="secondFname" className='w-full   font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your Second FAMILY NAME (Optional)' />
                     </div>
                     <div className=' col-12 mb-5 '>
-                        <input type="email"  {...register('email')} name="email" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.email? "border-red-500 border" : "border border-[lightgray]"
+                        <input type="email"  {...register('email')}  readOnly={watch('email') ? true : false} name="email" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.email? "border-red-500 border" : "border border-[lightgray]"
                           }`} placeholder='Enter Email Address *' />
                         {/* {validationModel.emailError} */}
                         {errors.email && (
@@ -245,7 +245,7 @@ const InfoForm = (props) => {
                         )}
                     </div>
                     <div className=' col-12 mb-5 '>
-                        <input type="email"  {...register('email')} name="email" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.email? "border-red-500 border" : "border border-[lightgray]"
+                        <input type="email"  {...register('email')} readOnly={watch('email') ? true : false} name="email" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.email? "border-red-500 border" : "border border-[lightgray]"
                           }`} placeholder='Enter Email Address *' />
                         {/* {validationModel.emailError} */}
                         {errors.email && (
