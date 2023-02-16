@@ -61,7 +61,7 @@ const Carrier = () => {
                                     </div>
                                     <div className='bg-[#f6f6f6] px-3 py-4  '>
                                         <h1 className='text-[18px] font-semibold uppercase mb-3'>{Truncate(item?.job_title, 20)}</h1>
-                                        <h6 className='text-gray-400 text-[16px]'>{Truncate(item?.description, 30)}</h6>
+                                        <h6 className='text-gray-400 text-[16px]'>{Truncate(item?.description, 120)}</h6>
                                         <div className='flex justify-between items-center text-[14px]'>
                                             <div className='text-gray-400 text-xs'><span>{item?.jobtype}</span></div>
                                             <div>{item?.jobclass}</div>
