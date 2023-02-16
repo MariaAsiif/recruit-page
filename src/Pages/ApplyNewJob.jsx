@@ -81,7 +81,7 @@ const ApplyNewJob = () => {
                                                 <div className='bg-white rounded-md cursor-pointer'>
                                                     <div className='row g-0  '>
                                                         <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-3"} ${layout === "grid" ? "h-44 " : "h-44"} rounded-md`}> 
-                                                        <img src={`${HOSTNAME}${jobData?.job_image_url}`} alt="job_img" className='object-cover h-[150px] w-full'/>
+                                                        <img src={`${HOSTNAME}${item?.job_image_url}`} alt="job_img" className='object-cover h-[150px] w-full'/>
                                                          </div>
                                                         <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-8"} p-2`}>
                                                             <div className={` flex justify-between items-center`}>
@@ -98,11 +98,11 @@ const ApplyNewJob = () => {
                                                                     </span>
                                                                 </div>
                                                             </div>
-                                                            <h1 className={`${layout !== "grid" && "text-[15px] pt-2"} font-poppine text-[#626973] mb-4 text-[16px] mt-2 font-light leading-4`}>{ Truncate(item?.description, 20)}</h1>
+                                                            <h1 className={`${layout !== "grid" && "text-[15px] pt-2"} font-poppine text-[#626973] mb-4 text-[16px] mt-2 font-light leading-4`}>{ Truncate(item?.description, 120)}</h1>
                                                             <div className={`${layout !== "grid" && 'pt-[2rem] flex justify-between items-center '} flex justify-between items-center`}>
                                                                 <div>
-                                                                    <button className='text-[16px] transition-all text-white hover:bg-[#E84025] hover:text-white  rounded-sm pl-2 pr-2 p-[6px] bg-[#42946C] mr-1'>{item?.jobtype}</button>
-                                                                    <button className='text-[16px] transition-all text-[#42946C]  p-[5px] border-[#42946C] border rounded-sm mr-1'>{item?.jobclass}</button>
+                                                                    <button className='text-[14px] transition-all text-white hover:bg-[#E84025] hover:text-white  rounded-sm pl-2 pr-2 p-[6px] bg-[#42946C] mr-1'>{item?.jobtype}</button>
+                                                                    <button className='text-[14px] transition-all text-[#42946C]  p-[5px] border-[#42946C] border rounded-sm mr-1'>{item?.jobclass}</button>
                                                                     <BsHeart className='inline mx-1 ' />
                                                                     <BsFillShareFill className='inline' />
                                                                 </div>
