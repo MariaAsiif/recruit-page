@@ -75,18 +75,18 @@ const FavouriteJobs = ({ status }) => {
                                                 <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-3"} ${layout === "grid" ? "h-44 " : "h-44"} bg-top-background bg-center bg-no-repeat bg-cover rounded-md`}>  </div>
                                                 <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-8"} p-2`}>
                                                     <div className={` flex justify-between items-center`}>
-                                                        <h1 className={`${layout !== "grid" && "text-[20px]"} 'text-[#0D1829] hover:text-[#65A33A] text-[20px] font-medium`}>Front end Developer</h1>
+                                                        <h1 className={`${layout !== "grid" && "text-[18px]"} 'text-[#0D1829] hover:text-[#65A33A] text-[18px] font-medium`}>Front end Developer</h1>
                                                         <div>
                                                             <span className='w-4 h-4 bg-red-600 rounded-full inline-block mr-1 align-middle'></span>
                                                             <span className='w-4 h-4 bg-red-600 rounded-full inline-block mr-1 align-middle'></span>
                                                             <span className='w-4 h-4 bg-red-600 rounded-full inline-block mr-1 align-middle'></span>
                                                         </div>
                                                     </div>
-                                                    <h1 className={`${layout !== "grid" && "text-[16px] pt-2"} text-[#626973] mb-4 text-[16px] mt-2 font-light leading-4`}>Lor liqua equat. Duis aute irure dolor in repre hend erit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,</h1>
+                                                    <h1 className={`${layout !== "grid" && "text-[16px] pt-2"} text-[#626973] mb-4 text-[16px] mt-2 `}>Lor liqua equat. Duis aute irure dolor in repre hend erit in voluptate velit esse cillum dolore eu fugiat...</h1>
                                                     <div className={`${layout !== "grid" && 'pt-[2rem] flex justify-between items-center '} flex justify-between items-center`}>
                                                         <div>
-                                                            <button className='text-[16px] transition-all text-white hover:bg-[#E84025] hover:text-white  rounded-sm pl-2 pr-2 p-[6px] bg-[#42946C] mr-1'>Fulltime</button>
-                                                            <button className='text-[16px] transition-all text-[#42946C]  p-[5px] border-[#42946C] border rounded-sm mr-1'>Senior level</button>
+                                                            <button className='text-[14px] transition-all text-white hover:bg-[#E84025] hover:text-white  rounded-sm pl-2 pr-2 p-[6px] bg-[#42946C] mr-1'>Fulltime</button>
+                                                            <button className='text-[14px] transition-all text-[#42946C]  p-[5px] border-[#42946C] border rounded-sm mr-1'>Senior level</button>
                                                             <BsHeart className='inline mx-1  text-[16px] ' />
                                                             <BsFillShareFill className='inline mx-1 text-[16px]' />
                                                         </div>

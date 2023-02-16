@@ -98,7 +98,7 @@ const ApplyNewJob = () => {
                                                                     </span>
                                                                 </div>
                                                             </div>
-                                                            <h1 className={`${layout !== "grid" && "text-[15px] pt-2"} font-poppine text-[#626973] mb-4 text-[16px] mt-2 font-light leading-4`}>{ Truncate(item?.description, 120)}</h1>
+                                                            <h1 className={`${layout !== "grid" && "text-[15px] pt-2"} font-poppine text-[#626973] mb-4 text-[16px] mt-2 `}>{ Truncate(item?.description, 120)}</h1>
                                                             <div className={`${layout !== "grid" && 'pt-[2rem] flex justify-between items-center '} flex justify-between items-center`}>
                                                                 <div>
                                                                     <button className='text-[14px] transition-all text-white hover:bg-[#E84025] hover:text-white  rounded-sm pl-2 pr-2 p-[6px] bg-[#42946C] mr-1'>{item?.jobtype}</button>

@@ -126,12 +126,12 @@ const JobHistoryTable = ({ status }) => {
                                 <h1 className='text-[#999FA9] text-xs'>Showing 04-12 of 29</h1>
                             </div>
                             <div className='lg:w-[20%] w-full'>
-                                <div className=' flex justify-end'>
-                                    <div className='mx-2'>Prev</div>
-                                    <div className=' text-[#E84025]'>01</div>
-                                    <div className=' mx-2 text-gray-300 '> - 02</div>
-                                    <div className='text-gray-300 '> - 05</div>
-                                    <div className=' mx-2 text-right text-[#E84025]'>Next</div>
+                            <div className=' flex justify-end'>
+                                    <div className='mx-2 text-[15px]'>Prev</div>
+                                    <div className=' text-[#E84025] text-[15px]'>01</div>
+                                    <div className=' mx-2 text-gray-300 text-[15px] '> - 02</div>
+                                    <div className='text-gray-300 text-[15px] '> - 05</div>
+                                    <div className=' mx-2 text-right text-[#E84025] text-[15px]'>Next</div>
                                 </div>
 
                             </div>

@@ -199,7 +199,10 @@ function App() {
         <Route path="/recruitLanding" element={<HomePage />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-       
+        <Route path="/joinus" element={<JoinUs />} />
+        <Route path="/detail" element={<Resume />} />
+        <Route path="/lexicon" element={<Lexicon />} />
+
         <Route path="/verify" element={<Verify />} />
           <Route
           path="/recruit"
@@ -212,9 +215,7 @@ function App() {
         <Route index element={<RecruitPage type="recuit" />} />
 
         </Route>
-        <Route path="/joinus" element={<JoinUs />} />
-        <Route path="/detail" element={<Resume />} />
-        <Route path="/lexicon" element={<Lexicon />} />
+
         <Route
           path="/candidateDashboard"
           element={

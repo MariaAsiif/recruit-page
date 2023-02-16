@@ -12,7 +12,7 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbar
     return (
         <header style={{ boxShadow: "0px 0px 6px #00000029" }} className="sticky top-0  bg-white border-b border-slate-200 z-30">
             <div className="px-6 sm:px-6 lg:px-6 md:px-6">
-                <div className="flex items-center justify-between h-16 -mb-px">
+                <div className="flex items-center justify-between h-20 -mb-px">
 
                     {/* Header: Left side */}
                     <div className="flex   w-[10%] lg:hidden">
