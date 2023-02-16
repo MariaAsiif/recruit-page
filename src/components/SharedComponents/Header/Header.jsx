@@ -75,7 +75,7 @@ const Header = () => {
                                     </li>
                                     :
                                     <li className="py-2 mt-2 nav-item lg:py-0 lg:mt-0 ">
-                                        <NavLink to={"/recruitLanding"} className="topbar-nav-icon">
+                                        <NavLink to={"/candidateDashboard"} className="topbar-nav-icon">
                                             <BiUserCircle className='text-[25px]'/>
                                         </NavLink>
                                     </li>

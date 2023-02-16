@@ -1,4 +1,4 @@
-import React,{useState , useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 // import customer from '../images/Customer service.jpg'
 // import sales from '../images/sales representatives.jpg'
 // import discuss from '../images/SALES -Prescriptive Care.jpg'
@@ -7,12 +7,12 @@ import React,{useState , useEffect} from 'react'
 // import nurse from '../images/sales (2).jpg'
 import { Link } from 'react-router-dom'
 import Layout from './Layout/Layout'
-import { callPublicApi, HOSTNAME} from '../utils/CallApi'
+import { callPublicApi, HOSTNAME } from '../utils/CallApi'
 import { Truncate } from '../utils/TrucateString'
 
 const Carrier = () => {
 
-    const [jobs , setJobs] = useState([])
+    const [jobs, setJobs] = useState([])
 
     useEffect(() => {
 
@@ -23,17 +23,17 @@ const Carrier = () => {
             "limit": 50
         }
 
-      let fetch = async () => {
-        try{
-            let res = await callPublicApi('/jobspublic/listjobsforpublic', 'post', payload)
-            setJobs(res?.data?.jobs)
+        let fetch = async () => {
+            try {
+                let res = await callPublicApi('/jobspublic/listjobsforpublic', 'post', payload)
+                setJobs(res?.data?.jobs)
+            }
+            catch (err) {
+
+            }
         }
-        catch(err){
-            
-        }
-      }
-      fetch()
-    },[])
+        fetch()
+    }, [])
 
     // const CarrierImages = [customer, sales, discuss, lawyers, whole, nurse]
     return (
@@ -54,20 +54,20 @@ const Carrier = () => {
                     {
                         jobs.map((item, index) => (
                             <div className='col-lg-4 col-md-6 my-4' key={index}>
-                                <div style={{ boxShadow: "0px 2.5px 0px 0px rgba(0,0,0,0.30)" }} className='border rounded-md  '>
+                                <div style={{ boxShadow: "0px 2.5px 0px 0px rgba(0,0,0,0.30)" }} className='  border rounded-md  '>
                                     <div>
-                                        <img className='w-full rounded-md ' src={`${HOSTNAME}${item?.job_image_url
-}`} alt="service" />
+                                        <img className='w-full rounded-md h-[200px] object-cover' src={`${HOSTNAME}${item?.job_image_url
+                                            }`} alt="service" />
                                     </div>
                                     <div className='bg-[#f6f6f6] px-3 py-4  '>
-                                        <h1 className='text-2xl font-semibold uppercase mb-3'>{Truncate(item?.job_title, 20)}</h1>
-                                        <h6 className='text-gray-400'>{Truncate(item?.description,30)}</h6>
-                                        <div className='flex justify-between items-center'>
+                                        <h1 className='text-[18px] font-semibold uppercase mb-3'>{Truncate(item?.job_title, 20)}</h1>
+                                        <h6 className='text-gray-400 text-[16px]'>{Truncate(item?.description, 30)}</h6>
+                                        <div className='flex justify-between items-center text-[14px]'>
                                             <div className='text-gray-400 text-xs'><span>{item?.jobtype}</span></div>
                                             <div>{item?.jobclass}</div>
                                             <div>
                                                 <Link to="/detail">
-                                                    <button className='bg-gradient-to-r from-[#E84025] to-[#68423B] hover:bg-green-600 text-white px-5 py-3 rounded-lg text-base'>Apply</button>
+                                                    <button className='bg-gradient-to-r from-[#E84025] to-[#68423B] hover:bg-green-600 text-white px-5 py-3 rounded-lg text-[14px]'>Apply</button>
                                                 </Link>
 
                                             </div>
