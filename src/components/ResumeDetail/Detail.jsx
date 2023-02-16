@@ -3,19 +3,23 @@ import { FcCheckmark } from 'react-icons/fc'
 import { IoMdMail } from 'react-icons/io'
 import { BiShareAlt } from 'react-icons/bi'
 import { Link } from 'react-router-dom'
-const Detail = () => {
+import moment from 'moment/moment'
+const Detail = ({jobs}) => {
+    console.log("jobs", jobs)
     return (
         <div className='bscontainer'>
             <div className='row  mt-[6rem]'>
                 <div className='col-lg-9 col-md-6 md:order-1 order-2 '>
                     <div>
                         <p className='text-sm text-[#DB4446]'>View all open positions</p>
-                        <h2 className='text-[#183B56] text-[24px] font-bold'>UX Researcher</h2>
-                        <span className='text-[#6D6E71] text-[14px]'>Matawan, New Jersey</span>
+                        <h2 className='text-[#183B56] text-[24px] font-bold'>{jobs?.job_title}</h2>
+                        <span className='text-[#6D6E71] text-[14px]'>{jobs?.physicalLocation
+?.country}, {jobs?.physicalLocation
+    ?.city}</span>
                     </div>
                     <div>
                         <p className='mt-4 text-[13px] text-[#5A7184]'>
-                            We’re looking for a UX Researcher to help craft the future of our market-leading digital product suite. This is an amazing opportunity to work in a highly collaborative role and requires a creative thinker, a helpful mentor, a team player, and a skilled communicator - all rolled into one!
+                            {jobs?.description}
                         </p>
                     </div>
 
@@ -94,14 +98,16 @@ const Detail = () => {
 
                     </div>
                     <div className='bg-[#FCFCFC] lg:ml-5 mt-4 p-3'>
-                        <h2 className='text-[16px] text-[#183B56]'>9 Aug 2019</h2>
+                        <h2 className='text-[16px] text-[#183B56]'>{moment(jobs
+?.created_at).format('ll')}</h2>
                         <div>
                             <h2 className='text-[14px] mt-3 text-[#183B56]'>Location</h2>
-                            <p className='text-[#5A7184] text-[10px]'>Melbourne</p>
+                            <p className='text-[#5A7184] text-[10px]'>{jobs?.DetailphysicalLocation
+?.country}</p>
                         </div>
                         <div>
                             <h2 className='text-[14px] mt-3 text-[#183B56]'>Work Type</h2>
-                            <p className='text-[#5A7184] text-[10px]'>Full-time</p>
+                            <p className='text-[#5A7184] text-[10px]'>{jobs?.jobtype}</p>
                         </div>
                         <div>
                             <h2 className='text-[14px] mt-3 text-[#183B56]'>Classification</h2>

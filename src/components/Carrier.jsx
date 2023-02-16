@@ -66,7 +66,7 @@ const Carrier = () => {
                                             <div className='text-gray-400 text-xs'><span>{item?.jobtype}</span></div>
                                             <div>{item?.jobclass}</div>
                                             <div>
-                                                <Link to="/detail">
+                                                <Link to={`/detail/${item?._id}`}>
                                                     <button className='bg-gradient-to-r from-[#E84025] to-[#68423B] hover:bg-green-600 text-white px-5 py-3 rounded-lg text-[14px]'>Apply</button>
                                                 </Link>
 

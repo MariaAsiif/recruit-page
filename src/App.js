@@ -200,17 +200,17 @@ function App() {
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/joinus" element={<JoinUs />} />
-        <Route path="/detail" element={<Resume />} />
+        <Route path="/detail/:id" element={<Resume />} />
         <Route path="/lexicon" element={<Lexicon />} />
 
         <Route path="/verify" element={<Verify />} />
           <Route
           path="/recruit"
-          element={
-            <RecruitAuthUser>
-              <Dashboard />
-            </RecruitAuthUser>
-          }
+          // element={
+          //   <RecruitAuthUser>
+          //     <Dashboard />
+          //   </RecruitAuthUser>
+          // }
         >
         <Route index element={<RecruitPage type="recuit" />} />
 
