@@ -6,59 +6,32 @@ import { Link } from 'react-router-dom';
 import { callApi } from '../../utils/CallApi';
 import { Truncate } from '../../utils/TrucateString';
 
-import ViewEditJobPopup from '../../components/Popups/ViewEditJobPopup';
 
 import { IoEyeOutline } from "react-icons/io5";
 import { ToastContainer, toast } from 'react-toastify';
-import DeletePopup from '../../components/deletePopups/DeletePopups';
+import JobApplicants from '../../components/Popups/JobApplicantsPopup';
 
-const Jobs = () => {
+const AppliedAllJobs = () => {
     const [alljobs, setalljobs] = useState([])
-    // const [showUser, setshowUser] = useState(false)
-    // const [viewUser, setviewUser] = useState(false)
-    // const [userType, setUserType] = useState('')
     const [jobPopup, setjobPopup] = useState(false)
-    const [jobMode, setjobMode] = useState("view")
-    const [delId, setDelId] = useState('')
-    const [jobRow, setjobRow] = useState({})
-    const [delPopup, setDelPopup] = useState(false)
-    // const [approvePopup, setApprovePopup] = useState(false);
+    const [approvedJob, setapprovedJob] = useState(false)
+    const [jobId, setJobId] = useState("")
+    const [applyJob, setapplyJob] = useState([])
 
 
-    const openJobPopup = (e, mode, data) => {
+    const openJobPopup = (e , data , jobid  ) => {
         e.stopPropagation()
         setjobPopup(true)
-        setjobMode(mode)
-        setjobRow(data)
+        setapplyJob(data )
+        setJobId(jobid)
     }
 
-    const deletePopToggle = async (id) => {
-        setDelId(id)
-        setDelPopup(true)
-    }
+ 
 
-    const deleteInspire = async () => {
-        let value = {
-            "recruitmentid": "63038566807b5421bc5ac7ee",
-            "jobid": delId
-        }
-        try {
-            const res = await callApi("/jobs/deletejob", "post", value)
-            if (res.status === "Success") {
-                toast.success(res.message);
-                setDelPopup(false)
-                let oldinspires = alljobs
-                const updatedInspires = oldinspires.filter((inspire) => inspire._id !== res.data._id)
-                setalljobs(updatedInspires)
-            }
-            else {
-                toast.error(res.message);
 
-            }
-        } catch (error) {
+ 
 
-        }
-    }
+
 
     useEffect(() => {
         if (!jobPopup) {
@@ -82,19 +55,9 @@ const Jobs = () => {
     }, [jobPopup])
     return (
         <div className='bscontainer-fluid'>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
-            {delPopup && <DeletePopup permition={delPopup} callback={deleteInspire} Toggle={() => setDelPopup(false)} />}
-            <ViewEditJobPopup id="job-modal" data={jobRow} mode={jobMode} modalOpen={jobPopup} onClose={() => setjobPopup(false)} />
+        <JobApplicants id="job-modal" data={applyJob} jobId={jobId}  modalOpen={jobPopup} onClose={() => setjobPopup(false)} />
+        {/* <JobApplicants id="job-modal" data={applyJob}   modalOpen={approvedJob} onClose={() => setapprovedJob(false)} /> */}
+          
             <div className='row py-5'>
                 <div className='col-12  mb-5'>
                     <div className='mb-3'>
@@ -110,17 +73,17 @@ const Jobs = () => {
                             </li>
                         </ul>
                     </div>
-                    <Link to="create-job" className="p-2 flex w-[13%] items-center rounded-sm bg-red-500 hover:bg-green-600 text-white" >
+                    {/* <Link to="create-job" className="p-2 flex w-[13%] items-center rounded-sm bg-red-500 hover:bg-green-600 text-white" >
                         <svg className="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                             <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                         </svg>
                         <span className="ml-2">Create Job</span>
-                    </Link>
+                    </Link> */}
                 </div>
                 <div className='col-12 border'>
                     <div className="bg-white shadow-lg rounded-sm border border-slate-200 relative">
                         <header className="px-5 py-4">
-                            <h2 className="font-semibold text-slate-800">All Jobs <span className="text-slate-400 font-medium">{alljobs.length}</span></h2>
+                            <h2 className="font-semibold text-slate-800">All Applied Jobs <span className="text-slate-400 font-medium">{alljobs.length}</span></h2>
                         </header>
                         <div>
                             <div className="overflow-x-auto">
@@ -150,9 +113,9 @@ const Jobs = () => {
                                             <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="font-semibold text-left">JobType</div>
                                             </th>
-                                            <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                            {/* <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="font-semibold text-left">Job Status</div>
-                                            </th>
+                                            </th> */}
                                             <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="font-semibold text-left">Job Class</div>
                                             </th>
@@ -162,9 +125,11 @@ const Jobs = () => {
                                             <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="font-semibold text-left">Employeer</div>
                                             </th>
-                                           
                                             <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className="font-semibold text-left">Actions</div>
+                                                <div className="font-semibold text-left">Applicants</div>
+                                            </th>
+                                            <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                                <div className="font-semibold text-left">Approved Applicants</div>
                                             </th>
                                         </tr>
                                     </thead>
@@ -195,9 +160,9 @@ const Jobs = () => {
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                         <div className="text-left">{job.jobtype}</div>
                                                     </td>
-                                                    <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                                    {/* <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                         <div className="text-left">{job.jobstatus}</div>
-                                                    </td>
+                                                    </td> */}
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                         <div className="text-left">{job.jobclass}</div>
                                                     </td>
@@ -207,26 +172,45 @@ const Jobs = () => {
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                         <div className="text-left">{job.employer}</div>
                                                     </td>
-                                               
+                                                    <td>
+                                                        <div className='flex justify-center items-center'>
+                                                            {job.approved === "approved" || job.approved === "disapproved" ?
+                                                                <button
+                                                                    className={job.approved === "approved" ? 'p-2 rounded-md border-green-600 border text-green-600' : 'p-2 rounded-md border-red-600 border text-red-600'}
+                                                                // onClick={() => {
+                                                                //   handleApproved(job._id, false);
+                                                                // }}
+                                                                >
+                                                                    <span className='ml-2'>{job.approved}</span>
+                                                                </button>
+
+                                                                :
+                                                                <>
+                                                                    <div onClick={(e) => openJobPopup(e , job?.applicants , job._id)} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 p-[2px] border-red-600  flex justify-center'>
+                                                                        <IoEyeOutline className='text-red-600 hover:text-red-600' size={23} />
+                                                                    </div>
+                                                                    {/* <div onClick={() => ApprovePopup({ status: 'approved', id: job._id })} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 pt-1 border-green-600  flex justify-center'>
+                                                                        <FiCheck className='text-[18px] text-green-600' />
+                                                                    </div>
+                                                                    <div onClick={() => ApprovePopup({ status: 'disapproved', id: job._id })} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 pt-1 border-red-600 mx-2 flex justify-center'>
+                                                                        <MdClose className='text-[18px] text-red-600' />
+                                                                    </div> */}
+                                                                </>
+                                                            }
+                                                        </div>
+                                                    </td>
 
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
-                                                        <div className="space-x-1">
-                                                            <button className="text-slate-400 hover:text-slate-500 rounded-full" onClick={(e) => openJobPopup(e, "edit", job)}>
-                                                                <span className="sr-only">Edit</span>
-                                                                <svg className="w-8 h-8 fill-current text-red-500 hover:text-green-600" viewBox="0 0 32 32">
-                                                                    <path d="M19.7 8.3c-.4-.4-1-.4-1.4 0l-10 10c-.2.2-.3.4-.3.7v4c0 .6.4 1 1 1h4c.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4l-4-4zM12.6 22H10v-2.6l6-6 2.6 2.6-6 6zm7.4-7.4L17.4 12l1.6-1.6 2.6 2.6-1.6 1.6z" />
-                                                                </svg>
-                                                            </button>
-                                                            <button className="text-slate-400 hover:text-slate-500 rounded-full" onClick={(e) => openJobPopup(e, "view", job)}>
+                                                        <div className="space-x-1 flex justify-center">
+
+                                                            <div className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 p-[2px] border-green-600  flex justify-center'>
+                                                                <IoEyeOutline className='text-green-600 hover:text-green-600' size={23} />
+                                                            </div>
+
+                                                            {/* <button className="text-slate-400 hover:text-slate-500 rounded-full" onClick={(e) => openJobPopup(e, "view", job)}>
                                                                 <IoEyeOutline className='text-red-500 hover:text-green-600' size={23} />
-                                                            </button>
-                                                            <button onClick={() => deletePopToggle(job?._id)} className="text-rose-500 hover:text-rose-600 rounded-full">
-                                                                <span className="sr-only">Delete</span>
-                                                                <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32">
-                                                                    <path d="M13 15h2v6h-2zM17 15h2v6h-2z" />
-                                                                    <path d="M20 9c0-.6-.4-1-1-1h-6c-.6 0-1 .4-1 1v2H8v2h1v10c0 .6.4 1 1 1h12c.6 0 1-.4 1-1V13h1v-2h-4V9zm-6 1h4v1h-4v-1zm7 3v9H11v-9h10z" />
-                                                                </svg>
-                                                            </button>
+                                                            </button> */}
+
                                                         </div>
                                                     </td>
 
@@ -252,4 +236,4 @@ const Jobs = () => {
     )
 }
 
-export default Jobs
+export default AppliedAllJobs

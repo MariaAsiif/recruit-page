@@ -1,12 +1,36 @@
 import React from 'react'
+import { HOSTNAME } from '../../utils/CallApi'
+import moment from 'moment/moment'
+// import { callApi } from '../../utils/CallApi'
+// import { useSelector } from 'react-redux'
+// import { toast } from 'react-toastify'
 
-const JobHistoryTable = ({ status }) => {
+const JobHistoryTable = ({ status, type }) => {
+
+
+    // const user = useSelector((state) => state.recruitAuth?.userInfo)
+
+
+    // const ChangStatus = async (typeId) => {
+    //     try {
+    //         let payload = {
+    //             "jobid": user._id,
+    //             "jobstatus": typeId
+    //         }
+    //         let res = await callApi('/jobs/changejobstatus', 'post', payload)
+    //         toast.success(res.message)
+    //     }
+    //     catch (err) { }
+    // }
+
+
+
     return (
         <>
             <div className='row'>
                 <div className='col-lg-12 flex justify-between items-end  mb-5'>
                     <div className='lg:w-[90%]'>
-                        <h1 className='text-[#0D1829] text-[16px] font-semibold mb-2'>Job History</h1>
+                        <h1 className='text-[#0D1829] text-[16px] font-semibold mb-2'>{type === "saved" ? "Saved Jobs" : "Job History"}</h1>
                         <h1 className='text-[#626973] text-[14px] text-xs font-normal'>Based on your preferences</h1>
                     </div>
 
@@ -42,10 +66,10 @@ const JobHistoryTable = ({ status }) => {
                                         <div className="font-semibold text-left">Job ID <span className='text-[23px] align-bottom text-red-600'>•</span>  </div>
                                     </th>
                                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                        <div className="font-semibold text-center">Job Title <span className='text-[23px] align-bottom text-red-600'>•</span> </div>
+                                        <div className="font-semibold text-left">Job Title <span className='text-[23px] align-bottom text-red-600'>•</span> </div>
                                     </th>
                                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                        <div className="font-semibold text-center">Company Name <span className='text-[23px] align-bottom text-red-600'>•</span> </div>
+                                        <div className="font-semibold text-left">Company Name <span className='text-[23px] align-bottom text-red-600'>•</span> </div>
                                     </th>
                                     <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                         <div className="font-semibold text-left">Job Type <span className='text-[23px] align-bottom text-red-600'>•</span> </div>
@@ -64,32 +88,34 @@ const JobHistoryTable = ({ status }) => {
                             </thead>
                             {/* Table body */}
                             <tbody className="text-sm ">
-                                {status.map((status) => {
+                                {status.map((item , i ) => {
                                     return (
-                                        <tr className='text-[#999FA9] cursor-pointer hover:bg-[#dffdc9] '>
+                                        <tr className='text-[#999FA9] cursor-pointer hover:bg-[#dffdc9] ' key={i}>
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className="text-left">#34534</div>
+                                                <div className="text-left">{item._id}</div>
                                             </td>
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className='flex justify-center items-center'>
-                                                    <img className=' w-full h-auto max-w-[30px] rounded-md' src={"http://placekitten.com/100/100"} alt="logo" loading="lazy" />
-                                                    <h1 className='font-semibold text-[#626973] ml-2'>UI/UX DESIGNER</h1>
+                                                <div className='flex justify-start items-center'>
+                                                    <img className=' w-full h-auto max-w-[30px] rounded-md' src={`${item.job_image_url}`} alt="logo" loading="lazy" />
+                                                    <h1 className='font-semibold text-[#626973]  ml-2'>{item?.job_title}</h1>
                                                 </div>
                                             </td>
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className="text-center">
-                                                    <img className=' w-full h-auto max-w-[20px] rounded-full inline-block mr-2' src={"http://placekitten.com/100/100"} alt="logo" loading="lazy" />
-                                                    Google
+                                                <div className="text-left">
+                                                    {/* <img className=' w-full h-auto max-w-[20px] rounded-full inline-block mr-2' src={"http://placekitten.com/100/100"} alt="logo" loading="lazy" /> */}
+                                                    {item?.employer}
                                                 </div>
                                             </td>
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className="text-left">Full Time</div>
+                                                <div className="text-left">{item?.jobtype}</div>
                                             </td>
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className="text-left">02 September 22</div>
+                                                <div className="text-left">{moment(item?.created_at).format('ll')}</div>
                                             </td>
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className={`border border-${status.color}-500  bg-${status.color}-50   text-${status.color}-500 px-2 py-2 text-center font-semibold rounded-md`}>{status.name}</div>
+                                                <div className={`border border-${"green"}-500  bg-${"green"}-50   text-${"green"}-500 px-2 py-2 text-center font-semibold rounded-md`}  
+                                                // onClick={() => ChangStatus(status.name)}
+                                                 >{item?.jobstatus}</div>
                                             </td>
                                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="text-center ">
@@ -126,7 +152,7 @@ const JobHistoryTable = ({ status }) => {
                                 <h1 className='text-[#999FA9] text-xs'>Showing 04-12 of 29</h1>
                             </div>
                             <div className='lg:w-[20%] w-full'>
-                            <div className=' flex justify-end'>
+                                <div className=' flex justify-end'>
                                     <div className='mx-2 text-[15px]'>Prev</div>
                                     <div className=' text-[#E84025] text-[15px]'>01</div>
                                     <div className=' mx-2 text-gray-300 text-[15px] '> - 02</div>

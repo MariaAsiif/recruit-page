@@ -146,6 +146,10 @@ import Cultivate from "./Pages/LandingPages/ConstuctionPages/Cultivate";
 import Chillum from "./components/LandingPageComponents/Homepage/Chillums/Chillums";
 import Diaganose from "./components/LandingPageComponents/Homepage/Diagnose/Diaganose";
 import Prescribe from "./Pages/LandingPages/ConstuctionPages/Prescribe";
+import SavedJobs from "./Pages/SavedJob";
+import AppliedAllJobs from "./Pages/Jobs/AppliedJobs";
+import TaskCategories from "./Pages/taskcategory/TaskCategories";
+import CreateTaskCategory from "./Pages/taskcategory/CreateTaskCategory";
 // import Agency from "./Pages/LandingPages/Agency/Agency";
 
 const RequireAuth = ({ children }) => {
@@ -194,7 +198,7 @@ function App() {
         <Route path="/prescribe" element={<Prescribe />} />
         {/* <Route path="/agency" element={<Agency />} /> */}
         <Route path="/stock" element={<Stocks />} />
-        <Route path="/newdashboard" element={<NewDashboardPage />} />
+        <Route path="/providerDashboard" element={<NewDashboardPage />} />
         {/* Recuit Pages  */}
         <Route path="/recruitLanding" element={<HomePage />} />
         <Route path="/signin" element={<Login />} />
@@ -229,6 +233,7 @@ function App() {
           <Route index path="new-job" element={<ApplyNewJob />} />
           <Route path="applied-jobs" element={<AppliedJobs />} />
           <Route path="recent-jobs" element={<ResentJob />} />
+          <Route path="saved-jobs" element={<SavedJobs />} />
           <Route path="profile-setting" element={<ProfileSetting />} />
           <Route path="notification" element={<Notification />} />
           <Route path="notification-detail" element={<NotificationDetail />} />
@@ -241,7 +246,7 @@ function App() {
 
         {/* New Dashboardx */}
 
-        <Route path="/newdashboard" element={<NewDashboardPage />}>
+        <Route path="/providerDashboard" element={<NewDashboardPage />}>
           <Route index element={<NewDashboard />} />
           <Route index path="services" element={<NewServices />} />
           <Route index path="inbox" element={<Inbox />} />
@@ -384,6 +389,7 @@ function App() {
         >
           <Route index element={<Jobs />} />
           <Route path="create-job" element={<CreateJob />} />
+          <Route path="applied-jobs" element={<AppliedAllJobs />} />
         </Route>
 
         <Route
@@ -591,6 +597,29 @@ function App() {
           <Route path="create-terms" element={<CreateTermsCondition />} />
         </Route>
 
+        <Route
+          path="/tasks"
+          element={
+            <RequireAuth>
+              <MainWrapper />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<TermsConditions />} />
+          <Route path="create-tasks" element={<CreateTermsCondition />} />
+        </Route>
+
+        <Route
+          path="/taskcategory"
+          element={
+            <RequireAuth>
+              <MainWrapper />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<TaskCategories />} />
+          <Route path="create-taskcategory" element={<CreateTaskCategory />} />
+        </Route>
         <Route
           path="/aboutus"
           element={

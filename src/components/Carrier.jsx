@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 // import discuss from '../images/SALES -Prescriptive Care.jpg'
 // import lawyers from '../images/Lawyers.jpg'
 // import whole from '../images/whole seller.jpg'
-// import nurse from '../images/sales (2).jpg'
+import nurse from '../images/sales (2).jpg'
 import { Link } from 'react-router-dom'
 import Layout from './Layout/Layout'
 import { callPublicApi, HOSTNAME } from '../utils/CallApi'
@@ -34,7 +34,6 @@ const Carrier = () => {
         }
         fetch()
     }, [])
-
     // const CarrierImages = [customer, sales, discuss, lawyers, whole, nurse]
     return (
         <Layout>
@@ -56,8 +55,8 @@ const Carrier = () => {
                             <div className='col-lg-4 col-md-6 my-4' key={index}>
                                 <div style={{ boxShadow: "0px 2.5px 0px 0px rgba(0,0,0,0.30)" }} className='  border rounded-md  '>
                                     <div>
-                                        <img className='w-full rounded-md h-[200px] object-cover' src={`${HOSTNAME}${item?.job_image_url
-                                            }`} alt="service" />
+                                        <img className='w-full rounded-md h-[200px] object-cover' src={ item?.job_image_url !== "" ? `${   item?.job_image_url
+                 }` : nurse } alt="service" />
                                     </div>
                                     <div className='bg-[#f6f6f6] px-3 py-4  '>
                                         <h1 className='text-[18px] font-semibold uppercase mb-3'>{Truncate(item?.job_title, 20)}</h1>

@@ -140,6 +140,23 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen, setCheckExpand }) => {
                                     </NavLink>
                                 </div>
                             </li>
+                            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`} onClick={() => setSidebarOpen(false)}>  
+                                <div className='flex '>
+                                    {
+                                        pathname.includes('saved-jobs') &&
+                                        <div className=' w-[20px] -ml-[28px] bg-[#42946C] rounded-r-md'></div>
+                                    }
+                                    <NavLink
+                                        end to="/candidateDashboard/saved-jobs" className={`block ml-2 text-slate-200 truncate transition duration-150`} >
+                                        <div className="flex items-center justify-between">
+                                            <div className="grow flex items-center">
+                                                <IoMail size={24} className={`${pathname.includes('saved-jobs') ? 'text-[#42946C]  ' : "text-[#999FA9]"} `} />
+                                                <span className={`${pathname.includes('saved-jobs') ? 'text-[#42946C] font-medium' : "text-[#999FA9] font-light"} text-sm   ml-3  lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200`}>Saved Jobs</span>
+                                            </div>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                            </li>
                             <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0'}`} onClick={() => setSidebarOpen(false)}>
                                 <div className='flex '>
                                     {

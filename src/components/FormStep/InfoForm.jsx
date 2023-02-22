@@ -5,9 +5,13 @@ import PhoneInput from 'react-phone-input-2'
 import { Country, State, City } from 'country-state-city';
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+
 // import Validator, { ValidationTypes as V_Type, } from 'react-form-supervalidator';
 import axios from 'axios'
 import * as yup from "yup";
+import TagsInput from 'react-tagsinput'
+import 'react-tagsinput/react-tagsinput.css'
+import { useSelector } from 'react-redux';
 
 const schema = yup.object({
     first_name: yup.string().required(),
@@ -22,6 +26,11 @@ const InfoForm = (props) => {
     const [all_States, setall_States] = useState([]);
     const [all_Cities, setall_Cities] = useState([]);
     const [countryCode, setCountryCode] = useState("")
+    const [surname, setSurname] = useState("")
+    const [areaofInterest, setareaofInterest] = useState([])
+
+
+    const {token} = useSelector((state) => state.recruitAuth.loginInfo)
 
     const {
         register,
@@ -124,10 +133,34 @@ const InfoForm = (props) => {
 
 
 
-    const onNext = (data) => {
-        props.handleNext(data)
+    const handleCity = (e) => {
+        let { value } = e.target
+        setformModel((prevmodel) => ({
+            ...prevmodel,
+            city: value,
+
+        }))
+
     }
 
+
+
+
+    const onNext = (data) => {
+        let newObj = { ...data }
+        newObj.positionOfInterest = areaofInterest;
+        newObj.surname = surname;
+        newObj.country = formModel.country;
+        newObj.city = formModel.city;
+        newObj.state = formModel.state;
+
+        props.handleNext(newObj)
+    }
+
+
+    const handleAreaofInterest = (tags) => {
+        setareaofInterest(tags)
+    }
 
     // useEffect(() => {
     //     (async () => {
@@ -185,8 +218,15 @@ const InfoForm = (props) => {
 
     useEffect(() => {
         reset(props?.formdata);
-    },[reset])
-
+        const updatedCities = City.getCitiesOfState(props?.formdata?.country, props?.formdata?.state)
+        setall_Cities(updatedCities)
+        setformModel({
+            country : props?.formdata?.country,
+            city : props?.formdata?.city,
+            state : props?.formdata?.state,
+        })
+            setSurname(props?.formdata?.surname)
+    }, [reset])
 
 
     return (
@@ -194,9 +234,10 @@ const InfoForm = (props) => {
             <form onSubmit={handleSubmit(onNext)}>
                 <div className='row   h-[750px]'>
                     <div className='col-lg-3  '>
-                        <select className='p-0 px-2 py-2'>
+                        <select className='p-0 px-2 py-2' value={surname} onChange={(e) => setSurname(e.target.value)}>
+                            <option  >Please Select</option>
                             {surnames.map((sur, i) => (
-                                <option>{sur}</option>
+                                <option key={i} value={sur} >{sur}</option>
                             ))}
                         </select>
                         {/* <div className="dropdown relative mb-5">
@@ -218,8 +259,8 @@ const InfoForm = (props) => {
                     </div> */}
                     </div>
                     <div className=' col-12 mb-5 '>
-                        <input type="text"  {...register('first_name')} readOnly={watch('first_name') ? true : false} name="first_name" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.first_name? "border-red-500 border" : "border border-[lightgray]"
-                          }`} placeholder='Enter Your First Name *' />
+                        <input type="text"  {...register('first_name')} readOnly={token === null ? false : true} name="first_name" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.first_name ? "border-red-500 border" : "border border-[lightgray]"
+                            }`} placeholder='Enter Your First Name *' />
                         {/* {validationModel.first_nameError} */}
                         {errors.first_name && (
                             <p className="text-red-500 text-sm">
@@ -235,8 +276,8 @@ const InfoForm = (props) => {
                         <input {...register('secondFname')} name="secondFname" className='w-full   font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your Second FAMILY NAME (Optional)' />
                     </div>
                     <div className=' col-12 mb-5 '>
-                        <input type="email"  {...register('email')}  readOnly={watch('email') ? true : false} name="email" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.email? "border-red-500 border" : "border border-[lightgray]"
-                          }`} placeholder='Enter Email Address *' />
+                        <input type="email"  {...register('email')} readOnly={token === null ? false : true} name="email" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.email ? "border-red-500 border" : "border border-[lightgray]"
+                            }`} placeholder='Enter Email Address *' />
                         {/* {validationModel.emailError} */}
                         {errors.email && (
                             <p className="text-red-500 text-sm">
@@ -245,8 +286,8 @@ const InfoForm = (props) => {
                         )}
                     </div>
                     <div className=' col-12 mb-5 '>
-                        <input type="email"  {...register('email')} readOnly={watch('email') ? true : false} name="email" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.email? "border-red-500 border" : "border border-[lightgray]"
-                          }`} placeholder='Enter Email Address *' />
+                        <input type="email"  {...register('email')} readOnly={token === null ? false : true} name="email" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.email ? "border-red-500 border" : "border border-[lightgray]"
+                            }`} placeholder='Enter Email Address *' />
                         {/* {validationModel.emailError} */}
                         {errors.email && (
                             <p className="text-red-500 text-sm">
@@ -255,7 +296,16 @@ const InfoForm = (props) => {
                         )}
                     </div>
                     <div className=' col-12 mb-5 '>
-                        <input   {...register('interest')} name="interest" className='w-full   font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Point of interest' />
+                        <TagsInput
+                            maxTags={5}
+                            className={"custom-react-tagsinput border border-[lightgray] rounded-lg py-2 px-2"}
+                            inputProps={{
+                                className: 'custom-react-tagsinput-input ',
+                                placeholder: 'Add area of interest'
+                            }}
+                            value={areaofInterest}
+                            onChange={handleAreaofInterest} />
+                        {/* <input   {...register('interest')} name="interest" className='w-full   font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Point of interest' /> */}
                     </div>
                     <div className=' col-12 mb-5 '>
                         <input {...register('industry')} name="industry" className='w-full   font-sans  focus:outline-none border border-[lightgray] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Current Industry' />
@@ -267,7 +317,7 @@ const InfoForm = (props) => {
                             rules={{ required: true }}
                             render={({ field: { onChange, value } }) => (
                                 <PhoneInput
-                                    value={value }
+                                    value={value}
                                     enableSearch
                                     disableSearchIcon
                                     country={countryCode}
@@ -280,11 +330,11 @@ const InfoForm = (props) => {
                                 />
                             )}
                         />
-                         {errors.phoneNumber && (
-                        <p className="text-red-500 text-sm">
-                          {errors.phoneNumber.message}
-                        </p>
-                      )}
+                        {errors.phoneNumber && (
+                            <p className="text-red-500 text-sm">
+                                {errors.phoneNumber.message}
+                            </p>
+                        )}
                         {/* <PhoneInput
                         country={countryCode}
                         // enableSearch
@@ -314,7 +364,7 @@ const InfoForm = (props) => {
 
                     </div>
                     <div className="dropdown relative mb-5 col-lg-4 col-md-4">
-                        <select value={formModel.city} name="city" id="city" className={`w-full  border  rounded-lg p-[10px] border-[lightgray]   `}     >
+                        <select value={formModel.city} onChange={handleCity} name="city" id="city" className={`w-full  border  rounded-lg p-[10px] border-[lightgray]   `}     >
                             <option value="">Select city </option>
                             {all_Cities.map((contry) => <option >{contry.name}</option>)}
                         </select>

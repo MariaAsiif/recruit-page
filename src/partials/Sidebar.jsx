@@ -97,7 +97,7 @@ function Sidebar({
                               <div className="flex items-center justify-between">
                                 <div className="grow flex items-center">
                                   {pathname.includes(item.pathname) ? item.activeLeftIcon : item.leftIcon}
-                                  <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                  <span className="text-sm  font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                     {item.label}
                                   </span>
                                 </div>
@@ -136,7 +136,7 @@ function Sidebar({
                                           return (
                                             <li key={s_index} className="mb-1 last:mb-0">
                                               <NavLink end to={subitem.path} className={({ isActive }) => 'block text-gray-400 hover:text-black sdfdsf transition duration-150 truncate ' + (isActive ? '!text-black font-bold' : '')}>
-                                                <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                                <span className="text-sm  font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                                   {subitem.label}
                                                 </span>
                                               </NavLink>

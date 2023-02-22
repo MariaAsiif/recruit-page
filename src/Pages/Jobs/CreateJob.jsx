@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
-// import Flatpickr from 'react-flatpickr';
 import { useSelector } from 'react-redux'
-import axios from 'axios'
-import { useNavigate } from "react-router-dom";
-// import { validateJob } from '../../helpers/validation';
-// import { useFormJob } from '../../helpers/useForm';
-import { AiFillCalendar } from 'react-icons/ai'
+
 import { FcCheckmark } from 'react-icons/fc'
-import { MdClose, MdOutlineClose } from 'react-icons/md';
+import { MdClose,  } from 'react-icons/md';
 import { toast, ToastContainer } from 'react-toastify';
 
 import { useForm } from "react-hook-form";
@@ -76,23 +71,20 @@ const CreateJob = () => {
 
 
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
+    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
     
 const handleImage = async (e) => {
     let file = e.target.files[0]
 
     let formData = new FormData();    
-
     formData.append('file', file);   //append the values with key, value pair
 
-    formData.append('request', JSON.stringify({
-        "userid": UserData._id,
-    }));
-
     try {
-        const res = await callApi("/uploads/uploadApplicantCV", "post", formData)
-        if (res.status === "Success") {
-            toast.success(res.message);
+        const res = await callApi("/uploads/uploadJobImage", "post", formData)
+        if (res) {
+            let obj = Object.assign({} , ...res)
+            setFile(obj.url)
+            toast.success("Job Image are Successfully uploaded");
         }
         else {
             toast.error(res.message);
@@ -112,6 +104,7 @@ const handleImage = async (e) => {
 
             let payload = {
                 "job_title": data.job_title,
+                "recruitmentid" : "63f4f4b3d19cb80014256535",
                 "salary": data.salary,
                 "description": data.description,
                 "job_image_url": file,
@@ -140,11 +133,13 @@ const handleImage = async (e) => {
             console.log(response);
             if (response.data.status === "Success") {
                 // navigate("/jobs", { replace: true });
-                toast.success(response.data.message);
+                reset()
+                setFile('')
+                toast.success(response.message);
 
             }
             else {
-                toast.error(response.data.message);
+                toast.error(response.message);
             }
 
         } catch (error) {
@@ -276,7 +271,7 @@ const handleImage = async (e) => {
                             id="jobtype"
                             className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.jobtype && 'border-red-500'}`}
                         >
-                            <option defaultChecked disabled>Select Job Type</option>
+                            <option  value="">Select Job Type</option>
                             <option>full time</option>
                             <option>part time</option>
                             <option>internship</option>
@@ -297,7 +292,7 @@ const handleImage = async (e) => {
                             id="jobstatus"
                             className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.jobstatus && 'border-red-500'}`}
                         >
-                            <option defaultChecked disabled>Select Job Status </option>
+                            <option value="">Select Job Status </option>
                             <option >active</option>
                             <option >pending</option>
                             <option>completed</option>
@@ -317,7 +312,7 @@ const handleImage = async (e) => {
                             id="jobclass"
                             className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full   ${errors.jobclass && 'border-red-500'}`}
                         >
-                            <option defaultChecked disabled>Select Job Class </option>
+                            <option  value="">Select Job Class </option>
                             <option>onsite</option>
                             <option >remote</option>
                             <option >hybrid</option>

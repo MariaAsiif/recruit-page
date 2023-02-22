@@ -9,15 +9,22 @@ import { RecruitPage } from './RecruitPage';
 import JObDetail from '../components/Popups/JobDetail';
 import { HOSTNAME, callApi } from '../utils/CallApi';
 import { Truncate } from '../utils/TrucateString';
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share';
+import SocialIconsShare from '../components/Popups/SocialSharePopup';
+import { useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 const ApplyNewJob = () => {
     const [layout, setlayout] = useState("grid")
     const [sidebar, setSetSidebar] = useState(false)
     const [apply, setApply] = useState(false)
     const [jobs, setJobs] = useState([])
-    const [jobData , setJobData] = useState({})
-    const [jobId , setJobId] = useState()
+    const [jobData, setJobData] = useState({})
+    const [jobId, setJobId] = useState()
+    const [showIconPopup, setShowIconPopup] = useState(false)
     // const jobs = ["asdf", "asdfasd", "asdfds", "next", "", "", "", ""]
 
+
+    const user = useSelector((state) => state.recruitAuth?.userInfo)
 
 
     useEffect(() => {
@@ -30,7 +37,7 @@ const ApplyNewJob = () => {
         let fetchApi = async () => {
             try {
                 let res = await callApi('/jobs/listjobs', 'post', payload)
-                setJobs(res?.data?.jobs                    )
+                setJobs(res?.data?.jobs)
                 console.log("Data", res)
             }
             catch (err) { }
@@ -39,15 +46,50 @@ const ApplyNewJob = () => {
     }, [])
 
 
+
+    const SaveJob = async () => {
+        try {
+            let payload = {
+                "userid": user?._id,
+                "jobid": jobData._id
+            }
+
+            let res = callApi('/jobs/saveApplicantJob', 'post', payload);
+            if (res.status === "Success") {
+                toast.success(res.message);
+            }
+            else {
+                toast.error(res.message);
+
+            }
+        }
+        catch (err) { }
+    }
+
+
+
     return (
         <div className='bscontainer-fluid p-0 '>
-            <div className="lg:hidden ">
-                <JObDetail id="job-modal" modalOpen={sidebar} onClose={() => setSetSidebar(false)} setApply={(value) => setApply(value)} />
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
 
+            <div className="lg:hidden ">
+                <JObDetail id="job-modal" data={jobData?._id} modalOpen={sidebar} onClose={() => setSetSidebar(false)} setApply={(value) => setApply(value)} />
             </div>
+            <SocialIconsShare id="job-modal" data={jobData?._id} modalOpen={showIconPopup} onClose={() => setShowIconPopup(false)} />
+
             {
                 apply ?
-                    <RecruitPage setApply={setApply} type="applied" id={jobId}/>
+                    <RecruitPage setApply={setApply} type="applied" id={jobId} />
                     :
                     <div className='row g-0'>
                         <div className={sidebar ? 'col-lg-8' : 'col-lg-12'}>
@@ -74,18 +116,18 @@ const ApplyNewJob = () => {
 
                                     </div>
                                 </div>
-                                {jobs?.map((item , i ) => {
+                                {jobs?.map((item, i) => {
                                     return (
-                                        <div key={i} className={`${layout === "grid" ? sidebar ? "col-lg-6 " : "col-lg-4 col-md-6" : "col-lg-12"} mb-5 px-2`} onClick={() =>{ return   setSetSidebar(true) , setJobData(item)}}>
+                                        <div key={i} className={`${layout === "grid" ? sidebar ? "col-lg-6 " : "col-lg-4 col-md-6" : "col-lg-12"} mb-5 px-2`} >
                                             <div className=' border-2 border-transparent hover:border-[#65A33A] rounded-md '>
                                                 <div className='bg-white rounded-md cursor-pointer'>
                                                     <div className='row g-0  '>
-                                                        <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-3"} ${layout === "grid" ? "h-44 " : "h-44"} rounded-md`}> 
-                                                        <img src={`${HOSTNAME}${item?.job_image_url}`} alt="job_img" className='object-cover h-[150px] w-full'/>
-                                                         </div>
+                                                        <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-3"} ${layout === "grid" ? "h-[250px] " : "h-44"} rounded-md`}>
+                                                            <img src={`${item?.job_image_url}`} alt="job_img" className='object-cover h-[100%]  w-full' />
+                                                        </div>
                                                         <div className={`${layout === "grid" ? "col-lg-12 " : "col-lg-8"} p-2`}>
-                                                            <div className={` flex justify-between items-center`}>
-                                                                <h1 className={`${layout !== "grid" && "text-[20px]"} 'text-[#0D1829] hover:text-[#65A33A] text-[20px] font-medium poppine`}>{ Truncate(item?.job_title , 20)}</h1>
+                                                            <div onClick={() => { return setSetSidebar(true), setJobData(item) }} className={` flex justify-between items-center`}>
+                                                                <h1 className={`${layout !== "grid" && "text-[20px]"} 'text-[#0D1829] hover:text-[#65A33A] text-[20px] font-medium poppine`}>{Truncate(item?.job_title, 20)}</h1>
                                                                 <div>
                                                                     <span className='w-4 h-4  rounded-full inline-block mr-1 align-middle'>
                                                                         <img src={flag} alt="flag" />
@@ -98,16 +140,16 @@ const ApplyNewJob = () => {
                                                                     </span>
                                                                 </div>
                                                             </div>
-                                                            <h1 className={`${layout !== "grid" && "text-[15px] pt-2"} font-poppine text-[#626973] mb-4 text-[16px] mt-2 `}>{ Truncate(item?.description, 120)}</h1>
+                                                            <h1 onClick={() => { return setSetSidebar(true), setJobData(item) }} className={`${layout !== "grid" && "text-[15px] pt-2"} font-poppine text-[#626973] mb-4 text-[16px] mt-2 `}>{Truncate(item?.description, 120)}</h1>
                                                             <div className={`${layout !== "grid" && 'pt-[2rem] flex justify-between items-center '} flex justify-between items-center`}>
                                                                 <div>
                                                                     <button className='text-[14px] transition-all text-white hover:bg-[#E84025] hover:text-white  rounded-sm pl-2 pr-2 p-[6px] bg-[#42946C] mr-1'>{item?.jobtype}</button>
                                                                     <button className='text-[14px] transition-all text-[#42946C]  p-[5px] border-[#42946C] border rounded-sm mr-1'>{item?.jobclass}</button>
                                                                     <BsHeart className='inline mx-1 ' />
-                                                                    <BsFillShareFill className='inline' />
+                                                                    <BsFillShareFill onClick={() => setShowIconPopup(true)} className='inline' />
                                                                 </div>
                                                                 <div className='text-[14px]'>
-                                                                    <span className='font-bold'>{ Truncate(item?.salary, 12)}</span>
+                                                                    <span className='font-bold'>{Truncate(item?.salary, 12)}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -130,11 +172,11 @@ const ApplyNewJob = () => {
                                     <h1 className='text-[#65A33A] text-center text-lg font-medium mb-4'>Detail Job</h1>
                                     <div className='border-2 border-[#65A33A]  rounded-md p-[2px] mb-2'>
                                         {/* <div className='bg-top-background bg-bottom bg-no-repeat bg-cover h-44 rounded-md'></div> */}
-                                        <img src={`${HOSTNAME}${jobData?.job_image_url}`}/>
+                                        <img src={`${jobData?.job_image_url}`} />
                                     </div>
                                     <h1 className='text-[#0D1829] text-center text-[16px] font-medium mb-2'>{jobData?.job_title}</h1>
                                     <div className='flex justify-between items-center mb-4'>
-                                        <h1 className='text-[#626973] text-[12px]'> {jobData?.jobtype } at {jobData?.employer}</h1>
+                                        <h1 className='text-[#626973] text-[12px]'> {jobData?.jobtype} at {jobData?.employer}</h1>
                                         <div>
                                             <span className='w-4 h-4  rounded-full inline-block mr-1 align-middle'>
                                                 <img src={flag} alt="flag" />
@@ -171,11 +213,11 @@ const ApplyNewJob = () => {
                                     </div>
                                     <div className='mb-4 h-8'>
                                         <button className='border-2 transition-all border-[#65A33A] px-2 py-2 text-[14px] bg-[#65A33A] hover:bg-white text-white hover:text-[#65A33A] rounded-md float-left'>Messages</button>
-                                        <button onClick={() => { return  setApply(true), setJobId(jobData?._id)}} className='border-2  transition-all border-[#65A33A] px-2 py-2 text-[14px] bg-[#65A33A] hover:bg-white text-white hover:text-[#65A33A] rounded-md float-right'>Apply Now</button>
+                                        <button onClick={() => { return setApply(true), setJobId(jobData?._id) }} className='border-2  transition-all border-[#65A33A] px-2 py-2 text-[14px] bg-[#65A33A] hover:bg-white text-white hover:text-[#65A33A] rounded-md float-right'>Apply Now</button>
                                     </div>
                                     <h1 className='text-[#65A33A]  text-sm mb-1'>Interested in this job?</h1>
                                     <div className='text-[#626973] text-[11px] mb-4'>
-                                        <IoSaveOutline className='inline mr-1 text-[14px]' /><span className='mr-2 text-[14px]'>Save Job</span>
+                                        <IoSaveOutline className='inline mr-1 text-[14px]' /><span className='mr-2 text-[14px] cursor-pointer' onClick={() => SaveJob()}>Save Job</span>
                                         <IoPrintOutline className='inline mr-1 text-[14px]' /><span className='mr-2 text-[14px]'>Print this Job</span>
                                         <IoMailOutline className='inline mr-1 text-[14px]' /><span className='text-[14px]'>Email this Job</span>
                                     </div>
@@ -193,10 +235,25 @@ const ApplyNewJob = () => {
                                     </div>
                                     <h1 className='text-[#65A33A]  text-sm mb-1'>Share on Social Media</h1>
                                     <div className='mb-4'>
-                                        <BsFacebook className='inline text-blue-600 mr-2' />
+                                        <FacebookShareButton url={`https://recruit-pages.vercel.app/detail/:${jobData._id}`}>
+                                            <div className=' text-center flex justify-center items-center    pt-2 text-[22px]  w-[30px] h-[30px]' >
+                                                <BsFacebook className='inline text-blue-600 mr-2' />
+                                            </div>
+                                        </FacebookShareButton>
+                                        <LinkedinShareButton url={`https://recruit-pages.vercel.app/detail/:${jobData._id}`}>
+                                            <div className=' text-center flex justify-center items-center    pt-2 text-[22px]   w-[30px] h-[30px]' >
+                                                <BsLinkedin className='inline text-[#0177B5] mr-2' />
+                                            </div>
+                                        </LinkedinShareButton>
+                                        <TwitterShareButton url={`https://recruit-pages.vercel.app/detail/:${jobData._id}`}>
+                                            <div className=' text-center flex justify-center items-center    pt-2 text-[22px]  w-[30px] h-[30px]' >
+                                                <BsTwitter className='inline text-[#33ACE2] mr-2' />
+                                            </div>
+                                        </TwitterShareButton>
+                                        {/* <BsFacebook className='inline text-blue-600 mr-2' />
                                         <BsTwitter className='inline text-[#33ACE2] mr-2' />
                                         <BsLinkedin className='inline text-[#0177B5] mr-2' />
-                                        <BsWhatsapp className='inline text-[#26CC64]' />
+                                        <BsWhatsapp className='inline text-[#26CC64]' /> */}
                                     </div>
                                 </div>
                             </div>

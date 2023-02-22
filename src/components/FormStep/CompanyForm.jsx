@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
+import { useSelector } from 'react-redux';
 const CompanyForm = ({ handleBack, handleNext }) => {
 
 
@@ -14,6 +15,8 @@ const CompanyForm = ({ handleBack, handleNext }) => {
   const alljobs = [
     "BUSINESS DEVELOPMENT", "SALES REPRESENTATIVES", "DOCTORS", "LAWYERS", "CHEMIST", "BOTANY", "AGRICULTURE SCIENTIST", "ADMINISTRATOR",
   ]
+
+  const {token} = useSelector((state) => state.recruitAuth.loginInfo)
 
   const onNext = () => {
     const obj = {
@@ -52,6 +55,9 @@ const CompanyForm = ({ handleBack, handleNext }) => {
               shouldHighlightWeekends
             />
           </div>
+          {
+            token === null 
+          ?
           <div className=' col-12  '>
             <label className="block text-sm font-medium mb-1" htmlFor="secondFname">Please Select Your job Category </label>
 
@@ -60,6 +66,7 @@ const CompanyForm = ({ handleBack, handleNext }) => {
             </select>
             {/* <input className='w-full mb-5 text-[#CCCCCC] font-sans  focus:outline-none border border-[#6D6E71] rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First  Name*' /> */}
           </div>
+          : null }
         </div>
       </div>
 

@@ -6,7 +6,7 @@ import ResumeForm from '../components/FormStep/ResumeForm'
 import SubmitForm from '../components/FormStep/SubmitForm'
 import rightImge from '../images/recruitBIgPic.png'
 import { useSelector } from 'react-redux'
-import { callApi } from '../utils/CallApi'
+import { callApi, callPublicApi } from '../utils/CallApi'
 import { ToastContainer, toast } from 'react-toastify'
 export const RecruitPage = ({ setApply, type, id }) => {
 
@@ -21,11 +21,11 @@ export const RecruitPage = ({ setApply, type, id }) => {
 
 
     const data = useSelector((state) => state.recruitAuth.userInfo)
-    const token = useSelector((state) => state.recruitAuth.loginInfo)
+    const {token} = useSelector((state) => state.recruitAuth.loginInfo)
 
     const [formdata, setformdata] = useState(data)
 
-
+console.log("data", formdata )
 
     const handleNext = async (data) => {
         let activeIndexs = active + 1
@@ -64,15 +64,35 @@ export const RecruitPage = ({ setApply, type, id }) => {
             }))
         }
         else if (activeIndexs === 4) {
-            if (token) {
+            if (token === null) {
                 try {
                     let paylaod = {
-                        "jobid": id,
-                        "userid": data?._id
-                    }
-                    const response = await callApi("/jobs/applyForJob", "post", paylaod)
+                        "sirName": formdata?.surname ,
+                         "first_name": formdata?.first_name,
+                         "first_family_name": formdata?.firstFname,
+                         "second_family_name": formdata?.secondFname,
+                         "third_family_name": "Jamshaid Sabir",
+                         "email": formdata?.email,    
+                         "phoneNumber": formdata?.phoneNumber,
+                         "country": formdata?.country,
+                         "state":formdata?.state,
+                         "city": formdata?.city,
+                         "currentIndustry": formdata?.industry,
+                         "positionOfInterest": formdata?.positionOfInterest,
+                         "dob": formdata?.expiryDate,
+                         "cvFile": formdata?.file,
+                         "profile_picture_url": "/uploads/dps/defualt.png",
+                         "jobsCategories": formdata?.job,
+                         "active": true    
+                     }
+                    //   let checkToken = token ? '/jobs/applyForJob' : 
+                    const response = await callPublicApi("/talentPoolPublic/createTalentPoolPublic", "post", paylaod)
                     if (response.status === "Success") {
                         toast.success(response.message)
+                        setActiveIndex((perv) => ({
+                            ...perv,
+                            one: true
+                        }))
                         setApply(false)
                     }
                     else {
@@ -85,33 +105,11 @@ export const RecruitPage = ({ setApply, type, id }) => {
                 }
             }
             else {
+
                 try {
                     let paylaod = {
-                        "first_name": "abu bakar",
-                        "first_family_name": "abu bakar",
-                        "second_family_name": "abu bakar",
-                        "third_family_name": "abu bakar",
-                        "email": "abubakar3@gmail.com",
-                        "password": "shayan09",
-                        "phoneNumber": "+923074901291",
-                        "channel": "sms",
-                        "role": "jobapplicant",
-                        "approved": "pending",
-                        "country": "Pakistan",
-                        "state": "Punjab",
-                        "city": "Lahore",
-                        "currentIndustry": "IT",
-                        "positionOfInterest": "Backend",
-                        "age": "25",
-                        "jobid": "62fa1c29c52944309420649b",
-                        "dob": "2000-01-01",
-                        "location": {
-                            "type": "Point",
-                            "coordinates": [
-                                74.28911285869138,
-                                31.624888273644956
-                            ]
-                        }
+                        "jobid": id,
+                        "userid": formdata?._id
                     }
                     const response = await callApi("/jobs/applyForJob", "post", paylaod)
                     if (response.status === "Success") {
@@ -126,6 +124,8 @@ export const RecruitPage = ({ setApply, type, id }) => {
                     toast.error(err)
 
                 }
+
+                
             }
         }
     }

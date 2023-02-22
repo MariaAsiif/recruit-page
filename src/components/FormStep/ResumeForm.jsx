@@ -1,10 +1,38 @@
 import React, { useState } from 'react'
+import { callPublicApi } from '../../utils/CallApi'
+import { toast } from 'react-toastify'
 
 const ResumeForm = ({ handleBack, handleNext }) => {
   const [resume, setresume] = useState({})
+  const [file, setFile] = useState('')
+
+      
+const handleImage = async (e) => {
+  let file = e.target.files[0]
+
+  let formData = new FormData();    
+  formData.append('file', file);   //append the values with key, value pair
+
+  try {
+      const res = await callPublicApi("/uploads/uploadPublicCvFile", "post", formData)
+      if (res) {
+          let obj = Object.assign({} , ...res)
+          setFile(obj.url)
+          toast.success("Your Cv are Successfully uploaded");
+      }
+      else {
+          toast.error(res.message);
+
+      }
+
+  } catch (error) {
+      console.log(error);
+  }
+}
+
   const onNext = () => {
     let obj = {
-      resume
+      file
     }
     handleNext(obj)
   }
@@ -16,8 +44,8 @@ const ResumeForm = ({ handleBack, handleNext }) => {
         <label htmlFor='file'>
           <div className='image_wrapper border-2 h-[50px] text-center pt-2 text-[16px] cursor-pointe    w-full bg-gray-200'>Upload CV or Just Drag and Drop</div>
         </label>
-        <input onChange={(e) => setresume(e.target.files[0])} type="file" className='hidden' id="file" />
-        <h1 className='text-center'>{resume.name}</h1>
+        <input onChange={handleImage} type="file" className='hidden' id="file" />
+        <h1 className='text-center'></h1>
 
 
       </div>

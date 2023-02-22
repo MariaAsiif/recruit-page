@@ -3,8 +3,11 @@ import Transition from '../../utils/Transition';
 import { BsFacebook, BsTwitter, BsLinkedin, BsWhatsapp, } from "react-icons/bs";
 import { IoSaveOutline, IoPrintOutline, IoMailOutline } from "react-icons/io5";
 import flag from '../../assets/images/usflag_logo.png'
+import { callApi } from '../../utils/CallApi';
+import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 
-const JObDetail = ({ id, modalOpen, onClose, setApply }) => {
+const JObDetail = ({ id, modalOpen, onClose, setApply , data }) => {
 
     const modalContent = useRef(null)
 
@@ -16,6 +19,30 @@ const JObDetail = ({ id, modalOpen, onClose, setApply }) => {
         document.addEventListener('keydown', keyHandler);
         return () => document.removeEventListener('keydown', keyHandler);
     });
+
+
+    const user = useSelector((state) => state.recruitAuth?.userInfo)
+
+
+
+    const SaveJob = async () => {
+        try {
+            let payload = {
+                "userid": user._id,
+                "jobid": data
+            }
+
+            let res = callApi('/jobs/saveApplicantJob', 'post', payload);
+            if (res.status === "Success") {
+                toast.success(res.message);
+            }
+            else {
+                toast.error(res.message);
+
+            }
+        }
+        catch (err) { }
+    }
 
 
     return (
@@ -105,11 +132,11 @@ const JObDetail = ({ id, modalOpen, onClose, setApply }) => {
                                 </div>
                                 <div className='mb-4 h-8'>
                                     <button className='border-2 transition-all border-[#65A33A] px-2 py-2 text-[9px] bg-[#65A33A] hover:bg-white text-white hover:text-[#65A33A] rounded-md float-left'>Messages</button>
-                                    <button onClick={() =>{ return setApply(true), onClose()}} className='border-2  transition-all border-[#65A33A] px-2 py-2 text-[9px] bg-[#65A33A] hover:bg-white text-white hover:text-[#65A33A] rounded-md float-right'>Apply Now</button>
+                                    <button onClick={() => { return setApply(true), onClose() }} className='border-2  transition-all border-[#65A33A] px-2 py-2 text-[9px] bg-[#65A33A] hover:bg-white text-white hover:text-[#65A33A] rounded-md float-right'>Apply Now</button>
                                 </div>
                                 <h1 className='text-[#65A33A]  text-sm mb-1'>Interested in this job?</h1>
-                                <div className='text-[#626973] text-[11px] mb-4'>
-                                    <IoSaveOutline className='inline mr-1' /><span className='mr-2'>Save Job</span>
+                                <div className='text-[#626973] text-[11px] mb-4 '>
+                                    <IoSaveOutline className='inline mr-1' /><span className='mr-2  cursor-pointer' onClick={() => SaveJob}>Save Job</span>
                                     <IoPrintOutline className='inline mr-1' /><span className='mr-2'>Print this Job</span>
                                     <IoMailOutline className='inline mr-1' /><span>Email this Job</span>
                                 </div>

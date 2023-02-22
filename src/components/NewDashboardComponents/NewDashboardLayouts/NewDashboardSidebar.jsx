@@ -78,9 +78,9 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 <div className="space-y-8">
                     <div>
                         <ul className="mt-3 h-[550px] overflow-y-auto ">
-                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/newdashboard" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/providerDashboard" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
                                 <div className='flex '>
-                                    <NavLink end to="/newdashboard" className={`block w-full px-3 py-2  ${pathname === "/newdashboard" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                    <NavLink end to="/providerDashboard" className={`block w-full px-3 py-2  ${pathname === "/providerDashboard" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <TbLayoutDashboard size={18} />
@@ -90,9 +90,9 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     </NavLink>
                                 </div>
                             </li>
-                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/newdashboard/services" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/providerDashboard/services" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
                                 <div className='flex '>
-                                    <NavLink end to="/newdashboard/services" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/services" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                    <NavLink end to="/providerDashboard/services" className={`block w-full px-3 py-2  ${pathname === "/providerDashboard/services" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <MdMiscellaneousServices size={18} />
@@ -102,9 +102,9 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     </NavLink>
                                 </div>
                             </li>
-                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/newdashboard/inbox" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/providerDashboard/inbox" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
                                 <div className='flex '>
-                                    <NavLink end to="/newdashboard/inbox" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/inbox" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                    <NavLink end to="/providerDashboard/inbox" className={`block w-full px-3 py-2  ${pathname === "/providerDashboard/inbox" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <HiOutlineMail size={18} />
@@ -115,9 +115,9 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                 </div>
                             </li>
 
-                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/newdashboard/orders" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/providerDashboard/orders" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
                                 <div className='flex '>
-                                    <NavLink end to="/newdashboard/orders" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/orders" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                    <NavLink end to="/providerDashboard/orders" className={`block w-full px-3 py-2  ${pathname === "/providerDashboard/orders" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <TbBorderAll size={18} />
@@ -127,9 +127,9 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     </NavLink>
                                 </div>
                             </li>
-                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/newdashboard/notifications" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/providerDashboard/notifications" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
                                 <div className='flex '>
-                                    <NavLink end to="/newdashboard/notifications" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/notifications" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                    <NavLink end to="/providerDashboard/notifications" className={`block w-full px-3 py-2  ${pathname === "/providerDashboard/notifications" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <FiBell size={18} />
@@ -139,9 +139,9 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     </NavLink>
                                 </div>
                             </li>
-                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/newdashboard/support" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/providerDashboard/support" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
                                 <div className='flex '>
-                                    <NavLink end to="/newdashboard/support" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/support" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                    <NavLink end to="/providerDashboard/support" className={`block w-full px-3 py-2  ${pathname === "/providerDashboard/support" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <BiSupport size={18} />
@@ -151,9 +151,9 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     </NavLink>
                                 </div>
                             </li>
-                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/newdashboard/invoice" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/providerDashboard/invoice" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
                                 <div className='flex '>
-                                    <NavLink end to="/newdashboard/invoice" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/invoice" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                    <NavLink end to="/providerDashboard/invoice" className={`block w-full px-3 py-2  ${pathname === "/providerDashboard/invoice" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <TbFileInvoice size={18} />
@@ -163,9 +163,9 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     </NavLink>
                                 </div>
                             </li>
-                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/newdashboard/faqs" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/providerDashboard/faqs" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
                                 <div className='flex '>
-                                    <NavLink end to="/newdashboard/faqs" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/faqs" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                    <NavLink end to="/providerDashboard/faqs" className={`block w-full px-3 py-2  ${pathname === "/providerDashboard/faqs" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <FaQuestion size={18} />
@@ -175,9 +175,9 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     </NavLink>
                                 </div>
                             </li>
-                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/newdashboard/gig" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/providerDashboard/gig" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
                                 <div className='flex '>
-                                    <NavLink end to="/newdashboard/gig" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/gig" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                    <NavLink end to="/providerDashboard/gig" className={`block w-full px-3 py-2  ${pathname === "/providerDashboard/gig" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <GiGoldShell size={18} />
@@ -187,9 +187,9 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     </NavLink>
                                 </div>
                             </li>
-                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/newdashboard/orderdetails" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/providerDashboard/orderdetails" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
                                 <div className='flex '>
-                                    <NavLink end to="/newdashboard/orderdetails" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/orderdetails" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                    <NavLink end to="/providerDashboard/orderdetails" className={`block w-full px-3 py-2  ${pathname === "/providerDashboard/orderdetails" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <BiDetail size={18} />
@@ -199,9 +199,9 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     </NavLink>
                                 </div>
                             </li>
-                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/newdashboard/invoiceinfo" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/providerDashboard/invoiceinfo" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
                                 <div className='flex '>
-                                    <NavLink end to="/newdashboard/invoiceinfo" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/invoiceinfo" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                    <NavLink end to="/providerDashboard/invoiceinfo" className={`block w-full px-3 py-2  ${pathname === "/providerDashboard/invoiceinfo" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <BsInfoSquare size={18} />
@@ -211,9 +211,9 @@ const NewDashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     </NavLink>
                                 </div>
                             </li>
-                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/newdashboard/newinvoice" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
+                            <li onClick={() => setSidebarOpen(false)} className={`mb-3 last:mb-0  ${pathname === "/providerDashboard/newinvoice" ? "bg-white" : ""} group  hover:bg-white transition duration-150 `}>
                                 <div className='flex '>
-                                    <NavLink end to="/newdashboard/newinvoice" className={`block w-full px-3 py-2  ${pathname === "/newdashboard/newinvoice" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
+                                    <NavLink end to="/providerDashboard/newinvoice" className={`block w-full px-3 py-2  ${pathname === "/providerDashboard/newinvoice" ? 'text-[#4DA676]  ' : "text-white"} group-hover:text-[#4DA676] truncate transition duration-150 `} >
                                         <div className="flex items-center justify-between ">
                                             <div className="flex items-center grow">
                                                 <FaFileInvoice size={18} />

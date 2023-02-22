@@ -14,6 +14,7 @@ import { toast, ToastContainer } from 'react-toastify';
 
 const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
     const modalContent = useRef(null);
+    const [file, setFile] = useState('')
     const [expiryDate, setexpiryDate] = useState({ day: 10, month: 8, year: 2022 })
     const [jobModel, setjobModel] = useState({
         job_title: "",
@@ -51,7 +52,6 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
     })
 
 
-    console.log("jobModel", jobModel)
 
 
 
@@ -82,12 +82,10 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
     const handleUpdateJob = async () => {
         let isValidate = setValidation()
         if (isValidate) return
-
-        console.log("api run");
         let obj = { ...jobModel }
         obj.expiryDate = `${expiryDate.year}/${expiryDate.month}/${expiryDate.day}`
-        obj._id = data._id
-        console.log(obj);
+        obj._id = data._id;
+        obj.job_image_url = file;
         try {
             const response = await callApi("/jobs/updatejob", "post", obj)
             console.log(response);
@@ -99,6 +97,30 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
 
     }
 
+
+    const handleImage = async (e) => {
+        let file = e.target.files[0]
+    
+        let formData = new FormData();    
+        formData.append('file', file);   //append the values with key, value pair
+    
+        try {
+            const res = await callApi("/uploads/uploadJobImage", "post", formData)
+            if (res) {
+                let obj = Object.assign({} , ...res)
+                setFile(obj.url)
+                toast.success("Job Image are Successfully uploaded");
+            }
+            else {
+                toast.error(res.message);
+    
+            }
+    
+        } catch (error) {
+            console.log(error);
+        }
+    }
+      
 
 
 
@@ -161,17 +183,7 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
                 leaveEnd="opacity-0 translate-y-4"
             >
                 <div ref={modalContent} className="bg-white rounded shadow-lg overflow-auto w-3/4 h-2/3">
-                    <ToastContainer
-                        position="top-right"
-                        autoClose={5000}
-                        hideProgressBar={false}
-                        newestOnTop={false}
-                        closeOnClick
-                        rtl={false}
-                        pauseOnFocusLoss
-                        draggable
-                        pauseOnHover
-                    />
+                  
                     {/* Modal header */}
                     <div className="px-5 py-3 border-b border-slate-200">
                         <div className="flex justify-between items-center">
@@ -284,6 +296,12 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                             shouldHighlightWeekends
                                         />
                                     )}
+                            </div>
+
+                            <div className='col-lg-4'>
+                                <label className="block text-sm font-medium mb-3"  >Image</label>
+                                <input type="file" className={`border p-[6px] focus:outline-blue-500 rounded-sm w-full h-[30px`} onChange={handleImage} />
+                                <small className='text-red-500'>only png, svg images can be added</small>
                             </div>
                             {
                                 mode !== "view" ? (
