@@ -1,10 +1,42 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect} from 'react'
 import { AiOutlineHeart, AiOutlineStar } from 'react-icons/ai';
 import { FiPlayCircle } from 'react-icons/fi';
 import { GoArrowSmallDown, GoArrowSmallUp } from "react-icons/go";
+import { callApi } from '../../utils/CallApi';
 const NewFaqs = () => {
     const [activetab, setactivetab] = useState("tab_faqs")
     const [open, setOpen] = useState(0);
+    const [allInspires, setallInspires] = useState([])
+
+
+    useEffect(() => {
+            (async () => {
+                try {
+                    const payload = {
+                        "sortproperty": "created_at",
+                        "sortorder": -1,
+                        "offset": 0,
+                        "limit": 50,
+                        "query": {
+                            "critarion": { "active": true },
+                            
+                            "addedby": "_id email first_name",
+                            
+                            "lastModifiedBy": "_id email first_name"
+                        }
+                        
+                    }
+                    const response = await callApi("/faqs/getFaqsWithFullDetails", "post", payload)
+                    if (response?.status === "Success"
+                    ) {
+                        setallInspires(response?.data?.faqs)
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+            })();
+
+    }, [])
 
 
     return (
@@ -22,17 +54,17 @@ const NewFaqs = () => {
             </ul>
             <div className="tab-content" id="tabs-tabContent">
                 <div className={`tab-pane fade ${activetab === "tab_faqs" ? "show active" : ""} `} >
-                    {Array(3).fill("").map((_, i) => {
+               { allInspires.map((item, i) => {
                         return (
                             <div className='mb-3 last:mb-0'>
                                 <div className="px-3 bg-[#4DA676]  py-1 rounded-xl text-white">
                                     <button className="flex items-center w-full group" aria-expanded={open} onClick={() => setOpen(i)}  >
                                         {open === i ? <GoArrowSmallUp size={28} className='inline ' /> : <GoArrowSmallDown size={28} className='inline ' />}
-                                        <div className="text-sm font-medium"> In iaculis leo quis massa sodales pellentesque aliquam nisi. Eu sed volutpat mi vitae netus a sollicitudin?</div>
+                                        <div className="text-sm font-medium">{item?.faquestion} </div>
                                     </button>
                                 </div>
                                 <div className={`text-xs leading-6 bg-[#4DA676] rounded-b-xl -mt-3 pt-5 opacity-80 text-white px-9 pb-5 ${open !== i && 'hidden'}`}>
-                                    <div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.</div>
+                                    <div>{item?.faanswer}</div>
                                 </div>
                             </div>
                         )

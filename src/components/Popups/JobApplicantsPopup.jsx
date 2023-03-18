@@ -1,16 +1,14 @@
 import React, { useRef , useState } from 'react'
 import Transition from '../../utils/Transition';
-import moment from "moment"
 import { toast } from 'react-toastify';
 import { callApi } from '../../utils/CallApi';
 import DeletePopup from '../../components/deletePopups/DeletePopups';
 import ApproveDisApprove from '../../components/Popups/ApproveDisapprove';
-import { Truncate } from '../../utils/TrucateString';
+// import { Truncate } from '../../utils/TrucateString';
 import { FiCheck } from 'react-icons/fi';
 import { MdClose } from 'react-icons/md'; 
-import { useSelector } from 'react-redux';
 
-const JobApplicants = ({ id, modalOpen, onClose,  data , jobId }) => {
+const JobApplicants = ({ id, modalOpen, setTogglePopup ,  onClose,  data , jobId }) => {
     const modalContent = useRef(null);
     const [actionId, setActionId] = useState();
     const [action, setAction] = useState('');
@@ -20,12 +18,7 @@ const JobApplicants = ({ id, modalOpen, onClose,  data , jobId }) => {
     const [alljobs, setalljobs] = useState(data)
 
 
-    let user = useSelector((state) =>  state?.userAuth?.userInfo)
-
-    console.log("user" , user)
-
-
-    // console.log("dta", data )
+      let Objects = Object.assign({}, ...data)
 
     // const deletePopToggle = async (id) => {
     //     setDelId(id)
@@ -64,12 +57,14 @@ const JobApplicants = ({ id, modalOpen, onClose,  data , jobId }) => {
     const handleApproved = async () => {
         let value = {
             "jobid": jobId,
-            "userid": user.userid
+            "userid": Objects?._id
         }
         try {
             const res = await callApi('/jobs/addApprovedApplicants', 'post', value);
             if (res.status === 'Success') {
                 toast.success(res.message);
+                setTogglePopup(res.data)
+                onClose()
                 // let oldUsers = alljobs;
                 // const updateUsers = oldUsers.map((user) => {
                 //     if (user._id === res.data._id) {
@@ -206,33 +201,33 @@ const JobApplicants = ({ id, modalOpen, onClose,  data , jobId }) => {
                   <tbody className='text-sm divide-y divide-slate-200'>
                     {data?.map((user) => {
                       return (
-                        <tr key={user._id}>
+                        <tr key={user?._id}>
                           <td className='px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap'>
-                            <div className='text-left'>{user._id}</div>
+                            <div className='text-left'>{user?._id}</div>
                           </td>
                           <td className='px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap'>
-                            <div className='text-left'>{user.first_name}</div>
+                            <div className='text-left'>{user?.first_name}</div>
                           </td>
                           <td className='px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap'>
-                            <div className='text-left'>{user.email}</div>
+                            <div className='text-left'>{user?.email}</div>
                           </td>
                           <td className='px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap'>
-                            <div className='text-left'>{user.phoneNumber}</div>
+                            <div className='text-left'>{user?.phoneNumber}</div>
                           </td>
                           <td className='px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap'>
-                            <div className='text-left'>{user.role}</div>
+                            <div className='text-left'>{user?.role}</div>
                           </td>
                           <td className='px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap'>
-                            <div className='text-left'>{user.created_at}</div>
+                            <div className='text-left'>{user?.created_at}</div>
                           </td>
                           <td>
                             <div className='flex justify-center items-center'>
                              
                                 <>
-                                  <div onClick={() => ApprovePopup({status: 'approved' , id:  user._id })} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 pt-1 border-green-600  flex justify-center'>
+                                  <div onClick={() => ApprovePopup({status: 'approved' , id:  user?._id })} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 pt-1 border-green-600  flex justify-center'>
                                     <FiCheck className='text-[18px] text-green-600' />
                                   </div>
-                                  <div onClick={() => ApprovePopup({ status : 'disapproved' , id:  user._id })} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 pt-1 border-red-600 mx-2 flex justify-center'>
+                                  <div onClick={() => ApprovePopup({ status : 'disapproved' , id:  user?._id })} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 pt-1 border-red-600 mx-2 flex justify-center'>
                                     <MdClose className='text-[18px] text-red-600' />
                                   </div>
                                 </>

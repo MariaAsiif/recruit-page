@@ -27,6 +27,9 @@ export const RecruitAuthSlice = createSlice({
             debugger
             state.userInfo = action.payload
         },
+        updateSavedJobs: (state, action) => {
+            state.userInfo = { ...state.userInfo, savedJobs: action.payload };
+        },
         updateUser: (state, action) => {
             debugger
             state.userInfo = { ...state.userInfo, gatePopup: action.payload };
@@ -35,6 +38,6 @@ export const RecruitAuthSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { signin, signout, updateUser , updateProfile } = RecruitAuthSlice.actions
+export const { signin, signout, updateUser , updateProfile , updateSavedJobs } = RecruitAuthSlice.actions
 
 export default RecruitAuthSlice.reducer

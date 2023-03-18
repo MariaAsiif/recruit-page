@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-
+import React, { useEffect, useState } from 'react'
+// import { useSelector } from 'react-redux'
+import Select from 'react-select'
 import { FcCheckmark } from 'react-icons/fc'
-import { MdClose,  } from 'react-icons/md';
+import { MdClose, } from 'react-icons/md';
 import { toast, ToastContainer } from 'react-toastify';
 
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
@@ -23,11 +23,20 @@ const schema = yup.object({
     jobstatus: yup.string().required(),
     jobclass: yup.string().required(),
     employer: yup.string().required(),
+    // category: yup
+    // .object()
+    // .shape({
+    //   label: yup.string().required("category is required (from label)"),
+    //   value: yup.string().required("category is required")
+    // })
+    // .nullable() // for handling null value when clearing options via clicking "x"
+    // .required("category is required (from outter null check)")
     // age: yup.number().positive().integer().required(),
 }).required();
 
 const CreateJob = () => {
     const [file, setFile] = useState('')
+    const [category, setCategories] = useState([])
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -36,78 +45,83 @@ const CreateJob = () => {
 
 
     const [expiryDate, setexpiryDate] = useState({ day: dd, month: mm, year: yyyy })
-    const token = useSelector((state) => state.userAuth.loginInfo.token);
-    const UserData = useSelector((state) => state.userAuth.userInfo);
-    // let navigate = useNavigate();
-    // const [jobModel, setjobModel] = useState({
-    //     expiryDate: new Date(),
-    //     job_title: "",
-    //     salary: "",
-    //     description: "",
-    //     jobtype: "",
-    //     jobstatus: "",
-    //     jobclass: "",
-    //     employer: "",
-    //     job_image_url: "/uploads/dp/default.png",
-    //     jobCategory: ["62fa17bbdd8f3425747ee221", "62fa188bdd8f3425747ee222"],
-    //     physicalLocation: {
-    //         country: "Lahore",
-    //         state: "Lahore",
-    //         province: "Lahore",
-    //         city: "Lahore"
-    //     },
-    //     location: {
-    //         type: "Point",
-    //         coordinates: [
-    //             74.28911285869138,
-    //             31.624888273644956
-    //         ]
-    //     }
-    // })
+    // const token = useSelector((state) => state.userAuth.loginInfo.token);
+    // const UserData = useSelector((state) => state.userAuth.userInfo);
 
+    const { register, handleSubmit, control, watch, reset, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
 
+    const handleImage = async (e) => {
+        let file = e.target.files[0]
 
+        let formData = new FormData();
+        formData.append('file', file);   //append the values with key, value pair
 
+        try {
+            const res = await callApi("/uploads/uploadJobImage", "post", formData)
+            if (res) {
+                let obj = Object.assign({}, ...res)
+                setFile(obj.url)
+                toast.success("Job Image are Successfully uploaded");
+            }
+            else {
+                toast.error(res.message);
 
+            }
 
-
-    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
-    
-const handleImage = async (e) => {
-    let file = e.target.files[0]
-
-    let formData = new FormData();    
-    formData.append('file', file);   //append the values with key, value pair
-
-    try {
-        const res = await callApi("/uploads/uploadJobImage", "post", formData)
-        if (res) {
-            let obj = Object.assign({} , ...res)
-            setFile(obj.url)
-            toast.success("Job Image are Successfully uploaded");
+        } catch (error) {
+            console.log(error);
         }
-        else {
-            toast.error(res.message);
-
-        }
-
-    } catch (error) {
-        console.log(error);
     }
-}
-    
-    
-    
+
+
+
+    useEffect(() => {
+        let fetch = async () => {
+            let payload = {
+                "sortproperty": "createdAt",
+                "sortorder": -1,
+                "offset": 0,
+                "limit": 15
+            }
+            let res = await callApi('/jobcategories/getcategories', 'post', payload)
+            let arr = []
+            for (let index = 0; index < res?.data?.categories.length; index++) {
+                const element = res?.data?.categories[index];
+                let val = {
+                    value: element?.jobCategoryTitle,
+                    label: element?.jobCategoryTitle
+                }
+                arr.push(val)
+            }
+            setCategories(arr)
+
+        }
+        fetch()
+    }, [])
+    console.log("cate", category)
+
     const onSubmit = async (data) => {
         let updated = `${expiryDate.year}-${expiryDate.month}-${expiryDate.day}`;
+
+        let cat = []
+
+        for (let index = 0; index < data?.category.length; index++) {
+            const element = data?.category[index];
+            cat.push(element?.value)
+
+        }
+
         try {
 
             let payload = {
                 "job_title": data.job_title,
-                "recruitmentid" : "63f4f4b3d19cb80014256535",
+                "recruitmentid": "63f4f4b3d19cb80014256535",
                 "salary": data.salary,
                 "description": data.description,
+                "responsibilities": data.responsibilities,
+                "jobQualications": data.jobQualications,
                 "job_image_url": file,
+                "jobCategory": cat,
                 "jobtype": data?.jobtype,
                 "jobstatus": data?.jobstatus,
                 "jobclass": data?.jobclass,
@@ -122,16 +136,15 @@ const handleImage = async (e) => {
                 }
             }
 
-            // let formdata = new FormData()
+            let formdata = new FormData()
 
-            // formdata.append('job_title' , data.job_title)
-            // formdata.append('job_image_url' , file)
+            formdata.append('job_title' , data.job_title)
+            formdata.append('job_image_url' , file)
 
 
 
             let response = await callApi('/jobs/createjob', 'post', payload);
-            console.log(response);
-            if (response.data.status === "Success") {
+            if (response.status === "Success") {
                 // navigate("/jobs", { replace: true });
                 reset()
                 setFile('')
@@ -241,10 +254,10 @@ const handleImage = async (e) => {
                             <p className="text-red-500 text-sm">{errors.salary.message}</p>
                         )}
                     </div>
-                   
+
 
                     <div className='col-lg-4 mb-4 relative'>
-                        <label className="block text-sm font-medium mb-3" htmlFor="employer">Employer</label>
+                        <label className="block text-sm font-medium mb-1" htmlFor="employer">Employer</label>
                         <div className='absolute right-5 top-10'>
                             {!errors.employer && watch('employer') ? <FcCheckmark /> : errors.employer ? <div className=' text-red-500'><MdClose /></div> : null}
                         </div>
@@ -261,7 +274,7 @@ const handleImage = async (e) => {
                         )}
                     </div>
                     <div className='col-lg-4 mb-4 relative'>
-                        <label className="block text-sm font-medium mb-1" htmlFor="jobtype">jobtype</label>
+                        <label className="block text-sm font-medium mb-1" htmlFor="jobtype">Job type</label>
                         <div className='absolute right-10 top-10'>
                             {!errors.jobtype && watch('jobtype') ? <FcCheckmark /> : errors.jobtype ? <div className=' text-red-500'><MdClose /></div> : null}
                         </div>
@@ -271,7 +284,7 @@ const handleImage = async (e) => {
                             id="jobtype"
                             className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.jobtype && 'border-red-500'}`}
                         >
-                            <option  value="">Select Job Type</option>
+                            <option value="">Select Job Type</option>
                             <option>full time</option>
                             <option>part time</option>
                             <option>internship</option>
@@ -310,15 +323,63 @@ const handleImage = async (e) => {
                             {...register('jobclass')}
                             name="jobclass"
                             id="jobclass"
-                            className={`border p-[10px] focus:outline-blue-500 rounded-sm w-full   ${errors.jobclass && 'border-red-500'}`}
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full   ${errors.jobclass && 'border-red-500'}`}
                         >
-                            <option  value="">Select Job Class </option>
+                            <option value="">Select Job Class </option>
                             <option>onsite</option>
                             <option >remote</option>
                             <option >hybrid</option>
                         </select>
                         {errors.jobclass && (
                             <p className="text-red-500 text-sm">{errors.jobclass.message}</p>
+                        )}
+                    </div>
+
+                    <div className='col-lg-4 mb-4 relative'>
+                        <label className="block text-sm font-medium mb-3" htmlFor="jobtype">Job Category</label>
+                        <div className='absolute right-10 top-10'>
+                            {!errors.category && watch('category') ? <FcCheckmark /> : errors.category ? <div className=' text-red-500'><MdClose /></div> : null}
+                        </div>
+                        <Controller
+                            name="category"
+                            control={control}
+                            render={({ field }) => (
+                                <Select
+                                    // defaultValue={options[0]}
+                                    {...field}
+                                    isClearable
+                                    isSearchable={false}
+                                    isMulti
+                                    className={` rounded-none  ${errors.category && 'border border-red-500 '}`}
+                                    options={category}
+                                />
+                            )}
+                        />
+                        {/* <Select
+                            closeMenuOnSelect={false}
+                            isMulti
+                            defaultMenuIsOpen="Select Category"
+                            {...register('category')}
+                            options={category}
+                            className={` rounded-none ${errors.category && 'border border-red-500 '}`}
+
+                        /> */}
+                        {/* <select
+                            {...register('category')}
+                            name="category"
+                            id="category"
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.category && 'border-red-500'}`}
+                        >
+                            <option value="">Select Job Categories</option> */}
+                        {/* {
+                                category?.map((cat, i) => (
+                                    <option key={i} value={cat?._id}>{cat?.jobCategoryTitle}</option>
+                                ))
+                            } */}
+
+                        {/* </select> */}
+                        {errors.category && (
+                            <p className="text-red-500 text-sm">{errors.category.message}</p>
                         )}
                     </div>
                     {/* <div className='col-lg-4 mb-4 '>
@@ -350,7 +411,7 @@ const handleImage = async (e) => {
                             <p className="text-red-500 text-sm">{errors.expiryDate.message}</p>
                         )}
                     </div> */}
-                    <div className='col-lg-6'>
+                    <div className='col-lg-4'>
                         <label className="block text-sm font-medium mb-3"  >Expiry Date</label>
                         <DatePicker
                             value={expiryDate}
@@ -359,10 +420,46 @@ const handleImage = async (e) => {
                             shouldHighlightWeekends
                         />
                     </div>
-                    <div className='col-lg-6'>
+                    <div className='col-lg-4'>
                         <label className="block text-sm font-medium mb-3"  >Image</label>
                         <input type="file" className={`border p-[6px] focus:outline-blue-500 rounded-sm w-full h-[30px`} onChange={handleImage} />
                         <small className='text-red-500'>only png, svg images can be added</small>
+                    </div>
+                    <div className='col-lg-12 mb-4 relative'>
+                        <label className="block text-sm font-medium mb-1" htmlFor="description">Responsibilities</label>
+                        <div className='absolute right-5 top-10'>
+                            {!errors.responsibilities && watch('responsibilities') ? <FcCheckmark /> : errors.responsibilities ? <div className=' text-red-500'><MdClose /></div> : null}
+                        </div>
+                        <textarea
+                            autoComplete="off"
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.responsibilities && 'border-red-500'}`}
+                            name='responsibilities' id="responsibilities"
+                            {...register('responsibilities')}
+                            placeholder="Responsibilities"
+                            cols={5}
+                        ></textarea>
+
+                        {errors.responsibilities && (
+                            <p className="text-red-500 text-sm">{errors.responsibilities.message}</p>
+                        )}
+                    </div>
+                    <div className='col-lg-12 mb-4 relative'>
+                        <label className="block text-sm font-medium mb-1" htmlFor="description">Job Qualications</label>
+                        <div className='absolute right-5 top-10'>
+                            {!errors.jobQualications && watch('jobQualications') ? <FcCheckmark /> : errors.jobQualications ? <div className=' text-red-500'><MdClose /></div> : null}
+                        </div>
+                        <textarea
+                            autoComplete="off"
+                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full  ${errors.jobQualications && 'border-red-500'}`}
+                            name='jobQualications' id="jobQualications"
+                            {...register('jobQualications')}
+                            placeholder="Job Qualications"
+                            cols={5}
+                        ></textarea>
+
+                        {errors.jobQualications && (
+                            <p className="text-red-500 text-sm">{errors.jobQualications.message}</p>
+                        )}
                     </div>
                     <div className='col-lg-12 mb-4 relative'>
                         <label className="block text-sm font-medium mb-1" htmlFor="description">Description</label>
@@ -376,7 +473,7 @@ const handleImage = async (e) => {
                             {...register('description')}
                             placeholder="Desription"
                             cols={5}
-                            ></textarea>
+                        ></textarea>
 
                         {errors.description && (
                             <p className="text-red-500 text-sm">{errors.description.message}</p>

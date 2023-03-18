@@ -49,6 +49,8 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
         jobstatusError: null,
         jobclassError: null,
         employerError: null,
+        responsibilitiesError: null,
+        jobQualicationsError: null,
     })
 
 
@@ -65,6 +67,8 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
             jobstatusError: Validator([jobModel.jobstatus], [V_Type.required], ['job status is required  ']),
             jobclassError: Validator(jobModel.jobclass, [V_Type.required], ['job class is  required field']),
             employerError: Validator(jobModel.employer, [V_Type.required], ['Employere is required field']),
+            responsibilitiesError: Validator(jobModel.responsibilities, [V_Type.required], ['responsibilities is required field']),
+            jobQualicationsError: Validator(jobModel.jobQualicationsError, [V_Type.required], ['jobQualications is required field']),
 
         };
         setvalidationModel(myvalidation_Obj);
@@ -100,27 +104,27 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
 
     const handleImage = async (e) => {
         let file = e.target.files[0]
-    
-        let formData = new FormData();    
+
+        let formData = new FormData();
         formData.append('file', file);   //append the values with key, value pair
-    
+
         try {
             const res = await callApi("/uploads/uploadJobImage", "post", formData)
             if (res) {
-                let obj = Object.assign({} , ...res)
+                let obj = Object.assign({}, ...res)
                 setFile(obj.url)
                 toast.success("Job Image are Successfully uploaded");
             }
             else {
                 toast.error(res.message);
-    
+
             }
-    
+
         } catch (error) {
             console.log(error);
         }
     }
-      
+
 
 
 
@@ -183,7 +187,7 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
                 leaveEnd="opacity-0 translate-y-4"
             >
                 <div ref={modalContent} className="bg-white rounded shadow-lg overflow-auto w-3/4 h-2/3">
-                  
+
                     {/* Modal header */}
                     <div className="px-5 py-3 border-b border-slate-200">
                         <div className="flex justify-between items-center">
@@ -220,16 +224,7 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                     )}
                                 {validationModel.salaryError}
                             </div>
-                            <div className='col-lg-4 mb-5'>
-                                <label className="block text-lg font-medium mb-1" htmlFor="description">DESCRIPTION</label>
-                                {mode === "view" ?
-                                    (
-                                        <p>{data.description}</p>
-                                    ) : (
-                                        <input name='description' value={jobModel.description} onChange={handleChange} type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
-                                    )}
-                                {validationModel.descriptionError}
-                            </div>
+                            
                             <div className='col-lg-4 mb-5'>
                                 <label className="block text-lg font-medium mb-1" htmlFor="description">EMPLOYEER</label>
                                 {mode === "view" ?
@@ -303,6 +298,58 @@ const ViewEditJobPopup = ({ id, modalOpen, onClose, mode, data }) => {
                                 <input type="file" className={`border p-[6px] focus:outline-blue-500 rounded-sm w-full h-[30px`} onChange={handleImage} />
                                 <small className='text-red-500'>only png, svg images can be added</small>
                             </div>
+
+                            <div className='col-lg-12 mb-5'>
+                                <label className="block text-lg font-medium mb-1" htmlFor="description">DESCRIPTION</label>
+                                {mode === "view" ?
+                                    (
+                                        <p>{data.description}</p>
+                                    ) : (
+                                        <textarea name='description' value={jobModel.description} onChange={handleChange} type="text" className={`border p-2 w-full focus:outline-blue-500 rounded-sm `} />
+                                    )}
+                                {validationModel.descriptionError}
+                            </div>
+
+
+                            <div className='col-lg-12 mb-5'>
+                                <label className="block text-lg font-medium mb-1" htmlFor="description">Responsibilities</label>
+                                {mode === "view" ?
+                                    (
+                                        <p>{data.responsibilities}</p>
+                                    ) : (
+                                        <textarea
+                                            autoComplete="off"
+                                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full `}
+                                            name='responsibilities' id="responsibilities"
+                                            value={jobModel.responsibilities} onChange={handleChange}
+                                            placeholder="Responsibilities"
+                                            cols={5}
+                                        ></textarea>
+                                    )}
+                                {validationModel.responsibilitiesError}
+                            </div>
+
+
+                            <div className='col-lg-12 mb-5'>
+                                <label className="block text-lg font-medium mb-1" htmlFor="description">Job Qualications</label>
+                                {mode === "view" ?
+                                    (
+                                        <p>{data.jobQualications}</p>
+                                    ) : (
+                                        <textarea
+                                            autoComplete="off"
+                                            className={`border p-2 focus:outline-blue-500 rounded-sm w-full `}
+                                            name='jobQualications' id="jobQualications"
+                                            value={jobModel.jobQualications} onChange={handleChange}
+                                            placeholder="Job Qualications"
+                                            cols={5}
+                                        ></textarea>
+                                    )}
+                                {validationModel.jobQualicationsError}
+                            </div>
+
+
+
                             {
                                 mode !== "view" ? (
                                     <div className='col-lg-12'>

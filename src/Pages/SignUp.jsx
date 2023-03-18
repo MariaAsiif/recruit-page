@@ -10,14 +10,16 @@ import { BsTwitter } from 'react-icons/bs'
 import { BsLinkedin } from 'react-icons/bs'
 import verifygif from '../images/verify-giff.gif'
 import axios from 'axios'
+import Select from 'react-select'
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { FcCheckmark } from 'react-icons/fc'
-import { MdClose } from 'react-icons/md';
+// import { FcCheckmark } from 'react-icons/fc'
+// import { MdClose } from 'react-icons/md';
 import { toast, ToastContainer } from 'react-toastify';
 import { callPublicApi } from '../utils/CallApi'
 import { Link } from 'react-router-dom'
+import ApplicantEmailOtp from '../components/Popups/EmailOtpApplicant'
 // import { Link } from 'react-router-dom'
 
 const schema = yup.object({
@@ -30,13 +32,20 @@ const schema = yup.object({
     phoneNumber: yup.string().required(),
     role: yup.string().required(),
     country: yup.string().required(),
+
+    positionOfInterest: yup.string().required(),
 });
 
 const SignUp = () => {
 
     const [countryCode, setcountryCode] = useState("se")
+    const [userEmail, setUserEmail] = useState(false)
     const [activeIndex, setActiveIndex] = useState(0)
-    const [show, setShow] = useState(false)
+    const [showOtp, setShowOtp] = useState(false)
+    const [allRoles, setAllRoles] = useState([])
+    const [allCategory, setAllCategory] = useState([])
+    const [formdata, setFormData] = useState({})
+    // const [show, setShow] = useState(false)
     const [all_Countries] = useState(() => Country.getAllCountries())
     const [all_States, setall_States] = useState(() => State.getStatesOfCountry("AF"))
     const [all_Cities, setall_Cities] = useState(() => City.getCitiesOfState("AF", "BDS"))
@@ -59,7 +68,7 @@ const SignUp = () => {
         password: ""
     })
 
-    const all_Roles = ["vendors", "manufacturer", "customer", "doctor", "finance admin", "superadmin", "HR", "admin"]
+    // const all_Roles = ["vendors", "manufacturer", "customer", "doctor", "finance admin", "superadmin", "HR", "admin"]
 
     const { register, watch, reset, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
@@ -90,50 +99,68 @@ const SignUp = () => {
         }))
     }
 
-    const handleChangeCountryStateCity = (value, fieldname) => {
-        let updatedCities = []
-        let cityName = ""
-        if (fieldname === "country") {
-            const updatedStates = State.getStatesOfCountry(value)
-            const stateCode = updatedStates.length > 0 ? updatedStates[0].isoCode : ""
-            updatedCities = City.getCitiesOfState(value, stateCode)
-            cityName = updatedCities.length > 0 ? updatedCities[0].name : ""
-            setall_States(updatedStates)
-            setall_Cities(updatedCities)
-            setformModel((prevmodel) => ({
-                ...prevmodel,
-                state: stateCode,
-                city: cityName
-            }))
-        }
-        else if (fieldname === "state") {
-            console.log("state", value);
-            updatedCities = City.getCitiesOfState(formModel.country, value)
-            cityName = updatedCities.length > 0 ? updatedCities[0].name : ""
-            setall_Cities(updatedCities)
-            setformModel((prevmodel) => ({
-                ...prevmodel,
-                city: cityName
-            }))
-        }
-        setformModel((prevmodel) => ({
-            ...prevmodel,
-            [fieldname]: value
-        }))
-    }
+    // const handleChangeCountryStateCity = (value, fieldname) => {
+    //     let updatedCities = []
+    //     let cityName = ""
+    //     if (fieldname === "country") {
+    //         const updatedStates = State.getStatesOfCountry(value)
+    //         const stateCode = updatedStates.length > 0 ? updatedStates[0].isoCode : ""
+    //         updatedCities = City.getCitiesOfState(value, stateCode)
+    //         cityName = updatedCities.length > 0 ? updatedCities[0].name : ""
+    //         setall_States(updatedStates)
+    //         setall_Cities(updatedCities)
+    //         setformModel((prevmodel) => ({
+    //             ...prevmodel,
+    //             state: stateCode,
+    //             city: cityName
+    //         }))
+    //     }
+    //     else if (fieldname === "state") {
+    //         console.log("state", value);
+    //         updatedCities = City.getCitiesOfState(formModel.country, value)
+    //         cityName = updatedCities.length > 0 ? updatedCities[0].name : ""
+    //         setall_Cities(updatedCities)
+    //         setformModel((prevmodel) => ({
+    //             ...prevmodel,
+    //             city: cityName
+    //         }))
+    //     }
+    //     setformModel((prevmodel) => ({
+    //         ...prevmodel,
+    //         [fieldname]: value
+    //     }))
+    // }
 
     const onSubmit = async (data) => {
+        setFormData(data)
+        setActiveIndex(1)
+    }
+
+
+    const SubmitForm = async () => {
         try {
+
+            let cat = []
+
+            for (let index = 0; index < formdata?.category.length; index++) {
+                const element = formdata?.category[index];
+                cat.push(element?.value)
+
+            }
+
             let option = {
-                first_name: data.first_name,
-                first_family_name: data.first_family_name,
-                second_family_name: data.second_family_name,
-                third_family_name: data.third_family_name,
-                email: data.email,
-                password: data.password,
-                phoneNumber: data.phoneNumber,
+                first_name: formdata?.first_name,
+                first_family_name: formdata?.first_family_name,
+                second_family_name: formdata?.second_family_name,
+                third_family_name: formdata?.third_family_name,
+                email: formdata?.email,
+                password: formdata?.password,
+                phoneNumber: formdata?.phoneNumber,
+                positionOfInterest: formdata?.positionOfInterest,
+                jobCategories: cat,
+                cvFile: "",
                 channel: "sms",
-                role: data.role,
+                role: formdata?.role,
                 approved: "pending",
                 location: {
                     type: "Point",
@@ -144,23 +171,34 @@ const SignUp = () => {
                 }
             }
 
+
+
+
             const res = await callPublicApi('/users/signup', 'post', option)
             if (res.status === 'Success') {
                 toast.success(res.message);
+                setShowOtp(true)
                 reset();
+
             } else {
+            
                 toast.error(res.message);
+                setActiveIndex(0)
             }
         } catch (error) {
             console.log(error);
+            setActiveIndex(0)
+
         }
     }
 
     useEffect(() => {
+
+
         (async () => {
             const response = await axios('https://api.ipregistry.co/?key=m7irmmf8ey12rx7o')
-            const currentCountryCode = response.data.location.country.code
 
+            const currentCountryCode = response.data.location.country.code
             setcountryCode(currentCountryCode.toLowerCase())
             const CurrentStates = State.getStatesOfCountry(currentCountryCode)
             const CurrentCities = City.getCitiesOfState(currentCountryCode, CurrentStates[0].isoCode)
@@ -176,20 +214,63 @@ const SignUp = () => {
         })();
     }, [])
 
+
+    let fetch = async () => {
+        let payload = {
+
+            "sortproperty": "createdAt",
+            "sortorder": -1,
+            "offset": 0,
+            "limit": 50,
+            "query": {
+                "critarion": { "active": true },
+                "fields": "_id roleName"
+            }
+
+        }
+
+        const res = await callPublicApi('/roles/getRolesList', 'post', payload)
+        setAllRoles(res?.data?.roles)
+    }
+
+    let fetchCate = async () => {
+        let payload = {
+
+            "sortproperty": "createdAt",
+            "sortorder": -1,
+            "offset": 0,
+            "limit": 50,
+
+
+        }
+
+        const res = await callPublicApi('/jobCategoriesPublic/getcategoriesPublic', 'post', payload)
+        let arr = []
+        for (let index = 0; index < res?.data?.categories.length; index++) {
+            const element = res?.data?.categories[index];
+            let val = {
+                value: element?.jobCategoryTitle,
+                label: element?.jobCategoryTitle
+            }
+            arr.push(val)
+        }
+        setAllCategory(arr)
+    }
+
+
+    useEffect(() => {
+
+        fetch()
+        fetchCate()
+    }, [])
+
     return (
 
         <div className='container h-screen'>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+           
+
+
+            <ApplicantEmailOtp permition={showOtp} Toggle={setShowOtp} email={formdata?.email} />
 
             <div className='row h-full g-0 '>
                 <div className='col-lg-4 left_img '>
@@ -241,7 +322,7 @@ const SignUp = () => {
                                     </div>
                                     <div className='col-lg-5'>
                                         <label className='text-[14px] font-semibold flex items-center'>First Name <span className='pt-1 text-green-600 ml-2'>*</span></label>
-                                        <input name="first_name" {...register('first_name')} className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First  Name' />
+                                        <input name="first_name" {...register('first_name')} className='w-full rounded-md font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium' placeholder='Enter your First  Name' />
                                         {errors.first_name && (
                                             <p className="text-red-500 text-sm">{errors.first_name.message}</p>
                                         )}
@@ -250,7 +331,7 @@ const SignUp = () => {
                                     <div className='col-lg-5'>
                                         <label className='text-[14px] font-semibold  flex items-center'>Family Name <span className='pt-1 text-green-600 ml-2'>*</span></label>
 
-                                        <input className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium'
+                                        <input className='w-full rounded-md  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium'
                                             name="first_family_name" {...register('first_family_name')}
                                             placeholder='Enter your Family Name ' />
                                         {errors.first_family_name && (
@@ -261,7 +342,7 @@ const SignUp = () => {
                                     <div className='col-lg-6 mb-6'>
                                         <label className='text-[14px] font-semibold  flex items-center'>Second Family Name<span className='pt-1 text-green-600 ml-2'> (Optioanl)</span> </label>
 
-                                        <input className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium'
+                                        <input className='w-full rounded-md  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium'
                                             name="second_family_name" {...register('second_family_name')} placeholder='Enter your Second Family Name ' />
                                         {errors.second_family_name && (
                                             <p className="text-red-500 text-sm">{errors.second_family_name.message}</p>
@@ -271,7 +352,7 @@ const SignUp = () => {
                                     <div className='col-lg-6 mb-6'>
                                         <label className='text-[14px] font-semibold  flex items-center'>Third Family Name <span className='pt-1 text-green-600 ml-2'> (Optioanl)</span></label>
 
-                                        <input onChange={onHandleChange} className='w-full  font-sans  focus:outline-none border border-gray-300 
+                                        <input onChange={onHandleChange} className='w-full rounded-md font-sans  focus:outline-none border border-gray-300 
                                          py-2 px-2 placeholder:text-sm placeholder:font-medium'
                                             name="third_family_name" {...register('third_family_name')}
                                             placeholder='Enter your Third Family Name' />
@@ -282,7 +363,7 @@ const SignUp = () => {
                                     <div className='col-lg-6 mb-6'>
                                         <label className='text-[14px] font-semibold  flex items-center'>Email Address <span className='pt-1 text-green-600 ml-2'> * </span></label>
 
-                                        <input className='w-full   font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium'
+                                        <input className='w-full rounded-md  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium'
                                             name="email" {...register('email')}
                                             placeholder='Enter valid email address' />
                                         {errors.email && (
@@ -294,7 +375,7 @@ const SignUp = () => {
                                         <label className='text-[14px] font-semibold  flex items-center'>Password <span className='pt-1 text-green-600 ml-2'> * </span></label>
 
                                         <input
-                                            className='w-full  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium'
+                                            className='w-full rounded-md font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium'
                                             type="password"
                                             name="password" {...register('password')}
                                             placeholder='Enter your chosen password ' />
@@ -303,19 +384,45 @@ const SignUp = () => {
                                         )}
                                     </div>
 
-                                    <div className='col-lg-4'>
-                                        <label className='text-[14px] font-semibold'>Roles
+                                    <div className='col-lg-6 mb-6'>
+                                        <label className='text-[14px] font-semibold  flex items-center'>Position of Interest <span className='pt-1 text-green-600 ml-2'> * </span></label>
+
+                                        <input className='w-full rounded-md  font-sans  focus:outline-none border border-gray-300  py-2 px-2 placeholder:text-sm placeholder:font-medium'
+                                            name="text" {...register('positionOfInterest')}
+                                            placeholder='position Of Interest' />
+                                        {errors.positionOfInterest && (
+                                            <p className="text-red-500 text-sm">{errors.positionOfInterest.message}</p>
+                                        )}
+                                    </div>
+
+                                    <div className='col-lg-6'>
+                                        <label className='text-[14px] font-semibold'>Category
                                             <span className='pt-1 text-green-600 ml-2'> * </span></label>
 
-                                        <div className="dropdown relative ">
-                                            <div className='w-full  font-sans flex items-center border rounded-none border-gray-300 mt-[2px] py-[9px] px-2 '>
-                                                <select {...register('role')} name="role" className='w-full  font-sans  focus:outline-none border-0  pt-0 pb-0 m-0  placeholder:text-sm placeholder:font-medium' >
-                                                    <option value="">Select Role </option>
-                                                    {all_Roles.map((country) => {
-                                                        return (
-                                                            <option  key={country} value={country}>
-                                                                {country}
+                                        <Controller
+                                            name="category"
+                                            control={control}
+                                            render={({ field }) => (
+                                                <Select
+                                                    // defaultValue={options[0]}
+                                                    {...field}
+                                                    isClearable
+                                                    isSearchable={false}
+                                                    isMulti
+                                                    options={allCategory}
+                                                    styles={{ padding: '20px' }}
+                                                />
+                                            )}
+                                        />
 
+                                        {/* <div className="dropdown relative ">
+                                            <div className='w-full rounded-md font-sans flex items-center border  border-gray-300 mt-[2px] py-[9px] px-2 '>
+                                                <select {...register('role')} name="role" className='w-full rounded-md font-sans  focus:outline-none border-0  pt-0 pb-0 m-0  placeholder:text-sm placeholder:font-medium' >
+                                                    <option value="">Select Category </option>
+                                                    {allCategory.map((role, index) => {
+                                                        return (
+                                                            <option  key={index} value={role?.jobCategoryTitle}>
+                                                                {role?.jobCategoryTitle}
                                                             </option>
                                                         )
                                                     })}
@@ -327,7 +434,38 @@ const SignUp = () => {
                                                 </svg>
                                             </div>
                                             {errors.role && (
-                                                <p className="text-red-500 text-sm -mt-[7px]">{errors.role.message}</p>
+                                                <p className="text-red-500 text-sm mt-[4px]">{errors.role.message}</p>
+                                            )}
+
+                                        </div> */}
+
+                                    </div>
+
+
+                                    <div className='col-lg-4'>
+                                        <label className='text-[14px] font-semibold'>Roles
+                                            <span className='pt-1 text-green-600 ml-2'> * </span></label>
+
+                                        <div className="dropdown relative ">
+                                            <div className='w-full rounded-md font-sans flex items-center border  border-gray-300 mt-[2px] py-[9px] px-2 '>
+                                                <select {...register('role')} name="role" className='w-full rounded-md font-sans  focus:outline-none border-0  pt-0 pb-0 m-0  placeholder:text-sm placeholder:font-medium' >
+                                                    <option value="">Select Role </option>
+                                                    {allRoles.map((role, index) => {
+                                                        return (
+                                                            <option key={index} value={role?.roleName}>
+                                                                {role?.roleName}
+                                                            </option>
+                                                        )
+                                                    })}
+
+
+                                                </select>
+                                                <svg className="shrink-0 ml-1 fill-current text-slate-400" width="11" height="7" viewBox="0 0 11 7">
+                                                    <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
+                                                </svg>
+                                            </div>
+                                            {errors.role && (
+                                                <p className="text-red-500 text-sm mt-[4px]">{errors.role.message}</p>
                                             )}
 
                                         </div>
@@ -336,7 +474,7 @@ const SignUp = () => {
 
 
                                     <div className='col-lg-4 mb-4'>
-                                        <label className='text-[14px] font-semibold  flex items-center mb-1'>Phone Number<span className='pt-1 text-green-600 ml-2'> * </span></label>
+                                        <label className='text-[14px] font-semibold  flex items-center '>Phone Number<span className='pt-1 text-green-600 ml-2'> * </span></label>
                                         <Controller
                                             control={control}
                                             name="phoneNumber"
@@ -348,7 +486,7 @@ const SignUp = () => {
                                                     // enableSearch
                                                     // disableSearchIcon
                                                     // containerStyle={{ marginBottom: "20px" }}
-                                                    inputStyle={{ width: "100%", height: "40px",  border: "1px solid #6D6E71", borderRadius: "8px", }}
+                                                    inputStyle={{ width: "100%", height: "40px", border: "1px solid #6D6E71", borderRadius: "8px", }}
                                                     buttonStyle={{ border: "1px solid #6D6E71", borderRadius: "8px 0 0 8px" }}
                                                     countryCodeEditable={false}
                                                 // value={formModel.mobile}
@@ -364,7 +502,7 @@ const SignUp = () => {
                                         <label className='text-[14px] font-semibold'>Country
                                             <span className='pt-1 text-green-600 ml-2'> * </span></label>
                                         <div className="dropdown relative mb-5">
-                                            <div className='w-full  font-sans flex items-center border rounded-none border-gray-300 mt-[2px] py-[9px] px-2 '>
+                                            <div className='w-full rounded-md font-sans flex items-center border  border-gray-300 mt-[2px] py-[9px] px-2 '>
                                                 <select {...register('country')} name="country" className='border-0 pt-0 pb-0 m-0  focus:outline-none placeholder:text-sm placeholder:font-medium' >
                                                     <option value="">Select Country </option>
                                                     {all_Countries.map((country) => {
@@ -383,7 +521,7 @@ const SignUp = () => {
                                                 </svg>
                                             </div>
                                             {errors.country && (
-                                                <p className="text-red-500 text-sm -mt-[7px]">{errors.country.message}</p>
+                                                <p className="text-red-500 text-sm mt-[4px]">{errors.country.message}</p>
                                             )}
                                         </div>
 
@@ -430,7 +568,7 @@ const SignUp = () => {
                                     <img src={verifygif} className="w-[50%]" alt="gif" />
                                 </div>
                                 <div className='flex justify-center lg:justify-center mt-8 '>
-                                    <button className='w-[25%]  bg-[#42946C] p-3 rounded-md text-white'>Submit</button>
+                                    <button onClick={() => SubmitForm()} className='w-[25%]  bg-[#42946C] p-3 rounded-md text-white'>Submit</button>
 
                                 </div>
                             </div>

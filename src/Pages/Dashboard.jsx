@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import DashboardSidebar from '../components/SharedComponents/Header/DashboardSidebar';
 import DashboardRightbar from '../components/SharedComponents/Header/DashboardRightbar';
 import { BiSearch } from 'react-icons/bi'
+import { ToastContainer } from 'react-toastify';
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -12,6 +13,7 @@ const Dashboard = () => {
   const [toggle, setToggle] = useState(false);
   return (
     <div className="flex h-screen overflow-hidden">
+
       {/* Sidebar */}
       <DashboardSidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setCheckExpand={setCheckExpand} />
       {/* Content area */}
@@ -57,12 +59,13 @@ const Dashboard = () => {
             </div>
           </div>
         }
+        
         <main>
           <Outlet />
         </main>
       </div>
       <div className="lg:hidden ">
-        { rightbarOpen && <DashboardRightbar rightbarOpen={rightbarOpen} setRightbarOpen={setRightbarOpen} /> }
+        {rightbarOpen && <DashboardRightbar rightbarOpen={rightbarOpen} setRightbarOpen={setRightbarOpen} />}
       </div>
     </div>
   )

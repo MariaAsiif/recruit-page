@@ -93,7 +93,7 @@ const OtpSelection = (props) => {
 
             if (res.status === "Success") {
                 toast.success(res.message)
-                Navigate('/newdashboard')
+                Navigate('/providerDashboard')
                 // setVerify(false)
                 // verificationChange("phone")
             }

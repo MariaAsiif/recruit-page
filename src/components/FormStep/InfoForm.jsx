@@ -16,7 +16,9 @@ import { useSelector } from 'react-redux';
 const schema = yup.object({
     first_name: yup.string().required(),
     email: yup.string().email("Invalid email format").required(),
-    email: yup.string().email("Invalid email format").required(),
+    Reemail: yup.string()
+    .required('Email is mendatory')
+    .oneOf([yup.ref('email')], 'Email does not match'),
     phoneNumber: yup.string().required(),
 });
 
@@ -217,9 +219,10 @@ const InfoForm = (props) => {
     }, []);
 
     useEffect(() => {
-        reset(props?.formdata);
+        // reset(props?.formdata);
         const updatedCities = City.getCitiesOfState(props?.formdata?.country, props?.formdata?.state)
         setall_Cities(updatedCities)
+        reset({Reemail : props?.formdata?.email , email : props?.formdata?.email , first_name: props?.formdata?.first_name})
         setformModel({
             country : props?.formdata?.country,
             city : props?.formdata?.city,
@@ -286,12 +289,12 @@ const InfoForm = (props) => {
                         )}
                     </div>
                     <div className=' col-12 mb-5 '>
-                        <input type="email"  {...register('email')} readOnly={token === null ? false : true} name="email" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.email ? "border-red-500 border" : "border border-[lightgray]"
-                            }`} placeholder='Enter Email Address *' />
+                        <input type="email"  {...register('Reemail')} readOnly={token === null ? false : true} name="email" className={`w-full   font-sans  focus:outline-none  rounded-lg py-2 px-2 placeholder:text-sm placeholder:font-medium ${errors.email ? "border-red-500 border" : "border border-[lightgray]"
+                            }`} placeholder='Re-Enter Email Address *' />
                         {/* {validationModel.emailError} */}
-                        {errors.email && (
+                        {errors.Reemail && (
                             <p className="text-red-500 text-sm">
-                                {errors.email.message}
+                                {errors.Reemail.message}
                             </p>
                         )}
                     </div>

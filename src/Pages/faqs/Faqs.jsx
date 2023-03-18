@@ -1,18 +1,91 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect } from 'react'
 import { Link } from "react-router-dom"
 import { IoEyeOutline } from "react-icons/io5";
+import { callApi } from '../../utils/CallApi';
+import { Truncate } from '../../utils/TrucateString';
+import { toast } from 'react-toastify';
+import ViewEditFaq from '../../components/Popups/ViewEditFaq';
+import DeletePopup from '../../components/deletePopups/DeletePopups';
 
 const Faqs = () => {
-    const [allfaqs, setallfaqs] = useState([])
-    const openfaqPopup = () => {
-
+    const [allInspires, setallInspires] = useState([])
+    const [inspirePopup, setinspirePopup] = useState(false)
+    const [delPopup, setDelPopup] = useState(false)
+    const [delId, setDelId] = useState('')
+    const [inspireMode, setinspireMode] = useState("view")
+    const [inspireRow, setinspireRow] = useState({})
+    const openInspirePopup = (e, mode, data) => {
+        e.stopPropagation()
+        setinspirePopup(true)
+        setinspireMode(mode)
+        setinspireRow(data)
     }
-    const deletejob = () => {
 
+    const deletePopToggle = (id) => {
+        setDelId(id)
+        setDelPopup(true)
     }
+
+    const deleteInspire = async () => {
+        let value = {
+            id: delId
+        }
+        try {
+            const res = await callApi("/faqs/removeFaq", "post", value)
+            if (res.status === "Success") {
+                toast.success(res.message);
+                setDelPopup(false)
+                let oldinspires = allInspires
+                const updatedInspires = oldinspires.filter((inspire) => inspire._id !== res.data._id)
+                setallInspires(updatedInspires)
+            }
+            else {
+                toast.error(res.message);
+
+            }
+        } catch (error) {
+
+        }
+    }
+
+    useEffect(() => {
+        if (!inspirePopup) {
+            (async () => {
+                try {
+                    const payload = {
+                        "sortproperty": "created_at",
+                        "sortorder": -1,
+                        "offset": 0,
+                        "limit": 50,
+                        "query": {
+                            "critarion": { "active": true },
+                            
+                            "addedby": "_id email first_name",
+                            
+                            "lastModifiedBy": "_id email first_name"
+                        }
+                        
+                    }
+                    const response = await callApi("/faqs/getFaqsWithFullDetails", "post", payload)
+                    if (response?.status === "Success"
+                    ) {
+                        setallInspires(response?.data?.faqs)
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+            })();
+        }
+
+    }, [inspirePopup])
+
+
+
     return (
         <div className='bscontainer-fluid'>
-            {/* <ViewEditJobPopup id="job-modal" data={jobRow} mode={jobMode} modalOpen={jobPopup} onClose={() => setjobPopup(false)} /> */}
+            <ViewEditFaq id="job-modal" data={inspireRow} mode={inspireMode} modalOpen={inspirePopup} onClose={() => setinspirePopup(false)} />
+            {delPopup && <DeletePopup permition={delPopup} callback={deleteInspire} Toggle={() => setDelPopup(false)} />}
+            
             <div className='row py-5'>
                 <div className='col-12  mb-5'>
                     <div className='mb-3'>
@@ -38,7 +111,7 @@ const Faqs = () => {
                 <div className='col-12 border'>
                     <div className="bg-white shadow-lg rounded-sm border border-slate-200 relative">
                         <header className="px-5 py-4">
-                            <h2 className="font-semibold text-slate-800">All Faqs <span className="text-slate-400 font-medium">{allfaqs.length}</span></h2>
+                            <h2 className="font-semibold text-slate-800">All Faqs <span className="text-slate-400 font-medium">{allInspires?.length}</span></h2>
                         </header>
                         <div>
                             <div className="overflow-x-auto">
@@ -56,25 +129,21 @@ const Faqs = () => {
                                             <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="font-semibold text-left">FAQ ID</div>
                                             </th>
-                                            <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className="font-semibold text-left">FAQ TYPE</div>
-                                            </th>
+
                                             <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="font-semibold text-left">QUESTION</div>
                                             </th>
                                             <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="font-semibold text-left">ANSWER</div>
                                             </th>
-                                            <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className="font-semibold text-left">DATE</div>
-                                            </th>
+
                                             <th className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                 <div className="font-semibold text-left">Actions</div>
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody className="text-sm divide-y divide-slate-200">
-                                        {allfaqs.map((faq) => {
+                                        {allInspires.map((faq) => {
                                             return (
                                                 <tr key={faq._id}>
                                                     {/* <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
@@ -89,29 +158,24 @@ const Faqs = () => {
                                                         <div className="text-left">{faq._id}</div>
                                                     </td>
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                        <div className="text-left">{faq.job_title}</div>
+                                                        <div className="text-left">{Truncate(faq.faquestion, 20)}</div>
                                                     </td>
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                        <div className="text-left">{faq.salary}</div>
+                                                        <div className="text-left">{Truncate(faq.faanswer, 20)}</div>
                                                     </td>
-                                                    <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                        <div className="text-left">{faq.description}</div>
-                                                    </td>
-                                                    <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                        <div className="text-left">{faq.jobtype}</div>
-                                                    </td>
+
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                                                         <div className="space-x-1">
-                                                            <button className="text-slate-400 hover:text-slate-500 rounded-full" onClick={(e) => openfaqPopup(e, "edit", faq)}>
+                                                            <button className="text-slate-400 hover:text-slate-500 rounded-full" onClick={(e) => openInspirePopup(e, "edit", faq)}>
                                                                 <span className="sr-only">Edit</span>
                                                                 <svg className="w-8 h-8 fill-current text-red-500 hover:text-green-600" viewBox="0 0 32 32">
                                                                     <path d="M19.7 8.3c-.4-.4-1-.4-1.4 0l-10 10c-.2.2-.3.4-.3.7v4c0 .6.4 1 1 1h4c.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4l-4-4zM12.6 22H10v-2.6l6-6 2.6 2.6-6 6zm7.4-7.4L17.4 12l1.6-1.6 2.6 2.6-1.6 1.6z" />
                                                                 </svg>
                                                             </button>
-                                                            <button className="text-slate-400 hover:text-slate-500 rounded-full" onClick={(e) => openfaqPopup(e, "view", faq)}>
+                                                            <button className="text-slate-400 hover:text-slate-500 rounded-full" onClick={(e) => openInspirePopup(e, "view", faq)}>
                                                                 <IoEyeOutline className='text-red-500 hover:text-green-600' size={23} />
                                                             </button>
-                                                            <button onClick={deletejob} className="text-rose-500 hover:text-rose-600 rounded-full">
+                                                            <button onClick={( ) => deletePopToggle(faq?._id)} className="text-rose-500 hover:text-rose-600 rounded-full">
                                                                 <span className="sr-only">Delete</span>
                                                                 <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32">
                                                                     <path d="M13 15h2v6h-2zM17 15h2v6h-2z" />

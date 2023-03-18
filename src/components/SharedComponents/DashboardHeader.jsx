@@ -7,8 +7,10 @@ import { MdOutlineDarkMode } from 'react-icons/md';
 import CountryDropdown from '../CountryDropdown';
 import LanguageDropdown from '../LanguageDropdown';
 import logo from '../../images/logo.png'
+// import { useSelector } from 'react-redux';
 
 const DashboardHeader = ({ sidebarOpen, setSidebarOpen, checkExpand, setRightbarOpen, rightbarOpen, Toggle }) => {
+   
     return (
         <header style={{ boxShadow: "0px 0px 6px #00000029" }} className="sticky top-0  bg-white border-b border-slate-200 z-30">
             <div className="px-6 sm:px-6 lg:px-6 md:px-6">

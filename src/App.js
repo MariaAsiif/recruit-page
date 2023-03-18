@@ -110,7 +110,7 @@ import TableComponent from "./components/GlobalComponents/table";
 import OrderList from "./components/NewDashboardComponents/OrderList";
 import MedicalLandingPage from "./Pages/Medical/LandingPage";
 import Invoice from "./components/NewDashboardComponents/Invoice";
-
+import Message from './Pages/message/Message'
 import Sidebar from "./Pages/Medical/Layout/Sidebar";
 
 import OrderDetails from './components/NewDashboardComponents/OrderDetails';
@@ -150,6 +150,17 @@ import SavedJobs from "./Pages/SavedJob";
 import AppliedAllJobs from "./Pages/Jobs/AppliedJobs";
 import TaskCategories from "./Pages/taskcategory/TaskCategories";
 import CreateTaskCategory from "./Pages/taskcategory/CreateTaskCategory";
+import JobCategories from "./Pages/jobcategory/JobCategories";
+import CreateJobCategory from "./Pages/jobcategory/CreateJobCategory";
+import UserMessage from "./Pages/UserMessages";
+import VideoTutorial from './Pages/videoTutorial/VideoTutorial'
+import CreateVideo from "./Pages/videoTutorial/CreateVideo";
+import Questions from "./Pages/questions/Questions";
+import CreateQuestion from "./Pages/questions/CreateQuestion";
+import Industries from "./Pages/industry/Industries";
+import CreateIndustry from "./Pages/industry/CreateIndustry";
+import Task from "./Pages/task/Task";
+import CreateTask from "./Pages/task/CreateTask";
 // import Agency from "./Pages/LandingPages/Agency/Agency";
 
 const RequireAuth = ({ children }) => {
@@ -229,7 +240,6 @@ function App() {
           }
         >
         <Route index element={<ApplyNewJob />}/>
-
           <Route index path="new-job" element={<ApplyNewJob />} />
           <Route path="applied-jobs" element={<AppliedJobs />} />
           <Route path="recent-jobs" element={<ResentJob />} />
@@ -237,7 +247,9 @@ function App() {
           <Route path="profile-setting" element={<ProfileSetting />} />
           <Route path="notification" element={<Notification />} />
           <Route path="notification-detail" element={<NotificationDetail />} />
+          <Route path="inbox" element={<UserMessage />} />
         </Route>
+        
         {/* Das pages  */}
         <Route path="/das" element={<DasSignupPage />} />
         {/* <Route path="/das-signup" element={<DASAccountSignup />} /> */}
@@ -380,6 +392,17 @@ function App() {
         </Route>
 
         <Route
+          path="/message"
+          element={
+            <RequireAuth>
+              <MainWrapper />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<Message />} />
+        </Route>
+
+        <Route
           path="/jobs"
           element={
             <RequireAuth>
@@ -393,6 +416,18 @@ function App() {
         </Route>
 
         <Route
+          path="/jobcategory"
+          element={
+            <RequireAuth>
+              <MainWrapper />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<JobCategories />} />
+          <Route path="create-jobcategory" element={<CreateJobCategory />} />
+        </Route>
+
+        <Route
           path="/candidates"
           element={
             <RequireAuth>
@@ -403,6 +438,31 @@ function App() {
           <Route index element={<Candidate />} />
           <Route path="create-candidate" element={<CreateCandidate />} />
         </Route>
+
+        <Route
+          path="/tutorial"
+          element={
+            <RequireAuth>
+              <MainWrapper />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<VideoTutorial />} />
+          <Route path="create-tutorial" element={<CreateVideo />} />
+        </Route>
+
+        <Route
+          path="/question"
+          element={
+            <RequireAuth>
+              <MainWrapper />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<Questions />} />
+          <Route path="create-question" element={<CreateQuestion />} />
+        </Route>
+
         <Route
           path="/employers"
           element={
@@ -517,6 +577,30 @@ function App() {
         >
           <Route index element={<Faqs />} />
           <Route path="create-faq" element={<CreateFaq />} />
+        </Route>
+
+        <Route
+          path="/task"
+          element={
+            <RequireAuth>
+              <MainWrapper />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<Task />} />
+          <Route path="create-task" element={<CreateTask />} />
+        </Route>
+
+        <Route
+          path="/industry"
+          element={
+            <RequireAuth>
+              <MainWrapper />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<Industries />} />
+          <Route path="create-industry" element={<CreateIndustry />} />
         </Route>
 
         <Route

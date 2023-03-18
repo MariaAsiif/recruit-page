@@ -39,7 +39,7 @@ const Jobs = () => {
 
     const deleteInspire = async () => {
         let value = {
-            "recruitmentid": "63038566807b5421bc5ac7ee",
+            "recruitmentid": "63f4f4b3d19cb80014256535",
             "jobid": delId
         }
         try {
@@ -82,17 +82,7 @@ const Jobs = () => {
     }, [jobPopup])
     return (
         <div className='bscontainer-fluid'>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+           
             {delPopup && <DeletePopup permition={delPopup} callback={deleteInspire} Toggle={() => setDelPopup(false)} />}
             <ViewEditJobPopup id="job-modal" data={jobRow} mode={jobMode} modalOpen={jobPopup} onClose={() => setjobPopup(false)} />
             <div className='row py-5'>
@@ -196,7 +186,7 @@ const Jobs = () => {
                                                         <div className="text-left">{job.jobtype}</div>
                                                     </td>
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                        <div className="text-left">{job.jobstatus}</div>
+                                                        <div className="text-left" >{job.jobstatus}</div>
                                                     </td>
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                                         <div className="text-left">{job.jobclass}</div>
@@ -220,7 +210,7 @@ const Jobs = () => {
                                                             <button className="text-slate-400 hover:text-slate-500 rounded-full" onClick={(e) => openJobPopup(e, "view", job)}>
                                                                 <IoEyeOutline className='text-red-500 hover:text-green-600' size={23} />
                                                             </button>
-                                                            <button onClick={() => deletePopToggle(job?._id)} className="text-rose-500 hover:text-rose-600 rounded-full">
+                                                            <button onClick={() => deletePopToggle(job?._id , )} className="text-rose-500 hover:text-rose-600 rounded-full">
                                                                 <span className="sr-only">Delete</span>
                                                                 <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32">
                                                                     <path d="M13 15h2v6h-2zM17 15h2v6h-2z" />

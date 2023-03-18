@@ -1,6 +1,7 @@
+import moment from 'moment'
 import React from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
-const FavritJobs = ({ status }) => {
+const FavritJobs = ({ status , jodId , setApply }) => {
     return (
         <>
             <div className='row mt-[50px]'>
@@ -12,8 +13,8 @@ const FavritJobs = ({ status }) => {
                     <div className='flex  items-center lg:mt-0 md:mt-0 mt-2 '>
                         <div className='border flex items-center bg-white rounded-full w-full p-[5px] pl-[10px] pr-[10px]' >
                             <input type="text" placeholder='Search here...' className='w-full focus:outline-none placeholder:text-sm  ' />
-                            <AiOutlineSearch className='text-gray-400'/>
-                            
+                            <AiOutlineSearch className='text-gray-400' />
+
                         </div>
                         <div className="text-center w-[50%] lg:ml-3 lg:my-0 md:my-0 my-2">
 
@@ -39,64 +40,72 @@ const FavritJobs = ({ status }) => {
                 </div>
                 <div className='col-g-12 '>
                     <div className="overflow-x-auto bg-white rounded-md">
-                        <table className="table-auto w-full hover">
-                           
-                            {/* Table body */}
-                            <tbody className="text-sm ">
-                                {status.map((status) => {
-                                    return (
-                                        <tr className='text-[#999FA9] cursor-pointer hover:bg-[#dffdc9] '>
-                                            <td className=" first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                 <img className=' w-full h-auto max-w-[60px] rounded-md' src={"http://placekitten.com/100/100"} alt="logo" loading="lazy" />
-                                            </td>
-                                            <td className=" first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className='flex justify-center items-center'>
-                                                   
-                                                    <h1 className='font-semibold text-[#626973] '>UI/UX DESIGNER</h1>
-                                                </div>
-                                            </td>
-                                            <td className=" first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className="text-center">
-                                                    <img className=' w-full h-auto max-w-[20px] rounded-full inline-block mr-2' src={"http://placekitten.com/100/100"} alt="logo" loading="lazy" />
-                                                    Google
-                                                </div>
-                                            </td>
-                                            <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className="text-left">Full Time</div>
-                                            </td>
-                                            <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className="text-left">02 September 22</div>
-                                            </td>
-                                            <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                               <button className='bg-[#E84025] text-white lg:w-[60%] p-2 rounded-md'>Easy Apply</button>
-                                            </td>
-                                            <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                                <div className="text-center ">
-                                                    <div className="dropdown relative">
-                                                        <button className="dropdown-toggle px-2 text-[#E84025] font-medium text-lg leading-tight uppercase rounded    focus:outline-none focus:ring-0   transition duration-150 ease-in-out   " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> ... </button>
-                                                        <ul className="dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-center font-medium rounded-lg shadow-2xl mt-1 hidden m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton1">
-                                                            <li>
-                                                                <span className=" dropdown-item text-sm py-2 px-4 cursor-pointer block w-full whitespace-nowrap bg-transparent text-[#626973] hover:bg-gray-100 " >Remove Favorite</span>
-                                                            </li>
-                                                            <li>
-                                                                <span className=" dropdown-item text-sm py-2 px-4 cursor-pointer block w-full whitespace-nowrap bg-transparent text-[#E84025] hover:bg-gray-100 " >Delete Favorite</span>
-                                                            </li>
-                                                            <li>
-                                                                <span className=" dropdown-item text-sm py-2 px-4 cursor-pointer block w-full whitespace-nowrap bg-transparent text-[#626973] hover:bg-gray-100 " >Cancel</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </td>
+                        {
+                            status?.length > 0 ?
+                                <table className="table-auto w-full hover">
 
-                                        </tr>
-                                    )
-                                })}
+                                    {/* Table body */}
+                                    <tbody className="text-sm ">
+                                        {status.map((item, i) => {
+                                            return (
+                                                <tr key={i} className='text-[#999FA9] cursor-pointer hover:bg-[#dffdc9] '>
+                                                    <td className=" first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                                        <img className=' w-full h-auto max-w-[60px] rounded-md' src={item.job_image_url} alt="logo" loading="lazy" />
+                                                    </td>
+                                                    <td className=" first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                                        <div className='flex justify-start items-start'>
+
+                                                            <h1 className='font-semibold text-[#626973] '>{item?.job_title}</h1>
+                                                        </div>
+                                                    </td>
+                                                    <td className=" first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                                        <div className="text-left">
+                                                            {item?.employer}
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                                        <div className="text-left">{item?.jobtype}</div>
+                                                    </td>
+                                                    <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                                        <div className="text-left">{moment(item?.created_at).format('ll')}</div>
+                                                    </td>
+                                                    <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                                        <button onClick={() => {return  jodId(item._id), setApply(true)}} className='bg-[#E84025] text-white lg:w-[60%] p-2 rounded-md'>Easy Apply</button>
+                                                    </td>
+                                                    <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                                        <div className="text-center ">
+                                                            <div className="dropdown relative">
+                                                                <button className="dropdown-toggle px-2 text-[#E84025] font-medium text-lg leading-tight uppercase rounded    focus:outline-none focus:ring-0   transition duration-150 ease-in-out   " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> ... </button>
+                                                                <ul className="dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-center font-medium rounded-lg shadow-2xl mt-1 hidden m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton1">
+                                                                    <li>
+                                                                        <span className=" dropdown-item text-sm py-2 px-4 cursor-pointer block w-full whitespace-nowrap bg-transparent text-[#626973] hover:bg-gray-100 " >Remove Favorite</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span className=" dropdown-item text-sm py-2 px-4 cursor-pointer block w-full whitespace-nowrap bg-transparent text-[#E84025] hover:bg-gray-100 " >Delete Favorite</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span className=" dropdown-item text-sm py-2 px-4 cursor-pointer block w-full whitespace-nowrap bg-transparent text-[#626973] hover:bg-gray-100 " >Cancel</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+                                            )
+                                        })}
 
 
-                            </tbody>
-                        </table>
-                        
+                                    </tbody>
+                                </table>
+                                :
+                                <div className="p-5">
+                                    <h1>Record not found </h1>
+                                </div>
+
+                        }
+
+
 
                     </div>
                 </div>

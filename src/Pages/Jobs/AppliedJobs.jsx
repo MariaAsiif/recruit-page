@@ -8,28 +8,37 @@ import { Truncate } from '../../utils/TrucateString';
 
 
 import { IoEyeOutline } from "react-icons/io5";
-import { ToastContainer, toast } from 'react-toastify';
 import JobApplicants from '../../components/Popups/JobApplicantsPopup';
+import JobApproved from '../../components/Popups/JobApprovePopup';
 
 const AppliedAllJobs = () => {
     const [alljobs, setalljobs] = useState([])
     const [jobPopup, setjobPopup] = useState(false)
     const [approvedJob, setapprovedJob] = useState(false)
     const [jobId, setJobId] = useState("")
+    const [togglePopup, setTogglePopup] = useState("")
     const [applyJob, setapplyJob] = useState([])
 
 
-    const openJobPopup = (e , data , jobid  ) => {
+    const openJobPopup = (e, data, jobid) => {
+        console.log("data", data)
         e.stopPropagation()
         setjobPopup(true)
-        setapplyJob(data )
+        setapplyJob(data)
         setJobId(jobid)
     }
 
- 
+
+    const openJobApprovePopup = (e, data, jobid) => {
+        e.stopPropagation()
+        setapprovedJob(true)
+        setapplyJob(data)
+        setJobId(jobid)
+    }
 
 
- 
+
+
 
 
 
@@ -52,12 +61,12 @@ const AppliedAllJobs = () => {
             })();
         }
 
-    }, [jobPopup])
+    }, [jobPopup, togglePopup])
     return (
         <div className='bscontainer-fluid'>
-        <JobApplicants id="job-modal" data={applyJob} jobId={jobId}  modalOpen={jobPopup} onClose={() => setjobPopup(false)} />
-        {/* <JobApplicants id="job-modal" data={applyJob}   modalOpen={approvedJob} onClose={() => setapprovedJob(false)} /> */}
-          
+            <JobApplicants id="job-modal" data={applyJob} setTogglePopup={setTogglePopup} jobId={jobId} modalOpen={jobPopup} onClose={() => setjobPopup(false)} />
+            <JobApproved id="job-modal" data={applyJob} modalOpen={approvedJob} jobId={jobId} onClose={() => setapprovedJob(false)} />
+
             <div className='row py-5'>
                 <div className='col-12  mb-5'>
                     <div className='mb-3'>
@@ -186,9 +195,11 @@ const AppliedAllJobs = () => {
 
                                                                 :
                                                                 <>
-                                                                    <div onClick={(e) => openJobPopup(e , job?.applicants , job._id)} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 p-[2px] border-red-600  flex justify-center'>
-                                                                        <IoEyeOutline className='text-red-600 hover:text-red-600' size={23} />
-                                                                    </div>
+                                                                    {job?.applicants?.length > 0 &&
+                                                                        <div onClick={(e) => openJobPopup(e, job?.applicants, job._id)} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 p-[2px] border-red-600  flex justify-center'>
+                                                                            <IoEyeOutline className='text-red-600 hover:text-red-600' size={23} />
+                                                                        </div>
+                                                                    }
                                                                     {/* <div onClick={() => ApprovePopup({ status: 'approved', id: job._id })} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 pt-1 border-green-600  flex justify-center'>
                                                                         <FiCheck className='text-[18px] text-green-600' />
                                                                     </div>
@@ -203,7 +214,7 @@ const AppliedAllJobs = () => {
                                                     <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                                                         <div className="space-x-1 flex justify-center">
 
-                                                            <div className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 p-[2px] border-green-600  flex justify-center'>
+                                                            <div onClick={(e) => openJobApprovePopup(e, job?.applicants, job._id)} className=' cursor-pointer rounded-full w-[30px] h-[30px] border-2 p-[2px] border-green-600  flex justify-center'>
                                                                 <IoEyeOutline className='text-green-600 hover:text-green-600' size={23} />
                                                             </div>
 

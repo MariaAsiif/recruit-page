@@ -1,35 +1,32 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Transition from '../utils/Transition';
 // import profileImage from '../images/people.png'
-import flag from '../assets/images/usflag_logo.png'
+// import flag from '../assets/images/usflag_logo.png'
 
-function SortDropdown() {
+function SortDropdown({setShort}) {
 
 
   const options = [
     {
       id: 0,
-      period: 'Edit Profile'
+      period: 'sort by'
     },
     {
       id: 1,
-      period: 'Settings'
+      period: 'Newest'
     },
     {
       id: 2,
-      period: 'Help Center'
+      period: 'Most Applied'
     },
-    {
-      id: 3,
-      period: 'Logout'
-    },
+
 
   ];
 
 
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selected, setSelected] = useState(2);
+  const [selected, setSelected] = useState(0);
 
   const trigger = useRef(null);
   const dropdown = useRef(null);
@@ -67,7 +64,7 @@ function SortDropdown() {
       >
 
         <span className="flex items-center">
-          <span className='ml-1 text-[16px] font-medium'>Newest</span>
+          <span>{options[selected]?.period}</span>
         </span>
         <svg className="shrink-0 ml-1 fill-current text-slate-400" width="11" height="7" viewBox="0 0 11 7">
           <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
@@ -92,14 +89,15 @@ function SortDropdown() {
           onFocus={() => setDropdownOpen(true)}
           onBlur={() => setDropdownOpen(false)}
         >
-       
+
 
           {
             options.map(option => {
               return (
                 <div>
                   <span className={`flex items-start justify-start border-b last:border-b-0 w-full hover:bg-slate-50 py-1 text-[14px] font-normal px-2 cursor-pointer }`}>
-                    <span className='ml-1 text-[16px] font-medium'>Newest</span>
+                    <span onClick={() => { return setSelected(option
+                      ?.id) , setShort(option.id)}} className='ml-1 text-[16px] font-medium'>{option?.period}</span>
                   </span>
                 </div>
                 // <button

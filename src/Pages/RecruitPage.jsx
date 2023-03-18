@@ -25,7 +25,6 @@ export const RecruitPage = ({ setApply, type, id }) => {
 
     const [formdata, setformdata] = useState(data)
 
-console.log("data", formdata )
 
     const handleNext = async (data) => {
         let activeIndexs = active + 1

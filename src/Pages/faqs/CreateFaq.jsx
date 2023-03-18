@@ -1,34 +1,42 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom"
-import { useSelector } from 'react-redux'
+import { toast } from 'react-toastify';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { callApi } from '../../utils/CallApi';
 
+const schema = yup.object({
+    faquestion: yup.string().required(),
+    faanswer: yup.string().required(),
+});
 const CreateFaq = () => {
-    const useername = useSelector((state) => state.userAuth.userInfo.name);
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const {
+        register,
+        reset,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
     const onSubmit = async (data) => {
-        console.log("Data", data)
-        // try {
-        //     const config = {
-        //         headers: {
-        //             'Authorization': 'Bearer ' + token
-        //         }
-        //     };
-        //     let response = await axios.post('http://localhost:5873/jobs/createjob', config);
-        //     console.log(response);
-        //     if (response.data.status === "Success") {
-        //         navigate("/jobs", { replace: true });
-        //         toast.success(response.data.message);
+        try {
+            let payload = {
+                "faquestion": data.faquestion,
+                "faanswer": data.faanswer,
+            }
+            let response = await callApi('/faqs/createFaq', 'post', payload);
+            if (response.status === "Success") {
+                reset()
+                toast.success(response.message);
 
-        //     }
-        //     else {
-        //         toast.error(response.data.message);
-        //     }
+            }
+            else {
+                toast.error(response.message);
+            }
 
-        // } catch (error) {
-        //     console.log(error);
-        // }
+        } catch (error) {
+            console.log(error);
+        }
     }
     return (
         <div className='bscontainer-fluid'>
@@ -58,30 +66,25 @@ const CreateFaq = () => {
                             <h2 className="font-semibold text-slate-800">Add new FAQ</h2>
                         </header>
                     </div>
-                    <div className='col-lg-10 mb-4'>
-                        <label className="block text-sm font-medium mb-1"  >Section </label>
-                        <select {...register('section', { required: true })} className={`border p-2 focus:outline-blue-500 w-full rounded-sm    ${errors.section ? "border-red-400" : "border-gray-400"} `} >
-                            <option>Finance</option>
-                            <option>Security</option>
-                            <option>Ecommerce </option>
-                        </select>
-                    </div>
+
                     <div className='col-lg-10 mb-4'>
                         <label className="block text-sm font-medium mb-1"  >Question </label>
-                        <textarea rows={4}{...register('question', { required: true })} className={`border p-2 focus:outline-blue-500 w-full rounded-sm    ${errors.question ? "border-red-400" : "border-gray-400"} `} />
-
+                        <textarea rows={4}{...register('faquestion')} className={`border p-2 focus:outline-blue-500 w-full rounded-sm    ${errors.faquestion ? "border-red-400" : "border-gray-400"} `} />
+                        {errors.faquestion && (
+                            <p className='text-red-500 text-sm'>{errors.faquestion.message}</p>
+                        )}
                     </div>
                     <div className='col-lg-10 mb-4'>
                         <label className="block text-sm font-medium mb-1"  >Answer </label>
-                        <textarea rows={4}{...register('answer', { required: true })} className={`border p-2 focus:outline-blue-500 w-full rounded-sm   ${errors.answer ? "border-red-400" : "border-gray-400"} `} />
+                        <textarea rows={4}{...register('faanswer')} className={`border p-2 focus:outline-blue-500 w-full rounded-sm   ${errors.faanswer ? "border-red-400" : "border-gray-400"} `} />
+
+                        {errors.faanswer && (
+                            <p className='text-red-500 text-sm'>{errors.faanswer.message}</p>
+                        )}
                     </div>
 
-                    <div className='col-lg-10 mb-4'>
-                        <label className="block text-sm font-medium mb-1"  >Added by </label>
-                        <select {...register('addedby', { required: true })} className={`border p-2 focus:outline-blue-500 w-full rounded-sm    ${errors.addedby ? "border-red-400" : "border-gray-400"} `} >
-                            <option>{useername}</option>
-                        </select>
-                    </div>
+
+
                     <div className='col-lg-12'>
                         <button className="p-2 bg-red-500 hover:bg-green-600 text-white" >Submit</button>
                     </div>

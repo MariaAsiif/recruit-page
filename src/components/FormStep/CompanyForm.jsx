@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import { useSelector } from 'react-redux';
+import { callPublicApi } from '../../utils/CallApi';
 const CompanyForm = ({ handleBack, handleNext }) => {
 
 
@@ -16,11 +17,17 @@ const CompanyForm = ({ handleBack, handleNext }) => {
     "BUSINESS DEVELOPMENT", "SALES REPRESENTATIVES", "DOCTORS", "LAWYERS", "CHEMIST", "BOTANY", "AGRICULTURE SCIENTIST", "ADMINISTRATOR",
   ]
 
+
+  useEffect(() => {
+    let fetchCat = async () => {
+      let res = await callPublicApi('','')
+    }
+  },[])
   const {token} = useSelector((state) => state.recruitAuth.loginInfo)
 
   const onNext = () => {
     const obj = {
-      expiryDate: `${expiryDate.day}-${expiryDate.month}-${expiryDate.year}`,
+      expiryDate: `${expiryDate.year}-${expiryDate.month}-${expiryDate.day}`,
       job
     }
     handleNext(obj)

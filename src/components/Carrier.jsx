@@ -51,7 +51,7 @@ const Carrier = () => {
                         </div>
                     </div>
                     {
-                        jobs.map((item, index) => (
+                        jobs?.map((item, index) => (
                             <div className='col-lg-4 col-md-6 my-4' key={index}>
                                 <div style={{ boxShadow: "0px 2.5px 0px 0px rgba(0,0,0,0.30)" }} className='  border rounded-md  '>
                                     <div>

@@ -86,10 +86,13 @@ const Login = () => {
 
             }
             else {
+                setLoader(false)
                 toast.error(response?.message)
             }
         } catch (error) {
+            setLoader(false)
             toast.error(error)
+
 
         }
     }
