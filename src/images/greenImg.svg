@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="648" height="855" viewBox="0 0 648 855">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="placeholder" d="M240,0H648a0,0,0,0,1,0,0V615A240,240,0,0,1,408,855H0a0,0,0,0,1,0,0V240A240,240,0,0,1,240,0Z" transform="translate(1112 120)" fill="#c4c4c4"/>
+    </clipPath>
+  </defs>
+  <g id="image" transform="translate(-1112 -120)">
+    <g id="placeholder-2" data-name="placeholder" clip-path="url(#clip-path)">
+      <path id="placeholder-3" data-name="placeholder" d="M240,0H648a0,0,0,0,1,0,0V473A240,240,0,0,1,408,713H0a0,0,0,0,1,0,0V240A240,240,0,0,1,240,0Z" transform="translate(1112 262)" fill="#24d29f"/>
+    </g>
+  </g>
+</svg>

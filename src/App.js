@@ -161,7 +161,14 @@ import Industries from "./Pages/industry/Industries";
 import CreateIndustry from "./Pages/industry/CreateIndustry";
 import Task from "./Pages/task/Task";
 import CreateTask from "./Pages/task/CreateTask";
+import BuyerLandig from "./Pages/buyerPages/BuyerLanding/BuyerLandig";
+import ProjectBrife from "./Pages/buyerPages/Brife/Brife";
 // import Agency from "./Pages/LandingPages/Agency/Agency";
+
+
+// Buyer imports
+
+
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -219,15 +226,15 @@ function App() {
         <Route path="/lexicon" element={<Lexicon />} />
 
         <Route path="/verify" element={<Verify />} />
-          <Route
+        <Route
           path="/recruit"
-          // element={
-          //   <RecruitAuthUser>
-          //     <Dashboard />
-          //   </RecruitAuthUser>
-          // }
+        // element={
+        //   <RecruitAuthUser>
+        //     <Dashboard />
+        //   </RecruitAuthUser>
+        // }
         >
-        <Route index element={<RecruitPage type="recuit" />} />
+          <Route index element={<RecruitPage type="recuit" />} />
 
         </Route>
 
@@ -239,7 +246,7 @@ function App() {
             </RecruitAuthUser>
           }
         >
-        <Route index element={<ApplyNewJob />}/>
+          <Route index element={<ApplyNewJob />} />
           <Route index path="new-job" element={<ApplyNewJob />} />
           <Route path="applied-jobs" element={<AppliedJobs />} />
           <Route path="recent-jobs" element={<ResentJob />} />
@@ -249,7 +256,7 @@ function App() {
           <Route path="notification-detail" element={<NotificationDetail />} />
           <Route path="inbox" element={<UserMessage />} />
         </Route>
-        
+
         {/* Das pages  */}
         <Route path="/das" element={<DasSignupPage />} />
         {/* <Route path="/das-signup" element={<DASAccountSignup />} /> */}
@@ -295,8 +302,17 @@ function App() {
         <Route path="/e-uploaditem" element={<UpItmes />} />
         <Route path="/e-manageitem" element={<MangItems />} />
         <Route path="/e-withdrawal" element={<Withdrawals />} />
-        
+
         {/* <Route index path="customer-dashboard" element={<Sidebar />} /> */}
+
+
+        {/* Buyer Routes */}
+
+        <Route path="/buyerLanding" element={<BuyerLandig />} />
+        <Route path="/projectBrife" element={<ProjectBrife />} />
+
+
+
 
         {/* Admin Dashboard */}
         <Route path="/comingsoon" element={<CommingSoon />} />

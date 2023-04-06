@@ -19,7 +19,9 @@ module.exports = {
         'login-img': "url('./images/Login_left_side.jpg')",
         'sidenave': " url(./assets/landingImages/canvas-bg.gif)",
         'navbanner': " url(./assets/ecome/banner.png)",
-        'runded-img': " url(./assets/Stocks/round.png)"
+        'runded-img': " url(./assets/Stocks/round.png)",
+        'green-img': " url(./images/greenImg.svg)",
+        'joinUs-img': " url(./images/bg-image.png)",
         
       },
       fontFamily: {
