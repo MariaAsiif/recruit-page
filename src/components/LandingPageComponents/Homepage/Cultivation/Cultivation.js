@@ -1,5 +1,5 @@
 import React from 'react'
-import { PrimaryHeading, TertiaryHeading } from '../../Globals/Globals'
+import { PrimaryHeading } from '../../Globals/Globals'
 import CultivationSlick from './CultivationSlick'
 import { CultivationMainContainer } from './StyledCultivation'
 

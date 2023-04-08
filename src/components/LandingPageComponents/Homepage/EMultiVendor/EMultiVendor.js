@@ -1,6 +1,4 @@
 import React from "react";
-import { PrimaryHeading } from "../../Globals/Globals";
-import EVendorSlick from "./EVendorSlick";
 import {
   EvendorHeading,
   EVendorMain,
@@ -11,7 +9,6 @@ import CustomCard from "../../Globals/CustomCard";
 import { BASE_URL, GET_PRODUCTS } from "../../../../utils/config";
 import axios from "axios";
 import { useQuery } from "react-query";
-import { Container } from "react-bootstrap";
 import VideoModal from "../VideoModal/VideoModal";
 
 var settings = {

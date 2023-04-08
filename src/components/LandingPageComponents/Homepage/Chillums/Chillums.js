@@ -1,25 +1,11 @@
-import React, { useState } from 'react'
-import { Accordion, Container } from 'react-bootstrap'
-import { PrimaryHeading, ViewMoreBtn } from '../../Globals/Globals'
+import React from 'react'
+// import { Accordion, Container } from 'react-bootstrap'
+// import { PrimaryHeading, ViewMoreBtn } from '../../Globals/Globals'
 import ChillumsSlick from './ChillumsSlick'
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
+// import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 
-import { ChillumMainContainer, ChillumSubHeading, ChillumViewMoreBtn } from './StyledChillums'
+import { ChillumMainContainer, ChillumSubHeading } from './StyledChillums'
 const Chillum = ({ id }) => {
-
-    const [active, setActive] = useState('');
-
-
-    const activeCollapes = (index) => {
-        if (index === active) {
-            setActive('')
-        }
-        else {
-            setActive(index)
-
-        }
-    }
-
     return (
         <div className='bscontainer-fluid' id={id}>
             <ChillumMainContainer>
