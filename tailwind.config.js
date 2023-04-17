@@ -22,6 +22,7 @@ module.exports = {
         'runded-img': " url(./assets/Stocks/round.png)",
         'green-img': " url(./images/greenImg.svg)",
         'joinUs-img': " url(./images/bg-image.png)",
+        'help-img': " url(./images/buyer/help.svg)",
         
       },
       fontFamily: {

@@ -163,6 +163,11 @@ import Task from "./Pages/task/Task";
 import CreateTask from "./Pages/task/CreateTask";
 import BuyerLandig from "./Pages/buyerPages/BuyerLanding/BuyerLandig";
 import ProjectBrife from "./Pages/buyerPages/Brife/Brife";
+import BuyerWrapper from "./components/BuyerDashboard/Layout";
+import BuyerDashboard from "./components/BuyerDashboard/Dashboard";
+import MessageBox from "./components/BuyerDashboard/MessageBox";
+import Profile from "./components/BuyerDashboard/Profile";
+import BuyerNotification from "./components/BuyerDashboard/BuyerNotification";
 // import Agency from "./Pages/LandingPages/Agency/Agency";
 
 
@@ -310,6 +315,15 @@ function App() {
 
         <Route path="/buyerLanding" element={<BuyerLandig />} />
         <Route path="/projectBrife" element={<ProjectBrife />} />
+        {/* Buyer Dashboard */}
+
+        <Route path="/buyerDashboard" element={<BuyerWrapper />}>
+        <Route index element={<BuyerDashboard />} />
+        <Route path="buyernotification" element={<BuyerNotification />} />
+        <Route path="message" element={<MessageBox />} />
+        <Route path="profile" element={<Profile />} />
+
+        </Route>
 
 
 

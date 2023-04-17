@@ -29,7 +29,7 @@ function ProfileDropdown({type}) {
   
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selected, setSelected] = useState(2);
+  // const [selected, setSelected] = useState(2);
 
   const trigger = useRef(null);
   const dropdown = useRef(null);
@@ -56,7 +56,7 @@ function ProfileDropdown({type}) {
   });
 
 
-  const { profile_picture_url , first_name } = useSelector((state) => state?.recruitAuth?.userInfo)
+  const user = useSelector((state) => state?.recruitAuth?.userInfo)
 
 
   return (
@@ -71,8 +71,8 @@ function ProfileDropdown({type}) {
       >
 
         <span className="flex items-center">
-          <img src={`${HOSTNAME}${profile_picture_url}` || profileImage} className=" w-8 rounded-full h-8 object-cover " alt="profile" />
-          <span className='ml-1 text-[16px] font-medium'>{first_name}</span>
+          <img src={`${HOSTNAME}${user?.profile_picture_url && user?.profile_picture_url }` || profileImage } className=" w-8 rounded-full h-8 object-cover " alt="profile" />
+          <span className='ml-1 text-[16px] font-medium'>{user?.first_name}</span>
         </span>
         <svg className="shrink-0 ml-1 fill-current text-slate-400" width="11" height="7" viewBox="0 0 11 7">
           <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
