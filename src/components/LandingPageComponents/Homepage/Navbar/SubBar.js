@@ -83,7 +83,7 @@ const SubBar = ({ setShow }) => {
                             <Link className="pl-5" to="/fairman-online">Fairman Online</Link>
                           </span>
                           <span className="hover:bg-[#81AE37] w-full text-left ">
-                            <Link className="pl-5" to="/e-dashboard">Vendor Dashboard</Link>
+                            <Link className="px-5" to="/e-dashboard">Vendor Dashboard</Link>
                           </span>
                           <span className="hover:bg-[#81AE37] w-full text-left ">
                             <Link className="pl-5" to="/stock">Stock</Link>
