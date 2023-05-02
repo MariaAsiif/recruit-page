@@ -54,16 +54,16 @@ const SideCanvas = ({ sidebarOpen, setSidebarOpen }) => {
       <div className={`fixed inset-0 bg-slate-900  bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200 ${sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} aria-hidden="true" >
 
         {/* Sidebar */}
-        <div id="sidebar" ref={sidebar} className={`flex flex-col relative z-1 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-auto lg:overflow-y-auto no-scrollbar w-64 lg:w-50 lg:landing-sidebar:!w-64 2xl:!w-64 shrink-0 bg- border-r bg-sidenave bg-no-repeat  py-4 transition-all duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-64'}`} >
+        <div id="sidebar" ref={sidebar} className={`flex flex-col relative z-1 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-auto lg:overflow-y-auto no-scrollbar w-64 lg:w-50 lg:landing-sidebar:!w-64 2xl:!w-64 shrink-0 bg- border-r bg-white  bg-no-repeat  py-4 transition-all duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-64'}`} >
           {/* Sidebar header */}
-          <div className='absolute bg-black top-0 opacity-40 right-0 left-0 border h-screen'>
-          </div>
+          {/* <div className='absolute bg-black top-0 opacity-40 right-0 left-0 border h-screen'>
+          </div> */}
           <div className='absolute z-20 w-full'>
             <div className="pr-3 pl-2 sm:px-2 ">
               {/* Close button */}
               <button ref={trigger} className="lg:hidden text-slate-500 hover:text-slate-400" onClick={() => setSidebarOpen(!sidebarOpen)} aria-controls="sidebar" aria-expanded={sidebarOpen}  >
                 <span className="sr-only">Close sidebar</span>
-                <svg className="w-6 h-6 fill-current border rounded-full text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-6 h-6 fill-current border rounded-full text-black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M10.7 18.7l1.4-1.4L7.8 13H20v-2H7.8l4.3-4.3-1.4-1.4L4 12z" />
                 </svg>
               </button>

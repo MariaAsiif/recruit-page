@@ -20,13 +20,13 @@
   font-weight: 500;
   font-size: 2rem;
   margin-bottom: 10px;
-  color: #FFFFFF;
+  color: black !important;
 }
 
 .sidenavcanvas-container .offcanvas-header, .sidenavcanvas-container .offcanvas-body {
   background: rgba(0, 0, 0, 0.73);
   height: auto;
-  color: white;
+  color: black;
   padding: 3px;
   padding-bottom: 0px !important;
 }
@@ -76,7 +76,7 @@
     font-weight: 500;
     font-size: 15px;
     text-align: left;
-    color: whitesmoke;
+    color: black !important;
 }
 
 .sidenavcanvas-container .offcanvas-title {
@@ -85,7 +85,7 @@
     font-weight: 500;
     font-size: 2rem;
     line-height: 4.2rem;
-    color: #FFFFFF;
+    color: black;
     margin-top: 1.5rem;
 }
 
@@ -100,3 +100,4 @@
   background: rgba(0, 0, 0, 0.73) !important;
   border-radius: 2px;
 }
+
