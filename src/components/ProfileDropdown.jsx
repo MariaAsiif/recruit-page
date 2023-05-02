@@ -72,7 +72,7 @@ function ProfileDropdown({type}) {
 
         <span className="flex items-center">
           <img src={ profileImage } className=" w-8 rounded-full h-8 object-cover " alt="profile" />
-          <span className='ml-1 text-[16px] font-medium'>{user?.first_name}</span>
+          <span className='ml-1 text-[16px] font-medium'>John Doe</span>
         </span>
         <svg className="shrink-0 ml-1 fill-current text-slate-400" width="11" height="7" viewBox="0 0 11 7">
           <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />

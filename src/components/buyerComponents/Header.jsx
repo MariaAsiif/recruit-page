@@ -4,6 +4,7 @@ import { IoMdNotificationsOutline } from 'react-icons/io';
 import logo from '../../images/logo.png'
 import manu from '../../images/Menu.png'
 import LanguageDropdown from '../LanguageDropdown';
+import { Link } from 'react-router-dom';
 const BuyerHeader = () => {
     return (
         <header style={{ boxShadow: "0px 0px 6px #00000029" }} className="sticky  top-0 h-[70px] bg-white border-b border-slate-200 z-30">
@@ -26,10 +27,10 @@ const BuyerHeader = () => {
                             <LanguageDropdown />
                         </div>
                         <div>
-                            <h2 className='text-[#1F1F1F] text-[18px]'>Sign In</h2>
+                            <Link to="/das-signin" className='text-[#1F1F1F] text-[18px]'>Sign In</Link>
                         </div>
                         <div className='mx-5'>
-                            <button className='border border-[#E2434E] py-2 rounded-lg text-[#E84125] px-2'>Apply as Freelancer</button>
+                            <Link to="/das" className='border border-[#E2434E] py-2 rounded-lg text-[#E84125] px-2'>Apply as Freelancer</Link>
                         </div>
                         <div>
                            <img src={manu} alt="manu" className='object-cover'/>

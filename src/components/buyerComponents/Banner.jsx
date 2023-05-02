@@ -11,6 +11,7 @@ import { HiArrowNarrowRight } from 'react-icons/hi';
 
 const Banner = () => {
     let checkList = ["Quality Work", "100% Guarantee", "Safe Payment", "24/7 Support"]
+    let courses = [{course : "webdeveloper" , count:"200"} , {course : "frontend developer" , count:"300"},{course : "technical writer" , count:"500"},{course : "UI/UX designer" , count:"400"},{course : "graphic designers" , count:"600"}]
     return (
         <>
             <div className='flex justify-between pt-[2rem] px-10'>
@@ -42,16 +43,16 @@ const Banner = () => {
                     </div>
                     <div className="flex flex-wrap items-center pt-[40px]">
                         {
-                            Array(5).fill(5).map((_, i) => (
-                                <div className='bg-[#CDCFD326] rounded-xl flex px-2 py-2 w-[180px] my-2 mx-2 '>
+                           courses.map((item, i) => (
+                                <div key={i} className='bg-[#CDCFD326] rounded-xl flex px-2 py-2 w-[180px] my-2 mx-2 '>
                                     <div className='flex  w-full '>
                                         <div className='flex justify-center items-center'>
                                             <img src={graphic} alt="pic" className='object-cover w-[65%] mt-2' />
 
                                         </div>
                                         <div className='pl-2'>
-                                            <h2 className='font-bold text-[20px]'>635</h2>
-                                            <p className='text-[#ABABAB] text-[14px] pt-2'>Designer</p>
+                                            <h2 className='font-bold text-[20px]'>{item?.count}</h2>
+                                            <p className='text-[#ABABAB] text-[14px] pt-2'>{item?.course}</p>
                                         </div>
                                     </div>
                                 </div>
