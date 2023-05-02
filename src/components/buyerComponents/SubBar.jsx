@@ -10,7 +10,7 @@ const SubBar = () => {
                         <li className="nav-item ">
                             <Link
                                 className='text-[#ABABAB]'
-                                to="HOME"
+                                to="/buyerLanding"
                                 spy={true}
                                 smooth={true}
                                 duration={500}
@@ -22,7 +22,7 @@ const SubBar = () => {
                         <li className="nav-item ">
                             <Link
                                 className='text-[#ABABAB]'
-                                to="INHALATE"
+                                to="/buyerLanding"
                                 spy={true}
                                 smooth={true}
                                 duration={500}
@@ -33,7 +33,7 @@ const SubBar = () => {
                         <li className="nav-item ">
                             <Link
                                 className='text-[#ABABAB]'
-                                to="VAPORIZE"
+                                to="/buyerLanding"
                                 spy={true}
                                 smooth={true}
                                 offset={-70}
@@ -45,7 +45,7 @@ const SubBar = () => {
                         <li className="nav-item ">
                             <Link
                                 className='text-[#ABABAB]'
-                                to="PORTABLES"
+                                to="/buyerLanding"
                                 spy={true}
                                 smooth={true}
                                 offset={-70}
@@ -57,7 +57,7 @@ const SubBar = () => {
                         <li className="nav-item ">
                             <Link
                                 className='text-[#ABABAB]'
-                                to="CHILLUMS"
+                                to="/buyerLanding"
                                 spy={true}
                                 smooth={true}
                                 offset={-70}
@@ -69,7 +69,7 @@ const SubBar = () => {
                         <li className="nav-item ">
                             <Link
                                 className='text-[#ABABAB]'
-                                to="CULTIVATE"
+                                to="/buyerLanding"
                                 spy={true}
                                 smooth={true}
                                 offset={-70}
@@ -81,7 +81,7 @@ const SubBar = () => {
                         <li className="nav-item ">
                             <Link
                                 className='text-[#ABABAB]'
-                                to="DIAGNOSE"
+                                to="/buyerLanding"
                                 spy={true}
                                 smooth={true}
                                 offset={-70}
@@ -93,7 +93,7 @@ const SubBar = () => {
                         <li className="nav-item ">
                             <Link
                                 className='text-[#ABABAB]'
-                                to="PRESCRIBE"
+                                to="/buyerLanding"
                                 spy={true}
                                 smooth={true}
                                 offset={-70}
@@ -105,7 +105,7 @@ const SubBar = () => {
                         <li className="nav-item ">
                             <Link
                                 className='text-[#ABABAB]'
-                                to="MARKETPLACE"
+                                to="/buyerLanding"
                                 spy={true}
                                 smooth={true}
                                 offset={-70}
