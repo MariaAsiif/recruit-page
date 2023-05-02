@@ -73,20 +73,20 @@ const SubBar = ({ setShow }) => {
                   {navbar === true && <div className="bg-white h-[10px]"></div>}
                   <div className="p-3">
                     <div className="row">
-                      <div className="col-lg-4 w-full p-2 pl-5 flex items-baseline flex-col ">
+                      <div className="col-lg-4 w-full p-2  flex items-baseline flex-col ">
                         {/* <h3 className="text-[20px] font-medium">recruit</h3> */}
                         <div className="flex flex-col justify-start items-start cursor-pointer">
-                          <span>
-                            <Link to="/e-landing">Home</Link>
+                          <span className="hover:bg-[#81AE37] w-full text-left ">
+                            <Link className="pl-5" to="/e-landing">Home</Link>
                           </span>
-                          <span>
-                            <Link to="/fairman-online">Fairman Online</Link>
+                          <span className="hover:bg-[#81AE37] w-full text-left ">
+                            <Link className="pl-5" to="/fairman-online">Fairman Online</Link>
                           </span>
-                          <span>
-                            <Link to="/e-dashboard">Vendor Dashboard</Link>
+                          <span className="hover:bg-[#81AE37] w-full text-left ">
+                            <Link className="pl-5" to="/e-dashboard">Vendor Dashboard</Link>
                           </span>
-                          <span>
-                            <Link to="/stock">Stock</Link>
+                          <span className="hover:bg-[#81AE37] w-full text-left ">
+                            <Link className="pl-5" to="/stock">Stock</Link>
                           </span>
 
                         </div>
@@ -106,17 +106,17 @@ const SubBar = ({ setShow }) => {
                   {navbar === true && <div className="bg-white h-[10px]"></div>}
                   <div className="p-3">
                     <div className="row">
-                      <div className="col-lg-4 w-full p-2 pl-5 flex items-baseline flex-col">
+                      <div className="col-lg-4 w-full p-2 flex items-baseline flex-col">
                         {/* <h3 className="text-[20px] font-medium">recruit</h3> */}
                         <div className="flex flex-col justify-start w-full  items-start cursor-pointer">
-                          <span>
-                            <Link to="/recruitLanding">Home</Link>
+                          <span className="hover:bg-[#81AE37] w-full text-left ">
+                            <Link className="pl-2" to="/recruitLanding">Home</Link>
                           </span>
-                          <span>
-                            <Link to="/recruit">Recruit</Link>
+                          <span className="hover:bg-[#81AE37] w-full text-left ">
+                            <Link className="pl-2" to="/recruit">Recruit</Link>
                           </span>
-                          <span>
-                            <Link to="/signin">Hire Talent</Link>
+                          <span className="hover:bg-[#81AE37] w-full text-left ">
+                            <Link className="px-2" to="/signin">Hire Talent</Link>
                           </span>
                         </div>
                       </div>
@@ -331,17 +331,17 @@ const SubBar = ({ setShow }) => {
                   {navbar === true && <div className="bg-white h-[10px]"></div>}
                   <div className="p-3">
                     <div className="row">
-                      <div className="col-lg-4  p-2 pl-5 flex items-baseline flex-col">
+                      <div className="col-lg-4  p-2  flex items-baseline flex-col">
                         {/* <h3 className="text-[20px] font-medium">recruit</h3> */}
                         <div className="flex flex-col justify-start items-start cursor-pointer">
-                          <span>
-                            <a target="_blank" href="https://landing-page-ivory-eta.vercel.app/agency">Home</a>
+                          <span className="hover:bg-[#81AE37] w-full text-left ">
+                            <a className="pl-2" target="_blank" href="https://landing-page-ivory-eta.vercel.app/agency">Home</a>
                           </span>
-                          <span>
-                            <Link to="/das">Register</Link>
+                          <span className="hover:bg-[#81AE37] w-full text-left ">
+                            <Link className="pl-2" to="/das">Register</Link>
                           </span>
-                          <span>
-                            <Link to="/newdashboard">Dashboard</Link>
+                          <span className="hover:bg-[#81AE37] w-full text-left ">
+                            <Link className="px-2" to="/newdashboard">Dashboard</Link>
                           </span>
                         </div>
 
