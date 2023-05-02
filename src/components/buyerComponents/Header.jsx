@@ -27,7 +27,7 @@ const BuyerHeader = () => {
                             <LanguageDropdown />
                         </div>
                         <div>
-                            <Link to="/das-signin" className='text-[#1F1F1F] text-[18px]'>Sign In</Link>
+                            <Link to="/das" className='text-[#1F1F1F] text-[18px]'>Sign In</Link>
                         </div>
                         <div className='mx-5'>
                             <Link to="/das" className='border border-[#E2434E] py-2 rounded-lg text-[#E84125] px-2'>Apply as Freelancer</Link>

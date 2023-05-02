@@ -11,7 +11,7 @@ import { HiArrowNarrowRight } from 'react-icons/hi';
 
 const Banner = () => {
     let checkList = ["Quality Work", "100% Guarantee", "Safe Payment", "24/7 Support"]
-    let courses = [{course : "webdeveloper" , count:"200"} , {course : "frontend developer" , count:"300"},{course : "technical writer" , count:"500"},{course : "UI/UX designer" , count:"400"},{course : "graphic designers" , count:"600"}]
+    let courses = [{course : "web developer" , count:"200"} , {course : "frontend developer" , count:"300"},{course : "technical writer" , count:"500"},{course : "UI/UX designer" , count:"400"},{course : "graphic designers" , count:"600"}]
     return (
         <>
             <div className='flex justify-between pt-[2rem] px-10'>
