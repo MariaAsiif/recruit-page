@@ -1,6 +1,11 @@
 import React from 'react'
 import { AiFillSetting } from 'react-icons/ai'
-import { BsSearch, BsThreeDots } from 'react-icons/bs'
+import {
+    BsFillEmojiSmileFill, BsSearch, BsThreeDots,
+    BsSendFill
+} from 'react-icons/bs'
+import { GrAttachment } from 'react-icons/gr'
+import { RiSendPlaneFill } from 'react-icons/ri'
 
 const MessageBox = () => {
     return (
@@ -184,10 +189,19 @@ const MessageBox = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="mx-2 border ">
-                                <input type="text" />
-                                <div>
-                                    hhsdfd
+                            <div className="mx-2 border  p-5 rounded-md mb-3 border-[#3C21F7]">
+                                <div className="flex  items-center ">
+                                    <input type="text" placeholder='Can you send me the png without background. Than' className='focus:outline-none w-full' />
+                                    <div className='flex items-center w-[50%] justify-end '>
+                                        <BsFillEmojiSmileFill />
+                                        <GrAttachment className='mx-3' />
+                                        <button className='flex items-center py-1 px-4 rounded-md bg-[#E84125] text-white'>
+                                            Send
+                                            <RiSendPlaneFill />
+
+                                        </button>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>

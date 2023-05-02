@@ -17,7 +17,7 @@ const BuyerWrapper = () => {
             <div className="relative flex flex-col w-full  flex-1 overflow-y-auto overflow-x-hidden ">
                 {/*  Site header */}
                 <DashboardHeader rightbarOpen={rightbarOpen} setRightbarOpen={setRightbarOpen}  sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} checkExpand={checkExpand} />
-                <main className='mx-5 mt-5'>
+                <main className='mx-5 mt-5 '>
                     <TopWeights/>
                     <Outlet />
                 </main>

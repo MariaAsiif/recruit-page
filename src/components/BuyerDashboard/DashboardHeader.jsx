@@ -1,5 +1,5 @@
 import React from 'react'
-import { BiSearch } from "react-icons/bi";
+// import { BiSearch } from "react-icons/bi";
 import { AiTwotoneCloud } from 'react-icons/ai'
 import { IoMdNotificationsOutline, IoIosBody } from 'react-icons/io'
 import ProfileDropdown from '../ProfileDropdown';
