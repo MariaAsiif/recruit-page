@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import playIcon from "../../../../assets/landingImages/play-btn.svg";
+// import playIcon from "../../../../assets/landingImages/play-btn.svg";
 import {
   StyledHero,
-  HeroHeading,
+  // HeroHeading,
   HeroButton,
-  HeroPlayIcon,
-  HomePlayButtonContainer,
+  // HeroPlayIcon,
+  // HomePlayButtonContainer,
 } from "./StyledHeader";
 import SubBar from "../Navbar/SubBar";
 import OffCanvas from "../Navbar/OffCanvas";

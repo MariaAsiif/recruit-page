@@ -21,7 +21,6 @@ const tracks = [
 ];
 
 export default function WaveSurf({audio}) {
-  const [selectedTrack, setSelectedTrack] = useState(tracks[0]);
 
   return (
     <div className="App">

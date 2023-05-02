@@ -68,7 +68,7 @@ import ViewedToday from "../Homepage2/ViewedToday/ViewedToday";
 import SectionPlaceHolder from '../Globals/SectionPlaceHolder'
 import DesignShowcase from "./Inspiration/DesignShowcase";
 // import { RiMessage2Line } from "react-icons/ri";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Feedback from "../Feedback/FeedBack";
 // import Popup from "./ageDate/Popup";
 // import TrustedSuppliers from "./TrustedSuppliers/TrustedSuppliers";

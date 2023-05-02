@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TestimonialBackground from '../../../../assets/landingImages/TestimonialBackground.png';
+import TestimonialBackground from '../../../assets/landingImages/TestimonialBackground.png';
 
 export const Testimonial = styled.div`
 margin-top: 6rem;
