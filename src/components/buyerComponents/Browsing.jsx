@@ -22,7 +22,7 @@ const Browsing = () => {
     //   };
 
 
-    const Browsing = [{ saller: "Gold badge" , desc:"I will design frontend of your website " } , { saller: "Silver badge" , desc:"I will make complete UI/UX design of your product" },{ saller: "bronze badge" , desc:"I will be you personal technical writer of your product" },{ saller: "Gold badge" , desc:"I will design frontend of your website of your product" },{ saller: "Silver badge" , desc:"I will design frontend of your website of your product" } ]
+    const Browsing = [{ saller: "Gold badge" , desc:"I will design frontend of your website " } , { saller: "Silver badge" , desc:"I will make complete UI/UX design of your product" },{ saller: "bronze badge" , desc:"I will be you personal technical writer " },{ saller: "Gold badge" , desc:"I will design frontend of your website " },{ saller: "Silver badge" , desc:"I will make complete UI/UX design of your product" } ]
 
 
     return (
@@ -75,7 +75,7 @@ const Browsing = () => {
                         >
                           { Browsing?.map((item, i) => (
                             <SwiperSlide key={i}>
-                                <div className='rounded-md border shadow-md h-[500px]'>
+                                <div className='rounded-md relative border shadow-md h-[500px]'>
                                     <img src={list} alt="list_img" className='object-cover' />
                                     <div className='p-5 '>
                                         <div className='flex items-center'>
@@ -105,7 +105,7 @@ const Browsing = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='border-t mt-2 px-5 py-3 lg:!h-[50px]'>
+                                    <div className='border-t mt-2 px-5 py-3 h-[50px] absolute bottom-0 w-full'>
                                         <div className="flex justify-between items-center ">
                                             <div className='flex items-center'>
                                                     <HiBars3 className='text-[25px] text-[#B5B6BA]' />
