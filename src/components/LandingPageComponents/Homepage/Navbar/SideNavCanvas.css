@@ -101,3 +101,11 @@
   border-radius: 2px;
 }
 
+.sidenavcanvas > ul li {
+  /* padding-left: 5rem; */
+  width: 100%;
+  padding-top: 30px;
+  max-width: 300px;
+  margin: auto;
+  border-bottom: 1pt solid black !important;
+}
