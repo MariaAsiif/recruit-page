@@ -6,9 +6,7 @@ export const InhalateMainContainer = styled.div`
 .inhalate-slick{
   .slick-list {
   margin: 0 10px;
-  @media screen and (max-width:480px){
-    margin: 0 5px;
-  }
+  
 }
 }
   margin-top: 2rem;

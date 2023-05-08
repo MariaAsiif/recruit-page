@@ -341,7 +341,7 @@ const SubBar = ({ setShow }) => {
                             <Link className="pl-2" to="/das">Register</Link>
                           </span>
                           <span className="hover:bg-[#81AE37] w-full text-left ">
-                            <Link className="px-2" to="/newdashboard">Dashboard</Link>
+                            <Link className="px-2" to="/providerDashboard">Dashboard</Link>
                           </span>
                         </div>
 
