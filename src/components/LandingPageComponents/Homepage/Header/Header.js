@@ -95,9 +95,10 @@ const Header = ({ id, value }) => {
           value={value}
         />
         <SubBar setShow={setShow} />
+        {/* <div></div> */}
         <HeroSlider />
-        <div className="absolute bg-black opacity-[0.5] lg:h-[100vh] 2xl:h-[100vh] h-full m-auto  z-40 left-0 top-[1px] right-0 ">
-        </div>
+        {/* <div className="absolute slider_overly bg-black opacity-[0.5] lg:h-[100vh] 2xl:h-[100vh] h-full m-auto  z-40 left-0 top-[1px] right-0 ">
+        </div> */}
         <div className="hero-text-container max-w-[700px]  m-auto absolute z-40 left-0 -top-[40px] right-0 text-center">
           <h2 className="home-main-header-main-heading lg:text-[5rem] md:text-[5rem] text-[2rem] text-white font-bold lg:pt-[20rem] ">THERAPEUTICS</h2>
           <p className="home-main-header-sub-heading flex justify-center flex-col">

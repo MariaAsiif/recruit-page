@@ -59,7 +59,7 @@ const SubBar = ({ setShow }) => {
       <Marquee />
       <TopBar setShow={setShow} />
       {user?.gatePopup === false && popup ? (<AgeGatePopup isOpen={popup} onClose={() => { setPopup(false) }} />) : null}
-      <div className={navbar ? "hporx-header" : "hporx-header-skew "} onClick={() => setPopup(true)} >
+      <div className={navbar ? " xl:hporx-header hidden" : "hporx-header-skew "} onClick={() => setPopup(true)} >
         <div className={navbar ? "hporx-header-topbar-skew" : navbarbackground ? "changetopBArbackgournd" : "hporx-header-topbar-normal"} ></div>
         <nav className={navbarbackground ? "nav" : "changebackground"} id="navbar"  >
           <div className="nav-content bscontainer-fluid">
@@ -327,7 +327,7 @@ const SubBar = ({ setShow }) => {
               </li> */}
               <li className="main-li uppercase">
                 <a href="#" className="flex items-center">DAS <RiArrowDropDownLine className="text-[30px]" /></a>
-                <div className={`show !w-auto ${navbar === true && '-mt-[10px]'}`}>
+                <div className={`show -ml-[30px] !w-auto ${navbar === true && '-mt-[10px]'}`}>
                   {navbar === true && <div className="bg-white h-[10px]"></div>}
                   <div className="p-3">
                     <div className="row">
@@ -341,7 +341,13 @@ const SubBar = ({ setShow }) => {
                             <Link className="pl-2" to="/das">Register</Link>
                           </span>
                           <span className="hover:bg-[#81AE37] w-full text-left ">
-                            <Link className="px-2" to="/providerDashboard">Dashboard</Link>
+                            <Link className="pl-2" to="/buyerLanding">Landing Page</Link>
+                          </span>
+                          <span className="hover:bg-[#81AE37] w-full text-left ">
+                            <Link className="px-2" to="/buyerDashboard">Customer Dashboard</Link>
+                          </span>
+                          <span className="hover:bg-[#81AE37] w-full text-left ">
+                            <Link className="px-2" to="/providerDashboard">Service Provider</Link>
                           </span>
                         </div>
 

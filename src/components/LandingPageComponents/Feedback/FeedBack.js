@@ -11,7 +11,7 @@ const FeedBack = () => {
     <Container>
       <div style={{ zIndex: '8888', cursor: 'pointer',  }}>
         <a target="_blank" rel="noopener noreferrer" href="https://coming-soon-new.vercel.app/user-feedback">
-          <div style={{ position: 'fixed', right: '20px', bottom: '10px', cursor: 'pointer',  }}>
+          <div className="fixed xl:right-[20px] md:right-[20px] right-[35px] bottom-[10px] cursor-pointer" >
             <div style={{ borderRadius: '60px', paddingTop: '12px', width: '50px', height: '50px', paddingLeft: '12px', backgroundColor: 'gray' }}>
               <RiMessage2Line style={{ fontSize: '25px', color: 'white' }} />
             </div>

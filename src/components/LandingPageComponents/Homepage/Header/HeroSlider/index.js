@@ -10,35 +10,41 @@ import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper";
 const Index = () => {
   return (
+    <>
+      <div className="border border-red-500 relative">
+        <Swiper
+          navigation={true}
+          modules={[Navigation, Autoplay]}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          className="mySwiper z-40 video-slider">
+          <SwiperSlide>
+            <video
+              autoPlay
+              muted
+              loop
+              className="hero-video"
+              src="/Videos/ForestFire.mp4"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <video
+              autoPlay
+              muted
+              loop
+              className="hero-video"
+              src="/Videos/heroSliderVideoTwo.mp4"
+            />
+          </SwiperSlide>
 
-    <Swiper
-      navigation={true}
-      modules={[Navigation , Autoplay]}
-      autoplay={{
-        delay: 5000,
-        disableOnInteraction: false,
-      }}
-      className="mySwiper z-40 video-slider">
-      <SwiperSlide>
-        <video
-          autoPlay
-          muted
-          loop
-          className="hero-video"
-          src="/Videos/ForestFire.mp4"
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <video
-          autoPlay
-          muted
-          loop
-          className="hero-video"
-          src="/Videos/heroSliderVideoTwo.mp4"
-        />
-      </SwiperSlide>
+        </Swiper>
+      </div>
+      <div className="absolute slider_overly bg-black opacity-[0.5] lg:h-[100vh] 2xl:h-[100vh] h-full m-auto  z-40 left-0 top-[1px] right-0 ">
+        </div>
+    </>
 
-    </Swiper>
     // <Carousel>
     //   <Carousel.Item>
     //     <video

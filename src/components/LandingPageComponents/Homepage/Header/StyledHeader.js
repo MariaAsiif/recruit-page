@@ -22,7 +22,17 @@ const StyledHero = styled.div`
   @media screen and (max-width: 600px){
     height: 123vh;
   }
+
 }
+
+
+.slider_overly{
+  @media screen and (max-width: 600px){
+    height: 105vh !important;
+  }
+}
+
+
 .home-main-header-sub-heading{
     color: #ffff;
     opacity: 0.8;
