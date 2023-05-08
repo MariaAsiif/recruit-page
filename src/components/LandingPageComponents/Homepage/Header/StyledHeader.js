@@ -26,11 +26,11 @@ const StyledHero = styled.div`
 }
 
 
-.slider_overly{
-  @media screen and (max-width: 600px){
-    height: 105vh !important;
-  }
-}
+// .slider_overly{
+//   @media screen and (max-width: 600px){
+//     height: 105vh !important;
+//   }
+// }
 
 
 .home-main-header-sub-heading{
