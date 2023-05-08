@@ -1,7 +1,7 @@
 import axios from "axios";
 import { store } from "../store";
 
-const HOSTNAME = "https://hporxadminbackend.herokuapp.com";
+const HOSTNAME = "mvp.hpox.org";
 const callApi = (endpoint, method, payload) => {
     let candidate = store.getState().recruitAuth.loginInfo.token
     let token = candidate ? candidate : store.getState().userAuth.loginInfo.token
@@ -68,7 +68,7 @@ const callApiRecuit = (endpoint, method, payload) => {
 };
 
 const callPublicApi = (endpoint, method, payload) => {
-    const HOSTNAME = "https://hporxadminbackend.herokuapp.com";
+    const HOSTNAME = "mvp.hpox.org";
     const configaxios = {
         method,
         url: `${HOSTNAME}${endpoint}`,

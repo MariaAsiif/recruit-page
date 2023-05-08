@@ -6,7 +6,6 @@ function SidebarLinkGroup({
   level
 }) {
 
-  console.log("acc", activecondition)
   const [open, setOpen] = useState(activecondition);
 
   const handleClick = () => {
