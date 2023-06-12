@@ -49,7 +49,7 @@ const AgenciesFaq = () => {
                       <p>In iaculis leo quis massa sodales pellentesque aliquam nisi. Eu sed volutpat mi vitae netus a sollicitudin.</p>
                     </div>
                   </Accordion.Header>
-                  <Accordion.Body>Id volutpat et pharetra lorem urna turpis cras neque, massa. Nulla semper nunc id adipiscing felis varius et. Dictum mauris sem elit turpis commodo tristique massa, mi placerat. Risus condimentum id tincidunt mauris, sit id amet. Tristique rhoncus tellus, nisl sit sapien ipsum massa consectetur pretium. Auctor adipiscing in ut morbi consequat, maecenas vulputate. Volutpat elementum lorem at bibendum nec quisque nec.Auctor adipiscing in ut morbi consequat, maecenas vulputate. Volutpat elementum lorem at bibendum nec quisque nec.Auctor adipiscing in ut morbi consequat, maecenas vulputate. Volutpat elementum lorem at bibendum nec quisque nec. </Accordion.Body>
+                  <Accordion.Body>Id volutpat et pharetra urna turpis cras neque, massa. Nulla semper nunc id adipiscing felis varius et. Dictum mauris sem elit turpis commodo tristique massa, mi placerat. Risus condimentum id tincidunt mauris, sit id amet. Tristique rhoncus tellus, nisl sit sapien ipsum massa consectetur pretium. Auctor adipiscing in ut morbi consequat, maecenas vulputate. Volutpat elementum lorem at bibendum nec quisque nec.Auctor adipiscing in ut morbi consequat, maecenas vulputate. Volutpat elementum lorem at bibendum nec quisque nec.Auctor adipiscing in ut morbi consequat, maecenas vulputate. Volutpat elementum lorem at bibendum nec quisque nec. </Accordion.Body>
                 </Accordion.Item>
               ))
             }
