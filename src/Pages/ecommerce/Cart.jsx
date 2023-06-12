@@ -50,12 +50,12 @@ function Cart() {
               {/* Sidebar */}
               <div>
                 <div className="bg-white p-5 shadow-lg rounded-sm border border-slate-200 lg:w-72 xl:w-80">
-                  <div className="text-slate-800 font-semibold mb-2">Order Summary</div>
+                  <div className="text-slate-800 font-semibold mb-2">Order Summaries</div>
                   {/* Order details */}
                   <ul className="mb-4">
                     <li className="text-sm w-full flex justify-between py-3 border-b border-slate-200">
                       <div>Products & Subscriptions</div>
-                      <div className="font-medium text-slate-800">$205</div>
+                      <div className="font-medium text-slate-800">$200</div>
                     </li>
                     <li className="text-sm w-full flex justify-between py-3 border-b border-slate-200">
                       <div>Shipping</div>
@@ -63,11 +63,11 @@ function Cart() {
                     </li>
                     <li className="text-sm w-full flex justify-between py-3 border-b border-slate-200">
                       <div>Taxes</div>
-                      <div className="font-medium text-slate-800">$48</div>
+                      <div className="font-medium text-slate-800">$40</div>
                     </li>
                     <li className="text-sm w-full flex justify-between py-3 border-b border-slate-200">
                       <div>Total due (including taxes)</div>
-                      <div className="font-medium text-emerald-600">$253</div>
+                      <div className="font-medium text-emerald-600">$259</div>
                     </li>
                   </ul>
                   {/* Promo box */}
