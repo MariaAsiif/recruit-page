@@ -11,7 +11,7 @@ import { Autoplay, Navigation } from "swiper";
 const Index = () => {
   return (
     <>
-      <div className="border relative">
+      <div className=" relative">
         <Swiper
           navigation={true}
           modules={[Navigation, Autoplay]}
