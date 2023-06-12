@@ -1,0 +1,119 @@
+
+ .agency .h1 {
+    font-size: 3.6rem;
+ }
+ 
+ .agency .h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
+ }
+ 
+ .bg-offwhite {
+    background-color: #FCFBFB;
+ }
+ 
+ .btnOtline {
+    border: 1px solid black;
+    border-radius: 2rem;
+    text-decoration: none;
+    color: inherit;
+ }
+ 
+ .btnOtline:hover {
+    color: inherit;
+ }
+ 
+ .ccard {
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 2px 2px 5px 5px rgb(235, 235, 235);
+    min-height: 36rem;
+    position: inherit;
+    word-wrap: break-word;
+    word-break: break-all;
+ }
+ 
+ .mt-8-4{
+    margin-top: 6rem;
+ }
+ .mt-8-7{
+   margin-top: 8.7rem;
+ }
+ 
+ .opacity80 {
+    opacity: 80%;
+ }
+ .surprise-img{
+    width: auto;
+    height: auto;
+ }
+ .first-para{
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.6rem;
+    letter-spacing: 0em;
+    color: #828282;
+    }
+ 
+ .designIq-container {
+    border-radius: 1.5rem;
+    padding: 3em;
+ }
+ 
+ .designIq-container h1 {
+    color: #E84025;
+    text-transform: uppercase;
+    font-weight: 600;
+ }
+ 
+ .designIq-container h2 {
+    font-weight: 500;
+    font-size: 2.4rem;
+ }
+ 
+ .btnGraphics {
+    border: 1px solid #E84025;
+    border-radius: 3rem;
+    text-decoration: none;
+    color: #E84025;
+    text-align: center;
+    font-weight: 500;
+    padding: 1.3rem 1.92rem;
+    width: fit-content;
+font-size: 1.2rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1rem;
+letter-spacing: 0em;
+text-align: center;
+text-decoration: none;
+
+
+ }
+ .btnGraphics:hover{
+    color: #E84025;
+ }
+ 
+ .designIq-container-second {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+ }
+ 
+ .borderRadius15 {
+    border-radius: 1.5rem;
+ }
+ 
+ .font14 {
+    font-size: 1.4rem;
+ }
+ 
+ .mt2rem {
+    margin-top: 2rem;
+ }
+ 
+ .p2010 {
+    padding-inline: 2rem;
+    padding-block: 1rem;
+ }

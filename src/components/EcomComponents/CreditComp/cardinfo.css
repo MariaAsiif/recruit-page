@@ -1,0 +1,54 @@
+
+
+@media screen and (max-width:600px){
+    .heading_title{
+        width: 100%;
+    }
+    .credit_heading{
+        width: 55%;
+    }
+   
+    .credit{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .credit_input{
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+    .card_wrapper{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .card_container{
+        width: 90%;
+    }
+    .card_detail{
+       width:100%
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:992px){
+    .heading_title{
+        width: 50%;
+    }
+
+    .credit_heading{
+        width: 27%;
+    }
+   
+    .card_wrapper{
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .card_container{
+        width: 90%;
+    }
+    .card_detail{
+       width:100%
+    }
+}

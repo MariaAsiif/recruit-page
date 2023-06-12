@@ -1,0 +1,113 @@
+body {
+    font-family: "Poppins", sans-serif;
+   }
+   .footer-card .slick-slide {
+    padding: 4px 8px;
+   }
+   .card.statitcs-card {
+    border: none;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.16);
+   }
+   .card.statitcs-card .card-body {
+    padding: 16px 14px;
+   }
+   .card-heading {
+    font-size: 34px;
+    font-weight: 600;
+    text-align: center;
+   }
+   .card.statitcs-card .card-body .card-text {
+    color: #858484;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+   }
+   .award-img {
+    position: absolute;
+    right: 14px;
+   }
+   
+   /******** Foooter styles*********/
+   
+   .col-heading {
+    font-size: 16px;
+    font-weight: medium;
+   }
+   ul.footer-ul > li > p {
+    color: #858484;
+    font-size: 12px;
+    line-height: 19px;
+   }
+   .footer-span {
+    color: #242424;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 12px;
+   }
+   .second-ul > li {
+    font-size: 12px;
+    font-weight: normal;
+    color: #858484;
+    margin-bottom: 8px;
+   }
+   .statistics-div {
+    font-size: 32px;
+    font-weight: medium;
+   }
+   .source-world {
+    font-size: 16px;
+    font-weight: normal;
+    color: #858484;
+   }
+   .fs-12 {
+    font-size: 12px;
+   }
+   #bg-grey {
+    background-color: #f6f6f6;
+   }
+   .social-link-row {
+    padding: 31px 0px 18px 0px;
+   }
+   .social-link-text {
+    font-size: 13px;
+    font-weight: lighter;
+    color: #9d9d9d;
+    margin-top: 8px;
+   }
+   img.social-img {
+    height: 58px;
+    width: 58px;
+   }
+   img.second-social-img {
+    width: 62px;
+    height: 53px;
+    object-fit: cover;
+   }
+   #last-container {
+    padding: 25px 12px;
+    border-top: 1px solid #d8d8d8;
+    margin-top: 25px;
+   }
+   .last-social-img {
+    height: 40px;
+    object-fit: contain;
+    width: 100%;
+   }
+   .last-footer-slider .slick-slide {
+    padding: 0px 12px;
+   }
+   .follow-us-text {
+    font-size: 16px;
+    font-weight: medium;
+    margin-bottom: 30px;
+   }
+   #fully-last {
+    background-color: #e8e8e8;
+    padding: 14px 0px;
+   }
+   .fully-end-text {
+    font-size: 10px;
+    font-weight: #a7a7a7;
+    margin-bottom: 0px !important;
+   }
+   

@@ -1,0 +1,235 @@
+
+
+
+
+
+/**********************Before After Model******************************/
+
+.model-before-afters .mod-img{
+	text-align: center;
+	margin-bottom: 4.4rem;
+}
+
+.model-before-afters .mod-img img{
+	cursor: pointer;
+
+}
+.mt-11-8{
+	margin-top: 11.8rem;
+}
+
+.pop-before-model{
+	padding-right: 0px !important;
+}
+
+.modal-body{
+	position: relative;
+}
+
+
+.pop-before-model .modal-dialog,
+.pop-before-model .modal-dialog .modal-header,
+.pop-before-model .modal-dialog .modal-content
+{	
+	border: none;
+	background: transparent !important;
+}
+
+.beforeAfterModalButton{
+    position: absolute;
+    right: 12%;
+    top: -1rem;
+   	opacity: 1;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: transparent url('../../../assets/clarity_close-line.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 75px;
+    z-index: 3000;
+}
+.outer-div{
+	position: absolute;
+	z-index: 2000;
+	top: 7%;
+    left: 15%;
+    right: 21%;
+}
+
+.modal-body .outer-div .beforeAfter > * {
+	height: 42.7rem !important;
+}
+
+
+.modal-body .outer-div .beforeAfter img {
+	height: unset !important;
+}
+
+
+@media(max-width: 1200px){
+		
+		.pop-before-model .modal-dialog .modal-content .outer-div{
+			
+			top: 8%;
+		    left: 15%;
+		    right: 21%;
+		}
+
+		.modal-body .outer-div .beforeAfter > * {
+			height: 30.1rem !important;
+	    	border-radius: 12px;
+		
+		}
+
+		.beforeAfterModalButton {
+	  
+	    width: 55px;
+	    height: 55px;
+	    background-size: 55px;
+	    
+	}
+
+
+
+
+}
+@media(max-width: 991px){
+		.modal-body .outer-div{
+			
+			top: 9%;
+		    left: 15.5%;
+		    right: 21.5%;
+		}
+
+		.modal-body .outer-div .beforeAfter > * {
+			height: 18rem !important;
+	    	border-radius: 6px;
+		
+		}
+
+
+		.beforeAfterModalButton {
+	  
+	    width: 45px;
+	    height: 45px;
+	    background-size: 45px;
+	    
+	}
+
+
+
+}
+
+@media(max-width: 575px){
+
+
+		.modal-body .outer-div{
+			
+			top: 9%;
+		    left: 15.5%;
+		    right: 21.5%;
+		}
+
+		.modal-body .outer-div .beforeAfter > * {
+			height: 16rem !important;
+	    	border-radius: 6px;
+		
+		}
+
+
+
+
+
+		.beforeAfterModalButton {
+	  
+	    right: 12%;
+	    top: 0rem;
+	   	
+	    width: 40px;
+	    height: 40px;
+	    background-size: 40px;
+	    
+	}
+
+
+
+}
+
+@media(max-width: 540px){
+		.pop-before-model .modal-dialog .modal-content .outer-div .beforeAfter{ 
+			height: 22rem;
+    		
+		}
+}
+
+@media(max-width: 425px){
+
+		
+		.modal-body .outer-div{
+			
+			top: 9%;
+		    left: 15.5%;
+		    right: 21.5%;
+		}
+
+		.modal-body .outer-div .beforeAfter > * {
+			height: 14rem !important;
+	    	border-radius: 6px;
+		
+		}
+
+
+
+}
+
+@media(max-width: 414px){
+			
+		.modal-body .outer-div{
+			
+			top: 9%;
+		    left: 15.5%;
+		    right: 21.5%;
+		}
+
+		.modal-body .outer-div .beforeAfter > * {
+			height: 14rem !important;
+	    	border-radius: 6px;
+		
+		}
+}
+
+@media(max-width: 393px){
+		.pop-before-model .modal-dialog .modal-content .outer-div .beforeAfter{ 
+			height: 16rem;
+    	}
+
+		.pop-before-model .modal-dialog .modal-content .outer-div {
+		    top: 9%;
+		}
+}
+
+@media(max-width: 375px){
+		.pop-before-model .modal-dialog .modal-content .outer-div .beforeAfter{ 
+			height: 15rem;
+    		
+		}
+}
+
+
+@media(max-width: 360px){
+		.pop-before-model .modal-dialog .modal-content .outer-div .beforeAfter{ 
+			height: 14.5rem;
+    	}
+
+		.pop-before-model .modal-dialog .modal-content .outer-div {
+		    top: 9.5%;
+		}
+}
+
+@media(max-width: 320px){
+		.pop-before-model .modal-dialog .modal-content .outer-div .beforeAfter{ 
+			height: 12.8rem;
+    	}
+
+}

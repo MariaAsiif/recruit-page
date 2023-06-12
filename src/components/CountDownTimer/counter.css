@@ -1,0 +1,56 @@
+/* COUNT DOWN CSS */
+
+.countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .countdown__box svg {
+    position: relative;
+  }
+  
+  .countdown__box svg circle {
+    transform: rotate(-90deg);
+    transform-origin: center;
+    fill: transparent;
+  }
+  
+  .countdown__box_circles {
+    position: relative;
+  }
+  
+  .countdown__box_left {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    font-size: 20px;
+    background: white;
+    width: 76%;
+    height: 76%;
+    border-radius: 50%;
+    color: #71728E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .countdown__box_left .digits {
+    font-size: 33px;
+    font-weight: 700;
+  }
+  
+  .countdown__box_left .labels {
+    font-size: 11px;
+    font-weight: 700;
+  }
+  
+  .countdown__box_label {
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+  }

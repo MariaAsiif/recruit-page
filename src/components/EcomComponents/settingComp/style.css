@@ -1,0 +1,22 @@
+@media screen and (max-width:600px) {
+    .personal_heading {
+        width: 65%;
+    }
+
+    .info_heading {
+        width: 65%;
+    }
+
+    .notif_heading {
+        width: 40%;
+
+    }
+
+    .social_heading{
+        width: 50%;
+    }
+
+    .social_img{
+        width: 100%;
+    }
+}
