@@ -82,7 +82,7 @@ function Cart() {
                   <div className="mb-4">
                     <button className="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white" href="#0">Buy Now - $253.00</button>
                   </div>
-                  <div className="text-xs text-slate-500 italic text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <a className="underline hover:no-underline" href="#0">Terms</a>.</div>
+                  <div className="text-xs text-slate-500 italic text-center">Lorem ipsum dolor sit amet, adipiscing elit, sed do <a className="underline hover:no-underline" href="#0">Terms</a>.</div>
                 </div>
               </div>
 
