@@ -160,7 +160,7 @@ import MessageBox from "./components/BuyerDashboard/MessageBox";
 import Profile from "./components/BuyerDashboard/Profile";
 import BuyerNotification from "./components/BuyerDashboard/BuyerNotification";
 // import Agency from "./Pages/LandingPages/Agency/Agency";
-// Buyer imports
+// Buyer
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -253,9 +253,9 @@ function App() {
         <Route path="/das-signin" element={<DasSignInPage />} />
 
 
-        {/* New Dashboardx */}
+      {/*  Dashboard */}
 
-        <Route path="/providerDashboard" element={<NewDashboardPage />}>
+          <Route path="/providerDashboard" element={<NewDashboardPage />}>
           <Route index element={<NewDashboard />} />
           <Route index path="services" element={<NewServices />} />
           <Route index path="inbox" element={<Inbox />} />
