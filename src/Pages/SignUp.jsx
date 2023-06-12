@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom'
 import ApplicantEmailOtp from '../components/Popups/EmailOtpApplicant'
 // import { Link } from 'react-router-dom'
 
+
 const schema = yup.object({
     first_name: yup.string().required(),
     first_family_name: yup.string().required(),

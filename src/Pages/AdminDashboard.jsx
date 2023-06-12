@@ -3,10 +3,7 @@ import Customers from './ecommerce/Customers';
 import WelcomeBanner from '../partials/dashboard/WelcomeBanner';
 import { Link } from "react-router-dom"
 
-
-
 function AdminDashboard() {
-
   // state 
   const [loading, setLoading] = useState(true);
 
@@ -16,8 +13,6 @@ function AdminDashboard() {
       setLoading(false);
     }, 2000);
   }, []);
-
-
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 w-full  mx-auto">
 

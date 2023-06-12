@@ -36,9 +36,5 @@ root.render(
         </QueryClientProvider>
       </Router>
     </PersistGate>
-
   </Provider>
-
-
-
 ); 

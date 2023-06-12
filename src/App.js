@@ -17,21 +17,16 @@ import ResentJob from "./Pages/ResentJob";
 import ProfileSetting from "./Pages/ProfileSetting";
 import Notification from "./Pages/Notification";
 import NotificationDetail from "./Pages/NotificationDetail";
-
 import AdminDashboard from "./Pages/AdminDashboard";
 // import Analytics from './Pages/Analytics';
 // import Fintech from './Pages/Fintech';
-
 import PageNotFound from "./Pages/utility/PageNotFound";
 import Signin from "./Pages/Signin";
 import Signups from "./Pages/Signups";
-
 import MainWrapper from "./Pages/MainWrapper";
 import { useSelector } from "react-redux";
-
 import Jobs from "./Pages/Jobs/Jobs";
 import CreateJob from "./Pages/Jobs/CreateJob";
-
 import Candidate from "./Pages/candidates/candidates";
 import CreateCandidate from "./Pages/candidates/CreateCandidate";
 import Employers from "./Pages/employers/employers";
@@ -51,7 +46,6 @@ import Faqs from "./Pages/faqs/Faqs";
 import CreateFaq from "./Pages/faqs/CreateFaq";
 import Policy from "./Pages/policies/Policy";
 import CreatePolicy from "./Pages/policies/CreatePolicy";
-
 // import Locate from './Pages/locate/locate';
 import CreateDoctor from "./Pages/locate/Doctors/CreateDoctor";
 import CreateLawyer from "./Pages/locate/Lawyers/CreateLawyer";
@@ -64,7 +58,6 @@ import SinglePermission from "./Pages/role/Singlepermission/singlePermission";
 import CreateSinglePermission from "./Pages/role/Singlepermission/CreatePermission";
 import MutiplePermission from "./Pages/role/MultiplePermission/multiplepermission";
 import CreateMultiplePermission from "./Pages/role/MultiplePermission/CreatePermission";
-
 import Doctors from "./Pages/locate/Doctors/Doctors";
 import Lawyers from "./Pages/locate/Lawyers/Lawyers";
 import Services from "./Pages/locate/Services/Services";
@@ -112,7 +105,6 @@ import MedicalLandingPage from "./Pages/Medical/LandingPage";
 import Invoice from "./components/NewDashboardComponents/Invoice";
 import Message from './Pages/message/Message'
 import Sidebar from "./Pages/Medical/Layout/Sidebar";
-
 import OrderDetails from './components/NewDashboardComponents/OrderDetails';
 import InvoiceInformation from './components/NewDashboardComponents/InvoiceInformation';
 import NewInvoice from './components/NewDashboardComponents/NewInvoice';
@@ -122,7 +114,6 @@ import BusinessAdvertisement from './Pages/Advertisement/BusinessAdvertisement/B
 import OrganizationAdvertisement from './Pages/Advertisement/OrganizationAdvertisement/OrganizationAdvertisement';
 import CreateOrganizationAdvertisement from './Pages/Advertisement/OrganizationAdvertisement/CreateOrganizationAdvertisement';
 import CreateBusinessAdvertisement from './Pages/Advertisement/BusinessAdvertisement/CreateBusinessAdvertisement';
-
 // Ecommerace
 import Landingpage from './Pages/EcomePages/Landingpage';
 import EDashboard from './Pages/EcomePages/Dashboard';
@@ -169,11 +160,7 @@ import MessageBox from "./components/BuyerDashboard/MessageBox";
 import Profile from "./components/BuyerDashboard/Profile";
 import BuyerNotification from "./components/BuyerDashboard/BuyerNotification";
 // import Agency from "./Pages/LandingPages/Agency/Agency";
-
-
 // Buyer imports
-
-
 
 const RequireAuth = ({ children }) => {
   const token = useSelector((state) => state.userAuth.loginInfo.token);
@@ -192,8 +179,6 @@ const RecruitAuthUser = ({ children }) => {
   }
   return children;
 };
-
-
 
 function App() {
   const location = useLocation();

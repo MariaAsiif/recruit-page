@@ -4,15 +4,12 @@ import storage from 'redux-persist/lib/storage';
 import counterReducer from './Redux/Counter/CounterSlice'
 import UserAuthReducer from './Redux/UserAuthSlice/UserAuthSlice';
 import RecruitAuthSlice from './Redux/RecruitAuthSlice/RecruitAuthSlice';
-
 import { combineReducers } from "redux";
-
 
 const persistConfig = {
     key: 'root',
     storage,
 }
-
 const rootReducer = combineReducers({
     counter: counterReducer,
     userAuth: UserAuthReducer,

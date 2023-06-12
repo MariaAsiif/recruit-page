@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import Sidebar from '../../partials/Sidebar';
 import Header from '../../partials/Header';
-
 import ProductImage01 from '../../images/related-product-01.jpg';
 import ProductImage02 from '../../images/related-product-02.jpg';
 import ProductImage03 from '../../images/related-product-03.jpg';
