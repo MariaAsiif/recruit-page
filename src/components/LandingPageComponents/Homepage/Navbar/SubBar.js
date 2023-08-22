@@ -74,39 +74,6 @@ const SubBar = ({ setShow }) => {
       >
 
         This website is currently under development. Please return soon!    Esta página web se encuentra en desarrollo. ¡Por favor regrese pronto!    Deze website is momenteel in ontwikkeling. Kom snel terug!    Este site está em desenvolvimento. ¡Por favor, volte logo!    Diese Website befindet sich derzeit im AuYau. Bitte kehren Sie bald zurück!    Questo sito web è attualmente in fase di sviluppo. Si prega di tornare presto!     Tämä sivusto on parhaillaan kehitteillä. Palaa pian!    该网站目前正在开发中。请尽快回来!     y اذه عقوملا دiق رmnطتلا اiلاح . ءاجرلا ةدوعلا اwnxق
-                 
-        {/* <span style={{ display: "inline-block", margin: "0 1rem" }}>
-          <img
-            className="marq-logo"
-            style={{ verticalAlign: "bottom" }}
-            src={marqee}
-            alt={marqee}
-          />
-        </span>
-        Welcome to Hemp Products Online Therapeutic Pharmaceuticals FinSec Alpha
-        v8.1.7.22 React Development Release Candidate.
-        <span style={{ display: "inline-block", margin: "0 1rem" }}>
-          <img
-            className="marq-logo"
-            style={{ verticalAlign: "bottom" }}
-            src={marqee}
-            alt={marqee}
-          />
-        </span>
-        This Alpha v8.1.7.22 development candidate represents the successful
-        design phalloplasty we intoed to peruse in a module by module
-        development schedule beginning immediately.
-        <span style={{ display: "inline-block", margin: "0 1rem" }}>
-          <img
-            className="marq-logo"
-            style={{ verticalAlign: "bottom" }}
-            src={marqee}
-            alt={marqee}
-          />
-        </span>
-        You are welcome to check back, our design and development process is
-        iterative, it will be a pleasure to surprise you as the development is
-        completed during 2022. */}
       </Marquee>
     </div>
       <TopBar setShow={setShow} />
