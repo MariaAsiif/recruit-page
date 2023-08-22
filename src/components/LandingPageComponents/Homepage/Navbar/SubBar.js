@@ -74,10 +74,10 @@ const SubBar = ({ setShow }) => {
           <div className="nav-content bscontainer-fluid">
             <ul className="ruby-menu cursor-pointer">
               <li className="main-li uppercase" >
-                <Link className="active" to="HOME" spy={true} smooth={true} duration={500}    > HOME A{" "} </Link>
+                <Link className="active" to="HOME" spy={true} smooth={true} duration={500}    > HOME{" "} </Link>
               </li>
               <li className="main-li uppercase">
-                <Link to="/e-landing" className="flex items-center">MARKETPLACE <RiArrowDropDownLine className="text-[30px]" /></Link>
+                <Link to="/e-landing" className="flex items-center">MARKETPLACES <RiArrowDropDownLine className="text-[30px]" /></Link>
                 <div className={`show !w-auto ${navbar === true && '-mt-[10px]'}`}>
                   {navbar === true && <div className="bg-white h-[10px]"></div>}
                   <div className="p-3">
