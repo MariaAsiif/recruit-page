@@ -72,7 +72,6 @@ const SubBar = ({ setShow }) => {
         direction="left"
         speed="70"
       >
-
         This website is currently under development. Please return soon!    Esta página web se encuentra en desarrollo. ¡Por favor regrese pronto!    Deze website is momenteel in ontwikkeling. Kom snel terug!    Este site está em desenvolvimento. ¡Por favor, volte logo!    Diese Website befindet sich derzeit im AuYau. Bitte kehren Sie bald zurück!    Questo sito web è attualmente in fase di sviluppo. Si prega di tornare presto!     Tämä sivusto on parhaillaan kehitteillä. Palaa pian!    该网站目前正在开发中。请尽快回来!     y اذه عقوملا دiق رmnطتلا اiلاح . ءاجرلا ةدوعلا اwnxق
       </Marquee>
     </div>
@@ -87,7 +86,7 @@ const SubBar = ({ setShow }) => {
                 <Link className="active" to="HOME" spy={true} smooth={true} duration={500}    > HOME{" "} </Link>
               </li>
               <li className="main-li uppercase">
-                <Link to="/e-landing" className="flex items-center">MARKETPLACES <RiArrowDropDownLine className="text-[30px]" /></Link>
+                <Link to="/e-landing" className="flex items-center">MARKETPLACE <RiArrowDropDownLine className="text-[30px]" /></Link>
                 <div className={`show !w-auto ${navbar === true && '-mt-[10px]'}`}>
                   {navbar === true && <div className="bg-white h-[10px]"></div>}
                   <div className="p-3">
