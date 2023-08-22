@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "./SubBar.css";
 import TopBar from "../Navbar/TopBar";
 import Marquee from "./Marquee";
+import {Marquee as DMarquee} from "react-fast-marquee";
 // import downIcon from '../../../../assets/landingImages/ionic-ios-arrow-down.svg'
 import { RiArrowDropDownLine, RiArrowDropRightLine } from 'react-icons/ri'
 import AgeGatePopup from "../../../Popups/AgeGatePopup";
@@ -56,7 +57,8 @@ const SubBar = ({ setShow }) => {
   // })
   return (
     <div className="home-page-main-nav-container">
-    <Marquee className='bg-[#C9E065] '>
+    <Marquee/>
+    <DMarquee className='bg-[#C9E065] '>
                 <div className='py-2 flex items-center'>
                 <div className='flex items-center mx-5'>
                 This website is currently under development. Please return soon!    Esta página web se encuentra en desarrollo. ¡Por favor regrese pronto!    Deze website is momenteel in ontwikkeling. Kom snel terug!    Este site está em desenvolvimento. ¡Por favor, volte logo!    Diese Website befindet sich derzeit im AuYau. Bitte kehren Sie bald zurück!    Questo sito web è attualmente in fase di sviluppo. Si prega di tornare presto!     Tämä sivusto on parhaillaan kehitteillä. Palaa pian!    该网站目前正在开发中。请尽快回来!     y اذه عقوملا دiق رmnطتلا اiلاح . ءاجرلا ةدوعلا اwnxق
@@ -64,7 +66,7 @@ const SubBar = ({ setShow }) => {
                     </div>
 
                 </div>
-            </Marquee>
+            </DMarquee>
      
       <TopBar setShow={setShow} />
       {user?.gatePopup === false && popup ? (<AgeGatePopup isOpen={popup} onClose={() => { setPopup(false) }} />) : null}
