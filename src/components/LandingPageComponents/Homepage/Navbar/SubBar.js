@@ -5,7 +5,8 @@ import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { Link } from "react-router-dom";
 import "./SubBar.css";
 import TopBar from "../Navbar/TopBar";
-import Marquee from "./Marquee";
+//import Marquee from "./Marquee";
+import Marquee from "react-fast-marquee";
 // import downIcon from '../../../../assets/landingImages/ionic-ios-arrow-down.svg'
 import { RiArrowDropDownLine, RiArrowDropRightLine } from 'react-icons/ri'
 import AgeGatePopup from "../../../Popups/AgeGatePopup";
@@ -56,17 +57,58 @@ const SubBar = ({ setShow }) => {
   // })
   return (
     <div className="home-page-main-nav-container">
-      <Marquee >
-                <div className='flex items-center mx-5' style={{
-    background: 'rgba(0, 0, 0, 0.23)',
-    height: '30px',
-    fontSize: '12px',
-    color: 'white',
-    width: '100%',
-  }}>
-                This website is currently under development. Please return soon!    Esta página web se encuentra en desarrollo. ¡Por favor regrese pronto!    Deze website is momenteel in ontwikkeling. Kom snel terug!    Este site está em desenvolvimento. ¡Por favor, volte logo!    Diese Website befindet sich derzeit im AuYau. Bitte kehren Sie bald zurück!    Questo sito web è attualmente in fase di sviluppo. Si prega di tornare presto!     Tämä sivusto on parhaillaan kehitteillä. Palaa pian!    该网站目前正在开发中。请尽快回来!     y اذه عقوملا دiق رmnطتلا اiلاح . ءاجرلا ةدوعلا اwnxق
-                    </div>
-            </Marquee>
+      <div
+      style={{
+        background: "#0000003b", height: "30px",
+        fontSize: "12px",
+        color: "white",
+        width: "100%"
+      }}
+    >
+      <Marquee
+        style={{ paddingTop: "5px" }}
+        gradient={false}
+        pauseOnHover
+        direction="left"
+        speed="70"
+      >
+
+        This website is currently under development. Please return soon!    Esta página web se encuentra en desarrollo. ¡Por favor regrese pronto!    Deze website is momenteel in ontwikkeling. Kom snel terug!    Este site está em desenvolvimento. ¡Por favor, volte logo!    Diese Website befindet sich derzeit im AuYau. Bitte kehren Sie bald zurück!    Questo sito web è attualmente in fase di sviluppo. Si prega di tornare presto!     Tämä sivusto on parhaillaan kehitteillä. Palaa pian!    该网站目前正在开发中。请尽快回来!     y اذه عقوملا دiق رmnطتلا اiلاح . ءاجرلا ةدوعلا اwnxق
+                 
+        {/* <span style={{ display: "inline-block", margin: "0 1rem" }}>
+          <img
+            className="marq-logo"
+            style={{ verticalAlign: "bottom" }}
+            src={marqee}
+            alt={marqee}
+          />
+        </span>
+        Welcome to Hemp Products Online Therapeutic Pharmaceuticals FinSec Alpha
+        v8.1.7.22 React Development Release Candidate.
+        <span style={{ display: "inline-block", margin: "0 1rem" }}>
+          <img
+            className="marq-logo"
+            style={{ verticalAlign: "bottom" }}
+            src={marqee}
+            alt={marqee}
+          />
+        </span>
+        This Alpha v8.1.7.22 development candidate represents the successful
+        design phalloplasty we intoed to peruse in a module by module
+        development schedule beginning immediately.
+        <span style={{ display: "inline-block", margin: "0 1rem" }}>
+          <img
+            className="marq-logo"
+            style={{ verticalAlign: "bottom" }}
+            src={marqee}
+            alt={marqee}
+          />
+        </span>
+        You are welcome to check back, our design and development process is
+        iterative, it will be a pleasure to surprise you as the development is
+        completed during 2022. */}
+      </Marquee>
+    </div>
       <TopBar setShow={setShow} />
       {user?.gatePopup === false && popup ? (<AgeGatePopup isOpen={popup} onClose={() => { setPopup(false) }} />) : null}
       <div className={navbar ? " xl:hporx-header hidden" : "hporx-header-skew "} onClick={() => setPopup(true)} >
