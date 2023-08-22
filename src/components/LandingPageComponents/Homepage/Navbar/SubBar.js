@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "./SubBar.css";
 import TopBar from "../Navbar/TopBar";
 import CustomMarquee from "./CustomMarquee";
-import Marquee from "react-fast-marquee";
+//import Marquee from "react-fast-marquee";
 // import downIcon from '../../../../assets/landingImages/ionic-ios-arrow-down.svg'
 import { RiArrowDropDownLine, RiArrowDropRightLine } from 'react-icons/ri'
 import AgeGatePopup from "../../../Popups/AgeGatePopup";
