@@ -74,7 +74,7 @@ const SubBar = ({ setShow }) => {
           <div className="nav-content bscontainer-fluid">
             <ul className="ruby-menu cursor-pointer">
               <li className="main-li uppercase" >
-                <Link className="active" to="HOME" spy={true} smooth={true} duration={500}    > HOME{" "} </Link>
+                <Link className="active" to="HOME" spy={true} smooth={true} duration={500}    > HOME A{" "} </Link>
               </li>
               <li className="main-li uppercase">
                 <Link to="/e-landing" className="flex items-center">MARKETPLACE <RiArrowDropDownLine className="text-[30px]" /></Link>
